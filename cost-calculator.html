@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customer Service Cost Comparison Calculator &mdash; Agentic AI for Busy Product Managers</title>
+<meta name="description" content="Interactive cost-model calculator. Adjust six parameters and see how the agentic-versus-human break-even points shift.">
+<style>
+  :root {
+    --bg: #ffffff;
+    --ink: #1a1a1a;
+    --ink-soft: #5f5e5a;
+    --ink-muted: #888780;
+    --rule: #e0e0de;
+    --tint-warm: #f8f8f6;
+    --blue-deep: #185FA5;
+    --green-deep: #1D9E75;
+    --amber-deep: #BA7517;
+    --red-deep: #A32D2D;
+    --gray-step-onshore: #5F5E5A;
+    --gray-step-offshore: #B4B2A9;
+    --serif: "Charter", "Iowan Old Style", "Georgia", "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--sans); background: var(--bg); color: var(--ink); padding: 24px; max-width: 900px; margin: 0 auto; line-height: 1.55; }
+  h1 { font-family: var(--serif); font-size: 22px; font-weight: 600; margin-bottom: 4px; color: var(--ink); }
+  .subtitle { font-size: 13px; color: var(--ink-muted); margin-bottom: 24px; }
+  .controls { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+  .control-group { background: var(--tint-warm); border-radius: 10px; padding: 16px; border: 0.5px solid var(--rule); }
+  .control-group h2 { font-size: 13px; font-weight: 600; margin: 0 0 14px 0; color: var(--ink); }
+  .slider-row { margin-bottom: 12px; }
+  .slider-row:last-child { margin-bottom: 0; }
+  .slider-label { display: flex; justify-content: space-between; font-size: 12px; color: var(--ink-soft); margin-bottom: 4px; }
+  .slider-label span:last-child { font-weight: 500; color: var(--ink); }
+  input[type=range] { width: 100%; accent-color: #0A1628; }
+  .legend { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 12px; font-size: 12px; color: var(--ink-soft); }
+  .legend-item { display: flex; align-items: center; gap: 5px; }
+  .chart-wrap { position: relative; width: 100%; height: 380px; }
+  .crossovers { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; margin-top: 16px; }
+  .crossover-card { background: var(--tint-warm); border-radius: 8px; padding: 12px; border-left-width: 3px; border-left-style: solid; border: 0.5px solid var(--rule); }
+  .crossover-card .card-label { font-size: 11px; color: var(--ink-muted); margin-bottom: 4px; }
+  .crossover-card .card-value { font-size: 16px; font-weight: 500; color: var(--ink); }
+  .footnote { font-size: 11px; color: var(--ink-muted); margin-top: 16px; line-height: 1.6; }
+  @media (max-width: 720px) {
+    .controls { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<h1>Customer Service: Cost Comparison by Solution Type</h1>
+<p class="subtitle">Adjust assumptions to see how crossover points shift. All values are monthly costs in USD.</p>
+
+<div class="controls">
+  <div class="control-group">
+    <h2>Human agents</h2>
+    <div class="slider-row">
+      <div class="slider-label"><span>Onshore cost / agent / mo</span><span id="lbl-onshore">$4,500</span></div>
+      <input type="range" id="sl-onshore" min="2000" max="8000" step="100" value="4500">
+    </div>
+    <div class="slider-row">
+      <div class="slider-label"><span>Outsourced cost / agent / mo</span><span id="lbl-offshore">$1,200</span></div>
+      <input type="range" id="sl-offshore" min="400" max="3000" step="100" value="1200">
+    </div>
+    <div class="slider-row">
+      <div class="slider-label"><span>Capacity (calls / agent / mo)</span><span id="lbl-capacity">900</span></div>
+      <input type="range" id="sl-capacity" min="400" max="1500" step="50" value="900">
+    </div>
+  </div>
+
+  <div class="control-group">
+    <h2>IVR &amp; agentic</h2>
+    <div class="slider-row">
+      <div class="slider-label"><span>IVR floor price / mo</span><span id="lbl-ivr-floor">$3,000</span></div>
+      <input type="range" id="sl-ivr-floor" min="500" max="8000" step="100" value="3000">
+    </div>
+    <div class="slider-row">
+      <div class="slider-label"><span>Agentic floor &mdash; brownfield / mo</span><span id="lbl-ag-floor-b">$1,200</span></div>
+      <input type="range" id="sl-ag-floor-b" min="0" max="5000" step="100" value="1200">
+    </div>
+    <div class="slider-row">
+      <div class="slider-label"><span>Agentic floor &mdash; greenfield / mo</span><span id="lbl-ag-floor-g">$6,500</span></div>
+      <input type="range" id="sl-ag-floor-g" min="1000" max="15000" step="500" value="6500">
+    </div>
+  </div>
+</div>
+
+<div class="legend">
+  <div class="legend-item"><svg width="22" height="10"><line x1="0" y1="5" x2="22" y2="5" stroke="#5F5E5A" stroke-width="2.5"/></svg>Human &mdash; onshore</div>
+  <div class="legend-item"><svg width="22" height="10"><line x1="0" y1="5" x2="22" y2="5" stroke="#B4B2A9" stroke-width="2"/></svg>Human &mdash; outsourced</div>
+  <div class="legend-item"><svg width="22" height="10"><line x1="0" y1="5" x2="22" y2="5" stroke="#185FA5" stroke-width="2.5"/></svg>IVR / traditional SaaS</div>
+  <div class="legend-item"><svg width="22" height="10"><line x1="0" y1="5" x2="22" y2="5" stroke="#1D9E75" stroke-width="2" stroke-dasharray="6 4"/></svg>Agentic simple (brownfield)</div>
+  <div class="legend-item"><svg width="22" height="10"><line x1="0" y1="5" x2="22" y2="5" stroke="#BA7517" stroke-width="2" stroke-dasharray="6 4"/></svg>Agentic complex (brownfield)</div>
+  <div class="legend-item"><svg width="22" height="10"><line x1="0" y1="5" x2="22" y2="5" stroke="#A32D2D" stroke-width="2" stroke-dasharray="3 4"/></svg>Agentic complex (greenfield)</div>
+</div>
+
+<div class="chart-wrap">
+  <canvas id="costChart" role="img" aria-label="Interactive line chart comparing monthly cost trajectories for human agents, IVR, and agentic AI. Adjust sliders to change assumptions.">Interactive cost comparison. Human agents scale in steps at capacity limits. IVR scales linearly. Agentic simple tasks stay low. Agentic complex tasks rise faster and can exceed human cost at volume.</canvas>
+</div>
+
+<div class="crossovers" id="crossover-cards"></div>
+
+<p class="footnote">
+  Cost curves are illustrative models based on published benchmarks (2025 to 2026). Human agent capacity: ~900 calls/month for chat/voice hybrid operations (industry average). Onshore fully loaded cost includes salary, benefits, management overhead, and training. Outsourced range reflects Southeast Asia and Eastern Europe operations. IVR floor includes platform license, telephony, and maintenance. Agentic brownfield assumes existing SAP, Salesforce, ServiceNow, or Microsoft platform license. Agentic greenfield includes infrastructure build, orchestration layer, and observability stack. Agentic marginal cost modeled as nonlinear (token cost compounds with reasoning complexity). Current agentic floor costs are partially suppressed by vendor pricing incentives during the platform consolidation period and are subject to change. Sources: HfS Research, Gartner, Deloitte RPA surveys; Intercom, Zendesk, and Salesforce published pricing (2025 to 2026); Digital Applied Customer Service AI Statistics 2026.
+</p>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const pts = [];
+for (let v = 0; v <= 5400; v += 300) pts.push(v);
+
+function getVals() {
+  return {
+    onshore:  +document.getElementById('sl-onshore').value,
+    offshore: +document.getElementById('sl-offshore').value,
+    capacity: +document.getElementById('sl-capacity').value,
+    ivrFloor: +document.getElementById('sl-ivr-floor').value,
+    agFloorB: +document.getElementById('sl-ag-floor-b').value,
+    agFloorG: +document.getElementById('sl-ag-floor-g').value
+  };
+}
+
+function computeData(v) {
+  const V = getVals();
+  return {
+    onshore:  (Math.ceil(v / V.capacity) || 1) * V.onshore,
+    offshore: (Math.ceil(v / V.capacity) || 1) * V.offshore,
+    ivr:      V.ivrFloor + v * 2.8,
+    simpleB:  V.agFloorB + v * 1.5 + v * v * 0.00015,
+    complexB: V.agFloorB + v * 2.6 + v * v * 0.00075,
+    complexG: V.agFloorG + v * 2.6 + v * v * 0.00075
+  };
+}
+
+function findCrossover(fnA, fnB) {
+  for (let v = 300; v <= 5400; v += 300) {
+    const prev = fnA(v - 300) - fnB(v - 300);
+    const curr = fnA(v) - fnB(v);
+    if (prev < 0 && curr >= 0) return v;
+    if (prev > 0 && curr <= 0) return v;
+  }
+  return null;
+}
+
+const labels = pts.map((v, i) => i % 2 === 0 ? (v >= 1000 ? (v/1000).toFixed(1)+'k' : String(v)) : '');
+
+const chart = new Chart(document.getElementById('costChart'), {
+  type: 'line',
+  data: {
+    labels,
+    datasets: [
+      { label: 'Human - onshore',             data: [], borderColor: '#5F5E5A', backgroundColor: 'transparent', borderWidth: 2.5, pointRadius: 0, tension: 0, stepped: true },
+      { label: 'Human - outsourced',          data: [], borderColor: '#B4B2A9', backgroundColor: 'transparent', borderWidth: 2,   pointRadius: 0, tension: 0, stepped: true },
+      { label: 'IVR / traditional SaaS',      data: [], borderColor: '#185FA5', backgroundColor: 'transparent', borderWidth: 2.5, pointRadius: 0, tension: 0.3 },
+      { label: 'Agentic simple (brownfield)', data: [], borderColor: '#1D9E75', backgroundColor: 'transparent', borderWidth: 2,   pointRadius: 0, tension: 0.3, borderDash: [6,4] },
+      { label: 'Agentic complex (brownfield)',data: [], borderColor: '#BA7517', backgroundColor: 'transparent', borderWidth: 2,   pointRadius: 0, tension: 0.3, borderDash: [6,4] },
+      { label: 'Agentic complex (greenfield)',data: [], borderColor: '#A32D2D', backgroundColor: 'transparent', borderWidth: 2,   pointRadius: 0, tension: 0.3, borderDash: [3,4] }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    interaction: { mode: 'index', intersect: false },
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          label: ctx => ctx.dataset.label + ': $' + Math.round(ctx.parsed.y).toLocaleString(),
+          title: items => 'Volume: ' + pts[items[0].dataIndex].toLocaleString() + ' calls/mo'
+        }
+      }
+    },
+    scales: {
+      x: {
+        title: { display: true, text: 'Monthly call volume', font: { size: 12 }, color: '#888' },
+        grid: { color: 'rgba(0,0,0,0.06)' },
+        ticks: { font: { size: 11 }, color: '#888', maxRotation: 0 }
+      },
+      y: {
+        title: { display: true, text: 'Monthly cost (USD)', font: { size: 12 }, color: '#888' },
+        grid: { color: 'rgba(0,0,0,0.06)' },
+        ticks: {
+          font: { size: 11 }, color: '#888',
+          callback: v => '$' + (v >= 1000 ? (v/1000).toFixed(0)+'k' : v)
+        }
+      }
+    }
+  }
+});
+
+function updateChart() {
+  const V = getVals();
+  document.getElementById('lbl-onshore').textContent    = '$' + V.onshore.toLocaleString();
+  document.getElementById('lbl-offshore').textContent   = '$' + V.offshore.toLocaleString();
+  document.getElementById('lbl-capacity').textContent   = V.capacity.toLocaleString();
+  document.getElementById('lbl-ivr-floor').textContent  = '$' + V.ivrFloor.toLocaleString();
+  document.getElementById('lbl-ag-floor-b').textContent = '$' + V.agFloorB.toLocaleString();
+  document.getElementById('lbl-ag-floor-g').textContent = '$' + V.agFloorG.toLocaleString();
+
+  const rows = pts.map(v => computeData(v));
+  chart.data.datasets[0].data = rows.map(r => r.onshore);
+  chart.data.datasets[1].data = rows.map(r => r.offshore);
+  chart.data.datasets[2].data = rows.map(r => r.ivr);
+  chart.data.datasets[3].data = rows.map(r => r.simpleB);
+  chart.data.datasets[4].data = rows.map(r => r.complexB);
+  chart.data.datasets[5].data = rows.map(r => r.complexG);
+  chart.update('none');
+
+  const fn = key => v => computeData(v)[key];
+  const crossovers = [
+    { label: 'Agentic complex GF vs onshore humans',    val: findCrossover(fn('complexG'), fn('onshore')),  color: '#A32D2D' },
+    { label: 'Agentic complex GF vs outsourced humans', val: findCrossover(fn('complexG'), fn('offshore')), color: '#A32D2D' },
+    { label: 'Agentic complex BF vs outsourced humans', val: findCrossover(fn('complexB'), fn('offshore')), color: '#BA7517' },
+    { label: 'IVR vs onshore humans',                   val: findCrossover(fn('ivr'), fn('onshore')),       color: '#185FA5' },
+  ];
+
+  document.getElementById('crossover-cards').innerHTML = crossovers.map(c => `
+    <div class="crossover-card" style="border-left-color:${c.color}">
+      <div class="card-label">${c.label}</div>
+      <div class="card-value">${c.val ? c.val.toLocaleString() + ' calls/mo' : 'No crossover in range'}</div>
+    </div>
+  `).join('');
+}
+
+['sl-onshore','sl-offshore','sl-capacity','sl-ivr-floor','sl-ag-floor-b','sl-ag-floor-g']
+  .forEach(id => document.getElementById(id).addEventListener('input', updateChart));
+
+updateChart();
+</script>
+</body>
+</html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 7. Change Management for Agentic AI &mdash; Agentic AI for Busy Product Managers</title>
+<meta name="description" content="The actor-to-supervisor transition. Three failure modes (automation bias, algorithm aversion, shadow workflows). The four apprenticeship conditions and what AI does to each. Accountability as a design problem.">
+<link rel="canonical" href="https://agenticaiproductmanagement.com/ch07-change-management/">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="book">
+
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <a href="index.html">Agentic AI for Busy Product Managers</a>
+      <div class="sidebar-brand-sub">Designing the Agent and the Supervisor</div>
+    </div>
+
+    <div class="sidebar-section">Front matter</div>
+    <ul class="sidebar-list">
+      <li><a href="ch00-preface.html">Preface</a></li>
+    </ul>
+
+    <div class="sidebar-section">Chapters</div>
+    <ul class="sidebar-list">
+      <li><a href="ch01-ai-literacy.html">1. What You Need to Know</a></li>
+      <li><a href="ch02-not-a-bridge.html">2. You Are Not a Bridge Anymore</a></li>
+      <li><a href="ch03-not-every-problem.html">3. Not Every Problem Deserves an Agent</a></li>
+      <li><a href="ch04-design-behavior.html">4. Now Design the Behavior</a></li>
+      <li><a href="ch05-evals.html">5. AI Evals</a></li>
+      <li><a href="ch06-observation.html">6. You Can&rsquo;t Measure What You Didn&rsquo;t Design</a></li>
+      <li><a href="ch07-change-management.html" class="active">7. Change Management</a>
+      <ul class="sidebar-sub">
+        <li><a href="#the-problem-that-comes-after-the-product">The Problem That Comes After the Product</a></li>
+        <li><a href="#the-study-that-named-the-pattern">The Study That Named the Pattern</a></li>
+        <li><a href="#aviation-learned-this-the-hard-way">Aviation Learned This the Hard Way</a></li>
+        <li><a href="#what-goes-wrong-first">What Goes Wrong First</a></li>
+        <li><a href="#the-workflow-integration-principle">The Workflow Integration Principle</a></li>
+        <li><a href="#the-apprenticeship-conditions">The Apprenticeship Conditions</a></li>
+        <li><a href="#accountability-is-a-design-problem">Accountability Is a Design Problem</a></li>
+        <li><a href="#designing-the-person-who-watches-the-agent">Designing the Person Who Watches the Agent</a></li>
+      </ul>
+    </li>
+      <li><a href="ch08-silent-degradation.html">8. Silent Degradation</a></li>
+      <li><a href="ch09-frameworks-to-boundaries.html">9. From Frameworks to Boundaries</a></li>
+      <li><a href="ch10-people-never-seen.html">10. People Your Agent Will Never See</a></li>
+      <li><a href="ch11-field-manual.html">11. Operating the Loop</a></li>
+    </ul>
+
+    <div class="sidebar-section">Reference</div>
+    <ul class="sidebar-list">
+      <li><a href="appendix-a-platform.html">Appendix A. Platform Taxonomy</a></li>
+      <li><a href="appendix-b-glossary.html">Appendix B. Glossary</a></li>
+      <li><a href="references.html">References</a></li>
+    </ul>
+  </aside>
+
+  <main class="main">
+  <article class="chapter">
+
+    <p class="chapter-meta">Chapter 7 &middot; Post-launch, change management</p>
+    <h1>Change Management for Agentic AI</h1>
+    <p class="chapter-stage"><em>Stage: post-launch, change management</em></p>
+
+    <p>The first time I put a patient under general anesthesia, I went into a state of panic. Once the patient was fully sedated, I realized his life depended on the perfect synchronization of the ventilator, the IV fluids and drugs, the body temperature, blood loss monitoring, urine output, heart rate, and the precise height and tilt of the table that kept the surgeons focused and happy.</p>
+
+    <p>Over time, something shifted. It did not happen in a day. The ventilator cycled, the pressure held, and the numbers settled into a pattern I recognized. I stopped managing the systems and started managing the patient. The attention that had been going into keeping him breathing was now free for something harder: what was the blood pressure trend telling me, what did the surgeon&rsquo;s body language say about what came next, was the temperature dropping faster than the case should allow.</p>
+
+    <p>What I learned in those years about automation, monitoring, and machine behavior followed me throughout my career as a product manager. It has never been more relevant than now.</p>
+
+    <p>That transition, from operating the tools to focusing on what the tools are serving, is the most consequential moment in the operating room. Every field that has put humans alongside autonomous systems has had to design for it. Most enterprise AI deployments have not.</p>
+
+    <hr class="soft">
+
+    <h2 id="the-problem-that-comes-after-the-product">The Problem That Comes After the Product</h2>
+
+    <p>Even when the agent is built well, suitability assessed, behavior designed, evals passed, observation metrics defined, the hardest problem has not started yet.</p>
+
+    <p>Deploying an agent that acts does not just change the software. It changes the job of every person who interacts with it. The procurement manager who used to process orders now supervises the system that processes them. The compliance analyst who used to flag exceptions now audits whether the agent flagged the right ones. These are not the same jobs. They are new jobs wearing the old jobs&rsquo; names.</p>
+
+    <p>Most change management programs treat this as an adoption problem: communicate the benefits, run training sessions, measure utilization. The diagnosis is wrong. The real work is supervision design. The question is not whether people are willing to use the new system. It is whether they know how to supervise it, which is a different cognitive skill from the one they had before, and one that must be designed into the product, not handed off to a training team. The procurement manager who processed orders was exercising judgment on each transaction. The procurement manager who supervises an agent must exercise a different kind of judgment: monitoring patterns across many transactions, recognizing when aggregate behavior drifts from intent, and intervening on the system rather than on individual cases.</p>
+
+    <div class="callout">
+      <div class="callout-label">Concept</div>
+      <div class="callout-title">The Actor-to-Supervisor Transition</div>
+      <p>The named design problem of this chapter. In the old job, the person was the actor: they made decisions, took actions, carried consequences. In the agentic job, the person is the supervisor: the agent acts, the person watches, intervenes, calibrates. The transition is cognitive, not procedural. It cannot be trained in a week. It can only be designed into the product through surfaces that hold supervisory attention stable over time.</p>
+      <p>The failure mode is predictable: people keep acting in the old job description and abandon the supervisory one, or they drift into passive monitoring that does not catch errors until they compound. Both failure modes look identical on an adoption dashboard.</p>
+    </div>
+
+    <p>The shift is not a new layer added on top of the old job. It replaces the cognitive demands of the role.</p>
+
+    <table>
+      <thead>
+        <tr><th>Dimension</th><th>Actor role</th><th>Supervisor role</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Focus</td><td>Single case</td><td>Patterns across cases</td></tr>
+        <tr><td>Action</td><td>Executes tasks</td><td>Approves, intervenes, tunes the system</td></tr>
+        <tr><td>Error detection</td><td>Case-level review</td><td>Drift and anomaly detection</td></tr>
+        <tr><td>Skill</td><td>Domain judgment</td><td>Meta-judgment and pattern recognition</td></tr>
+      </tbody>
+    </table>
+    <p class="table-caption">Table 7.1. From actor to supervisor.</p>
+
+    <hr class="soft">
+
+    <h2 id="the-study-that-named-the-pattern">The Study That Named the Pattern</h2>
+
+    <p>A 2026 field study led by Stankowski and colleagues at a major enterprise software company placed an AI assistant, one designed for reflection-focused goal-setting, in front of experienced professionals in two settings. In the structured workshop setting, ninety-three percent reported intent to continue using it. Within days of returning to their normal work environment, nearly all of the same users reverted to extraction-style prompting (give me the answer, here is the deliverable) and abandoned the reflective practice the product was designed to enable.</p>
+
+    <p>The product did not change. The model did not change. The environment changed.</p>
+
+    <p>What the workshop supplied that the production environment did not: bounded time, external accountability, and a shared frame that reflection was the point. Without those, the default behavior reasserted itself. The study&rsquo;s authors call the phenomenon <em>environmental reversion</em>. The product was not the lever. The conditions around the product were.</p>
+
+    <p>That finding is the single most important empirical anchor for this chapter. It is why change management for agentic AI is not a training problem. It is an environmental design problem. Training creates the structured-setting behavior. Production erases it. If you want the structured-setting behavior to persist, you have to design the conditions that the workshop simulated back into the production environment: bounded time for supervisory review, external accountability tied to specific artifacts, and a shared frame that supervision is the work, not an overhead tax on the work.</p>
+
+    <p>The Channel 2 design question becomes: which workshop conditions can you make permanent in the product, and which must be carried by the organizational process around it?</p>
+
+    <hr class="soft">
+
+    <h2 id="aviation-learned-this-the-hard-way">Aviation Learned This the Hard Way</h2>
+
+    <p>In December 1978, a United Airlines DC-8 ran out of fuel while circling Portland, Oregon. Flight 173 had enough fuel to land safely. The aircraft was mechanically sound. The crew knew the fuel state was critical. The captain, fixated on a landing gear indicator that might or might not be malfunctioning, could not process what the fuel gauges were telling him. The accident report was not about mechanical failure. It was about a new kind of failure: a technically proficient crew that had never been trained to supervise an increasingly automated cockpit as a system.</p>
+
+    <p>The investigation produced what became Crew Resource Management. CRM does not teach pilots to fly. It teaches them to supervise: situational awareness across the whole system, communication across authority gradients, structured handoffs at every consequential transition. And critically, it is not a course. Early CRM leaders found that a single training event produced attitude shifts that faded within months. It became a recurrent practice, embedded in annual training and maintained through live flight audits in non-emergency conditions. You cannot certify a supervisory culture. You maintain it.</p>
+
+    <p>Aviation took forty years to get this right. Most enterprise AI teams treat it as something that can be resolved before go-live.</p>
+
+    <hr class="soft">
+
+    <h2 id="what-goes-wrong-first">What Goes Wrong First</h2>
+
+    <div class="callout">
+      <div class="callout-label">Concept</div>
+      <div class="callout-title">Channel 1 and Channel 2, Applied Here</div>
+      <p>Channel 1 is the agent itself: capabilities, autonomy boundary, tool access, runtime behavior. Channel 2 is the supervisory experience: how humans watch the agent work, intervene when it errs, and maintain appropriate trust over time. The canonical definition is in Chapter 2.</p>
+      <p>It belongs in this chapter because the three failure modes below, and most of the change-management failures PMs will see in the field, are Channel 2 failures that no Channel 1 improvement will fix. Better model, same failure. Better tool calls, same failure. The diagnosis is in the supervisor&rsquo;s experience, not the agent&rsquo;s.</p>
+    </div>
+
+    <p>The three failure modes below appear in a predictable sequence, and all three arise from non-determinism. If the agent were deterministic, supervisors would know when to intervene because the agent&rsquo;s behavior would be predictable. Because it is not, supervision requires a skill, not a rule, and that skill must be designed into the product. The gain from the transition, when it works, is not time saved on routine tasks; it is cognitive capacity freed for the supplier relationship, the exception the system cannot classify, the pattern across vendors that no single transaction reveals.</p>
+
+    <p><strong>Automation bias under routine conditions.</strong> Automation bias is the tendency of users to accept an automated recommendation even when the evidence in front of them contradicts it. In situations where the agent mostly gets things right, supervisors begin to accept its outputs without much examination. They click approve because it is usually fine and they have other work to do. The more correct the agent is on common cases, the easier it is for a rare, serious mistake to slide through. When supervisors are asked afterward why they approved a harmful action, the honest answer is often: because the system always said the right thing before. The design response is not better communication. It is an interface that makes reliability visible, uncertainty legible, and errors catchable before they compound.</p>
+
+    <p><strong>Algorithm aversion after visible failures.</strong> The mirror image also appears. Algorithm aversion is the tendency of users to abandon a statistically better automated system after a single observed failure. A supervisor watches the agent make one visible, painful mistake. They may not have seen the hundred correct actions that came before. From that point on, they treat the agent as untrustworthy, even if its overall performance remains better than the old process. They override more than they need to, or route around the system entirely.</p>
+
+    <p>Neither automation bias nor algorithm aversion is solved by telling people to calibrate better. Both are solved by designing an interface that actively surfaces what the agent is confident about and what it is uncertain about, at the moment the decision is made, so the human can calibrate trust case by case rather than defaulting to blanket trust or blanket suspicion.</p>
+
+    <p><strong>Shadow workflows.</strong> If supervisors do not trust the agent fully and do not feel safe ignoring it, they often build quiet, parallel processes alongside it: spreadsheets, email threads, side chats. The real work of supervision migrates into those shadows. The agent continues to act. The dashboards say it is doing a lot of work. The actual control over important decisions has moved off-system. Shadow workflows leave no formal trace. They show up in the gap between what the utilization dashboard reports and what the work looks like on the floor.</p>
+
+    <table>
+      <thead>
+        <tr><th>Failure mode</th><th>Trigger</th><th>Behavior</th><th>Design response</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Automation bias</td><td>High routine accuracy</td><td>Rubber-stamp approvals</td><td>Surface uncertainty and case-level confidence at the moment of decision</td></tr>
+        <tr><td>Algorithm aversion</td><td>One visible failure</td><td>Broad override, route-around</td><td>Show track record alongside case-level confidence; explain the specific failure</td></tr>
+        <tr><td>Shadow workflows</td><td>Low trust combined with high stakes</td><td>Parallel off-system checks</td><td>Bring supervision into the primary workflow surface rather than a separate dashboard</td></tr>
+      </tbody>
+    </table>
+    <p class="table-caption">Table 7.2. Early supervisory failure modes.</p>
+
+    <hr class="soft">
+
+    <h2 id="the-workflow-integration-principle">The Workflow Integration Principle</h2>
+
+    <p>Good supervision does not require behavioral revolution. This sounds obvious and is routinely violated.</p>
+
+    <p>A supervision layer that does not fit existing cognitive patterns will be worked around, not adopted. The CRM tools that survived in aviation are the ones that slotted into moments already present in the workflow: repeating back a proposed action before execution, structured briefings before high-workload phases, <strong>the two-challenge rule</strong> (which empowers any crew member to stop a decision they are concerned about by raising it a second time if their first raising was not acknowledged). These are not new processes layered on top of flying. They are communication patterns inserted into transitions that were already there.</p>
+
+    <p>The design requirement is the same for enterprise agentic products: find where in the existing workflow the supervision moment naturally belongs, and build the interface there. The approval moment, the confidence signal, the override affordance; all of it should appear where the worker is already making decisions, not in a monitoring dashboard that competes with the actual work for attention. The approval moment is a decision package, not a speed bump; the book&rsquo;s refrain applies here as much as in Chapter 4.</p>
+
+    <p>One sharpening. The CRM moments that worked are also moments of <strong>case-level deference allocation</strong>: the two-challenge rule and the briefing are not blanket trust signals. They are case-by-case mechanisms for asking, &ldquo;is this the kind of decision where we should defer to the system, or where we should pause and verify?&rdquo; Designing supervision moments around deference allocation, rather than around blanket trust or blanket review, is the harder design problem and the one that holds up under the supervision paradox. Chapter 4&rsquo;s reframe of approval as authorization rather than validation is the same move at the runtime artifact level. The same move at the workflow level is the two-challenge rule&rsquo;s descendant.</p>
+
+    <p>One finding from clinical supervisory training is worth naming directly: structured supervision in surgical ICUs improved outcomes but increased the average duration of rapid response team events by roughly thirty-three percent. Good supervision was not faster. It was more thorough. A temporary slowdown after an agentic rollout is not a failure signal. It may be the correct signal that supervision is happening.</p>
+
+    <p>The metric you optimize matters. If you optimize only for time saved, you will quietly optimize away supervision. The metric to watch is not speed. It is whether errors are being caught before they compound.</p>
+
+    <hr class="soft">
+
+    <h2 id="the-apprenticeship-conditions">The Apprenticeship Conditions</h2>
+
+    <p>One caution belongs in any honest change-management discussion, and it is the place where the supervision paradox from Chapter 1 lands hardest in operational reality.</p>
+
+    <p>Four conditions built senior judgment in every field that produced experts. Volume of cases, the experience of seeing thousands of routine examples until the pattern recognition becomes automatic. Acuity range, the full distribution from common to rare, because foundation is built on the common cases that nobody talks about. Failure, not catastrophic failure but the small diagnostic errors that get corrected before they cause harm. And feedback timing, the correction arriving close enough to the error to wire the two together. Medicine built these over centuries. Aviation built them through flight hours and check rides. Enterprise product management built them more informally, through the volume of small decisions a PM made in their first five years.</p>
+
+    <p>Agents are about to disrupt all four.</p>
+
+    <p>If the agent handles most routine cases, the junior supervisor loses volume. If the agent escalates only the hard cases, the junior supervisor loses the middle of the acuity range. If the agent catches every small error before it compounds, the junior supervisor never experiences the kind of failure that builds calibration. If the feedback comes from a dashboard rather than from a senior colleague or a direct consequence, the feedback loop thins.</p>
+
+    <div class="callout">
+      <div class="callout-label">Concept</div>
+      <div class="callout-title">The Four Apprenticeship Conditions</div>
+      <p>Senior judgment in any skill-dependent profession is built on four conditions operating in parallel: volume of cases, acuity range across routine and complex, exposure to small failure that gets corrected before harm, and feedback timing close enough to the error to wire correction to cause. Medicine, aviation, and enterprise product management all built their senior practitioners through these four conditions. Agentic AI is now removing all four for the next generation of supervisors.</p>
+      <p>This is not a training problem. It is a structural disruption to the conditions under which senior judgment is built. The Chapter 1 supervision paradox applies here at the cohort level: the supervisor population the organization will need in five years is the cohort whose formative window is being reshaped by agents now.</p>
+    </div>
+
+    <p>The 2025 ACCEPT trial in <em>The Lancet Gastroenterology and Hepatology</em> tracked nineteen experienced endoscopists through three months of AI-assisted colonoscopy. Their adenoma detection rate without AI dropped from twenty-eight point four percent to twenty-two point four percent after sustained AI exposure. The deeper finding was the mechanism: eye-tracking research showed endoscopists under AI assistance reduced their eye travel during procedures. They stopped scanning. The AI was scanning for them. When the AI was removed, the active visual search that experienced endoscopists had built over years had atrophied. The physician who used to scan methodically now waited, without quite realizing it, for a box that was not coming.<sup class="fn"><a href="#fn1">1</a></sup></p>
+
+    <p>That happened to senior practitioners in three months. The question is not whether the next generation will lose this skill. The question is whether they will ever build it. A 2025 New England Journal of Medicine review distinguished three patterns. <em>Deskilling</em> is the loss of a capability that existed (the ACCEPT pattern). <em>Mis-skilling</em> is the development of a capability calibrated to a flawed reference. <em>Never-skilling</em> is the failure to acquire a foundational capability because AI was present during the entire formative window. The third is the one that should keep policymakers awake. It is not losing a skill. It is never developing it in the first place.<sup class="fn"><a href="#fn2">2</a></sup></p>
+
+    <p>The Anthropic 2026 RCT showed novice software developers using AI assistance during learning scoring seventeen percent below the control group on a comprehension quiz. Same minutes. Same concepts. Lower comprehension when the AI was withdrawn. Same direction in software as in medicine. Same mechanism.</p>
+
+    <p>None of this is a reason to stop deploying agents. It is a reason for Channel 2 to include a mechanism for growing the next generation of supervisors. Rotation schedules that expose juniors to the hard cases the agent normally handles. Training simulations that preserve failure experience deliberately. Senior review of a sampled fraction of cases for teaching, not just audit. Mandatory recurrent practice without AI assistance, on a defined cadence, the EASA aviation model applied to whichever profession your supervisors come from. If your change-management plan does not address where the next senior supervisor will come from, you are solving a five-year problem by creating a fifteen-year one.</p>
+
+    <p>The aviation institutional response to deskilling is the only counter-template that has worked across decades. Mandatory recurrent manual proficiency. Pilots are required, on a regular schedule, to demonstrate that they can fly the aircraft without automation. The checks are binding. The record is maintained. No other knowledge profession has built the equivalent. Medicine, software engineering, customer service, none of them have a recurrent-proficiency-without-AI requirement. Until they do, the supervisor population the agent depends on is being reshaped by the deployment itself, in a direction the safety model was not designed to accommodate.</p>
+
+    <hr class="soft">
+
+    <h2 id="accountability-is-a-design-problem">Accountability Is a Design Problem</h2>
+
+    <p>A clinical decision support system analyzes a pathology result and returns: no malignancy detected. The physician, Dr. Elena Reyes, sees the recommendation, confirms it, and moves on. Eighteen months later the patient is diagnosed with stage IV cancer.</p>
+
+    <p>Who is responsible?</p>
+
+    <p>The vendor points to the physician who approved the output. Dr. Reyes notes the system was cleared and integrated by the hospital. The hospital references the vendor&rsquo;s accuracy claims and regulatory clearance. The regulator notes the system performed within labeled parameters. Nobody is clearly culpable. The patient cannot get a legible explanation of why the model concluded what it did.</p>
+
+    <p>Andreas Matthias named the pattern in 2004: the culpability gap, the public accountability gap, the active responsibility gap. Three distinct problems that require design responses, not policy documents. The design response is a system where one named person has a legible view of what the agent decided, on what grounds, with what confidence, and carries that record into the outcome.</p>
+
+    <p>The Chapter 1 supervision paradox sharpens what accountability can mean here. Matthias&rsquo;s framework assumes a competent reviewer. That assumption is now empirically eroding. The supervisor can be named in a governance document. The supervisor can carry the legible record. What the supervisor often cannot do, after months or years of agent operation in their workflow, is independently reproduce the reasoning the agent used. Dr. Reyes did not have an alternative pathology reading to validate against. The system she was supervising had been calibrating her exposure to cases for eighteen months. Her ability to catch the kind of error the agent was making was being shaped by the same agent. The accountability document held her responsible for the call. The structural conditions that would have let her be meaningfully accountable were being eroded by the deployment itself. That is not an accountability gap that better naming fixes. It is an accountability gap whose root cause is structural.</p>
+
+    <div class="callout">
+      <div class="callout-label">Concept</div>
+      <div class="callout-title">The Accountability Gap</div>
+      <p>When AI is involved in consequential decisions, human supervisors feel less personally responsible for errors, even when they approved the action. The more automated the pathway, the more responsibility feels shared, and the less any individual feels obligated to catch errors. This is not fixed by naming someone in a governance document. It is fixed by designing a system where one named person has a legible view of what the agent decided, on what grounds, with what confidence, and carries that record into the outcome.</p>
+      <p>The prerequisites: external observability (real-time view of what the model is doing), data lineage (traceability from output to training data), and model transparency (enough visibility to evaluate whether the conclusion follows from the evidence). And the structural prerequisite the supervision paradox now adds: the accountability framework holds only when the named person retains the cognitive substrate to perform the review. If the deployment is eroding that substrate, the framework is reporting a number that does not correspond to a real safety property. Naming the gap is part of the design work.</p>
+    </div>
+
+    <hr class="soft">
+
+    <h2 id="designing-the-person-who-watches-the-agent">Designing the Person Who Watches the Agent</h2>
+
+    <p>There is a practical test for whether both channels have been designed. Four questions, asked bluntly, produce the answer.</p>
+
+    <p>Can a supervisor tell you, concretely, in which situations they trust the agent and in which they do not? If the answer is &ldquo;it depends&rdquo; or &ldquo;usually,&rdquo; the supervisory model has not been made legible to the people practicing it.</p>
+
+    <p>Can you show, in one place, how often supervisors override the agent and in which workflow scenarios? If not, the approval moment was not designed to be logged.</p>
+
+    <p>Can you point to specific screens and workflows where supervision happens, or has it migrated to email and side channels? Shadow workflows leave no formal trace in the product. They show up in the gap between utilization dashboards and what supervision looks like on the floor.</p>
+
+    <p>If the agent started making a new kind of mistake tomorrow, who would notice first, and where would they see it? If the answer is &ldquo;support volume&rdquo; or &ldquo;a user would file a ticket,&rdquo; the observation phase was not designed to surface behavioral drift.</p>
+
+    <p>The anesthesiologist who trusts the ventilator enough to focus on the blood pressure trend is not failing to supervise. She is doing the harder job that the trust made possible. The design question is how the system holds that trust stable, surfaces when it is eroding, and keeps the supervisory skill available for the moment it is needed.</p>
+
+    <p>You built the agent. The agent is working. Now design the person who is supposed to be watching it. And design the conditions that preserve that person&rsquo;s ability to perform the role across time, against the deployment that is reshaping it.</p>
+
+    <div class="endnotes">
+      <h2>Notes</h2>
+      <ol>
+        <li id="fn1">Budzy&#324;, K. et al., &ldquo;Endoscopist Deskilling Risk after Exposure to Artificial Intelligence in Colonoscopy: A Multicentre, Observational Study,&rdquo; <em>The Lancet Gastroenterology and Hepatology</em> 10(10):896&ndash;903 (2025). The eye-tracking mechanism is documented in earlier endoscopy research; the ACCEPT trial is the multicenter observational measurement of the effect at three months.</li>
+        <li id="fn2">Abdulnour, R-EE., Gin, B., Boscardin, C.K., &ldquo;Educational Strategies for Clinical Supervision of Artificial Intelligence Use,&rdquo; <em>New England Journal of Medicine</em> 393(8):786&ndash;797 (2025). The deskilling, mis-skilling, never-skilling taxonomy is the most directly transferable contribution.</li>
+      </ol>
+    </div>
+
+    <nav class="chapter-nav">
+      <a class="prev" href="ch06-observation.html">You Can&rsquo;t Measure What You Didn&rsquo;t Design</a>
+      <a class="next" href="ch08-silent-degradation.html">Silent Degradation</a>
+    </nav>
+
+  </article>
+  </main>
+</div>
+
+</body>
+</html>

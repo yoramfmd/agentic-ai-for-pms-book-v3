@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Appendix B. Glossary &mdash; Agentic AI for Busy Product Managers</title>
+<meta name="description" content="Single-line definitions of the technical and conceptual terms introduced in this book.">
+<link rel="canonical" href="https://agenticaiproductmanagement.com/appendix-b-glossary/">
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* Glossary-specific layout: definition list with hanging terms */
+  .glossary-list dl { display: grid; grid-template-columns: minmax(180px, 230px) 1fr; gap: var(--space-3) var(--space-5); margin: var(--space-5) 0; }
+  .glossary-list dt { font-family: var(--sans); font-size: 14px; font-weight: 600; color: var(--ink); padding-top: 2px; }
+  .glossary-list dd { font-family: var(--serif); font-size: 16px; line-height: 1.55; color: var(--ink-soft); margin: 0; }
+  @media (max-width: 720px) { .glossary-list dl { grid-template-columns: 1fr; gap: var(--space-1) var(--space-2); } .glossary-list dt { padding-top: var(--space-3); } }
+</style>
+</head>
+<body>
+
+<div class="book">
+
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <a href="index.html">Agentic AI for Busy Product Managers</a>
+      <div class="sidebar-brand-sub">Designing the Agent and the Supervisor</div>
+    </div>
+
+    <div class="sidebar-section">Front matter</div>
+    <ul class="sidebar-list">
+      <li><a href="ch00-preface.html">Preface</a></li>
+    </ul>
+
+    <div class="sidebar-section">Chapters</div>
+    <ul class="sidebar-list">
+      <li><a href="ch01-ai-literacy.html">1. What You Need to Know</a></li>
+      <li><a href="ch02-not-a-bridge.html">2. You Are Not a Bridge Anymore</a></li>
+      <li><a href="ch03-not-every-problem.html">3. Not Every Problem Deserves an Agent</a></li>
+      <li><a href="ch04-design-behavior.html">4. Now Design the Behavior</a></li>
+      <li><a href="ch05-evals.html">5. AI Evals</a></li>
+      <li><a href="ch06-observation.html">6. You Can&rsquo;t Measure What You Didn&rsquo;t Design</a></li>
+      <li><a href="ch07-change-management.html">7. Change Management</a></li>
+      <li><a href="ch08-silent-degradation.html">8. Silent Degradation</a></li>
+      <li><a href="ch09-frameworks-to-boundaries.html">9. From Frameworks to Boundaries</a></li>
+      <li><a href="ch10-people-never-seen.html">10. People Your Agent Will Never See</a></li>
+      <li><a href="ch11-field-manual.html">11. Operating the Loop</a></li>
+    </ul>
+
+    <div class="sidebar-section">Reference</div>
+    <ul class="sidebar-list">
+      <li><a href="appendix-a-platform.html">Appendix A. Platform Taxonomy</a></li>
+      <li><a href="appendix-b-glossary.html" class="active">Appendix B. Glossary</a></li>
+      <li><a href="references.html">References</a></li>
+    </ul>
+  </aside>
+
+  <main class="main">
+  <article class="chapter">
+
+    <p class="chapter-meta">Appendix B &middot; Reference</p>
+    <h1>Glossary</h1>
+
+    <p>Single-line definitions of the technical and conceptual terms introduced in this book. Sorted alphabetically. Category letters in parentheses refer to the platform taxonomy in Appendix A.</p>
+
+    <div class="glossary-list">
+    <dl>
+      <dt>Accuracy</dt><dd>Proportion of classifier outputs that match ground truth; a single-step validator metric that breaks down for multi-step agent trajectories.</dd>
+      <dt>Actor-to-supervisor transition</dt><dd>The shift from performing a task to supervising an agent that performs it; the central change-management problem for agentic adoption.</dd>
+      <dt>Adaptive governance</dt><dd>Governance that adjusts rule intensity to context (acuity, consequence class, time), with structured override rights and audit.</dd>
+      <dt>Adversarial testing</dt><dd>Deliberate attempts to make an agent misbehave via prompt injection, tool abuse, credential leakage, or permission escalation.</dd>
+      <dt>Affected person</dt><dd>The individual whose life is changed by an agent&rsquo;s decision, distinct from the user who operates the agent.</dd>
+      <dt>Agent</dt><dd>An AI system that uses tools and takes actions on behalf of a user or another system, typically across multiple reasoning steps.</dd>
+      <dt>Agent candidacy checklist</dt><dd>A planning artifact listing the criteria a problem must meet before an agent is built for it.</dd>
+      <dt>Agent identity</dt><dd>An IAM-bound principal under which the agent acts; a base platform dependency relabeled as agent-specific by most vendors.</dd>
+      <dt>Agentic AI</dt><dd>AI that plans and executes multi-step actions on behalf of a user, as distinct from AI that responds to a single prompt.</dd>
+      <dt>Algorithm aversion</dt><dd>The tendency of users to abandon an AI tool after a single visible failure even when its track record is otherwise strong.</dd>
+      <dt>Approval moment</dt><dd>The typed handoff point where an agent pauses, presents a decision package, and waits for human judgment before continuing.</dd>
+      <dt>AUC (area under the curve)</dt><dd>A classifier metric measuring discrimination between two classes across thresholds; a single-step validator metric.</dd>
+      <dt>Audit surface</dt><dd>The reconstructable decision trajectory of an agent, composed from observable action traces rather than the model&rsquo;s self-narration.</dd>
+      <dt>Automation bias</dt><dd>The tendency to accept an automated recommendation even when contradicted by the evidence in front of you.</dd>
+      <dt>Automation complacency</dt><dd>The erosion of operator vigilance as a system&rsquo;s observed reliability increases over time.</dd>
+      <dt>Automation expectation</dt><dd>The pre-existing hand-off orientation users bring to a new AI tool from experience with every other AI tool they have used.</dd>
+      <dt>Autonomy boundary</dt><dd>The typed runtime declaration of what an agent may do unilaterally versus what requires a human decision.</dd>
+      <dt>Autonomy ladder</dt><dd>A graduated scale of agent autonomy from suggestion through copilot to autonomous actor.</dd>
+      <dt>Background failure</dt><dd>An agent output that passes semantic evaluation but is not matched by any state change in the target system; the agent said &ldquo;done&rdquo; but nothing happened.</dd>
+      <dt>Bainbridge irony</dt><dd>The 1983 observation that the more reliable the automated system, the more thoroughly atrophied the operator&rsquo;s monitoring skill becomes; the foundational citation for the supervision paradox.</dd>
+      <dt>Base platform dependency (Category E)</dt><dd>A non-agent-specific platform capability (IAM, audit logging, tenant isolation) that is required for agentic systems to function safely.</dd>
+      <dt>Behavioral monitoring</dt><dd>Observation focused on whether the agent&rsquo;s judgment is correct, distinct from infrastructure monitoring of whether the system is running.</dd>
+      <dt>Blast radius</dt><dd>The scope of consequences an agent action can produce in the same execution; the PocketOS case (production data plus volume backups deleted in nine seconds) is the canonical example.</dd>
+      <dt>Bounded objective</dt><dd>An agent task with a clearly delimited goal, not an open-ended one.</dd>
+      <dt>Break-even volume</dt><dd>The task volume at which the marginal cost of running an agent falls below the marginal cost of the human process it replaces.</dd>
+      <dt>Brownfield deployment</dt><dd>An agentic deployment on top of an existing AI-capable platform license (SAP, Salesforce, ServiceNow, Microsoft); incremental floor price.</dd>
+      <dt>Channel 1</dt><dd>The agent itself: autonomy boundary, logging, error handling, recovery workflow.</dd>
+      <dt>Channel 2</dt><dd>The human experience of supervising the agent: queue, intervention surface, workflow fit, supervisory interface.</dd>
+      <dt>Classifier metric</dt><dd>A metric defined against a binary or multi-class ground truth (accuracy, sensitivity, specificity, AUC, precision, recall, F1); valid at single-step validators.</dd>
+      <dt>Compound probability</dt><dd>The product of per-step success probabilities across a chained agent workflow; 0.95 across ten steps yields roughly 0.60 end to end.</dd>
+      <dt>Confidence calibration</dt><dd>The degree to which an agent&rsquo;s stated confidence tracks its observed correctness; well-calibrated agents are uncertain on things they get wrong.</dd>
+      <dt>Constitutional AI</dt><dd>Anthropic&rsquo;s 2022 framework for training models to follow declared principles; the architectural reference for the Constitutional Runtime Layer.</dd>
+      <dt>Constitutional runtime layer</dt><dd>Platform-level rules that execute in the agent&rsquo;s request path and return a refusal or modified action, independent of design-time governance.</dd>
+      <dt>Context sufficiency</dt><dd>Whether the agent receives the relationships, calculated semantics, and governance rules it needs to act, not only the raw fields.</dd>
+      <dt>Copilot</dt><dd>A declared agent system type: acts only on explicit step-by-step instructions; the human initiates each step.</dd>
+      <dt>Coverage statement</dt><dd>A PM artifact listing which user intents, failure modes, and adversarial inputs the eval suite tested, and which were known but deliberately deferred.</dd>
+      <dt>Currency question</dt><dd>The set of contract-time vendor questions that ensure the platform&rsquo;s AI capabilities remain current through the contract period.</dd>
+      <dt>Data lineage</dt><dd>The recorded chain of provenance from agent output back through retrieved sources, training data, and source-system origin; required for upstream-data-wrong detection.</dd>
+      <dt>Data observability</dt><dd>Detection of when the data the agent reasons from is not what the agent thinks it is: freshness, completeness, referential integrity, context availability, knowledge graph mapping accuracy.</dd>
+      <dt>Decision package</dt><dd>The information required for a human to approve an agent&rsquo;s proposed action: what the agent knows, what is uncertain, what the consequences are, what the alternatives are.</dd>
+      <dt>Decision-trace capture</dt><dd>The reconstructable sequence of an agent&rsquo;s reasoning and tool calls; distinct from the agent&rsquo;s self-narration.</dd>
+      <dt>Deference allocation</dt><dd>The case-by-case design problem of when the supervisor should rely on the agent and when they should pause and verify; harder than blanket trust or blanket review.</dd>
+      <dt>Deployment event</dt><dd>Any change to the agent&rsquo;s model, prompt template, or tool configuration; treated as a deployment requiring re-baselining. Foundation model updates from the provider are deployment events.</dd>
+      <dt>Derived KPI (Category B)</dt><dd>A metric computed on top of events the platform&rsquo;s observability layer captures, not shipped as a named platform feature.</dd>
+      <dt>Deskilling</dt><dd>The loss of an existing capability through sustained AI substitution; the Budzy&#324; ACCEPT colonoscopy result (twenty-eight to twenty-two percent adenoma detection in three months) is the empirical anchor.</dd>
+      <dt>Drift</dt><dd>Divergence of production behavior from the reference baseline; includes data drift, concept drift, prediction drift, and behavioral drift.</dd>
+      <dt>Earned autonomy</dt><dd>Movement up the autonomy ladder triggered by demonstrated competence in the specific failure modes that matter, not by a count or a calendar date.</dd>
+      <dt>End-to-end task success</dt><dd>Whether the agent completed the task the user intended, measured across the full trajectory rather than per step.</dd>
+      <dt>Eval / evaluation</dt><dd>A structured test of agent behavior under controlled conditions; partial observability of system behavior, not proof of correctness.</dd>
+      <dt>Eval sign-off checklist</dt><dd>A planning artifact enumerating the eval outcomes required before a release decision.</dd>
+      <dt>External audit trigger</dt><dd>A pre-declared condition that invokes external audit of an agent&rsquo;s behavior, regardless of internal governance status.</dd>
+      <dt>F1 score</dt><dd>The harmonic mean of precision and recall; a single-step classifier metric.</dd>
+      <dt>Fermentation culture</dt><dd>The 2025 to 2026 enterprise pattern of using agent count as a competitive benchmark while the security and supervisory containers remain underbuilt.</dd>
+      <dt>First-contact</dt><dd>The point where an agent handles the beginning of a problem story, often a mismatch with models trained on end-of-story documentation.</dd>
+      <dt>Floor cost</dt><dd>The minimum cost per agent task including model inference, tool invocation, human review, and coordination overhead.</dd>
+      <dt>Greenfield deployment</dt><dd>An agentic deployment without an existing AI-capable platform license; full infrastructure and observability build cost.</dd>
+      <dt>Hallucination</dt><dd>Plausible-sounding agent output not grounded in reality; categories include factual errors, outdated references, spurious correlations, fabricated sources, incomplete reasoning, and upstream-data-wrong.</dd>
+      <dt>Horvitz principle</dt><dd>The observation that interruption has a cost; routing approval requests requires a budget, not unlimited attention.</dd>
+      <dt>Iceberg</dt><dd>The phenomenon where data transferred from a source system loses its relationships, calculated semantics, and governance rules in transit; the fields arrive, the meaning stays behind.</dd>
+      <dt>Incident recovery time</dt><dd>The organizational time from detecting an agent incident to freezing, attributing, notifying, reauthorizing, and resuming.</dd>
+      <dt>Instrument half-life</dt><dd>The roughly eighteen-month useful life of an agentic observation instrument before frontier model generation change requires re-calibration.</dd>
+      <dt>Interruption budget</dt><dd>A cap on the number and priority of approval requests a supervisor receives per unit time, with routing, deferral, and batching against the cap.</dd>
+      <dt>Kill-switch</dt><dd>An architectural intervention that stops an agent action upstream of execution; distinct from emergency shutdown of the service.</dd>
+      <dt>Large language model (LLM)</dt><dd>A neural network trained on text to predict tokens; the model at the base of most contemporary agentic systems.</dd>
+      <dt>LLM-as-a-judge</dt><dd>The use of a language model to score another model&rsquo;s output against a rubric; introduces its own error rate that must be calibrated against human labels.</dd>
+      <dt>LLM-as-judge bias</dt><dd>Documented systematic errors in LLM judges: longer-answer preference, position effect, same-model-family preference; present by default unless calibrated.</dd>
+      <dt>MAESTRO</dt><dd>Multi-Agent Environment, Security, Threat, Risk, and Outcome framework; the first agentic-specific threat modeling framework, Cloud Security Alliance, February 2025.</dd>
+      <dt>MedLog</dt><dd>The Harvard Medical School proposal for a clinical AI logging standard; nine fields covering model, user, target, inputs, artifacts, outputs, outcomes, feedback. The pattern generalizes.</dd>
+      <dt>Memory poisoning</dt><dd>An adversarial pattern that injects malicious content into an agent&rsquo;s persistent memory store; present in ninety-four percent of audited production deployments (2025).</dd>
+      <dt>Mental model declaration</dt><dd>The explicit declaration of whether an agent is a suggestion tool, a copilot, or an autonomous actor; prevents user miscalibration.</dd>
+      <dt>Michelin Condition</dt><dd>The structural alignment between guide accuracy and business model: a guide is trustworthy when accuracy is the mechanism that drives the behavior that drives the revenue. Fails when revenue depends on the audience trusting the guide rather than acting on it.</dd>
+      <dt>Mis-skilling</dt><dd>The development of a capability calibrated to a flawed reference; the middle category in the NEJM 2025 deskilling-mis-skilling-never-skilling taxonomy.</dd>
+      <dt>MVP House of Cards</dt><dd>The pattern where MVP delivery culture defers governance layer after layer until the backlog exceeds the roadmap&rsquo;s capacity to close it.</dd>
+      <dt>Never-skilling</dt><dd>The failure to acquire a foundational capability because AI was present during the entire formative window; the most consequential category in the NEJM 2025 taxonomy.</dd>
+      <dt>Non-delegable list</dt><dd>The set of decisions a PM declares must not be performed by the agent, regardless of autonomy level.</dd>
+      <dt>OpenTelemetry</dt><dd>The open-source observability standard for distributed tracing; the substrate most AI platforms emit agent traces against.</dd>
+      <dt>Orchestration layer</dt><dd>The software above the model that manages prompts, tool calls, memory, and multi-step workflow.</dd>
+      <dt>OWASP Top 10 for Agentic Applications</dt><dd>The OWASP Gen AI Security Project&rsquo;s December 2025 vulnerability list specifically for agentic systems; policy framework, not platform primitive.</dd>
+      <dt>Override frequency</dt><dd>The rate at which humans reject or modify agent-proposed actions; falling over time can indicate supervisory erosion, not improved agent quality.</dd>
+      <dt>Pass@K</dt><dd>The practice of running an eval K times and reporting the success distribution; the correct quality gate for non-deterministic systems.</dd>
+      <dt>PII detection</dt><dd>Identification of personally identifiable information in agent input or output; a single-step validator where classifier metrics apply.</dd>
+      <dt>Planning artifact (Category C)</dt><dd>A PM-team output tracked in a work-management system (suitability declaration, go or no-go memo, coverage statement); not a platform feature.</dd>
+      <dt>Platform primitive (Category A)</dt><dd>A first-class platform feature the PM or builder consumes directly.</dd>
+      <dt>Platform emits, PM composes</dt><dd>The working contract for the six observation instruments: the platform provides events; the PM&rsquo;s team composes the metrics.</dd>
+      <dt>Policy requirement (Category D)</dt><dd>An organizational standard the platform must support but does not itself define (GDPR compliance, retention policies, kill-switch obligations).</dd>
+      <dt>Precision</dt><dd>The proportion of agent outputs classified as positive that are truly positive; a single-step classifier metric.</dd>
+      <dt>Project Glasswing</dt><dd>Anthropic&rsquo;s 2026 controlled-deployment consortium for the Claude Mythos Preview model, restricted to defensive security work; example of frontier model capability outpacing public release.</dd>
+      <dt>Prompt injection</dt><dd>An adversarial input that attempts to override the agent&rsquo;s instructions through crafted text in the user prompt, tool output, or retrieved content.</dd>
+      <dt>RAG poisoning</dt><dd>An adversarial pattern that corrupts the retrieval corpus an agent reads from; ninety-percent attack success at five malicious texts in a base of millions (PoisonedRAG, USENIX Security 2025).</dd>
+      <dt>Real-time observability</dt><dd>Observation that fires upstream of irreversible action; required for actions whose consequence timescale is shorter than alert-and-respond cycles.</dd>
+      <dt>Reasoning trace</dt><dd>The model&rsquo;s self-narration of its chain of thought; distinct from action trace and treated as commentary rather than evidence.</dd>
+      <dt>Recall</dt><dd>The proportion of truly positive cases the agent correctly classifies as positive; a single-step classifier metric. Equivalent to sensitivity.</dd>
+      <dt>Recovery workflow</dt><dd>The typed declaration of how an agent recovers from an error: compensating action, rollback, or explicit non-recovery.</dd>
+      <dt>Reference dataset</dt><dd>The immutable, versioned collection of test cases against which an agent&rsquo;s evals are run; carries source-document lineage.</dd>
+      <dt>Refusal detection</dt><dd>A classifier that identifies when an agent has correctly declined to answer; a single-step validator where classifier metrics apply.</dd>
+      <dt>Retrieval-augmented generation (RAG)</dt><dd>A pattern where the system retrieves relevant text at query time and provides it to the model as context; base platform dependency, not a sufficiency proof.</dd>
+      <dt>Retirement workflow</dt><dd>The lifecycle primitive that decommissions an agent while preserving its audit trail and blocking new invocations.</dd>
+      <dt>Rollback time</dt><dd>The time from detecting an incorrect agent action to restoring the last known good state; measured as a distribution.</dd>
+      <dt>Router</dt><dd>A single agent step that selects which tool to invoke; a common single-step validator where classifier metrics apply.</dd>
+      <dt>Scheduled autonomy</dt><dd>Movement up the autonomy ladder triggered by a count or a calendar date rather than demonstrated competence; the pattern in the Utah Doctronic case.</dd>
+      <dt>Semantic validation</dt><dd>Verification that the agent&rsquo;s output matches what the rubric expects; complementary to state validation.</dd>
+      <dt>Sensitivity</dt><dd>Same as recall; the proportion of truly positive cases correctly identified. A single-step classifier metric.</dd>
+      <dt>Sequential Tool Attack Chaining (STAC)</dt><dd>An adversarial pattern that chains legitimate-looking tool calls toward an unauthorized outcome; over ninety-percent attack success on GPT-4.1 across four hundred and eighty-three test scenarios (AWS / UC Berkeley, 2025).</dd>
+      <dt>Shadow workflow</dt><dd>A parallel manual process maintained by users alongside the agent, indicating distrust; the canonical sign of a failing Channel 2.</dd>
+      <dt>Silent degradation</dt><dd>Gradual erosion of agent performance without a triggering incident; the failure mode continuous monitoring and periodic checkpoints catch differently.</dd>
+      <dt>Skill decay</dt><dd>The erosion of cognitive and strategic skills in people when agents take over tasks; invisible to the performer, visible in downstream handoffs.</dd>
+      <dt>Specificity</dt><dd>The proportion of truly negative cases correctly identified; a single-step classifier metric.</dd>
+      <dt>State validation</dt><dd>Verification that an agent&rsquo;s claimed action produced a corresponding state change in the target system; complementary to semantic validation.</dd>
+      <dt>Suggestion engine</dt><dd>A declared agent system type: surfaces options and waits; the human always decides and acts.</dd>
+      <dt>Suitability assessment</dt><dd>A pre-build gate determining whether a problem is appropriate for an agent: bounded objective, tolerable error, clear success signal, delegatable authority, recoverable consequences, measurable outcome.</dd>
+      <dt>Supervision paradox</dt><dd>The structural condition that the deployment that requires human supervision is the same mechanism that erodes the supervisor&rsquo;s ability to perform it; framework anchored on Bainbridge 1983 and the recent empirical literature.</dd>
+      <dt>Supervisory system</dt><dd>The second product shipped with every agent: the tools, metrics, and interventions the human uses to supervise agent behavior.</dd>
+      <dt>System type</dt><dd>The declared category of an agent (suggestion engine, copilot, autonomous actor) that determines UI affordances and user expectations.</dd>
+      <dt>Task success rate</dt><dd>The proportion of agent tasks that completed the user&rsquo;s intended outcome, distinct from task completion rate.</dd>
+      <dt>Tolerable error</dt><dd>The explicit declaration of which categories and magnitudes of agent error are acceptable before a problem is suitable for agent automation.</dd>
+      <dt>Tool boundary</dt><dd>The enumerated, logged set of systems an agent can access; the most concrete expression of the agent&rsquo;s authority.</dd>
+      <dt>Tool call accuracy</dt><dd>Whether the agent invoked the correct tool with correct parameters; a single-step validator where classifier metrics apply.</dd>
+      <dt>Tool privilege escalation</dt><dd>An adversarial pattern that uses an agent&rsquo;s authorized tool calls to gain unauthorized access; present in ninety-five percent of audited production deployments (2025).</dd>
+      <dt>Trajectory</dt><dd>The full sequence of reasoning steps, tool calls, and observations an agent produces for one task.</dd>
+      <dt>Trajectory evaluation</dt><dd>Eval of the full multi-step agent path end to end, scored by match against a reference trajectory (exact, in-order, unordered, or superset) or by judge against criteria.</dd>
+      <dt>Trust boundary</dt><dd>The demarcation between inputs and tools an agent may act on autonomously versus those requiring explicit authorization.</dd>
+      <dt>Two-channel agentic design</dt><dd>The design discipline of treating Channel 1 (the agent) and Channel 2 (the supervisory system) as two products shipped together, not one product with a training plan.</dd>
+      <dt>Unintended action rate</dt><dd>The frequency at which an agent takes actions outside its declared autonomy boundary.</dd>
+      <dt>Upstream-data-wrong</dt><dd>A hallucination category where the model faithfully reproduces output from complete but operationally wrong input; undetectable at the model layer.</dd>
+      <dt>When-wrong spec</dt><dd>A PM artifact specifying how the system must behave when it is wrong, not only when it is right; operationalized into the four-question pre-launch review with named owners.</dd>
+    </dl>
+    </div>
+
+    <nav class="chapter-nav">
+      <a class="prev" href="appendix-a-platform.html">Appendix A. Platform Taxonomy</a>
+      <a class="next" href="references.html">References</a>
+    </nav>
+
+  </article>
+  </main>
+</div>
+
+</body>
+</html>

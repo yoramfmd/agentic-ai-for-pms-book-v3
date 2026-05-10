@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Appendix A. What Your Platform Should Give You vs. What You Produce Yourself &mdash; Agentic AI for Busy Product Managers</title>
+<meta name="description" content="The five-category platform taxonomy for reading vendor pages correctly. What's commodity, what you compose, what your team produces as planning artifacts, what your organization enforces as policy, and what the industry doesn't yet ship.">
+<link rel="canonical" href="https://agenticaiproductmanagement.com/appendix-a-platform/">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="book">
+
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <a href="index.html">Agentic AI for Busy Product Managers</a>
+      <div class="sidebar-brand-sub">Designing the Agent and the Supervisor</div>
+    </div>
+
+    <div class="sidebar-section">Front matter</div>
+    <ul class="sidebar-list">
+      <li><a href="ch00-preface.html">Preface</a></li>
+    </ul>
+
+    <div class="sidebar-section">Chapters</div>
+    <ul class="sidebar-list">
+      <li><a href="ch01-ai-literacy.html">1. What You Need to Know</a></li>
+      <li><a href="ch02-not-a-bridge.html">2. You Are Not a Bridge Anymore</a></li>
+      <li><a href="ch03-not-every-problem.html">3. Not Every Problem Deserves an Agent</a></li>
+      <li><a href="ch04-design-behavior.html">4. Now Design the Behavior</a></li>
+      <li><a href="ch05-evals.html">5. AI Evals</a></li>
+      <li><a href="ch06-observation.html">6. You Can&rsquo;t Measure What You Didn&rsquo;t Design</a></li>
+      <li><a href="ch07-change-management.html">7. Change Management</a></li>
+      <li><a href="ch08-silent-degradation.html">8. Silent Degradation</a></li>
+      <li><a href="ch09-frameworks-to-boundaries.html">9. From Frameworks to Boundaries</a></li>
+      <li><a href="ch10-people-never-seen.html">10. People Your Agent Will Never See</a></li>
+      <li><a href="ch11-field-manual.html">11. Operating the Loop</a></li>
+    </ul>
+
+    <div class="sidebar-section">Reference</div>
+    <ul class="sidebar-list">
+      <li><a href="appendix-a-platform.html" class="active">Appendix A. Platform Taxonomy</a></li>
+      <li><a href="appendix-b-glossary.html">Appendix B. Glossary</a></li>
+      <li><a href="references.html">References</a></li>
+    </ul>
+  </aside>
+
+  <main class="main">
+  <article class="chapter">
+
+    <p class="chapter-meta">Appendix A &middot; Reference</p>
+    <h1>What Your Platform Should Give You vs. What You Produce Yourself</h1>
+
+    <p>The capabilities this book asks you to own, the suitability assessment, the approval moment, the six instruments, the supervisory channel, the interruption budget, the retirement workflow, do not arrive on your desk in a single product. They are distributed across what your platform ships, what your engineering team composes from platform events, what your PM team produces as planning artifacts, what your organization enforces as policy, and what the industry does not ship at all and you have to build around.</p>
+
+    <p>A PM who cannot read the distinction will either overestimate the platform, miss obligations they own, and ship an agent with governance holes; or underestimate the platform, rebuild capabilities that already exist, and lose months. Both failures are common. Both are avoidable.</p>
+
+    <p>This appendix gives you the taxonomy to read a vendor page correctly and a short map of where each capability in the book sits in May 2026.</p>
+
+    <hr class="soft">
+
+    <h2>The Five Categories</h2>
+
+    <p><strong>A. Platform primitive.</strong> A first-class feature the platform exposes that you consume directly. Examples in current platforms: typed approval and interruption primitive with pause and resume, agent tracing via OpenTelemetry, LLM-as-a-judge evaluator libraries, typed tool authorization routing, versioned reference datasets.</p>
+
+    <p><strong>B. Derived KPI.</strong> A metric you compute on top of events the platform captures in its observability and monitoring layer. Example: override frequency is a count of approval-interrupt events per unit time, divided by total approvals. The platform emits the events; the metric is your composition. Almost every metric in Chapter 6 lives here.</p>
+
+    <p><strong>C. Release criterion or planning artifact.</strong> Something your PM team produces during planning and tracks in a work-management system. It is not a platform feature. Examples: agent candidacy checklist, go or no-go memo, suitability declaration, four-owner pre-launch readiness memo, coverage statement.</p>
+
+    <p><strong>D. Policy or governance requirement.</strong> An organizational standard the platform must support but does not itself define. Examples: GDPR right-of-access compliance, kill-switch obligations, retention and right-to-delete policies, authority delegation policies, graceful failure definitions.</p>
+
+    <p><strong>E. Base platform dependency.</strong> A capability that is not agent-specific but is required. Examples: access control and identity, general logging, secret management, PII handling and data masking, rate limiting, tenant isolation. Vendors frequently repackage these as AI capabilities; they are platform hygiene.</p>
+
+    <hr class="soft">
+
+    <h2>What You Get for Free Today (the Commodity Line)</h2>
+
+    <p>The following capabilities are Category A and are available on every serious platform you will consider in 2026. Do not build them yourself.</p>
+
+    <p>Agent tracing and observability via OpenTelemetry. Every major platform either emits, accepts, or standardizes on OpenTelemetry span capture. If your platform claims &ldquo;AI observability&rdquo; as a differentiator, ask which events it emits that a base OpenTelemetry implementation does not. The answer is usually nothing.</p>
+
+    <p>LLM-as-a-judge evaluators. Trajectory match, tool call accuracy, groundedness, intent resolution. Available on every evaluation platform and most enterprise AI platforms. The methodology is commoditized. The bias literature on judge models (longer-answer, position, same-family preferences) is also commoditized; the calibration to your domain is your work.</p>
+
+    <p>Typed approval and interruption primitive with pause and resume. Every major agent SDK converges on the same pattern: typed interruption object, durable run state, explicit approve or reject resume. If your agent SDK does not expose this, you are on the wrong SDK.</p>
+
+    <p>Agent identity bound to enterprise IAM. Entra Agent ID, Vertex IAM agent identities, AgentCore Identity, SAP Cloud Identity, Salesforce attribute-based policy all treat the agent as a first-class security principal. This is Category E hygiene relabeled, but it is available.</p>
+
+    <p>Per-trace token cost tracking. Several observability platforms ship this natively.</p>
+
+    <p>Versioned reference datasets with lineage.</p>
+
+    <p>Model version pinning (date-stamped model versions from frontier providers) and model retirement notifications on managed-model platforms.</p>
+
+    <p>Trajectory match evaluation at exact-match, in-order-match, any-order-match, and superset-match granularity.</p>
+
+    <hr class="soft">
+
+    <h2>What You Compose Yourself (the Derivation Line)</h2>
+
+    <p>The six instruments from Chapter 6 are composed, not bought. Task success rate, unintended action rate, override frequency, confidence calibration, rollback time, incident recovery time: derivable from the trace data on every platform, named as primitives on almost none. A small number of evaluation-specialist platforms ship a subset (for example, Action Completion and Agent Efficiency), and they are still a subset.</p>
+
+    <p>Pass@K with K and variance reporting is not a named metric on any major platform. It is computable from repeated eval runs. Compound probability across chained steps is not shipped anywhere. It is computable from per-step confidence scores if the platform emits them.</p>
+
+    <p>Per-task cost at the trajectory level, including multi-agent coordination overhead and human review and rework time, is not shipped as a named metric. It is derivable from token and span events plus integration with human workflow systems.</p>
+
+    <p>Time-to-intervene, response rate per interruption priority, review depth, and most supervisory engagement metrics sit in the same place: trace data exists, named metrics do not, composition is your team&rsquo;s job.</p>
+
+    <hr class="soft">
+
+    <h2>What Your Team Produces (the Planning Line)</h2>
+
+    <p>These are not platform features. Any vendor marketing them as primitives is mismarketing. These belong in your work-management system, not on your platform dashboard.</p>
+
+    <p>The suitability assessment record and the go or no-go decision memo. The coverage statement for the eval suite. The four-owner pre-launch readiness memo (engineering rollback time, CFO per-task cost, legal audit surface, product approval moment). Per-action consequence classification when produced as a design artifact. The retirement decision memo. The supervisory workflow composition document. The non-delegable list and the criteria that put a decision on it.</p>
+
+    <p>These are the artifacts the book&rsquo;s frameworks produce. They live in JIRA or an equivalent. The platform may help generate evidence for them; the artifacts themselves are your team&rsquo;s output.</p>
+
+    <hr class="soft">
+
+    <h2>What Your Organization Enforces (the Policy Line)</h2>
+
+    <p>These are obligations the platform must support but does not itself define. Your compliance, legal, and governance functions author them. The platform provides the mechanism.</p>
+
+    <p>GDPR right-of-access for agent decisions affecting named individuals. Source-document supersession and data freshness policies. Authority delegation and approval chain policies. Kill-switch obligations. AI governance and bias mitigation policies. Retention and right-to-delete policies for agent reasoning traces.</p>
+
+    <p>Security frameworks belong on the policy line. The OWASP Top 10 for Agentic Applications (December 2025) and MAESTRO (Cloud Security Alliance, February 2025) are policy frameworks the platform must support. The platform may ship some primitive features that align with them (input trust classification, tool restriction by source). The policy is your organization&rsquo;s.</p>
+
+    <p>A vendor that claims to &ldquo;deliver compliance&rdquo; is selling a mechanism. The compliance obligation remains yours.</p>
+
+    <hr class="soft">
+
+    <h2>What the Industry Does Not Ship Yet (the Gap Line)</h2>
+
+    <p>The following capabilities are named in this book as PM responsibilities and are consistently absent across every major platform surveyed in May 2026. You will have to demand them from your vendor, build them yourself, or work around them. They are where the book is ahead of the field and where your education should concentrate.</p>
+
+    <p>Interruption budget router with a priority taxonomy. Every platform ships an interruption mechanism; none ships an economics layer that caps how many approval events a supervisor receives per hour, classifies them by priority, and routes them accordingly.</p>
+
+    <p>Context sufficiency validator as a typed pre-build gate. Retrieval is universal; semantic sufficiency validation that asserts the relational and governance context before the agent acts is not.</p>
+
+    <p>Source-document supersession detection triggering re-validation. EU AI Act Article 10 requires training-data provenance. No major platform ships supersession detection that fires re-validation when an underlying source changes.</p>
+
+    <p>Background failure detection. A primitive that correlates semantic success with state change in the target system, so the agent cannot mark work complete that never happened, is not shipped as a named feature anywhere.</p>
+
+    <p>Shadow workflow prevalence measurement. Detecting users running parallel manual processes alongside the agent requires correlating agent usage with system-of-record activity. No observability vendor integrates the two.</p>
+
+    <p>Retirement workflow that simultaneously preserves audit trail, blocks new invocations, and routes orphan approval events. Components exist via IAM deprovisioning and audit retention. The composite is not shipped.</p>
+
+    <p>Affected-person audit view. A person-centric query surface over agent decisions for right-of-access and supervisory operations. Enterprise audit trail products approximate it; none is agent-native.</p>
+
+    <p>Real-time kill-switch upstream of action execution. Most platforms ship monitoring and alerting downstream of the action, not architectural intervention upstream of it. The PocketOS case in Chapter 4 closed in nine seconds, faster than any alert-and-respond cycle is designed to operate. The kill-switch primitive that prevents irreversible actions in the first place is not a commodity feature.</p>
+
+    <p>Agentic-specific runtime sandboxing for tool calls. Generic sandboxing exists at the operating-system level. Agent-specific sandboxing that scopes tool calls by trust label of the input that triggered them is not yet shipped.</p>
+
+    <p>Behavioral-grader calibration to human reference. LLM-as-a-judge is shipped. Calibration of the judge against a held-out human-labeled reference, with documented false-pass rate, is not shipped as a managed feature on any major platform.</p>
+
+    <hr class="soft">
+
+    <h2>A Note on Terminology</h2>
+
+    <p>Cloud and enterprise AI platforms do not name the product manager consistently. The dominant terms are &ldquo;developer,&rdquo; &ldquo;AI engineer,&rdquo; and &ldquo;builder.&rdquo; A small number of evaluation-specialist platforms name the PM explicitly. Low-code enterprise platforms use &ldquo;admin&rdquo; or &ldquo;citizen developer.&rdquo;</p>
+
+    <p>This matters because platforms optimize for their named persona. A platform that markets to builders will expose builder-level affordances: SDKs, configuration, event streams. It will not expose PM-level affordances: suitability declaration objects, four-owner readiness artifacts, supervisory workflow composers. You will be asked to either adopt the builder role or work with the platform at PM granularity through a combination of platform events and your own composition.</p>
+
+    <p>Part of the PM job in an agentic product team is recognizing when your platform has placed you below the level at which you need to be working, and responding with the right mix of demanding features from the vendor, composing capabilities from platform events, and producing artifacts in your work-management system.</p>
+
+    <hr class="soft">
+
+    <h2>A Practical Decision Tree for Reading a Vendor Page</h2>
+
+    <p>Before building or buying anything, ask four questions against the vendor&rsquo;s claim.</p>
+
+    <p>First, is this a typed object or an event stream with a marketing name? A typed object has a schema you can validate against. An event stream is raw telemetry. If the vendor cannot show the schema, it is probably an event stream.</p>
+
+    <p>Second, does the claim describe the capability on the agent side (Category A) or on the supervisor side (Category A only if the supervisory UI is first-class)? Many vendors claim &ldquo;agent governance&rdquo; that turns out to be audit logging on the agent side with no supervisory interface.</p>
+
+    <p>Third, is the capability agent-specific or is it Category E hygiene renamed? IAM for agents is IAM. Tenant isolation for agents is tenant isolation. Observability for agents that emits OpenTelemetry spans is OpenTelemetry.</p>
+
+    <p>Fourth, if the capability is a named metric, ask how it is computed. LLM-as-a-judge on raw trace data is not the same as ground-truth accuracy against a reference. Drift detection on distribution shift is not the same as behavioral regression. Vendors collapse these intentionally in marketing; pull them apart in technical review.</p>
+
+    <p>Apply these four questions and the categories A through E to every vendor claim. You will buy less, build less, and protect what remains for the capabilities the book names as your actual responsibility.</p>
+
+    <nav class="chapter-nav">
+      <a class="prev" href="ch11-field-manual.html">Operating the Loop</a>
+      <a class="next" href="appendix-b-glossary.html">Appendix B. Glossary</a>
+    </nav>
+
+  </article>
+  </main>
+</div>
+
+</body>
+</html>

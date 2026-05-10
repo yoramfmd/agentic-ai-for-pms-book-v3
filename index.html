@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agentic AI for Busy Product Managers &mdash; Designing the Agent and the Supervisor</title>
+<meta name="description" content="A practitioner's guide for product managers building AI products in regulated, high-consequence enterprise domains. Eleven chapters and two appendices on what changes when the software starts acting.">
+<link rel="canonical" href="https://agenticaiproductmanagement.com/">
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* Landing-page-specific styles, layered on top of styles.css */
+  body { font-family: var(--serif); }
+  .landing { max-width: 880px; margin: 0 auto; padding: var(--space-8) var(--space-6); }
+  .landing-hero { padding: var(--space-7) 0 var(--space-6); border-bottom: 1px solid var(--rule); margin-bottom: var(--space-7); }
+  .landing-eyebrow { font-family: var(--sans); font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: var(--space-3); }
+  .landing-title { font-family: var(--serif); font-size: 44px; font-weight: 700; line-height: 1.1; color: var(--ink); margin-bottom: var(--space-3); }
+  .landing-subtitle { font-family: var(--serif); font-size: 22px; font-weight: 400; line-height: 1.3; color: var(--ink-soft); margin-bottom: var(--space-5); font-style: italic; }
+  .landing-byline { font-family: var(--sans); font-size: 14px; color: var(--ink-muted); }
+  .landing-byline a { color: var(--blue-deep); text-decoration: none; }
+  .landing-byline a:hover { text-decoration: underline; }
+  .landing-section { margin-bottom: var(--space-7); }
+  .landing-section h2 { font-family: var(--serif); font-size: 24px; font-weight: 600; margin-bottom: var(--space-4); color: var(--ink); border: none; padding: 0; }
+  .landing-section p { font-size: 18px; line-height: 1.65; color: var(--ink); margin-bottom: var(--space-4); }
+  .landing-evidence { background: var(--tint-warm); border-radius: var(--radius-lg); border-left: 3px solid var(--ink); padding: var(--space-5) var(--space-6); margin: var(--space-6) 0; }
+  .landing-evidence p { font-size: 17px; line-height: 1.6; margin-bottom: var(--space-3); color: var(--ink); }
+  .landing-evidence p:last-child { margin-bottom: 0; }
+  .landing-evidence em { color: var(--ink-soft); }
+  .toc-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-3) var(--space-5); margin: var(--space-5) 0; }
+  .toc-card { padding: var(--space-3) var(--space-4); border: 0.5px solid var(--rule); border-radius: var(--radius-md); background: var(--bg); }
+  .toc-card a { color: var(--ink); text-decoration: none; display: block; }
+  .toc-card a:hover { color: var(--blue-deep); }
+  .toc-num { font-family: var(--sans); font-size: 11px; font-weight: 500; color: var(--ink-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 2px; }
+  .toc-title { font-family: var(--serif); font-size: 17px; font-weight: 500; line-height: 1.3; }
+  .cta-row { display: flex; gap: var(--space-3); flex-wrap: wrap; margin: var(--space-6) 0; }
+  .cta-btn { padding: var(--space-3) var(--space-5); font-family: var(--sans); font-size: 14px; font-weight: 500; border-radius: var(--radius-md); text-decoration: none; transition: all 0.15s; border: 1px solid var(--ink); }
+  .cta-primary { background: var(--ink); color: var(--bg); }
+  .cta-primary:hover { background: var(--ink-soft); }
+  .cta-secondary { background: transparent; color: var(--ink); }
+  .cta-secondary:hover { background: var(--tint-warm); }
+  /* lifecycle six-phases diagram */
+  .lifecycle { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: var(--space-5) 0 var(--space-3); font-family: var(--sans); }
+  .lifecycle-phase { display: flex; flex-direction: column; gap: 6px; padding: 16px 14px; background: #ffffff; border: 0.5px solid var(--rule); border-bottom-width: 3px; border-radius: 8px; text-decoration: none; color: inherit; transition: transform 0.15s, box-shadow 0.15s; }
+  .lifecycle-phase:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
+  .lifecycle-phase.phase-0 { border-bottom-color: #6c757d; }
+  .lifecycle-phase.phase-1 { border-bottom-color: #378ADD; }
+  .lifecycle-phase.phase-2 { border-bottom-color: #7950f2; }
+  .lifecycle-phase.phase-3 { border-bottom-color: #dc2626; }
+  .lifecycle-phase.phase-4 { border-bottom-color: #0c8599; }
+  .lifecycle-phase.phase-5 { border-bottom-color: #e67700; }
+  .lifecycle-num { width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; margin: 0 auto 4px; background: #f1f3f5; color: #495057; }
+  .phase-1 .lifecycle-num { background: #E6F1FB; color: #185FA5; }
+  .phase-2 .lifecycle-num { background: #f3f0ff; color: #6741d9; }
+  .phase-3 .lifecycle-num { background: #FCEBEB; color: #A32D2D; }
+  .phase-4 .lifecycle-num { background: #e3fafc; color: #0b7285; }
+  .phase-5 .lifecycle-num { background: #fff4e6; color: #e67700; }
+  .lifecycle-name { font-size: 14px; font-weight: 600; color: var(--ink); text-align: center; letter-spacing: 0.01em; line-height: 1.3; margin: 0; }
+  .lifecycle-desc { font-size: 12px; color: var(--ink-soft); text-align: center; line-height: 1.5; margin: 0; }
+  .lifecycle-phase hr { border: none; border-top: 0.5px solid var(--rule); margin: 6px 0; }
+  .lifecycle-q-label { font-size: 9px; font-weight: 600; color: var(--ink-muted); text-align: center; letter-spacing: 0.06em; text-transform: uppercase; margin: 0; }
+  .lifecycle-q { font-size: 12px; color: var(--ink-muted); text-align: center; font-style: italic; line-height: 1.45; margin: 0; }
+  .lifecycle-footer-note { font-size: 12px; color: var(--ink-muted); font-style: italic; text-align: center; margin-top: var(--space-3); }
+  @media (max-width: 720px) {
+    .lifecycle { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 480px) {
+    .lifecycle { grid-template-columns: 1fr; }
+  }
+  .landing-footer { margin-top: var(--space-8); padding-top: var(--space-5); border-top: 1px solid var(--rule); font-family: var(--sans); font-size: 13px; color: var(--ink-muted); }
+  .landing-footer a { color: var(--blue-deep); text-decoration: none; }
+  .landing-footer a:hover { text-decoration: underline; }
+  @media (max-width: 720px) {
+    .toc-grid { grid-template-columns: 1fr; }
+    .landing-title { font-size: 32px; }
+    .landing-subtitle { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="landing">
+
+  <header class="landing-hero">
+    <p class="landing-eyebrow">v3.0 &middot; May 2026</p>
+    <h1 class="landing-title">Agentic AI for Busy Product Managers</h1>
+    <p class="landing-subtitle">Designing the agent and the supervisor.</p>
+    <p class="landing-byline">By <a href="https://www.linkedin.com/in/yoramf/">Yoram Friedman, MD</a>. Physician and senior product leader. Articles at <a href="https://data-decisions-and-clinics.com">data-decisions-and-clinics.com</a>.</p>
+  </header>
+
+  <section class="landing-section">
+    <p>A coding agent deleted a production database in nine seconds. A procurement agent confirmed three hundred and forty transactions that never happened. A clinical decision support system ran for six to eight years at half its advertised accuracy before anyone audited it.</p>
+    <p>Each of these is the same failure mode, in different industries, on different timescales.</p>
+    <p>This book is the field manual for designing agentic products that survive the day the failure mode arrives.</p>
+
+    <div class="cta-row">
+      <a class="cta-btn cta-primary" href="ch00-preface.html">Read the book &rarr;</a>
+      <a class="cta-btn cta-secondary" href="ch11-field-manual.html">Field manual</a>
+      <a class="cta-btn cta-secondary" href="ch03-not-every-problem.html#try-the-cost-model-yourself">Cost calculator</a>
+    </div>
+  </section>
+
+  <section class="landing-section">
+    <h2>What this book argues</h2>
+
+    <p>Most teams shipping agentic AI design half a product. They build the agent, the autonomy boundary, the tool integrations, the runtime workflow, and treat the human side as a rollout problem. This book is for the product managers who understand that the supervisor is the second product, and that designing it is the work that separates pilots that scale from pilots that quietly get rolled back.</p>
+
+    <p>Three ideas run through every chapter. AI is probabilistic, not deterministic, and that changes the PM toolkit at first principles. You are designing two products at once, the agent and the human system that supervises it. And the supervisor is not a fixed input. The supervisor population is being reshaped by the same deployment that depends on it.</p>
+
+    <div class="landing-evidence">
+      <p><em>The regulatory and design default for AI is &ldquo;keep a human in the loop.&rdquo; Sustained AI use erodes the human&rsquo;s ability to perform that loop&rsquo;s function, in software engineering, in customer service, in clinical medicine, in every field where the supervisor&rsquo;s competence depends on practice.</em></p>
+      <p>The book is for the product manager who needs to design supervision that does not assume the supervisor is the unimpaired version of themselves they were on day one.</p>
+    </div>
+  </section>
+
+  <section class="landing-section">
+    <h2>The lifecycle at a glance</h2>
+    <p>Phase 0 is a permanent state of the organization, not a project stage.</p>
+
+    <div class="lifecycle">
+      <a href="ch01-ai-literacy.html" class="lifecycle-phase phase-0">
+        <div class="lifecycle-num">0</div>
+        <p class="lifecycle-name">AI Literacy</p>
+        <p class="lifecycle-desc">A state of the organization, not a project stage.</p>
+        <hr>
+        <p class="lifecycle-q-label">Key question</p>
+        <p class="lifecycle-q">Does this PM understand what an agent is and is not?</p>
+      </a>
+      <a href="ch03-not-every-problem.html" class="lifecycle-phase phase-1">
+        <div class="lifecycle-num">1</div>
+        <p class="lifecycle-name">Discover &amp; Decide</p>
+        <p class="lifecycle-desc">Decide whether an agent is the right solution. Most failures prevented here.</p>
+        <hr>
+        <p class="lifecycle-q-label">Key question</p>
+        <p class="lifecycle-q">Should we actually build this?</p>
+      </a>
+      <a href="ch04-design-behavior.html" class="lifecycle-phase phase-2">
+        <div class="lifecycle-num">2</div>
+        <p class="lifecycle-name">Design</p>
+        <p class="lifecycle-desc">Design the agent and the supervisory system. Runtime behavior engineered deliberately.</p>
+        <hr>
+        <p class="lifecycle-q-label">Key question</p>
+        <p class="lifecycle-q">What can the agent do unilaterally?</p>
+      </a>
+      <a href="ch05-evals.html" class="lifecycle-phase phase-3">
+        <div class="lifecycle-num">3</div>
+        <p class="lifecycle-name">Evaluate</p>
+        <p class="lifecycle-desc">Prove readiness through evidence. Replaces the pass/fail gate with distribution.</p>
+        <hr>
+        <p class="lifecycle-q-label">Key question</p>
+        <p class="lifecycle-q">What is the P10 pass rate across K runs?</p>
+      </a>
+      <a href="ch06-observation.html" class="lifecycle-phase phase-4">
+        <div class="lifecycle-num">4</div>
+        <p class="lifecycle-name">Observe</p>
+        <p class="lifecycle-desc">Measure what the agent actually does. Continuous front end of Operate.</p>
+        <hr>
+        <p class="lifecycle-q-label">Key question</p>
+        <p class="lifecycle-q">Did the agent stay within its boundary?</p>
+      </a>
+      <a href="ch08-silent-degradation.html" class="lifecycle-phase phase-5">
+        <div class="lifecycle-num">5</div>
+        <p class="lifecycle-name">Operate &amp; Retire</p>
+        <p class="lifecycle-desc">Act on what Observe shows. Drift detection, governance, retirement criteria.</p>
+        <hr>
+        <p class="lifecycle-q-label">Key question</p>
+        <p class="lifecycle-q">Is the agent still doing what we authorized?</p>
+      </a>
+    </div>
+    <p class="lifecycle-footer-note">Phases 4 and 5 form a continuous feedback loop. Observe is the measurement layer; Operate is the response layer.</p>
+  </section>
+
+  <section class="landing-section">
+    <h2>The chapters</h2>
+
+    <div class="toc-grid">
+      <div class="toc-card"><a href="ch00-preface.html"><div class="toc-num">Front matter</div><div class="toc-title">Preface</div></a></div>
+      <div class="toc-card"><a href="ch01-ai-literacy.html"><div class="toc-num">Chapter 1</div><div class="toc-title">What You Need to Know About AI Before You Design Anything</div></a></div>
+      <div class="toc-card"><a href="ch02-not-a-bridge.html"><div class="toc-num">Chapter 2</div><div class="toc-title">You Are Not a Bridge Anymore</div></a></div>
+      <div class="toc-card"><a href="ch03-not-every-problem.html"><div class="toc-num">Chapter 3</div><div class="toc-title">Not Every Problem Deserves an Agent</div></a></div>
+      <div class="toc-card"><a href="ch04-design-behavior.html"><div class="toc-num">Chapter 4</div><div class="toc-title">You Built the Agent. Now Design the Behavior.</div></a></div>
+      <div class="toc-card"><a href="ch05-evals.html"><div class="toc-num">Chapter 5</div><div class="toc-title">AI Evals: What the Checkmarks Actually Prove</div></a></div>
+      <div class="toc-card"><a href="ch06-observation.html"><div class="toc-num">Chapter 6</div><div class="toc-title">You Can&rsquo;t Measure What You Didn&rsquo;t Design</div></a></div>
+      <div class="toc-card"><a href="ch07-change-management.html"><div class="toc-num">Chapter 7</div><div class="toc-title">Change Management for Agentic AI</div></a></div>
+      <div class="toc-card"><a href="ch08-silent-degradation.html"><div class="toc-num">Chapter 8</div><div class="toc-title">Silent Degradation</div></a></div>
+      <div class="toc-card"><a href="ch09-frameworks-to-boundaries.html"><div class="toc-num">Chapter 9</div><div class="toc-title">From Frameworks to Boundaries</div></a></div>
+      <div class="toc-card"><a href="ch10-people-never-seen.html"><div class="toc-num">Chapter 10</div><div class="toc-title">What You Owe the People Your Agent Will Never See</div></a></div>
+      <div class="toc-card"><a href="ch11-field-manual.html"><div class="toc-num">Chapter 11</div><div class="toc-title">Operating the Loop, A Field Manual</div></a></div>
+    </div>
+  </section>
+
+  <section class="landing-section">
+    <h2>About the author</h2>
+
+    <p>Yoram Friedman is a physician and senior product leader who has spent fifteen years building enterprise data and AI platforms at SAP, Walmart, and Hello Heart. He trained as a physician (anesthesiology and radiology, Israel) and writes about healthcare AI, agentic systems, and what it actually takes for AI to move from pilots to production in regulated environments.</p>
+  </section>
+
+  <footer class="landing-footer">
+    <p>Articles: <a href="https://data-decisions-and-clinics.com">data-decisions-and-clinics.com</a> &middot; LinkedIn: <a href="https://www.linkedin.com/in/yoramf/">linkedin.com/in/yoramf</a> &middot; Author: <a href="https://yoramfriedman.com">yoramfriedman.com</a></p>
+    <p>&copy; 2026 Yoram Friedman. All rights reserved.</p>
+  </footer>
+
+</div>
+
+</body>
+</html>

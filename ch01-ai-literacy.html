@@ -26,7 +26,21 @@
 
     <div class="sidebar-section">Chapters</div>
     <ul class="sidebar-list">
-      <li><a href="ch01-ai-literacy.html" class="active">1. What You Need to Know</a></li>
+      <li><a href="ch01-ai-literacy.html" class="active">1. What You Need to Know</a>
+      <ul class="sidebar-sub">
+        <li><a href="#from-rules-to-reasoning">From Rules to Reasoning</a></li>
+        <li><a href="#what-a-large-language-model-actually-does">What a Large Language Model Actually Does</a></li>
+        <li><a href="#from-language-model-to-agent">From Language Model to Agent</a></li>
+        <li><a href="#the-stack-models-orchestration-tools-and-context">The Stack: Models, Orchestration, Tools, and Context</a></li>
+        <li><a href="#what-the-agent-reads">What the Agent Reads</a></li>
+        <li><a href="#why-ai-and-agentic-ai-are-different-conversations">Why “AI” and “Agentic AI” Are Different Conversations</a></li>
+        <li><a href="#the-supervision-paradox">The Supervision Paradox</a></li>
+        <li><a href="#observability-literacy-for-the-pm">Observability Literacy for the PM</a></li>
+        <li><a href="#the-clinical-parallel">The Clinical Parallel</a></li>
+        <li><a href="#a-brief-note-on-using-ai-while-you-build-with-ai">A Brief Note on Using AI While You Build With AI</a></li>
+        <li><a href="#what-this-chapter-gave-you">What This Chapter Gave You</a></li>
+      </ul>
+    </li>
       <li><a href="ch02-not-a-bridge.html">2. You Are Not a Bridge Anymore</a></li>
       <li><a href="ch03-not-every-problem.html">3. Not Every Problem Deserves an Agent</a></li>
       <li><a href="ch04-design-behavior.html">4. Now Design the Behavior</a></li>
@@ -74,7 +88,9 @@
 
     <hr class="soft">
 
-    <h2>From Rules to Reasoning</h2>
+    <!-- ═══ FROM RULES TO REASONING ═══ -->
+
+    <h2 id="from-rules-to-reasoning">From Rules to Reasoning</h2>
 
     <p>For twenty years, the software you shipped followed rules. If the order exceeds ten thousand dollars, route it to a manager. If the patient&rsquo;s heart rate drops below fifty, trigger an alert. If inventory falls below the reorder point, generate a purchase order. You defined the rules. The software executed them. Deterministic, traceable, predictable.</p>
 
@@ -93,7 +109,9 @@
 
     <hr class="soft">
 
-    <h2>What a Large Language Model Actually Does</h2>
+    <!-- ═══ WHAT AN LLM ACTUALLY DOES ═══ -->
+
+    <h2 id="what-a-large-language-model-actually-does">What a Large Language Model Actually Does</h2>
 
     <p>A large language model is a neural network trained on enormous quantities of text. During training, the model learns statistical relationships between words, concepts, and patterns of reasoning. When you give it a prompt, it generates a response by predicting, token by token, what comes next based on what it has learned.</p>
 
@@ -116,9 +134,19 @@
 
     <p>One more property is worth naming now, because it will come up in Chapter 4. When an LLM is asked to show its reasoning, what it writes out is not a reliable explanation of how it arrived at the answer. Research on model explanations has shown that the written reasoning and the actual computational path can diverge, sometimes significantly. The phrase for this is chain-of-thought, and the important thing for a PM to know is that chain-of-thought is generated text, not an audit log. Treat it accordingly.<sup class="fn"><a href="#fn2">2</a></sup></p>
 
+    <h3>Classifier Metrics, Through Product Decisions</h3>
+
+    <p>One last vocabulary item belongs here, because the metrics most often cited around AI come from classifier evaluation and most of them collapse on agentic systems if you do not know what they measure. You do not need to be a statistician. You need to know what each one translates to as a product decision.</p>
+
+    <p><strong>Sensitivity</strong>, also called recall, is the proportion of real positive cases the model correctly identifies. High sensitivity catches most real cases and produces more false alarms. <strong>Specificity</strong> is the proportion of true negative cases the model correctly dismisses. High specificity produces fewer false alarms and misses more real cases. <strong>AUC</strong>, or area under the curve, is a single number summarizing how well the model separates real positives from real negatives across all possible thresholds. A perfect model has an AUC of 1.0. Random guessing gives 0.5.</p>
+
+    <p>The <strong>threshold</strong> is the point at which the model decides to act, and it is the part most often misattributed to the data science team. The threshold is a product decision. Only you know what a false positive costs your users versus what a missed case costs them. A fraud model set too aggressively blocks legitimate transactions. Set too loosely, it lets fraud through. The right threshold reflects your actual cost structure, not the threshold that maximizes a statistical metric. When your team brings you a confusion matrix, the question to bring back is: what does the false positive cost the user, and what does the missed case cost the affected person, and where on that curve are we landing? Chapter 5 covers where these single-step classifier metrics break down for multi-step agent trajectories. The Chapter 1 point is only that they are product decisions before they are statistics.</p>
+
     <hr class="soft">
 
-    <h2>From Language Model to Agent</h2>
+    <!-- ═══ FROM LANGUAGE MODEL TO AGENT ═══ -->
+
+    <h2 id="from-language-model-to-agent">From Language Model to Agent</h2>
 
     <p>A language model, by itself, is a conversational tool. You ask it a question. It answers. You ask a follow-up. It responds. The interaction is bounded by the conversation. The model does not take actions in the world. It does not change state in any system. It generates text.</p>
 
@@ -142,7 +170,9 @@
 
     <hr class="soft">
 
-    <h2>The Stack: Models, Orchestration, Tools, and Context</h2>
+    <!-- ═══ THE FOUR-LAYER STACK + DIAGRAM ═══ -->
+
+    <h2 id="the-stack-models-orchestration-tools-and-context">The Stack: Models, Orchestration, Tools, and Context</h2>
 
     <p>To have productive conversations with your engineering team, you need a working model of the technical stack. Not to build it. To ask the right questions about where risk lives.</p>
 
@@ -201,7 +231,9 @@
 
     <hr class="soft">
 
-    <h2>What the Agent Reads</h2>
+    <!-- ═══ WHAT THE AGENT READS ═══ -->
+
+    <h2 id="what-the-agent-reads">What the Agent Reads</h2>
 
     <p>The three-layer stack tells you what the agent can <em>do</em>. It does not tell you what the agent <em>knows</em>. In enterprise deployments, most agent failures do not come from bad reasoning or bad tool use. They come from bad context: incomplete data, missing semantic relationships, stale embeddings, the wrong knowledge graph, retrieval that surfaces the wrong document, or a data product that was built bottom-up and does not carry the meaning the agent needs.</p>
 
@@ -238,7 +270,9 @@
 
     <hr class="soft">
 
-    <h2>Why &ldquo;AI&rdquo; and &ldquo;Agentic AI&rdquo; Are Different Conversations</h2>
+    <!-- ═══ WHY AI AND AGENTIC AI ARE DIFFERENT ═══ -->
+
+    <h2 id="why-ai-and-agentic-ai-are-different-conversations">Why &ldquo;AI&rdquo; and &ldquo;Agentic AI&rdquo; Are Different Conversations</h2>
 
     <p>If you have been following AI developments casually, you may think of AI as a smart assistant that helps people work faster: summarize this document, draft this email, answer this question. That is AI as a tool. Useful, often impressive, and fundamentally bounded by the human who directs it.</p>
 
@@ -254,7 +288,9 @@
 
     <hr class="soft">
 
-    <h2>The Supervision Paradox</h2>
+    <!-- ═══ THE SUPERVISION PARADOX (NEW IN v3.0) ═══ -->
+
+    <h2 id="the-supervision-paradox">The Supervision Paradox</h2>
 
     <p>The fifth idea I named at the start of this chapter is the one most likely to catch you off guard, because the literature for it is recent and the language is not yet standardized. The premise is simple. Every AI deployment that requires a human supervisor depends on the supervisor remaining competent enough to perform the supervisory function. Every AI deployment that gets used at high frequency erodes the supervisor&rsquo;s competence to perform that function. The framework that governs the deployment, the regulatory framework, the design-pattern framework, the operating procedure, assumes the first condition holds. The deployment itself violates it.</p>
 
@@ -318,7 +354,9 @@
 
     <hr class="soft">
 
-    <h2>Observability Literacy for the PM</h2>
+    <!-- ═══ OBSERVABILITY LITERACY (NEW IN v3.0) ═══ -->
+
+    <h2 id="observability-literacy-for-the-pm">Observability Literacy for the PM</h2>
 
     <p>One more piece of vocabulary before this chapter closes, because Chapter 6 will treat it at length and it pays to introduce the words now.</p>
 
@@ -338,7 +376,9 @@
 
     <hr class="soft">
 
-    <h2>The Clinical Parallel</h2>
+    <!-- ═══ THE CLINICAL PARALLEL ═══ -->
+
+    <h2 id="the-clinical-parallel">The Clinical Parallel</h2>
 
     <p>Healthcare has been navigating human-AI collaboration under high-stakes conditions for longer than most people realize. ECG interpretation algorithms have been running inside hospital machines since the early 1980s. Mammography computer-aided detection received FDA clearance in 1998. Anesthesiology built closed-loop monitoring architectures borrowed from aviation cockpit design over three decades.</p>
 
@@ -350,7 +390,9 @@
 
     <hr class="soft">
 
-    <h2>A Brief Note on Using AI While You Build With AI</h2>
+    <!-- ═══ A NOTE ON USING AI WHILE BUILDING WITH AI ═══ -->
+
+    <h2 id="a-brief-note-on-using-ai-while-you-build-with-ai">A Brief Note on Using AI While You Build With AI</h2>
 
     <p>Before closing this chapter, one thing worth flagging. Most readers of this book will use AI tools while they do the work the book describes. Drafting PRDs, stress-testing frameworks, evaluating vendor claims, running the thought experiment that produces the next hypothesis. The risk is subtle. Out of the box, most AI assistants behave like helpful colleagues who agree with you too quickly. Asked to critique a plan, they list three strengths before they get to the one weakness that matters. The resulting conversation produces a well-organized version of what you already believed, not the challenge that would change your mind.</p>
 
@@ -360,7 +402,9 @@
 
     <hr class="soft">
 
-    <h2>What This Chapter Gave You</h2>
+    <!-- ═══ WHAT THIS CHAPTER GAVE YOU ═══ -->
+
+    <h2 id="what-this-chapter-gave-you">What This Chapter Gave You</h2>
 
     <p>You now have the vocabulary to hold your own in technical conversations about agentic AI. You understand the difference between deterministic and probabilistic systems, what LLMs do and do not do, what makes an agent an agent, how the technical stack is layered, why context is the fourth and most often forgotten layer, why the tool-versus-agent distinction reshapes your entire design approach, why the supervisor&rsquo;s competence is not a fixed input but an eroding one, and the working observability vocabulary you need to ask the right questions of your engineering team.</p>
 
@@ -369,6 +413,8 @@
     <p>If you remember nothing else from this chapter, remember the five ideas. Probabilistic, not deterministic. Confidently wrong at a base rate. Tool boundary as authority. Supervisory system as the second product. And the supervisor&rsquo;s competence as a moving target, not a constant.</p>
 
     <p>Hold those, and the rest of the book is a toolkit. Forget them, and the frameworks will produce well-organized answers to the wrong problems.</p>
+
+    <!-- ═══ ENDNOTES ═══ -->
 
     <div class="endnotes">
       <h2>Notes</h2>

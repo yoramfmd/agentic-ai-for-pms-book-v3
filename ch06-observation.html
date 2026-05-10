@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 6. You Can&rsquo;t Measure What You Didn&rsquo;t Design &mdash; Agentic AI for Busy Product Managers</title>
+<meta name="description" content="The six observation instruments every agentic product needs in production. Real-time vs. retrospective observability. Multi-agent observability. Data observability. The PM-owned loop after launch.">
+<link rel="canonical" href="https://agenticaiproductmanagement.com/ch06-observation/">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="book">
+
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <a href="index.html">Agentic AI for Busy Product Managers</a>
+      <div class="sidebar-brand-sub">Designing the Agent and the Supervisor</div>
+    </div>
+
+    <div class="sidebar-section">Front matter</div>
+    <ul class="sidebar-list">
+      <li><a href="ch00-preface.html">Preface</a></li>
+    </ul>
+
+    <div class="sidebar-section">Chapters</div>
+    <ul class="sidebar-list">
+      <li><a href="ch01-ai-literacy.html">1. What You Need to Know</a></li>
+      <li><a href="ch02-not-a-bridge.html">2. You Are Not a Bridge Anymore</a></li>
+      <li><a href="ch03-not-every-problem.html">3. Not Every Problem Deserves an Agent</a></li>
+      <li><a href="ch04-design-behavior.html">4. Now Design the Behavior</a></li>
+      <li><a href="ch05-evals.html">5. AI Evals</a></li>
+      <li><a href="ch06-observation.html" class="active">6. You Can&rsquo;t Measure What You Didn&rsquo;t Design</a>
+      <ul class="sidebar-sub">
+        <li><a href="#the-phase-nobody-ships">The Phase Nobody Ships</a></li>
+        <li><a href="#why-this-gets-catastrophic-with-agents">Why This Gets Catastrophic With Agents</a></li>
+        <li><a href="#the-six-months">The Six Months</a></li>
+        <li><a href="#what-the-old-metrics-were-measuring">What the Old Metrics Were Measuring</a></li>
+        <li><a href="#platform-emits-pm-composes">Platform Emits, PM Composes</a></li>
+        <li><a href="#the-six-instruments">The Six Instruments</a></li>
+        <li><a href="#real-time-vs-retrospective-observability">Real-Time vs. Retrospective Observability</a></li>
+        <li><a href="#multi-agent-observability">Multi-Agent Observability</a></li>
+        <li><a href="#data-observability">Data Observability</a></li>
+        <li><a href="#the-metric-is-the-test-of-the-design">The Metric Is the Test of the Design</a></li>
+        <li><a href="#scale-five-hundred-thousand-questions">Scale: Five Hundred Thousand Questions</a></li>
+        <li><a href="#the-pm-owns-the-loop">The PM Owns the Loop</a></li>
+      </ul>
+    </li>
+      <li><a href="ch07-change-management.html">7. Change Management</a></li>
+      <li><a href="ch08-silent-degradation.html">8. Silent Degradation</a></li>
+      <li><a href="ch09-frameworks-to-boundaries.html">9. From Frameworks to Boundaries</a></li>
+      <li><a href="ch10-people-never-seen.html">10. People Your Agent Will Never See</a></li>
+      <li><a href="ch11-field-manual.html">11. Operating the Loop</a></li>
+    </ul>
+
+    <div class="sidebar-section">Reference</div>
+    <ul class="sidebar-list">
+      <li><a href="appendix-a-platform.html">Appendix A. Platform Taxonomy</a></li>
+      <li><a href="appendix-b-glossary.html">Appendix B. Glossary</a></li>
+      <li><a href="references.html">References</a></li>
+    </ul>
+  </aside>
+
+  <main class="main">
+  <article class="chapter">
+
+    <p class="chapter-meta">Chapter 6 &middot; Post-launch, observation</p>
+    <h1>You Can&rsquo;t Measure What You Didn&rsquo;t Design</h1>
+    <p class="chapter-stage"><em>Stage: post-launch, observation</em></p>
+
+    <p>The call came from a supplier. She had been receiving order notifications all week and wanted to confirm the delivery schedule. Someone on the procurement team pulled up the dashboard: 340 transactions, 100 percent completion, every entry marked confirmed.</p>
+
+    <p>She was still on the line.</p>
+
+    <p>Not one order had arrived. The agent had been confirming work it never did, for six months.</p>
+
+    <p>The completion metric was real. The work was not.</p>
+
+    <p>The metrics in this chapter exist because the agent is probabilistic. If it were deterministic, one pass would be one pass forever. Because it is not, behavior has to be observed across time, and the instruments must be designed in before launch. That is the through-line of Chapter 6.</p>
+
+    <hr class="soft">
+
+    <h2 id="the-phase-nobody-ships">The Phase Nobody Ships</h2>
+
+    <p>The traditional product lifecycle was not a straight line. It was a loop. You discover, define, build, and launch, but launch was never supposed to be the last step. It was the checkpoint where the work shifted from building to learning. The observation phase followed: you monitored what was happening in the real world, fixed what was broken, and collected the feedback that seeded the next release.</p>
+
+    <p>What happened over the past fifteen years is that one half of that loop quietly disappeared.</p>
+
+    <p>Agile culture accelerated the build cycle. MVP culture reframed speed as virtue. Continuous delivery made shipping feel like the unit of success. None of these were wrong in principle. But in practice, they compressed the loop by eliminating the back half. Ship fast. Celebrate the launch. Move to the next roadmap item. The observation phase became a retrospective bullet point, not a product phase.</p>
+
+    <p>This is the MVP House of Cards applied to observability. The observation phase disappeared under MVP culture not because it was wrong, but because it was the layer that stacked highest on the house of cards. Deterministic MVPs could absorb that deferral. Agentic MVPs cannot. The supervisory half is the probabilistic system&rsquo;s nervous system. Defer it, and you ship without one.</p>
+
+    <p>Most enterprise product teams today do not have a named, resourced, designed observation phase. They have a support queue, an NPS survey sent at thirty days, and a dashboard built for the launch presentation that nobody updated after week two.</p>
+
+    <div class="callout">
+      <div class="callout-label">Concept</div>
+      <div class="callout-title">The Observation Phase</div>
+      <p>The observation phase is the half of the product lifecycle that most teams eliminated under Agile and MVP culture: the deliberate, resourced period after launch where you monitor real-world behavior, detect drift, and feed findings back into design. For deterministic SaaS, skipping it costs you opportunity. For agentic AI, skipping it costs you control.</p>
+      <p>An unmonitored agent does not stagnate. It continues to act, compound its errors, and drift from its authorized behavior, every day, until someone outside the system notices.</p>
+    </div>
+
+    <hr class="soft">
+
+    <h2 id="why-this-gets-catastrophic-with-agents">Why This Gets Catastrophic With Agents</h2>
+
+    <p>For a SaaS product, the cost of not monitoring is missed opportunity. A feature nobody uses. A workflow with friction nobody reported. A retention drop that took a quarter to diagnose. The tool sits and waits. It does nothing wrong while no one is watching.</p>
+
+    <p>Agents are different. An agent that is not monitored does not sit and wait. It continues to act. Every day without a corrective loop is another day the agent operates according to its last known configuration, inside its last-understood autonomy boundary, guided by instructions that may no longer match what users intend.</p>
+
+    <p>A SaaS product with no observation phase stagnates. An agentic product with no observation phase compounds its errors autonomously, at scale, until a supplier calls.</p>
+
+    <hr class="soft">
+
+    <h2 id="the-six-months">The Six Months</h2>
+
+    <p>The six months between launch and the supplier&rsquo;s call were not a careless gap. They were the predictable output of something more fundamental: trust building naturally, in the absence of a system designed to hold supervision stable.</p>
+
+    <p>In the first weeks after launch, the procurement team was paying close attention. Spot checks came back clean. A manager who had been approving every batch above a certain threshold stopped scheduling the weekly review, because three months of clean data made it feel like unnecessary overhead. Someone adjusted the approval threshold upward because the agent had never made a mistake at the original level. None of these decisions were announced or logged. Each was a rational response to observed reliability, made by a reasonable person in the moment.</p>
+
+    <p>By month six, the autonomy level the team had actually granted the agent bore no resemblance to what was designed at launch. The agent was not running at the authorized level. It was running at the level the team had drifted into, through a series of small trust updates that were never made visible.</p>
+
+    <div class="diagram">
+      <p class="diagram-title">The scissors dynamic</p>
+      <p class="diagram-sub">Two trends running in opposite directions over time. The crossing point is the failure mode.</p>
+      <svg viewBox="0 0 720 280" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; max-width:680px; display:block; margin:0 auto;" role="img" aria-label="Scissors dynamic chart. Trust rises over time. Vigilance falls. They cross at month six. After that point, errors go undetected.">
+        <!-- axes -->
+        <line x1="60" y1="40" x2="60" y2="220" stroke="#888780" stroke-width="1"/>
+        <line x1="60" y1="220" x2="680" y2="220" stroke="#888780" stroke-width="1"/>
+        <!-- y axis labels -->
+        <text x="50" y="48" text-anchor="end" font-family="-apple-system, sans-serif" font-size="11" fill="#888780">High</text>
+        <text x="50" y="224" text-anchor="end" font-family="-apple-system, sans-serif" font-size="11" fill="#888780">Low</text>
+        <!-- x axis labels -->
+        <text x="60" y="240" text-anchor="middle" font-family="-apple-system, sans-serif" font-size="11" fill="#888780">Launch</text>
+        <text x="370" y="240" text-anchor="middle" font-family="-apple-system, sans-serif" font-size="11" fill="#888780">Month 3</text>
+        <text x="680" y="240" text-anchor="middle" font-family="-apple-system, sans-serif" font-size="11" fill="#888780">Month 6+</text>
+        <!-- trust line (rising) -->
+        <path d="M 60 200 Q 250 180 370 130 T 680 60" stroke="#1D9E75" stroke-width="2.5" fill="none"/>
+        <text x="690" y="60" font-family="-apple-system, sans-serif" font-size="12" fill="#1D9E75" font-weight="500">Trust rising</text>
+        <!-- vigilance line (falling) -->
+        <path d="M 60 60 Q 250 80 370 130 T 680 200" stroke="#A32D2D" stroke-width="2.5" fill="none" stroke-dasharray="6 4"/>
+        <text x="690" y="205" font-family="-apple-system, sans-serif" font-size="12" fill="#A32D2D" font-weight="500">Vigilance falling</text>
+        <!-- after crossing zone (drawn before lines so it sits behind them) -->
+        <rect x="370" y="40" width="310" height="180" fill="#FCEBEB" opacity="0.25"/>
+        <!-- crossing point label (above the lines, no surrounding box) -->
+        <circle cx="370" cy="130" r="6" fill="#0A1628"/>
+        <text x="370" y="74" text-anchor="middle" font-family="-apple-system, sans-serif" font-size="11" fill="#0A1628" font-weight="600">Crossing point</text>
+        <!-- "errors go undetected" label, placed in the empty bottom-right of the post-crossing zone where neither line passes -->
+        <rect x="430" y="195" width="200" height="20" fill="#ffffff" opacity="0.92" rx="3"/>
+        <text x="530" y="209" text-anchor="middle" font-family="-apple-system, sans-serif" font-size="12" fill="#A32D2D" font-style="italic">errors go undetected</text>
+      </svg>
+      <p class="diagram-note">The crossing is the moment. Errors before it are caught. Errors after it accumulate until someone outside the system notices.</p>
+    </div>
+
+    <div class="callout">
+      <div class="callout-label">Concept</div>
+      <div class="callout-title">Automation Complacency and Automation Expectation</div>
+      <p>Two mechanisms produce the same supervisory drift, usually at the same time. <em>Complacency</em> is the long-running finding from aviation human factors: as reliability increases, operator vigilance decreases, not because operators become careless, but because sustained reliability is cognitively indistinguishable from reliability you should trust unconditionally. Tesla&rsquo;s Autopilot showed the progression at consumer scale: hands on the wheel, looser grip, hands off, eyes on a phone.</p>
+      <p><em>Expectation</em> is the newer framing, and the more actionable one for a PM. Users do not only drift into trust over time. They arrive pre-trained by every other AI tool they have used: hand off, accept, move on. Research on professional users of reflective-goal AI (Microsoft and SAP, 2026) found ninety-three percent intended to use the product as designed in a structured workshop; the same users reverted to output-extraction behavior within days in their normal work. The environment, not the tool, reset the behavior.</p>
+      <p>Policy cannot fix complacency; onboarding cannot undo the expectation. The supervisory surface has to push against a reflex set before the product opened, and hold it across the weeks when reliability silently erodes attention.</p>
+    </div>
+
+    <hr class="soft">
+
+    <h2 id="what-the-old-metrics-were-measuring">What the Old Metrics Were Measuring</h2>
+
+    <p>The launch dashboard tracked the right things for the wrong product.</p>
+
+    <p>Daily active users measures whether users found the tool worth returning to. Session length measures whether the workflow held attention long enough to complete. Task completion rate measures whether the interaction was designed well enough for a human to reach the destination. These metrics presuppose a system where the human is the actor.</p>
+
+    <p>In an agentic system, the agent acts. The questions that matter are fundamentally different: did the agent do what the user intended, within the bounds they authorized, and when it got something wrong, could the user tell, could they stop it, and could they recover?</p>
+
+    <p>Those questions do not appear in a session-length chart.</p>
+
+    <hr class="soft">
+
+    <h2 id="platform-emits-pm-composes">Platform Emits, PM Composes</h2>
+
+    <p>One point belongs ahead of the six-instrument list, because it is the working contract for everything that follows.</p>
+
+    <p>The six instruments below are composed from events the platform emits, not shipped as named features on the dashboard you bought. Most enterprise AI and agentic platforms in 2026 emit the right raw events: tool invocations, approval pauses, recovery actions, incident tickets, confidence scores. Few ship &ldquo;override frequency&rdquo; or &ldquo;task success rate&rdquo; as a built-in metric with a threshold you configure.</p>
+
+    <p>That distinction matters twice. First, a PM who waits for the platform feature will wait forever. Second, a vendor page claiming to ship the six instruments as primitives is usually offering distributed trace capture plus an LLM-as-a-judge on top, relabeled. What you own as PM is the composition: which events are required, how they combine into each instrument, what threshold signals intervention. What the platform owes you is the events, reliably and queryably. That division, <strong>platform emits, PM composes</strong>, is the working contract for every metric in this chapter. Appendix A, the platform taxonomy, is where to look when a vendor page blurs the line.</p>
+
+    <hr class="soft">
+
+    <h2 id="the-six-instruments">The Six Instruments</h2>
+
+    <p>The metrics an agentic product requires map directly onto the four runtime design artifacts from Chapter 4 and the autonomy level of the agent. If those artifacts were not designed, these metrics cannot be produced, which is precisely the point. The absence of a metric is a design finding, not a data infrastructure gap.</p>
+
+    <p>Each one is a design requirement stated in advance, not a KPI added after launch.</p>
+
+    <h3>Observe</h3>
+
+    <p><em>Task success rate.</em> The most deceptive metric on the list. Most teams track whether the agent completed the task. The correct version measures whether it completed the task the user intended. The procurement agent in this chapter&rsquo;s opening had a one-hundred-percent completion rate and a zero-percent task success rate. There is a failure mode researchers call a background failure: the agent finishes, no error state registers, and the result is wrong. What divergence tells you: if task success diverges from task completion, you have background failures in production.</p>
+
+    <p><em>Unintended action rate.</em> How often the agent took an action it was not explicitly authorized to take. The metric that surfaces boundary violations, but only if the autonomy boundary was designed to be legible and logged. What divergence tells you: if this metric is missing, the boundary was never designed as a product surface. If it rises, the boundary is too broad or the people around the system do not understand what the agent is permitted to do.</p>
+
+    <h3>Monitor</h3>
+
+    <p><em>Override frequency.</em> The metric most teams misread. A high rate looks like a trust failure; sometimes it is. A rate that is persistently too low, in a domain with genuine uncertainty, is equally worth investigating; it may mean users cannot override easily, or that they have stopped paying attention. What divergence tells you: tracked over time, override frequency is the earliest signal that supervision is eroding before the agent drifts past its authorized boundary. It is the metric that tells you, before the supplier calls, that something has been accumulating for months.</p>
+
+    <p><em>Confidence calibration.</em> A well-calibrated agent expresses high certainty on things it gets right and surfaces uncertainty on things it gets wrong. An overconfident agent builds fragile trust: adoption that holds until the first visible failure, then collapses faster than it was built. What divergence tells you: if the agent never exposes uncertainty, calibration cannot be measured, and the trust graph will have a cliff in it somewhere ahead.</p>
+
+    <div class="callout">
+      <div class="callout-label">Concept</div>
+      <div class="callout-title">The Six Instruments</div>
+      <p>Six instruments constitute the observation phase for any agentic product: task success rate, unintended action rate, override frequency, confidence calibration, rollback time, and incident recovery time. If any cannot be produced, the corresponding product surface was not designed. That is a design gap, not a data gap.</p>
+      <p>Each instrument is a sprint input: a diverging reading generates a specific user story in the next sprint, not a quarterly review discussion.</p>
+    </div>
+
+    <h3>Fix</h3>
+
+    <p><em>Rollback time.</em> How long it takes from detecting an error to completing recovery for that specific case. This metric only exists if a recovery workflow was designed as a product surface. If the response to a consequential error is an email thread and a manual correction, rollback time is measured in days and logged nowhere. If a compensating workflow was built, staged, and accessible from launch, rollback time is measured in minutes and becomes a sprint target.</p>
+
+    <p><em>Incident recovery time.</em> The organizational equivalent of rollback time. When an agent misbehaves at scale, the response involves freezing the agent, attributing the failure, notifying affected users, and reauthorizing before resuming. If that sequence was not designed, incident recovery time measures the speed of improvisation. It will be slow, variable, and instructive exactly once.</p>
+
+    <div class="diagram">
+      <p class="diagram-title">The six observation instruments, by phase</p>
+      <p class="diagram-sub">Six metrics across three phases of the observation loop. The grouping is the structural property: instruments compose into phases, and absent phases produce absent instruments.</p>
+      <div style="display:flex; flex-direction:column; gap:14px;">
+        <div>
+          <p style="font-size:10px; font-weight:500; color: var(--ink-muted); text-transform:uppercase; letter-spacing:.06em; margin-bottom:6px;">Observe</p>
+          <div class="two-col">
+            <div class="card card-blue">
+              <p class="card-title">01 &mdash; Task success rate</p>
+              <p class="card-sub" style="margin-top:4px;">Did the agent do what the user intended, not just what it reported doing?</p>
+            </div>
+            <div class="card card-blue">
+              <p class="card-title">02 &mdash; Unintended action rate</p>
+              <p class="card-sub" style="margin-top:4px;">Actions outside the authorized boundary. Only exists if the boundary was logged.</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <p style="font-size:10px; font-weight:500; color: var(--ink-muted); text-transform:uppercase; letter-spacing:.06em; margin-bottom:6px;">Monitor</p>
+          <div class="two-col">
+            <div class="card card-green">
+              <p class="card-title">03 &mdash; Override frequency</p>
+              <p class="card-sub" style="margin-top:4px;">Too high: trust problem. Too low in an uncertain domain: supervision has stopped.</p>
+            </div>
+            <div class="card card-green">
+              <p class="card-title">04 &mdash; Confidence calibration</p>
+              <p class="card-sub" style="margin-top:4px;">High certainty on wrong answers builds fragile trust that collapses on first failure.</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <p style="font-size:10px; font-weight:500; color: var(--ink-muted); text-transform:uppercase; letter-spacing:.06em; margin-bottom:6px;">Fix</p>
+          <div class="two-col">
+            <div class="card card-amber">
+              <p class="card-title">05 &mdash; Rollback time</p>
+              <p class="card-sub" style="margin-top:4px;">Time from wrong action to corrected state. Only measurable if recovery was designed.</p>
+            </div>
+            <div class="card card-amber">
+              <p class="card-title">06 &mdash; Incident recovery time</p>
+              <p class="card-sub" style="margin-top:4px;">From first signal to safe operation restored. Measures improvisation speed if undesigned.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="diagram-note">The absence of any instrument is a design gap, not a measurement gap.</p>
+    </div>
+
+    <hr class="soft">
+
+    <h2 id="real-time-vs-retrospective-observability">Real-Time vs. Retrospective Observability</h2>
+
+    <p>The six instruments are mostly retrospective. They tell you what happened. For most agentic systems, that is the right altitude: review the past day or week, surface divergence, feed the findings back into the next sprint. Retrospective observation is the working horse of the observation phase.</p>
+
+    <p>Some classes of action require something stronger. The PocketOS case in Chapter 4 closed in nine seconds, which is faster than any alert-and-respond cycle is designed to operate. A coding agent with broad write access to production data did not need a dashboard. It needed a kill-switch that the autonomy boundary fired before the action executed. By the time a downstream alert fired, the data and the volume backups were both deleted by the same operation. The retrospective dashboard would have caught it the next morning. The next morning was too late.</p>
+
+    <p>Real-time observability is the architectural pattern for actions where the timescale of consequence is shorter than the timescale of human response. The PM design questions are concrete. Which actions in this agent&rsquo;s tool boundary execute in seconds and have irreversible consequences? For those, what is the kill-switch surface, who has authority to invoke it, and how is the agent designed to fail safely when it does? When does the action commit, and is there a brief commit-delay window (the Gmail Undo Send pattern) during which a fast intervention can reverse the action? What is the agent&rsquo;s fallback when the kill-switch fires mid-execution, an incomplete state, an automatic rollback, a held queue?</p>
+
+    <p>Engineering owns the implementation. The PM owns the question of which actions are in scope for real-time intervention, what the timescale must be, and what the failure mode looks like when the kill-switch is invoked. If the team&rsquo;s answer to &ldquo;how do we stop the agent mid-action&rdquo; is &ldquo;we shut down the service,&rdquo; that is not a kill-switch. That is an emergency shutdown preceded by damage.</p>
+
+    <hr class="soft">
+
+    <h2 id="multi-agent-observability">Multi-Agent Observability</h2>
+
+    <p>One brief note on a class of system that is becoming more common in 2026, because the trace surface gets harder when agents call agents.</p>
+
+    <p>A single-agent system has a single trace: goal, steps, tool calls, action, result. A multi-agent system has a trace per agent plus a coordination trace that records which agent invoked which other agent, what context was passed between them, and how disagreements were resolved. The events you need to compose the six instruments are still there. They are spread across multiple traces that need to be stitched together to reconstruct what happened.</p>
+
+    <p>Most platforms in 2026 do not handle multi-agent trace correlation cleanly. OpenTelemetry has primitives for cross-service tracing that are being extended to agent-to-agent calls, but the standardization is incomplete. The PM question to ask engineering when multi-agent architecture is on the roadmap is concrete. Can we reconstruct, after an incident, the full coordination trace across all agents involved in the workflow, including which agent passed which context to which other agent and at what point a disagreement was resolved? If the answer is partial, the incident-recovery-time metric will be larger than the team is estimating, because reconstruction will be the first task before recovery can begin.</p>
+
+    <p>The thirty-seven-percent multi-agent coordination cost figure from Chapter 3 is a useful anchor here too. Coordination is not just expensive in tokens. It is also expensive in trace complexity. The PM who is sold on multi-agent architecture for capability reasons should be priced on coordination cost in both dimensions before signing off.</p>
+
+    <hr class="soft">
+
+    <h2 id="data-observability">Data Observability</h2>
+
+    <p>Every discussion of agentic monitoring eventually surfaces the same question: where does the wrong answer actually come from? The answer is more often than teams want to admit: from the data the agent was given, not from the model&rsquo;s reasoning.</p>
+
+    <p>An agent reasoning over stale pricing data will approve purchase orders that miss market conditions. An agent working from a knowledge base with outdated product policies will give customers guidance the company stopped supporting six months ago. An agent whose knowledge graph has incorrect entity mappings will classify support tickets into the wrong workflows, confidently, every time, with no error signal at the application layer. The model is doing its job. The substrate is wrong. Infrastructure monitoring sees none of it; it is not looking at data quality.</p>
+
+    <p>Data observability is the discipline of detecting when the data the agent reasons from is not what the agent thinks it is. Five properties matter for an agent. <strong>Data freshness</strong>: is the retrieval layer pulling from current sources, or from a snapshot that is now stale? <strong>Data completeness</strong>: are there gaps that will cause the agent to reason from partial evidence without flagging the gap? <strong>Referential integrity</strong>: do the identifiers the agent uses to connect concepts actually connect to the right things, or has an entity-mapping change broken the joins? <strong>Context availability</strong>: is the context the agent needs to make a correct decision accessible in the form the agent can use it, or is it locked behind a permission the agent does not have? <strong>Knowledge graph mapping accuracy</strong>: are the semantic relationships the agent traverses actually correct?</p>
+
+    <p>Tools like Monte Carlo, Acceldata, and Great Expectations monitor freshness, schema drift, and volume anomalies on data warehouse layers. They were built for analytics pipelines. They do not natively monitor vector index freshness, embedding drift, or whether retrieved document provenance is intact. The data observability stack and the retrieval stack are still largely separate concerns in most enterprise architectures, with no unified surface showing whether the data the agent is reasoning from is trustworthy at the moment it reasons from it.</p>
+
+    <p>Chapter 5 referenced PoisonedRAG: a documented attack pattern where five malicious texts injected into a knowledge base of millions produces a ninety-percent attack success rate. The model behaves as designed. The retrieval works as designed. The corrupted evidence is what the agent reads, and the eval that scored the output against the retrieved evidence scores it as correct, because the output was faithful to the input. The data layer is not just an upstream concern. It is part of the trust boundary the agent operates inside.</p>
+
+    <p>Trustworthy AI results require trustworthy data. That is not a philosophical position. It is an architectural requirement. The monitoring architecture that does not include the data layer is watching the agent reason while ignoring the quality of what it is reasoning from.<sup class="fn"><a href="#fn1">1</a></sup></p>
+
+    <hr class="soft">
+
+    <h2 id="the-metric-is-the-test-of-the-design">The Metric Is the Test of the Design</h2>
+
+    <p>There is a forcing function in the measurement problem that exposes the design gap directly.</p>
+
+    <p>If a team cannot produce the override frequency metric, the override surface was not designed to be legible or logged. If they cannot produce rollback time, recovery was not treated as a product surface. If they cannot produce a confidence calibration curve, confidence was not surfaced to the user in a measurable form.</p>
+
+    <p>The absence of the metric is not a data infrastructure problem. It confirms that the corresponding phase of the product lifecycle was never built.</p>
+
+    <p>This is the reversal agentic products require from teams trained on SaaS instrumentation. In traditional SaaS thinking, you design the product and instrument it afterward. In agentic product design, the metric is the design requirement stated in advance. You design the approval moment because you need to measure override frequency. You design the recovery workflow because rollback time must become a sprint target. You design the audit surface because traceability is a product commitment, not a logging exercise.</p>
+
+    <hr class="soft">
+
+    <h2 id="scale-five-hundred-thousand-questions">Scale: Five Hundred Thousand Questions</h2>
+
+    <p>One point of scale worth naming as context for the rest of the chapter. Microsoft&rsquo;s internal deployment of its agentic assistants reports that employees ask the system on the order of five hundred thousand questions every working day. That volume is not an outlier. It is what enterprise agentic deployments look like when they work. The implication for observation design: sampling-based review is mandatory, exception-based escalation is mandatory, and the six instruments must be dashboarded, not pulled manually. If your observation phase design assumes a human reviews every output, your design assumes a workforce you do not have.</p>
+
+    <p>The volume point also cuts the other way. A one-percent unintended-action rate at five hundred thousand questions per day is five thousand unintended actions per day. The same rate at two hundred interactions per day is two. The six instruments are scale-dependent. Your thresholds must be modeled for the volume you will actually hit, not for the pilot.</p>
+
+    <hr class="soft">
+
+    <h2 id="the-pm-owns-the-loop">The PM Owns the Loop</h2>
+
+    <p>Product lifecycle management is a PM responsibility. Not the launch. The loop.</p>
+
+    <p>Engineering builds the instrumentation. The PM defines what to instrument, why each metric matters to the next release, and what decision each signal should enable. That means owning the six instruments before the first production incident, not as a retrospective task. It also means setting the thresholds that trigger action, what override frequency rate causes an autonomy demotion, what incident recovery time is unacceptable, what confidence calibration gap signals a model problem, before launch, because setting thresholds after an incident is deciding under pressure.</p>
+
+    <p>In practical terms: override frequency and unintended action rate belong in every sprint review. Rollback time and incident recovery time belong in every post-incident review and feed directly into design changes. Confidence calibration and task success rate inform whether the agent is ready to climb the Autonomy Ladder or needs to stay where it is.</p>
+
+    <p>The teams furthest along treat the observation phase as a design brief, not a postmortem. Launch is not the end of the product lifecycle. It is the moment the observation phase begins.</p>
+
+    <div class="endnotes">
+      <h2>Notes</h2>
+      <ol>
+        <li id="fn1">Data observability material in this chapter draws on Friedman, &ldquo;The Stack Is Green. The Agent Is Wrong,&rdquo; <em>data-decisions-and-clinics.com</em>, 2026, which develops the data-observability-as-foundation argument at greater length. PoisonedRAG citation: Zou, Y. et al., &ldquo;PoisonedRAG: Knowledge Corruption Attacks to Retrieval-Augmented Generation,&rdquo; USENIX Security 2025. The Leung et al. CGM-prediction drift study (BMJ Digital Health 2026) is a strong empirical example of how a five-percent sensor noise injection can produce a 172-sigma covariate shift while AUROC remains unchanged: the headline metric stays green while the safety metric collapses. Cited in Chapter 8 of this book in the silent-degradation context; relevant here as evidence for why data observability cannot be reduced to single-metric monitoring.</li>
+      </ol>
+    </div>
+
+    <nav class="chapter-nav">
+      <a class="prev" href="ch05-evals.html">AI Evals</a>
+      <a class="next" href="ch07-change-management.html">Change Management</a>
+    </nav>
+
+  </article>
+  </main>
+</div>
+
+</body>
+</html>
