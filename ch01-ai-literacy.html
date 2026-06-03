@@ -4,437 +4,162 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Chapter 1. What You Need to Know About AI Before You Design Anything &mdash; Agentic AI for Busy Product Managers</title>
-<meta name="description" content="The technical vocabulary a product manager needs to design agentic AI products: deterministic vs. probabilistic systems, large language models, agents, the four-layer stack, context engineering, the supervision paradox, and observability literacy.">
-<link rel="canonical" href="https://agenticaiproductmanagement.com/ch01-ai-literacy/">
+<meta name="description" content="Before I built products, I practiced medicine. I trained in anesthesiology, and the moment that stayed with me was a heart transplant, where I stood at the">
+<link rel="canonical" href="https://agenticaiproductmanagement.com/ch01-ai-literacy.html">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <div class="book">
 
-  <!-- ─── sidebar ─── -->
   <aside class="sidebar">
     <div class="sidebar-brand">
       <a href="index.html">Agentic AI for Busy Product Managers</a>
       <div class="sidebar-brand-sub">Designing the Agent and the Supervisor</div>
     </div>
-
     <div class="sidebar-section">Front matter</div>
     <ul class="sidebar-list">
       <li><a href="ch00-preface.html">Preface</a></li>
     </ul>
-
+    <div class="sidebar-section">Tools</div>
+    <ul class="sidebar-list">
+      <li><a href="cost-calculator.html">Agent Cost Calculator</a></li>
+      <li><a href="downloads.html">Templates &amp; Checklists</a></li>
+    </ul>
     <div class="sidebar-section">Chapters</div>
     <ul class="sidebar-list">
       <li><a href="ch01-ai-literacy.html" class="active">1. What You Need to Know</a>
       <ul class="sidebar-sub">
-        <li><a href="#from-rules-to-reasoning">From Rules to Reasoning</a></li>
-        <li><a href="#what-a-large-language-model-actually-does">What a Large Language Model Actually Does</a></li>
-        <li><a href="#from-language-model-to-agent">From Language Model to Agent</a></li>
-        <li><a href="#the-stack-models-orchestration-tools-and-context">The Stack: Models, Orchestration, Tools, and Context</a></li>
-        <li><a href="#what-the-agent-reads">What the Agent Reads</a></li>
-        <li><a href="#why-ai-and-agentic-ai-are-different-conversations">Why “AI” and “Agentic AI” Are Different Conversations</a></li>
+        <li><a href="#the-words-you-need">The Words You Need</a></li>
+        <li><a href="#metrics-as-product-decisions">Metrics, as Product Decisions</a></li>
+        <li><a href="#tool-or-agent-a-design-choice-not-a-capability">Tool or Agent: A Design Choice, Not a Capability</a></li>
+        <li><a href="#what-the-agent-reads-and-why-it-fails-here">What the Agent Reads (and Why It Fails Here)</a></li>
         <li><a href="#the-supervision-paradox">The Supervision Paradox</a></li>
-        <li><a href="#observability-literacy-for-the-pm">Observability Literacy for the PM</a></li>
-        <li><a href="#the-clinical-parallel">The Clinical Parallel</a></li>
-        <li><a href="#a-brief-note-on-using-ai-while-you-build-with-ai">A Brief Note on Using AI While You Build With AI</a></li>
-        <li><a href="#what-this-chapter-gave-you">What This Chapter Gave You</a></li>
-      </ul>
-    </li>
+        <li><a href="#observability-in-one-page">Observability, in One Page</a></li>
+        <li><a href="#use-ai-everywhere-then-use-it-carefully">Use AI Everywhere, Then Use It Carefully</a></li>
+      </ul></li>
       <li><a href="ch02-not-a-bridge.html">2. You Are Not a Bridge Anymore</a></li>
       <li><a href="ch03-not-every-problem.html">3. Not Every Problem Deserves an Agent</a></li>
-      <li><a href="ch04-design-behavior.html">4. Now Design the Behavior</a></li>
-      <li><a href="ch05-evals.html">5. AI Evals</a></li>
-      <li><a href="ch06-observation.html">6. You Can&rsquo;t Measure What You Didn&rsquo;t Design</a></li>
-      <li><a href="ch07-change-management.html">7. Change Management</a></li>
-      <li><a href="ch08-silent-degradation.html">8. Silent Degradation</a></li>
-      <li><a href="ch09-frameworks-to-boundaries.html">9. From Frameworks to Boundaries</a></li>
-      <li><a href="ch10-people-never-seen.html">10. People Your Agent Will Never See</a></li>
-      <li><a href="ch11-field-manual.html">11. Operating the Loop</a></li>
+      <li><a href="ch04-two-briefs.html">4. The Two Briefs</a></li>
+      <li><a href="ch05-design-behavior.html">5. Now Design the Behavior</a></li>
+      <li><a href="ch06-evals.html">6. AI Evals</a></li>
+      <li><a href="ch07-observation.html">7. You Can&#x27;t Measure What You Didn&#x27;t Design</a></li>
+      <li><a href="ch08-change-management.html">8. Change Management</a></li>
+      <li><a href="ch09-silent-degradation.html">9. Silent Degradation</a></li>
+      <li><a href="ch10-frameworks-to-boundaries.html">10. From Frameworks to Boundaries</a></li>
+      <li><a href="ch11-people-never-seen.html">11. People Your Agent Will Never See</a></li>
+      <li><a href="ch12-personnel-infrastructure.html">12. The Personnel Infrastructure</a></li>
+      <li><a href="ch13-field-manual.html">13. Operating the Loop</a></li>
     </ul>
-
     <div class="sidebar-section">Reference</div>
     <ul class="sidebar-list">
       <li><a href="appendix-a-platform.html">Appendix A. Platform Taxonomy</a></li>
       <li><a href="appendix-b-glossary.html">Appendix B. Glossary</a></li>
+      <li><a href="appendix-c-frameworks.html">Appendix C. The Frameworks</a></li>
       <li><a href="references.html">References</a></li>
     </ul>
   </aside>
 
-  <!-- ─── main column ─── -->
   <main class="main">
   <article class="chapter">
 
-    <p class="chapter-meta">Chapter 1 &middot; Foundation</p>
+    <p class="chapter-meta">Chapter 1</p>
     <h1>What You Need to Know About AI Before You Design Anything</h1>
-
-    <!-- ═══ OPENING: heart transplant ═══ -->
-
-    <p>Before I became a product manager, I worked as a physician. I trained in anesthesiology and radiology, and one of the things that stayed with me long after I left clinical practice was what I experienced during a heart transplant as an anesthesiology resident.</p>
-
-    <p>The operation itself was complex, a team of specialists working against the clock to get a donor heart into a critically ill patient. I was at the head of the table, managing the patient&rsquo;s hemodynamics alongside my attending, titrating drips, watching for instability, keeping the patient alive while the surgeons worked. But what struck me, even in the middle of it, was the information architecture of the room.</p>
-
-    <p>Large monitors displayed real-time telemetry: heart rate, blood pressure trends, oxygen saturation, ventilation curves, infusion rates for every drip. I watched hemodynamic trends the way an SRE watches a dashboard during a deploy. The perfusionist tracked bypass flows and core temperature on a separate console. In the corner, a nurse counted used pads and towels, writing running totals on a whiteboard, a manual but critical data point for estimating blood loss. Every surface in that room was a display, and every display served a different consumer of the same underlying patient state.</p>
-
-    <p>Every person was working on a different slice of the same problem. The surgeon focused on anatomy. I managed hemodynamic stability. The perfusionist managed circulation on bypass. The scrub nurse tracked instruments and sequence. No single person held the complete picture. The system worked because each role had clear authority over its domain, clear escalation paths when domains intersected, and a shared understanding of when to act independently and when to call for help. The patient survived not because any one person was brilliant, but because the supervisory architecture, the telemetry, the observability, and the real-time insight-to-action loops were deliberately designed.</p>
-
-    <p>That room is the closest analogy I know to what you are about to build.</p>
-
-    <p>An agentic AI system is not a single intelligent actor. It is a collection of capabilities, each operating on a slice of the problem, coordinated by rules you define, supervised by humans whose attention is a limited resource, and consequential in ways that compound over time. If you design only the capabilities and not the supervisory architecture, you have built an operating room where everyone can see their own monitor but nobody has agreed on who calls the code.</p>
-
-    <p>This chapter gives you the technical vocabulary you need to design that architecture. Not to become an AI engineer. To become the PM who can specify what the system should do, ask the right questions about how it works, and catch the failure modes before they reach production.</p>
-
-    <p>Five ideas will recur in every chapter that follows. Non-determinism is a permanent property, not a flaw to be fixed. Confident wrong answers happen at a measurable base rate. The tool boundary is the most concrete expression of the agent&rsquo;s authority. The design challenge is not the agent&rsquo;s intelligence; it is the supervisory system around it. And the supervisor&rsquo;s competence is not a fixed input. It is being eroded, in measurable ways, by the same systems the supervisor is supposed to oversee. If you catch yourself in a design conversation and something feels off, it is usually one of these you have stopped accounting for.</p>
-
+    <p>Before I built products, I practiced medicine. I trained in anesthesiology, and the moment that stayed with me was a heart transplant, where I stood at the head of the table keeping a patient alive while the surgeons worked. What I remember is not the surgery. It is the room. Every surface was a display, and every person was watching a different slice of the same patient: the surgeon on anatomy, me on the hemodynamics, the perfusionist on the bypass, a nurse counting pads on a whiteboard to estimate blood loss. No one held the whole picture. The patient lived because the supervision was designed, who watched what, who could act alone, who had to call for help.</p>
+    <p>That room is the closest thing I know to what you are about to build. An agentic AI system is not one clever actor. It is a set of capabilities, each working a slice of the problem, supervised by humans whose attention is finite, consequential in ways that compound. Design the capabilities and skip the supervision, and you have built an operating room where everyone sees their own monitor and nobody has agreed on who calls the code.</p>
+    <p>This chapter gives you the working vocabulary to design that supervision. You do not need to become an AI engineer. You need enough to say what the system should do, ask your team the right questions, and catch the failures before they reach production. Read it at a steady pace; these terms are the foundation the rest of the book stands on, and they come back in every chapter.</p>
+    <div class="callout">
+      <div class="callout-label">Keep in your pocket</div>
+      <div class="callout-title">The five ideas to keep in your pocket</div>
+      <p><em>(this chapter sets up all five; the two in <strong>bold</strong> are the ones it owns)</em></p>
+      <ol>
+        <li><strong>Non-determinism is permanent, not a bug.</strong> The same input can give different outputs. You cannot test an agent the way you test ordinary software.</li>
+        <li>Confident wrong answers happen at a measurable rate. The agent will not flag its own uncertainty; you design that surface.</li>
+        <li>The tool boundary is the agent&rsquo;s authority. What it can touch is what it can do, and what it can do wrong.</li>
+        <li>The hard part is not the agent&rsquo;s intelligence. It is the supervisory system around it, the product this book teaches you to build.</li>
+        <li><strong>The supervisor&rsquo;s competence erodes.</strong> The agent that does the work degrades the human who is supposed to watch it.</li>
+      </ol>
+      <p>You will see this box atop every chapter, with that chapter&rsquo;s ideas in bold. When a design conversation feels off, it is usually one of these you stopped accounting for.</p>
+    </div>
     <hr class="soft">
-
-    <!-- ═══ FROM RULES TO REASONING ═══ -->
-
-    <h2 id="from-rules-to-reasoning">From Rules to Reasoning</h2>
-
-    <p>For twenty years, the software you shipped followed rules. If the order exceeds ten thousand dollars, route it to a manager. If the patient&rsquo;s heart rate drops below fifty, trigger an alert. If inventory falls below the reorder point, generate a purchase order. You defined the rules. The software executed them. Deterministic, traceable, predictable.</p>
-
-    <p>That model works beautifully when you can enumerate the rules in advance. It breaks when the problem space is too large, too variable, or too ambiguous for anyone to write all the rules. A radiologist reading a chest X-ray is not following a decision tree. She is recognizing patterns across thousands of prior images, weighing probabilities, integrating clinical context, and arriving at a judgment she could explain but could not fully codify. That kind of reasoning, where the rules are learned from data rather than written by a person, is what machine learning makes possible.</p>
-
-    <p>One clarification before we continue. The phrase &ldquo;AI&rdquo; is not one technology. Healthcare alone has been running at least seven generations of it simultaneously since the 1970s: rule-based expert systems, statistical risk models, deep learning for imaging, gradient boosting on tabular data, generative language models, agentic systems, and early neurosymbolic architectures. Every one of them is still in production somewhere. This book focuses on LLM-driven agentic systems, because that is where most of the 2026 product conversations are happening. When governance, evaluation, and risk decisions land on your desk, knowing which generation of AI you are deploying is the prerequisite for not making a category error.<sup class="fn"><a href="#fn1">1</a></sup></p>
-
+    <h2 id="the-words-you-need">The Words You Need</h2>
+    <p>The field throws a lot of vocabulary at you, and most of it you can let pass. A small set you cannot, because every design and governance decision later in this book sits on top of it. Think of this section as your foundation; as the chapters go on they will add a few more terms to it, and by the end you will have a working glossary you built yourself.</p>
+    <p>Start with the two words that run through every conversation and every invoice: prompt and token. The <strong>prompt</strong> is everything you hand the model to work from, the instruction, the question, and increasingly the documents you retrieve and the running conversation, the whole input it conditions its answer on. The <strong>token</strong> is the unit the model reads and writes in, a chunk of text a few characters long, smaller than a word; a page runs several hundred tokens. You care about tokens for one blunt reason: they are the unit you pay in and the unit the model&rsquo;s attention is spent on. Every call costs tokens going in and coming out, and as the cost chapter shows, that, not the model&rsquo;s sticker price, is what drives the bill.</p>
+    <p>Now the shift that the whole book turns on, and the one idea worth stopping for.</p>
     <div class="callout">
       <div class="callout-label">Concept</div>
-      <div class="callout-title">Deterministic vs. Probabilistic Systems</div>
-      <p>Deterministic software follows explicit rules and produces the same output for the same input every time. A billing system that calculates totals, a workflow engine that routes approvals, an ERP that generates purchase orders. Probabilistic systems, including most modern machine-learning and generative AI systems, produce outputs based on learned patterns and statistical inference. Many enterprise deployments are hybrids, combining deterministic logic with probabilistic components.</p>
-      <p>The same input can produce different outputs on different runs, even with randomness minimized, because retrieval context, batching, and infrastructure routing introduce variability. This is not a bug. It is a fundamental property that changes how you test, monitor, and trust the system.</p>
+      <div class="callout-title">The mind-shift: Rules vs. Reasoning</div>
+      <p>For twenty years your software followed <em>rules you wrote</em>: if the order is over ten thousand dollars, route it to a manager. You defined the rules; the software ran them, the same way every time.</p>
+      <p>An agent does not run your rules. It <em>reasons</em> toward a goal you give it and decides the steps itself. That is the entire shift, from a system that executes what you specified to one that judges what to do. Everything new, the power and the risk, follows from it.</p>
     </div>
-
-    <p>Machine learning is the broad category: systems that learn patterns from data rather than following hand-coded rules. Within that category, the technology driving the current wave of agentic AI is a specific architecture called a large language model.</p>
-
+    <p>Rules work when you can write them down in advance. They break when the problem is too large or too ambiguous to enumerate, when the right call takes judgment rather than a decision tree. Judgment learned from data instead of hand-coded is what <em>machine learning</em> makes possible, and the engine behind today&rsquo;s agentic wave is one particular kind of it: the <strong>large language model</strong>, or LLM. An LLM is a neural network trained to predict the next token from patterns it learned across vast amounts of text; GPT, Claude, and Gemini are LLMs. It does not understand text the way you do. It is extraordinarily good at pattern-matching, and without grounding it produces correct and incorrect answers with equal confidence. That last property is the one to hold: an LLM is capable of impressive reasoning <em>and</em> of confident, plausible errors, and designing around that gap is your job, not the model&rsquo;s.</p>
+    <p>This is also where non-determinism comes from, the first of the five ideas. Even configured for low randomness, the same prompt can produce different outputs across runs, because retrieval, batching, and infrastructure routing all introduce variability. That is not a defect to be fixed; it is a property of the technology, and it changes how you test, monitor, and trust the system. One passing test does not prove the behavior is fixed. The evals chapter takes this up in full.</p>
+    <p>Two more distinctions, then you have enough to start. The first is <strong>agent versus agentic</strong>, which get used loosely and are not the same thing. An <em>agent</em> is the thing: a system that decides what to do next, takes the action, sees the result, and continues toward a goal, as opposed to a tool, which does what you invoke and stops. A chatbot that answers is a tool. A system that reads the ticket, updates the record, emails the customer, and escalates when it has to is an agent. <em>Agentic</em> is the adjective for the property that makes it one: autonomy, pursuing a goal across steps, acting without a human checking each move. A product is agentic <em>to the degree</em> that it acts on its own between the points where a person looks, and the design work, supervision, speed, accountability, scales with how agentic it is, not with whether someone stuck the word &ldquo;agent&rdquo; on the feature. Worth knowing too: &ldquo;the agent&rdquo; is usually a simplification. Real systems are often several agents working as a team, one routing the task, one drafting, one checking it against policy, sometimes running on different models. When this book says &ldquo;the agent,&rdquo; read &ldquo;each agent, and the team.&rdquo;</p>
+    <p>The second distinction is the <strong>stack</strong>, the working picture you need to ask your engineers the right questions. It has four layers, and most teams only talk about the first three. The <strong>model</strong> is the LLM itself, selected from a provider and called by API; its behavior can change when the provider updates it, with no deployment on your side, which is a fact you will return to in testing and governance. The <strong>orchestration</strong> layer is the code that coordinates the agent, how it breaks a goal into steps, picks tools, handles errors, carries context across a workflow, and most of the engineering, and most of the UX-shaping decisions, live there. The <strong>tools</strong> layer is the set of external systems the agent can touch, APIs, databases, message channels, and every tool is a permission: this is where capability becomes consequence. And the <strong>context</strong> layer is what the agent reads before it acts, which most teams design by accident and which is the single largest source of production failures. We will come back to context, because it is where the real trouble hides.</p>
+    <p>A word on that tools layer, because it is the most concrete expression of what an agent is allowed to do. Every system the agent can reach is a permission to act, and the explicit, enumerated, logged list of what it can and cannot reach is its real authority. A narrow, named boundary is safe; an undefined one is how an agent ends up sending emails nobody authorized or modifying records nobody intended. Vendors slice this up differently, &ldquo;tools,&rdquo; &ldquo;connectors,&rdquo; and <strong>skills</strong>, which usually means a packaged, reusable capability that bundles a prompt with one or more tools. (Hold onto &ldquo;skill,&rdquo; it comes back: later in the book I will recommend that when you find yourself running the same agentic activity over and over, you turn it into a skill, name it, and add it to your own toolkit, and we will grow this vocabulary as we go.) When a vendor says your agent ships with three hundred skills, the PM question is which three hundred permissions you just inherited, and which the agent may combine in ways nobody planned. The plumbing that lets an agent discover and call all of this is increasingly a shared standard called <strong>MCP</strong>, the Model Context Protocol; it simplifies the wiring, but it does not remove your job to define and log the permissions an agent actually holds.</p>
+    <p>Finally, context, the part most likely to fail you. The stack tells you what the agent <em>can do</em>; it does not tell you what it <em>reads first</em>. The best-known way to supply that reading is <strong>retrieval-augmented generation, RAG</strong>: instead of relying on what the model memorized in training, the system retrieves relevant material from your own data at the moment of the question and hands it over to reason on, your policies, your customer&rsquo;s history, this morning&rsquo;s prices. The 2026 version is <strong>agentic RAG</strong>, where the agent runs retrieval as a loop, query, judge whether it has enough, refine, query again, rather than a single lookup. RAG is the common path for unstructured text, but it is not the only one, and in enterprise systems it is often not the main one: just as often the context comes from <strong>structured data</strong>, a SQL query against a governed <strong>data product</strong>, a service call, a join across records, returning rows the agent reasons over. Whichever path it travels, the durable point is the same: the model is only as right as what it is handed, so the quality of the data and the retrieval often matters more than the quality of the model, and you should treat the knowledge source, not the model, as the thing worth investing in.</p>
+    <p>That is the foundation. Some of these names are perishable, MCP, today&rsquo;s model, the current pricing will be renamed within a year or two, but the shape under them is not: rules giving way to reasoning, the four layers, agent versus agentic, and the fact that an agent is only as good as what it reads. Learn the current tools the way you learn this quarter&rsquo;s competitors, necessary, perishable, and not where your durable skill lives.</p>
     <hr class="soft">
-
-    <!-- ═══ WHAT AN LLM ACTUALLY DOES ═══ -->
-
-    <h2 id="what-a-large-language-model-actually-does">What a Large Language Model Actually Does</h2>
-
-    <p>A large language model is a neural network trained on enormous quantities of text. During training, the model learns statistical relationships between words, concepts, and patterns of reasoning. When you give it a prompt, it generates a response by predicting, token by token, what comes next based on what it has learned.</p>
-
-    <p>That description sounds simple. The implications are not.</p>
-
-    <p>Because the training data includes medical literature, legal documents, software code, business analysis, scientific papers, and virtually every other form of written human knowledge, the model develops capabilities that arise from training scale rather than being explicitly programmed. It can summarize a contract, write code, analyze a dataset, draft a clinical note, reason about a supply chain problem, and carry on a conversation that feels human, all from the same underlying architecture.</p>
-
-    <div class="callout">
-      <div class="callout-label">Concept</div>
-      <div class="callout-title">Large Language Models (LLMs)</div>
-      <p>An LLM is a neural network trained to predict the next word, technically the next token, in a sequence based on patterns learned from vast amounts of text. Models like GPT-5, Claude, and Gemini are LLMs. They do not understand text the way a human does. They are trained on large text corpora and optimization signals, but at inference time they do not have direct access to ground truth. They are extraordinarily good at pattern matching across contexts, and without explicit grounding they can produce correct and incorrect answers with equal apparent confidence.</p>
-      <p>The practical consequence for PMs: LLMs are capable of impressive reasoning and of confident, plausible-sounding errors. Designing around this distinction is your job.</p>
-    </div>
-
-    <p>Two properties of LLMs matter enormously for product design, and most PMs underestimate both.</p>
-
-    <p>First, LLMs are non-deterministic at the system level. Even when configured for low randomness, the same prompt can produce different outputs across sessions due to retrieval variability, context differences, and infrastructure factors. You cannot test an LLM-based system the way you test deterministic software. One passing test does not prove the behavior is fixed. This has deep implications for quality assurance, which Chapter 5 covers in detail.</p>
-
-    <p>Second, LLMs are confidently wrong at a base rate that varies by domain and task. They do not signal uncertainty the way a well-calibrated system should. A model that is ninety-five percent accurate on routine cases and sixty percent accurate on edge cases will present both outputs with the same apparent confidence. The user has no way to tell the difference without a designed confidence surface. Building that surface is a PM responsibility, not a model property.</p>
-
-    <p>One more property is worth naming now, because it will come up in Chapter 4. When an LLM is asked to show its reasoning, what it writes out is not a reliable explanation of how it arrived at the answer. Research on model explanations has shown that the written reasoning and the actual computational path can diverge, sometimes significantly. The phrase for this is chain-of-thought, and the important thing for a PM to know is that chain-of-thought is generated text, not an audit log. Treat it accordingly.<sup class="fn"><a href="#fn2">2</a></sup></p>
-
-    <h3>Classifier Metrics, Through Product Decisions</h3>
-
-    <p>One last vocabulary item belongs here, because the metrics most often cited around AI come from classifier evaluation and most of them collapse on agentic systems if you do not know what they measure. You do not need to be a statistician. You need to know what each one translates to as a product decision.</p>
-
-    <p><strong>Sensitivity</strong>, also called recall, is the proportion of real positive cases the model correctly identifies. High sensitivity catches most real cases and produces more false alarms. <strong>Specificity</strong> is the proportion of true negative cases the model correctly dismisses. High specificity produces fewer false alarms and misses more real cases. <strong>AUC</strong>, or area under the curve, is a single number summarizing how well the model separates real positives from real negatives across all possible thresholds. A perfect model has an AUC of 1.0. Random guessing gives 0.5.</p>
-
-    <p>The <strong>threshold</strong> is the point at which the model decides to act, and it is the part most often misattributed to the data science team. The threshold is a product decision. Only you know what a false positive costs your users versus what a missed case costs them. A fraud model set too aggressively blocks legitimate transactions. Set too loosely, it lets fraud through. The right threshold reflects your actual cost structure, not the threshold that maximizes a statistical metric. When your team brings you a confusion matrix, the question to bring back is: what does the false positive cost the user, and what does the missed case cost the affected person, and where on that curve are we landing? Chapter 5 covers where these single-step classifier metrics break down for multi-step agent trajectories. The Chapter 1 point is only that they are product decisions before they are statistics.</p>
-
+    <h2 id="metrics-as-product-decisions">Metrics, as Product Decisions</h2>
+    <p>A handful of metrics get cited around AI, and most of them come from classifier evaluation. You do not need to be a statistician. You need to know what each one means as a <em>product decision</em>, because that is the form they take when they land on your desk.</p>
+    <p>Sensitivity (also called recall) is the share of real positive cases the model catches; turn it up and you catch more real cases and raise more false alarms. Specificity is the share of true negatives it correctly dismisses; turn it up and you get fewer false alarms but miss more real cases. AUC is a single number for how well the model separates the two across all thresholds, 1.0 is perfect, 0.5 is a coin flip. Those are the data team&rsquo;s words.</p>
+    <p>Here is the one that is actually yours: the <strong>threshold</strong>, the point at which the model decides to act. It gets handed to the data science team as if it were a technical setting. It is not. Only you know what a false positive costs your users versus what a missed case costs them. A fraud model set too aggressively blocks legitimate customers; set too loosely, it lets fraud through. The right threshold reflects your cost structure, not the number that maximizes a statistic. So when your team brings you a confusion matrix, the question to bring back is: what does a false positive cost the user, what does a missed case cost the person affected, and where on that curve are we choosing to sit? The evals chapter shows where these single-step metrics break down once an agent strings many steps together. For now, just hold that they are product decisions before they are statistics.</p>
     <hr class="soft">
-
-    <!-- ═══ FROM LANGUAGE MODEL TO AGENT ═══ -->
-
-    <h2 id="from-language-model-to-agent">From Language Model to Agent</h2>
-
-    <p>A language model, by itself, is a conversational tool. You ask it a question. It answers. You ask a follow-up. It responds. The interaction is bounded by the conversation. The model does not take actions in the world. It does not change state in any system. It generates text.</p>
-
-    <p>An agent is what happens when you give a language model the ability to act.</p>
-
-    <p>In technical terms, many agentic systems follow a common pattern: take a goal, break it into steps, select and use tools (APIs, databases, applications) to execute those steps, observe the results, and adjust the plan based on what is found. They operate in a loop: reason, act, observe, reason again. In production, some agents are more constrained. Workflow-style orchestrations call models at specific points. Event-driven agents are tied to a narrow trigger. For the purposes of this book, any system that can reason and act over multiple steps without a human at each step brings the same design problems.</p>
-
-    <div class="callout">
-      <div class="callout-label">Concept</div>
-      <div class="callout-title">What Makes an Agent an Agent</div>
-      <p>An AI agent has four properties that distinguish it from a chatbot or a simple automation. It pursues a goal across multiple steps. It selects and uses tools to take actions in external systems. It observes the results of its actions and adjusts its approach. And it can operate with varying degrees of autonomy, from fully supervised to semi-independent. The combination of reasoning, tool use, and autonomy is what creates both the value and the risk.</p>
-    </div>
-
-    <p>This is the transition that matters for your work. Traditional automation executes a fixed sequence: if X, then Y, then Z. An agent reasons about what sequence to execute based on the goal and the current state. It can handle situations the designer did not anticipate, because it is reasoning over the problem rather than following a script. That flexibility is the value proposition. It is also the source of every design challenge in this book.</p>
-
-    <p>Consider a concrete example. A traditional order-processing automation checks whether the order meets predefined rules, routes it through a fixed approval chain, and updates the system. The rules are yours. The sequence is yours. If something does not fit the rules, it stops and waits for a human.</p>
-
-    <p>An agentic order-processing system receives a goal (&ldquo;process this order&rdquo;), reasons about the order characteristics, selects the appropriate approval path based on its assessment of risk and policy, executes the necessary API calls, and handles exceptions by reasoning about what to do next. If the shipping address is unusual, it might flag it for review or check it against a fraud database. If a line item is out of stock, it might propose a substitution. Each of these decisions is the agent&rsquo;s, not a rule you wrote.</p>
-
-    <p>That is powerful. It is also consequential in a way that traditional automation is not, because the agent is making judgment calls you did not specify in advance. When those calls are right, you get efficiency and flexibility. When they are wrong, you get automated confidence applied to a bad decision, at scale, without a human in the loop.</p>
-
+    <h2 id="tool-or-agent-a-design-choice-not-a-capability">Tool or Agent: A Design Choice, Not a Capability</h2>
+    <p>If you have followed AI casually, you probably picture a smart assistant: summarize this, draft that, answer this. That is AI as a <em>tool</em>. The human acts, the AI helps, the human keeps control of every decision, and the worst case is a bad suggestion you ignore.</p>
+    <p>An <em>agent</em> is a different thing, and the difference is not how capable it is. It is about authority and consequence. When AI is an agent, the system acts and the human supervises. The agent makes decisions and takes actions that change real systems, sometimes in ways that are hard or impossible to reverse. The worst case is no longer a bad suggestion. It is a bad decision, executed on its own, repeated at scale, discovered late.</p>
+    <p>The same underlying model can be either one. Whether you have a tool or an agent is a <em>design choice</em> about how much authority you grant, and that choice sets the entire risk profile of your product. Designing a tool is mostly a UX problem: make the suggestions useful, make the interface clear, measure adoption. Designing an agent is a systems problem: define the authority boundary, design the supervisory experience, build the recovery path, instrument what you watch. You are designing for a system that acts when nobody is looking, and the whole job is making sure that when nobody is looking, the right things still happen.</p>
+    <p>The next chapter gives this its own name. <strong>Channel 1 is the agent itself. Channel 2 is the human system that supervises it.</strong> Both are products. Both need deliberate design. Most of this book is about building the second one on purpose.</p>
     <hr class="soft">
-
-    <!-- ═══ THE FOUR-LAYER STACK + DIAGRAM ═══ -->
-
-    <h2 id="the-stack-models-orchestration-tools-and-context">The Stack: Models, Orchestration, Tools, and Context</h2>
-
-    <p>To have productive conversations with your engineering team, you need a working model of the technical stack. Not to build it. To ask the right questions about where risk lives.</p>
-
-    <p>The stack has four layers, not three. The first three are the ones most teams discuss. The fourth is the one most teams forget, and it is the one where most production failures originate.</p>
-
-    <div class="diagram">
-      <p class="diagram-title">The four-layer stack</p>
-      <p class="diagram-sub">Most teams invest heavily in layers 1 to 3. They design layer 4 by accident.</p>
-      <div style="display:flex; flex-direction:column; gap:6px;">
-        <div class="row-box" style="background: var(--purple-tint); border-color: var(--purple);">
-          <p class="row-label" style="color: var(--purple-deep); font-size:13px;">Layer 1 &mdash; Foundation Model</p>
-          <div>
-            <p class="row-body">The LLM from a provider. Your team selects it. The provider updates it on their schedule.</p>
-            <p class="row-example">Selected, not controlled. Provider updates are deployment events.</p>
-          </div>
-        </div>
-        <div class="row-box" style="background: #eff6ff; border-color: var(--blue);">
-          <p class="row-label" style="color: var(--blue-deep); font-size:13px;">Layer 2 &mdash; Orchestration</p>
-          <div>
-            <p class="row-body">The code your team writes: tool sequencing, retries, error handling, multi-step workflow memory.</p>
-            <p class="row-example">Your team controls this layer.</p>
-          </div>
-        </div>
-        <div class="row-box" style="background: #fefce8; border-color: var(--amber);">
-          <p class="row-label" style="color: var(--amber-deep); font-size:13px;">Layer 3 &mdash; Tools</p>
-          <div>
-            <p class="row-body">Every system the agent can access. Every API it can call. Every action it can take.</p>
-            <p class="row-example">Scope carefully. Each tool is a permission.</p>
-          </div>
-        </div>
-        <div class="row-box" style="background: var(--red-tint); border-color: var(--red); border-width:1.5px;">
-          <p class="row-label" style="color: var(--red-deep); font-size:13px;">Layer 4 &mdash; Context</p>
-          <div>
-            <p class="row-body">What the agent reads before it acts: prompt, retrieved documents, customer record, previous steps.</p>
-            <p class="row-example" style="color: var(--red-deep);">Intelligence without context is just confidence. Most production failures trace here.</p>
-          </div>
-        </div>
-      </div>
-      <p class="diagram-note">When a team says &ldquo;we are adding an AI feature,&rdquo; they usually mean layer 1. The work lives in all four.</p>
-    </div>
-
-    <p>The <strong>foundation model</strong> is the LLM itself: the general-purpose reasoning engine. Your team probably did not build it. They selected it from a provider (OpenAI, Anthropic, Google, Meta, or others) and are using it via API. The model&rsquo;s capabilities and limitations are set by the provider. Providers update models on their own schedule and expose new versions. Even with versioning, behavioral changes can appear without any deployment on your side, especially when a provider re-points an existing model name to a newer variant. Any model update is a behavioral change in your product that you did not deploy. This matters for testing, monitoring, and governance, all covered in later chapters.</p>
-
-    <p>The <strong>orchestration layer</strong> is the code your team writes to coordinate the agent&rsquo;s behavior: how it breaks goals into steps, how it decides which tools to use, how it handles errors and retries, how it manages context across a multi-step workflow. Most of the engineering complexity lives here, and most of the design decisions that affect user experience are made here.</p>
-
-    <p>The <strong>tool layer</strong> is the set of external systems the agent can access: APIs, databases, file systems, communication channels. Every tool is a permission. An agent with access to your order management system can read and write orders. An agent with access to your email system can send messages on behalf of users. The tool list is the most concrete expression of the agent&rsquo;s authority, and bounding it is one of the most important design decisions you will make. Emerging standards like structured tool calling and the Model Context Protocol aim to normalize how models discover and invoke tools across systems. They simplify integration. They do not remove your responsibility to define and log the actual permissions an agent has.</p>
-
-    <div class="callout">
-      <div class="callout-label">Concept</div>
-      <div class="callout-title">The Tool Boundary</div>
-      <p>Every system an agent can access is a tool. Every tool is a permission to act. The tool boundary, the explicit list of what the agent can and cannot access, is the most concrete expression of the agent&rsquo;s authority. A well-defined tool boundary is narrow, enumerated, and logged. An undefined tool boundary is how an agent ends up sending emails nobody authorized or modifying records nobody intended.</p>
-      <p>Vendors slice and label this layer differently. &ldquo;Tools&rdquo; is used narrowly (a single API call) and broadly (any external operation). &ldquo;Skills&rdquo; usually means packaged capabilities that bundle a prompt plus one or more tools. &ldquo;Connectors&rdquo; usually means pre-built integrations with a specific system (Salesforce, SAP, Slack). The naming varies. The architectural role is the same: each is an external action your agent can take, and every one is a permission. When a vendor says your agent has three hundred skills out of the box, the PM question is which three hundred permissions your organization just inherited, and which of them the agent may combine in ways the vendor did not plan for.</p>
-    </div>
-
-    <p>The <strong>context layer</strong> is what the agent reads before it acts. Every agent has one whether the team named it or not: a collection of documents, a vector store, a knowledge graph, a set of retrieval strategies, short-term memory for the current session, and sometimes long-term memory across sessions. Most teams design this by accident. That is the single largest source of production failures in 2026. The next section treats it directly.</p>
-
-    <hr class="soft">
-
-    <!-- ═══ WHAT THE AGENT READS ═══ -->
-
-    <h2 id="what-the-agent-reads">What the Agent Reads</h2>
-
-    <p>The three-layer stack tells you what the agent can <em>do</em>. It does not tell you what the agent <em>knows</em>. In enterprise deployments, most agent failures do not come from bad reasoning or bad tool use. They come from bad context: incomplete data, missing semantic relationships, stale embeddings, the wrong knowledge graph, retrieval that surfaces the wrong document, or a data product that was built bottom-up and does not carry the meaning the agent needs.</p>
-
-    <p>Most of what this section describes lives under the label <strong>Retrieval-Augmented Generation</strong>, or RAG: using retrieval over your own data to build the context the model reasons with at inference time. In many enterprise systems, RAG quality, not model capability, is the dominant failure mode.</p>
-
-    <p>The failure is so common it has a canonical enterprise case.</p>
-
-    <p>Consider a composite drawn from several large-retailer pilots of the last two years: a foundation-model shopping assistant launched on top of catalog data, announced with fanfare, then quietly rolled back months later when the results stopped justifying the cost. The model was fine. The model was great. The context was missing. A shopping recommendation requires more than a product description. It requires inventory state, location-specific pricing, promotion logic, household purchase history, substitution rules, returns policy by category, and a set of business constraints that live in operational systems and are meaningful only in combination. None of that traveled with the product data into the AI-capable platform. The assistant was confidently wrong in ways nobody could have predicted from testing the model in isolation.</p>
-
-    <p>The lesson is not that the partnership was a bad idea. The lesson is that context is the product. Intelligence without context is just confidence.</p>
-
+    <h2 id="what-the-agent-reads-and-why-it-fails-here">What the Agent Reads (and Why It Fails Here)</h2>
+    <figure class="diagram">
+      <img src="assets/iceberg.svg" alt="The Iceberg. The surface of the data travels between systems; the meaning stays behind.">
+      <figcaption>The Iceberg. The surface of the data travels between systems; the meaning stays behind.</figcaption>
+    </figure>
+    <p>The stack told you what the agent can <em>do</em>. It does not tell you what the agent <em>knows</em>, and in real deployments, that is where most failures come from. Not bad reasoning, not broken tools, bad context: incomplete data, missing relationships, a stale index, the wrong record retrieved, a data product that was built without the meaning the agent needs.</p>
+    <p>The failure is common enough to have a canonical shape. Picture a composite drawn from several large-retailer pilots of the last couple of years: a shopping assistant launched on top of catalog data, announced with fanfare, quietly rolled back months later when the results stopped justifying the cost. The model was fine. The model was great. The context was missing. A good recommendation needs more than a product description, it needs inventory state, location pricing, promotion logic, what this household already bought, the substitution rules, the returns policy by category, constraints that live in operating systems and only mean something in combination. None of that traveled with the product data into the shiny new platform. The assistant was confidently wrong in ways nobody could have caught by testing the model alone.</p>
+    <p>The lesson is not that the project was a bad idea. The lesson is that <strong>context is the product. Intelligence without context is just confidence.</strong></p>
+    <p>There is a useful way to picture why this keeps happening, and it is worth carrying with you.</p>
     <div class="callout">
       <div class="callout-label">Concept</div>
       <div class="callout-title">The Iceberg</div>
-      <p>When data moves between systems, the meaning stays behind. Business rules, calculated semantics, security context, organizational conventions, delegated authority, relationship structure. What travels is the numeric or textual surface. What stays behind is the context that made the surface interpretable. Every enterprise data migration in the last twenty years has rediscovered this. Agentic AI makes it expensive in a new way, because an agent acting on decontextualized data produces confident, plausible, wrong output at scale.</p>
-      <p>The PM&rsquo;s job is to name what context must travel with the data for this agent, and to reject architectures that assume the agent will figure it out from the data alone.</p>
+      <p>When data moves between systems, the meaning stays behind. What travels is the surface, the number, the row, the field. What stays behind is everything that made it interpretable: the relationships, the calculation behind a &ldquo;revenue&rdquo; figure, the security context, the organizational conventions, the authority a record carried in its home system. Every enterprise data migration of the last twenty years has rediscovered this. Agentic AI makes it newly expensive, because an agent acting on decontextualized data produces confident, plausible, wrong output at scale.</p>
+      <p>Your job: name what context must travel <em>with</em> the data for this agent, and refuse architectures that assume the agent will reconstruct it on its own.</p>
     </div>
-
-    <p>A useful way to think about this comes from clinical medicine, which has worked on this problem for a century. A physician taking a patient history is not being thorough. She is building the product. The complete history, the focused examination, the review of prior records, the collation of the lab values, the nursing home fax, the pharmacy record, the note from the community physician, all of it assembled into a coherent clinical picture, is the reasoning layer the decision runs on. The AI version is the same: what the model predicts is easy. What the model reasons with is where the hard work happens.</p>
-
-    <p>Three things are lost whenever enterprise data is moved without deliberate context engineering. The first is <strong>relationships</strong>: in the source system, a purchase order is connected to a vendor, a contract, a budget line, an approver, a shipment, and sometimes to a prior order that set the pattern. Export the purchase order as a row, and all of those connections are gone. The second is <strong>calculated semantics</strong>: a field called &ldquo;revenue&rdquo; in a dashboard is the output of a calculation, not a stored value. Export the field, and the calculation is gone. The third is <strong>security context</strong>: in the source system, who can see a record depends on role, region, and sometimes on the relationship between the record and the user&rsquo;s org unit. Export the record, and the security logic stays behind. An agent reasoning over exported data is an agent reasoning without context. The PM&rsquo;s job is to make sure the context travels with the data, or to bound the agent to decisions that do not depend on it.</p>
-
-    <p>What can you do about it?</p>
-
-    <p>There is a principle worth naming. <strong>Receiver-first design.</strong> Start from what the agent (or the human downstream) needs to answer the decision at hand, and work backward to the data, the retrieval, and the schema. Not the other way around. Most data products fail because they are built bottom-up: the source system has these fields, the integration layer exposes these endpoints, the data product inherits the shape. The receiver&rsquo;s actual question, the one the agent has to answer, is not in the design. Top-down design produces data products that are useful. Bottom-up design produces data products that are accurate and useless.</p>
-
-    <p>There is a second principle. <strong>Standard first, extension last.</strong> Whatever vocabulary, ontology, or schema is standard in your domain (FHIR in healthcare, core industry schemas in retail, supplier taxonomies in procurement), use it first and extend it only where standards genuinely do not cover your case. The reason is not compliance. It is that agents from other systems, trained on industry standards, cannot parse your proprietary extensions. Every extension is a wall the next agent you integrate with cannot see over. JAMIA found that more than sixty percent of FHIR extensions in large healthcare organizations are proprietary and opaque to any outside reader.<sup class="fn"><a href="#fn3">3</a></sup> Enterprise data has the same pattern. The PM who accepts proprietary extensions without naming the cost is making a five-year decision on a one-sprint horizon.</p>
-
-    <p>There is a third principle, and it is the one PMs resist the most: <strong>design for incompleteness</strong>. The healthcare data that real agents receive in production is fragmented, approximate, delayed, and missing the pieces that would have made the decision easy. Patients describe pills as &ldquo;the size of a dime, sort of oval, with a line across it.&rdquo; Family members filter the history. The community physician does not have the hospital&rsquo;s discharge summary. Waiting for clean data before deploying the agent has been the industry&rsquo;s excuse for twenty years, and it has not produced clean data. The PMs who ship useful agents in this environment design for what arrives: a minimum coherent evidence set per decision, explicit metadata about what is missing so the agent&rsquo;s reasoning can be calibrated to the gaps, decoupled retrieval and reasoning so a retrieval failure does not cascade into a confident wrong answer, and purpose-scoped data products rather than reusable-for-everything data lakes. If the team&rsquo;s response to a context gap is &ldquo;we are waiting for the data warehouse,&rdquo; the agent is not ready to ship.</p>
-
-    <p>A fourth principle is more technical, and the PM needs to know it exists even if engineering owns the implementation. The semantic backbone of enterprise data is often some combination of a <strong>knowledge graph</strong>, relational systems, and vector indexes: explicit, machine-readable representations of the entities in the business (customers, suppliers, products, sites, contracts) and the relationships among them. A well-maintained knowledge graph is the closest software analog to how a physician or a senior operator reasons: connect this finding to that record to that prior event to that known relationship. Many systems achieve similar effects with hybrid architectures that stitch structured joins and retrieval together. When this semantic layer is present and maintained in some form, agents can reason <em>across</em> data rather than shuttle it. When it is absent, agents reason <em>within</em> whatever single slice they happen to retrieve. The PM who asks &ldquo;what is our semantic layer, in whatever form, and who owns it?&rdquo; in the first week of an agentic project will have a meaningfully different six-month trajectory than the PM who does not.</p>
-
-    <p>One last note on context for this chapter. Agents also carry context <em>across time</em>: short-term memory inside a session, and long-term memory across sessions. What the agent remembers about a user, a project, or a workflow is a designed product surface. It is also a governance surface: what may the agent remember, for how long, under what consent, with what mechanism for the user to review or delete. Most enterprise teams are building this by accident. GDPR and CCPA implications follow. Designing it on purpose is a Chapter 4 conversation. Naming it as a thing that exists is a Chapter 1 obligation.</p>
-
+    <p>Three things slip below the waterline whenever enterprise data moves without deliberate care. <strong>Relationships</strong>: in the source system a purchase order is tied to a vendor, a contract, a budget line, an approver, a shipment; export it as a row and those ties are gone. <strong>Calculated meaning</strong>: a &ldquo;revenue&rdquo; field on a dashboard is the output of a calculation, not a stored fact; export the field and the calculation is gone. <strong>Security context</strong>: who may see a record depends on role and region and relationship in the source system; export the record and that logic stays home. An agent reasoning over exported data is an agent reasoning without context, and your job is to make the context travel with the data, or to bound the agent to decisions that do not need it.</p>
+    <p>So what do you actually do about it? A few working principles, each one a question you can put to your team this week:</p>
+    <ul>
+      <li><strong>Receiver-first design.</strong> Start from the decision the agent has to make and work backward to the data, the retrieval, the schema. Most data products fail because they are built bottom-up, the source has these fields, so the product inherits that shape, and the receiver&rsquo;s actual question never enters the design. Bottom-up gives you data products that are accurate and useless.</li>
+      <li><strong>Standard first, extension last.</strong> Use whatever vocabulary is standard in your domain, and extend it only where the standard genuinely does not cover your case. Every proprietary extension is a wall the next agent you integrate cannot see over. Accepting one without naming the cost is a five-year decision made on a one-sprint horizon.</li>
+      <li><strong>Design for incompleteness.</strong> The data real agents get in production is fragmented, late, and missing the pieces that would have made the call easy. Waiting for clean data has been the industry&rsquo;s excuse for twenty years and has not produced clean data. Ship for what arrives: a minimum coherent evidence set per decision, explicit flags for what is missing so the agent&rsquo;s confidence can be calibrated to the gaps, and retrieval decoupled from reasoning so a retrieval miss does not cascade into a confident wrong answer. If the team&rsquo;s answer to a context gap is &ldquo;we are waiting for the data warehouse,&rdquo; the agent is not ready to ship.</li>
+      <li><strong>Know your semantic layer.</strong> Ask, in week one, &ldquo;what is the thing that holds our entities and their relationships, the customers, suppliers, products, contracts, and how they connect, and who owns it?&rdquo; Whether it is a knowledge graph, a set of governed data products, or a hybrid that stitches structured joins to retrieval, its presence is what lets an agent reason <em>across</em> your data instead of within whatever single slice it happened to grab. The PM who asks that question early has a very different six-month trajectory than the one who does not.</li>
+    </ul>
+    <p>One last note for this chapter: agents also carry context across <em>time</em>, short-term memory inside a session, longer-term memory across sessions. What the agent remembers about a user or a workflow is a designed product surface, and a governance surface too, what may it remember, for how long, with what consent, and how does someone review or delete it. Most teams build this by accident. Designing it on purpose is a later conversation. Naming that it exists is this chapter&rsquo;s job.</p>
     <hr class="soft">
-
-    <!-- ═══ WHY AI AND AGENTIC AI ARE DIFFERENT ═══ -->
-
-    <h2 id="why-ai-and-agentic-ai-are-different-conversations">Why &ldquo;AI&rdquo; and &ldquo;Agentic AI&rdquo; Are Different Conversations</h2>
-
-    <p>If you have been following AI developments casually, you may think of AI as a smart assistant that helps people work faster: summarize this document, draft this email, answer this question. That is AI as a tool. Useful, often impressive, and fundamentally bounded by the human who directs it.</p>
-
-    <p>Agentic AI is a different category. The distinction is not about capability. It is about authority and consequence.</p>
-
-    <p>When AI is a tool, the human acts. The AI helps. The human retains full control over every decision and every action. The worst case is a bad suggestion that the human ignores.</p>
-
-    <p>When AI is an agent, the system acts. The human supervises. The agent makes decisions and takes actions that change state in real systems, sometimes in ways that are difficult or impossible to reverse. The worst case is not a bad suggestion. It is a bad decision, executed autonomously, compounded over time, discovered late. The same underlying model can operate as either, tool or agent, depending on the product design. The distinction is not technical. It is a design choice about authority, and it determines the entire risk profile of your product. When this book says &ldquo;agentic system,&rdquo; it means the whole assembly: model, orchestration, tools, context, guardrails, and human oversight, not a single autonomous actor.</p>
-
-    <p>This distinction is why the frameworks you know need updating, not replacing. Designing a tool product is a UX problem: make the suggestions useful, make the interface clear, measure adoption. Designing an agent product is a systems problem: define the authority boundary, design the supervisory experience, build the recovery workflow, instrument the observation metrics. You are designing for a system that acts when nobody is watching, and your job is to make sure that when nobody is watching, the right things still happen.</p>
-
-    <p>Chapter 2 introduces the label for this. <strong>Channel 1 is the agent itself. Channel 2 is the human system that supervises it.</strong> Both are products. Both require deliberate design. The rest of the book is about how to build both deliberately.</p>
-
-    <hr class="soft">
-
-    <!-- ═══ THE SUPERVISION PARADOX (NEW IN v3.0) ═══ -->
-
     <h2 id="the-supervision-paradox">The Supervision Paradox</h2>
-
-    <p>The fifth idea I named at the start of this chapter is the one most likely to catch you off guard, because the literature for it is recent and the language is not yet standardized. The premise is simple. Every AI deployment that requires a human supervisor depends on the supervisor remaining competent enough to perform the supervisory function. Every AI deployment that gets used at high frequency erodes the supervisor&rsquo;s competence to perform that function. The framework that governs the deployment, the regulatory framework, the design-pattern framework, the operating procedure, assumes the first condition holds. The deployment itself violates it.</p>
-
-    <p>This is not new. Lisanne Bainbridge described what she called the <em>ironies of automation</em> in 1983, in a paper about industrial control systems. Her central observation: the more reliable the automated system, the more thoroughly atrophied the operator&rsquo;s monitoring skill. When automation fails, it fails under conditions the operator is least prepared for. Unexpectedly. Under time pressure. In situations where the judgment required to identify and correct the failure has not been exercised in months or years. Bainbridge was describing process plants. The mechanism is general.<sup class="fn"><a href="#fn4">4</a></sup></p>
-
-    <p>The most measurable instance of the mechanism in 2026 is the one happening to your engineering team right now.</p>
-
-    <h3>Software, Twelve Months</h3>
-
-    <p>In a randomized controlled trial published in 2026, Anthropic, the company that builds Claude, studied software developers learning a new skill with and without AI assistance. The methodology was clean. Same task. Same skill. One group used AI assistance during the learning phase. The other did not. Then, minutes after using the concepts, both groups took a quiz on the material they had just worked with. The AI-assisted group scored seventeen percent lower than the control. Same minutes. Same concepts. Lower comprehension when the AI was withdrawn.<sup class="fn"><a href="#fn5">5</a></sup></p>
-
-    <p>One detail worth holding: the study was published by the company whose product is the cause. That is the rarer kind of self-disclosure. It deserves credit, and it removes the easy dismissal that the finding is a vendor-on-vendor attack.</p>
-
-    <p>The Anthropic result is a single instance of an older pattern. Bastani and colleagues at Wharton ran a four-week field experiment in 2024, a thousand high school students learning math, three conditions: GPT Base, GPT Tutor with Socratic guardrails, and no AI. Practice performance with GPT Base improved forty-eight percent. Subsequent exam performance, taken without AI, was seventeen percent below the control group. Same number, different population, different domain. The students did not perceive that their learning was being harmed. The harm was invisible to them while it was happening.<sup class="fn"><a href="#fn6">6</a></sup></p>
-
-    <p>Then there is the production side. Lightrun&rsquo;s 2026 State of AI-Powered Engineering Report found that forty-three percent of AI-generated code changes require manual debugging in production environments, even after passing quality assurance and staging tests.<sup class="fn"><a href="#fn7">7</a></sup> The volume of AI-generated code is now projected to outstrip human review capacity by roughly forty percent. Senior engineers describe the bottleneck moving from &ldquo;we cannot write code fast enough&rdquo; to &ldquo;we cannot review code fast enough.&rdquo; Junior engineers are progressing faster on early tasks and plateauing earlier than the previous cohort, because the cognitive work that used to build foundational pattern recognition is now being done by the model.</p>
-
-    <p>Three findings, three populations, twelve to twenty-four months of evidence, all pointing the same way. The supervisor&rsquo;s competence to evaluate the AI&rsquo;s output erodes during the same period the AI&rsquo;s output volume scales. The reviewer cannot keep up. And the practice that would let them catch the AI&rsquo;s subtle errors, writing the code themselves, debugging it, internalizing the system&rsquo;s shape, is exactly the practice the AI is replacing.</p>
-
-    <h3>Customer Service, Three to Six Months</h3>
-
-    <p>Klarna, the Swedish fintech company that lets consumers split purchases into installments, deployed an AI assistant in customer service in 2024 that handled the workload of roughly seven hundred agents. Cost per interaction dropped by roughly forty percent. On the metrics they chose, volume handled, average handle time, cost per interaction, the project looked like a clear win.</p>
-
-    <p>By mid-2025, Klarna had deliberately shifted work back to human agents for the complex emotional cases that determined whether high-value customers stayed or left. The AI was quietly underperforming in exactly those interactions, and the supervisor population was being reshaped by twelve months of triaging only the cases the AI escalated. CEO Siemiatkowski named the lesson directly: cost was too predominant an evaluation factor, and quality degraded in the cases that mattered most.<sup class="fn"><a href="#fn8">8</a></sup></p>
-
-    <p>Chapter 3 covers Klarna as a suitability and cost-modeling case. What matters for this chapter is the supervisor side. The CSR supervisor who used to handle the full distribution of cases now sees only the agent&rsquo;s escalations. Their internal model of &ldquo;what does normal look like, and what does a hard case look like, and where in between is the agent silently making bad calls&rdquo; is built from a sample the agent shaped. The cases the agent handles invisibly badly do not appear in the escalation queue. The supervisor cannot calibrate against them, because the agent has filtered them out.</p>
-
-    <p>Three to six months is the rough timescale at which a CSR supervisor&rsquo;s case-level intuition narrows around what the agent escalates. It is faster than the software-engineering timescale because customer support skill is built on volume, and the agent removes the volume. PMs deploying agents into operational workflows do not get six to eight years before someone audits their supervisor population. They get one product cycle, sometimes two, before the organization no longer has anyone who can tell them what the AI is doing wrong.</p>
-
-    <h3>Medicine, Three Months</h3>
-
-    <p>Healthcare publishes its results, including the failures, more rigorously than most industries. The clinical evidence on supervision erosion is therefore the sharpest, and the timescale is faster than most readers expect.</p>
-
-    <p>Budzy&#324; and colleagues, in a multicenter observational study published in <em>The Lancet Gastroenterology and Hepatology</em> in 2025, tracked nineteen experienced endoscopists across four Polish centers during the first three months after AI-assisted colonoscopy was introduced. The AI highlighted suspicious lesions in real time with a green bounding box. The investigators looked specifically at what happened when those physicians performed procedures <em>without</em> AI, after sustained AI exposure. The adenoma detection rate fell from twenty-eight point four percent to twenty-two point four percent. An absolute drop of six percentage points. A twenty-one percent relative decline in the ability to find precancerous growths, independently, among physicians who had spent years developing exactly that skill.<sup class="fn"><a href="#fn9">9</a></sup></p>
-
-    <p>Three months. That is how long it took.</p>
-
-    <p>Eye-tracking research published before the Budzy&#324; study showed the mechanism. Endoscopists under AI assistance reduce their eye travel distance during procedures. They stop scanning. The AI is scanning for them. The brain, efficient machine that it is, offloads the task it no longer needs to perform. When the AI is removed, the active visual search that experienced endoscopists had built over years is not sitting in reserve, waiting to be called on. It has atrophied. The physician who used to scan methodically now waits, without quite realizing it, for a box that is not coming.</p>
-
-    <p>A New England Journal of Medicine review in 2025 named the broader phenomenon and added a taxonomy that is worth carrying with you. <em>Deskilling</em> is the loss of a capability that existed. <em>Mis-skilling</em> is the development of a capability calibrated to a flawed reference. <em>Never-skilling</em> is the failure to acquire a foundational capability because AI was present during the entire formative window. The third is the one that should keep policymakers awake. It is not losing a skill. It is never developing it in the first place.<sup class="fn"><a href="#fn10">10</a></sup></p>
-
-    <p>The phenomenon is not specific to medicine. The Maguire studies on London taxi drivers established the general principle decades ago: spatial navigation builds the posterior hippocampus when used, and the structure shifts when GPS substitutes for it. Bohbot at McGill showed that habitual GPS users move from hippocampal spatial mapping to caudate-dependent turn-by-turn response learning. Javadi and Spiers showed real-time hippocampal disengagement during GPS-assisted navigation. The brain responds to what it is asked to do, and it stops maintaining what it is not asked to do. This is not atrophy in the pathological sense. It is ordinary neuroplasticity operating exactly as designed, just in a direction we did not intend.<sup class="fn"><a href="#fn11">11</a></sup></p>
-
-    <p>Two recent preprints from serious research groups suggest the same process is now operating on something considerably more important than navigation. Kosmyna and colleagues at the MIT Media Lab studied participants writing essays with ChatGPT, with a search engine, or unaided, and measured brain engagement using EEG. The ChatGPT group showed progressively lower neural connectivity across sessions, with the weakest executive control. When asked to write without the tool in a final session, their engagement did not recover. Shaw and Nave at Wharton ran three preregistered experiments on a Cognitive Reflection Test. When the AI was right, accuracy jumped twenty-five percentage points above baseline. When the AI was wrong, accuracy fell fifteen points below it. Confidence rose in both directions. They call the pattern <em>cognitive surrender</em>: the user stops constructing the answer entirely and adopts what the system produces.<sup class="fn"><a href="#fn12">12</a></sup></p>
-
-    <h3>The Only Institutional Counter-Model</h3>
-
-    <p>Aviation discovered the deskilling problem decades before the word existed in AI discourse. In September 2025, the European Aviation Safety Agency issued a Safety Information Bulletin warning that &ldquo;continuous use of automated systems does not contribute to maintaining pilot manual flying skills&rdquo; and could degrade the ability to handle manual flight during unusual situations. Long-haul captains on heavily automated aircraft accrue under one hour of true manual flying per year by some estimates. The EASA bulletin was not predicting a future problem. It was naming a present one.<sup class="fn"><a href="#fn13">13</a></sup></p>
-
-    <p>The institutional response is mandatory recurrent manual proficiency. Pilots are required, on a regular schedule, to demonstrate that they can fly the aircraft without automation. Not as a theoretical exercise. In the simulator, under conditions that include upset recovery, sensor failures, and off-normal situations specifically designed to test whether the skill is present or merely assumed to be present. The checks are binding. The record is maintained. The requirement is not negotiable.</p>
-
-    <p>No other knowledge profession has built the equivalent. Not medicine. Not software engineering. Not customer service. Not any of the fields where AI is now handling an increasing share of the cognitive work that practitioners are paid to perform. Aviation did not develop its recurrent proficiency model because the problem was theoretical. It developed it because aircraft fell out of the sky when automation failed unexpectedly and the pilots, who believed they could take over, discovered that the assumption had not been tested in a long time.</p>
-
-    <h3>Why This Belongs in Chapter 1</h3>
-
-    <p>Most of this book describes what to design. This section describes what is breaking underneath the thing you are designing for. The regulatory and design default for AI is &ldquo;keep a human in the loop.&rdquo; The systems we are deploying are eroding the human&rsquo;s ability to perform that loop&rsquo;s function. Both statements are true at the same time. The product manager whose design assumes the supervisor is the unimpaired version of themselves they were on day one is designing for a population that no longer exists.</p>
-
-    <p>The implication for the rest of this book is concrete and recurs in every chapter. Approval is not validation of the agent&rsquo;s reasoning, which the supervisor often cannot independently reproduce. Approval is authorization within a designed boundary, on the basis of the trace and the policy and the supervisor&rsquo;s domain knowledge of what this case requires that the trace does not show (Chapter 4). Eval coverage is not whether the agent is competent in absolute terms, but whether the supervisor can catch the failures the agent cannot self-detect (Chapter 5). Production observation is not a dashboard for the well; it is an instrument for the steadily compromised (Chapter 6). Change management is not training; it is the design of recurrent practice that holds supervisory skill stable against the deployment that erodes it (Chapter 7). Silent degradation is not just the agent drifting; it is the supervisor drifting alongside it, in opposite directions, neither monitored (Chapter 8). And the regulatory framework that depends on the human in the loop has not yet been updated for the population that is actually arriving in the loop (Chapter 10).</p>
-
-    <p>The argument is not that AI should not be used. The Anthropic result, the Bastani result, the Klarna efficiency, the Budzy&#324; baseline detection rate that improved with AI present, are all real. The argument is that the safety model was designed for one world and is being deployed in a different one. The PM who treats the supervisor as a fixed input, available on day one and on day five hundred at the same competence, is making a planning assumption the evidence will not support.</p>
-
-    <hr class="soft">
-
-    <!-- ═══ OBSERVABILITY LITERACY (NEW IN v3.0) ═══ -->
-
-    <h2 id="observability-literacy-for-the-pm">Observability Literacy for the PM</h2>
-
-    <p>One more piece of vocabulary before this chapter closes, because Chapter 6 will treat it at length and it pays to introduce the words now.</p>
-
-    <p>Observability is the discipline of being able to answer questions about a running system without having anticipated those questions in advance. The traditional enterprise monitoring stack, built around tools like Datadog, Dynatrace, Grafana, Prometheus, and SAP Cloud ALM, was engineered for deterministic systems. The contract is straightforward. The same input, exercised correctly, should produce the same output. Synthetic monitoring runs a fixed script at intervals and asserts a fixed result. Green means the system is behaving as designed.</p>
-
-    <p>That contract breaks for agentic systems in five places. The first is non-determinism: a synthetic test can verify that the LLM endpoint is reachable, the retrieval layer returns within budget, the tool-call routing works. It cannot tell you whether the agent&rsquo;s judgment on the next real request will be correct. The second is semantic success: the question is not &ldquo;did the workflow complete&rdquo; but &ldquo;was the action correct.&rdquo; A two-hundred-millisecond response that takes the wrong action is worse than a five-second response that pauses for human confirmation. The third is the inversion of what performance means. Latency and throughput are no longer the primary signals. The relevant signals are: did the agent take an action, was the action authorized, was it correct, was it reversible, did a human have an opportunity to intervene. The fourth is behavioral drift: a model can shift its accuracy on a specific task without any infrastructure alert firing, because the infrastructure is healthy and the behavior is not. The fifth is blast radius: agents can execute irreversible real-world actions faster than alert-and-respond cycles are designed to operate. Chapter 6 walks through each of these in detail.<sup class="fn"><a href="#fn14">14</a></sup></p>
-
-    <p>For now, three vocabulary items are enough.</p>
-
-    <p>A <strong>trace</strong> is the recorded path of a request through a system. For an agent, a trace records the goal, the steps the agent considered, the tools it called, the responses it received, the context it retrieved, and the action it took. Spans are the individual segments of a trace. OpenTelemetry is the open-source standard most platforms emit traces in. When your engineering team says &ldquo;we have observability,&rdquo; the first PM question is whether they can show you a trace for an arbitrary historical agent action and reconstruct what happened.</p>
-
-    <p>The second item is the contract between platform and PM. The platform <em>emits</em> the events: tool invocations, approval pauses, recovery actions, incident tickets, confidence scores, retrieval queries, output text. The PM <em>composes</em> the metrics: override frequency, unintended action rate, task success rate, rollback time, incident recovery time, and the rest of the six instruments Chapter 6 names. Most enterprise platforms in 2026 emit the right raw events. Few ship the composed metrics as configured features. A vendor page claiming to ship those metrics out of the box is usually offering distributed trace capture plus an LLM-as-a-judge on top, relabeled. The composition is your responsibility, not the platform&rsquo;s gift. If the team is waiting for the platform feature, the team is waiting forever.</p>
-
-    <p>The third item is the distinction between infrastructure observability (is the plumbing working) and behavioral observability (is the judgment correct). The first is mature and largely commodity. The second is emerging, partial, and often built on an LLM-as-a-judge with documented biases of its own. Healthy skepticism on the second category is the right disposition. The monitor having the same problem as the monitored is not a hypothetical concern. Chapter 6 returns to this directly.</p>
-
-    <p>You now have the vocabulary to ask the right questions. Engineering owns the implementation. You own the questions, and the answers belong to both of you.</p>
-
-    <hr class="soft">
-
-    <!-- ═══ THE CLINICAL PARALLEL ═══ -->
-
-    <h2 id="the-clinical-parallel">The Clinical Parallel</h2>
-
-    <p>Healthcare has been navigating human-AI collaboration under high-stakes conditions for longer than most people realize. ECG interpretation algorithms have been running inside hospital machines since the early 1980s. Mammography computer-aided detection received FDA clearance in 1998. Anesthesiology built closed-loop monitoring architectures borrowed from aviation cockpit design over three decades.</p>
-
-    <p>The lessons from those deployments are directly transferable. A clinical decision support system that flags a potential diagnosis is AI as a tool. The physician reviews, decides, acts. An autonomous dosing system that adjusts medication infusion rates based on continuous monitoring is AI as an agent. The nurse supervises, intervenes when thresholds are breached, but the system acts between interventions.</p>
-
-    <p>The healthcare field learned that the critical design problem was not the algorithm&rsquo;s accuracy. It was the supervisory architecture around it. How does the clinician know what the system is doing? How do they intervene before a bad decision compounds? How is the system designed to hold the human&rsquo;s attention stable over time, when the natural tendency is to trust more as the system performs well, and how do you hold that against the slow erosion of the very skill the trust depends on?</p>
-
-    <p>Those are exactly the questions this book answers for enterprise product managers. Healthcare&rsquo;s methodology is rigorous because the consequences of getting it wrong are measured in lives. Your consequences may be measured in dollars and reputation. The design discipline is the same.</p>
-
-    <hr class="soft">
-
-    <!-- ═══ A NOTE ON USING AI WHILE BUILDING WITH AI ═══ -->
-
-    <h2 id="a-brief-note-on-using-ai-while-you-build-with-ai">A Brief Note on Using AI While You Build With AI</h2>
-
-    <p>Before closing this chapter, one thing worth flagging. Most readers of this book will use AI tools while they do the work the book describes. Drafting PRDs, stress-testing frameworks, evaluating vendor claims, running the thought experiment that produces the next hypothesis. The risk is subtle. Out of the box, most AI assistants behave like helpful colleagues who agree with you too quickly. Asked to critique a plan, they list three strengths before they get to the one weakness that matters. The resulting conversation produces a well-organized version of what you already believed, not the challenge that would change your mind.</p>
-
-    <p>The antidote is not a different model. It is a different configuration. When you use AI in your own working practice, configure it to disagree. Give it a role, a framework, a specific instruction to surface your weakest assumption, and permission to refuse to help you write the thing you were going to write anyway. Chapter 11 returns to this as a practice discipline. For now, the Chapter 1 point is only this: the agent on your roadmap and the agent in your browser window are the same probabilistic system. Both are equally capable of producing confident, plausible, wrong answers. Treating the one in your browser more carefully will produce a more rigorous design of the one on your roadmap.</p>
-
-    <p>And, as the previous section just argued, the practice of writing without AI assistance some of the time is itself the maintenance of the skill that lets you catch the AI when it is wrong. You are reading a book. You are not asking a chatbot. The two are not equivalent, and the difference is part of the work.</p>
-
-    <hr class="soft">
-
-    <!-- ═══ WHAT THIS CHAPTER GAVE YOU ═══ -->
-
-    <h2 id="what-this-chapter-gave-you">What This Chapter Gave You</h2>
-
-    <p>You now have the vocabulary to hold your own in technical conversations about agentic AI. You understand the difference between deterministic and probabilistic systems, what LLMs do and do not do, what makes an agent an agent, how the technical stack is layered, why context is the fourth and most often forgotten layer, why the tool-versus-agent distinction reshapes your entire design approach, why the supervisor&rsquo;s competence is not a fixed input but an eroding one, and the working observability vocabulary you need to ask the right questions of your engineering team.</p>
-
-    <p>The rest of this book is about how to design for what you now know. Chapter 2 names the role shift explicitly: you are no longer the bridge, and pretending otherwise produces the wrong answers to the wrong problems. Chapter 3 asks whether the problem on your roadmap is the right kind of problem for an agent, and at what cost it makes sense if it is. Chapter 4 covers the four runtime artifacts every agentic product needs at the moment of action, and the security treatment that has to ship with them. Chapters 5 through 8 cover evaluation, production observation, change management for the supervisor population the agent is reshaping, and the slow degradation of agents and the instruments built to watch them. Chapters 9 and 10 widen the lens to frameworks, governance, and the people the agent affects who never touch the product. Chapter 11 compresses the whole book into a field manual you can use on a Monday morning.</p>
-
-    <p>If you remember nothing else from this chapter, remember the five ideas. Probabilistic, not deterministic. Confidently wrong at a base rate. Tool boundary as authority. Supervisory system as the second product. And the supervisor&rsquo;s competence as a moving target, not a constant.</p>
-
-    <p>Hold those, and the rest of the book is a toolkit. Forget them, and the frameworks will produce well-organized answers to the wrong problems.</p>
-
-    <!-- ═══ ENDNOTES ═══ -->
-
-    <div class="endnotes">
-      <h2>Notes</h2>
-      <ol>
-        <li id="fn1">On the seven generations of healthcare AI: rule-based expert systems (MYCIN lineage, 1970s), statistical risk models (APACHE, sepsis scores, 1990s), deep learning for imaging (AlexNet era, 2012 onward), gradient boosting on EHR data (Epic deterioration index, 2015 onward), generative AI for documentation and triage (2022 onward), agentic systems with tool use (2024 onward), and emerging neurosymbolic architectures. Treated at length in Friedman, &ldquo;The Healthcare AI Spectrum,&rdquo; <em>data-decisions-and-clinics.com</em>, 2026.</li>
-        <li id="fn2">Research on chain-of-thought faithfulness has shown that the written reasoning a model produces and the actual computational path can diverge. See for example Turpin et al., &ldquo;Language Models Don&rsquo;t Always Say What They Think,&rdquo; arXiv 2305.04388 (2023), and subsequent literature on reasoning trace fidelity.</li>
-        <li id="fn3">Heinze et al., on FHIR extension proliferation in large healthcare organizations. JAMIA, 2024. The headline finding (more than sixty percent of extensions in surveyed organizations are proprietary) is the basis for the FHIR &ldquo;Standard First, Extension Last&rdquo; modeling rule. Treated at length in Friedman, &ldquo;You Moved the Data. The Meaning Stayed Behind,&rdquo; <em>data-decisions-and-clinics.com</em>, 2026.</li>
-        <li id="fn4">Bainbridge, L. &ldquo;Ironies of Automation.&rdquo; <em>Automatica</em> 19(6):775&ndash;779 (1983). The foundational paper. Forty years on, it is the single most-cited paper in human factors research on automation, and the central observation has held across industrial control, aviation, anesthesia, and now AI.</li>
-        <li id="fn5">Anthropic, &ldquo;How AI Assistance Impacts the Formation of Coding Skills,&rdquo; Anthropic Research, 2026. Available at anthropic.com/research/AI-assistance-coding-skills. The seventeen-percent comprehension deficit is the headline finding from a randomized controlled trial; the methodology controls for time-on-task and task difficulty. The paper is unusual in that it is published by the company whose product is the cause of the effect; the disclosure is to Anthropic&rsquo;s credit, and removes the obvious dismissal.</li>
-        <li id="fn6">Bastani, H., Bastani, O., Sungu, A., Ge, H., Kabakc&#305;, O., Mariman, R. &ldquo;Generative AI Can Harm Learning.&rdquo; <em>PNAS</em> 122(44), 2025. Originally circulated as SSRN 4895486. The forty-eight percent practice improvement and seventeen percent exam deficit numbers come directly from the GPT Base condition; the GPT Tutor (Socratic, hints-only) condition substantially mitigated the harm, which is itself an important design finding.</li>
-        <li id="fn7">Lightrun, &ldquo;State of AI-Powered Engineering Report,&rdquo; 2026. The forty-three-percent debug-after-staging rate is the headline production-side finding. Adjacent: Pragmatic Engineer, &ldquo;The Impact of AI on Software Engineers in 2026.&rdquo;</li>
-        <li id="fn8">Klarna&rsquo;s deployment of an AI customer service assistant and the subsequent 2025 partial reversal toward human agents for complex emotional cases is publicly documented in Klarna investor communications and CEO statements (Siemiatkowski, 2025). The case is treated as a suitability and cost-modeling failure mode in Chapter 3 of this book.</li>
-        <li id="fn9">Budzy&#324;, K. et al. &ldquo;Endoscopist Deskilling Risk after Exposure to Artificial Intelligence in Colonoscopy: A Multicentre, Observational Study.&rdquo; <em>The Lancet Gastroenterology and Hepatology</em> 10(10):896&ndash;903 (2025). doi:10.1016/S2468-1253(25)00133-5. The study is observational, not a randomized trial, and the cohort is small (n=19); the authors are explicit about sensitivity to confounding. The direction and magnitude of the effect, observed within three months, are the salient findings for the supervision-paradox argument.</li>
-        <li id="fn10">Abdulnour, R-EE., Gin, B., Boscardin, C.K. &ldquo;Educational Strategies for Clinical Supervision of Artificial Intelligence Use.&rdquo; <em>New England Journal of Medicine</em> 393(8):786&ndash;797 (2025). The deskilling, mis-skilling, never-skilling taxonomy is the contribution most directly relevant to this book.</li>
-        <li id="fn11">Maguire, E.A., Gadian, D.G., Johnsrude, I.S., et al. &ldquo;Navigation-Related Structural Change in the Hippocampi of Taxi Drivers.&rdquo; <em>PNAS</em> 97(8):4398&ndash;4403 (2000). Dahmani, L., Bohbot, V.D. &ldquo;Habitual Use of GPS Negatively Impacts Spatial Memory During Self-Guided Navigation.&rdquo; <em>Scientific Reports</em> 10:6310 (2020). Javadi, A.H. et al. <em>Nature Communications</em> 8:14652 (2017). For the synthesis treatment, see Friedman, &ldquo;The Quiet Erosion,&rdquo; <em>data-decisions-and-clinics.com</em>, 2026.</li>
-        <li id="fn12">Kosmyna, N., Hauptmann, A., Olwal, A., et al. &ldquo;Your Brain on ChatGPT: Accumulation of Cognitive Debt When Using an AI Assistant for Essay Writing.&rdquo; arXiv 2506.08872 (2025). Shaw, S.D., Nave, G. &ldquo;Thinking, Fast, Slow, and Artificial: How AI Is Reshaping Human Reasoning and the Rise of Cognitive Surrender.&rdquo; SSRN 6097646, Wharton Behavioral Lab (2026). Both are preprints. Both are pre-registered. Both point in the same direction.</li>
-        <li id="fn13">European Aviation Safety Agency, Safety Information Bulletin 2025-09, &ldquo;Manual Flying Skills Degradation,&rdquo; September 2025. The aviation institutional model, mandatory recurrent manual proficiency, is the only knowledge-profession counter-template currently in operation. Medicine, software engineering, customer service, and most other domains where AI is now substituting for the supervisor have no equivalent.</li>
-        <li id="fn14">For the deeper treatment, see Friedman, &ldquo;The Stack Is Green. The Agent Is Wrong.&rdquo; <em>data-decisions-and-clinics.com</em>, 2026. The five places the traditional monitoring contract breaks (non-determinism, semantic success, the inversion of performance metrics, behavioral drift, and blast radius) are developed in detail there and revisited in Chapter 6 of this book.</li>
-      </ol>
+    <p>The fifth idea is the one most likely to catch you off guard, so sit with it for a second. Every agent that needs a human supervisor depends on that supervisor staying sharp enough to supervise. And every agent used heavily erodes exactly that sharpness. The framework that governs the deployment, the regulation, the operating procedure, the design pattern, assumes the supervisor stays competent. The deployment itself quietly makes them less so.</p>
+    <p>This is not new. Decades ago, in work on industrial control rooms, an engineer named Lisanne Bainbridge described the <em>irony of automation</em>: the more reliable the automated system, the more the operator&rsquo;s monitoring skill withers, so when the system finally fails, it fails in front of the person least prepared to catch it. She was writing about process plants. The mechanism is general, and it is now playing out across your teams on different clocks.</p>
+    <p>Your <strong>engineers</strong> feel it first. When the model writes the code and they only review it, the muscle that catches a subtle bug, built by writing and debugging code yourself, fades, even as the volume to review climbs past what anyone can keep up with. The bottleneck moves from &ldquo;we cannot write code fast enough&rdquo; to &ldquo;we cannot review it fast enough,&rdquo; and the reviewer is getting duller exactly as the pile gets taller. Your <strong>support team</strong> feels it next, and faster, because their skill is built on volume and the agent removes the volume: once the agent handles the routine cases and escalates only the hard ones, the supervisor only ever sees the agent&rsquo;s escalations, and their sense of &ldquo;what does a quietly-wrong call even look like&rdquo; narrows around the sample the agent chose to show them. The cases the agent handles invisibly badly never reach the queue, so the supervisor cannot calibrate against them. And anywhere a person is set to watch a machine do the work, the same thing happens on its own timescale.</p>
+    <div class="callout">
+      <div class="callout-label">Concept</div>
+      <div class="callout-title">The Supervision Paradox</div>
+      <p>The agent that does the work degrades the human who supervises it, on a predictable clock, roughly a year for skilled technical work, a few months for high-volume operational work. The supervisor&rsquo;s competence erodes during the same period the agent&rsquo;s volume scales, so the reviewer falls behind exactly as the cases get harder to judge.</p>
+      <p>The PM move: treat supervisor competence as a resource you spend, not a constant you can assume. Design to preserve it, keep some real work flowing to the humans on purpose, surface the cases the agent handled invisibly, and never assume the person in the loop is the sharp version of themselves you pictured at launch.</p>
     </div>
+    <p>I have seen the clinical version of this up close, and medicine is honest enough to publish its failures: give experienced doctors an AI that highlights what to look for, take it away a few months later, and their unaided skill has measurably dropped. The brain offloads the task it no longer has to do; aviation learned the same lesson long ago and answered it by <em>requiring</em> pilots to fly manually on a schedule, so the skill is still there on the day the automation quits. No other profession touched by AI has built that yet. The point for you is not the medicine or the cockpit. It is that the erosion is real, it is faster than you expect, and your dashboard will not show it to you, because the dashboard measures the agent, not the human watching it. You have to design for it on purpose. (The change-management chapter takes up the operational side: you usually get one product cycle, sometimes two, before your organization no longer has anyone who can tell you what the agent is doing wrong.)</p>
+    <p>This idea threads through everything ahead, so notice it as it returns. Approval is not the supervisor re-deriving the agent&rsquo;s reasoning, which they often cannot; it is authorization within a designed boundary (the design chapter). Eval coverage is not &ldquo;is the agent good in the abstract&rdquo; but &ldquo;can the supervisor catch the failures the agent cannot catch in itself&rdquo; (the evals chapter). Production observation is not a dashboard for a sharp operator; it is an instrument for a steadily compromised one (the observation chapter). And change management is not training; it is designing the recurrent practice that holds supervisory skill stable against the deployment that erodes it (the change-management chapter). None of this means do not use AI. It means the safety model everyone is reaching for assumes a supervisor who stays the same, and the supervisor does not.</p>
+    <hr class="soft">
+    <h2 id="observability-in-one-page">Observability, in One Page</h2>
+    <p>One more piece of vocabulary, because the observation chapter treats it at length and it pays to meet the words now.</p>
+    <p>Observability is being able to answer questions about a running system without having anticipated those questions in advance. The traditional monitoring stack was built for deterministic systems, where the same input should produce the same output and &ldquo;green&rdquo; means the system is behaving as designed. That contract breaks for agents, because a synthetic check can confirm the endpoint is reachable and the response came back fast, and tell you nothing about whether the agent&rsquo;s judgment on the next real request is correct. A two-hundred-millisecond response that takes the wrong action is worse than a five-second one that pauses for a human. The signals invert: latency and throughput stop being the point, and the questions become, did the agent act, was the action authorized, was it correct, was it reversible, did a human have a chance to step in.</p>
+    <p>Three words are enough for now. A <strong>trace</strong> is the recorded path of a request through the system, for an agent, the goal, the steps it considered, the tools it called, what came back, the context it pulled, the action it took. When your team says &ldquo;we have observability,&rdquo; the first question is whether they can pull up the trace for any past agent action and reconstruct what happened. Second, the platform/PM contract: the platform <em>emits</em> the raw events, tool calls, approval pauses, recovery actions, confidence scores; you <em>compose</em> the metrics that matter, override frequency, unintended-action rate, task success rate, and the rest the observation chapter names. Most platforms emit the right events; few ship the composed metrics, and a vendor page claiming to is usually selling trace capture with a judge model on top, relabeled. The composition is your job, not the platform&rsquo;s gift. Third, hold the line between infrastructure observability (is the plumbing working, mature, commodity) and behavioral observability (is the judgment correct, emerging, partial, often built on a judge model with biases of its own). Healthy skepticism on the second is the right posture; the monitor having the same weakness as the monitored is not hypothetical.</p>
+    <p>You now have the vocabulary to ask the right questions. Engineering owns the implementation. You own the questions, and the answers belong to both of you.</p>
+    <hr class="soft">
+    <h2 id="use-ai-everywhere-then-use-it-carefully">Use AI Everywhere, Then Use It Carefully</h2>
+    <p>The single most useful thing you can do after reading this chapter has nothing to do with shipping a product. It is to use AI constantly, in and out of work, until its behavior stops surprising you. You cannot develop judgment about a probabilistic system by reading about it. You develop it by living with it, and you do not need to write a line of code or vibe an app to do that.</p>
+    <p>So make it a daily tool. Use it as a writing partner, and teach it your voice: feed it things you have written, tell it what you want to sound like, and correct it until the drafts come back in your register instead of the flat house style every model defaults to. Have it summarize your inbox and the morning&rsquo;s news. Generate the image for a birthday card. Turn a sprawling task list into a table that sorts and groups itself. Stand up a small advisory council, a strategist, a skeptic, a domain expert, and put a hard decision to all three. And do not stay loyal to one: run the same question through Claude, Gemini, OpenAI&rsquo;s models, Perplexity, and others, and notice where they diverge, because the differences between them, in tone, in what they refuse, in where they hallucinate, are exactly the intuitions you will need when you choose a model for a product.</p>
+    <p>One habit pays off faster than any other: at the end of a working day, ask the model what it learned about you, your preferences, your blind spots, how you like to work, and save what comes back as standing context it can read at the start of the next session. Most tools now have a place for this, a memory, a profile, a project instruction file. You are doing by hand, on yourself, exactly what this book teaches you to design into a product: the context layer is what makes the assistant useful, and curating it deliberately, rather than letting it accrete by accident, is the whole lesson in miniature. Any information worker, not just an engineer, can fold all of this into an ordinary day, and the person who has handled a hundred small AI interactions reads a vendor&rsquo;s demo very differently from the person who has handled three.</p>
+    <p>Once it is a habit, add one refinement, because the habit has a failure mode. Out of the box, most assistants behave like a colleague who agrees with you too quickly: ask them to critique a plan and they list three strengths before the one weakness that matters, and you end up with a tidy version of what you already believed instead of the challenge that would have changed your mind. The fix is not a different model. It is a different configuration: give it a role, hand it a framework, tell it to surface your weakest assumption, and give it permission to refuse to help you write the thing you were going to write anyway. The toolkit chapter returns to this as a practice. The point here is just that the agent on your roadmap and the agent in your browser are the same probabilistic system, equally capable of confident, plausible, wrong answers, and the fastest way to get good at designing the first is to live with the second.</p>
 
     <nav class="chapter-nav">
       <a class="prev" href="ch00-preface.html">Preface</a>

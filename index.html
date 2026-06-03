@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Agentic AI for Busy Product Managers &mdash; Designing the Agent and the Supervisor</title>
-<meta name="description" content="A practitioner's guide for product managers building AI products in regulated, high-consequence enterprise domains. Eleven chapters and two appendices on what changes when the software starts acting.">
+<meta name="description" content="A practitioner's guide for product managers building AI products in regulated, high-consequence enterprise domains. Thirteen chapters and three appendices on what changes when the software starts acting.">
 <link rel="canonical" href="https://agenticaiproductmanagement.com/">
 <link rel="stylesheet" href="styles.css">
 <style>
@@ -80,21 +80,22 @@
 <div class="landing">
 
   <header class="landing-hero">
-    <p class="landing-eyebrow">v3.0 &middot; May 2026</p>
+    <p class="landing-eyebrow">Practitioner edition &middot; 2026</p>
     <h1 class="landing-title">Agentic AI for Busy Product Managers</h1>
     <p class="landing-subtitle">Designing the agent and the supervisor.</p>
     <p class="landing-byline">By <a href="https://www.linkedin.com/in/yoramf/">Yoram Friedman, MD</a>. Physician and senior product leader. Articles at <a href="https://data-decisions-and-clinics.com">data-decisions-and-clinics.com</a>.</p>
   </header>
 
   <section class="landing-section">
-    <p>A coding agent deleted a production database in nine seconds. A procurement agent confirmed three hundred and forty transactions that never happened. A clinical decision support system ran for six to eight years at half its advertised accuracy before anyone audited it.</p>
+    <p>A coding agent deleted a production database in nine seconds. A procurement agent confirmed three hundred and forty transactions that never happened. A clinical decision support system ran for years at half its advertised accuracy before anyone audited it.</p>
     <p>Each of these is the same failure mode, in different industries, on different timescales.</p>
     <p>This book is the field manual for designing agentic products that survive the day the failure mode arrives.</p>
 
     <div class="cta-row">
       <a class="cta-btn cta-primary" href="ch00-preface.html">Read the book &rarr;</a>
-      <a class="cta-btn cta-secondary" href="ch11-field-manual.html">Field manual</a>
-      <a class="cta-btn cta-secondary" href="ch03-not-every-problem.html#try-the-cost-model-yourself">Cost calculator</a>
+      <a class="cta-btn cta-secondary" href="ch13-field-manual.html">Field manual</a>
+      <a class="cta-btn cta-secondary" href="cost-calculator.html">Cost calculator</a>
+      <a class="cta-btn cta-secondary" href="downloads.html">Templates &amp; checklists</a>
     </div>
   </section>
 
@@ -132,15 +133,15 @@
         <p class="lifecycle-q-label">Key question</p>
         <p class="lifecycle-q">Should we actually build this?</p>
       </a>
-      <a href="ch04-design-behavior.html" class="lifecycle-phase phase-2">
+      <a href="ch04-two-briefs.html" class="lifecycle-phase phase-2">
         <div class="lifecycle-num">2</div>
         <p class="lifecycle-name">Design</p>
-        <p class="lifecycle-desc">Design the agent and the supervisory system. Runtime behavior engineered deliberately.</p>
+        <p class="lifecycle-desc">Write the two briefs, then design the agent and the supervisory system.</p>
         <hr>
         <p class="lifecycle-q-label">Key question</p>
         <p class="lifecycle-q">What can the agent do unilaterally?</p>
       </a>
-      <a href="ch05-evals.html" class="lifecycle-phase phase-3">
+      <a href="ch06-evals.html" class="lifecycle-phase phase-3">
         <div class="lifecycle-num">3</div>
         <p class="lifecycle-name">Evaluate</p>
         <p class="lifecycle-desc">Prove readiness through evidence. Replaces the pass/fail gate with distribution.</p>
@@ -148,7 +149,7 @@
         <p class="lifecycle-q-label">Key question</p>
         <p class="lifecycle-q">What is the P10 pass rate across K runs?</p>
       </a>
-      <a href="ch06-observation.html" class="lifecycle-phase phase-4">
+      <a href="ch07-observation.html" class="lifecycle-phase phase-4">
         <div class="lifecycle-num">4</div>
         <p class="lifecycle-name">Observe</p>
         <p class="lifecycle-desc">Measure what the agent actually does. Continuous front end of Operate.</p>
@@ -156,7 +157,7 @@
         <p class="lifecycle-q-label">Key question</p>
         <p class="lifecycle-q">Did the agent stay within its boundary?</p>
       </a>
-      <a href="ch08-silent-degradation.html" class="lifecycle-phase phase-5">
+      <a href="ch09-silent-degradation.html" class="lifecycle-phase phase-5">
         <div class="lifecycle-num">5</div>
         <p class="lifecycle-name">Operate &amp; Retire</p>
         <p class="lifecycle-desc">Act on what Observe shows. Drift detection, governance, retirement criteria.</p>
@@ -176,14 +177,19 @@
       <div class="toc-card"><a href="ch01-ai-literacy.html"><div class="toc-num">Chapter 1</div><div class="toc-title">What You Need to Know About AI Before You Design Anything</div></a></div>
       <div class="toc-card"><a href="ch02-not-a-bridge.html"><div class="toc-num">Chapter 2</div><div class="toc-title">You Are Not a Bridge Anymore</div></a></div>
       <div class="toc-card"><a href="ch03-not-every-problem.html"><div class="toc-num">Chapter 3</div><div class="toc-title">Not Every Problem Deserves an Agent</div></a></div>
-      <div class="toc-card"><a href="ch04-design-behavior.html"><div class="toc-num">Chapter 4</div><div class="toc-title">You Built the Agent. Now Design the Behavior.</div></a></div>
-      <div class="toc-card"><a href="ch05-evals.html"><div class="toc-num">Chapter 5</div><div class="toc-title">AI Evals: What the Checkmarks Actually Prove</div></a></div>
-      <div class="toc-card"><a href="ch06-observation.html"><div class="toc-num">Chapter 6</div><div class="toc-title">You Can&rsquo;t Measure What You Didn&rsquo;t Design</div></a></div>
-      <div class="toc-card"><a href="ch07-change-management.html"><div class="toc-num">Chapter 7</div><div class="toc-title">Change Management for Agentic AI</div></a></div>
-      <div class="toc-card"><a href="ch08-silent-degradation.html"><div class="toc-num">Chapter 8</div><div class="toc-title">Silent Degradation</div></a></div>
-      <div class="toc-card"><a href="ch09-frameworks-to-boundaries.html"><div class="toc-num">Chapter 9</div><div class="toc-title">From Frameworks to Boundaries</div></a></div>
-      <div class="toc-card"><a href="ch10-people-never-seen.html"><div class="toc-num">Chapter 10</div><div class="toc-title">What You Owe the People Your Agent Will Never See</div></a></div>
-      <div class="toc-card"><a href="ch11-field-manual.html"><div class="toc-num">Chapter 11</div><div class="toc-title">Operating the Loop, A Field Manual</div></a></div>
+      <div class="toc-card"><a href="ch04-two-briefs.html"><div class="toc-num">Chapter 4</div><div class="toc-title">The Two Briefs: From Decision to Buildable Spec</div></a></div>
+      <div class="toc-card"><a href="ch05-design-behavior.html"><div class="toc-num">Chapter 5</div><div class="toc-title">You Built the Agent. Now Design the Behavior.</div></a></div>
+      <div class="toc-card"><a href="ch06-evals.html"><div class="toc-num">Chapter 6</div><div class="toc-title">AI Evals: What the Checkmarks Actually Prove</div></a></div>
+      <div class="toc-card"><a href="ch07-observation.html"><div class="toc-num">Chapter 7</div><div class="toc-title">You Can&rsquo;t Measure What You Didn&rsquo;t Design</div></a></div>
+      <div class="toc-card"><a href="ch08-change-management.html"><div class="toc-num">Chapter 8</div><div class="toc-title">Change Management for Agentic AI</div></a></div>
+      <div class="toc-card"><a href="ch09-silent-degradation.html"><div class="toc-num">Chapter 9</div><div class="toc-title">Silent Degradation</div></a></div>
+      <div class="toc-card"><a href="ch10-frameworks-to-boundaries.html"><div class="toc-num">Chapter 10</div><div class="toc-title">From Frameworks to Boundaries</div></a></div>
+      <div class="toc-card"><a href="ch11-people-never-seen.html"><div class="toc-num">Chapter 11</div><div class="toc-title">What You Owe the People Your Agent Will Never See</div></a></div>
+      <div class="toc-card"><a href="ch12-personnel-infrastructure.html"><div class="toc-num">Chapter 12</div><div class="toc-title">The Personnel Infrastructure That Does Not Exist</div></a></div>
+      <div class="toc-card"><a href="ch13-field-manual.html"><div class="toc-num">Chapter 13</div><div class="toc-title">Operating the Loop, A Field Manual</div></a></div>
+      <div class="toc-card"><a href="appendix-a-platform.html"><div class="toc-num">Appendix A</div><div class="toc-title">What Your Platform Should Give You vs. What You Produce Yourself</div></a></div>
+      <div class="toc-card"><a href="appendix-b-glossary.html"><div class="toc-num">Appendix B</div><div class="toc-title">Glossary</div></a></div>
+      <div class="toc-card"><a href="appendix-c-frameworks.html"><div class="toc-num">Appendix C</div><div class="toc-title">The Frameworks</div></a></div>
     </div>
   </section>
 

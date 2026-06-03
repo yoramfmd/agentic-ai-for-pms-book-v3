@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 220" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <style>
+    .num  { font-size: 12px; font-weight: 700; }
+    .name { font-size: 12.5px; font-weight: 600; fill: #1a1a1a; }
+    .q    { font-size: 10px; fill: #888780; }
+    .cap  { font-size: 11px; fill: #5f5e5a; font-style: italic; }
+  </style>
+
+  <!-- six phase cards -->
+  <!-- phase 0 -->
+  <g>
+    <rect x="20" y="40" width="110" height="120" rx="8" fill="#fff" stroke="#e0e0de" stroke-width="1"/>
+    <rect x="20" y="157" width="110" height="3" rx="1.5" fill="#6c757d"/>
+    <circle cx="75" cy="64" r="13" fill="#f1f3f5"/><text x="75" y="68" class="num" fill="#495057" text-anchor="middle">0</text>
+    <text x="75" y="98" class="name" text-anchor="middle">AI Literacy</text>
+    <text x="75" y="124" class="q" text-anchor="middle">Does the team</text>
+    <text x="75" y="137" class="q" text-anchor="middle">understand agents?</text>
+  </g>
+  <!-- phase 1 -->
+  <g>
+    <rect x="140" y="40" width="110" height="120" rx="8" fill="#fff" stroke="#e0e0de" stroke-width="1"/>
+    <rect x="140" y="157" width="110" height="3" rx="1.5" fill="#378ADD"/>
+    <circle cx="195" cy="64" r="13" fill="#E6F1FB"/><text x="195" y="68" class="num" fill="#185FA5" text-anchor="middle">1</text>
+    <text x="195" y="92" class="name" text-anchor="middle">Discover</text>
+    <text x="195" y="107" class="name" text-anchor="middle">&amp; Decide</text>
+    <text x="195" y="130" class="q" text-anchor="middle">Should we build</text>
+    <text x="195" y="143" class="q" text-anchor="middle">this at all?</text>
+  </g>
+  <!-- phase 2 -->
+  <g>
+    <rect x="260" y="40" width="110" height="120" rx="8" fill="#fff" stroke="#e0e0de" stroke-width="1"/>
+    <rect x="260" y="157" width="110" height="3" rx="1.5" fill="#7950f2"/>
+    <circle cx="315" cy="64" r="13" fill="#f3f0ff"/><text x="315" y="68" class="num" fill="#6741d9" text-anchor="middle">2</text>
+    <text x="315" y="98" class="name" text-anchor="middle">Design</text>
+    <text x="315" y="124" class="q" text-anchor="middle">Two briefs, then</text>
+    <text x="315" y="137" class="q" text-anchor="middle">the runtime.</text>
+  </g>
+  <!-- phase 3 -->
+  <g>
+    <rect x="380" y="40" width="110" height="120" rx="8" fill="#fff" stroke="#e0e0de" stroke-width="1"/>
+    <rect x="380" y="157" width="110" height="3" rx="1.5" fill="#dc2626"/>
+    <circle cx="435" cy="64" r="13" fill="#FCEBEB"/><text x="435" y="68" class="num" fill="#A32D2D" text-anchor="middle">3</text>
+    <text x="435" y="98" class="name" text-anchor="middle">Eval</text>
+    <text x="435" y="124" class="q" text-anchor="middle">How often does</text>
+    <text x="435" y="137" class="q" text-anchor="middle">it pass, over K?</text>
+  </g>
+  <!-- phase 4 -->
+  <g>
+    <rect x="500" y="40" width="110" height="120" rx="8" fill="#fff" stroke="#e0e0de" stroke-width="1"/>
+    <rect x="500" y="157" width="110" height="3" rx="1.5" fill="#0c8599"/>
+    <circle cx="555" cy="64" r="13" fill="#e3fafc"/><text x="555" y="68" class="num" fill="#0b7285" text-anchor="middle">4</text>
+    <text x="555" y="98" class="name" text-anchor="middle">Observe</text>
+    <text x="555" y="124" class="q" text-anchor="middle">Did it stay in</text>
+    <text x="555" y="137" class="q" text-anchor="middle">its boundary?</text>
+  </g>
+  <!-- phase 5 -->
+  <g>
+    <rect x="620" y="40" width="120" height="120" rx="8" fill="#fff" stroke="#e0e0de" stroke-width="1"/>
+    <rect x="620" y="157" width="120" height="3" rx="1.5" fill="#e67700"/>
+    <circle cx="680" cy="64" r="13" fill="#fff4e6"/><text x="680" y="68" class="num" fill="#e67700" text-anchor="middle">5</text>
+    <text x="680" y="92" class="name" text-anchor="middle">Operate</text>
+    <text x="680" y="107" class="name" text-anchor="middle">&amp; Retire</text>
+    <text x="680" y="130" class="q" text-anchor="middle">Still doing what</text>
+    <text x="680" y="143" class="q" text-anchor="middle">we authorized?</text>
+  </g>
+
+  <!-- connectors -->
+  <g fill="#c9c9c5">
+    <path d="M131 100 l8 0 -3 -4 0 8 3 -4z"/>
+    <path d="M251 100 l8 0 -3 -4 0 8 3 -4z"/>
+    <path d="M371 100 l8 0 -3 -4 0 8 3 -4z"/>
+    <path d="M491 100 l8 0 -3 -4 0 8 3 -4z"/>
+    <path d="M611 100 l8 0 -3 -4 0 8 3 -4z"/>
+  </g>
+
+  <text x="380" y="24" class="cap" text-anchor="middle">The six phases of the agentic PM job. Phase 0 is a standing state, not a stage.</text>
+  <text x="555" y="192" class="q" text-anchor="middle" font-style="italic">Phases 4 and 5 form a continuous loop.</text>
+</svg>

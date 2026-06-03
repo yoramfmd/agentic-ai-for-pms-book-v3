@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 5. You Built the Agent. Now Design the Behavior. &mdash; Agentic AI for Busy Product Managers</title>
+<meta name="description" content="(the one in bold is the one this chapter leans on)">
+<link rel="canonical" href="https://agenticaiproductmanagement.com/ch05-design-behavior.html">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="book">
+
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <a href="index.html">Agentic AI for Busy Product Managers</a>
+      <div class="sidebar-brand-sub">Designing the Agent and the Supervisor</div>
+    </div>
+    <div class="sidebar-section">Front matter</div>
+    <ul class="sidebar-list">
+      <li><a href="ch00-preface.html">Preface</a></li>
+    </ul>
+    <div class="sidebar-section">Tools</div>
+    <ul class="sidebar-list">
+      <li><a href="cost-calculator.html">Agent Cost Calculator</a></li>
+      <li><a href="downloads.html">Templates &amp; Checklists</a></li>
+    </ul>
+    <div class="sidebar-section">Chapters</div>
+    <ul class="sidebar-list">
+      <li><a href="ch01-ai-literacy.html">1. What You Need to Know</a></li>
+      <li><a href="ch02-not-a-bridge.html">2. You Are Not a Bridge Anymore</a></li>
+      <li><a href="ch03-not-every-problem.html">3. Not Every Problem Deserves an Agent</a></li>
+      <li><a href="ch04-two-briefs.html">4. The Two Briefs</a></li>
+      <li><a href="ch05-design-behavior.html" class="active">5. Now Design the Behavior</a>
+      <ul class="sidebar-sub">
+        <li><a href="#from-screens-to-system-types">From Screens to System Types</a></li>
+        <li><a href="#four-runtime-design-artifacts">Four Runtime Design Artifacts</a></li>
+        <li><a href="#the-horvitz-principle-interruption-has-a-cost">The Horvitz Principle: Interruption Has a Cost</a></li>
+        <li><a href="#irreversibility-is-not-an-edge-case">Irreversibility Is Not an Edge Case</a></li>
+        <li><a href="#async-by-default-designing-for-the-wait">Async by Default: Designing for the Wait</a></li>
+        <li><a href="#first-contact-training-production-first-contact-reality">First-Contact Training, Production First-Contact Reality</a></li>
+        <li><a href="#trust-by-design-not-trust-by-default">Trust by Design, Not Trust by Default</a></li>
+        <li><a href="#adversarial-by-default">Adversarial by Default</a></li>
+      </ul></li>
+      <li><a href="ch06-evals.html">6. AI Evals</a></li>
+      <li><a href="ch07-observation.html">7. You Can&#x27;t Measure What You Didn&#x27;t Design</a></li>
+      <li><a href="ch08-change-management.html">8. Change Management</a></li>
+      <li><a href="ch09-silent-degradation.html">9. Silent Degradation</a></li>
+      <li><a href="ch10-frameworks-to-boundaries.html">10. From Frameworks to Boundaries</a></li>
+      <li><a href="ch11-people-never-seen.html">11. People Your Agent Will Never See</a></li>
+      <li><a href="ch12-personnel-infrastructure.html">12. The Personnel Infrastructure</a></li>
+      <li><a href="ch13-field-manual.html">13. Operating the Loop</a></li>
+    </ul>
+    <div class="sidebar-section">Reference</div>
+    <ul class="sidebar-list">
+      <li><a href="appendix-a-platform.html">Appendix A. Platform Taxonomy</a></li>
+      <li><a href="appendix-b-glossary.html">Appendix B. Glossary</a></li>
+      <li><a href="appendix-c-frameworks.html">Appendix C. The Frameworks</a></li>
+      <li><a href="references.html">References</a></li>
+    </ul>
+  </aside>
+
+  <main class="main">
+  <article class="chapter">
+
+    <p class="chapter-meta">Chapter 5 &middot; Pre-launch, design</p>
+    <h1>You Built the Agent. Now Design the Behavior.</h1>
+    <p class="chapter-stage"><em>Stage: pre-launch, design</em></p>
+    <div class="callout">
+      <div class="callout-label">Keep in your pocket</div>
+      <div class="callout-title">The five ideas to keep in your pocket</div>
+      <p><em>(the one in bold is the one this chapter leans on)</em></p>
+      <ol>
+        <li>Non-determinism is permanent, not a bug. The same input can give different outputs. You cannot test an agent the way you test ordinary software.</li>
+        <li>Confident wrong answers happen at a measurable rate. The agent will not flag its own uncertainty; you design that surface.</li>
+        <li><strong>The tool boundary is the agent&rsquo;s authority.</strong> What it can touch is what it can do, and what it can do wrong.</li>
+        <li>The hard part is not the agent&rsquo;s intelligence. It is the supervisory system around it, the product this book teaches you to build.</li>
+        <li>The supervisor&rsquo;s competence erodes. The agent that does the work degrades the human who is supposed to watch it.</li>
+      </ol>
+    </div>
+    <p>Eighty-five percent of ICU nurses report being overwhelmed by clinical alarms. Sixty percent of alarms go unresponded to. None of this happened because the alarms were wrong. It happened because nobody designed the interruption.</p>
+    <p>Enterprise teams are about to repeat the mistake at scale.</p>
+    <p>I spent time as a resident in a cardiac ICU. The design problem agentic AI is now surfacing is not new. Clinical monitoring is the human-factors precedent, and it has been generating evidence for decades. Every threshold exceedance triggers a notification. Every notification demands attention. Nobody calculates what the nurse is currently doing, how urgent this alarm is relative to the previous twelve, or what another interruption would cost. The nurse at the bedside is the supervisory system. The alarm system is the agent. The design failure is in the gap between them.</p>
+    <p>Most enterprise agents are being shipped without the gap being named. A procurement agent sends twelve approval requests to a manager in an hour, and by request number eight the manager has started approving on reflex. A clinical-decision-support agent surfaces a risk score at the moment of prescription, and the physician learns to dismiss it because half the scores were not decision-relevant. A customer-operations agent routes three hundred flagged cases to a small review team, who end up processing them as a queue rather than as individual judgments. In each case, the agent&rsquo;s behavior was specified and the supervisor&rsquo;s experience was not. The gap is where the expensive failures live.</p>
+    <p>This chapter is about closing it.</p>
+    <p>Chapters 2 and 3 covered what changed and which problems deserve an agent, and Chapter 4 turned that decision into the two briefs. This chapter is about the design problem the Executable Brief hands you: turning its governance requirements into runtime artifacts the agent cannot violate.</p>
+    <p>Designing agentic systems is like teaching a class of toddlers to behave. You set the rules. You arrange the room. You staff the supervision. But you cannot test every possible sequence of moves, because the agent is capable in ways you cannot fully enumerate and unreliable in ways you cannot fully predict. The design challenge is behavioral, not visual. You are not designing what the user sees. You are designing what the agent does, when it asks permission, what trace it leaves, and what happens when it gets something wrong.</p>
+    <p>That requires four artifacts most teams do not build deliberately, and one declaration that must come first.</p>
+    <hr class="soft">
+    <h2 id="from-screens-to-system-types">From Screens to System Types</h2>
+    <p>Before designing any aspect of the agentic experience, answer a prior question. What kind of system is this?</p>
+    <p>Three types, meaningfully distinct.</p>
+    <p>A <strong>suggestion engine</strong> surfaces options and waits. Every decision remains with the human; the agent improves the quality and speed of that decision, not the decision itself.</p>
+    <p>A <strong>copilot</strong> acts on explicit instructions, step by step, and confirms before proceeding at each consequential step. The human initiates and approves. The agent executes.</p>
+    <p>An <strong>autonomous actor</strong> executes sequences of decisions without further approval, within a defined boundary. The human sets the goal and monitors. The agent acts.</p>
+    <p>Many teams leave this distinction implicit, treating the three types as points on a continuum they will figure out as they go. That is where the mental model breaks. Users who cannot tell which system they are operating will develop the wrong expectations, and wrong expectations drive both overtrust and abandonment. The type declaration belongs in the PRD, in the onboarding experience, and in the supervision interface. A suggestion engine lives and dies on the approval moment. An autonomous actor lives and dies on the audit surface and recovery workflow. These are not points on a maturity scale. They are different products with different accountability models, different testing strategies, and different governance burdens. Declare the system type before you design anything else.</p>
+    <hr class="soft">
+    <h2 id="four-runtime-design-artifacts">Four Runtime Design Artifacts</h2>
+    <p>Every agentic product involves four design decisions at the moment of action, whether the team makes them deliberately or not. Most teams make them by default. Default, for a system that acts on your behalf, is rarely deliberate enough.</p>
+    <p><strong>The autonomy boundary.</strong> Before the agent acts, something defines what it may do unilaterally and what requires a human decision. In most current deployments, this boundary is invisible to the user, discovered by hitting it, or after the agent has already crossed it. The design requirement is to make the boundary legible, at the moment it matters, in terms the user can act on. Log every boundary event. The boundary is not a policy document. It is a product surface.</p>
+    <p><strong>The approval moment.</strong> When the boundary is approached, the handoff from agent decision to human judgment must be designed. Not a confirmation dialog. Not &ldquo;are you sure?&rdquo; Not a speed bump the user learns to ride over without braking. A well-designed approval moment gives the user what the agent knows, what it is uncertain about, what the consequences of proceeding look like, and what the alternatives are. It is a <strong>decision package, not a speed bump</strong>, and the difference between those two is what separates appropriate reliance from rubber-stamping.</p>
+    <p>One sharpening on the approval moment that the supervision paradox from Chapter 1 forces. The approval moment cannot ask the supervisor to validate the agent&rsquo;s reasoning end to end. The supervisor often cannot independently reproduce the reasoning, particularly under deskilling pressure across months of agent operation. What the approval moment can ask the supervisor to do is authorize within the designed boundary, on the basis of the trace, the policy, and the supervisor&rsquo;s domain knowledge of what this case requires that the trace does not show. That is a different cognitive task than &ldquo;do you agree with the model.&rdquo; It is also the only one the supervisor can reliably perform once the agent has been operating long enough to reshape what they see. Design the approval moment around authorization, not validation.</p>
+    <p><strong>The audit surface.</strong> After the agent acts, the user needs legibility. Not a model explanation. What the model says it did is not reliably the same as what it actually did. That is why the audit surface should be built from observable action, not model narration. What the user needs is a decision trajectory: the sequence of observable actions and retrieved context that produced the outcome. In enterprise settings, that trace must carry something additional: whose authority was delegated, under what policy, and who carries the outcome. &ldquo;The agent did it&rdquo; is not a defensible audit trail.</p>
+    <p><strong>The recovery workflow.</strong> When the agent is wrong, the experience must provide a path forward. An error message is not a recovery workflow. A path forward means a compensating action, a rollback option, or at minimum a clear accounting of what cannot be undone and why. Critically, the recovery affordance must be reachable mid-execution, not only after the agent has finished. Call this <strong>the mid-execution reachability principle</strong>: interrupting the agent while it is working should be as easy to design as starting it. Most teams treat override as an edge case. It is a primary interaction.</p>
+    <div class="callout">
+      <div class="callout-label">Concept</div>
+      <div class="callout-title">The Four Runtime Artifacts</div>
+      <p>Every agentic product requires four designed surfaces at the moment of action. (1) The autonomy boundary, what the agent may do alone versus what requires human approval, made visible and logged. (2) The approval moment, a decision package (not a speed bump) showing what the agent knows, what it is uncertain about, and what the alternatives are. (3) The audit surface, a decision trajectory of observable actions and context, carrying accountability. (4) The recovery workflow, compensating actions and rollback reachable mid-execution, not only after completion.</p>
+      <p>If any of these is missing, the runtime behavior was not designed. It defaulted.</p>
+    </div>
+    <hr class="soft">
+    <h2 id="the-horvitz-principle-interruption-has-a-cost">The Horvitz Principle: Interruption Has a Cost</h2>
+    <p>Eric Horvitz, a physician and computer scientist now serving as Microsoft&rsquo;s Chief Scientific Officer, formalized the correct model for alarm and notification design two decades ago. The core insight is simple: whether to alert a human should balance the cost of interrupting now against the cost of waiting. That calculation is a design parameter, not an instinct. Enterprise agentic teams are making this decision by instinct, one notification at a time.</p>
+    <p>This is the Horvitz Principle applied to agents: every interruption has a cost, and the design question is whether the cost of interrupting now is lower than the cost of waiting. Agents that ignore this principle produce the alarm-fatigue pattern documented in clinical monitoring for decades: too many notifications, declining response rate, rising share of missed consequential events.</p>
+    <p>The likely result of ignoring it: the first wave of enterprise agents drowns users in approvals and confirmations. Most teams will respond by reducing confirmation requirements to reduce friction. That is exactly the wrong direction. The answer is to design the interruption, not eliminate it. Interruption cost has components: what the user is doing right now, how recently they were interrupted, how urgent this alert is relative to the backlog, and how reversible the action becomes if they miss it. Every one of those is a product signal you can instrument.</p>
+    <p>The PM artifacts: an interruption budget per user per hour, a priority taxonomy tied to action consequence, a dynamic deferral mechanism that can batch or suppress non-urgent alerts, and an instrumented measurement of response rate as a product metric. Do not ship an agent whose approval flow has not passed through this lens.</p>
+    <hr class="soft">
+    <h2 id="irreversibility-is-not-an-edge-case">Irreversibility Is Not an Edge Case</h2>
+    <p>Agentic AI is qualitatively different from automation because of consequence compounding. A batch job runs the same operation on a defined dataset. An agent takes actions whose downstream effects are not fully predictable at the time of execution. Canceling a meeting, placing a procurement order, sending a customer communication, updating a record: these are not reversible in the way a screen state is reversible.</p>
+    <p>The design requirement: classify actions by consequence before they execute, not after. The FAA uses a consequence taxonomy for aviation system design (minor, major, hazardous, catastrophic) that maps directly to enterprise agentic design. A minor-consequence action can proceed with a brief plain-language summary of what the agent intends to do. A high-consequence action requires a mandatory pause, an alternatives presentation, and a structured approval. When the agent cannot complete a step, silence is not a fallback mode. The designed fallback surfaces the incomplete state, explains what it cannot do and why, and returns control to the human with enough context to continue.</p>
+    <p>Before deployment, classify every action the agent can take by consequence severity, using a taxonomy like the FAA&rsquo;s: minor actions proceed with a summary, major actions require a decision package, hazardous actions require named authorization, and catastrophic actions are never delegated. Gmail&rsquo;s Undo Send is the template: a brief window during which the system appears to have acted but has not yet committed. Treat irreversibility as a constraint to design around, not a fact to accept after something goes wrong.</p>
+    <hr class="soft">
+    <h2 id="async-by-default-designing-for-the-wait">Async by Default: Designing for the Wait</h2>
+    <p>The four runtime artifacts assume a synchronous frame: the user is present, the agent acts, the user approves or does not. That assumption is about to break. An agent completing a multi-step task, retrieving context, reasoning, calling tools, recovering from a partial failure, can take 30 to 90 seconds. Sometimes minutes. Sometimes hours, for long-running workflows like month-end close or supplier onboarding.</p>
+    <p>That is not a UX refinement question. It is a fundamental design constraint, and the runtime artifacts need an async counterpart.</p>
+    <p>The PM design questions are concrete. Should the user wait, or should the agent work in the background and notify on completion? If the agent works in the background, what intermediate state does the user see, and what can the user do with that state? What is the notification channel and what is the return-to-context experience when the user comes back? What happens to the user&rsquo;s trust calibration when the agent completed a step they did not see, and the audit trail is the only evidence it happened? For long-running workflows, what does the handoff look like when the user who started the workflow is not the user who comes back to review it?</p>
+    <p>A useful construct is the <strong>async state display</strong>. A small, persistent surface that tells the user, at a glance, what the agent is doing right now, what it has done since the user was last present, and what is waiting for their attention. The worst async UX, and the current default in most enterprise products, is silence until completion. The agent worked for an hour. The user gets an email. The email says &ldquo;task complete.&rdquo; Trust calibration collapses on the first failure because the user has no narrative to hang the result on.</p>
+    <p>Async UX is where the runtime artifacts earn their second shift of work. Approval moments become batched digests. Audit surfaces become scrollable histories rather than single-event traces. Recovery workflows run asynchronously too, which means a poorly designed recovery is a silent failure with a delayed blast radius.</p>
+    <hr class="soft">
+    <h2 id="first-contact-training-production-first-contact-reality">First-Contact Training, Production First-Contact Reality</h2>
+    <p>One category of failure mode is so common it deserves its own discussion. Models are trained on documentation written after the fact. They are deployed at the moment of first contact, where the critical signals were never recorded in the training data.</p>
+    <p>The gap is structural. AI systems are often trained on documentation written after an outcome was known: the completed case note, the resolved support ticket, the closed deal, the adjudicated claim. They are deployed at first contact, where the outcome is still unknown and the signals most relevant to the decision (hesitation, missing information, ambiguous framing, unstated constraints) were never recorded in training data. The model learned what the answer looks like when the answer was clear. It did not learn what first contact looks like when the answer was not. This is a product problem, not a data problem.</p>
+    <p>The gap becomes visible when you put the two settings next to each other.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Aspect</th>
+          <th>First contact reality</th>
+          <th>Training documentation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Outcome known?</td>
+          <td>No, decision is pending</td>
+          <td>Yes, outcome is fixed</td>
+        </tr>
+        <tr>
+          <td>Signal richness</td>
+          <td>Hesitation, missing information, ambiguity</td>
+          <td>Clean, finalized narratives</td>
+        </tr>
+        <tr>
+          <td>Recorded fields</td>
+          <td>Sparse, inconsistent</td>
+          <td>Structured, standardized</td>
+        </tr>
+        <tr>
+          <td>Model competence</td>
+          <td>Weak or undefined</td>
+          <td>Strong on clear cases</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="table-caption">Table 5.1. First contact reality vs. training documentation.</p>
+    <p>The PM artifacts: an explicit statement of which inputs at first contact the agent is qualified to act on, which inputs force an escalation, and what happens when critical signals are missing that only clarify later.</p>
+    <hr class="soft">
+    <h2 id="trust-by-design-not-trust-by-default">Trust by Design, Not Trust by Default</h2>
+    <p>Most enterprise teams measure trust acquisition: adoption rates, task completion, retention. The target is wrong.</p>
+    <p>The correct goal is <strong>appropriate reliance</strong>: users who rely on the agent when it is reliable and who override it when it is not. Overreliance and underreliance are symmetric failure modes. The user who trusts a wrong agent and the user who ignores a right one are both costing the organization real value, in opposite directions.</p>
+    <p>The trust problem exists because the system is probabilistic. If the agent were deterministic, trust would be binary: correct or broken. Because it is probabilistic, trust is graded, and graded trust requires a confidence surface.</p>
+    <p><strong>Algorithm aversion</strong> is the tendency of users to abandon a statistically better automated system after a single observed failure. A single observed failure produces a trust correction that exceeds the cumulative gain from many correct outputs. Failure recovery is not a support problem. It is an experience design problem. Its mirror, <strong>automation bias</strong>, is the tendency of users to accept an automated recommendation even when contradicted by the evidence in front of them. Both are in play simultaneously in any deployed agent, and the supervisory design has to account for both. Chapter 8 treats them in the context of training and change management.</p>
+    <p>An agent that presents every output with equal certainty builds fragile trust, the kind that collapses on the first failure it cannot explain. Confidence legibility is a design surface. The metrics follow from whether you built it: override rate tells you whether users trust the autonomy boundary; rollback time tells you whether recovery is usable; unintended action rate tells you whether the approval moment is catching what it should. If you did not design the surface, you cannot measure it. And if you cannot measure it, you cannot improve it.</p>
+    <h3 id="the-trust-label-matrix">The Trust Label Matrix</h3>
+    <p>One operational artifact makes confidence legibility shippable. Every output the agent produces falls into one of three confidence states. The state determines the UX treatment. The PM declares the boundaries between states. Engineering implements them. The user does not see the matrix; they see consistent UX behavior driven by it.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Confidence state</th>
+          <th>Trigger</th>
+          <th>UX treatment</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>High confidence</strong></td>
+          <td>Agent has complete context, well-represented input type, high internal consistency across reasoning steps.</td>
+          <td>Standard output. No additional friction. Audit trail captured but not surfaced unless requested.</td>
+        </tr>
+        <tr>
+          <td><strong>Partial confidence</strong></td>
+          <td>Agent has incomplete context, edge-case input, or internal inconsistency across reasoning steps.</td>
+          <td>Explicit uncertainty label visible to the user. Key assumptions surfaced inline. User prompted to verify before action.</td>
+        </tr>
+        <tr>
+          <td><strong>Boundary condition</strong></td>
+          <td>Agent is at the edge of its reliable operating range, with one or more inputs falling outside the distribution it was evaluated on.</td>
+          <td>Flag displayed prominently. Human review recommended, not optional. Output surfaced with caveat rather than suppressed; suppressing it teaches the user the agent silently fails.</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="table-caption">Table 5.2. The trust label matrix. Three states; explicit UX treatment for each.</p>
+    <p>The matrix collapses the trust-design problem into something a PM can specify. The High confidence state is the path the user expects. The Partial confidence state is the legible-uncertainty path the PM should design for, because most production cases land here and the user&rsquo;s ability to calibrate trust depends on it. The Boundary condition state is the path that protects against silent failure: the output is shown with a flag rather than suppressed, because suppression trains the user that absence-of-output means absence-of-problem, which is the opposite of what you want. Engineering owns the per-output classification logic. The PM owns the boundaries between states and the UX treatment for each.</p>
+    <hr class="soft">
+    <h2 id="adversarial-by-default">Adversarial by Default</h2>
+    <p>Adversarial inputs deserve more than a sentence. The single most commonly exploited vulnerability in LLM-based agents in 2026 is prompt injection: instructions embedded in content the agent reads, which the agent then follows as if they came from the user or the system prompt. An agent that reads an email, a customer support message, a product description, a calendar invitation, a PDF attachment, or a free-text field in a database is exposed.</p>
+    <p>The attack vector is not exotic. Instead of sending a malicious instruction in a single step, which modern safety systems are reasonably good at detecting, a sophisticated attack chains a sequence of tool calls where each individual step looks completely legitimate. The malicious intent is only visible at the final execution step, after the damage is done. Research on this class of attack shows success rates that should concern any PM shipping an agent with broad tool permissions. The best single defenses degrade as conversation length grows.</p>
+    <p>Beyond injection, production agentic deployments are frequently misconfigured in ways that make them easy targets: agents with more tool permissions than they need, memory that can be poisoned by untrusted input, credentials accessible to the reasoning layer. These are not exotic attack vectors. They are the default configuration of most enterprise agentic systems as currently shipped.</p>
+    <h3 id="the-flea-magnet">The Flea Magnet</h3>
+    <p>A flea magnet works exactly as designed. It attracts, holds, and concentrates. The design is the problem, not the function.</p>
+    <p>An agent with broad tool permissions and no scoped autonomy boundary works the same way. It is not misconfigured in any traditional sense. It can access what it has access to. It can call the tools it is allowed to call. It will follow instruction chains that appear legitimate step by step. An attack chain of this type does not require the agent to malfunction. It requires the agent to function, in a carefully constructed sequence, toward an outcome the builders never imagined because they never drew the boundary that would have made it impossible.</p>
+    <p>The flea magnet is not broken. Neither was the agent. That is what makes both of them dangerous.</p>
+    <h3 id="mvp-culture-applied-to-security">MVP Culture Applied to Security</h3>
+    <p>Why is the lock missing? Two cultural forces, one outcome.</p>
+    <p>The first is the fermentation race. Enterprise vendors are using agent count as a competitive benchmark. The pressure to announce five hundred agents before the next earnings call is real and specific. The measure that should matter, what those agents can do and what they can be made to do, is not the measure being tracked. Fermentation is the right word. Fermented systems are alive and productive. They also generate unpredictable byproducts when the vessel has not been designed for what it contains. Most enterprise agent deployments in 2026 are living systems shipped without a designed container.</p>
+    <p>The second force is MVP culture applied to the wrong layer. Minimum Viable Product thinking was built for the feature layer: validate the hypothesis, ship something real users can test, iterate from there. It was never designed for the security layer, because security is not a hypothesis you can validate with a subset of users. It is a property of the whole system, and it either holds or it does not. When a team says &ldquo;we will harden it next sprint,&rdquo; they are applying MVP logic to a domain where that logic breaks. The MVP assumption is that the cost of the first version&rsquo;s defects is bounded. In agentic AI security, the cost is not bounded. An agent that is limitless and unguarded is not a beta feature. It is an attack surface waiting to be found.</p>
+    <h3 id="the-pm-artifacts">The PM Artifacts</h3>
+    <p>Prompt injection is not an engineering detail you delegate and forget. The PM artifacts are specific.</p>
+    <p><strong>The input trust classification.</strong> Every source of content the agent reads is labeled as trusted, partially trusted, or untrusted, and the label travels with the content through the orchestration layer. <strong>The tool restriction by source.</strong> From untrusted sources, the agent may read but may not invoke high-consequence tools without explicit user confirmation. <strong>The context isolation pattern.</strong> Content from different trust tiers is not mixed in ways that let instructions from one tier escape into another. <strong>The detection and incident path.</strong> What does the team do when injection is discovered in production, and who is notified.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Artifact</th>
+          <th>What it is</th>
+          <th>Concrete example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Input trust classification</td>
+          <td>Every content source labeled trusted, partially trusted, or untrusted; the label travels with the content through the orchestration layer</td>
+          <td>Internal admin configs are trusted; emails and external web content are untrusted</td>
+        </tr>
+        <tr>
+          <td>Tool restriction by source</td>
+          <td>Tools available to the agent are conditioned on the trust label of the content being acted on</td>
+          <td>From untrusted content, read-only tools only; no writes or external API calls without user confirmation</td>
+        </tr>
+        <tr>
+          <td>Context isolation</td>
+          <td>Prevent content from a lower trust tier from reaching a higher trust tier, including the system prompt and reasoning trace</td>
+          <td>Do not concatenate untrusted text into the system prompt; do not let untrusted content overwrite tool parameters</td>
+        </tr>
+        <tr>
+          <td>Detection and incident path</td>
+          <td>Named runtime monitor for injection patterns plus a defined organizational response</td>
+          <td>Injection-pattern monitor, freeze-agent playbook, incident-owner paging path</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="table-caption">Table 5.3. Prompt injection defense artifacts.</p>
+    <h3 id="the-security-frameworks-are-new">The Security Frameworks Are New</h3>
+    <p>The teams shipping these agents are not necessarily cutting corners on security. Most large enterprise vendors run rigorous programs: threat modeling workshops, static analysis tools, external red teams, security officers with real authority to block a release. None of those programs were designed for agentic systems. And until very recently, none existed that were.</p>
+    <p>The OWASP Top 10 for Agentic Applications was published in December 2025. OWASP, the Open Worldwide Application Security Project, is the nonprofit that maintains the industry-standard vulnerability lists most enterprise security programs are built around. MAESTRO, the Multi-Agent Environment, Security, Threat, Risk, and Outcome framework, the first threat modeling framework built specifically for multi-agent environments, arrived in February 2025. Microsoft&rsquo;s Agent Governance Toolkit shipped in April 2026. The security officer who signed an exception last year was not being negligent. They were working with a toolbox built for a different class of system, because the agentic-specific toolbox did not exist yet.</p>
+    <p>Traditional threat modeling asks: what are the entry points, what data is at risk? Those questions were written for systems with defined API surfaces. An agentic system&rsquo;s attack surface is the reasoning layer: the sequence of tool calls the agent will follow when instructions are constructed in the right order. A carefully chained attack enters through the agent&rsquo;s normal operation, one legitimate-looking step at a time, with each step passing every check the security tool was built to perform. Static analysis does not see it. Intrusion tests do not model it.</p>
+    <h3 id="the-fence-and-the-model-are-on-the-same-upgrade-cycle">The Fence and the Model Are on the Same Upgrade Cycle</h3>
+    <p>One more dynamic makes this structurally different from every previous security problem.</p>
+    <p>The reasoning capability that makes frontier models valuable for your agents also makes those models capable of finding gaps in your autonomy boundary that your security team, working with tools built for a different era, has not yet mapped. And frontier model releases do not follow the rhythm that traditional security programs were built around. They arrive every few months, each one materially more capable than the last, and the capability improvement is symmetric: your defenders and your attackers have access to the same new model the day it ships.</p>
+    <p>You are not building a fence and then maintaining it. You are building a fence while the tools available to those on the other side are upgraded automatically, on a schedule you do not control, faster than your procurement cycle can respond. This is not a reason to stop building. It is a reason to design the boundary before the first version ships, because retrofitting it after several model generations have passed is a different problem entirely.</p>
+    <p>Red-teaming an agentic system before launch is the equivalent of safety testing before a medical device reaches a patient. If the prompt-injection section of your red team report is a paragraph, it is not a red team. It is a checkbox.</p>
+    <hr class="soft">
+    <h2 id="the-four-artifacts-on-one-agent">The Four Artifacts on One Agent</h2>
+    <p>The four artifacts are best understood as one conversation about a single agent. Here is how they play out for a customer-service agent that issues refunds for damaged e-commerce orders.</p>
+    <p><strong>Autonomy boundary.</strong> The agent may refund up to one hundred dollars without human approval. Refunds between one hundred and five hundred dollars require supervisor approval. Refunds above five hundred dollars escalate to a case manager. Refund decisions never read data outside the active order&rsquo;s customer record; no cross-customer lookups, no access to administrative tools in the billing system.</p>
+    <p><strong>Approval moment.</strong> For refunds in the hundred-to-five-hundred-dollar range, the agent surfaces a decision package. What it knows: order value, damage description from the customer, similar case outcomes in the last thirty days. What it is uncertain about: whether the photograph is clear enough to establish severity. The consequences of approval: the refund is issued, the restocking ledger updates, the case closes. The alternatives: decline with case notes for escalation, request additional photos, offer partial credit. The approval UI is rejected at deploy time if any of these four fields are empty.</p>
+    <p><strong>Audit surface.</strong> Every refund action emits a structured record: order ID, decision (approve, decline, escalate), amount, policy invoked, evidence summary, whether a human approved and which one, agent version, prompt template version. The record is queryable by customer ID, by agent version, and by date range. The agent&rsquo;s reasoning about why this damage met the refund threshold is captured as a secondary stream, labeled model commentary, not primary evidence of what happened.</p>
+    <p><strong>Recovery workflow.</strong> If a refund is later found to be in error, the system supports reversal. The restocking ledger entry voids, the refund clawback initiates, the customer receives an explanatory message. Reversal is time-bounded. After seventy-two hours, reversal requires escalated approval and a secondary confirmation. The recovery path is a named playbook, not an ad hoc email thread. Incident recovery time is tracked as a distribution.</p>
+    <p>The four artifacts are not separate decisions. They are four views of the same agent. The autonomy boundary says what the agent can do, the approval moment says how humans are engaged at the edges, the audit surface reconstructs what happened, the recovery workflow catches what went wrong. An agent that ships without one of the four has shipped without part of the product.</p>
+    <p>One practical note on what the platform will actually give you. The primitives required to implement these artifacts cleanly, typed autonomy boundaries, decision-package schema enforcement at the approval layer, action-trace audit separate from reasoning narration, bounded recovery primitives, are mostly not yet shipped by major platforms as first-class features as of April 2026. You will assemble them from lower-level building blocks: IAM for authorization, tool-call interrupt primitives for approvals, distributed trace capture for audit, ad hoc runbooks for recovery. Appendix A, the platform taxonomy, lists what to expect from the platform out of the box and what your team will need to compose on top.</p>
+    <hr class="soft">
+    <h2 id="nine-seconds-the-pocketos-case">Nine Seconds: The PocketOS Case</h2>
+    <p>One reported case ties autonomy boundary, audit surface, and recovery workflow together as one coordinated failure. A coding agent, given an overly broad infrastructure API token, used that access to delete a production data volume and its backups in under ten seconds. The destructive call did not require an outage or an exploit. It succeeded through authorized plumbing. By the time a downstream alert would have detected missing data, the irreversible action had already occurred.</p>
+    <p>Read the failure modes through the four artifacts. The autonomy boundary was wrong: an agent with the ability to delete production volumes had not been bounded to require explicit confirmation for destructive operations. The approval moment did not exist: there was no decision package between &ldquo;agent reasoning about cleanup&rdquo; and &ldquo;production data permanently destroyed.&rdquo; The audit surface, in the sense of an action trace, did exist after the fact and is what allowed the post-incident reconstruction. But the audit surface as a real-time intervention surface was useless, because the action had already executed by the time anyone could read the trace. And the recovery workflow ran into a wall: production data plus backups were both deleted by the same operation. There was nothing to roll back to.</p>
+    <p>The lesson is not that agents are dangerous in the abstract. The lesson is that agentic systems can execute sequences of irreversible real-world actions faster than monitoring-and-alert cycles are designed to operate. When the unit of failure is an action with external consequences, rather than a request that returns an error code, the monitoring architecture needs to be upstream of the action, not downstream of it. The autonomy boundary is the upstream architecture. If it is missing, no downstream observability is fast enough.</p>
+    <hr class="soft">
+    <h2 id="agentic-experience-design-is-lifecycle-design">Agentic Experience Design Is Lifecycle Design</h2>
+    <p>Agentic experience design is not only what the user sees at the moment of action. It is the governance of the agent&rsquo;s behavior across its entire operational life.</p>
+    <p>At design time: who can configure the agent, what actions it may take, and which workflows it may never touch. Least-privilege access, role-based permissions, and human sign-off for high-risk configuration changes belong here, before any user touches the system.</p>
+    <p>At build time: test the agent for adversarial inputs before deployment. Prompt injection, tool abuse, credential leakage, and permission escalation are documented attack vectors specific to systems that can reason and act. The Adversarial by Default section above covers the details.</p>
+    <p>At runtime: monitor behavior actively. Agent behavior drifts. Model providers push updates on their own schedules that can quietly shift how an agent interprets its instructions without any deployment event on your side. A model version change is a behavioral change; treat it as a deployment requiring governance review. The Chapter 6 and Chapter 7 material on model version policy and regression evals is the operational continuation of this point. Chapter 9 addresses the longer horizon: how the observation instruments themselves decay on the frontier-model clock and what a disciplined PM does about it.</p>
+    <p>At incident: recovery is organizational. When an agent misbehaves, the response includes freezing the agent, attributing the failure, notifying affected users, and reauthorizing before resuming. That sequence is a product experience. Most teams have not designed it.</p>
+    <p>The full arc, setup, configuration, testing, deployment, runtime monitoring, escalation, incident response, retirement, requires deliberate design at each phase. Teams that treat only the runtime interaction as &ldquo;the experience&rdquo; are designing half a system.</p>
+    <p>You are shipping Channel 1 and Channel 2 from the first sprint. Both are probabilistic. Both need the artifacts this chapter defined. The rest of the book is about how to tell whether they are working.</p>
+
+    <nav class="chapter-nav">
+      <a class="prev" href="ch04-two-briefs.html">The Two Briefs</a>
+      <a class="next" href="ch06-evals.html">AI Evals</a>
+    </nav>
+
+  </article>
+  </main>
+</div>
+
+</body>
+</html>

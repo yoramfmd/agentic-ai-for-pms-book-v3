@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Preface &mdash; Agentic AI for Busy Product Managers</title>
-<meta name="description" content="Preface. Why the binding constraint shifted from execution to judgment, why supervision is the second product, and what changed between v2.3 and v3.0.">
+<meta name="description" content="For most of the past twenty years, the binding constraint on enterprise product management was execution. The question a PM answered every week was some ve">
 <link rel="canonical" href="https://agenticaiproductmanagement.com/preface/">
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -17,36 +17,39 @@
       <a href="index.html">Agentic AI for Busy Product Managers</a>
       <div class="sidebar-brand-sub">Designing the Agent and the Supervisor</div>
     </div>
-
     <div class="sidebar-section">Front matter</div>
     <ul class="sidebar-list">
       <li><a href="ch00-preface.html" class="active">Preface</a>
       <ul class="sidebar-sub">
-        <li><a href="#what-changed-in-v3-0">What Changed in v3.0</a></li>
         <li><a href="#how-to-read-this-book">How to Read This Book</a></li>
-      </ul>
-    </li>
+      </ul></li>
     </ul>
-
+    <div class="sidebar-section">Tools</div>
+    <ul class="sidebar-list">
+      <li><a href="cost-calculator.html">Agent Cost Calculator</a></li>
+      <li><a href="downloads.html">Templates &amp; Checklists</a></li>
+    </ul>
     <div class="sidebar-section">Chapters</div>
     <ul class="sidebar-list">
       <li><a href="ch01-ai-literacy.html">1. What You Need to Know</a></li>
       <li><a href="ch02-not-a-bridge.html">2. You Are Not a Bridge Anymore</a></li>
       <li><a href="ch03-not-every-problem.html">3. Not Every Problem Deserves an Agent</a></li>
-      <li><a href="ch04-design-behavior.html">4. Now Design the Behavior</a></li>
-      <li><a href="ch05-evals.html">5. AI Evals</a></li>
-      <li><a href="ch06-observation.html">6. You Can&rsquo;t Measure What You Didn&rsquo;t Design</a></li>
-      <li><a href="ch07-change-management.html">7. Change Management</a></li>
-      <li><a href="ch08-silent-degradation.html">8. Silent Degradation</a></li>
-      <li><a href="ch09-frameworks-to-boundaries.html">9. From Frameworks to Boundaries</a></li>
-      <li><a href="ch10-people-never-seen.html">10. People Your Agent Will Never See</a></li>
-      <li><a href="ch11-field-manual.html">11. Operating the Loop</a></li>
+      <li><a href="ch04-two-briefs.html">4. The Two Briefs</a></li>
+      <li><a href="ch05-design-behavior.html">5. Now Design the Behavior</a></li>
+      <li><a href="ch06-evals.html">6. AI Evals</a></li>
+      <li><a href="ch07-observation.html">7. You Can&#x27;t Measure What You Didn&#x27;t Design</a></li>
+      <li><a href="ch08-change-management.html">8. Change Management</a></li>
+      <li><a href="ch09-silent-degradation.html">9. Silent Degradation</a></li>
+      <li><a href="ch10-frameworks-to-boundaries.html">10. From Frameworks to Boundaries</a></li>
+      <li><a href="ch11-people-never-seen.html">11. People Your Agent Will Never See</a></li>
+      <li><a href="ch12-personnel-infrastructure.html">12. The Personnel Infrastructure</a></li>
+      <li><a href="ch13-field-manual.html">13. Operating the Loop</a></li>
     </ul>
-
     <div class="sidebar-section">Reference</div>
     <ul class="sidebar-list">
       <li><a href="appendix-a-platform.html">Appendix A. Platform Taxonomy</a></li>
       <li><a href="appendix-b-glossary.html">Appendix B. Glossary</a></li>
+      <li><a href="appendix-c-frameworks.html">Appendix C. The Frameworks</a></li>
       <li><a href="references.html">References</a></li>
     </ul>
   </aside>
@@ -56,65 +59,36 @@
 
     <p class="chapter-meta">Front matter</p>
     <h1>Preface</h1>
-
     <p>For most of the past twenty years, the binding constraint on enterprise product management was execution. The question a PM answered every week was some version of &ldquo;can we build it?&rdquo; Scope, cost, dependencies, engineering capacity. The craft was translating messy human needs into something a team could ship inside a quarter.</p>
-
     <p>That constraint is gone.</p>
-
-    <p>AI collapsed the build side of the equation faster than most of us noticed. Prototypes that used to take six weeks take a weekend. Integrations that used to require a dedicated squad run on a foundation model and a handful of tools. For a growing share of what enterprise teams do, &ldquo;can we build it?&rdquo; has stopped being the interesting question. The interesting question is &ldquo;should we, and if so, what should it actually do?&rdquo;</p>
-
+    <p>AI collapsed the build side of the equation faster than most of us noticed. Prototypes that used to take six weeks take a weekend. Integrations that used to require a dedicated squad run on a foundation model and a handful of tools. For a growing share of what enterprise teams do, &ldquo;can we build it?&rdquo; has stopped being the interesting question at all. The interesting question is now &ldquo;should we, and if so, what should it actually do, and what happens when it is wrong?&rdquo;</p>
     <p>That shift is the reason this book exists.</p>
-
-    <p>In healthcare, the field that has been running the longest and most rigorous AI experiment, a large majority of AI pilots never reach production at scale. The models usually work. The projects fail on something else: judgment about which problem to attack, how to specify what right looks like, what happens when the system is wrong, and who is accountable when it is. That is PM work. It is not secondary to engineering capacity. It is the binding constraint that replaced it.</p>
-
+    <p>In healthcare, the field that has been running the longest and most rigorous AI experiment, most AI pilots never reach production at scale (the cost chapter gives the figures, and the companion volume carries the sources). The models usually work. The projects fail on something else: judgment about which problem to attack, how to specify what right looks like, what happens when the system is wrong, and who is accountable when it is. That is PM work. It is not secondary to engineering capacity. It is the binding constraint that replaced it.</p>
     <p>This book is for product managers who are good at their jobs and honest about what they do not know.</p>
-
     <p>You have shipped enterprise software. You have run workshops, argued over priorities, and delivered systems that real people use to do real work. You understand vertical markets, customer pain, and the discipline of translating messy human needs into something an engineering team can build. Now someone has put the word &ldquo;agent&rdquo; on your roadmap, and you are being asked to design a system that acts on its own. Not a workflow automation. Not a chatbot with a better prompt. A system that makes decisions, takes actions, and compounds those actions over time, sometimes faster and at larger scale than the humans around it.</p>
-
     <p>Three ideas run through this book. One: AI is probabilistic, not deterministic, and that changes the PM toolkit at the level of first principles. Two: you are designing two products at once, the agent and the human system that supervises it. Three: the supervisor is not a fixed input. The supervisor population is being reshaped by the same deployment that depends on it. If you hold those three ideas in view through every chapter, the rest of the book is a toolkit. If you forget them, the frameworks will produce the right answers to the wrong problems.</p>
-
     <p>Three running case-study threads, used selectively to fit the argument. Software engineering, because that is the closest empirical evidence to every PM&rsquo;s daily work. Healthcare and clinical AI, because the evidence base is sharpest, the regulation is most rigorous, and the stakes anchor what irreversibility actually means. Enterprise SAP and operational systems, because that is the vocabulary most PMs reading this book live inside. Each chapter picks the thread that fits the argument best. No chapter is single-thread. No thread is decorative.</p>
-
     <p>If you are strong on product but light on AI, Chapter 1 starts with the technical foundations you need, explained without jargon and grounded in concrete examples. If you already have AI fluency, skip to Chapter 2 and start with the role shift that reframes the rest.</p>
-
-    <p>Chapters 3 and 4 are the design half of the job: deciding when an agent is the right answer, and the four runtime artifacts every agent needs before it ships. Chapter 4 also expands substantially on adversarial security, because the threat model for agentic systems has matured fast and the runtime artifacts have to ship with it. Chapters 5 through 8 are the operating half: evals, production observation including the observability literacy a PM now needs, change management for the humans the agent now works with, and the maintenance problem nobody budgets for, the slow degradation of a deployed agent and of the instruments built to watch it. Chapters 9 and 10 widen the lens to frameworks, governance, and the people the agent affects who never touch the product. Chapter 11 compresses the whole book into a field manual of checklists.</p>
-
+    <p>Chapters 3 through 5 are the design half of the job: deciding when an agent is the right answer, writing the two briefs that turn that decision into a buildable spec, and the four runtime artifacts every agent needs before it ships. Chapter 5 also expands substantially on adversarial security, because the threat model for agentic systems has matured fast and the runtime artifacts have to ship with it. Chapters 6 through 9 are the operating half: evals, production observation including the observability literacy a PM now needs, change management for the humans the agent now works with, and the maintenance problem nobody budgets for, the slow degradation of a deployed agent and of the instruments built to watch it. Chapters 10 and 11 widen the lens to frameworks, governance, and the people the agent affects who never touch the product. Chapter 12 names the institutional gap underneath all of it: the personnel infrastructure that does not yet exist for AI agents. Chapter 13 compresses the whole book into a field manual of checklists.</p>
     <p>If you are an experienced PM who already knows the frameworks, this book will not re-teach them. It will show you where they bend under agentic conditions, what new artifacts you need, and how to design the supervisory system that most teams are not building.</p>
-
     <p>The voice throughout is that of someone who has been on both sides: a physician who has managed patients under general anesthesia while machines monitored their vital signs, and a product leader who has shipped enterprise software at SAP, Walmart, and a regulated health tech company. The clinical-product intersection is where most of the examples in this book come from, and why.</p>
-
-    <p>A note on the examples. You will find clinical and healthcare references throughout this book. This is not because the book is about healthcare AI. It is because healthcare has been running the most rigorous AI experiment in the world for decades, under the highest stakes, the strictest regulation, and the least tolerance for confident wrong answers, and publishing the results, including the failures, so everyone else can learn from them. ECG interpretation algorithms have been running inside hospital machines since the early 1980s. Anesthesiology built human-machine supervisory architectures borrowed from aviation cockpit design over thirty years. The governance, equity, and accountability problems that enterprise AI is encountering for the first time have been studied, debated, and partially resolved in clinical practice for a generation. When I reach for a healthcare example, it is because that is where the evidence is most mature and the lessons are most transferable.</p>
-
+    <p>A note on the examples. You will find clinical and healthcare references in this book, used sparingly and on purpose. This is not because the book is about healthcare AI. It is because healthcare has been running the most rigorous AI experiment in the world for decades, under the highest stakes, the strictest regulation, and the least tolerance for confident wrong answers, and publishing the results, including the failures, so everyone else can learn from them. ECG interpretation algorithms have been running inside hospital machines since the early 1980s. Anesthesiology built human-machine supervisory architectures borrowed from aviation cockpit design over thirty years. The governance, equity, and accountability problems that enterprise AI is encountering for the first time have been studied, debated, and partially resolved in clinical practice for a generation. When I reach for a healthcare example, it is because that is where the evidence is most mature and the lessons are most transferable.</p>
     <p>One more thing. This book will not hype what agents can do. It will help you specify what they should do, what happens when they are wrong, and who is accountable. Those are the questions the market is not asking clearly enough. They are the questions that will separate products that last from demos that do not survive their first production incident.</p>
-
     <p>Every technology era gave ancient business processes a better vessel. R/2 automated integration. R/3 standardized global processes. ESA opened the API surface. HANA eliminated batch. None changed what the system understood about the work. Agentic AI is the first vessel that begins to reason over the logic it carries. That is the shift you are being asked to design for, whether anyone on your team names it that way or not.</p>
-
     <hr class="soft">
-
-    <h2 id="what-changed-in-v3-0">What Changed in v3.0</h2>
-
-    <p>This is the third major revision of the book. v2.3 (April 2026) was a working manuscript with the chapter structure and the core frameworks intact. v3.0 (May 2026) is the public release: enriched, format-converted to HTML for the web, and integrated with the broader body of articles published in the months since v2.3.</p>
-
-    <p>Three substantive additions are worth naming explicitly, because they shift how the rest of the book reads.</p>
-
-    <p>First, <strong>the Supervision Paradox</strong> is named explicitly in Chapter 1 and threads through Chapters 4, 7, 8, and 10. Bainbridge&rsquo;s 1983 ironies-of-automation paper, the recent empirical anchors (Anthropic 2026 RCT on AI-assisted coding, Bastani PNAS 2025, Lightrun 2026, Budzy&#324; ACCEPT 2025, the NEJM 2025 deskilling-mis-skilling-never-skilling taxonomy, EASA SIB 2025-09), and the Klarna case together establish that the human in the loop is being eroded by the deployment the loop is supposed to make safe. The design implication recurs in every chapter: the supervisor is not a fixed input, and the safety architecture cannot assume otherwise.</p>
-
-    <p>Second, <strong>adversarial security</strong> has been expanded substantially in Chapter 4 and added as a fifth degradation vector in Chapter 8. The 2025 STAC paper (over ninety percent attack success on GPT-4.1 across four hundred and eighty-three test scenarios), the 2025 audit of eight hundred and forty-seven production agentic deployments (ninety-five percent tool privilege escalation, ninety-four percent memory poisoning, the OpenClaw incident), and the OWASP and MAESTRO frameworks anchor the treatment. The PocketOS Cursor incident from April 2026 closes the chapter as a concrete blast-radius example. The book stays at PM-literacy altitude on security. Enough to ask the right questions, push back on hand-waving answers, and recognize when the team is missing something.</p>
-
-    <p>Third, <strong>observability literacy</strong> is now a section in Chapter 1 and three new sections in Chapter 6 (real-time vs. retrospective, multi-agent observability, and data observability). The point is the same: the PM does not need to implement observability, but does need the vocabulary to ask engineering whether the right events are being emitted and the right metrics are being composed. The PocketOS case in Chapter 4 is referenced from Chapter 6&rsquo;s real-time observability section because the timescale of the failure (nine seconds to delete production data and volume backups) is the empirical anchor for why retrospective dashboards are not enough for some classes of action.</p>
-
-    <p>Smaller changes throughout. Three running case-study threads (software engineering, healthcare, SAP enterprise) instead of two. The interactive cost calculator in Chapter 3 lets you stress-test the break-even assumptions yourself. Earned-versus-scheduled autonomy is named explicitly in Chapters 2 and 3 (the Utah Doctronic case anchors it). The Michelin Condition is introduced in Chapter 9 to handle the governance-economics question that did not have a clean home in v2.3. The DAX Copilot RCT case study is added to Chapter 5, because it is the cleanest published example of a well-designed eval suite passing against the wrong outcome metric.</p>
-
-    <p>The book&rsquo;s structure is unchanged. Eleven numbered chapters plus this preface, plus two appendices. The Channel 1 / Channel 2 framing is still the spine. The four runtime artifacts and the six observation instruments are still the operational core. What has changed is that the supervision paradox is now named, the security treatment is now substantial, and the observability vocabulary has caught up to the rest of the toolkit. The book argues for the same discipline. It argues for it with a sharper picture of what is breaking around the discipline, and what the PM has to design against.</p>
-
-    <hr class="soft">
-
     <h2 id="how-to-read-this-book">How to Read This Book</h2>
-
-    <p>If you read this book in order, the chapters compound. Chapter 1 establishes the vocabulary and names the five recurring ideas. Chapter 2 reframes the PM role around them. Chapter 3 decides whether to build. Chapter 4 designs the runtime. Chapter 5 evaluates before launch. Chapter 6 observes after. Chapter 7 manages the human transition. Chapter 8 names the slow failure mode that makes month eighteen the hardest test. Chapter 9 turns frameworks into boundaries. Chapter 10 adds obligations to the affected person. Chapter 11 is the field manual you go back to.</p>
-
-    <p>If you read this book by chapter pull, it works too. Each chapter is self-contained with cross-references where they matter. The concept boxes are the load-bearing definitions. The diagrams visualize what the prose argues for. The endnotes anchor the empirical claims to specific sources.</p>
-
+    <p>If you read this book in order, the chapters compound. Chapter 1 establishes the vocabulary and names the five recurring ideas. Chapter 2 reframes the PM role around them. Chapter 3 decides whether to build. Chapter 4 turns that decision into the two briefs. Chapter 5 designs the runtime. Chapter 6 evaluates before launch. Chapter 7 observes after. Chapter 8 manages the human transition. Chapter 9 names the slow failure mode that makes month eighteen the hardest test. Chapter 10 turns frameworks into boundaries. Chapter 11 adds obligations to the affected person. Chapter 12 names the personnel infrastructure that has to be built for any of this to work at the institutional level. Chapter 13 is the field manual you go back to.</p>
+    <p>Underneath the chapters is a simpler shape, six phases the work moves through, and it is worth holding in mind as you read.</p>
+    <ul>
+      <li><strong>Phase 0, AI Literacy:</strong> the team becomes fluent enough to specify an agent and catch it when it is wrong (Chapter 1).</li>
+      <li><strong>Phase 1, Discover and Decide:</strong> you decide whether to build at all, and produce the go or no-go (Chapter 3).</li>
+      <li><strong>Phase 2, Design:</strong> you write the two briefs and the four runtime artifacts (Chapters 4 and 5).</li>
+      <li><strong>Phase 3, Eval:</strong> you prove readiness with evals run many times, not once (Chapter 6).</li>
+      <li><strong>Phase 4, Observe:</strong> you measure what the agent is actually doing in production (Chapter 7).</li>
+      <li><strong>Phase 5, Operate:</strong> you keep it honest as it drifts, and govern, supervise, and eventually retire it (Chapters 8 through 13).</li>
+    </ul>
+    <p>The field manual in Chapter 13 lays these out as a one-page table of phase, deliverable, and the question each phase exists to answer. If you ever lose the thread, find the phase whose question you cannot yet answer.</p>
+    <p>If you read this book by chapter pull, it works too. Each chapter is self-contained with cross-references where they matter. Each chapter opens with the same five-ideas box, with the one or two it leans on marked, and carries a single concept box for its keystone idea. Those are the load-bearing definitions. The checklists, worksheets, and red flags are the apparatus you take into your own work. Where you want the deeper evidence and the academic sources behind a claim, the companion volume is where that lives.</p>
     <p>What this book asks of you is not new vocabulary or new frameworks. It is the willingness to design two products simultaneously, to maintain that design across the deployment&rsquo;s operational life, and to take responsibility for the people the agent will affect who will never see the interface. That is more than most agentic AI books ask. It is the work the discipline actually requires.</p>
 
     <nav class="chapter-nav">

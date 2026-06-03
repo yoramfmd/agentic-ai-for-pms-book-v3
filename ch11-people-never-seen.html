@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 11. What You Owe the People Your Agent Will Never See &mdash; Agentic AI for Busy Product Managers</title>
+<meta name="description" content="(the one in bold is the one this chapter leans on)">
+<link rel="canonical" href="https://agenticaiproductmanagement.com/ch11-people-never-seen.html">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="book">
+
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <a href="index.html">Agentic AI for Busy Product Managers</a>
+      <div class="sidebar-brand-sub">Designing the Agent and the Supervisor</div>
+    </div>
+    <div class="sidebar-section">Front matter</div>
+    <ul class="sidebar-list">
+      <li><a href="ch00-preface.html">Preface</a></li>
+    </ul>
+    <div class="sidebar-section">Tools</div>
+    <ul class="sidebar-list">
+      <li><a href="cost-calculator.html">Agent Cost Calculator</a></li>
+      <li><a href="downloads.html">Templates &amp; Checklists</a></li>
+    </ul>
+    <div class="sidebar-section">Chapters</div>
+    <ul class="sidebar-list">
+      <li><a href="ch01-ai-literacy.html">1. What You Need to Know</a></li>
+      <li><a href="ch02-not-a-bridge.html">2. You Are Not a Bridge Anymore</a></li>
+      <li><a href="ch03-not-every-problem.html">3. Not Every Problem Deserves an Agent</a></li>
+      <li><a href="ch04-two-briefs.html">4. The Two Briefs</a></li>
+      <li><a href="ch05-design-behavior.html">5. Now Design the Behavior</a></li>
+      <li><a href="ch06-evals.html">6. AI Evals</a></li>
+      <li><a href="ch07-observation.html">7. You Can&#x27;t Measure What You Didn&#x27;t Design</a></li>
+      <li><a href="ch08-change-management.html">8. Change Management</a></li>
+      <li><a href="ch09-silent-degradation.html">9. Silent Degradation</a></li>
+      <li><a href="ch10-frameworks-to-boundaries.html">10. From Frameworks to Boundaries</a></li>
+      <li><a href="ch11-people-never-seen.html" class="active">11. People Your Agent Will Never See</a>
+      <ul class="sidebar-sub">
+        <li><a href="#the-user-and-the-affected-person-are-not-the-same">The User and the Affected Person Are Not the Same</a></li>
+        <li><a href="#equity-means-looking-inside-the-error-rate">Equity Means Looking Inside the Error Rate</a></li>
+        <li><a href="#not-all-ai-errors-look-like-errors">Not All AI Errors Look Like Errors</a></li>
+        <li><a href="#what-should-never-be-delegated">What Should Never Be Delegated</a></li>
+        <li><a href="#moral-architecture-not-a-moral-committee">Moral Architecture, Not a Moral Committee</a></li>
+        <li><a href="#the-obligations-are-not-optional">The Obligations Are Not Optional</a></li>
+      </ul></li>
+      <li><a href="ch12-personnel-infrastructure.html">12. The Personnel Infrastructure</a></li>
+      <li><a href="ch13-field-manual.html">13. Operating the Loop</a></li>
+    </ul>
+    <div class="sidebar-section">Reference</div>
+    <ul class="sidebar-list">
+      <li><a href="appendix-a-platform.html">Appendix A. Platform Taxonomy</a></li>
+      <li><a href="appendix-b-glossary.html">Appendix B. Glossary</a></li>
+      <li><a href="appendix-c-frameworks.html">Appendix C. The Frameworks</a></li>
+      <li><a href="references.html">References</a></li>
+    </ul>
+  </aside>
+
+  <main class="main">
+  <article class="chapter">
+
+    <p class="chapter-meta">Chapter 11</p>
+    <h1>What You Owe the People Your Agent Will Never See</h1>
+    <div class="callout">
+      <div class="callout-label">Keep in your pocket</div>
+      <div class="callout-title">The five ideas to keep in your pocket</div>
+      <p><em>(the one in <strong>bold</strong> is the one this chapter leans on)</em></p>
+      <ol>
+        <li>Non-determinism is permanent, not a bug. The same input can give different outputs. You cannot test an agent the way you test ordinary software.</li>
+        <li><strong>Confident wrong answers happen at a measurable rate.</strong> The agent will not flag its own uncertainty; you design that surface.</li>
+        <li>The tool boundary is the agent&rsquo;s authority. What it can touch is what it can do, and what it can do wrong.</li>
+        <li>The hard part is not the agent&rsquo;s intelligence. It is the supervisory system around it, the product this book teaches you to build.</li>
+        <li>The supervisor&rsquo;s competence erodes. The agent that does the work degrades the human who is supposed to watch it.</li>
+      </ol>
+    </div>
+    <p>Consider a case, a composite drawn from the documented pattern of clinical-AI adverse events rather than a single reported incident, that the rest of this chapter will keep in view. A patient we will call Maria, a forty-two-year-old community-health-center client, fills out an intake form that a clinical-decision-support agent summarizes into a two-line risk assessment. The agent flags her as low-risk for cardiac events. The physician reviewing that morning&rsquo;s queue sees the summary, confirms it, and schedules a routine follow-up for six weeks later. Weeks after that, Maria dies of a preventable myocardial infarction. The chart held several risk factors that the agent&rsquo;s summary had compressed away.</p>
+    <p>Maria was never in a beta cohort. She never filled out a user-research survey. She never saw the product. She was the person the product was actually for, and no one on the team had ever seen her face.</p>
+    <p>The physician&rsquo;s duty is to the patient who is not in the room. That is a constraint medicine enforces through training and oath, not through a checklist. The PM&rsquo;s equivalent duty is to the affected person who will never see the agent. No oath enforces it. The product design does, or it does not.</p>
+    <p>The previous nine chapters are about building agentic products well. This chapter is about building them responsibly. These are not the same thing.</p>
+    <p>A product can have a well-designed autonomy boundary, a carefully crafted approval moment, a full eval suite, six observation metrics in production, and a supervisory interface that holds trust stable over time. It can do all of this and still cause harm, because the design was optimized for the user operating the system and never accounted for the person downstream who lives with the consequence.</p>
+    <p>That person is almost never in your user research. They are not in your beta cohort. They are not in the sprint review. They are the patient whose pathology result was processed by your clinical decision support tool. The loan applicant whose file was scored by your credit model. The job candidate whose resume was ranked by your screening agent. The supplier whose payment was delayed by your procurement system&rsquo;s autonomous decision. The name is Maria, or a thousand other names the product will never know.</p>
+    <p>These people will never give you feedback. They will never appear in your analytics. They will never file a support ticket. And the quality of your product depends on what happens to them.</p>
+    <hr class="soft">
+    <h2 id="the-user-and-the-affected-person-are-not-the-same">The User and the Affected Person Are Not the Same</h2>
+    <p>In every previous generation of enterprise software, the user and the person affected by the decision were usually the same, or close enough that the distinction did not drive design choices. The procurement manager who used the ERP was also the person accountable for the purchase order. The clinician who used the EMR was also the person making the treatment decision.</p>
+    <p>Agentic AI widens this gap. An agent that processes claims affects patients who never see the interface. An agent that scores applications affects candidates who never interact with the product. An agent that manages a supply chain affects small suppliers whose payment timing is determined by a model they have no visibility into.</p>
+    <p>Channel 2, as defined in Chapter 2, focused on the supervisor. The affected person is a third party outside both channels. Designing for them is a further obligation, not an extension of the supervisor&rsquo;s interface. The user is optimizing their workflow. The affected person is experiencing a consequence. Missing that distinction is how teams end up with a great Channel 2 and a Maria.</p>
+    <p>This gap has a practical design consequence. If your product optimization targets are adoption, task completion, and time saved for the user, you are measuring the experience of the person who operates the system. You are not measuring the experience of the person who absorbs its output. Those metrics can be green while the affected person&rsquo;s experience degrades, because nobody designed a signal for it.</p>
+    <p>The design requirement: for every consequential action the agent takes, identify who is affected beyond the user, what outcome they experience, and whether there is any signal in your system that would surface harm to that person before it compounds.</p>
+    <hr class="soft">
+    <h2 id="equity-means-looking-inside-the-error-rate">Equity Means Looking Inside the Error Rate</h2>
+    <p>A model at ninety-four percent accuracy looks like a success. The question you have to ask is: who is in the six percent?</p>
+    <p>The six percent is not a random six percent. In a probabilistic system, errors cluster. A credit model trained on historical data will underperform for first-generation borrowers who built creditworthiness through patterns that were never in the training set. A hiring algorithm trained on past successful hires will systematically discount candidates whose career paths do not match the historical template. A clinical risk model trained on one demographic will miss early warning signs in patients whose presentation patterns differ from the training population.</p>
+    <p>The aggregate accuracy looks fine. The harm is invisible in the summary. Who is in the six percent is the question.</p>
+    <div class="callout">
+      <div class="callout-label">Concept</div>
+      <div class="callout-title">Disparate Performance</div>
+      <p>Aggregate accuracy hides population-level failure. A model that is ninety-four percent accurate overall can simultaneously be failing a specific population entirely. This does not show up in summary metrics. It does not trigger an alert. It requires someone with enough domain knowledge and enough conviction to stratify performance by population before launch, and to refuse to ship when the stratification reveals systematic underperformance for a group.</p>
+      <p>If you did not build this check into your definition of done, nobody else will do it. The populations inside the error rate are almost always the ones least represented in your discovery process.</p>
+    </div>
+    <p>This is not a technical problem. The tools to measure disparate performance exist: demographic stratification, subgroup analysis, the broad category of ML-evaluation tools that break overall accuracy down into performance on specific population subgroups. The engineering is manageable. The question is whether anyone on the product team made it their responsibility to run the analysis and act on the findings.</p>
+    <p>There is a structural source of disparate performance that most PMs do not name, and it explains why the errors cluster where they do. Chapter 5 introduced first-contact training data mismatch: models are trained on documentation written after an outcome was known (the completed case note, the resolved ticket, the adjudicated claim), and deployed at first contact where the critical signals are incomplete or missing. The populations underrepresented in historical documentation (new-immigrant patients, first-generation loan applicants, non-native speakers, candidates whose career paths do not match the template) are systematically underserved because their first-contact signals were never recorded in the training data at sufficient volume. Disparate performance is the outcome; first-contact mismatch is often the mechanism. The affected person is the one whose documentation was always sparse.</p>
+    <p>The PM&rsquo;s obligation: before any agent reaches production, require a stratified performance analysis across the populations the agent will affect. If the analysis reveals systematic underperformance for any group, that is a product defect, not a statistical footnote. Ship when it is fixed, not when the aggregate number looks acceptable.</p>
+    <hr class="soft">
+    <h2 id="not-all-ai-errors-look-like-errors">Not All AI Errors Look Like Errors</h2>
+    <p>Chapter 6 covered the mechanics of evaluation: Pass@K, compound probability, background failures. This section addresses a different problem: the structure of the errors themselves.</p>
+    <p>AI errors are not random noise. They fall into structured patterns of fabrication, each with a distinct detection challenge. Knowing which pattern an error belongs to changes what you do about it.</p>
+    <p><strong>Factual errors.</strong> The model states something false, contradicts data it was given, or overrides information that was explicitly provided. The most dangerous subtype: the model applies a value from its training distribution rather than the value in the input. A drug dosage that ignores the patient&rsquo;s weight. A contract summary that states the liability cap incorrectly despite the correct figure being in the document. The output does not look wrong.</p>
+    <p><strong>Outdated references.</strong> The model draws on information that was accurate at the time of training but has since been revised. Guidelines change. Standards are updated. Regulations are amended. The recommendation is delivered with the same authority as current-standard information.</p>
+    <p><strong>Spurious correlations.</strong> The model merges information from unrelated contexts into a single output that sounds coherent but is internally incoherent. Both underlying data points may be real. The combination is a fabrication. This cluster is the most likely to pass initial review, because it uses the correct vocabulary and produces an answer that feels right.</p>
+    <p><strong>Fabricated sources.</strong> The model invents references, certifications, studies, or standards that do not exist. It does not flag uncertainty. The fabrication is presented in the same format as a legitimate citation.</p>
+    <p><strong>Incomplete chains of reasoning.</strong> The model reaches a conclusion without completing the logical steps that should have produced it. It skips the differential. It ignores relevant factors. The endpoint is stated confidently. The path that should have led there is missing.</p>
+    <p>There is a sixth category worth naming, because it is the one most likely to pass every model-level eval and most likely to cause harm to the affected person. <strong>Upstream-data-wrong.</strong> The model was faithful to the input it received. The input was wrong in a way nobody anticipated: a stale record, a mislabeled field, an upstream system returning a default value when the real value was missing, a classification that was accurate at training time but has since drifted. The output was correct given the input. The input was the failure. Standard error taxonomies describe what the model fabricated. This category describes what the model faithfully reproduced from a complete-looking but misleading input. It passes every model-level eval. It is a data-integrity problem that has been redefined as a model problem because the model is what the user sees.</p>
+    <p>The categories differ in how they fail and, more importantly, in who is positioned to catch them. That determines where the detection belongs in the system.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th>Description</th>
+          <th>Who can catch it</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Factual errors</td>
+          <td>Contradict known facts or the input provided</td>
+          <td>Domain reviewer with access to the ground truth</td>
+        </tr>
+        <tr>
+          <td>Outdated references</td>
+          <td>Use superseded guidelines, standards, or regulations</td>
+          <td>Reviewer with date-aware validation</td>
+        </tr>
+        <tr>
+          <td>Spurious correlations</td>
+          <td>Coherent but internally incoherent blends across unrelated contexts</td>
+          <td>Domain expert with cross-source check</td>
+        </tr>
+        <tr>
+          <td>Fabricated sources</td>
+          <td>Invented citations, certifications, or standards</td>
+          <td>Reference verification</td>
+        </tr>
+        <tr>
+          <td>Incomplete reasoning</td>
+          <td>Conclusion reached without visible steps</td>
+          <td>Require explicit reasoning trace</td>
+        </tr>
+        <tr>
+          <td>Upstream-data-wrong</td>
+          <td>Faithful to a wrong or stale input</td>
+          <td>Data-integrity and lineage review (not catchable at the model level)</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="table-caption">Table 11.1. Error categories and detection strategy.</p>
+    <p>The practical consequence for PMs: if your eval suite and production monitoring treat all errors as one category, you are measuring frequency without understanding structure. A detection strategy designed for factual errors (check the output against the input) will miss spurious correlations entirely. It will also miss upstream-data-wrong entirely, because the input itself was the failure. The coverage statement from Chapter 6 should include which error types the eval suite is designed to catch, and which (particularly the sixth) require a separate data-integrity review.</p>
+    <hr class="soft">
+    <h2 id="what-should-never-be-delegated">What Should Never Be Delegated</h2>
+    <p>Some decisions should not be delegated to an agent, regardless of how accurate the model is.</p>
+    <p>This is not a technical claim. It is a moral one. There are decisions where the act of explanation, the ability to be questioned, and the willingness to say &ldquo;I made this call and here is why&rdquo; are part of what makes the decision legitimate. An algorithm can be accurate. It cannot be accountable in the way that some decisions require.</p>
+    <p>AI systems have design-time constraints (what the system was trained to do), deployment-time constraints (what the governance layer authorizes), and output filters (what the response can contain). None of these is a runtime-enforced ethical constraint in the same sense as a physician&rsquo;s oath or a pilot&rsquo;s two-challenge rule. The system cannot refuse on moral grounds. It can only refuse on technical grounds, and the technical grounds are designed into it by someone who anticipated the refusal in advance. If the situation was not anticipated, the system does not refuse.</p>
+    <p>This is why the product needs a Constitutional Runtime Layer. The name matters and the idea is simple: ethical principles must be declared explicitly and enforced at the moment of action, not assumed in training and not reviewed in a quarterly committee. The Constitutional Runtime Layer is the runtime architecture that enforces those principles before output reaches the user, with mechanisms for refusal that do not depend on every situation being anticipated in advance. Moral architecture, not a moral committee. The PM artifact for this layer: an enumerated list of actions the agent will never take regardless of instruction, a runtime mechanism that enforces the list, and an audit trail that records refusals as first-class events, not error conditions.</p>
+    <p>The delegation boundary is not always obvious, and it shifts depending on the stakes, the context, and the populations involved. But the obligation to find it before you ship is not negotiable. The PM who does not think about this before the product is built will be forced to think about it after something goes wrong, under conditions that are far less forgiving.</p>
+    <p>A useful heuristic: if the affected person would reasonably expect a human to have made the decision, and would be materially harmed by learning that no human was involved, the decision should not be fully delegated. That does not mean the agent cannot assist. It means the human must be in the loop at the moment of consequence, with enough information to exercise genuine judgment, not just rubber-stamp an automated output.</p>
+    <p>The decisions that should never be delegated are not a finite list that a committee defines in a document. They are a moving surface, because the moral weight of a decision depends on the context, the population affected, the reversibility of the consequence, and the legitimacy of the authority being transferred. Some categories that consistently clear this bar: decisions that deprive someone of a resource they had (credit, coverage, employment, custody); decisions that expose someone to physical or medical risk they did not consent to; decisions where the affected person would have no path to appeal if the decision goes wrong. In healthcare, credit, and many hiring workflows, this is not just good architecture. Under the EU AI Act, these are classified as high-risk systems: human oversight and the ability to interrupt or override are legal requirements for market entry, not PM preferences. Compliance with those frameworks is the floor, not the ceiling. If any of these are on your agent&rsquo;s action list without an explicit human accountability stage, the product was not built with the obligations of this chapter in view.</p>
+    <p><strong>Questions to bring to your team:</strong></p>
+    <ul>
+      <li>For each consequential action the agent takes, who is affected beyond the user? What outcome do they experience?</li>
+      <li>Have we run a stratified performance analysis across the populations this agent will affect? Do we have a definition-of-done criterion that requires it?</li>
+      <li>What actions has the agent been given that we would not want a human making without explanation? Are those still on the action list?</li>
+      <li>What is the runtime enforcement mechanism for the non-delegable boundary? Where is it audited?</li>
+      <li>If a user asked &ldquo;did a human make this decision?&rdquo;, what would we tell them? Is that answer acceptable?</li>
+    </ul>
+    <hr class="soft">
+    <h2 id="moral-architecture-not-a-moral-committee">Moral Architecture, Not a Moral Committee</h2>
+    <p>Chapter 10 treated governance as an operational product surface: authority, escalation, logged boundary events, policy encoded into UI. That treatment is correct and not repeated here. This section addresses the moral-accountability dimension of governance, which is distinct.</p>
+    <p>A governance committee is not moral architecture. A moral architecture is a set of enforced constraints that operate at the moment of consequence, not in a quarterly review. The moral architecture of a hospital is not the ethics committee. It is the attending physician&rsquo;s signature on the order, the nurse&rsquo;s mandate to question an order that looks wrong, the morbidity-and-mortality review that forces an institution to confront its own failures publicly, and the license the regulator can revoke. These are enforced constraints with real consequences. The committee is where the constraints get calibrated. The constraints themselves live in the product.</p>
+    <p>Agentic systems inherit the same structure or they do not have one. If the moral architecture is a slide deck, there is no architecture. If it is a runtime-enforced layer with a non-delegable list, a named accountability person per action class, a refusal mechanism, and a public incident-disclosure posture, there is architecture. The difference is whether the constraints operate at the moment of consequence or only in a retrospective conversation.</p>
+    <hr class="soft">
+    <h2 id="the-obligations-are-not-optional">The Obligations Are Not Optional</h2>
+    <p>Every obligation in this chapter points at the same thing. Designing for the affected person, stratifying performance across populations, understanding the structure of AI errors including the upstream-data-wrong category, defining what should never be delegated with the Constitutional Runtime Layer in mind, and embedding the moral architecture in the product: all of it exists because there are people affected by your product who will never give you feedback, never appear in your analytics, and never be in the room when you make the decisions that shape their experience.</p>
+    <p>These are not features you add when the roadmap has room. They are not compliance checkboxes. They are the difference between a product that generates value and a product that generates value for some people while quietly causing harm to others.</p>
+    <p>The PMs who carry these obligations are not slower. They build better products. They build products that survive the first regulatory inquiry, the first public failure, and the first moment when someone asks &ldquo;who was responsible for this?&rdquo; and expects a real answer.</p>
+    <p>In an industry moving as fast as agentic AI, that seriousness is exactly what the market will eventually select for. The only question is whether you built it in from the start or tried to retrofit it after the incident. Maria&rsquo;s family will not ask politely.</p>
+
+    <nav class="chapter-nav">
+      <a class="prev" href="ch10-frameworks-to-boundaries.html">From Frameworks to Boundaries</a>
+      <a class="next" href="ch12-personnel-infrastructure.html">The Personnel Infrastructure</a>
+    </nav>
+
+  </article>
+  </main>
+</div>
+
+</body>
+</html>

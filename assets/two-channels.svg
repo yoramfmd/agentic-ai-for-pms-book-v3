@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <style>
+    .label { font-size: 13px; font-weight: 600; }
+    .sub   { font-size: 11.5px; fill: #5f5e5a; }
+    .tiny  { font-size: 10.5px; fill: #888780; letter-spacing: 0.04em; }
+  </style>
+
+  <!-- Channel 2 envelope -->
+  <rect x="40" y="60" width="680" height="200" rx="14" fill="#E6F1FB" stroke="#185FA5" stroke-width="1.5"/>
+  <text x="60" y="86" class="label" fill="#185FA5">Channel 2 — the supervisory system</text>
+  <text x="60" y="104" class="sub">Opens the work and outlasts it. Boundary, approval, audit, observation, recovery.</text>
+
+  <!-- Channel 1 agent, nested inside -->
+  <rect x="250" y="128" width="260" height="100" rx="12" fill="#ffffff" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="380" y="166" class="label" fill="#1a1a1a" text-anchor="middle">Channel 1 — the agent</text>
+  <text x="380" y="186" class="sub" text-anchor="middle">Decides, acts, uses tools,</text>
+  <text x="380" y="202" class="sub" text-anchor="middle">pursues the goal.</text>
+
+  <text x="380" y="250" class="sub" text-anchor="middle" font-style="italic">The agent acts inside the envelope the supervisor designed.</text>
+
+  <!-- timeline beneath: Channel 2 starts earlier, ends later -->
+  <text x="40" y="312" class="tiny">TIME →</text>
+  <rect x="120" y="300" width="560" height="10" rx="5" fill="#185FA5"/>
+  <text x="120" y="338" class="sub" fill="#185FA5">Channel 2 begins</text>
+  <text x="680" y="338" class="sub" fill="#185FA5" text-anchor="end">Channel 2 continues</text>
+  <rect x="250" y="302" width="260" height="6" rx="3" fill="#1a1a1a"/>
+  <text x="380" y="294" class="sub" text-anchor="middle">Channel 1: build → launch</text>
+</svg>

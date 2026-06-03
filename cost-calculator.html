@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Customer Service Cost Comparison Calculator &mdash; Agentic AI for Busy Product Managers</title>
+<title>Demo Cost Calculator &mdash; Agentic AI for Busy Product Managers</title>
 <meta name="description" content="Interactive cost-model calculator. Adjust six parameters and see how the agentic-versus-human break-even points shift.">
 <style>
   :root {
@@ -48,6 +48,12 @@
 </style>
 </head>
 <body>
+
+<div style="max-width:900px;margin:0 auto 0;padding:14px 18px;background:#fff4e6;border:1px solid #ffd8a8;border-radius:10px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:13.5px;color:#5f5e5a;margin-top:8px;">
+  <strong style="color:#BA7517;">Demo / test calculator.</strong>
+  This is an illustrative model for one scenario (customer-service cost by solution type), built to show the <em>shape</em> of the agentic-versus-alternative break-even, not to price your specific case. The numbers are sample assumptions. Use it to build intuition, then build your own with the prompt at the bottom of this page.
+  &nbsp;<a href="index.html" style="color:#185FA5;">&larr; Back to the book</a>
+</div>
 
 <h1>Customer Service: Cost Comparison by Solution Type</h1>
 <p class="subtitle">Adjust assumptions to see how crossover points shift. All values are monthly costs in USD.</p>
@@ -228,5 +234,34 @@ function updateChart() {
 
 updateChart();
 </script>
+
+<section style="max-width:900px;margin:40px auto 0;padding:24px;border-top:1px solid #e0e0de;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">
+  <h2 style="font-family:'Charter','Iowan Old Style','Georgia',serif;font-size:20px;font-weight:600;color:#1a1a1a;margin-bottom:10px;">Build your own calculator</h2>
+  <p style="font-size:14.5px;color:#5f5e5a;line-height:1.6;margin-bottom:14px;">This demo prices one scenario. Your agent has different drivers. Copy the prompt below into the AI assistant of your choice and adapt it to your case. It produces a single self-contained HTML file you can host or open locally, the same way this page works.</p>
+  <p style="font-size:13px;color:#888780;margin-bottom:8px;">Prompt:</p>
+  <textarea readonly onclick="this.select()" style="width:100%;height:340px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12.5px;line-height:1.5;padding:14px;border:1px solid #e0e0de;border-radius:8px;background:#f8f8f6;color:#1a1a1a;resize:vertical;">Build a single self-contained HTML file (inline CSS and JS, Chart.js from a CDN) that is an interactive cost calculator for an agentic-AI product decision. The goal is to show a product manager the break-even between an AI agent and its best non-agent alternative as a function of monthly task volume.
+
+CONTEXT (replace with your own numbers):
+- The decision being automated: [e.g. customer-service ticket resolution].
+- Alternatives to compare: [e.g. AI agent / constrained AI + human / traditional automation (RPA) / all-human].
+- Volume axis: monthly task count from 0 to [e.g. 5000].
+
+COST MODEL, per alternative, make each of these an adjustable slider with a sensible default and a visible current value:
+1. Fixed monthly floor cost (orchestration, integrations, monitoring, eval maintenance) , exists regardless of volume.
+2. Per-task variable cost. For the agent, compute this from: model calls per task (the number of times one task re-enters the model), tokens per call, and price per token, so the user can see the "architecture multiplier" rather than just a sticker price.
+3. Human supervision cost: the share of tasks escalated to a human times the loaded cost per human review. This is the cost the agent does NOT remove.
+4. Wrongful-action risk cost: expected cost of an incorrect autonomous action times its rate. Let the user price how bad a wrong action is.
+
+OUTPUT:
+- A line chart (Chart.js) with monthly volume on the x-axis and total monthly cost on the y-axis, one line per alternative, updating live as sliders move.
+- A set of "crossover" cards that state, in plain language, at what volume each alternative becomes the cheapest, and which alternative wins at the user's current settings.
+- A one-line takeaway that names the cheapest option at the current volume and the volume at which the agent overtakes the best alternative (or states that it never does at these settings).
+
+STYLE: clean, serif headings, sans body, neutral palette, mobile-responsive, no external dependencies except Chart.js from a CDN. Add a short note that all figures are the user's own assumptions and not authoritative pricing.
+
+DISCIPLINE: the point is not a precise quote. It is to make visible that (a) the agent has a fixed floor that does not disappear at low volume, (b) the per-task cost is driven by model re-entries and context size, not the sticker price per token, and (c) the escalated minority still costs human review, so "agent cheaper than a human per task" is the wrong comparison. Make those three lessons legible in the UI copy.</textarea>
+  <p style="font-size:13px;color:#888780;margin-top:14px;">The reasoning behind every line of this model is in <a href="ch03-not-every-problem.html" style="color:#185FA5;">Chapter 3, Not Every Problem Deserves an Agent</a>.</p>
+</section>
+
 </body>
 </html>

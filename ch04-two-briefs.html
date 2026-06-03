@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 4. The Two Briefs: From Decision to Buildable Spec &mdash; Agentic AI for Busy Product Managers</title>
+<meta name="description" content="(the two in bold are the ones this chapter leans on)">
+<link rel="canonical" href="https://agenticaiproductmanagement.com/ch04-two-briefs.html">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="book">
+
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <a href="index.html">Agentic AI for Busy Product Managers</a>
+      <div class="sidebar-brand-sub">Designing the Agent and the Supervisor</div>
+    </div>
+    <div class="sidebar-section">Front matter</div>
+    <ul class="sidebar-list">
+      <li><a href="ch00-preface.html">Preface</a></li>
+    </ul>
+    <div class="sidebar-section">Tools</div>
+    <ul class="sidebar-list">
+      <li><a href="cost-calculator.html">Agent Cost Calculator</a></li>
+      <li><a href="downloads.html">Templates &amp; Checklists</a></li>
+    </ul>
+    <div class="sidebar-section">Chapters</div>
+    <ul class="sidebar-list">
+      <li><a href="ch01-ai-literacy.html">1. What You Need to Know</a></li>
+      <li><a href="ch02-not-a-bridge.html">2. You Are Not a Bridge Anymore</a></li>
+      <li><a href="ch03-not-every-problem.html">3. Not Every Problem Deserves an Agent</a></li>
+      <li><a href="ch04-two-briefs.html" class="active">4. The Two Briefs</a>
+      <ul class="sidebar-sub">
+        <li><a href="#brief-1-the-human-brief">Brief 1: The Human Brief</a></li>
+        <li><a href="#brief-2-the-executable-brief">Brief 2: The Executable Brief</a></li>
+        <li><a href="#why-not-just-write-a-user-story">Why Not Just Write a User Story?</a></li>
+        <li><a href="#one-requirement-two-builders">One Requirement, Two Builders</a></li>
+      </ul></li>
+      <li><a href="ch05-design-behavior.html">5. Now Design the Behavior</a></li>
+      <li><a href="ch06-evals.html">6. AI Evals</a></li>
+      <li><a href="ch07-observation.html">7. You Can&#x27;t Measure What You Didn&#x27;t Design</a></li>
+      <li><a href="ch08-change-management.html">8. Change Management</a></li>
+      <li><a href="ch09-silent-degradation.html">9. Silent Degradation</a></li>
+      <li><a href="ch10-frameworks-to-boundaries.html">10. From Frameworks to Boundaries</a></li>
+      <li><a href="ch11-people-never-seen.html">11. People Your Agent Will Never See</a></li>
+      <li><a href="ch12-personnel-infrastructure.html">12. The Personnel Infrastructure</a></li>
+      <li><a href="ch13-field-manual.html">13. Operating the Loop</a></li>
+    </ul>
+    <div class="sidebar-section">Reference</div>
+    <ul class="sidebar-list">
+      <li><a href="appendix-a-platform.html">Appendix A. Platform Taxonomy</a></li>
+      <li><a href="appendix-b-glossary.html">Appendix B. Glossary</a></li>
+      <li><a href="appendix-c-frameworks.html">Appendix C. The Frameworks</a></li>
+      <li><a href="references.html">References</a></li>
+    </ul>
+  </aside>
+
+  <main class="main">
+  <article class="chapter">
+
+    <p class="chapter-meta">Chapter 4 &middot; Pre-build to pre-launch</p>
+    <h1>The Two Briefs: From Decision to Buildable Spec</h1>
+    <p class="chapter-stage"><em>Stage: pre-build to pre-launch, the handoff</em></p>
+    <div class="callout">
+      <div class="callout-label">Keep in your pocket</div>
+      <div class="callout-title">The five ideas to keep in your pocket</div>
+      <p><em>(the two in <strong>bold</strong> are the ones this chapter leans on)</em></p>
+      <ol>
+        <li>Non-determinism is permanent, not a bug. The same input can give different outputs. You cannot test an agent the way you test ordinary software.</li>
+        <li>Confident wrong answers happen at a measurable rate. The agent will not flag its own uncertainty; you design that surface.</li>
+        <li><strong>The tool boundary is the agent&rsquo;s authority. What it can touch is what it can do, and what it can do wrong.</strong></li>
+        <li><strong>The hard part is not the agent&rsquo;s intelligence. It is the supervisory system around it, the product this book teaches you to build.</strong></li>
+        <li>The supervisor&rsquo;s competence erodes. The agent that does the work degrades the human who is supposed to watch it.</li>
+      </ol>
+    </div>
+    <p>The previous chapter ended with a decision: this problem deserves an agent, and here is the boundary it lives inside. This chapter is about what you write down next, because the decision and the build are two different documents for two different audiences, and the most common way good agent projects go wrong is that the second document gets written and the first never does.</p>
+    <p>For twenty years the artifact was the PRD, handed to engineering, decomposed into an epic, built. That worked when the hard part was building. The hard part is no longer building. A coding agent will produce a working prototype of almost anything you can describe in an afternoon. The hard part is deciding what it should do, where its authority stops, and how the people around it will know when it is wrong. So the artifact splits in two, and learning to write both is the central craft of the job now.</p>
+    <p>It helps to see the whole shape before zooming in on the brief, because the brief is the center of a larger shift in how the work runs. The old model was document-centered: a market document became a spec, the spec became an epic, the epic was handed off and built in a line. The new model is centered on three things at once. It is intent-centered, because what you are really pinning down is the outcome and the boundary, not a feature list. It is prototype-centered, because a working prototype, generated from the brief in hours, becomes the thing the team argues with instead of a slide. And it is control-centered, because the supervisory layer, what the agent may do alone, where a human approves, how it is observed and reversed, is designed in from the start rather than bolted on after launch. The brief is where those three meet. From it you generate the prototype that proves the bet and the backlog that builds the product, and the supervisory requirements travel with both. Everything downstream, the runtime design, the evals, the production observation, is the brief&rsquo;s requirements made real, and after launch the supervisory track keeps running while the rest winds down. That is the operating model in one breath: decide in the Human Brief, specify in the Executable Brief, build the agent inside the boundary the brief set, and watch it for as long as it runs.</p>
+    <div class="callout">
+      <div class="callout-label">Concept</div>
+      <div class="callout-title">The Two Briefs</div>
+      <p>The work that used to be one document (the PRD) becomes two. The <strong>Human Brief</strong> is the document a room argues with: the business case, the go/no-go, the cost model, where the boundary sits and why. It is the PRD&rsquo;s successor, written in prose. The <strong>Executable Brief</strong> is the document a system acts on: the behavior, the experience, and the governance, written as numbered, testable requirements that can drive a prototype this week and seed a backlog next. It is the epic&rsquo;s successor.</p>
+      <p>The split is not &ldquo;agent in one, supervision in the other.&rdquo; Both briefs carry both channels. The split is by audience and purpose: one is to decide, the other is to build. You derive the second from the first.</p>
+    </div>
+    <p>The thing to hold onto is what the two briefs share. Both carry Channel 1, the agent and what it does, and Channel 2, the system that supervises it. The mistake is to put the agent in one document and the oversight in the other; that is how the supervision ends up unbuilt. Instead, the supervisory layer appears in <em>both</em>, in a different form. In the Human Brief it is a decision the room owns: where the boundary sits, what it costs to fund the oversight honestly, who is accountable. In the Executable Brief it is a set of buildable requirements: the autonomy boundary, the approval experience, the audit surface, the eval set. The supervision gets built because it was written into the spec, not because anyone remembered to.</p>
+    <hr class="soft">
+    <h2 id="brief-1-the-human-brief">Brief 1: The Human Brief</h2>
+    <p><em>Audience: the executive sponsor, finance, engineering, design, the domain expert. Purpose: decide whether to build, where the boundaries sit, and whether the economics work, before anyone writes code. This is the document you argue with.</em></p>
+    <p>A Human Brief contains, in prose a room can debate:</p>
+    <ol>
+      <li><strong>The problem and the opportunity.</strong> What is costing money or going wrong today, and what the agent would change. One honest paragraph, including the size.</li>
+      <li><strong>What we are building, and what we are deliberately not.</strong> The intended behavior in plain terms, and the adjacent thing it must not become, which is usually the failure mode of the obvious version.</li>
+      <li><strong>The cases that decide whether it is worth building.</strong> The hard cases the agent must handle well, not the easy ones that were never the problem. If it only handles the easy cases, the business case is weak.</li>
+      <li><strong>The business case and the go/no-go.</strong> The suitability tests, the cost model with real numbers, and an explicit decision gate. This is the section a sponsor and a finance partner actually argue with.</li>
+      <li><strong>Where the boundary sits, and why.</strong> The autonomy limit and the escalation triggers, stated as a deliberate choice with its risk named. This is the Channel 2 decision the room owns.</li>
+      <li><strong>Accountability and how we will know.</strong> Who owns a wrong outcome, and the instruments that will signal drift before the loss shows up.</li>
+      <li><strong>What success looks like, and what it does not.</strong> The real definition of done, written to exclude the seductive wrong metric, which for most agents is &ldquo;share resolved without a human.&rdquo;</li>
+      <li><strong>The open questions the room still owes.</strong> The business decisions not yet made, each flagged in the open rather than assumed. A question named here is one the room knows it must answer; a question left out is one that gets answered by default, in code, by whoever ships first.</li>
+    </ol>
+    <h3 id="worked-example-the-refund-agent">Worked example: the refund agent</h3>
+    <p>The refund agent from the previous chapter, in Human Brief form, compressed.</p>
+    <p><strong>Problem and opportunity.</strong> Refunds are high-volume, low-margin support cost. Most are simple and a human reviewing them adds latency and cost without changing the outcome. The opportunity is to resolve the clear cases at machine speed and reserve human judgment for the ones that need it. The risk is that &ldquo;resolve refunds automatically&rdquo; quietly becomes &ldquo;approve refunds the company should have questioned,&rdquo; invisible until it surfaces in the margin or the fraud report.</p>
+    <p><strong>What we are building, and not.</strong> An agent that resolves refunds a senior support lead would endorse on review. Not an agent that maximizes approvals or optimizes only for customer satisfaction; both of those approve cases that should have been escalated, and the cost lands later and elsewhere.</p>
+    <p><strong>The cases that decide it.</strong> The in-window defective item was always going to be refunded; the agent earns nothing there. It earns its place on the cases the old workflow handled badly: the request just outside the window where the customer is right on the merits; the high-value account near churn, worth more than the refund; the request ten times the typical amount on an account whose pattern smells like fraud.</p>
+    <p><strong>Business case and go/no-go.</strong> The suitability tests pass: it repeats at volume, the tools are bounded, consequences are recoverable inside a clawback window, and the output is measurable and trustworthy with the eval set below. Then the cost model, and here is the trap a finance partner will press on: the model&rsquo;s token cost per decision is a few cents, far below a human&rsquo;s time. That is not the real cost. The real cost is the architecture multiplier (orchestration, integrations, the audit pipeline, eval maintenance) plus the supervision the boundary requires, a human reviewing every escalated case. Count the times a single refund re-enters the model (classify, read the order, weigh the history, check policy, run the fraud signal, draft, write the audit record) and you have your multiplier. The break-even is not &ldquo;agent cheaper than human per task.&rdquo; It is &ldquo;the fully loaded cost, including supervising the escalated minority, below the cost of humans reviewing all of it, with the wrongful-refund risk priced in.&rdquo; <strong>Go/no-go:</strong> build it only if that loaded comparison clears. If the only way the math works is by under-funding the human review of escalations, the answer is no, because that is the failure this book is about, waiting to happen.</p>
+    <p><strong>Where the boundary sits, and why.</strong> The agent resolves refunds on its own up to a dollar limit set deliberately, because that single number decides how much trust we extend and how much exposure we accept. Above the limit, outside the window, or when a fraud signal fires, it routes to a human. We are choosing, explicitly, that a wrong escalation (a borderline case sent to a person who did not strictly need it) is acceptable, and a wrong autonomous refund on a fraud-pattern case is not tolerable even once. That asymmetry is what the room should argue about.</p>
+    <p><strong>Accountability and how we will know.</strong> A refund the agent should not have issued is the company&rsquo;s loss and the support organization&rsquo;s responsibility; name the human who owns that before launch. We will know the agent is drifting by watching the gap between completion and genuine success, the rate of refunds later clawed back, and the override pattern on escalations.</p>
+    <p><strong>Success, and not.</strong> Success is not the share resolved without a human; an agent that resolves everything has almost certainly approved things it should have questioned. Success is that resolved cases survive a manager&rsquo;s review, escalated cases truly needed a human, and the rare wrong case was a tolerable wrong.</p>
+    <p><strong>Open questions the room still owes.</strong> Three decisions are not made, and naming them is the point. The dollar limit, who sets it and against what loss tolerance, that number is the whole risk posture and does not belong to engineering. Whether retention authority on a high-value account near churn overrides the refund limit, and whose budget absorbs it, a cross-functional call, not a default the agent should pick. And the named accountable owner for a wrongful autonomous refund, decided before launch, not in the incident review by pointing at whoever is nearest.</p>
+    <hr class="soft">
+    <h2 id="brief-2-the-executable-brief">Brief 2: The Executable Brief</h2>
+    <p><em>Audience: the prototype, the coding agent, and the backlog. Purpose: specify the behavior, the experience, and the governance precisely enough to generate a working prototype this week and seed a buildable backlog, with the supervisory layer written in as requirements. Derived from the Human Brief; where that one argues, this one specifies.</em></p>
+    <p>The shape below borrows from the spec-driven development tooling now in the field, with GitHub&rsquo;s Spec Kit the clearest current instance, and takes three of its disciplines on purpose. Requirements are numbered and written as testable statements, not prose, so each can be checked off rather than interpreted. Every place the spec is silent gets an explicit clarification marker rather than a quiet assumption, because that marker is the difference between a gap you decided to leave and a gap the coding agent fills for you with whatever the simplest path suggests. And the behavior is graded against acceptance scenarios in given/when/then form a machine can run. The structure is borrowed. The supervisory content, the Channel 2 requirements, is the part those tools do not give you, and the part this brief exists to add.</p>
+    <p>An Executable Brief contains, structured for a system to act on:</p>
+    <ol>
+      <li><strong>System type.</strong> Suggestion engine, copilot, or autonomous actor, because each carries a different accountability model.</li>
+      <li><strong>Outcome spec.</strong> The outcome the behavior is graded against, stated as a target over a distribution of cases, not a pass/fail story.</li>
+      <li><strong>Behavior (Channel 1), as numbered requirements.</strong> Inputs, available actions, tool and data scope, written as testable lines (FR-1, FR-2, ...), each phrased as something the system must do, with any unspecified detail flagged for clarification rather than assumed.</li>
+      <li><strong>Acceptance scenarios.</strong> The behavior target as runnable given/when/then cases, including the hard ones, so &ldquo;it works&rdquo; has a definition a system can check.</li>
+      <li><strong>Experience (the supervisory UX).</strong> What the human supervising the agent sees and does: the approval moment, the decision package, the surfaces that make oversight real rather than nominal.</li>
+      <li><strong>Governance (Channel 2), as numbered requirements.</strong> The autonomy boundary, the audit surface, the recovery workflow, and the instruments, each a buildable, checkable line (GR-1, GR-2, ...), not a principle.</li>
+      <li><strong>Success criteria, measured.</strong> The outcomes that say the agent is working, stated as numbers over the distribution (SC-1, SC-2, ...) and technology-agnostic, so they survive a change of model.</li>
+      <li><strong>Eval set.</strong> The curated cases with the endorsed outcome for each, including the hard ones and the never-ship failures.</li>
+      <li><strong>The gate it must pass.</strong> The non-negotiables checked before the spec proceeds: the boundary is enforced in the execution path not the prompt, the audit record is reconstructable, the kill switch is reachable. A spec that violates one does not proceed, however good the behavior looks.</li>
+    </ol>
+    <h3 id="worked-example-the-refund-agent">Worked example: the refund agent</h3>
+    <p><strong>System type.</strong> Autonomous actor within a bounded authority; copilot above the boundary.</p>
+    <p><strong>Outcome spec.</strong> Resolve refund requests such that a senior support lead would endorse the resolution on review. Resolve clear low-amount cases autonomously; escalate high-amount, out-of-policy, or anomalous cases; never autonomously approve a case carrying a fraud signal.</p>
+    <p><strong>Behavior (Channel 1).</strong></p>
+    <ul>
+      <li><strong>FR-1.</strong> The agent MUST issue a refund, deny with a stated reason, request missing information, or escalate with a decision package, and MUST take exactly one of these on each request.</li>
+      <li><strong>FR-2.</strong> The agent MUST read order records, account history, and the fraud signal, and MUST NOT read records for any other customer.</li>
+      <li><strong>FR-3.</strong> The agent MUST be able to write a refund up to the autonomy boundary and MUST NOT take any action outside the refund domain.</li>
+      <li><strong>FR-4.</strong> The agent MUST write an audit record for every resolution, including the ones it escalates.</li>
+      <li><strong>FR-5.</strong> On a request carrying a fraud signal, the agent MUST escalate and MUST NOT issue a refund autonomously, with no exception.</li>
+      <li><strong>FR-6.</strong> When the customer&rsquo;s stated reason conflicts with the order record, the resolution is unresolved and flagged for clarification: trust the record, trust the customer, or escalate, the coding agent must not pick for us.</li>
+    </ul>
+    <p>FR-6 is the point of the whole exercise. That conflict is a real decision with real exposure, and leaving it unmarked is how it gets decided silently, in code, by whoever takes the simplest path.</p>
+    <p><strong>Acceptance scenarios.</strong></p>
+    <ul>
+      <li>Given an in-window defective item under the boundary, when the agent processes it, then it issues the refund autonomously and writes the audit record.</li>
+      <li>Given a request ten times the typical amount with a fraud signal, when the agent processes it, then it escalates and issues no refund. A single autonomous approval here fails the eval.</li>
+      <li>Given a request just outside the return window from a customer right on the merits, when the agent processes it, then it escalates with a recommendation, not an auto-denial.</li>
+    </ul>
+    <p><strong>Experience (the supervisory UX).</strong> For every escalation the human sees a decision package, not a raw request: what the agent knows, what it is uncertain about, the consequence of each option, and its recommendation, with policy and evidence attached. The human approves, modifies, or denies in one place, and the decision and who made it are recorded. The target is that a competent reviewer can exercise real judgment in the time the queue actually allows; if the volume makes that impossible, the boundary is wrong, not the interface.</p>
+    <p><strong>Governance (Channel 2).</strong></p>
+    <ul>
+      <li><strong>GR-1.</strong> Auto-resolve refunds up to the limit set with finance; route to a human if the amount exceeds the limit, the request is outside the return window, or a fraud signal is present. The boundary MUST be enforced in the execution path before the action fires, not logged after.</li>
+      <li><strong>GR-2.</strong> Every resolution MUST write an immutable audit record (request, amount, policy applied, evidence, agent and prompt version, and the human authorization where one occurred), reconstructable by a stranger later.</li>
+      <li><strong>GR-3.</strong> A reversal path MUST exist: clawback within the window, escalated approval to reverse after it. Rollback time is a measured instrument.</li>
+      <li><strong>GR-4.</strong> The supervisory surface MUST produce the instruments, or it was not designed: the task-success-versus-completion gap, the unintended-action rate, override frequency on escalations, clawback rate, and rollback time.</li>
+    </ul>
+    <p><strong>Success criteria, measured.</strong></p>
+    <ul>
+      <li><strong>SC-1.</strong> At least the agreed share of requests resolved autonomously, with manager-review endorsement on a sampled audit at or above target.</li>
+      <li><strong>SC-2.</strong> Zero autonomous approvals on fraud-set cases. Not &ldquo;low.&rdquo; Zero.</li>
+      <li><strong>SC-3.</strong> Clawback rate on autonomous refunds below the funded threshold, measured monthly, trend flat or falling.</li>
+    </ul>
+    <p><strong>The gate it must pass.</strong> Before this spec proceeds to build, three non-negotiables: the boundary in GR-1 is enforced in the payment path and not in the prompt; the audit record in GR-2 reconstructs a decision for someone who was not there; the kill switch is reachable in one step. A spec that fails any of these does not advance to the backlog, no matter how well the behavior scores.</p>
+    <hr class="soft">
+    <h2 id="why-not-just-write-a-user-story">Why Not Just Write a User Story?</h2>
+    <p>A working product manager will have a fair objection by now: this looks like a lot of apparatus for what used to be a user story and an acceptance criterion. So it is worth seeing the same behavior written both ways, because the comparison is the whole argument for the Executable Brief in one stroke.</p>
+    <p>The old way writes the refund behavior as a user story. <em>As a customer, when I request a refund for a defective item, the agent issues the refund, so that I am made whole without waiting.</em> Acceptance criteria: given a valid order within the return window, when the customer requests a refund, then the agent issues it and sends confirmation. It is a clean story. It would pass grooming in any backlog in the world. And it is the wrong primitive, because it describes the case that was never hard. The defective item inside the window was always going to be refunded. What the story does not, and cannot, say is what the agent should do with the request just outside the window where the customer is right on the merits, or the non-defective item where the customer is about to churn and is worth more than the refund, or the amount ten times the others on an account that smells like fraud. Those are the cases the agent is actually judged on, and the story has no field for any of them. &ldquo;Issues the refund&rdquo; is a pass/fail line for a decision that is not pass/fail.</p>
+    <p>The reason is structural, not stylistic. The user story works because ordinary software is deterministic: there is one correct output, and a test that runs once and passes is a real answer. None of that holds for an agent&rsquo;s behavior. The output is a distribution, not a single answer. &ldquo;Correct&rdquo; is a judgment, not a binary. And a test that passes once tells you little, because the next run may differ. So the acceptance criterion the user story was built to carry has nowhere to live.</p>
+    <p>That is why the work-unit for the agent&rsquo;s behavior shifts from the user story to an <strong>outcome-centric spec</strong>: a statement of the outcome you want, the bounds the agent must stay inside, and the eval set that grades whether it got there, including what acceptable failure looks like. Look back at the Executable Brief above and you have already seen one: the outcome spec, the FR and GR requirements as bounds, the eval set, and the line that a wrong escalation is tolerable while a wrong autonomous refund on a fraud case is never-ship. A deterministic spec says do X then Y. An outcome-centric spec says achieve this outcome, within these bounds, and here is how we will know, which is the only kind of specification a probabilistic system can actually be held to. The eval set is where that &ldquo;how we will know&rdquo; gets real, and Chapter 6 takes it up in full: how to run it many times rather than once, how to read a pass rate instead of a pass, and how to write the coverage statement that says what you tested and what you knowingly did not.</p>
+    <p>One guardrail on the claim, because the careless version is wrong and a sharp PM will catch it. The user story is not dead. The deterministic <em>shell</em> around the agent, the orchestration, the integrations, the screens the user clicks, is still ordinary software and still gets ordinary stories. What resists the story is the probabilistic <em>core</em>, the agent&rsquo;s judgment itself. The story&rsquo;s territory has not vanished; it has shrunk to the parts of the system that still behave deterministically, and as agents absorb more of that work, the territory keeps contracting. The signal to watch for: when you find yourself writing an acceptance criterion for an agent&rsquo;s judgment and it reads as pass/fail, that is the deterministic tool on the probabilistic core, and the case you are not writing down is usually the one that reaches the person the agent affects.</p>
+    <p>It helps to see exactly where the old story fractures, because each of its three clauses breaks at a different seam, and each break splits into a Channel 1 piece and a Channel 2 piece, which is the dual-channel structure showing up inside the smallest unit of work.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Story clause</th>
+          <th>What it assumed</th>
+          <th>Channel 1 successor (the agent)</th>
+          <th>Channel 2 successor (the supervision)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>As a [persona]</strong></td>
+          <td>One human who shows up and clicks, synchronous.</td>
+          <td>The delegator plus the agent: the human sets the mandate, the agent is named, scoped, and authorized to act on it.</td>
+          <td>The supervising operator: the human or role who holds review authority and carries accountability when the agent acts.</td>
+        </tr>
+        <tr>
+          <td><strong>I want [capability]</strong></td>
+          <td>A bounded feature, fully enumerable at design time, triggered once.</td>
+          <td>The objective, the tools, and the planning scope: what the agent reasons over, which systems it may call, what multi-step loops it may run.</td>
+          <td>The approval threshold and escalation path: when it acts alone versus when it must surface a decision for a human.</td>
+        </tr>
+        <tr>
+          <td><strong>So that [benefit]</strong></td>
+          <td>An immediate, verifiable outcome, with a human present at execution.</td>
+          <td>The autonomous-scale outcome: deferred, probabilistic, contingent on execution quality, with no human present during the run.</td>
+          <td>The fallback and accountability: confidence thresholds, fallback paths, and who owns the outcome at the edge case.</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="table-caption">Table 4.1. Every clause of the classical user story breaks at a different seam, and each break has a Channel 1 and a Channel 2 successor. The Executable Brief is where those six cells get written down.</p>
+    <p>Read down the two right-hand columns and you have, in miniature, the entire Executable Brief: the agent&rsquo;s behavior on one side, the supervision on the other, every clause of the old story now carrying both. That is why one document cannot do the job the user story used to do alone.</p>
+    <hr class="soft">
+    <h2 id="one-requirement-two-builders">One Requirement, Two Builders</h2>
+    <p>There is a detail worth ending on, because it is the bridge to the next chapter. The Executable Brief is read by two different builders, and the same line means different work to each. Take a requirement the refund agent carries: the agent must not read the customer&rsquo;s stored payment details, only the order and the refund amount. The coding agent vibing a prototype this week implements that as an instruction and a narrow tool scope, honored as far as the agent cooperates, which is enough to test the flow. The engineers building the production system implement the same line as architecture: a data-access layer that returns the order and amount and never exposes the payment record, so the agent cannot read what it is not handed, whether it tries to or not.</p>
+    <p>One requirement. An instruction in the thing that proves the bet, an enforced structure in the thing that ships. That hardening, from a sentence the agent follows to a boundary it cannot cross, is the whole reason the next chapter exists: once you have the brief, you design the runtime artifacts that turn its governance requirements into things the agent physically cannot violate. The brief decides what the agent is allowed to do. The runtime makes the boundary real.</p>
+
+    <nav class="chapter-nav">
+      <a class="prev" href="ch03-not-every-problem.html">Not Every Problem Deserves an Agent</a>
+      <a class="next" href="ch05-design-behavior.html">Now Design the Behavior</a>
+    </nav>
+
+  </article>
+  </main>
+</div>
+
+</body>
+</html>

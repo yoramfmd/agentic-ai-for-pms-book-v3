@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 320" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <style>
+    .stage { font-size: 13.5px; font-weight: 600; fill: #1a1a1a; }
+    .desc  { font-size: 11px; fill: #5f5e5a; }
+    .cap   { font-size: 11px; fill: #5f5e5a; font-style: italic; }
+    .arrow { font-size: 11px; font-weight: 600; fill: #185FA5; }
+  </style>
+
+  <text x="380" y="26" class="cap" text-anchor="middle">The autonomy ladder. Each rung is earned with evidence, not scheduled by the calendar.</text>
+
+  <!-- ascending dashed line FIRST, so it sits behind the boxes -->
+  <path d="M40 290 L720 70" stroke="#c9c9c5" stroke-width="1.5" stroke-dasharray="4 4"/>
+
+  <!-- step 1 (bottom) -->
+  <rect x="60" y="220" width="300" height="56" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="1.2"/>
+  <text x="76" y="244" class="stage">1 · Augmentation</text>
+  <text x="76" y="263" class="desc">Surfaces options; the human decides.</text>
+
+  <!-- step 2 (middle) -->
+  <rect x="230" y="140" width="300" height="56" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="1.2"/>
+  <text x="246" y="164" class="stage">2 · Limited automation</text>
+  <text x="246" y="183" class="desc">Executes bounded actions, with approval.</text>
+
+  <!-- step 3 (top) -->
+  <rect x="400" y="60" width="300" height="56" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="1.2"/>
+  <text x="416" y="84" class="stage">3 · Semi-autonomous</text>
+  <text x="416" y="103" class="desc">Acts within scope; escalates outside it.</text>
+
+  <text x="60" y="304" class="arrow">Earned, with evidence →</text>
+  <text x="700" y="138" class="desc" text-anchor="end" fill="#A32D2D">↓ Demote on drift</text>
+</svg>
