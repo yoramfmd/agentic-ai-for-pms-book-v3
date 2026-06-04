@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Chapter 7. You Can&amp;rsquo;t Measure What You Didn&amp;rsquo;t Design &mdash; Agentic AI for Busy Product Managers</title>
-<meta name="description" content="(the two in bold are the ones this chapter leans on)">
+<meta name="description" content="The call came from a supplier. She had been receiving order notifications all week and wanted to confirm the delivery schedule. Someone on the procurement ">
 <link rel="canonical" href="https://agenticaiproductmanagement.com/ch07-observation.html">
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -67,18 +67,6 @@
     <p class="chapter-meta">Chapter 7 &middot; Post-launch, observation</p>
     <h1>You Can&rsquo;t Measure What You Didn&rsquo;t Design</h1>
     <p class="chapter-stage"><em>Stage: post-launch, observation</em></p>
-    <div class="callout">
-      <div class="callout-label">Keep in your pocket</div>
-      <div class="callout-title">The five ideas to keep in your pocket</div>
-      <p><em>(the two in <strong>bold</strong> are the ones this chapter leans on)</em></p>
-      <ol>
-        <li>Non-determinism is permanent, not a bug. The same input can give different outputs. You cannot test an agent the way you test ordinary software.</li>
-        <li>Confident wrong answers happen at a measurable rate. The agent will not flag its own uncertainty; you design that surface.</li>
-        <li>The tool boundary is the agent&rsquo;s authority. What it can touch is what it can do, and what it can do wrong.</li>
-        <li><strong>The hard part is not the agent&rsquo;s intelligence. It is the supervisory system around it, the product this book teaches you to build.</strong></li>
-        <li><strong>The supervisor&rsquo;s competence erodes. The agent that does the work degrades the human who is supposed to watch it.</strong></li>
-      </ol>
-    </div>
     <p>The call came from a supplier. She had been receiving order notifications all week and wanted to confirm the delivery schedule. Someone on the procurement team pulled up the dashboard: 340 transactions, 100 percent completion, every entry marked confirmed.</p>
     <p>She was still on the line.</p>
     <p>Not one order had arrived. The agent had been confirming work it never did, for six months.</p>
@@ -170,6 +158,14 @@
     <p>Engineering builds the instrumentation. The PM defines what to instrument, why each metric matters to the next release, and what decision each signal should enable. That means owning the six instruments before the first production incident, not as a retrospective task. It also means setting the thresholds that trigger action: what override frequency rate causes an autonomy demotion, what incident recovery time is unacceptable, what confidence calibration gap signals a model problem. Set those thresholds before launch, because setting thresholds after an incident is deciding under pressure.</p>
     <p>In practical terms: override frequency and unintended action rate belong in every sprint review. Rollback time and incident recovery time belong in every post-incident review and feed directly into design changes. Confidence calibration and task success rate inform whether the agent is ready to climb the Autonomy Ladder or needs to stay where it is.</p>
     <p>The teams furthest along treat the observation phase as a design brief, not a postmortem. Launch is not the end of the product lifecycle. It is the moment the observation phase begins.</p>
+    <div class="callout callout-pocket">
+      <ul>
+        <li>The <strong>Six Instruments</strong> are sprint inputs, not KPIs. If a metric cannot be produced, the product surface was never designed; the absence is the finding.</li>
+        <li><strong>Platform emits, PM composes</strong>: the platform owes you events; you own the composition into each instrument and its threshold.</li>
+        <li><strong>The interface is the instrument</strong>: what the interface does not allow to happen, the metric cannot read.</li>
+        <li>For fast-consequence actions design a kill-switch, not a dashboard; retrospective observation covers everything else.</li>
+      </ul>
+    </div>
 
     <nav class="chapter-nav">
       <a class="prev" href="ch06-evals.html">AI Evals</a>

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Chapter 11. What You Owe the People Your Agent Will Never See &mdash; Agentic AI for Busy Product Managers</title>
-<meta name="description" content="(the one in bold is the one this chapter leans on)">
+<meta name="description" content="Consider a case, a composite drawn from the documented pattern of clinical-AI adverse events rather than a single reported incident, that the rest of this ">
 <link rel="canonical" href="https://agenticaiproductmanagement.com/ch11-people-never-seen.html">
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -64,18 +64,6 @@
 
     <p class="chapter-meta">Chapter 11</p>
     <h1>What You Owe the People Your Agent Will Never See</h1>
-    <div class="callout">
-      <div class="callout-label">Keep in your pocket</div>
-      <div class="callout-title">The five ideas to keep in your pocket</div>
-      <p><em>(the one in <strong>bold</strong> is the one this chapter leans on)</em></p>
-      <ol>
-        <li>Non-determinism is permanent, not a bug. The same input can give different outputs. You cannot test an agent the way you test ordinary software.</li>
-        <li><strong>Confident wrong answers happen at a measurable rate.</strong> The agent will not flag its own uncertainty; you design that surface.</li>
-        <li>The tool boundary is the agent&rsquo;s authority. What it can touch is what it can do, and what it can do wrong.</li>
-        <li>The hard part is not the agent&rsquo;s intelligence. It is the supervisory system around it, the product this book teaches you to build.</li>
-        <li>The supervisor&rsquo;s competence erodes. The agent that does the work degrades the human who is supposed to watch it.</li>
-      </ol>
-    </div>
     <p>Consider a case, a composite drawn from the documented pattern of clinical-AI adverse events rather than a single reported incident, that the rest of this chapter will keep in view. A patient we will call Maria, a forty-two-year-old community-health-center client, fills out an intake form that a clinical-decision-support agent summarizes into a two-line risk assessment. The agent flags her as low-risk for cardiac events. The physician reviewing that morning&rsquo;s queue sees the summary, confirms it, and schedules a routine follow-up for six weeks later. Weeks after that, Maria dies of a preventable myocardial infarction. The chart held several risk factors that the agent&rsquo;s summary had compressed away.</p>
     <p>Maria was never in a beta cohort. She never filled out a user-research survey. She never saw the product. She was the person the product was actually for, and no one on the team had ever seen her face.</p>
     <p>The physician&rsquo;s duty is to the patient who is not in the room. That is a constraint medicine enforces through training and oath, not through a checklist. The PM&rsquo;s equivalent duty is to the affected person who will never see the agent. No oath enforces it. The product design does, or it does not.</p>
@@ -186,6 +174,14 @@
     <p>These are not features you add when the roadmap has room. They are not compliance checkboxes. They are the difference between a product that generates value and a product that generates value for some people while quietly causing harm to others.</p>
     <p>The PMs who carry these obligations are not slower. They build better products. They build products that survive the first regulatory inquiry, the first public failure, and the first moment when someone asks &ldquo;who was responsible for this?&rdquo; and expects a real answer.</p>
     <p>In an industry moving as fast as agentic AI, that seriousness is exactly what the market will eventually select for. The only question is whether you built it in from the start or tried to retrofit it after the incident. Maria&rsquo;s family will not ask politely.</p>
+    <div class="callout callout-pocket">
+      <ul>
+        <li><strong>Disparate Performance</strong>: aggregate accuracy hides population-level failure. Who is in the six percent is the design question.</li>
+        <li>The user and the <strong>affected person</strong> are not the same. Your metrics can be green while the affected person absorbs unseen harm.</li>
+        <li><strong>Upstream-data-wrong</strong> is the hardest error to catch: a faithful output from a wrong input that passes every model-level eval.</li>
+        <li>Moral architecture, not a moral committee. Enforce the non-delegable list at the moment of action. The EU AI Act is the floor, not the ceiling.</li>
+      </ul>
+    </div>
 
     <nav class="chapter-nav">
       <a class="prev" href="ch10-frameworks-to-boundaries.html">From Frameworks to Boundaries</a>

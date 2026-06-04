@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Chapter 3. Not Every Problem Deserves an Agent &mdash; Agentic AI for Busy Product Managers</title>
-<meta name="description" content="(the two in bold are the ones this chapter leans on)">
+<meta name="description" content="The most expensive agentic AI mistake you can make is not an engineering failure. The model worked. The integration held. The agent did what it was designe">
 <link rel="canonical" href="https://agenticaiproductmanagement.com/ch03-not-every-problem.html">
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -67,18 +67,6 @@
     <p class="chapter-meta">Chapter 3 &middot; Pre-build</p>
     <h1>Not Every Problem Deserves an Agent</h1>
     <p class="chapter-stage"><em>Stage: pre-build</em></p>
-    <div class="callout">
-      <div class="callout-label">Keep in your pocket</div>
-      <div class="callout-title">The five ideas to keep in your pocket</div>
-      <p><em>(the two in <strong>bold</strong> are the ones this chapter leans on)</em></p>
-      <ol>
-        <li>Non-determinism is permanent, not a bug. The same input can give different outputs. You cannot test an agent the way you test ordinary software.</li>
-        <li><strong>Confident wrong answers happen at a measurable rate.</strong> The agent will not flag its own uncertainty; you design that surface.</li>
-        <li><strong>The tool boundary is the agent&rsquo;s authority.</strong> What it can touch is what it can do, and what it can do wrong.</li>
-        <li>The hard part is not the agent&rsquo;s intelligence. It is the supervisory system around it, the product this book teaches you to build.</li>
-        <li>The supervisor&rsquo;s competence erodes. The agent that does the work degrades the human who is supposed to watch it.</li>
-      </ol>
-    </div>
     <p>The most expensive agentic AI mistake you can make is not an engineering failure. The model worked. The integration held. The agent did what it was designed to do. The problem was the problem itself.</p>
     <p>The use case was never a good fit, and the team discovered this after six months of development, a production deployment, and an invoice that was difficult to explain to finance.</p>
     <p>If you have spent the past decade in vertical deterministic SaaS, this is exactly where your experience can hurt you. You have a well-honed instinct to look at any repetitive workflow and imagine how software could take it over. You know how to translate &ldquo;our people are drowning in manual steps&rdquo; into a backlog. In deterministic systems, that instinct is mostly a strength. With agents, it can send you straight into the wrong class of problem.</p>
@@ -358,6 +346,15 @@
     <p>The enterprise already holds the underlying platform license, so the agentic floor price is incremental rather than greenfield. The tasks involve natural language, judgment, or unstructured input, not purely deterministic logic. The failure consequences are recoverable and detectable within the same session, not deferred and silent. The organization has supervision capacity, including an eval pipeline, an observability stack, and a defined human escalation path. And the outcome is measurable at resolution level, not just task completion level (the procurement-agent failure mode from Chapter 7 is precisely the case where task completion looks green and resolution did not happen).</p>
     <p>If any one of those five fails, the agent is not the right answer for this problem at this moment. Traditional automation, RPA, or constrained AI without action wins instead, and the cost differential is not marginal. It is structural. A team that builds an agent into a problem that fails any of the five is not making a borderline call. They are making a category error.</p>
     <p>Three artifacts to carry forward. They are the raw material of the next chapter, where the suitability decision and the cost model become the Human Brief, and from there the design that follows. The four suitability tests as the pre-build candidacy assessment. The cost model with its five token-bill drivers, its brownfield-versus-greenfield floor-price inversion, and its 1.5x correction. And the earned-versus-scheduled autonomy distinction, which the briefs in Chapter 4 record and the runtime design artifacts in Chapter 5 are built to support.</p>
+    <div class="callout callout-pocket">
+      <ul>
+        <li>A problem is ready for an agent only when all <strong>four suitability tests</strong> pass: volume, measurability, bounded tools, recoverable consequences. One failure means more scoping, not a build.</li>
+        <li><strong>Recoverable consequences</strong> is the blind spot. The first three sit on the surface of the business case; recoverability lives in the tail, where the chosen metrics do not look.</li>
+        <li>Compare the agent against the <strong>best non-agent alternative</strong>, not against doing nothing. Often the right answer is traditional automation, constrained AI, or a human with better tooling.</li>
+        <li>Multiply the initial business case by <strong>1.5x</strong> before you show finance. The compounding costs, orchestration, oversight, model-update maintenance, are absent from most quotes.</li>
+        <li>Multi-agent is a <strong>cost decision</strong>, not just a design one. A four-agent system can run roughly 3.5 times the tokens of a single-agent system for the same outcome.</li>
+      </ul>
+    </div>
 
     <nav class="chapter-nav">
       <a class="prev" href="ch02-not-a-bridge.html">You Are Not a Bridge Anymore</a>

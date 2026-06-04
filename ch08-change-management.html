@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Chapter 8. Change Management for Agentic AI &mdash; Agentic AI for Busy Product Managers</title>
-<meta name="description" content="(the one in bold is the one this chapter leans on)">
+<meta name="description" content="The first time I put a patient under general anesthesia, I went into a state of panic. Once the patient was fully sedated, I realized his life depended on ">
 <link rel="canonical" href="https://agenticaiproductmanagement.com/ch08-change-management.html">
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -65,18 +65,6 @@
     <p class="chapter-meta">Chapter 8 &middot; Post-launch, change management</p>
     <h1>Change Management for Agentic AI</h1>
     <p class="chapter-stage"><em>Stage: post-launch, change management</em></p>
-    <div class="callout">
-      <div class="callout-label">Keep in your pocket</div>
-      <div class="callout-title">The five ideas to keep in your pocket</div>
-      <p><em>(the one in bold is the one this chapter leans on)</em></p>
-      <ol>
-        <li>Non-determinism is permanent, not a bug. The same input can give different outputs. You cannot test an agent the way you test ordinary software.</li>
-        <li>Confident wrong answers happen at a measurable rate. The agent will not flag its own uncertainty; you design that surface.</li>
-        <li>The tool boundary is the agent&rsquo;s authority. What it can touch is what it can do, and what it can do wrong.</li>
-        <li>The hard part is not the agent&rsquo;s intelligence. It is the supervisory system around it, the product this book teaches you to build.</li>
-        <li><strong>The supervisor&rsquo;s competence erodes.</strong> The agent that does the work degrades the human who is supposed to watch it.</li>
-      </ol>
-    </div>
     <p>The first time I put a patient under general anesthesia, I went into a state of panic. Once the patient was fully sedated, I realized his life depended on the perfect synchronization of the ventilator, the IV fluids and drugs, the body temperature, blood loss monitoring, urine output, heart rate, and the precise height and tilt of the table that kept the surgeons focused and happy.</p>
     <p>Over time, something shifted. It did not happen in a day. The ventilator cycled, the pressure held, and the numbers settled into a pattern I recognized. I stopped managing the systems and started managing the patient. The attention that had been going into keeping him breathing was now free for something harder: what was the blood pressure trend telling me, what did the surgeon&rsquo;s body language say about what came next, was the temperature dropping faster than the case should allow.</p>
     <p>What I learned in those years about automation, monitoring, and machine behavior followed me throughout my career as a product manager. It has never been more relevant than now.</p>
@@ -199,6 +187,15 @@
     <p>If the agent started making a new kind of mistake tomorrow, who would notice first, and where would they see it? If the answer is &ldquo;support volume&rdquo; or &ldquo;a user would file a ticket,&rdquo; the observation phase was not designed to surface behavioral drift.</p>
     <p>The anesthesiologist who trusts the ventilator enough to focus on the blood pressure trend is not failing to supervise. She is doing the harder job that the trust made possible. The design question is how the system holds that trust stable, surfaces when it is eroding, and keeps the supervisory skill available for the moment it is needed.</p>
     <p>You built the agent. The agent is working. Now design the person who is supposed to be watching it. And design the conditions that preserve that person&rsquo;s ability to perform the role across time, against the deployment that is reshaping it.</p>
+    <div class="callout callout-pocket">
+      <ul>
+        <li>The <strong>Actor-to-Supervisor Transition</strong> is the named design problem: shipping an agent turns every operator into a supervisor, a job nobody was hired for.</li>
+        <li>Automation bias, algorithm aversion, and shadow workflows are Channel 2 failures; a better model will not fix them.</li>
+        <li>The <strong>workflow integration principle</strong>: build supervision where the worker already decides, not in a dashboard that competes with the work.</li>
+        <li>The four <strong>apprenticeship conditions</strong> (volume, acuity range, failure, feedback timing) are disrupted by agents; never-skilling is the long-run risk.</li>
+        <li>The <strong>accountability gap</strong> is structural: a named reviewer is not real accountability if the deployment has eroded the cognitive substrate to perform the review.</li>
+      </ul>
+    </div>
 
     <nav class="chapter-nav">
       <a class="prev" href="ch07-observation.html">You Can&#x27;t Measure What You Didn&#x27;t Design</a>

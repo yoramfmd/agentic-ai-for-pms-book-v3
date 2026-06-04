@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Chapter 12. The Personnel Infrastructure That Does Not Exist &mdash; Agentic AI for Busy Product Managers</title>
-<meta name="description" content="(the two in bold are the ones this chapter leans on)">
+<meta name="description" content="The first eleven chapters of this book teach you how to build, evaluate, observe, and govern agentic AI products. Each chapter assumes that the institution">
 <link rel="canonical" href="https://agenticaiproductmanagement.com/ch12-personnel-infrastructure.html">
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -63,18 +63,6 @@
 
     <p class="chapter-meta">Chapter 12</p>
     <h1>The Personnel Infrastructure That Does Not Exist</h1>
-    <div class="callout">
-      <div class="callout-label">Keep in your pocket</div>
-      <div class="callout-title">The five ideas to keep in your pocket</div>
-      <p><em>(the two in <strong>bold</strong> are the ones this chapter leans on)</em></p>
-      <ol>
-        <li>Non-determinism is permanent, not a bug. The same input can give different outputs. You cannot test an agent the way you test ordinary software.</li>
-        <li>Confident wrong answers happen at a measurable rate. The agent will not flag its own uncertainty; you design that surface.</li>
-        <li>The tool boundary is the agent&rsquo;s authority. What it can touch is what it can do, and what it can do wrong.</li>
-        <li><strong>The hard part is not the agent&rsquo;s intelligence. It is the supervisory system around it, the product this book teaches you to build.</strong></li>
-        <li><strong>The supervisor&rsquo;s competence erodes. The agent that does the work degrades the human who is supposed to watch it.</strong></li>
-      </ol>
-    </div>
     <p>The first eleven chapters of this book teach you how to build, evaluate, observe, and govern agentic AI products. Each chapter assumes that the institutional machinery to absorb a new actor exists, somewhere in the organization, ready to be applied. This chapter argues that it does not. Chapter 13, the field manual, follows as the practical companion: the checklists, diagnostic questions, and red flags you use when the work in this chapter has not yet been done at the institutional level.</p>
     <p>Every other category of actor an organization adds to its workflows has an existing infrastructure. A new employee has HR. A new contractor has procurement. A new vendor has vendor management. A new system has IT operations. A new clinical device has biomed and credentialing. The AI agent fits none of these cleanly, and the category it actually belongs to has not been built yet. We treat it as a software integration because that is the only category we have. The misfit is what makes the problem invisible until it surfaces as a supervision failure.</p>
     <p>The chapter is structured around four facets of the missing infrastructure. The first names the missing category: AI agents are structurally team members but they skipped every gate. The second names the missing assessment: we have fifty years of personality and team-fit instruments for human hires and have pointed none of them at the agents. The third names the missing supervisor: the role that performs rate-aware sampling, drift detection, and validator rotation does not exist yet. The fourth describes the individual-practitioner pattern that responds to all three when the enterprise has not built them.</p>
@@ -206,6 +194,14 @@
     <p>Second, the supervision-of-smarter-reports literature is the right place to look for vocabulary and structure. Not the AI safety literature, mostly written by people who have never managed a team. Not the governance literature, mostly written by people who manage committees rather than reports. The HR literature on delegation, trust calibration, and outcome-based management is the closest thing the field has to a working model. Use it.</p>
     <p>Third, the personality and team-fit dimension that enterprise hiring has measured for decades deserves an AI equivalent, and it can be built with infrastructure that already exists. A personality eval is distinct from a capability eval. Capability eval asks &ldquo;can the model do the task.&rdquo; Personality eval asks &ldquo;how does the model do the task when the task has slack.&rdquo; Both are needed.</p>
     <p>We are not missing the technology. We are missing the category, the institutional machinery that exists for every other kind of actor an organization adds to its workflows. We are missing it not because we forgot, but because nobody built the category yet. That is what needs to change.</p>
+    <div class="callout callout-pocket">
+      <ul>
+        <li>Agents are structurally <strong>team members who skipped every HR gate</strong>: no interview, no reference check, no probationary period.</li>
+        <li>Every <strong>model upgrade is a personnel change</strong>: a version bump swaps that team member for one nobody interviewed, voiding the working contract.</li>
+        <li>The <strong>missing supervisor</strong> performs rate-aware sampling, drift detection, and validator rotation; no current org chart owns this role.</li>
+        <li><strong>Configuration files are new-hire onboarding</strong>; the validator atrophies as validated volume grows, so rotate her back to original work.</li>
+      </ul>
+    </div>
 
     <nav class="chapter-nav">
       <a class="prev" href="ch11-people-never-seen.html">People Your Agent Will Never See</a>

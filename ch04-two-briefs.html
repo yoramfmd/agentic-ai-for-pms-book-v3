@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Chapter 4. The Two Briefs: From Decision to Buildable Spec &mdash; Agentic AI for Busy Product Managers</title>
-<meta name="description" content="(the two in bold are the ones this chapter leans on)">
+<meta name="description" content="The previous chapter ended with a decision: this problem deserves an agent, and here is the boundary it lives inside. This chapter is about what you write ">
 <link rel="canonical" href="https://agenticaiproductmanagement.com/ch04-two-briefs.html">
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -63,18 +63,6 @@
     <p class="chapter-meta">Chapter 4 &middot; Pre-build to pre-launch</p>
     <h1>The Two Briefs: From Decision to Buildable Spec</h1>
     <p class="chapter-stage"><em>Stage: pre-build to pre-launch, the handoff</em></p>
-    <div class="callout">
-      <div class="callout-label">Keep in your pocket</div>
-      <div class="callout-title">The five ideas to keep in your pocket</div>
-      <p><em>(the two in <strong>bold</strong> are the ones this chapter leans on)</em></p>
-      <ol>
-        <li>Non-determinism is permanent, not a bug. The same input can give different outputs. You cannot test an agent the way you test ordinary software.</li>
-        <li>Confident wrong answers happen at a measurable rate. The agent will not flag its own uncertainty; you design that surface.</li>
-        <li><strong>The tool boundary is the agent&rsquo;s authority. What it can touch is what it can do, and what it can do wrong.</strong></li>
-        <li><strong>The hard part is not the agent&rsquo;s intelligence. It is the supervisory system around it, the product this book teaches you to build.</strong></li>
-        <li>The supervisor&rsquo;s competence erodes. The agent that does the work degrades the human who is supposed to watch it.</li>
-      </ol>
-    </div>
     <p>The previous chapter ended with a decision: this problem deserves an agent, and here is the boundary it lives inside. This chapter is about what you write down next, because the decision and the build are two different documents for two different audiences, and the most common way good agent projects go wrong is that the second document gets written and the first never does.</p>
     <p>For twenty years the artifact was the PRD, handed to engineering, decomposed into an epic, built. That worked when the hard part was building. The hard part is no longer building. A coding agent will produce a working prototype of almost anything you can describe in an afternoon. The hard part is deciding what it should do, where its authority stops, and how the people around it will know when it is wrong. So the artifact splits in two, and learning to write both is the central craft of the job now.</p>
     <p>It helps to see the whole shape before zooming in on the brief, because the brief is the center of a larger shift in how the work runs. The old model was document-centered: a market document became a spec, the spec became an epic, the epic was handed off and built in a line. The new model is centered on three things at once. It is intent-centered, because what you are really pinning down is the outcome and the boundary, not a feature list. It is prototype-centered, because a working prototype, generated from the brief in hours, becomes the thing the team argues with instead of a slide. And it is control-centered, because the supervisory layer, what the agent may do alone, where a human approves, how it is observed and reversed, is designed in from the start rather than bolted on after launch. The brief is where those three meet. From it you generate the prototype that proves the bet and the backlog that builds the product, and the supervisory requirements travel with both. Everything downstream, the runtime design, the evals, the production observation, is the brief&rsquo;s requirements made real, and after launch the supervisory track keeps running while the rest winds down. That is the operating model in one breath: decide in the Human Brief, specify in the Executable Brief, build the agent inside the boundary the brief set, and watch it for as long as it runs.</p>
@@ -203,6 +191,15 @@
     <h2 id="one-requirement-two-builders">One Requirement, Two Builders</h2>
     <p>There is a detail worth ending on, because it is the bridge to the next chapter. The Executable Brief is read by two different builders, and the same line means different work to each. Take a requirement the refund agent carries: the agent must not read the customer&rsquo;s stored payment details, only the order and the refund amount. The coding agent vibing a prototype this week implements that as an instruction and a narrow tool scope, honored as far as the agent cooperates, which is enough to test the flow. The engineers building the production system implement the same line as architecture: a data-access layer that returns the order and amount and never exposes the payment record, so the agent cannot read what it is not handed, whether it tries to or not.</p>
     <p>One requirement. An instruction in the thing that proves the bet, an enforced structure in the thing that ships. That hardening, from a sentence the agent follows to a boundary it cannot cross, is the whole reason the next chapter exists: once you have the brief, you design the runtime artifacts that turn its governance requirements into things the agent physically cannot violate. The brief decides what the agent is allowed to do. The runtime makes the boundary real.</p>
+    <div class="callout callout-pocket">
+      <ul>
+        <li>The decision and the build are two documents, not one. Most good agent projects fail because the build document gets written and the decision document never does.</li>
+        <li>The <strong>Human Brief</strong> is the PRD&rsquo;s successor: the business case, the go/no-go, the cost model, and where the boundary sits. It is the document a room argues with.</li>
+        <li>The <strong>Executable Brief</strong> is the epic&rsquo;s successor: behavior, experience, and governance as numbered, testable requirements that drive a prototype and seed a backlog.</li>
+        <li>Both briefs carry both channels. The split is by audience (decide versus build), not by channel. Put the agent in one and the supervision in the other, and the supervision never gets built.</li>
+        <li>The user story cannot hold an agent&rsquo;s judgment. The unit of work for the agent&rsquo;s behavior becomes an outcome spec graded by evals, not a pass/fail acceptance criterion.</li>
+      </ul>
+    </div>
 
     <nav class="chapter-nav">
       <a class="prev" href="ch03-not-every-problem.html">Not Every Problem Deserves an Agent</a>

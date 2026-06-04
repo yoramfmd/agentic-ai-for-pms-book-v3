@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Chapter 9. Silent Degradation, What Your Agent Is Doing When You Stop Watching &mdash; Agentic AI for Busy Product Managers</title>
-<meta name="description" content="(the one in bold is the one this chapter leans on)">
+<meta name="description" content="Last week I drove forty minutes to an art fair and found a construction site. The venue had closed six months earlier. Google Maps had taken me there, conf">
 <link rel="canonical" href="https://agenticaiproductmanagement.com/ch09-silent-degradation.html">
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -66,18 +66,6 @@
     <p class="chapter-meta">Chapter 9 &middot; Post-launch, drift and retirement</p>
     <h1>Silent Degradation, What Your Agent Is Doing When You Stop Watching</h1>
     <p class="chapter-stage"><em>Stage: post-launch, drift and retirement</em></p>
-    <div class="callout">
-      <div class="callout-label">Keep in your pocket</div>
-      <div class="callout-title">The five ideas to keep in your pocket</div>
-      <p><em>(the one in bold is the one this chapter leans on)</em></p>
-      <ol>
-        <li>Non-determinism is permanent, not a bug. The same input can give different outputs. You cannot test an agent the way you test ordinary software.</li>
-        <li>Confident wrong answers happen at a measurable rate. The agent will not flag its own uncertainty; you design that surface.</li>
-        <li>The tool boundary is the agent&rsquo;s authority. What it can touch is what it can do, and what it can do wrong.</li>
-        <li>The hard part is not the agent&rsquo;s intelligence. It is the supervisory system around it, the product this book teaches you to build.</li>
-        <li><strong>The supervisor&rsquo;s competence erodes.</strong> The agent that does the work degrades the human who is supposed to watch it.</li>
-      </ol>
-    </div>
     <p>Last week I drove forty minutes to an art fair and found a construction site. The venue had closed six months earlier. Google Maps had taken me there, confidently. I entered the new address by hand and drove another thirty. It was not the first time Google had confidently given me a dead address.</p>
     <p>Notice what did not happen. The app did not warn me. It did not surface a confidence interval on the address. It did not tell me when the venue record was last verified. It handed me a fluent, plausible answer, and the answer was wrong, and the only reason I found out is that I arrived at an empty lot.</p>
     <p>This is the consumer version of something happening in production systems across every industry right now. A deployed agent gives a fluent, plausible answer. The answer is wrong. Nobody on the team knows, because nobody built the system that would know.</p>
@@ -150,6 +138,15 @@
     <p>In 2028, there will be a list of companies whose agent did something in production that no one on the team knew it had been doing for months. Some names are already on a version of that list. The pattern played out in regulated industries over years before anyone outside the vendor ran the numbers. Your company does not get an academic team with research funding and curiosity. Your company gets whatever observation layer it built, whatever currency question it asked, and whatever external audit it commissioned.</p>
     <p>Silent degradation is not a clinical problem. It is not a regulated-industry problem. It is what happens by default to every deployed agentic AI, in every domain, because the mechanism is attention, drift, substrate replacement, organizational memory, and a security posture exposed to attackers who learn over time. Every one of those is a human or environmental constant, not a technology artifact.</p>
     <p>The chapter before this one closed with the instruction to design the person who is supposed to be watching the agent. The instruction this chapter adds: design the system that watches the person who is watching the agent, version it, maintain it, and accept that it expires on the clock of the next frontier model. Maturity requires stability. The field has none. Plan accordingly.</p>
+    <div class="callout callout-pocket">
+      <ul>
+        <li><strong>Silent degradation</strong> is six vectors closing at once: attentional, substrate, observational, compensatory, security posture, and scope. Each is manageable alone; the composition is what produces month eighteen.</li>
+        <li>Ask the <strong>currency question</strong> at contract and on a cadence: when was training data last refreshed, on what corpus, curated by whom, with which retractions pulled.</li>
+        <li>Every observation instrument has a useful life of roughly <strong>18 months</strong>, pegged to frontier model cadence. Version them, assign owners, and schedule re-calibration or they measure the agent you used to have.</li>
+        <li>Commission an <strong>independent external audit</strong> with no commercial relationship to the vendor. The audit tests the monitoring, not the agent; a healthy monitoring layer makes it cheap.</li>
+        <li>Shadow workflows are a degradation signal, not a change-management footnote. If users are routing around the agent, task metrics stay green while job performance quietly decays.</li>
+      </ul>
+    </div>
 
     <nav class="chapter-nav">
       <a class="prev" href="ch08-change-management.html">Change Management</a>
