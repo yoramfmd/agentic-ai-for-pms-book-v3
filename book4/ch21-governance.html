@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 21: Agent Behavior Governance &mdash; Why Agentic AI Products Fail</title>
+<meta name="description" content="Step back from the parts and look at the whole. The boundary, the approval moment, the audit surface, the recovery workflow, the supervisor as a real role, the ">
+<link rel="canonical" href="https://agenticaiproductmanagement.com/book4/ch21-governance.html">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .sidebar-hub { margin-bottom: var(--space-4); padding-bottom: var(--space-3);
+    border-bottom: 1px solid var(--rule); font-size: 12px; font-family: var(--sans); }
+  .sidebar-hub a { color: var(--ink-muted); text-decoration: none; }
+  .sidebar-hub a:hover { color: var(--blue-deep); }
+</style>
+</head>
+<body>
+<div class="book">
+  <aside class="sidebar">
+    <div class="sidebar-hub"><a href="../index.html">&larr; All Books</a></div>
+    <div class="sidebar-brand"><a href="index.html">Why Agentic AI Products Fail</a><div class="sidebar-brand-sub">Building Channel 1 and the Supervisory Layer That Governs It</div></div>
+    <div class="sidebar-section">Front Matter</div>
+    <ul class="sidebar-list">
+      <li><a href="preface.html">Preface: The Job Did Not Shrink. It Shifted.</a></li>
+      <li><a href="field-snapshot.html">How the Job Actually Changed: A Field Snapshot</a></li>
+      <li><a href="two-channels.html">The Two Channels</a></li>
+    </ul>
+    <div class="sidebar-section">Part I · Decide</div>
+    <ul class="sidebar-list">
+      <li><a href="ch01-ai-literacy.html">1. What You Need to Know About AI</a></li>
+      <li><a href="ch02-not-a-bridge.html">2. You Are Not a Bridge Anymore</a></li>
+      <li><a href="ch03-not-every-problem.html">3. Not Every Problem Deserves an Agent</a></li>
+    </ul>
+    <div class="sidebar-section">Part II · Prototype & Collaborate</div>
+    <ul class="sidebar-list">
+      <li><a href="ch04-how-work-splits.html">4. How the Work Splits</a></li>
+      <li><a href="ch05-vibe-coding.html">5. Vibe Coding for Value: Prototyping to Decide</a></li>
+      <li><a href="ch06-collaborator.html">6. The PM as Collaborator</a></li>
+    </ul>
+    <div class="sidebar-section">Part III · Design</div>
+    <ul class="sidebar-list">
+      <li><a href="ch07-design-behavior.html">7. You Built the Agent. Now Design the Behavior</a></li>
+      <li><a href="ch08-two-hitl.html">8. Two Kinds of Human-in-the-Loop</a></li>
+      <li><a href="ch09-evals.html">9. Evals: What the Checkmarks Prove</a></li>
+    </ul>
+    <div class="sidebar-section">Part IV · Operate</div>
+    <ul class="sidebar-list">
+      <li><a href="ch10-guardrails.html">10. Operational Guardrails</a></li>
+      <li><a href="ch11-observation.html">11. You Can’t Measure What You Didn’t Design</a></li>
+      <li><a href="ch12-record-complete.html">12. The Record Is Complete. The Picture Is Wrong.</a></li>
+      <li><a href="ch13-silent-degradation.html">13. Silent Degradation</a></li>
+      <li><a href="ch14-audit-trails.html">14. Audit Trails That Survive the Agent</a></li>
+    </ul>
+    <div class="sidebar-section">Part V · The Human System</div>
+    <ul class="sidebar-list">
+      <li><a href="ch15-deference.html">15. Deference: The Problem After Capability</a></li>
+      <li><a href="ch16-change-management.html">16. Change Management: From Actor to Supervisor</a></li>
+      <li><a href="ch17-hitl-fails.html">17. Why Human-in-the-Loop Fails</a></li>
+      <li><a href="ch18-skill-erosion.html">18. Skill Erosion: Deskilling, Never-Skilling, Cognitive Surrender</a></li>
+      <li><a href="ch19-team-member.html">19. The Agent Is a Team Member Nobody Hired</a></li>
+    </ul>
+    <div class="sidebar-section">Part VI · Carry the Weight</div>
+    <ul class="sidebar-list">
+      <li><a href="ch20-people-never-seen.html">20. What You Owe the People Your Agent Never Sees</a></li>
+      <li><a href="ch21-governance.html" class="active">21. Agent Behavior Governance</a></li>
+      <li><a href="ch22-day-in-life.html">22. A Day in the Life of the Agentic PM</a></li>
+    </ul>
+    <div class="sidebar-section">Back Matter</div>
+    <ul class="sidebar-list">
+      <li><a href="agent-note.html">The Agent This Book Was Written With</a></li>
+      <li><a href="appendix-a.html">Appendix A: The Two Briefs, Worked</a></li>
+      <li><a href="appendix-b.html">Appendix B: The Field Manual</a></li>
+      <li><a href="glossary.html">Glossary</a></li>
+      <li><a href="references.html">References and Sources</a></li>
+    </ul>
+  </aside>
+  <div class="main">
+    <div class="chapter">
+      <div class="chapter-meta">Part VI · Carry the Weight &nbsp;&middot;&nbsp; Chapter 21</div>
+            <h1>Chapter 21: Agent Behavior Governance</h1>
+    <blockquote><p><em>Everything this book has asked you to build by hand has a name: </em>agent behavior governance<em>, governing what the agent does rather than what the model is, and at runtime rather than in a policy document. It is a void today, which is why the job falls to you. But it is on the same path every cross-cutting concern has taken, from hand-built application work to platform foundation, and the window where it is still yours to build is the window where it is worth the most.</em></p></blockquote>
+    <p>Step back from the parts and look at the whole. The boundary, the approval moment, the audit surface, the recovery workflow, the supervisor as a real role, the line held for the person the agent never sees: each was a chapter, and together they are one thing that has not had a settled name, which is part of why it keeps getting skipped. Name it. This is <em>agent behavior governance</em>: the discipline of governing what an agent does. The mechanism that enforces it, the boundary and the kill switch and the gate that stops an action before it fires, is <em>agentic behavior control</em>; governance is the discipline, control is what the plane you build actually does.</p>
+    <p>The word governance has been doing damage in this field. The kind this means is not the committee, the policy document, the quarterly review, the governance that this book argued elsewhere is mostly theater, and it is not the boardroom kind that watches how directors decide. It is the architectural kind, enforced at the moment an agent acts. The two are not opposites; they are stages of the same thing maturing. Governance starts as policy and committees, passes through a phase where a disciplined practitioner builds it into the product by hand, and ends embedded in the foundation where no one has to remember it. Agent behavior governance is in the middle stage now, which is why it is manual, skippable, and exactly where the failures happen.</p>
+    <h3 id="where-it-is-going">Where it is going</h3>
+    <p>The reason to be confident this matures is that it has happened before, repeatedly, to every concern that cuts across products. Security was once application work you bolted on and could forget; now it is in the platform, and shipping without it is negligence. Privacy, the same. High availability, disaster recovery, reliability, each began as something a careful builder did by hand and each migrated into the foundation until you would not build a serious system without it provided underneath you. Nobody hand-rolls encryption anymore. Agent behavior governance is on that path. Today it is a void, so you build the control plane yourself, per agent, by hand. Tomorrow much of it will be baked into the platform the way those others were. Governance, data, AI, agent behavior, whatever domain comes after, becomes architecture eventually. It will take time. It will be there.</p>
+    <p>You can see the arc in three stages, and the book has walked the first of them. Stage one is the four runtime artifacts, built by hand, per agent: the boundary, the approval moment, the audit surface, the recovery workflow. Stage two is those consolidated into a deliberate plane, an agentic behavior control plane, designed once across products instead of reinvented each time. Stage three is that plane absorbed into the platform as runtime governance, provided rather than built, the way authentication and failover are provided now. You are standing at stage one. It is the position the early practitioner occupies before a discipline has a name and a toolkit, which means the conventions you set by hand now are the ones the platform will eventually ship as defaults.</p>
+    <p>It helps to see the three stages in something concrete. Take a company shipping its first agent, a refund agent for a support team. At stage one, a product manager builds that agent&rsquo;s governance by hand, in the agent itself: this agent may refund up to a limit, this is the screen where a human approves the rest, this is the log of every refund and who authorized it, this is how a wrong refund gets reversed. It works, and it is bespoke, and when the same company ships its second agent, for procurement, none of it carries over; the next PM builds the boundary and the approval moment and the audit trail again, from scratch, slightly differently, because there was nothing to inherit. That is stage one: real governance, reinvented every time, as much a property of who built it as of any standard.</p>
+    <p>Stage two arrives when someone in that company notices the repetition and builds the thing once. A shared layer that every agent plugs into: a single place to declare an agent&rsquo;s boundary, one approval-moment component the agents reuse, one audit pipeline all of them write to, one recovery mechanism. The refund agent and the procurement agent now sit on the same control plane, and the third agent inherits it on day one. The governance stopped being a property of the individual builder and became a property of the company&rsquo;s architecture. Most organizations are nowhere near this yet, and the ones that get there first will ship agents faster and safer than the ones still hand-rolling each one, which is the entire argument for treating this as deliberate work rather than waiting. Stage three is when that shared plane is no longer something the company builds at all, but something the platform underneath it provides, the way no one builds their own authentication service anymore. We are years from that, and the years in between are the ones this book is written for.</p>
+    <h3 id="why-the-window-matters">Why the window matters</h3>
+    <p>Here is the half that must not be misread. None of this means wait for the platform to catch up. The opposite. Because no platform does this for you yet, the person who builds it by hand now is the one preventing the failures in the meantime and, not incidentally, building the product that wins. The supervisory layer is uncommoditized precisely because the foundation has not absorbed it, and uncommoditized is where the difference between products lives. The manual window is the differentiation window. When the platform finally provides agent behavior governance as a primitive, everyone will have it and it will differentiate no one, the way nobody competes today on having TLS. Right now, the team that builds the control plane deliberately has something the team shipping a bare agent does not, and the gap is visible in production, in the postmortems one of them is writing and the other is not.</p>
+    <p>I am not going to tell you where the line falls between what you build and what the platform should provide, because that line is the thing in motion. It is moving as you read this, and any place I drew it would be wrong by the time the ink dried, and worse, drawing it would contradict the whole argument that the boundary migrates. So here is the work that has to happen: today most of it is yours; over time more of it becomes the platform&rsquo;s; and the discipline is to build what does not yet exist rather than wait for it. Which is the new job, stated as plainly as it can be. For now, in the window we are in, the product manager is the architecture that does not exist yet. Build it well, because the people downstream of your agent are depending on a foundation that, today, is only you.</p>
+  <div class="chapter-nav"><a class="prev" href="ch20-people-never-seen.html">What You Owe the People Your Agent Never Sees</a><a class="next" href="ch22-day-in-life.html">A Day in the Life of the Agentic PM</a></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

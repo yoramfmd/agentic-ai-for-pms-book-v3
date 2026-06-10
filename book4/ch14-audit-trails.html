@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 14: Audit Trails That Survive the Agent &mdash; Why Agentic AI Products Fail</title>
+<meta name="description" content="A class action working its way through a federal court concerns AI-issued denials of post-acute care, skilled nursing, rehabilitation, home health, to elderly p">
+<link rel="canonical" href="https://agenticaiproductmanagement.com/book4/ch14-audit-trails.html">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .sidebar-hub { margin-bottom: var(--space-4); padding-bottom: var(--space-3);
+    border-bottom: 1px solid var(--rule); font-size: 12px; font-family: var(--sans); }
+  .sidebar-hub a { color: var(--ink-muted); text-decoration: none; }
+  .sidebar-hub a:hover { color: var(--blue-deep); }
+</style>
+</head>
+<body>
+<div class="book">
+  <aside class="sidebar">
+    <div class="sidebar-hub"><a href="../index.html">&larr; All Books</a></div>
+    <div class="sidebar-brand"><a href="index.html">Why Agentic AI Products Fail</a><div class="sidebar-brand-sub">Building Channel 1 and the Supervisory Layer That Governs It</div></div>
+    <div class="sidebar-section">Front Matter</div>
+    <ul class="sidebar-list">
+      <li><a href="preface.html">Preface: The Job Did Not Shrink. It Shifted.</a></li>
+      <li><a href="field-snapshot.html">How the Job Actually Changed: A Field Snapshot</a></li>
+      <li><a href="two-channels.html">The Two Channels</a></li>
+    </ul>
+    <div class="sidebar-section">Part I · Decide</div>
+    <ul class="sidebar-list">
+      <li><a href="ch01-ai-literacy.html">1. What You Need to Know About AI</a></li>
+      <li><a href="ch02-not-a-bridge.html">2. You Are Not a Bridge Anymore</a></li>
+      <li><a href="ch03-not-every-problem.html">3. Not Every Problem Deserves an Agent</a></li>
+    </ul>
+    <div class="sidebar-section">Part II · Prototype & Collaborate</div>
+    <ul class="sidebar-list">
+      <li><a href="ch04-how-work-splits.html">4. How the Work Splits</a></li>
+      <li><a href="ch05-vibe-coding.html">5. Vibe Coding for Value: Prototyping to Decide</a></li>
+      <li><a href="ch06-collaborator.html">6. The PM as Collaborator</a></li>
+    </ul>
+    <div class="sidebar-section">Part III · Design</div>
+    <ul class="sidebar-list">
+      <li><a href="ch07-design-behavior.html">7. You Built the Agent. Now Design the Behavior</a></li>
+      <li><a href="ch08-two-hitl.html">8. Two Kinds of Human-in-the-Loop</a></li>
+      <li><a href="ch09-evals.html">9. Evals: What the Checkmarks Prove</a></li>
+    </ul>
+    <div class="sidebar-section">Part IV · Operate</div>
+    <ul class="sidebar-list">
+      <li><a href="ch10-guardrails.html">10. Operational Guardrails</a></li>
+      <li><a href="ch11-observation.html">11. You Can’t Measure What You Didn’t Design</a></li>
+      <li><a href="ch12-record-complete.html">12. The Record Is Complete. The Picture Is Wrong.</a></li>
+      <li><a href="ch13-silent-degradation.html">13. Silent Degradation</a></li>
+      <li><a href="ch14-audit-trails.html" class="active">14. Audit Trails That Survive the Agent</a></li>
+    </ul>
+    <div class="sidebar-section">Part V · The Human System</div>
+    <ul class="sidebar-list">
+      <li><a href="ch15-deference.html">15. Deference: The Problem After Capability</a></li>
+      <li><a href="ch16-change-management.html">16. Change Management: From Actor to Supervisor</a></li>
+      <li><a href="ch17-hitl-fails.html">17. Why Human-in-the-Loop Fails</a></li>
+      <li><a href="ch18-skill-erosion.html">18. Skill Erosion: Deskilling, Never-Skilling, Cognitive Surrender</a></li>
+      <li><a href="ch19-team-member.html">19. The Agent Is a Team Member Nobody Hired</a></li>
+    </ul>
+    <div class="sidebar-section">Part VI · Carry the Weight</div>
+    <ul class="sidebar-list">
+      <li><a href="ch20-people-never-seen.html">20. What You Owe the People Your Agent Never Sees</a></li>
+      <li><a href="ch21-governance.html">21. Agent Behavior Governance</a></li>
+      <li><a href="ch22-day-in-life.html">22. A Day in the Life of the Agentic PM</a></li>
+    </ul>
+    <div class="sidebar-section">Back Matter</div>
+    <ul class="sidebar-list">
+      <li><a href="agent-note.html">The Agent This Book Was Written With</a></li>
+      <li><a href="appendix-a.html">Appendix A: The Two Briefs, Worked</a></li>
+      <li><a href="appendix-b.html">Appendix B: The Field Manual</a></li>
+      <li><a href="glossary.html">Glossary</a></li>
+      <li><a href="references.html">References and Sources</a></li>
+    </ul>
+  </aside>
+  <div class="main">
+    <div class="chapter">
+      <div class="chapter-meta">Part IV · Operate &nbsp;&middot;&nbsp; Chapter 14</div>
+            <h1>Chapter 14: Audit Trails That Survive the Agent</h1>
+    <blockquote><p><em>A consequential decision has to leave a durable, version-locked, human-readable artifact a third party can interrogate years later. The reason is structural: the agent that made the decision will not exist in its original form when the appeal arrives, and the retention floor the regulations set is far shorter than the time it takes for the appeal to come.</em></p></blockquote>
+    <p>A class action working its way through a federal court concerns AI-issued denials of post-acute care, skilled nursing, rehabilitation, home health, to elderly patients, made between 2020 and 2023. In early 2026 a magistrate ordered the insurer to produce the internal records: what the algorithm output, what the physicians actually reviewed versus what the algorithm decided, the model&rsquo;s tracked error rate. The allegation is that the tool denied at something like a ninety percent error rate, meaning roughly nine in ten denials were overturned when anyone appealed. The detail that should stop a product manager cold is the one that explains how a tool with that error rate stayed in production: only about two-tenths of one percent of policyholders ever appeal a denial. The system produced decisions that would be found wrong if reviewed, attached to a process almost nobody reviews, and the harm became visible only in aggregate, years later, in discovery, where the question is now whether the records needed to evaluate those decisions, the model version in use at the time, the inputs it received, the outputs it produced, the humans who nominally signed them, even exist in reconstructable form.</p>
+    <p>That is the subject of this chapter, and it is not the same as logging. The observation chapter built the audit surface, the trace that reconstructs what the agent did so a user can see it today. This chapter is about a longer obligation that almost no team designs for: the decision your agent makes today may be contested in five years, by a person, a regulator, or a court, and by then the agent will have been updated a dozen times, the model behind it deprecated, the prompt rewritten, the retrieval corpus replaced. The trace that satisfied the dashboard last Tuesday is not the artifact that survives that gap. Designing the one that does is the work here.</p>
+    <h3 id="why-we-log-everything-is-necessary-and-not-sufficient">Why &ldquo;we log everything&rdquo; is necessary and not sufficient</h3>
+    <p>Every team in this position says the same thing when asked: we log everything. They usually do, and it usually does not help, for three reasons that have nothing to do with log volume. The first is <em>durability against time</em>. The audit surface is built for the present tense, queryable for the days and weeks a live incident takes to investigate, and retention is set to whatever storage costs make comfortable. The regulatory floor is not much better; the broad European AI regime sets a minimum log retention of six months for high-risk systems. The interval from an adverse AI decision to a discovery order, in the case above, was three to five years. Six months of retention would have destroyed the evidence at the center of a federal class action before anyone asked for it. The second is <em>durability against change</em>. A log entry that says &ldquo;model returned deny, confidence 0.87&rdquo; is meaningless once the model that returned it has been replaced, unless the entry pinned exactly which model artifact, which provider API version, which prompt, and which policy were in force at the moment of the decision. The third is <em>reconstructability by a stranger</em>. The person interrogating the decision in five years is not on your team, does not have your context, and cannot read your trace format; they need a human-readable account of what was decided and on what basis, not a stream of spans that made sense to the engineer who emitted them.</p>
+    <p>So the standard to design for is not &ldquo;we keep the logs.&rdquo; It is <em>decision provenance</em>: the lineage of inputs, model, configuration, reasoning, and human authorization that produced a specific decision, recorded so that someone with no relationship to you can reconstruct it after the system that made it is gone. Provenance is the accurate term, and it needs defining the first time a business reader meets it; audit trail is the more familiar word for roughly the same thing, and it is what the regulations use.</p>
+    <h3 id="what-a-durable-record-actually-contains">What a durable record actually contains</h3>
+    <p>The emerging technical pattern has a usefully concrete name, the <em>sealed decision artifact</em>: a version-locked, cryptographically signed bundle, written once and never altered, that travels with a single consequential decision. Six things belong in it, and each one is there to survive a specific kind of erosion.</p>
+    <p>The <em>decision record</em> itself: an identifier, a timestamp, the input data, the model&rsquo;s reasoning chain step by step, the final output, and the confidence. The <em>model snapshot reference</em>: not the model, but an immutable pointer to the exact artifact, a weights hash or a pinned provider API version, so the model can be deprecated while the reference still resolves to what actually decided. The <em>data provenance record</em>: which reference set or retrieval corpus was consulted and at what version, because the same query against a corpus that has since been re-indexed is a different decision. The <em>governance record</em>: who approved this model version for this use, under what policy, with what waivers, which links the decision to the organizational authority it operated under rather than leaving it as an orphaned machine output. The <em>human intervention record</em>: if a person overrode or confirmed the agent, who, when, what they changed, and why, which is what makes the difference between real review and a rubber stamp legible later, and the regulations are explicit that a human who rubber-stamps an automated output without independent assessment leaves the decision legally &ldquo;solely automated&rdquo; anyway. And the <em>appeal record</em>: any later dispute, its basis, and its outcome, which closes the loop and reveals whether the original artifact was actually sufficient to reconstruct the decision when someone finally tried.</p>
+    <div class="callout">
+      <div class="callout-title">The sealed decision artifact. A consequential decision should produce a write-once, signed bundle holding: the decision record (inputs, reasoning chain, output, confidence, timestamp); an immutable reference to the exact model version that decided; the data and retrieval-corpus version consulted; the governance record of who authorized that model for this use; the human-intervention record of any override or confirmation, with the reason; and the appeal record, if the decision is later contested. <em>Decision provenance</em> is the lineage all six capture together. The test is not whether you logged the event. It is whether a stranger, years from now, with the deciding system long gone, could reconstruct what was decided and on what basis from this bundle alone.</div>
+      
+    </div>
+    <p>One subtlety makes this harder for agents than for traditional software, and it is worth stating plainly because it breaks an instinct. With a non-deterministic model, the same inputs do not reproduce the same output. You cannot store the inputs and the model version and expect to regenerate the decision later; temperature above zero means the run that happened is the only run that happened. So the actual output has to be stored verbatim, not reconstructed on demand. For a clinical decision the physician reviewed, what matters is the exact reasoning chain that was in front of that physician, not a fresh generation that resembles it. For a credit denial the rule requires the specific reasons the model actually produced, not a plausible after-the-fact account of what it might have weighed. The sealed artifact stores the thing that happened because the thing that happened cannot be recovered any other way.</p>
+    <h3 id="the-agent-will-change-the-decision-will-not">The agent will change; the decision will not</h3>
+    <p>This is the asymmetry the chapter turns on. Your agent is a moving system, and the operations chapters made that vivid: the model gets updated on the vendor&rsquo;s schedule, the prompt accretes improvements, the corpus is refreshed, the whole thing drifts and is re-versioned and eventually retired. The decision it made is a fixed historical event. Someone was denied care, granted a loan, screened out of a hiring pipeline, on a specific day, by a specific configuration, and that event does not update when the agent does. When the appeal comes, the gap between the moving system and the fixed event is exactly the space where accountability is lost, because the natural state of a system that has moved on is that it cannot account for where it used to be. The version-pinning the silent-degradation chapter recommended for catching drift is the same discipline that makes a decision reconstructable here: an immutable reference to the model that decided is both how you tell whether the agent has changed and how you prove what it did before it changed. The audit that survives the agent is built out of the same pins that let you see the agent move.</p>
+    <p>Some domains feel this on a long delay, which is what makes it easy to defer and expensive to have deferred. A medical decision made by an agent today may be questioned when the patient&rsquo;s outcome unfolds years later; a record an agent writes today may be inherited and reasoned over by a future model that takes the earlier output as established fact, compounding an error nobody can trace back because the provenance of the original was never sealed. The decisions whose consequences arrive slowest are precisely the ones most likely to outlive the systems that made them, and therefore the ones that most need an artifact built to survive the gap. The regulations are converging on this, slowly: retention measured against the real limitations period rather than a flat six months, specific machine-readable reasons attached to each denial, model documentation version-locked for as long as the model is in use. But the regulatory floor lags the litigation timeline by years, which means the discipline has to come from you before the rule requires it, because the rule will be proven necessary by the cases that arrive before it.</p>
+    <p>So take one consequential decision your agent makes and list everything a stranger would need to reconstruct it five years from now, with the current version of the agent long gone: the inputs, the exact model and prompt and corpus version, the reasoning the agent produced, the human who signed it and why, the policy it operated under. Then check what your system actually retains, and for how long. The items on the first list that are not on the second are the parts of the decision that will not survive the appeal, and the appeal rate being low is not protection. It is the reason the gap stays invisible until the one appeal that matters arrives with a discovery order attached.</p>
+    <p>A reader could stop here and feel they had the supervisory layer covered. The boundary, the budget ceiling, the instruments, the audit that survives the agent, that is a real Channel 2, and most teams do not have even this much. But it is only half of one. Everything in this part has been about designing what the system does and how you watch it. None of it has been about what happens to the humans doing the watching, or to the people who never see the agent but live inside its error rate. A supervisory layer that watches the agent perfectly and lets the supervisor&rsquo;s skill erode, or never notices the person the product is failing, is not finished; it is half-built in a way that does not show until it fails. The next two parts are that other half, and they are the part of the job that no platform will ever provide.</p>
+  <div class="chapter-nav"><a class="prev" href="ch13-silent-degradation.html">Silent Degradation</a><a class="next" href="ch15-deference.html">Deference: The Problem After Capability</a></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

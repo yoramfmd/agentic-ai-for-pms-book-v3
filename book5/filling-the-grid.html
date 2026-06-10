@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Filling the Grid &mdash; The Agentic Team</title>
+<meta name="description" content="The previous chapter drew the grid and showed you the empty column. This one is about the one discipline that filling the grid does not give you and most teams ">
+<link rel="canonical" href="https://agenticaiproductmanagement.com/book5/filling-the-grid.html">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .sidebar-hub { margin-bottom: var(--space-4); padding-bottom: var(--space-3);
+    border-bottom: 1px solid var(--rule); font-size: 12px; font-family: var(--sans); }
+  .sidebar-hub a { color: var(--ink-muted); text-decoration: none; }
+  .sidebar-hub a:hover { color: var(--blue-deep); }
+</style>
+</head>
+<body>
+<div class="book">
+  <aside class="sidebar">
+    <div class="sidebar-hub"><a href="../index.html">&larr; All Books</a></div>
+    <div class="sidebar-brand"><a href="index.html">The Agentic Team</a><div class="sidebar-brand-sub">How Agentic AI Reshapes the Roles That Build It</div></div>
+    <div class="sidebar-section">Part I · Foundations</div>
+    <ul class="sidebar-list">
+      <li><a href="what-youre-building.html">1. What You Are Actually Building</a></li>
+      <li><a href="deciding-what-to-build.html">2. Deciding What to Build, and Whether To</a></li>
+      <li><a href="the-triad-premise.html">3. The Team Was Built for a Different Product</a></li>
+    </ul>
+    <div class="sidebar-section">Part II · The Work Reshapes</div>
+    <ul class="sidebar-list">
+      <li><a href="OPENER.html">The Work Reshapes</a></li>
+      <li><a href="ux.html">4. Is There Still a UX?</a></li>
+      <li><a href="dev.html">5. Who Wrote This Code, and Who Answers for It?</a></li>
+      <li><a href="scrum.html">6. Is There Still a Scrum?</a></li>
+      <li><a href="architect.html">7. Whose Job Is It That the Whole Thing Holds?</a></li>
+      <li><a href="pm.html">8. What’s Left for the PM?</a></li>
+    </ul>
+    <div class="sidebar-section">Part III · Failures</div>
+    <ul class="sidebar-list">
+      <li><a href="silent-degradation.html">9. The Failure No One Is Watching</a></li>
+      <li><a href="the-calendar-the-agent-could-not-see.html">10. The Calendar the Agent Could Not See</a></li>
+      <li><a href="the-boundary-and-the-wall.html">11. The Boundary and the Wall</a></li>
+      <li><a href="the-green-checkmark.html">12. The Green Checkmark Nobody Owned</a></li>
+      <li><a href="who-watches-who-stops.html">13. Who Watches It, and Who Can Stop It</a></li>
+      <li><a href="built-before-enforced-at-the-moment.html">14. Built Before, Authorized at the Moment</a></li>
+      <li><a href="the-people-the-agent-erodes.html">15. The People the Agent Is Eroding</a></li>
+    </ul>
+    <div class="sidebar-section">Part IV · The Collaboration Model</div>
+    <ul class="sidebar-list">
+      <li><a href="the-grid.html">16. The Model Is Old. The Column Is New.</a></li>
+      <li><a href="filling-the-grid.html" class="active">17. Filling the Grid</a></li>
+      <li><a href="what-flows-between-the-cells.html">18. What Flows Between the Cells</a></li>
+    </ul>
+    <div class="sidebar-section">Part V · The Org Model</div>
+    <ul class="sidebar-list">
+      <li><a href="grow-the-box.html">19. Start With the Box You Already Have</a></li>
+      <li><a href="the-team-member-nobody-hired.html">20. The Team Member Nobody Hired</a></li>
+      <li><a href="staffing-by-stage.html">21. Who Sits in the New Seats</a></li>
+    </ul>
+    <div class="sidebar-section">Part VI · Agents Building Agents</div>
+    <ul class="sidebar-list">
+      <li><a href="the-team-member-who-hires.html">22. The Team Member Who Hires</a></li>
+      <li><a href="who-watches-the-watchers.html">23. When the Watchers Are Agents Too</a></li>
+      <li><a href="governing-the-fleet.html">24. Governing What You Cannot Watch</a></li>
+    </ul>
+    <div class="sidebar-section">Part VII · Carry the Weight</div>
+    <ul class="sidebar-list">
+      <li><a href="the-constitution.html">25. The Agent’s Constitution</a></li>
+      <li><a href="carry-the-weight.html">26. Carry the Weight</a></li>
+    </ul>
+    <div class="sidebar-section">Reference</div>
+    <ul class="sidebar-list">
+      <li><a href="references.html">References and Sources</a></li>
+    </ul>
+  </aside>
+  <div class="main">
+    <div class="chapter">
+      <div class="chapter-meta">Part IV · The Collaboration Model &nbsp;&middot;&nbsp; Chapter 17</div>
+            <h1>Filling the Grid</h1>
+    <hr>
+    <p>The previous chapter drew the grid and showed you the empty column. This one is about the one discipline that filling the grid does not give you and most teams discover they were missing only after an incident: the ownership of the seams between the cells. How the same grid is staffed at a startup of five and an enterprise of five hundred is the subject of a later part, where it belongs with the people who do the hiring. What this chapter does is name the thing that grid does not, because it is the thing the failures in the last part were all instances of.</p>
+    <p>One principle frames it, and it resolves the apparent contradiction between this part and the methodology the last chapter held up as a foil. That methodology was right that the roles which build the agent should converge, one fluent engineer spanning what used to be several specialties. It was wrong only in extending that convergence to the supervision pipeline, which must do the opposite. The rule, the deeper version this series has stated before, is <em>merge to decide, separate to ship</em>: the build roles converge while the team decides what to build, and the supervision roles separate once the thing ships and runs. But merging and separating the cells is only half of it, and the other half is the half that fails.</p>
+    <h2 id="the-hand-off-is-the-work">The hand-off is the work</h2>
+    <p>That last point is the one to carry out of this part, because it is what the grid is really teaching. The cells are where responsibilities live, but the failures live in the hand-offs between them, and the previous part of this book was, read correctly, a tour of hand-offs. The boundary decided in one cell and enforced in another, with the nine seconds in between. The golden dataset built in one cell and trusted in another, with the expired guideline in between. The gate designed in one cell and staffed by an organization, with the one second in between. Filling the grid is necessary and it is not sufficient, because a grid with every cell owned can still fail at every seam if no one owns the seam itself.</p>
+    <p>So the discipline that completes the grid is hand-off ownership, and it is the thing the old model never had to do because the old model was one pipeline whose hand-offs were the familiar ones a generation of teams learned to manage. The agentic grid has new hand-offs, the ones that cross between Channel 1 and Channel 2, between the agent and its supervision, and those are the seams with no established owner because they are new. The boundary the product manager specifies has to be confirmed enforced by the architect, and that confirmation is a hand-off with an owner on each end. The golden dataset the eval owner maintains has to be signed current by the domain expert, and that is a hand-off. The threshold the product manager sets has to be wired into a brake the architect builds and watched by a supervisor, and that is a chain of hand-offs. A team that names the cells and not the seams has built a grid of responsible people who will each, correctly, do their own job, and discover the failure in the space between their jobs, which is exactly the space this whole book has been pointing at. The completed grid is not a filled-in table. It is a filled-in table with named, owned, verified hand-offs across every seam where intent passes from one cell to the next, and especially across the seams that cross from building the agent to supervising it, because those are the seams the old model never had and so never learned to staff.</p>
+    <h2 id="the-grid-tells-you-the-work-not-the-people">The grid tells you the work, not the people</h2>
+    <p>The grid tells you the responsibilities. It does not tell you the people, and the gap between a responsibility and a person is the subject of a later part. The grid is the map of the work, across two channels, with the supervision column that comes up empty on most teams and the seams that are where the work actually fails. What it does not say is who, by title, holds each cell at a company of a given size, how the jobs bundle at a startup and unbundle at scale, and which of them are roles the industry is still inventing names for. That is the staffing question, and it comes later, because the responsibilities had to come first: you cannot decide who holds a cell until you know the cell exists, what it owns, and which seam it sits beside.</p>
+    <hr>
+    <h2 id="notes-and-sources">Notes and sources</h2>
+    <p>The principle that the roles which build an agent should converge while the roles that supervise it should separate, framed here as &ldquo;merge to decide, separate to ship&rdquo; at the level of team composition, builds on the merge-and-separate argument from the prior books in this series and on the role-convergence-versus-proliferation contrast with the AWS AI-DLC methodology developed in the previous chapter. The staffing-by-scale account (one senior holding most of the build at a startup, the cells separating into distinct roles at mid-scale, and the cells multiplying into teams with organizational-boundary hand-offs at enterprise scale) and the hand-off-ownership discipline are this book&rsquo;s analysis, developed in the re-vantaging map and grounded in the seam failures documented in the previous part. The transition to the capability-hats staffing model is the subject of the following part; the eight hats and their bundling by org stage are documented in this book&rsquo;s research dossier.</p>
+    <h2 id="draft-notes-not-for-the-book">Draft notes (not for the book)</h2>
+    <ul>
+      <li>ROLE: Part III chapter 2 of 2. The POSITIVE view (filling the grid) + the merge/separate-by-scale principle + the hand-off-ownership discipline + the TRANSITION to Part V (the hats). Deliberately makes Part III a tight 2-chapter bridge (grid opener + this), because Part IV carries the seam EVIDENCE , Part III is the MAP. Avoids re-narrating Part IV&rsquo;s failures.</li>
+      <li>KEY MOVE: &ldquo;merge to decide, separate to ship&rdquo; at the ROLE level , resolves the AI-DLC foil from ch1 (converge build / proliferate supervision). The same grid at 3 scales (startup: 1 senior holds the build + a 2nd holds Ch2-watching; mid: cells separate; enterprise: cells multiply into teams, hand-offs become org boundaries).</li>
+      <li>THE HAND-OFF discipline: the grid is necessary not sufficient; failures live in the seams; new seams = Channel-1-&gt;Channel-2 crossings the old model never had. RE-READS Part IV&rsquo;s cases as hand-offs (boundary/nine-seconds, dataset/guideline, gate/one-second) , reinforcement not repetition.</li>
+      <li>TRANSITION to Part V: explicit , &ldquo;the grid is the map of the work, the next part is the map of the people.&rdquo; Sets up the hats as the staffing answer that only makes sense after the work is drawn.</li>
+      <li>VOICE: no scene-opener here (it&rsquo;s a synthesis chapter, opens on the function &ldquo;the previous chapter drew the grid&rdquo;); no em dashes; italic; CHECK banned words. Cut the moral.</li>
+      <li>NO first person beyond the legit authorial. NO fabricated anecdote.</li>
+      <li>LENGTH ~1,800 words. Part III total ~4,200 words / ~14pp = a tight bridge, correct weight.</li>
+      <li>DECISION FLAGGED for Yoram: Part III = 2 chapters only (grid + filling), deliberately lean. If he wants the hand-offs as their own chapters, they&rsquo;d partly duplicate Part IV , recommend AGAINST. Confirm.</li>
+      <li>VERIFY voice before consolidating.</li>
+    </ul>
+  <div class="chapter-nav"><a class="prev" href="the-grid.html">The Model Is Old. The Column Is New.</a><a class="next" href="what-flows-between-the-cells.html">What Flows Between the Cells</a></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

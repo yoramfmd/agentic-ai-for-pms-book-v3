@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 20: What You Owe the People Your Agent Never Sees &mdash; Why Agentic AI Products Fail</title>
+<meta name="description" content="One of the hardest unsolved problems in shipping agents is what happens when they are wrong. Not whether they will be wrong, they will, but who answers for it, ">
+<link rel="canonical" href="https://agenticaiproductmanagement.com/book4/ch20-people-never-seen.html">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .sidebar-hub { margin-bottom: var(--space-4); padding-bottom: var(--space-3);
+    border-bottom: 1px solid var(--rule); font-size: 12px; font-family: var(--sans); }
+  .sidebar-hub a { color: var(--ink-muted); text-decoration: none; }
+  .sidebar-hub a:hover { color: var(--blue-deep); }
+</style>
+</head>
+<body>
+<div class="book">
+  <aside class="sidebar">
+    <div class="sidebar-hub"><a href="../index.html">&larr; All Books</a></div>
+    <div class="sidebar-brand"><a href="index.html">Why Agentic AI Products Fail</a><div class="sidebar-brand-sub">Building Channel 1 and the Supervisory Layer That Governs It</div></div>
+    <div class="sidebar-section">Front Matter</div>
+    <ul class="sidebar-list">
+      <li><a href="preface.html">Preface: The Job Did Not Shrink. It Shifted.</a></li>
+      <li><a href="field-snapshot.html">How the Job Actually Changed: A Field Snapshot</a></li>
+      <li><a href="two-channels.html">The Two Channels</a></li>
+    </ul>
+    <div class="sidebar-section">Part I · Decide</div>
+    <ul class="sidebar-list">
+      <li><a href="ch01-ai-literacy.html">1. What You Need to Know About AI</a></li>
+      <li><a href="ch02-not-a-bridge.html">2. You Are Not a Bridge Anymore</a></li>
+      <li><a href="ch03-not-every-problem.html">3. Not Every Problem Deserves an Agent</a></li>
+    </ul>
+    <div class="sidebar-section">Part II · Prototype & Collaborate</div>
+    <ul class="sidebar-list">
+      <li><a href="ch04-how-work-splits.html">4. How the Work Splits</a></li>
+      <li><a href="ch05-vibe-coding.html">5. Vibe Coding for Value: Prototyping to Decide</a></li>
+      <li><a href="ch06-collaborator.html">6. The PM as Collaborator</a></li>
+    </ul>
+    <div class="sidebar-section">Part III · Design</div>
+    <ul class="sidebar-list">
+      <li><a href="ch07-design-behavior.html">7. You Built the Agent. Now Design the Behavior</a></li>
+      <li><a href="ch08-two-hitl.html">8. Two Kinds of Human-in-the-Loop</a></li>
+      <li><a href="ch09-evals.html">9. Evals: What the Checkmarks Prove</a></li>
+    </ul>
+    <div class="sidebar-section">Part IV · Operate</div>
+    <ul class="sidebar-list">
+      <li><a href="ch10-guardrails.html">10. Operational Guardrails</a></li>
+      <li><a href="ch11-observation.html">11. You Can’t Measure What You Didn’t Design</a></li>
+      <li><a href="ch12-record-complete.html">12. The Record Is Complete. The Picture Is Wrong.</a></li>
+      <li><a href="ch13-silent-degradation.html">13. Silent Degradation</a></li>
+      <li><a href="ch14-audit-trails.html">14. Audit Trails That Survive the Agent</a></li>
+    </ul>
+    <div class="sidebar-section">Part V · The Human System</div>
+    <ul class="sidebar-list">
+      <li><a href="ch15-deference.html">15. Deference: The Problem After Capability</a></li>
+      <li><a href="ch16-change-management.html">16. Change Management: From Actor to Supervisor</a></li>
+      <li><a href="ch17-hitl-fails.html">17. Why Human-in-the-Loop Fails</a></li>
+      <li><a href="ch18-skill-erosion.html">18. Skill Erosion: Deskilling, Never-Skilling, Cognitive Surrender</a></li>
+      <li><a href="ch19-team-member.html">19. The Agent Is a Team Member Nobody Hired</a></li>
+    </ul>
+    <div class="sidebar-section">Part VI · Carry the Weight</div>
+    <ul class="sidebar-list">
+      <li><a href="ch20-people-never-seen.html" class="active">20. What You Owe the People Your Agent Never Sees</a></li>
+      <li><a href="ch21-governance.html">21. Agent Behavior Governance</a></li>
+      <li><a href="ch22-day-in-life.html">22. A Day in the Life of the Agentic PM</a></li>
+    </ul>
+    <div class="sidebar-section">Back Matter</div>
+    <ul class="sidebar-list">
+      <li><a href="agent-note.html">The Agent This Book Was Written With</a></li>
+      <li><a href="appendix-a.html">Appendix A: The Two Briefs, Worked</a></li>
+      <li><a href="appendix-b.html">Appendix B: The Field Manual</a></li>
+      <li><a href="glossary.html">Glossary</a></li>
+      <li><a href="references.html">References and Sources</a></li>
+    </ul>
+  </aside>
+  <div class="main">
+    <div class="chapter">
+      <div class="chapter-meta">Part VI · Carry the Weight &nbsp;&middot;&nbsp; Chapter 20</div>
+            <h1>Chapter 20: What You Owe the People Your Agent Never Sees</h1>
+    <blockquote><p><em>The person your product is actually for is usually not its user, and is never in your analytics. Building an agentic product well and building it responsibly are different things, and the distance between them is measured in who sits inside the error rate, which decisions you refused to delegate, and whether the moral architecture lives in the product or in a slide deck.</em></p></blockquote>
+    <p>One of the hardest unsolved problems in shipping agents is what happens when they are wrong. Not whether they will be wrong, they will, but who answers for it, how you trace the error back to its source, and who absorbs the harm while you do. For most products that question is uncomfortable. In a few domains it is a matter of life and death, and healthcare is the clearest of them, which is why the sharpest version of this chapter&rsquo;s argument comes from there.</p>
+    <p>A community-health-center patient filled out an intake form that a clinical-decision-support agent compressed into a two-line risk assessment. The agent flagged her low-risk for cardiac events. The physician working through that morning&rsquo;s queue saw the summary, confirmed it, and scheduled a routine follow-up. Weeks later she died of a preventable myocardial infarction, and the review found four risk factors in her chart that the summary had flattened away. Call her Maria. She was never in a beta cohort, never filled out a research survey, never saw the product. She was the person the product was <em>actually for</em>, and no one on the team had ever seen her face.</p>
+    <p>Everything before this chapter is about building agentic products well. This chapter is about building them responsibly, and those are not the same thing. A product can have a clean autonomy boundary, a careful approval moment, a full eval suite, six instruments in production, and an audit trail that survives the agent, and still cause harm, because all of that was optimized for the person operating the system and none of it accounted for the person downstream who lives with the output. That downstream person is almost never in your user research or your sprint review. They are the patient whose result your tool summarized, the applicant your model scored, the candidate your agent ranked, the supplier whose payment your system delayed. They will never give you feedback, never appear in your analytics, never file a ticket, and the true quality of your product depends entirely on what happens to them.</p>
+    <h3 id="the-user-and-the-affected-person-are-not-the-same">The user and the affected person are not the same</h3>
+    <p>In every earlier generation of enterprise software the user and the affected person were usually close enough that the distinction did not drive design. The procurement manager who used the system was also accountable for the order; the clinician who used the record was also making the call. An agentic system pries that gap open. An agent that processes claims affects patients who never see the interface; an agent that scores applications affects candidates who never touch the product; an agent that runs a supply chain sets the payment timing for small suppliers who have no visibility into the model deciding it. The human-system chapters were about the supervisor, the person inside the loop. The affected person is a third party outside the loop entirely, and designing for them is a separate obligation, not a longer version of the supervisor&rsquo;s interface. The user is optimizing a workflow. The affected person is absorbing a consequence. Missing that distinction is exactly how a team ends up with a well-instrumented supervisory experience and a Maria.</p>
+    <p>The practical consequence is about what you measure. If your optimization targets are adoption, task completion, and time saved, you are measuring the experience of the person operating the system, and those numbers can stay green while the affected person&rsquo;s experience degrades, because nobody built a signal for it. So the requirement is concrete: for every consequential action the agent takes, name who is affected beyond the user, what outcome they experience, and whether anything in your system would surface harm to that person before it compounds. If the answer to the last part is nothing, you have a product that cannot see the people it is for.</p>
+    <h3 id="equity-is-looking-inside-the-error-rate">Equity is looking inside the error rate</h3>
+    <p>A diagnostic model at ninety-four percent accuracy reads as a success, and the question that actually matters is who is in the six percent. If the six percent it misses were scattered randomly across everyone, ninety-four percent would mean what it appears to mean. But the six percent is almost never random. In a probabilistic system errors cluster, and they cluster against the populations least represented in the training data, which are usually the same populations least represented in the room where the product was built. A skin-cancer classifier trained mostly on light skin can post a strong overall number and miss disease on dark skin at a rate that would be a scandal if anyone reported it separately; the measured drop in real evaluations runs to twenty-seven to thirty-six points on diverse skin tones. Read that again as a sentence about a person: the model is excellent, and it is excellent by being wrong, consistently, about the same group of patients, and the single accuracy number is what hides it. That is not a performance gap you tune away with a better model. It is bias wearing the costume of accuracy, and the aggregate metric is the costume. The number that makes the product look done is the number that conceals who it fails.</p>
+    <div class="callout">
+      <div class="callout-title">Disparate performance. Aggregate accuracy hides population-level failure. A model that is ninety-four percent accurate overall can be failing a specific group almost entirely, and that will not show in summary metrics or trigger an alert. Catching it requires someone with the domain knowledge and the conviction to stratify performance by population <em>before</em> launch, and to refuse to ship when the stratification shows systematic underperformance for a group.</div>
+      <p>The tools, subgroup analysis, fairness metrics, demographic stratification, are not the hard part; the engineering is well understood. The hard part is whether anyone on the team made it their job to run the analysis and act on what it shows. If you did not build that into your definition of done, no one else will, because the people inside the error rate are the ones least able to make you notice.</p>
+    </div>
+    <p>This is not a technical gap, it is an ownership gap, and naming the mechanism helps. The error-structure work in the evals chapter applies here: some failures are faithful reproductions of a misleading input, and the populations whose records were always sparse, new-immigrant patients, non-native speakers, applicants with thin histories, are the ones whose sparse inputs produce confident wrong outputs most often. Disparate performance is the outcome; underrepresentation in the data is usually the mechanism; the affected person is the one whose documentation was never rich enough for the model to get them right. The obligation is to require a stratified performance analysis across the populations the agent will touch before it ships, and to treat systematic underperformance for any group as a product defect rather than a statistical footnote.</p>
+    <h3 id="what-should-never-be-delegated">What should never be delegated</h3>
+    <p>Some decisions should not be handed to an agent regardless of how accurate it is, and this is a moral claim, not a technical one. There are decisions where the act of explaining, the capacity to be questioned, and the willingness to say &ldquo;I made this call and here is why&rdquo; are part of what makes the decision legitimate. An algorithm can be accurate. It cannot be accountable in the way some decisions require. Medicine carries a useful version of this: a physician who sees that a protocol is wrong for the patient in front of her does not defer to the protocol, she refuses, explains, and owns the refusal, and that refusal is a constraint enforced at the moment of action by someone who has internalized the principle. An AI system has design-time constraints, deployment-time authorizations, and output filters, but none of those is a runtime-enforced ethical constraint in that sense. It can refuse on technical grounds that someone anticipated in advance; it cannot refuse on principle in a situation no one foresaw, which means that without a deliberate layer, every action the agent can technically take is an action it will eventually take, once the conditions align.</p>
+    <p>The gap this leaves is not a knowledge gap, and the distinction is the whole reason the layer has to exist. In one documented clinical case, a model identified the danger in its own reasoning, stated plainly in its working that the situation was high-risk, and then told the patient to wait anyway. It knew. The knowledge was there in the output; what was missing was anything that turned the knowledge into a constraint on the action. That is a constraint failure, not a knowledge failure, and a better model does not fix it, because the better model will also know and also act, unless something between the knowing and the acting is built to stop it. This is why the principle cannot live in the training and cannot live in a policy document. It has to live at the moment of action, enforced, in the only place the action actually happens.</p>
+    <div class="callout">
+      <div class="callout-title">The constitutional runtime layer. Responsible agentic systems need two things most teams leave implicit. First, ethical principles declared explicitly rather than assumed. Second, a runtime architecture that enforces them before an action executes, with a refusal mechanism that does not depend on every situation having been anticipated. Physicians carry this as internalized oath; pilots carry it as mandatory go-around authority. An agent needs the engineered equivalent: an enumerated list of actions it will never take regardless of instruction, a runtime mechanism that enforces the list, and an audit trail that records refusals as first-class events rather than errors. Without it, the only boundary is the one someone remembered to anticipate.</div>
+      
+    </div>
+    <p>The boundary is not a fixed list a committee writes once. It is a moving surface, because the moral weight of a decision depends on the stakes, the population, the reversibility, and the legitimacy of the authority being transferred. A workable heuristic: if the affected person would reasonably expect a human to have made the decision, and would be materially harmed to learn that none did, it should not be fully delegated. That does not bar the agent from assisting; it requires a human in the loop at the moment of consequence with enough to exercise real judgment, which connects directly to the transaction-level review the human-oversight chapter defined, and to the honest funding of it. Some categories clear this bar consistently: decisions that strip someone of a resource they had, credit, coverage, employment; decisions that expose someone to risk they did not consent to; decisions where the affected person would have no path to appeal if it goes wrong. In healthcare, credit, and much of hiring these are not only good architecture but legally high-risk, where human oversight and the ability to override are conditions of market entry. The design work is making that oversight real in the product rather than nominal in a policy document, and if any of these decisions sit on your agent&rsquo;s action list with no explicit human-accountability stage, the product was not built with this chapter&rsquo;s obligations in view.</p>
+    <p>One uncomfortable point ties the affected person to the human-system chapters. The regulatory frameworks that are supposed to protect Maria rest on the premise of a competent human in the loop, and that premise is assumed rather than tested. The deployment patterns those frameworks permit are the same ones that erode the supervisor over months, so by the time Maria&rsquo;s summary reached a physician, the question the framework cannot answer is whether his ability to catch four risk factors compressed into two lines was the unimpaired ability the regulator imagined or the eroded one the deployment had been shaping. The implication is direct: the product cannot lean on the regulatory human-in-the-loop framing as its safety mechanism. That framing is necessary and structurally insufficient, and the affected person depends on the safety architecture you built into the product, not the one the regulator imagined.</p>
+    <h3 id="moral-architecture-not-a-moral-committee">Moral architecture, not a moral committee</h3>
+    <p>The governance chapters treated authority and escalation as operational surfaces, and that is right and not repeated here. The moral-accountability dimension is distinct: a committee is not a moral architecture. A moral architecture is a set of constraints that bite at the moment of consequence, not in a quarterly review. The moral architecture of a hospital is not its ethics committee; it is the attending&rsquo;s signature on the order, the nurse&rsquo;s standing mandate to question an order that looks wrong, the mortality review that forces the institution to face its own failures, and the license a regulator can revoke. Those are enforced constraints with real consequences, and the committee is only where they get calibrated. An agentic system inherits that structure or it has none. If the moral architecture is a slide, there is no architecture. If it is a runtime-enforced layer with a non-delegable list, a named accountable person per action class, a refusal mechanism, and a posture of disclosing incidents rather than burying them, there is. The whole difference is whether the constraint operates at the moment of consequence or only in the conversation afterward.</p>
+    <p>These obligations, designing for the affected person, stratifying performance across populations, defining what will never be delegated, refusing to treat regulatory compliance as the ceiling, and putting the moral architecture in the product rather than a deck, all point at one fact: there are people shaped by your product who will never give you feedback, never show up in your analytics, and never be in the room when you make the decisions that determine their experience. These are not features added when the roadmap has room, and they are not compliance checkboxes. They are the difference between a product that generates value and one that generates value for some people while quietly costing it from others, and the PMs who carry them are not slower. They build the products that survive the first regulatory inquiry, the first public failure, and the first time someone asks who was responsible and expects a real answer. So name the people one of your agents affects who will never touch it, take the worst error it can make, and ask who absorbs that error and whether anyone designed for them. If the answer is that no one did, you have found the part of the product that will be questioned later, under conditions far less forgiving than this page, and Maria&rsquo;s family will not ask politely.</p>
+  <div class="chapter-nav"><a class="prev" href="ch19-team-member.html">The Agent Is a Team Member Nobody Hired</a><a class="next" href="ch21-governance.html">Agent Behavior Governance</a></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

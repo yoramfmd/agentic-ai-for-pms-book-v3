@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 9: Evals: What the Checkmarks Prove &mdash; Why Agentic AI Products Fail</title>
+<meta name="description" content="In early 2026 a health system paused the rollout of a care-coordination agent that had passed every offline eval the vendor ran and every unit test the integrat">
+<link rel="canonical" href="https://agenticaiproductmanagement.com/book4/ch09-evals.html">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .sidebar-hub { margin-bottom: var(--space-4); padding-bottom: var(--space-3);
+    border-bottom: 1px solid var(--rule); font-size: 12px; font-family: var(--sans); }
+  .sidebar-hub a { color: var(--ink-muted); text-decoration: none; }
+  .sidebar-hub a:hover { color: var(--blue-deep); }
+</style>
+</head>
+<body>
+<div class="book">
+  <aside class="sidebar">
+    <div class="sidebar-hub"><a href="../index.html">&larr; All Books</a></div>
+    <div class="sidebar-brand"><a href="index.html">Why Agentic AI Products Fail</a><div class="sidebar-brand-sub">Building Channel 1 and the Supervisory Layer That Governs It</div></div>
+    <div class="sidebar-section">Front Matter</div>
+    <ul class="sidebar-list">
+      <li><a href="preface.html">Preface: The Job Did Not Shrink. It Shifted.</a></li>
+      <li><a href="field-snapshot.html">How the Job Actually Changed: A Field Snapshot</a></li>
+      <li><a href="two-channels.html">The Two Channels</a></li>
+    </ul>
+    <div class="sidebar-section">Part I · Decide</div>
+    <ul class="sidebar-list">
+      <li><a href="ch01-ai-literacy.html">1. What You Need to Know About AI</a></li>
+      <li><a href="ch02-not-a-bridge.html">2. You Are Not a Bridge Anymore</a></li>
+      <li><a href="ch03-not-every-problem.html">3. Not Every Problem Deserves an Agent</a></li>
+    </ul>
+    <div class="sidebar-section">Part II · Prototype & Collaborate</div>
+    <ul class="sidebar-list">
+      <li><a href="ch04-how-work-splits.html">4. How the Work Splits</a></li>
+      <li><a href="ch05-vibe-coding.html">5. Vibe Coding for Value: Prototyping to Decide</a></li>
+      <li><a href="ch06-collaborator.html">6. The PM as Collaborator</a></li>
+    </ul>
+    <div class="sidebar-section">Part III · Design</div>
+    <ul class="sidebar-list">
+      <li><a href="ch07-design-behavior.html">7. You Built the Agent. Now Design the Behavior</a></li>
+      <li><a href="ch08-two-hitl.html">8. Two Kinds of Human-in-the-Loop</a></li>
+      <li><a href="ch09-evals.html" class="active">9. Evals: What the Checkmarks Prove</a></li>
+    </ul>
+    <div class="sidebar-section">Part IV · Operate</div>
+    <ul class="sidebar-list">
+      <li><a href="ch10-guardrails.html">10. Operational Guardrails</a></li>
+      <li><a href="ch11-observation.html">11. You Can’t Measure What You Didn’t Design</a></li>
+      <li><a href="ch12-record-complete.html">12. The Record Is Complete. The Picture Is Wrong.</a></li>
+      <li><a href="ch13-silent-degradation.html">13. Silent Degradation</a></li>
+      <li><a href="ch14-audit-trails.html">14. Audit Trails That Survive the Agent</a></li>
+    </ul>
+    <div class="sidebar-section">Part V · The Human System</div>
+    <ul class="sidebar-list">
+      <li><a href="ch15-deference.html">15. Deference: The Problem After Capability</a></li>
+      <li><a href="ch16-change-management.html">16. Change Management: From Actor to Supervisor</a></li>
+      <li><a href="ch17-hitl-fails.html">17. Why Human-in-the-Loop Fails</a></li>
+      <li><a href="ch18-skill-erosion.html">18. Skill Erosion: Deskilling, Never-Skilling, Cognitive Surrender</a></li>
+      <li><a href="ch19-team-member.html">19. The Agent Is a Team Member Nobody Hired</a></li>
+    </ul>
+    <div class="sidebar-section">Part VI · Carry the Weight</div>
+    <ul class="sidebar-list">
+      <li><a href="ch20-people-never-seen.html">20. What You Owe the People Your Agent Never Sees</a></li>
+      <li><a href="ch21-governance.html">21. Agent Behavior Governance</a></li>
+      <li><a href="ch22-day-in-life.html">22. A Day in the Life of the Agentic PM</a></li>
+    </ul>
+    <div class="sidebar-section">Back Matter</div>
+    <ul class="sidebar-list">
+      <li><a href="agent-note.html">The Agent This Book Was Written With</a></li>
+      <li><a href="appendix-a.html">Appendix A: The Two Briefs, Worked</a></li>
+      <li><a href="appendix-b.html">Appendix B: The Field Manual</a></li>
+      <li><a href="glossary.html">Glossary</a></li>
+      <li><a href="references.html">References and Sources</a></li>
+    </ul>
+  </aside>
+  <div class="main">
+    <div class="chapter">
+      <div class="chapter-meta">Part III · Design &nbsp;&middot;&nbsp; Chapter 9</div>
+            <h1>Chapter 9: Evals: What the Checkmarks Prove</h1>
+    <blockquote><p><em>An eval is one probabilistic signal, not a deterministic gate. A green checkmark on a non-deterministic system tells you the agent passed </em>once<em>. And a model update you did not make is still a deployment you are accountable for evaluating.</em></p></blockquote>
+    <p>In early 2026 a health system paused the rollout of a care-coordination agent that had passed every offline eval the vendor ran and every unit test the integration team wrote. Ten weeks in, a cardiology fellow noticed the agent was stratifying a class of patients against a heart-failure guideline that had been revised three years earlier. The outputs were fluent, confident, formatted exactly like the training examples, and reasoning from criteria the field had retired. The eval suite had tested whether the output matched the training distribution. It did. The training distribution was the old guideline.</p>
+    <p>That is the eval failure of this era, and it is worth being precise about what kind of failure it is. Not a hallucination invented from nothing, which evals are getting good at catching. A correctly formatted answer produced against a reference the system no longer has any right to cite, confirmed by a suite that was doing exactly what it was built to do. The checkmarks were all green. What they proved had quietly stopped being what the team thought they proved. The previous chapter drew the line between structural correctness, which an eval can certify, and domain correctness, which only an expert can. This chapter is about the first half of that line: what evals actually measure, where the QA instinct you have carried for twenty years breaks, and what stays yours to own when the green checkmark and the correct decision come apart.</p>
+    <h3 id="what-an-eval-is-and-what-it-is-not">What an eval is, and what it is not</h3>
+    <p>An eval checks whether the system makes the decisions it was designed to make under conditions that resemble the real world. Not whether the code compiles; whether the behavior is right. That much maps cleanly onto QA, and the mapping is close enough to be useful: a capability definition stands in for the epic, eval criteria for acceptance criteria, single-step evals for unit tests, trajectory evals for integration tests, continuous evals re-run after every model change for regression tests. Engineering runs all of it; you own what success means. The structure is familiar enough that the temptation is to import the rest of the QA instinct unchanged, and that is exactly where it goes wrong.</p>
+    <p>The eval suite runs against a <em>golden dataset</em>: a curated set of inputs paired with the outputs you would accept, the edge cases you know about, and the unsafe responses the agent must never produce. That dataset is the thing the suite grades against, and assembling it is product work, not test engineering, because deciding what counts as an acceptable answer to an ambiguous case is a judgment about the product, not a fact about the code. Keep the distinction clean: the golden dataset is the data, the eval suite is the harness that runs against it. And notice what the golden dataset replaces. A user story carried an acceptance criterion, one line, binary, &ldquo;when the user does X, the system does Y.&rdquo; That worked because the system was deterministic and Y was a single correct answer. An agent&rsquo;s behavior is a distribution, and a distribution has no single Y. So the acceptance criterion the story used to hold cannot live in a story anymore; it moves into the golden dataset and the eval, which can express &ldquo;right most of the time, and here is what the wrong tail is allowed to look like.&rdquo; This is the first crack in the work-unit a PM has used for twenty years, and a later chapter takes up where the crack leads. For now: the eval set is not a test artifact bolted onto the backlog. For the agent&rsquo;s behavior, it is becoming the backlog.</p>
+    <p>The difference that matters is this: in QA, one passing test proves the behavior is fixed. The same input produces the same output, so one green check settles the question. In an agentic system one passing test is a single sample from a distribution. Retrieval varies, tool responses vary, context differs across sessions, and the same agent given the same task on different days may succeed, fail, or take a path no one anticipated. So a binary pass is not a quality gate; it is one draw. The practice that addresses this has a name in the eval literature, <em>pass@k</em>: run the eval some number of times, typically five to ten for an internal gate, and report the rate across the runs. Eight of ten tells you something about reliability. One of one tells you almost nothing. When a team presents a single green checkmark on a non-deterministic system, they have not told you the agent passed. They have told you it passed once, and they may not know the difference.</p>
+    <div class="callout">
+      <div class="callout-title">Pass rate, not pass. A non-deterministic agent gives a different answer each time you run it, so one eval pass tells you almost nothing. Run each case many times and look at the spread, not the average. An agent that is right 85 percent of the time on a typical case can still be right only 40 percent of the time on its hardest cases, and at production volume those hard cases are not rare; they are simply spread unevenly across users, so someone meets them constantly. The average hides this; the worst slice reveals it. The question that surfaces it: <em>how many times did you run each eval case, and how bad was the worst slice?</em></div>
+      
+    </div>
+    <h3 id="the-three-places-the-old-model-breaks">The three places the old model breaks</h3>
+    <p>There are three failure modes the QA instinct does not see coming, and naming them is half the defense.</p>
+    <p>The first is <em>determinism</em>, which the pass-rate discipline above already addresses: you stop reading a green check as proof and start reading it as a sample. The second has no analog in traditional software, which is why it catches experienced people off guard. Call it <em>compounding</em>. Suppose an agent runs a ten-step workflow and every step is 95 percent accurate in isolation. In a traditional system you would sign off on 95 percent. Here the end-to-end success rate is the product of the steps, not their average: 0.95 to the tenth power is about 0.60. Ten strong components compound into a coin-flip of a system. This assumes the steps are independent, which rarely holds exactly, so the real number drifts, but the direction is guaranteed: component accuracy and system reliability are different numbers, and the gap widens with every step you add. If the suite tests each component in isolation, the components have been tested and the system has not. This is the sentence worth carrying into a finance review, where &ldquo;our model passes evals at 95 percent&rdquo; is doing a lot of unearned work.</p>
+    <p>The third is the one I have watched cost the most, because nothing flags it. Call it <em>the invisible action</em>. An agentic system can produce a semantically correct output, pass the eval, and never have performed the underlying action. Audits have turned up &ldquo;order updated and confirmed&rdquo; messages that corresponded to no API call at all. The agent wrote the right words, the automated judge scored the words as correct, the test went green, and nothing happened in the target system. Reading what the agent <em>said</em> is semantic validation. Checking what actually <em>changed</em> is state validation, and they are different gates. A release that runs the first and skips the second has half a gate, and the missing half is the one that fails silently.</p>
+    <div class="callout">
+      <div class="callout-title">The three eval breaks. <em>Determinism</em>: a green check is one sample, not a proof; report the pass rate and the worst tenth. <em>Compounding</em>: end-to-end reliability is the product of the steps, so 95 percent ten times is about 60 percent; test the trajectory, not just the components. <em>The invisible action</em>: a correct-looking output can sit on top of an action that never happened, so validate the state change, not just the text. Each break has a different shape, and each needs its own check; none of the three is visible to a team reporting a single number.</div>
+      
+    </div>
+    <h3 id="when-the-judge-is-the-instrument">When the judge is the instrument</h3>
+    <p>At production volume, human grading does not keep up, so teams use a model to score the other model against a rubric. That scales, and it imports a quieter problem: the judge is an instrument with documented systematic error. Judges prefer longer answers whether or not length tracks correctness, prefer whichever answer is presented first in a pairwise comparison, and prefer outputs from their own model family because the patterns are familiar. None of these are subtle effects in a controlled test, and all of them are present by default in production judging. The judge is not a neutral grader; it has a noise floor, and the only way to know the floor is to measure the judge against a set of outputs humans have already labeled. The number that matters is how many genuine failures the judge correctly catches. If the team cannot tell you that, against a human-labeled set, with a threshold they committed to <em>before</em> they saw the result, the eval scores have a blind spot the team has not measured, and the size of the blind spot is unknown rather than zero.</p>
+    <h3 id="the-fourth-break-the-suite-cannot-see">The fourth break the suite cannot see</h3>
+    <p>The three breaks live inside the eval. The fourth lives in what the eval never contained. An eval only tests what someone thought to test; every scenario in the suite is a hypothesis a person had before launch about how the system might behave. The long tail, the input combinations that only appear at scale, the adversarial patterns users discover by using the thing, none of it is in the pre-launch suite, and most consequential production failures live precisely there. This is the same mechanism behind the worn statistic that most AI pilots shine in the demo and fail in production. The demo ran on curated data that matched the team&rsquo;s assumptions; the suite ran on scenarios the team thought to include; production arrived with live, messy data that matched neither. Same mechanism, different scale.</p>
+    <p>The artifact that makes this answerable is a coverage statement: which intents were tested, which failure modes were included, which adversarial inputs were considered, and, the category most teams omit, which scenarios were known and deliberately deferred. That last line is uncomfortable because writing it down means admitting what you chose not to cover, which is exactly why it belongs in the release package and not in a postmortem six months on. Coverage is not a scoring problem. You can have a beautifully calibrated rubric and still be measuring the wrong things, and the hardest question in eval design is never &ldquo;how do we score this,&rdquo; it is &ldquo;what are we missing.&rdquo;</p>
+    <h3 id="a-model-update-is-a-deployment">A model update is a deployment</h3>
+    <p>One point earns its own line because teams discover it the hard way. Foundation-model providers update on their own schedule, and an update you did not make can change your product&rsquo;s behavior overnight. The eval literature now treats a model version change as a deployment event, and so should you. The artifacts are unglamorous and rarely present: a version policy stating which provider versions run in which environments and what evidence promotes a new one, a regression suite re-run on every model change against a threshold set in advance, a vendor channel that surfaces upcoming changes with enough lead time to evaluate them, and a rollback to the prior model that has been rehearsed rather than merely documented. Most teams have none of these and find out they needed them when a silent version change breaks something that worked for a month, on a Saturday, with no one having shipped a thing.</p>
+    <h3 id="the-metric-that-did-not-matter">The metric that did not matter</h3>
+    <p>An eval suite answers one question well: did the agent do the thing you specified? It is silent on a harder one: was the thing you specified worth doing? A suite can pass every case, the rubric calibrated and the coverage honest, and still certify a product that moves no needle anyone cares about, because the target was set before the first run and the suite only ever measured faithfulness to it. This is the failure no score catches, because it is upstream of the score. The clearest version comes from healthcare, where the metric that passed and the metric that mattered came apart in plain sight.</p>
+    <div class="callout">
+      <div class="callout-title">DAX Copilot: the right pass, the wrong target. A clinical documentation assistant, well designed for its contract: it drafts the note, the physician reviews before signing. A randomized trial of more than two hundred physicians found high adoption and warm feedback, and a real improvement in how physicians rated their documentation burden. The eval criteria were met; the contract was honored. But on the outcome the business case actually rested on, time saved, the same trial found no statistically significant change against the control.</div>
+      <p>The product worked, and it even moved a real secondary measure. But the metric the case was built on, time saved, did not move, and adoption, the metric everyone watched, was never the one that mattered. No eval suite catches this, because the suite was pointed at the wrong target before the first run. Adoption is a leading indicator of possible value, not a measure of delivered value, and the link between the contract and the outcome that proves it was delivered is the one thing no eval can own for you.</p>
+    </div>
+    <h3 id="evals-are-a-signal-you-are-the-gate">Evals are a signal; you are the gate</h3>
+    <p>Engineering runs the evals. You own what success means, and that turns into a short list of things only you can hold. You define what graceful failure looks like, because an agent that cannot finish a task will either fail silently or fail legibly and only one is acceptable. You insist on the end-to-end number, run many times, not the flattering component averages. You own the coverage decision and sign off on the gaps in writing, not just the scores. You require state validation alongside semantic validation. You ask whether the judge is calibrated and refuse to read scores whose noise floor is unknown. You own the version policy, because a change in the model is a change in the product. And you set the tradeoff among cost, latency, reliability, and oversight, because if you leave it implicit the system ships to whatever the last test configuration happened to encode.</p>
+    <p>The release meeting for an agentic system looks identical from the outside. Someone updated the board, the dev lead has a demo, the checkmarks are green. What changed is what they prove: that the agent behaved correctly in the scenarios someone thought to test, under controlled conditions, at one moment in time, against a model that may not be the one running next month. That is worth having. It is not the same as knowing the product is reliable, and the distance between the two is yours. Take the agent you are closest to shipping and find the one number everyone in the room trusts. Then ask what it would look like for that number to be green while the decision underneath it is wrong, and whether anything in your current gate would catch it.</p>
+  <div class="chapter-nav"><a class="prev" href="ch08-two-hitl.html">Two Kinds of Human-in-the-Loop</a><a class="next" href="ch10-guardrails.html">Operational Guardrails</a></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

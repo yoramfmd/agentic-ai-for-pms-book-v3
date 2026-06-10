@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Is There Still a UX? &mdash; The Agentic Team</title>
+<meta name="description" content="When I was building IoT products at SAP, the most talented person on the team was the UX lead, and he did not think of himself as a UX lead. He thought of himse">
+<link rel="canonical" href="https://agenticaiproductmanagement.com/book5/ux.html">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .sidebar-hub { margin-bottom: var(--space-4); padding-bottom: var(--space-3);
+    border-bottom: 1px solid var(--rule); font-size: 12px; font-family: var(--sans); }
+  .sidebar-hub a { color: var(--ink-muted); text-decoration: none; }
+  .sidebar-hub a:hover { color: var(--blue-deep); }
+</style>
+</head>
+<body>
+<div class="book">
+  <aside class="sidebar">
+    <div class="sidebar-hub"><a href="../index.html">&larr; All Books</a></div>
+    <div class="sidebar-brand"><a href="index.html">The Agentic Team</a><div class="sidebar-brand-sub">How Agentic AI Reshapes the Roles That Build It</div></div>
+    <div class="sidebar-section">Part I · Foundations</div>
+    <ul class="sidebar-list">
+      <li><a href="what-youre-building.html">1. What You Are Actually Building</a></li>
+      <li><a href="deciding-what-to-build.html">2. Deciding What to Build, and Whether To</a></li>
+      <li><a href="the-triad-premise.html">3. The Team Was Built for a Different Product</a></li>
+    </ul>
+    <div class="sidebar-section">Part II · The Work Reshapes</div>
+    <ul class="sidebar-list">
+      <li><a href="OPENER.html">The Work Reshapes</a></li>
+      <li><a href="ux.html" class="active">4. Is There Still a UX?</a></li>
+      <li><a href="dev.html">5. Who Wrote This Code, and Who Answers for It?</a></li>
+      <li><a href="scrum.html">6. Is There Still a Scrum?</a></li>
+      <li><a href="architect.html">7. Whose Job Is It That the Whole Thing Holds?</a></li>
+      <li><a href="pm.html">8. What’s Left for the PM?</a></li>
+    </ul>
+    <div class="sidebar-section">Part III · Failures</div>
+    <ul class="sidebar-list">
+      <li><a href="silent-degradation.html">9. The Failure No One Is Watching</a></li>
+      <li><a href="the-calendar-the-agent-could-not-see.html">10. The Calendar the Agent Could Not See</a></li>
+      <li><a href="the-boundary-and-the-wall.html">11. The Boundary and the Wall</a></li>
+      <li><a href="the-green-checkmark.html">12. The Green Checkmark Nobody Owned</a></li>
+      <li><a href="who-watches-who-stops.html">13. Who Watches It, and Who Can Stop It</a></li>
+      <li><a href="built-before-enforced-at-the-moment.html">14. Built Before, Authorized at the Moment</a></li>
+      <li><a href="the-people-the-agent-erodes.html">15. The People the Agent Is Eroding</a></li>
+    </ul>
+    <div class="sidebar-section">Part IV · The Collaboration Model</div>
+    <ul class="sidebar-list">
+      <li><a href="the-grid.html">16. The Model Is Old. The Column Is New.</a></li>
+      <li><a href="filling-the-grid.html">17. Filling the Grid</a></li>
+      <li><a href="what-flows-between-the-cells.html">18. What Flows Between the Cells</a></li>
+    </ul>
+    <div class="sidebar-section">Part V · The Org Model</div>
+    <ul class="sidebar-list">
+      <li><a href="grow-the-box.html">19. Start With the Box You Already Have</a></li>
+      <li><a href="the-team-member-nobody-hired.html">20. The Team Member Nobody Hired</a></li>
+      <li><a href="staffing-by-stage.html">21. Who Sits in the New Seats</a></li>
+    </ul>
+    <div class="sidebar-section">Part VI · Agents Building Agents</div>
+    <ul class="sidebar-list">
+      <li><a href="the-team-member-who-hires.html">22. The Team Member Who Hires</a></li>
+      <li><a href="who-watches-the-watchers.html">23. When the Watchers Are Agents Too</a></li>
+      <li><a href="governing-the-fleet.html">24. Governing What You Cannot Watch</a></li>
+    </ul>
+    <div class="sidebar-section">Part VII · Carry the Weight</div>
+    <ul class="sidebar-list">
+      <li><a href="the-constitution.html">25. The Agent’s Constitution</a></li>
+      <li><a href="carry-the-weight.html">26. Carry the Weight</a></li>
+    </ul>
+    <div class="sidebar-section">Reference</div>
+    <ul class="sidebar-list">
+      <li><a href="references.html">References and Sources</a></li>
+    </ul>
+  </aside>
+  <div class="main">
+    <div class="chapter">
+      <div class="chapter-meta">Part II · The Work Reshapes &nbsp;&middot;&nbsp; Chapter 4</div>
+            <h1>Is There Still a UX?</h1>
+    <hr>
+    <p>When I was building IoT products at SAP, the most talented person on the team was the UX lead, and he did not think of himself as a UX lead. He thought of himself as an artist. He said so. His initial designs were usually stunning and usually impossible to implement, and the first round of every project was him and the engineers negotiating his vision back down to something that could ship. He would push back on them not because a layout was technically hard but because the compromise was ugly, and he was usually right, and the product was better for the fight. He also insisted on joining the PM for the customer meetings and the workshops, because he wanted the customer&rsquo;s voice directly and would not design from a requirements doc someone else had filtered. His craft was the screen. He arranged what the user would see, how it would feel to move through it, where the eye would land. Everything he was good at assumed there was something to look at.</p>
+    <p>Here is the thing I did not understand at the time. His real subject was never the pixels. It was the person on the other side of them. Where the eye lands, how it feels to move through a flow, when someone hesitates and when they commit, that is behavior, not decoration. The screen was the instrument he used to study and shape it. It was a good instrument, because it made the human side observable. You could watch a person&rsquo;s eye, time their click, see them get lost. The discipline got so good with that instrument that it came to mistake the instrument for the subject. We called it UI design and validation, and we let ourselves believe the object was the interface.</p>
+    <p>I think about him now when I look at the products my teams ship, because for a growing number of them there is nothing to look at. The agent runs. It reads, it reasons, it calls forty tools in ninety seconds, it acts. The person who is supposed to be in charge of it sees a three-line summary in the morning and a single question the agent decided was worth asking. There is no screen the artist could have made beautiful. And so the comfortable answer to the title of this chapter, &ldquo;no, the screen is dying, so UX is dying with it,&rdquo; is exactly wrong. Take the screen away and the thing the discipline was always secretly about, the human, does not disappear. It is exposed, with nowhere left to hide. There is still a UX. It just lost its crutch.</p>
+    <p>This chapter is about what design becomes once the crutch is gone. But &ldquo;the screen went away&rdquo; is not the real force at work, and starting there would miss the mechanism. The screen receded because of something underneath it, and that something, not the absence of pixels, is what reshapes the entire discipline.</p>
+    <h2 id="the-ladder-is-the-engine">The ladder is the engine</h2>
+    <p>The force is the autonomy ladder. It is the single most useful idea for understanding what is happening to UX, because everything else in this chapter is a consequence of climbing it.</p>
+    <p>An agent&rsquo;s independence is not a switch. It is the same ladder the foundations laid out, and a given product sits on a rung, or moves between them, for a given task. At the bottom it <em>suggests</em>, proposing while the human does everything. One rung up it <em>drafts</em>, producing the whole artifact for a human to review and commit. Up again it <em>acts with approval</em>, taking the step itself but only after a yes on each one. The fourth rung is <em>acts with oversight</em>, acting on its own while a human watches the pattern in aggregate and can step in. At the top it <em>acts autonomously</em>, with no human in the loop for the individual decision, surfacing only what crosses a threshold it judges worth raising.</p>
+    <p>Now watch what happens to the human as you climb, because this is the whole argument. The human&rsquo;s role does not stay fixed while the agent gets more capable. It transforms, rung by rung, into a different job:</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Rung</th>
+          <th>What the agent does</th>
+          <th>What the human is</th>
+          <th>What design must produce</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Suggests</td>
+          <td>Proposes; human decides and acts</td>
+          <td>A chooser</td>
+          <td>Comparable options, honest uncertainty</td>
+        </tr>
+        <tr>
+          <td>Drafts</td>
+          <td>Produces the whole artifact; human commits</td>
+          <td>A reviewer of work</td>
+          <td>A reviewable draft, clear provenance</td>
+        </tr>
+        <tr>
+          <td>Acts with approval</td>
+          <td>Proposes an action, waits for a yes</td>
+          <td>An approver</td>
+          <td>A decision package sized to the stakes</td>
+        </tr>
+        <tr>
+          <td>Acts with oversight</td>
+          <td>Acts on its own; human watches the pattern</td>
+          <td>A supervisor</td>
+          <td>A reviewable trail, exception flags</td>
+        </tr>
+        <tr>
+          <td>Acts autonomously</td>
+          <td>Acts, speaks only on threshold</td>
+          <td>A supervisor at a distance</td>
+          <td>Calibrated trust, drift prevention</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>The same product climbs this ladder as it earns trust, and different tasks inside one product sit on different rungs. As the human rises from reader to supervisor, the design object rises with them: from arranging information to sustaining judgment over work the person no longer does themselves.</p>
+    <p>The word &ldquo;user&rdquo; quietly stops fitting somewhere around the middle of that ladder. A reader is a user. A chooser is mostly a user. But an approver is already half a supervisor, and a reviewer and a silent-rung overseer are supervisors outright. They are not completing a task. They are overseeing an autonomous worker that completes it. The shift from designing for a user to designing for a supervisor is not a slogan and it did not happen all at once. It is what the autonomy ladder does to the human as the product climbs it, and the serious AI-infused products are climbing.</p>
+    <p>That is why the screen receded. On the bottom rungs the screen is everything, it is how the agent informs and how the human chooses. As you climb, the human does less of the work and more of the oversight, and the screen shrinks from a workspace to a window, and at the top to a few lines and a question. The screen did not die of its own accord. It got displaced by autonomy, and the human&rsquo;s job got displaced with it, from doing to supervising. Not every product is high on this ladder, and many never will be; the claim is not that screens are vanishing everywhere, only that wherever autonomy rises, the human&rsquo;s role rises with it, and the design object follows. Design follows the human. So the real claim of this chapter is the one this whole section makes about every craft, now reaching the designer: as autonomy rises, you stop designing the thing the user operates and start designing the supervisor who oversees the agent.</p>
+    <h2 id="two-things-wearing-one-word">Two things wearing one word</h2>
+    <p>Before going further, clear up a confusion that wastes a lot of published advice. &ldquo;AI UX&rdquo; covers two problems that sit at opposite ends of that ladder and have almost nothing to do with each other.</p>
+    <p>The first is the product that still has a screen, with AI added near the bottom rungs. Copilot inside the code editor, the generate button in the design tool, the assistant docked in the corner of the dashboard. The human is a chooser, and the design problem is the familiar one with a new ingredient: fit the agent&rsquo;s suggestions into an interface a person still navigates with their hands and their eyes. For this case the answer to the chapter&rsquo;s title question is the comfortable one: yes, there is still a UX, and it is mostly the UX you already know. The screen still matters, the patterns still hold, the discipline that learned to lay out a dashboard still applies, and the new work is incremental, designing the suggestion&rsquo;s entry point, the accept-and-reject affordance, the way generated content is marked as generated. The field has good patterns for this, and most of what gets published under &ldquo;agentic UX&rdquo; is really about this case, which is part of why it feels solved. It is the easier half, and it is close to handled. The role that does it well is increasingly the design engineer, the designer who ships the interface they design, and that title is already real in the market, named in hiring at companies like Vercel, Linear, Stripe, and Cursor. If your product is on the bottom rungs, this is the chapter you can mostly skip, and the answer to its title is a reassuring yes.</p>
+    <p>The second is the product living near the top of the ladder, where the screen is incidental or absent, and here the same title question has a different and far less comfortable answer. You set a goal, you wait, you review an outcome. A coding agent works a ticket overnight. A procurement agent reviews a stack of vendor contracts. A claims agent takes a photo and returns a risk assessment. The interaction is not navigation, it is delegation and, later, judgment. The human is a supervisor. This chapter is about this case, because this is where the field has not caught up and where teams keep shipping an experience nobody designed. Call it the agent-native product. The screen is no longer the product; the supervisor&rsquo;s judgment is, and the role that designs for it does not have a settled name yet. This chapter will argue for one, the behavioral designer, but unlike the design engineer that is not a title you will find in a job posting today. It is a name for a responsibility the market has not yet staffed, which is the whole problem. So the honest two-part answer to &ldquo;is there still a UX&rdquo; is yes for the screen that has AI on it, and not the UX you know for the agent that has no screen at all, and the rest of this chapter is about the second answer, because the first one does not need a book.</p>
+    <h2 id="one-product-every-rung-at-once">One product, every rung at once</h2>
+    <p>To keep the rest of this concrete, hold one product in mind. Imagine an insurer launches an agentic system for food-spoilage claims, the small payouts people file after a power outage ruins a refrigerator full of groceries. Call it the claims agent; the team that built it named it Nemo. It takes a first notice of loss, photos of the spoiled food, a short description, the policy number. It pulls the policy and checks coverage and limits. It runs computer vision over the photos to estimate the loss and catch the obvious frauds, the stock image, the same salmon filed twice. It checks the utility&rsquo;s outage feed against the customer&rsquo;s address. Then, depending on the amount and the signals, it either pays, asks, or escalates, and it logs every step for the auditor and the regulator. This is not science fiction; it is roughly what the 2026 claims-automation vendors describe, and it is useful here because the same product lives on every rung of the ladder at the same time, depending on the claim in front of it.</p>
+    <p>A clean ninety-dollar claim with a confirmed outage sits near the top: the agent pays it and reports later. A six-hundred-dollar claim sits in the middle: the agent drafts the payout and waits for a person to approve. A two-thousand-dollar claim, or one with a fraud signal, drops to the bottom: the agent assembles the file and a human decides. One product, one agent, and the human is a reader for one claim, an approver for the next, and a supervisor of a portfolio for the hundreds that resolved while they were asleep. Every idea ahead lands somewhere in that one example.</p>
+    <h2 id="the-lab-moves-with-the-human">The lab moves with the human</h2>
+    <p>If the human&rsquo;s role transforms as the product climbs, the way you test the design has to transform with it. The old craft had a rigorous empirical heart that often went unremarked: usability testing. You sat a person in front of an interface, gave them a task, and watched where they struggled. UI validation was applied behavioral science with a screen as the stimulus. It never had to call itself that, because at the bottom of the ladder the behavior was easy to see.</p>
+    <p>Higher on the ladder the stimulus changes and the questions get harder, but the method survives and matters more. You are no longer testing whether someone can find the button. You are testing how a supervisor behaves over a session with an autonomous system. How often does the agent interrupt before the person starts dismissing interruptions without reading them. Does the approval message carry enough for a conscious decision, or does it produce a reflexive yes. How does the supervisor&rsquo;s cognitive load move across a long session, and at what point does their vigilance fall off. Does the person catch a seeded error, an action the agent took that they should have stopped, and how does the catch rate change after an hour, after a week, after the agent has been right so many times that checking feels pointless. Run that test on the claims product and it gets uncomfortably concrete: slip one claim into the adjuster&rsquo;s queue where the photos are real but the outage feed shows no power loss at that address, and measure how many sessions deep the adjuster is before they stop catching it. The number you get is not a usability score. It is the moment the supervisor stopped supervising, and it is the single most important thing the design has to move. None of those can be answered by looking at a comp. All of them can be tested, with the same discipline that made usability testing trustworthy: a real person, a realistic task, an observer watching for the moment behavior breaks. The deliverable is no longer a heatmap of where people clicked. It is a map of where supervisors drift, and a design that pushes the drift point further out.</p>
+    <h2 id="the-drift-modes-and-designing-against-them">The drift modes, and designing against them</h2>
+    <p>If the supervisor is who you are designing for at the top of the ladder, then the supervisor&rsquo;s failure modes are the design brief. And the supervisor fails in a particular, dangerous way. A user fails by getting confused or giving up, a visible, self-correcting failure, they leave. A supervisor fails by staying present and going passive, by approving without reading, by trusting a system that has been right fifty times and is wrong on the fifty-first. That failure is invisible and it accumulates. The whole job of designing the supervisor is designing against it.</p>
+    <p>The failure modes are not random. The human-factors literature, built over decades in aviation, anesthesia, and process control, names them, and every one shows up in agent supervision. A behavioral designer who cannot name these is decorating. One who can is the failure-prevention layer of the product.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Drift mode</th>
+          <th>What happens</th>
+          <th>The design counter</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Automation complacency</td>
+          <td>Monitoring degrades as the agent proves reliable; checking stops paying off, so the supervisor stops checking</td>
+          <td>Vary friction by consequence, not by frequency; never let a high-stakes action inherit the low scrutiny a clean streak earned</td>
+        </tr>
+        <tr>
+          <td>Vigilance decay</td>
+          <td>Sustained attention to a mostly-quiet process falls off within the first half hour</td>
+          <td>Engineer attention rather than assume it; surface the decision-relevant moments, keep the rest quiet</td>
+        </tr>
+        <tr>
+          <td>Over-reliance paradox</td>
+          <td>A plausible explanation lowers the felt cost of checking, so showing more reasoning deepens misplaced trust</td>
+          <td>Surface uncertainty over confidence; use deliberate friction; ground claims in what the supervisor can verify (treated in full below)</td>
+        </tr>
+        <tr>
+          <td>Mode confusion</td>
+          <td>The supervisor does not know which autonomy rung is live right now, and is surprised by an action they thought they had to approve</td>
+          <td>Make the current rung continuously, unmistakably visible; mark every transition</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>Watch all four arrive in the claims product, because they do not stay theoretical for long. Automation complacency comes first: after a few hundred clean auto-pays the adjuster stops reading the six-hundred-dollar decision packages and approves on reflex, because the agent never seems to be wrong. The counter is to tie friction to the stakes and not to the streak, so a two-thousand-dollar claim always demands a richer package and a one-line justification from the adjuster no matter how perfect the last month looked, and to keep a spot-check mode where the agent auto-pays but still routes a random sample back for review. Vigilance decay comes next, half an hour into a smooth queue, and the counter is to stop streaming every case and surface only the exceptions, the threshold crossings and the fraud flags and the mismatched data, so the adjuster&rsquo;s attention is spent where it changes an outcome. Mode confusion is the quiet one: a policy change moves the agent from &ldquo;suggest only&rdquo; to &ldquo;auto-pay under two hundred,&rdquo; and the adjuster is startled the first time a claim resolves without them, a rung change they never saw. The counter costs almost nothing, a persistent indicator that always says which rung is live (&ldquo;Mode: auto-pay under \$200, review required above&rdquo;) and an explicit message whenever the rule changes.</p>
+    <p>Three of those have clean design counters and you can build them today. The fourth, the over-reliance paradox, is where the discipline&rsquo;s instinct is most confidently wrong, and it needs its own section, because the obvious fix makes it worse. It is already visible in the claims case: the agent that captions every decision with a fluent &ldquo;based on your under-seven-hundred-fifty auto-pay policy and similar claims this quarter, the fair payout is six hundred dollars&rdquo; is teaching the adjuster to stop checking whether the outage data actually matches the address, because the explanation feels like proof. Hold that thought; the next section is about why showing more reasoning makes it worse, not better.</p>
+    <h2 id="the-approval-moment-is-the-interface-so-size-it-to-the-decis">The approval moment is the interface, so size it to the decision</h2>
+    <p>On the upper rungs the agent&rsquo;s autonomous work happens in the gaps between approvals. By design, those gaps are the part the supervisor is not in. The only places the human and the product actually meet are the moments the agent pauses to ask. Those moments are the interface. Teams build this backwards, lavishing attention on the reasoning the supervisor never sees and treating the approval step as a speed bump.</p>
+    <p>Which raises the question that matters most in practice: is the approval moment a one-line text message, or a full dashboard assembled on the fly. Neither fixed answer works, and &ldquo;always show everything&rdquo; is a trap. A standing dashboard for every action manufactures alarm fatigue, the supervisor learns the wall of detail means nothing in particular and clicks past all of it, including the one that mattered. A one-line &ldquo;approve?&rdquo; for every action is the opposite failure, not enough to support a conscious decision, so it produces a reflexive yes. Both fixed answers train the very drift you are trying to prevent.</p>
+    <p>The approval surface has to scale to the stakes, and the autonomy ladder already tells you how. A low-stakes, reversible action on a high rung needs a line of text, if it interrupts at all. A high-stakes, irreversible action needs a decision package built in the moment: not a standing dashboard of everything the agent knows, but exactly the facts that change this decision, surfaced now, for this action. What the agent is about to do. What it is uncertain about. The one or two things that cannot be undone. The alternatives it set aside and why. Assembled on the fly, scaled to the consequence, and built for authorization rather than re-derivation, because the supervisor cannot re-run forty steps of machine reasoning and should not be asked to. They are there to authorize the action against what they know that the agent does not: the context, the stakes, the thing that is true about this customer or this quarter that never reached the model.</p>
+    <p>The difference is concrete enough to show. Here is the six-hundred-dollar claim as most teams ship it:</p>
+    <blockquote><p><em>Nemo recommends a payout of \$600. [Approve] [Reject]</em></p></blockquote>
+    <p>That is a reflex trainer. It carries nothing the adjuster can weigh, so after the tenth one they stop weighing. Here is the same moment built as a decision package:</p>
+    <blockquote><p>:::card</p>
+<p>ACTION | Issue <strong>\$600</strong> to policy 38492, send standard notification</p>
+<p>WHY | Estimated loss \$610 from three photos; outage confirmed seven hours at this address (utility feed); policy covers spoilage to \$750, no deductible</p>
+<p>UNCERTAIN | 30% of one photo could not be identified; fraud check clean, but the model is not validated in this region</p>
+<p>NOT REVERSIBLE | Once paid, clawback requires a formal investigation</p>
+<p>RULED OUT | Decline (coverage is present); pay the \$750 maximum (no high-value items detected)</p>
+<p>CONTROLS | [ Approve ]  [ Adjust amount ]  [ Send to fraud team ]</p>
+<p>:::</p></blockquote>
+    <p>Same recommendation, same dollar figure. But the second one gives the adjuster the two things that actually decide it, the unvalidated fraud model and the irreversibility of the payout, and it surfaces them only because this claim crossed into the rung where they matter. That is the surface scaling to the stakes rather than to a house style: the richer the consequence, the more the card carries, and the cheaper the claim, the lighter the moment.</p>
+    <p>And when the same product runs a rung higher, for the sub-two-hundred-dollar claims it settles on its own, the supervisor does not get a card at all. They get a tile at the end of the day: the agent paid a hundred and forty-three claims under two hundred dollars, zero overrides, two pulled for fraud review. That is the screen shrinking from a workspace to a window, the approver becoming a reviewer, and the design problem changing from &ldquo;what goes on this card&rdquo; to &ldquo;what belongs in this digest and what can stay in the log.&rdquo;</p>
+    <p>The supervisor&rsquo;s authority should itself be tunable along the ladder. The best products let the human move the agent up and down the rungs per domain and per level of risk, turning autonomy up as trust is earned and down the moment it is not. The enterprise policy that says &ldquo;a human must approve before the agent acts&rdquo; becomes, in the interface, a rung the supervisor sets rather than a rule bolted on from outside. And the movement is itself a signal the team can watch: which way the supervisor moves the agent, and whether they ever ratchet autonomy up faster than the agent&rsquo;s reliability justifies.</p>
+    <p>Underneath all of it is a fact about trust that screen UX never had to reckon with. In screen software, trust came from consistency, the button does the same thing every time. In agent software, trust is behavioral and asymmetric. It accrues slowly, through many small moments where the agent respected a boundary or asked at the right time, and it collapses in one unexpected action. The person who told the agent to clean up their calendar and lost three real meetings is not coming back, however capable the model. Capability trust, does it do the task right, builds with each success. Behavioral trust, does it stay inside the lines I set, breaks all at once. The supervisor&rsquo;s behavioral trust is the thing the designer is really managing, and it is far easier to destroy than to build.</p>
+    <h2 id="the-thing-that-should-make-every-designer-nervous">The thing that should make every designer nervous</h2>
+    <p>So far this reads like a craft you can master: read the ladder, run the new usability test, counter the drifts, size the approval surface. If the chapter stopped here it would be a pattern catalog, and it would be lying, because the central problem of keeping a supervisor calibrated does not have a solved answer, and the obvious answer is wrong.</p>
+    <p>The obvious answer is transparency. The supervisor cannot see the agent&rsquo;s reasoning, so show it to them. Explain the recommendation, surface the chain of thought, cite the sources, and trust will calibrate itself. This is the founding assumption of nearly the entire field of explainable AI, and the best evidence we have says it does not hold.</p>
+    <p>The sharpest result comes from a controlled study by Schoeffer, De-Arteaga, and Kühl, published at CHI in 2024. Explanations, they found, move how much people rely on the AI, but they do not move the accuracy of that reliance. A feature-based explanation did not help people tell a correct AI recommendation from an incorrect one. It changed how much they leaned on the AI regardless of whether the AI was right. And this is not one contrarian paper; it is where the weight of the evidence sits. Explanations that are too technical, or too demanding, or even too simple can all deepen misplaced trust rather than correct it, and the effect is worst on the least experienced users, the very supervisors least able to absorb the error.</p>
+    <p>The mechanism is almost cruel in its logic. A plausible explanation lowers the felt cost of not checking. If the agent appears to have shown its work, the supervisor&rsquo;s sense of risk drops, and with it their scrutiny. The explanation does not arm them to catch the error. It reassures them past the point where they would have caught it. The same pattern shows up at the edge of the literature in a form every product leader should sit with: in domains where people lean on AI assistance heavily, their own unaided skill measurably erodes, so the explanation meant to keep the supervisor in the loop is quietly removing the judgment the loop depends on. The drift and the deskilling feed each other.</p>
+    <p>This does not mean give up on legibility. It means stop equating legibility with explanation. What the evidence supports is narrower and harder. Surface uncertainty rather than confidence, because a confident tone is exactly what triggers over-reliance, and a model&rsquo;s self-reported confidence is poorly calibrated anyway, so an empirically derived reliability number beats the agent&rsquo;s own assurance. Use friction on purpose: a cognitive forcing function, a small demand that the supervisor actually engage before they accept, scores worse on user preference and better on decision accuracy, which is the trade the situation calls for. Ground the explanation in something the supervisor can actually verify, &ldquo;I did this because you told me last week to prioritize the enterprise accounts,&rdquo; not a paragraph of reasoning they have no way to check. And declare scope, say plainly what the agent is not equipped to judge, so trust is not applied where it does not belong.</p>
+    <p>The field has not solved this. There is no validated way to produce appropriate trust, neither the under-trust that makes a supervisor reject a correct agent nor the over-trust that makes them wave a wrong one through, across domains and users. Anyone who tells you their explanation pattern fixes trust calibration is selling the thing the research says does not exist. That is not a reason to avoid the problem. It is a reason to treat it as the open, dangerous, central problem of the discipline, and to design with the humility the evidence demands.</p>
+    <p>The absence of a theory does not leave you with nothing to do on Monday, and it is worth being concrete about the one move that is available, because a designer needs an action and not only a warning. You cannot reliably manufacture calibrated trust, but you can measure where it is failing, and that you can start this week. Run the seeded-error session from earlier in this chapter as a standing instrument, not a one-time test: slip a known-wrong agent action into a real supervisor&rsquo;s queue on a cadence, and track the catch rate over time and across tenure. You will not get a trust-calibration theory out of it. You will get the one thing the theory would have given you anyway, an early-warning number that tells you which supervisors have slid into rubber-stamping before the incident does, and that number is actionable on its own, because a falling catch rate is a signal to rotate the reviewer, retrain, or tighten the gate, none of which requires solving the underlying problem. Measure the drift you cannot yet prevent; it is the move the evidence does support, and it converts an unsolved theory into a maintained metric.</p>
+    <h2 id="what-the-artist-becomes">What the artist becomes</h2>
+    <p>Which brings us back to the UX lead who thought of himself as an artist. His real subject was always the human. The screen was how he reached it. So when autonomy rises and the screen recedes, his craft does not end; it loses its disguise and has to face its subject directly.</p>
+    <p>The career splits, and the split is already visible in who companies are hiring. For products that still live on the lower rungs, with a screen the human operates, the artist&rsquo;s heir is the design engineer, the person who designs and ships in code because a static mockup no longer survives contact with a live, generative product. Vercel, Linear, Stripe, and Cursor all hire this role by name. It is a real answer, but it is an answer for the bottom of the ladder.</p>
+    <p>For the agent-native case at the top, the heir is different, and it does not have a settled name yet. Call it the behavioral designer, because that names the subject plainly. Its deliverables are not wireframes. They are the rung map, which tasks sit at which level of autonomy and what the human is on each. The drift-prevention plan, the specific countermeasure for each supervision drift in this product, where complacency will set in and what arrests it, when vigilance will fall and what re-engages it, which autonomy transitions risk mode confusion and how the live rung stays unmistakable. The supervisor test protocol, the seeded-error sessions that measure catch rate over time. The recovery scripts, the words the product uses to make a person whole after the agent gets it wrong. And increasingly the artifacts that used to belong to engineering: the system prompt, the eval rubric, the very questions the agent asks the supervisor instead of the form fields the user used to fill in. The clearest real-world version is a recent enterprise posting for a lead designer on an agentic platform, whose listed deliverables are feedback loops, error states, fallback behaviors, and alignment with the model team on constraints and confidence, with not a wireframe in sight.</p>
+    <p>There is a discomfort here worth naming rather than smoothing over. On most teams today the system prompt, arguably the most consequential behavioral-design artifact in an agent-native product, is written by a machine-learning engineer or a product manager, not a designer. Whether that should change is unresolved. But it is the cleanest test of whether your organization understands what design has become. If the things that shape the supervisor, what the agent may do, when it speaks, how it asks, what it discloses, are owned by whoever touched the code last, then the supervisor is being designed by accident, and the discipline that spent decades learning how humans behave under uncertainty is sitting outside the room where that behavior is now decided.</p>
+    <h2 id="the-part-nobody-has-written-yet">The part nobody has written yet</h2>
+    <p>I have walked up the ladder, through the new usability test, the drift modes, the approval surface, the trust problem, and the changing craft, leaning on the people doing the best work in each. I want to be honest about where that work stops, because the edge of it is exactly where this book has something to add.</p>
+    <p>The field has good patterns for the lower rungs, screens with AI on them. It has first-generation, practitioner-grade frameworks for the middle rungs, agents with a thin interface a supervisor can still glance at. What it does not have, anywhere I can find, is a worked theory of the top rung, the fully headless case. The agent that runs overnight with no interface at all and hands a person a summary in the morning. The agent that acts in systems the human never opens and surfaces a nugget only when its own model decides one is warranted. How do you keep a supervisor calibrated over a system they never watch in real time. How do you run a usability test on an experience with no screen to sit in front of. What is the signal that an action was taken by an agent and not a person, and who is owed it. There is no settled answer to any of this, and no settled answer to who on the team owns the question.</p>
+    <p>Push the claims example one rung past where any pattern library goes and you can feel the floor disappear. Imagine the insurer runs a second agent overnight, a claims guardian that nobody watches, scanning yesterday&rsquo;s settled claims and the data around them for the things the daytime agents missed: recoveries left on the table, mis-coded losses, fraud clusters that only show up across many small claims at once. No one ever opens its interface. Each morning it sends one email: three high-risk clusters it found, one question it needs answered, &ldquo;should we open a special investigation on this grocery chain,&rdquo; and links into the existing claims systems rather than into itself. Now ask the questions the design discipline has no answer for. How do you keep that supervisor calibrated when they never see the agent work and only ever read its morning nuggets, so they have no felt sense of how often it is right. When should the email even fire, every morning, or only when the risk crosses a line, and how does that choice shape whether the human keeps paying attention. How many times must the supervisor answer a given kind of question before the agent is allowed to act on that pattern without asking, and who decides that the trust has been earned. And the hardest one for the lab: how do you seed a test case into a morning packet, the cluster that should not be there, to measure whether the supervisor&rsquo;s catch rate is decaying over months when there is no session to observe and no screen to record. The vendors who build these systems have solved the orchestration and the audit trail; the overnight multi-agent pipeline is a documented, shipping thing. What none of them has is a theory of how to keep the human at the end of it calibrated. That is not an oversight at the edge of the field. It is the center of the next one.</p>
+    <p>The honest thing to do with a frontier you cannot yet chart is not to wait for the map; it is to assign the question and start measuring badly. Two moves are available even now. First, give the question an owner: name the person responsible for the headless agent&rsquo;s supervisor before the agent ships, because the failure mode that guarantees the worst outcome is the one where the morning email goes to a distribution list and the distribution list is no one. Second, run the seeded-packet test even though it is crude: salt the morning summary with a planted cluster that should not be there, on an irregular cadence, and see whether the supervisor flags it or signs off. You will not get a calibration theory; you will get the only number that matters before there is one, whether the human at the end of the pipe is still reading. A bad measurement of the right thing beats a perfect theory you do not have, and it is what a team can do with the headless case on Monday, which is more than the field&rsquo;s silence suggests is possible.</p>
+    <p>That absence is not a gap in the research. It is the frontier, and naming it plainly is the most useful thing this chapter can do. The top rung is not an edge case. The projections say it is about to become the common case, and the design discipline is going to meet it mostly unprepared, still reaching for the screen, still designing the user when the job is to design the supervisor.</p>
+    <p>So a working definition, offered not because the field has converged on one but because it has not, and because the work needs a shape to grow around. The experience of an agentic product is the design of the human&rsquo;s role at whatever rung of the autonomy ladder the product occupies: at the bottom, the legibility of information; in the middle, the quality of choices and approvals; at the top, the calibration of a supervisor&rsquo;s trust and the prevention of their drift, over work they no longer do themselves. Where there is a screen, that work sits as a layer on top of ordinary interface design. Where there is not, that work is the product. It is the system prompt, the eval, the escalation policy, and the log.</p>
+    <h2 id="the-morning-again">The morning, again</h2>
+    <p>Go back to the person opening her laptop, reading the three lines the agent left her and the one question it decided to ask. She is near the top of the ladder, and she does not have a screen to operate, she has a worker to oversee. In the next few seconds she will either stay a supervisor or quietly stop being one. She will read the question or wave it through. She will catch the thing the agent got wrong, or it will go out with her name on it.</p>
+    <p>Either way, someone designed the conditions under which she made that call. Someone decided what the agent would surface and what it would keep to itself. Someone decided this was a one-line question and not a decision package, or the reverse. Someone decided whether anything in the way it was presented would make her pause at the right moment, or let a long clean streak lull her past it. Every one of those was a behavioral design decision, and together they were the entire experience, and they decided whether she stayed a real supervisor.</p>
+    <p>The artist used to make the thing the user operated. The thing was never the point; the person was. As the agent climbed the ladder the person stopped operating and started overseeing, the screen shrank to three lines and a question, and the design became everything that holds her attention where it belongs. There is still a UX. It is bigger and more consequential than it was when there was a screen to hide behind. The only question left is whether anyone on the team will admit they are the one designing the supervisor, or whether she will keep being designed the way she is designed on most teams today, which is to say, by accident.</p>
+    <hr>
+    <h2 id="notes-and-sources">Notes and sources</h2>
+    <p>The behavioral failure modes in this chapter are not new to AI; they are the human-factors literature of automation, now meeting agents. Automation complacency, the erosion of monitoring as a system proves reliable, is documented in Raja Parasuraman and Dietrich Manzey, &ldquo;Complacency and Bias in Human Use of Automation: An Attentional Integration&rdquo; (<em>Human Factors</em>, 2010). Vigilance decay, the fall-off in sustained attention over a monotonous monitoring task, traces to Norman Mackworth&rsquo;s wartime radar-operator experiments (the Mackworth Clock) and the vigilance research that followed. Mode confusion, the operator who does not know which automation state is live, is the subject of Nadine Sarter and David Woods, &ldquo;How in the World Did We Ever Get into That Mode?&rdquo; (<em>Human Factors</em>, 1995) and the aviation HCI work it seeded.</p>
+    <p>On the limits of explanation: the controlled finding that explanations move reliance without improving its accuracy is from Jakob Schoeffer, Maria De-Arteaga, and Niklas Kühl, &ldquo;Explanations, Fairness, and Appropriate Reliance in Human-AI Decision-Making&rdquo; (CHI 2024). The wider synthesis is Romeo and Conti, &ldquo;Exploring automation bias in human-AI collaboration: a review and implications for explainable AI&rdquo; (<em>AI &amp; Society</em>, 2025), a PRISMA review of roughly thirty-five studies finding that explainability interacts with automation bias in context-dependent ways and can deepen it. The deskilling example, that heavy AI assistance can erode unaided expert performance, is drawn from the 2025 colonoscopy study reporting a drop in adenoma detection rate when endoscopists returned to unassisted procedures after working with AI assistance.</p>
+    <p>On current practice: the framing of agentic UX as decision boundaries, transparency moments, approval patterns, and recovery paths, rather than screens, reflects the 2026 practitioner literature (Smashing Magazine&rsquo;s agentic-UX pattern series; the &ldquo;agent-native UX&rdquo; writing on autonomy tiers and behavior-over-time testing). The behavioral-designer deliverables described here track live enterprise job postings for agentic-AI design roles, whose listed responsibilities are feedback loops, error states, fallback behaviors, and alignment with the model team on constraints and confidence.</p>
+    <h2 id="draft-notes-not-for-the-book">Draft notes (not for the book)</h2>
+    <ul>
+      <li>WORKED EXAMPLE (draft 4): &ldquo;Nemo&rdquo; food-spoilage claims agent threaded through as prose, NOT parallel tables (per Yoram , don&rsquo;t add a second skeleton). Introduced in new section &ldquo;One product, every rung at once.&rdquo; Recurs in: the lab (seeded outage-mismatch claim), the drift table follow-up para (all four drifts in the claims flow), the approval section (set-off bad-card vs decision-package contrast , the one place it runs long, by design), the &ldquo;screen shrinks to a window&rdquo; daily-tile, and the frontier (headless &ldquo;claims guardian&rdquo; overnight agent). Presented as an illustrative composite (&ldquo;imagine an insurer launches&rdquo;), not a real named product. Sources behind the pattern: 2026 claims-automation vendors (Snapsheet, Moxo, Camunda, AWS sample) , describe the capability/orchestration, not a specific shipping &ldquo;Nemo.&rdquo; Kept the sharp true line: vendors have the orchestration + audit trail, nobody has a calibration theory for the human.</li>
+      <li>SPLIT DECISION (open for Yoram): the chapter is now ~4,800 words and has a clean fault line. See &ldquo;## SPLIT PROPOSAL&rdquo; below.</li>
+      <li>CITATIONS RESOLVED (external review, June 2026): all VERIFY-list items confirmed to exist and match the text. Exact attributions now in the &ldquo;Notes and sources&rdquo; block above: Schoeffer/De-Arteaga/Kühl (CHI 2024); Romeo &amp; Conti (AI &amp; Society 2025, ~35-study PRISMA review); Parasuraman &amp; Manzey (Human Factors 2010); Mackworth (vigilance/radar); Sarter &amp; Woods (Human Factors 1995, mode confusion); 2025 colonoscopy deskilling study. Remaining: house-style endnote conversion + locators at typeset.</li>
+      <li>TEMPERED (per review): &ldquo;most products today are climbing&rdquo; -&gt; &ldquo;the serious AI-infused products are climbing,&rdquo; plus an added qualifier that not every product is high on the ladder. Keeps the narrative without the empirical overreach (most companies experiment; minority reach production).</li>
+      <li>SPINE (draft 3): the AUTONOMY LADDER is the engine. Climbing it transforms the human reader -&gt; chooser -&gt; approver -&gt; reviewer -&gt; supervisor. The screen recedes and &ldquo;user&rdquo; stops fitting BECAUSE of the climb. &ldquo;Design the supervisor&rdquo; is what the design object becomes at the top, not a flat claim. (Per Yoram note 1.)</li>
+      <li>CONCEPT BOXES: cut to ONE (the autonomy ladder, as a table inside the box, since it&rsquo;s the chapter backbone). The four drifts are a plain TABLE (parallel items + counters earn it). Everything else dissolved into prose: the supervisor reframe, approval-sizing, over-reliance, autonomy-dial mechanics, trust asymmetry. (Per Yoram note 2: max 1-2 boxes, prefer prose/tables.)</li>
+      <li>Title answer unchanged: &ldquo;screen was a crutch&rdquo;; UX always behavioral; ladder exposes it.</li>
+      <li>Voice violation (&ldquo;read that twice&rdquo;) already removed in draft 2; stays out.</li>
+      <li>VOICE self-check: no em dashes; no &ldquo;turned&rdquo;; no genuinely/honestly/straightforward. Re-scan at final pass.</li>
+      <li>VERIFY before publish: Schoeffer/De-Arteaga/Kühl CHI 2024 title+venue; 35-study review (Romeo &amp; Conti, AI &amp; Society 2025?); vigilance-decay &ldquo;first half hour&rdquo; (Mackworth radar-operator framing); automation complacency (Parasuraman &amp; Manzey); mode-confusion aviation case (Sarter &amp; Woods); the enterprise &ldquo;lead designer, agentic platform&rdquo; posting still live; deskilling claim source. The autonomy-ladder rung names are mine/synthesized , reconcile with the v4 autonomy-ladder wording so the two books use ONE vocabulary.</li>
+      <li>CONSISTENCY TODO: v4 already has an &ldquo;autonomy ladder&rdquo; / &ldquo;Autonomy Dial.&rdquo; Make sure rung names here match v4 exactly (don&rsquo;t introduce a second vocabulary). Flag for the cross-book pass.</li>
+      <li>Length ~3,500 words. Room for one concrete worked example (refund/claims agent) threaded through drifts + approval if you want it tangible; held out for now to keep the ladder spine clean.</li>
+      <li>Open: (1) real SAP/Walmart headless example in &ldquo;part nobody has written&rdquo;? (NOTE: now covered by the Nemo &ldquo;claims guardian&rdquo; composite , a real named example may be unnecessary.) (2) worked example thread? DONE. (3) is the ladder box&rsquo;s 5 rungs the right granularity, or match v4&rsquo;s exact count?</li>
+    </ul>
+    <h2 id="split-proposal-yoram-raised-the-idea-heres-the-concrete-read">SPLIT PROPOSAL (Yoram raised the idea; here&rsquo;s the concrete read)</h2>
+    <p>At ~4,800 words this is long for one chapter and there is a natural seam. The fault line is diagnosis vs. craft:</p>
+    <p><strong>Chapter A , &ldquo;Is There Still a UX?&rdquo; (the diagnosis: what the human becomes)</strong></p>
+    <ul>
+      <li>Opener (artist / screen-as-crutch)</li>
+      <li>The ladder is the engine</li>
+      <li>One product, every rung at once (Nemo intro)</li>
+      <li>Two things wearing one word</li>
+      <li>The lab moves with the human</li>
+      <li>Closes on: the user has become a supervisor; the design object moved. Ends on the reframe, sets up &ldquo;so how do you design for this person?&rdquo;</li>
+    </ul>
+    <p><strong>Chapter B , &ldquo;Designing the Supervisor&rdquo; (the craft: how you design against the failure)</strong></p>
+    <ul>
+      <li>The drift modes (+ Nemo)</li>
+      <li>The approval moment / decision package (+ Nemo card)</li>
+      <li>The over-reliance paradox</li>
+      <li>What the artist becomes (the behavioral designer, deliverables)</li>
+      <li>The part nobody has written yet (headless claims guardian)</li>
+      <li>Closes on &ldquo;the morning, again&rdquo;</li>
+    </ul>
+    <p>Why this split works: A is the provocative question + the structural answer (ladder -&gt; supervisor); it&rsquo;s the &ldquo;why everything changed&rdquo; chapter. B is the &ldquo;what you actually do about it&rdquo; chapter, and it&rsquo;s where the failure-prevention material and the frontier live. Nemo bridges both: introduced in A, paid off in B. Each lands ~2,200-2,600 words, matching v3/v4 chapter length.</p>
+    <p>Why you might NOT split: the single arc (question -&gt; answer in one sitting) is rhetorically powerful, and the title&rsquo;s payoff (&ldquo;there is still a UX, it&rsquo;s bigger&rdquo;) currently lands at the very end. Splitting puts the payoff at the end of B, and A would need its own mini-payoff so it doesn&rsquo;t feel like half a thought.</p>
+    <p>RECOMMENDATION: split, but only after one more read as a single chapter to confirm the seam holds. If we split, A needs a stronger closing beat (proposed: end A on &ldquo;the user is gone; a supervisor is sitting in their chair, and nobody designed them , that&rsquo;s the next chapter&rdquo;). Decide after reading draft 4 whole.</p>
+  <div class="chapter-nav"><a class="prev" href="OPENER.html">The Work Reshapes</a><a class="next" href="dev.html">Who Wrote This Code, and Who Answers for It?</a></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

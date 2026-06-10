@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 8: Two Kinds of Human-in-the-Loop &mdash; Why Agentic AI Products Fail</title>
+<meta name="description" content="A health insurer ran an AI system to review medical-necessity claims. A physician signed each denial, so on paper a human was in the loop on every decision. Int">
+<link rel="canonical" href="https://agenticaiproductmanagement.com/book4/ch08-two-hitl.html">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .sidebar-hub { margin-bottom: var(--space-4); padding-bottom: var(--space-3);
+    border-bottom: 1px solid var(--rule); font-size: 12px; font-family: var(--sans); }
+  .sidebar-hub a { color: var(--ink-muted); text-decoration: none; }
+  .sidebar-hub a:hover { color: var(--blue-deep); }
+</style>
+</head>
+<body>
+<div class="book">
+  <aside class="sidebar">
+    <div class="sidebar-hub"><a href="../index.html">&larr; All Books</a></div>
+    <div class="sidebar-brand"><a href="index.html">Why Agentic AI Products Fail</a><div class="sidebar-brand-sub">Building Channel 1 and the Supervisory Layer That Governs It</div></div>
+    <div class="sidebar-section">Front Matter</div>
+    <ul class="sidebar-list">
+      <li><a href="preface.html">Preface: The Job Did Not Shrink. It Shifted.</a></li>
+      <li><a href="field-snapshot.html">How the Job Actually Changed: A Field Snapshot</a></li>
+      <li><a href="two-channels.html">The Two Channels</a></li>
+    </ul>
+    <div class="sidebar-section">Part I · Decide</div>
+    <ul class="sidebar-list">
+      <li><a href="ch01-ai-literacy.html">1. What You Need to Know About AI</a></li>
+      <li><a href="ch02-not-a-bridge.html">2. You Are Not a Bridge Anymore</a></li>
+      <li><a href="ch03-not-every-problem.html">3. Not Every Problem Deserves an Agent</a></li>
+    </ul>
+    <div class="sidebar-section">Part II · Prototype & Collaborate</div>
+    <ul class="sidebar-list">
+      <li><a href="ch04-how-work-splits.html">4. How the Work Splits</a></li>
+      <li><a href="ch05-vibe-coding.html">5. Vibe Coding for Value: Prototyping to Decide</a></li>
+      <li><a href="ch06-collaborator.html">6. The PM as Collaborator</a></li>
+    </ul>
+    <div class="sidebar-section">Part III · Design</div>
+    <ul class="sidebar-list">
+      <li><a href="ch07-design-behavior.html">7. You Built the Agent. Now Design the Behavior</a></li>
+      <li><a href="ch08-two-hitl.html" class="active">8. Two Kinds of Human-in-the-Loop</a></li>
+      <li><a href="ch09-evals.html">9. Evals: What the Checkmarks Prove</a></li>
+    </ul>
+    <div class="sidebar-section">Part IV · Operate</div>
+    <ul class="sidebar-list">
+      <li><a href="ch10-guardrails.html">10. Operational Guardrails</a></li>
+      <li><a href="ch11-observation.html">11. You Can’t Measure What You Didn’t Design</a></li>
+      <li><a href="ch12-record-complete.html">12. The Record Is Complete. The Picture Is Wrong.</a></li>
+      <li><a href="ch13-silent-degradation.html">13. Silent Degradation</a></li>
+      <li><a href="ch14-audit-trails.html">14. Audit Trails That Survive the Agent</a></li>
+    </ul>
+    <div class="sidebar-section">Part V · The Human System</div>
+    <ul class="sidebar-list">
+      <li><a href="ch15-deference.html">15. Deference: The Problem After Capability</a></li>
+      <li><a href="ch16-change-management.html">16. Change Management: From Actor to Supervisor</a></li>
+      <li><a href="ch17-hitl-fails.html">17. Why Human-in-the-Loop Fails</a></li>
+      <li><a href="ch18-skill-erosion.html">18. Skill Erosion: Deskilling, Never-Skilling, Cognitive Surrender</a></li>
+      <li><a href="ch19-team-member.html">19. The Agent Is a Team Member Nobody Hired</a></li>
+    </ul>
+    <div class="sidebar-section">Part VI · Carry the Weight</div>
+    <ul class="sidebar-list">
+      <li><a href="ch20-people-never-seen.html">20. What You Owe the People Your Agent Never Sees</a></li>
+      <li><a href="ch21-governance.html">21. Agent Behavior Governance</a></li>
+      <li><a href="ch22-day-in-life.html">22. A Day in the Life of the Agentic PM</a></li>
+    </ul>
+    <div class="sidebar-section">Back Matter</div>
+    <ul class="sidebar-list">
+      <li><a href="agent-note.html">The Agent This Book Was Written With</a></li>
+      <li><a href="appendix-a.html">Appendix A: The Two Briefs, Worked</a></li>
+      <li><a href="appendix-b.html">Appendix B: The Field Manual</a></li>
+      <li><a href="glossary.html">Glossary</a></li>
+      <li><a href="references.html">References and Sources</a></li>
+    </ul>
+  </aside>
+  <div class="main">
+    <div class="chapter">
+      <div class="chapter-meta">Part III · Design &nbsp;&middot;&nbsp; Chapter 8</div>
+            <h1>Chapter 8: Two Kinds of Human-in-the-Loop</h1>
+    <blockquote><p><em>&ldquo;Human-in-the-loop&rdquo; names two different things. Program-level oversight asks whether the system is right in aggregate. Transaction-level review asks whether </em>this<em> output reaches the person without a human checking it first. They are different design choices with different failure modes, and assuming the first covers the second is the error the courts are now treating as no oversight at all.</em></p></blockquote>
+    <p>A health insurer ran an AI system to review medical-necessity claims. A physician signed each denial, so on paper a human was in the loop on every decision. Internal records later showed physicians signing off on more than three hundred thousand claims in a two-month window, which works out to about one and a half seconds per claim. The litigation further alleged that of the small fraction of denials patients appealed, around nine in ten were overturned, a reversal rate that, if it holds, says the underlying decisions were wrong far more often than not. There was a human in the loop on every single one of those denials, and there was no human oversight of any of them.</p>
+    <p>That gap is the subject of this chapter, and it is not a story about a bad actor. It is a story about a design confusion that good teams make constantly, because the term &ldquo;human-in-the-loop&rdquo; hides two entirely different commitments inside one phrase. One asks a question about the <em>system</em>: across thousands of decisions, is this thing performing the way we said it would? The other asks a question about a <em>single decision</em>: before this specific output changes this specific person&rsquo;s life, did a human with the competence and the time actually look? You can satisfy the first completely and have nothing of the second, which is what an insurer who audited aggregate denial rates while a physician spent a second and a half per claim had built. The chapter on evals covered the system question. The chapter on designing behavior covered the approval moment. This chapter is about deciding, for each output your agent produces, which of the two kinds of oversight that output requires, and refusing to let one masquerade as the other.</p>
+    <h3 id="the-two-questions">The two questions</h3>
+    <p><em>Program-level oversight</em> is review of the system in aggregate. A team samples outputs, tracks success and failure rates, watches for drift, and audits performance against the standard the product committed to. It is periodic, statistical, and retrospective, and it is the right instrument for the question &ldquo;is the agent, as a system, behaving acceptably across the population it serves.&rdquo; Most of what a mature team calls monitoring is program-level, and most of an eval suite is program-level by nature: it characterizes a distribution.</p>
+    <p><em>Transaction-level review</em> is a human looking at an individual output before or immediately after it executes, with the authority and the means to stop it. It is per-decision, contemporaneous, and prospective. It is the right instrument for the question &ldquo;should <em>this</em> output, for <em>this</em> person, proceed without a human in the way.&rdquo; The approval moment from the design chapter is a transaction-level mechanism. A stop button a person actually watches is transaction-level. A monthly accuracy report is not.</p>
+    <p>The two are not redundant, and neither contains the other. Program-level oversight tells you the system denies claims correctly 92 percent of the time. It tells you nothing about whether the wrongful denial that reached a particular patient last Tuesday was caught, because in a statistical view that denial is a rounding error and to the patient it is the whole event. Transaction-level review catches that denial and tells you nothing about whether the system as a whole is drifting toward a higher error rate next quarter. You need both, for different reasons, and the design failure is using one to discharge your obligation to the other.</p>
+    <p>One caution before you reach for transaction-level review as the answer, because it has a second failure mode this chapter only sets up and a later one takes apart. Funding it properly fixes the Cigna problem, the budget problem, a real human with real time on each consequential case. It does not fix the problem of <em>speed</em>. When the agent acts faster than any human can review, no amount of funding rescues the per-decision loop, because the constraint is no longer the budget, it is the clock; a reviewer who needs ten seconds to judge a case the agent decides in fifty milliseconds is decorative at any staffing level. For those cases the answer is not a faster or better-funded reviewer but a different control entirely, a hard limit the agent cannot cross, a class of action it may not take alone, a pre-commitment rather than a real-time veto. Transaction-level review is the right mechanism when the volume and speed leave a funded human real time to judge. When they do not, you are in the territory the human-in-the-loop-fails chapter maps, and the fix lives there, not here.</p>
+    <h3 id="which-one-an-output-needs">Which one an output needs</h3>
+    <p>Not every output earns transaction-level review; most do not, and demanding it everywhere is its own failure, because a review budget spent on low-stakes outputs is a review budget unavailable for the ones that matter. Four questions decide it, and they are worth asking in order.</p>
+    <p>The first is <em>harm asymmetry</em>. When the agent is wrong, is the cost of a false positive roughly the same as a false negative, or wildly different? An agent that occasionally recommends the wrong article is symmetric and cheap on both sides. An agent that denies a cancer patient post-acute care has a catastrophic false positive and a trivial false negative, and that asymmetry alone can require per-decision review regardless of how good the aggregate numbers look. The second is <em>reversibility</em>, and it is the axis with the strongest grounding in where the law actually lands. The strictest per-transaction requirements cluster around decisions that cannot be undone or that affect a life while they stand: a medical-necessity denial, a credit denial, an employment termination. For an advisory output a human then acts on, aggregate oversight is usually enough, because the human action is itself the transaction-level check. The third is <em>regulatory exposure</em>, which increasingly removes the choice from your hands. The fourth is the <em>cost of reviewing each transaction</em>, which is real and is the reason the first three matter: if per-decision review were free you would do it everywhere, and the entire discipline is about spending a finite review capacity where harm asymmetry and irreversibility say it belongs.</p>
+    <div class="callout">
+      <div class="callout-title">Two kinds of human-in-the-loop. <em>Program-level oversight</em>: periodic, statistical review of the system in aggregate. Right for &ldquo;is the agent behaving acceptably across the population?&rdquo; The eval suite and the monitoring dashboard live here. <em>Transaction-level review</em>: a competent human looking at an individual output, with authority to stop it, before or immediately as it executes. Right for &ldquo;should this output, for this person, proceed un-checked?&rdquo; The approval moment and the watched stop button live here. Choose per output type using harm asymmetry, reversibility, regulatory exposure, and per-review cost. The default error is assuming program-level oversight discharges a transaction-level obligation.</div>
+      
+    </div>
+    <h3 id="what-the-law-already-decided">What the law already decided</h3>
+    <p>The regulatory direction is no longer ambiguous, and a PM shipping into a consequential domain should treat transaction-level review as the presumption rather than the exception. In the EU, the AI Act&rsquo;s oversight provision requires, for every high-risk system, that a person be able to interpret the output, decline to use it, and interrupt the system; for remote biometric identification it goes further and requires that each identification be confirmed by at least two competent people before any action is taken, which is the clearest per-decision mandate on the books. In US healthcare the requirements are the most explicit: a 2025 California law bars health plans from using AI as the sole basis to deny care and requires a licensed physician to <em>make</em> the medical-necessity determination, not merely approve the algorithm&rsquo;s, and a Medicare prior-authorization pilot starting in 2026 requires a human clinician to validate each AI-flagged denial before it is final. Several more states passed equivalent laws in a single legislative session, so this is a trend, not an outlier. In consumer credit, the adverse-action rules require a specific, accurate reason for each denial and explicitly forbid &ldquo;the model is too complex to explain&rdquo; as a defense, which forces a human to understand each decision well enough to articulate it. Financial regulators now frame per-decision human sign-off as the expected practice for any AI that influences a customer outcome or executes a transaction. And the most recently enacted comprehensive US AI law gives a consumer the right to human review of the specific adverse decision, not of the system&rsquo;s aggregate performance.</p>
+    <p>Read across all of it and the same sentence keeps surfacing, and it is the one to carry out of this chapter: the presence of a human in the loop is not the same as human oversight. The insurer in the opening had a human present on every denial. What the courts are now being asked to define is what <em>meaningful</em> review means at the transaction level, and the working answer is that a signature applied at a second and a half per claim is presence performing as oversight, which is to say it is the absence of oversight wearing its uniform.</p>
+    <h3 id="the-hybrid-most-systems-actually-need">The hybrid most systems actually need</h3>
+    <p>In practice you are not choosing one kind for the whole product. You are assigning a kind to each output class, and most real systems end up layered. The low-consequence, reversible, symmetric outputs run on program-level oversight: ship them, sample them, watch the aggregate, and react if the distribution moves. The high-consequence or irreversible or regulated outputs carry a transaction-level gate: a competent human, with the time and the authority and the context the trace cannot supply, looks before the action commits. The skill is drawing that line carefully per output type and then resourcing the transaction-level side for real, because the failure mode is not usually choosing wrong on paper. It is choosing transaction-level review on paper and then funding it like program-level oversight, which is how you arrive at one reviewer, three hundred thousand decisions, and a second and a half each.</p>
+    <div class="callout">
+      <div class="callout-title">Cigna: presence is not oversight. A health insurer used an AI-assisted platform to review claims for medical necessity, with a physician signing each denial, so by the workflow&rsquo;s design a human was in the loop on every decision. Documents surfaced in litigation showed physicians signing more than three hundred thousand claims over about two months, roughly one and a half seconds per review; of the denials that were appealed, the litigation alleged around nine in ten were overturned.</div>
+      <p>The defense was that a human reviewed each denial. The allegation was that the review was performative: present in the workflow, absent in substance. The team had a transaction-level obligation, the irreversible denial of care to an individual, and met it with a transaction-level <em>mechanism</em> funded at a program-level <em>budget</em>. A human at one and a half seconds per decision is not a slower careful reviewer; he is an aggregate auditor relabeled as a per-decision gate, and the relabeling is the failure.</p>
+    </div>
+    <p>For one output type your agent produces, decide which kind of oversight it requires, and then write the harm-asymmetry sentence that justifies the choice, the one that names what a false positive costs against a false negative. If the answer is transaction-level, look at what you have actually budgeted for that review, in seconds per decision, and ask whether a person could exercise judgment in that time or only a signature. The gap between those two is where a later chapter, on why human-in-the-loop fails, begins, because designing the gate is the easy part. Keeping a human truly in it, month after month, is the part that fails.</p>
+  <div class="chapter-nav"><a class="prev" href="ch07-design-behavior.html">You Built the Agent. Now Design the Behavior</a><a class="next" href="ch09-evals.html">Evals: What the Checkmarks Prove</a></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

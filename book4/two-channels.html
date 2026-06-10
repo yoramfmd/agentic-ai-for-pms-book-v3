@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Two Channels &mdash; Why Agentic AI Products Fail</title>
+<meta name="description" content="A room full of toddlers behaves beautifully under three conditions. There is something to play with, there is a steady supply of snacks, and there is an adult w">
+<link rel="canonical" href="https://agenticaiproductmanagement.com/book4/two-channels.html">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .sidebar-hub { margin-bottom: var(--space-4); padding-bottom: var(--space-3);
+    border-bottom: 1px solid var(--rule); font-size: 12px; font-family: var(--sans); }
+  .sidebar-hub a { color: var(--ink-muted); text-decoration: none; }
+  .sidebar-hub a:hover { color: var(--blue-deep); }
+</style>
+</head>
+<body>
+<div class="book">
+  <aside class="sidebar">
+    <div class="sidebar-hub"><a href="../index.html">&larr; All Books</a></div>
+    <div class="sidebar-brand"><a href="index.html">Why Agentic AI Products Fail</a><div class="sidebar-brand-sub">Building Channel 1 and the Supervisory Layer That Governs It</div></div>
+    <div class="sidebar-section">Front Matter</div>
+    <ul class="sidebar-list">
+      <li><a href="preface.html">Preface: The Job Did Not Shrink. It Shifted.</a></li>
+      <li><a href="field-snapshot.html">How the Job Actually Changed: A Field Snapshot</a></li>
+      <li><a href="two-channels.html" class="active">The Two Channels</a></li>
+    </ul>
+    <div class="sidebar-section">Part I · Decide</div>
+    <ul class="sidebar-list">
+      <li><a href="ch01-ai-literacy.html">1. What You Need to Know About AI</a></li>
+      <li><a href="ch02-not-a-bridge.html">2. You Are Not a Bridge Anymore</a></li>
+      <li><a href="ch03-not-every-problem.html">3. Not Every Problem Deserves an Agent</a></li>
+    </ul>
+    <div class="sidebar-section">Part II · Prototype & Collaborate</div>
+    <ul class="sidebar-list">
+      <li><a href="ch04-how-work-splits.html">4. How the Work Splits</a></li>
+      <li><a href="ch05-vibe-coding.html">5. Vibe Coding for Value: Prototyping to Decide</a></li>
+      <li><a href="ch06-collaborator.html">6. The PM as Collaborator</a></li>
+    </ul>
+    <div class="sidebar-section">Part III · Design</div>
+    <ul class="sidebar-list">
+      <li><a href="ch07-design-behavior.html">7. You Built the Agent. Now Design the Behavior</a></li>
+      <li><a href="ch08-two-hitl.html">8. Two Kinds of Human-in-the-Loop</a></li>
+      <li><a href="ch09-evals.html">9. Evals: What the Checkmarks Prove</a></li>
+    </ul>
+    <div class="sidebar-section">Part IV · Operate</div>
+    <ul class="sidebar-list">
+      <li><a href="ch10-guardrails.html">10. Operational Guardrails</a></li>
+      <li><a href="ch11-observation.html">11. You Can’t Measure What You Didn’t Design</a></li>
+      <li><a href="ch12-record-complete.html">12. The Record Is Complete. The Picture Is Wrong.</a></li>
+      <li><a href="ch13-silent-degradation.html">13. Silent Degradation</a></li>
+      <li><a href="ch14-audit-trails.html">14. Audit Trails That Survive the Agent</a></li>
+    </ul>
+    <div class="sidebar-section">Part V · The Human System</div>
+    <ul class="sidebar-list">
+      <li><a href="ch15-deference.html">15. Deference: The Problem After Capability</a></li>
+      <li><a href="ch16-change-management.html">16. Change Management: From Actor to Supervisor</a></li>
+      <li><a href="ch17-hitl-fails.html">17. Why Human-in-the-Loop Fails</a></li>
+      <li><a href="ch18-skill-erosion.html">18. Skill Erosion: Deskilling, Never-Skilling, Cognitive Surrender</a></li>
+      <li><a href="ch19-team-member.html">19. The Agent Is a Team Member Nobody Hired</a></li>
+    </ul>
+    <div class="sidebar-section">Part VI · Carry the Weight</div>
+    <ul class="sidebar-list">
+      <li><a href="ch20-people-never-seen.html">20. What You Owe the People Your Agent Never Sees</a></li>
+      <li><a href="ch21-governance.html">21. Agent Behavior Governance</a></li>
+      <li><a href="ch22-day-in-life.html">22. A Day in the Life of the Agentic PM</a></li>
+    </ul>
+    <div class="sidebar-section">Back Matter</div>
+    <ul class="sidebar-list">
+      <li><a href="agent-note.html">The Agent This Book Was Written With</a></li>
+      <li><a href="appendix-a.html">Appendix A: The Two Briefs, Worked</a></li>
+      <li><a href="appendix-b.html">Appendix B: The Field Manual</a></li>
+      <li><a href="glossary.html">Glossary</a></li>
+      <li><a href="references.html">References and Sources</a></li>
+    </ul>
+  </aside>
+  <div class="main">
+    <div class="chapter">
+      <div class="chapter-meta">Front Matter</div>
+            <h1>The Two Channels</h1>
+    <blockquote><p><em>Every agentic product is two products: the agent that acts, and the supervisory layer that governs it. Call them Channel 1 and Channel 2. Most teams build the first and assume the second will take care of itself. It will not. Designing the second product is the new job this book is about, and it has four dimensions, which are also the map for everything that follows.</em></p></blockquote>
+    <p>A room full of toddlers behaves beautifully under three conditions. There is something to play with, there is a steady supply of snacks, and there is an adult watching. Take away any one of the three and the behavior turns unpredictable fast. The toys run out and the room turns on itself; the snacks run out and the mood collapses; the adult steps into the hallway for one phone call and you return to a scene you did not design and cannot fully reconstruct. The first two you can stock in advance. The third you cannot automate, because the entire reason it works is that a competent person is paying attention to the part you could not predict.</p>
+    <p>An agentic system is the same arrangement, and the mapping is exact enough to be useful rather than cute. The thing to play with is the <em>data</em> the agent reasons over. The steady supply of snacks is the <em>context</em> that feeds it. And the adult watching is the <em>supervision</em>. Remove the data and the agent improvises over nothing; remove the context and it drifts; remove the supervision and it does, at machine speed and production scale, the agentic equivalent of what an unwatched room of toddlers does, which is to say something nobody chose and everybody owns afterward. That is the whole book in one image, and I will not extend the metaphor past its welcome. The point it makes is the point that matters: stocking the room is one job, and watching it is a different one, and a team that does only the first has built half a product.</p>
+    <h3 id="two-products-not-one">Two products, not one</h3>
+    <p><em>Every agentic product is two products.</em> The first is the agent: what it can do, what tools it can reach, how far its authority runs, how it behaves at runtime. The second is the layer that supervises the agent: how a human sees what it is doing, intervenes before something irreversible happens, investigates when something goes wrong, and stays accountable for what it did on the organization&rsquo;s behalf. The first product is the one everyone builds, and they build it with the same models, the same frameworks, the same orchestration tools as everyone else, which is why it demos well and why it is commoditizing toward sameness. The second product has none of that. There is no standard toolkit for the supervisory layer, no framework you can adopt, no default the platform ships. It does not demo, it does not show up in the sprint review, and most teams assume operations or change management will absorb it after launch. It will not be absorbed, and it cannot be bought off a shelf. It has to be built explicitly, on the same roadmap, with the same owner, before the agent ships. The first product is converging on a solved problem. The second is where the work, and the difference between products, still lives.</p>
+    <p>Call them Channel 1 and Channel 2. Channel 1 is the agent. Channel 2 is the supervisory layer. The names are deliberate, because the two are not a single product with a monitoring feature bolted on; they are two parallel tracks of design work that a product manager now has to plan together. Parallel, but not aligned end to end: Channel 2 opens the work, because the boundaries it sets are what the agent then has to be designed within, and Channel 2 closes the work, because the supervision keeps running long after the agent has shipped. The agent lives inside that envelope. You can build a flawless Channel 1 and ship a liability, because what makes an agentic product trustworthy is not the capability of the agent. It is the quality of the layer that governs it.</p>
+    <h3 id="what-the-failures-actually-are">What the failures actually are</h3>
+    <p>This is not a theoretical distinction, and the evidence is the news cycle you have already been reading. The coding agent that deleted a company&rsquo;s production database and its backups in nine seconds. The vibe-coded app that shipped with its authentication logic running backwards and exposed thousands of records. The customer-service agents that promised refunds the company never authorized. Read the postmortems and you will notice something: almost none of these were model failures. The model did what it was built to do. They were <em>supervisory-layer</em> failures, in companies that built a capable Channel 1 and never built a Channel 2 at all. They stocked the room with extraordinary toys and walked out to watch TV.</p>
+    <p>That is why the supervisory layer is the differentiator, and why it is becoming the more valuable half. The agent itself is commoditizing. If two teams build on the same foundation model, with the same retrieval setup and the same tools, the agents will be roughly the same, because the agent is the part that has become cheap to reproduce. The difference between the two products will sit in the data each agent reasons over, the context that gives that data meaning, and the supervisory layer that governs what the agent does with both. When the capability is commodity, the value moves to the system that supervises it. The PM who understands that is designing for where the product actually differentiates. The PM who is still optimizing only the agent is polishing the half that no longer decides who wins.</p>
+    <h3 id="the-new-job-and-the-four-dimensions">The new job, and the four dimensions</h3>
+    <p>Designing the supervisory layer is the new job. Not instead of the old product work, on top of it, which is part of why the job did not shrink when AI arrived; it shifted its center of gravity to a second product that did not used to exist. And designing Channel 2 is not one undifferentiated task. It has four dimensions, and they are the map for the rest of this book, so it is worth seeing them laid out once before you meet them chapter by chapter.</p>
+    <p>The <em>technical</em> dimension is whether a human can actually see what the agent is doing and stop it in time. The boundary the agent acts within, the moment a human is asked to approve, the trace it leaves, the way it is recovered when it is wrong, the ceilings and the kill switch. The adult has to be able to see the room and reach the door.</p>
+    <p>The <em>organizational</em> dimension is whether the supervisor is a real role or an assumption. Who watches the agent, do they have the time and the standing and the skill to do it, and is the role designed or merely implied. A room is not supervised because someone is technically responsible for it; it is supervised when a competent person is actually watching, and an agent reshapes the very person you are counting on to watch it.</p>
+    <p>The <em>regulatory</em> dimension is what oversight the law requires for this particular decision, and increasingly the law is specific: which outputs need a human looking at each one before it executes, what has to be reconstructable years later, what can never be fully delegated. The rules of the room are not all yours to set.</p>
+    <p>The <em>moral</em> dimension is the one that does not appear on any dashboard: the person the agent affects who is never in the room, never a user, never in your analytics, and who absorbs the consequence when the supervision was thin. The adult is accountable not only for the children but for whoever gets hurt when no one was watching.</p>
+    <p>Those four are not a checklist you run once. They are four questions you carry through the whole lifecycle of the product, and every part of this book is, underneath its chapter title, about one or more of them. When you read about designing the agent&rsquo;s behavior, you are in the technical dimension. When you read about why human oversight quietly fails, you are in the organizational one. When you read about what you owe the people your agent never sees, you are in the moral one. The chapters are organized by the sequence of the work, decide, design, operate, the human system, the weight you carry. The frame underneath them is always the same: is this Channel 1 or Channel 2, and if it is Channel 2, which of the four dimensions are you actually designing.</p>
+    <p>So before any of the specifics, fix the frame in place, because everything else hangs on it. You are not shipping an agent. You are shipping an agent and the layer that supervises it, and the second one is the job the title of this book is naming. The rest is how.</p>
+  <div class="chapter-nav"><a class="prev" href="field-snapshot.html">How the Job Actually Changed: A Field Snapshot</a><a class="next" href="ch01-ai-literacy.html">What You Need to Know About AI</a></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

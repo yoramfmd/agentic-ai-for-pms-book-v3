@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 6: The PM as Collaborator: Dev, UX, and Domain Experts &mdash; Why Agentic AI Products Fail</title>
+<meta name="description" content="The last chapter ended with a handoff: you build the prototype, the engineering team builds the thing that ships. That handoff is the small version of this chap">
+<link rel="canonical" href="https://agenticaiproductmanagement.com/book4/ch06-collaborator.html">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .sidebar-hub { margin-bottom: var(--space-4); padding-bottom: var(--space-3);
+    border-bottom: 1px solid var(--rule); font-size: 12px; font-family: var(--sans); }
+  .sidebar-hub a { color: var(--ink-muted); text-decoration: none; }
+  .sidebar-hub a:hover { color: var(--blue-deep); }
+</style>
+</head>
+<body>
+<div class="book">
+  <aside class="sidebar">
+    <div class="sidebar-hub"><a href="../index.html">&larr; All Books</a></div>
+    <div class="sidebar-brand"><a href="index.html">Why Agentic AI Products Fail</a><div class="sidebar-brand-sub">Building Channel 1 and the Supervisory Layer That Governs It</div></div>
+    <div class="sidebar-section">Front Matter</div>
+    <ul class="sidebar-list">
+      <li><a href="preface.html">Preface: The Job Did Not Shrink. It Shifted.</a></li>
+      <li><a href="field-snapshot.html">How the Job Actually Changed: A Field Snapshot</a></li>
+      <li><a href="two-channels.html">The Two Channels</a></li>
+    </ul>
+    <div class="sidebar-section">Part I · Decide</div>
+    <ul class="sidebar-list">
+      <li><a href="ch01-ai-literacy.html">1. What You Need to Know About AI</a></li>
+      <li><a href="ch02-not-a-bridge.html">2. You Are Not a Bridge Anymore</a></li>
+      <li><a href="ch03-not-every-problem.html">3. Not Every Problem Deserves an Agent</a></li>
+    </ul>
+    <div class="sidebar-section">Part II · Prototype & Collaborate</div>
+    <ul class="sidebar-list">
+      <li><a href="ch04-how-work-splits.html">4. How the Work Splits</a></li>
+      <li><a href="ch05-vibe-coding.html">5. Vibe Coding for Value: Prototyping to Decide</a></li>
+      <li><a href="ch06-collaborator.html" class="active">6. The PM as Collaborator</a></li>
+    </ul>
+    <div class="sidebar-section">Part III · Design</div>
+    <ul class="sidebar-list">
+      <li><a href="ch07-design-behavior.html">7. You Built the Agent. Now Design the Behavior</a></li>
+      <li><a href="ch08-two-hitl.html">8. Two Kinds of Human-in-the-Loop</a></li>
+      <li><a href="ch09-evals.html">9. Evals: What the Checkmarks Prove</a></li>
+    </ul>
+    <div class="sidebar-section">Part IV · Operate</div>
+    <ul class="sidebar-list">
+      <li><a href="ch10-guardrails.html">10. Operational Guardrails</a></li>
+      <li><a href="ch11-observation.html">11. You Can’t Measure What You Didn’t Design</a></li>
+      <li><a href="ch12-record-complete.html">12. The Record Is Complete. The Picture Is Wrong.</a></li>
+      <li><a href="ch13-silent-degradation.html">13. Silent Degradation</a></li>
+      <li><a href="ch14-audit-trails.html">14. Audit Trails That Survive the Agent</a></li>
+    </ul>
+    <div class="sidebar-section">Part V · The Human System</div>
+    <ul class="sidebar-list">
+      <li><a href="ch15-deference.html">15. Deference: The Problem After Capability</a></li>
+      <li><a href="ch16-change-management.html">16. Change Management: From Actor to Supervisor</a></li>
+      <li><a href="ch17-hitl-fails.html">17. Why Human-in-the-Loop Fails</a></li>
+      <li><a href="ch18-skill-erosion.html">18. Skill Erosion: Deskilling, Never-Skilling, Cognitive Surrender</a></li>
+      <li><a href="ch19-team-member.html">19. The Agent Is a Team Member Nobody Hired</a></li>
+    </ul>
+    <div class="sidebar-section">Part VI · Carry the Weight</div>
+    <ul class="sidebar-list">
+      <li><a href="ch20-people-never-seen.html">20. What You Owe the People Your Agent Never Sees</a></li>
+      <li><a href="ch21-governance.html">21. Agent Behavior Governance</a></li>
+      <li><a href="ch22-day-in-life.html">22. A Day in the Life of the Agentic PM</a></li>
+    </ul>
+    <div class="sidebar-section">Back Matter</div>
+    <ul class="sidebar-list">
+      <li><a href="agent-note.html">The Agent This Book Was Written With</a></li>
+      <li><a href="appendix-a.html">Appendix A: The Two Briefs, Worked</a></li>
+      <li><a href="appendix-b.html">Appendix B: The Field Manual</a></li>
+      <li><a href="glossary.html">Glossary</a></li>
+      <li><a href="references.html">References and Sources</a></li>
+    </ul>
+  </aside>
+  <div class="main">
+    <div class="chapter">
+      <div class="chapter-meta">Part II · Prototype & Collaborate &nbsp;&middot;&nbsp; Chapter 6</div>
+            <h1>Chapter 6: The PM as Collaborator: Dev, UX, and Domain Experts</h1>
+    <blockquote><p><em>An agentic product fractures the clean &ldquo;PM owns what, engineering owns how&rdquo; split into several runtime domains no single role covers. Your real job is working across that seam, with engineers, designers, and domain experts. The failure mode vibe coding makes tempting is trying to own all of it alone.</em></p></blockquote>
+    <p>The last chapter ended with a handoff: you build the prototype, the engineering team builds the thing that ships. That handoff is the small version of this chapter&rsquo;s subject. The large version is that an agentic product does not have one clean handoff. It has a fractured ownership map that the old PM-and-engineering division does not describe, and most teams discover the fracture the way you discover a missing stair, in the dark, with weight on the wrong foot.</p>
+    <p>The usual playbook treats the team around the PM as a governance footnote, a list of who signs what at launch. That is a mistake the agentic shift makes expensive. The people you work with are not approvers; they own runtime domains you cannot own, and the product is the seam between you.</p>
+    <h3 id="the-clean-split-that-no-longer-holds">The clean split that no longer holds</h3>
+    <p>Traditional software had stable lines. The PM owned the what, the requirements and the success criteria. Engineering owned the how, the implementation. QA owned test coverage, platform owned infrastructure. Those lines held because the software did what it was told and stopped.</p>
+    <p>An agentic system acts on its own, across tools and APIs and other systems, over time. That breaks the lines, because &ldquo;what it does&rdquo; is no longer something you specified once; it is something the system decides, repeatedly, in conditions you did not enumerate. The product splits into several runtime ownership domains, each with a different natural owner, and none of them is simply &ldquo;the PM owns the what.&rdquo;</p>
+    <div class="callout">
+      <div class="callout-title">The runtime ownership map. An agentic product has at least these distinct domains, and the owner of each is mostly not you:</div>
+      <ul>
+      <li><strong>Goal definition</strong> – what the agent is authorised to try, its scope and success criteria. Yours, and higher-stakes than before: underscope and it fails, overscope and it harms.</li>
+      <li><strong>The control plane</strong> – kill switches, spend governors, rate limits, sandboxing. Platform engineering. A new layer that must live outside the agent&rsquo;s own runtime.</li>
+      <li><strong>Rollback</strong> – reversing actions already taken, often across several systems at once. Engineering and DevOps. Harder than traditional rollback because the agent&rsquo;s actions span systems.</li>
+      <li><strong>Supervisory interface</strong> – how a human monitors, approves, pauses, and redirects the agent. UX and product. A new design discipline.</li>
+      <li><strong>Correctness certification</strong> – verifying outputs meet a domain&rsquo;s real standard, beyond what an eval checks. The domain expert, with you. Evals catch structural failure; experts catch domain failure that looks structurally fine.</li>
+    </ul>
+    <p>Read down the owner column. The product is what happens when these people coordinate, not when you specify and they build.</p>
+    </div>
+    <h3 id="working-with-engineers-rollback-the-platform-and-the-switch-">Working with engineers: rollback, the platform, and the switch you cannot own</h3>
+    <p>The single insight that should change how you work with engineering is about the kill switch, and it is sharper than it first sounds. A production agent needs a hard stop: something that revokes its tool access, halts its queues, and freezes it in seconds. The non-obvious part is the ownership. The kill switch cannot be owned by the same system that runs the agent, and it cannot be triggerable by the agent itself, because an agent that has gone wrong is exactly the thing you cannot trust to stop itself. As the people writing the risk standards put it, killing the parent agent does not recall the child agents it already spawned. The switch has to live in a control plane that is architecturally separate from the agent, owned by a platform or security team, with a real human on call who can reach it.</p>
+    <p>That is an engineering decision with a product consequence, which makes it yours to understand even though it is theirs to build. The same is true of rollback. When an agent has taken twenty actions across four systems before anyone noticed it was wrong, &ldquo;undo&rdquo; is not a button; it is a distributed-systems problem that engineering owns and that you must scope the requirements for. The thing you bring to these conversations is not the implementation. It is the answer to &ldquo;what must we be able to stop, and how fast, and what must we be able to reverse,&rdquo; which is a product question that determines what engineering has to build.</p>
+    <p>A concrete number makes this real for the conversation: ask your engineering lead what the rollback time is for the agent&rsquo;s most consequential action. If they do not have a number, you have found work, and it is the kind of work that does not get done unless the PM names it.</p>
+    <h3 id="working-with-designers-the-approval-moment-is-the-product">Working with designers: the approval moment is the product</h3>
+    <p>Designers own a domain that did not exist in the old division, and it is the one most teams forget until a user is confused at the wrong moment. When an agent is about to act, there is an instant where a human either approves, redirects, or lets it proceed. That instant, the approval moment, is the central design surface of an agentic product, not an afterthought bolted to the end. It is where trust is built or destroyed, where the human&rsquo;s authority over the agent is either real or theater.</p>
+    <p>This is a new design discipline, sometimes called agentic UX, and it does not map to any prior design category. Designing a form is not designing the moment a human decides whether to let an autonomous system spend money, send a message, or change a record. The questions are different: how much does the human need to see to approve well, how do you keep them from rubber-stamping, what does &ldquo;pause and let me look&rdquo; feel like, how does an override get recorded for the audit that may come a year later. The designer owns the answers, and your job is to insist the approval moment is treated as a first-class part of the product rather than a confirmation dialog someone adds in the last sprint.</p>
+    <h3 id="working-with-domain-experts-the-correctness-no-eval-can-cert">Working with domain experts: the correctness no eval can certify</h3>
+    <p>The third collaborator is the one teams most often skip, and skipping them is the most expensive omission in the book. Evals, the subject of a later chapter, catch structural failures: the output is malformed, the agent called the wrong tool, the format is broken. They cannot catch a failure that is structurally perfect and substantively wrong, because that requires knowing the domain well enough to see that a plausible answer is the wrong answer. Only a domain expert can certify that.</p>
+    <div class="callout">
+      <div class="callout-title">Built against the form, not the voice. When researchers tested a general AI assistant on real emergency-department triage, it under-triaged about fifty-two percent of genuine emergencies, routing people who needed an emergency department to wait-and-see care. The system was not broken in any way an eval would catch; it produced fluent, well-formatted, confident dispositions.</div>
+      <p>It was built against the intake form, the structured fields, rather than against what an experienced triage nurse actually listens for: the cadence, the thing the caller mentions as an aside, the wrongness underneath the words. A domain expert would have caught the gap before launch. The eval never could, because the outputs looked correct. Correctness in a domain is a judgment only someone steeped in it can render, and no test suite substitutes for that.</p>
+    </div>
+    <p>The practical move is to put the domain expert in the loop <em>before</em> launch, certifying the cases that look fine and are not, and to treat their certification as a gate the eval cannot replace. In regulated and clinical work this is not optional; everywhere else it is the difference between an agent that is plausibly right and one that is actually right.</p>
+    <h3 id="the-four-co-owners-and-the-accountability-that-stays-yours">The four co-owners, and the accountability that stays yours</h3>
+    <p>Underneath the runtime domains sits a smaller, sharper structure for the launch decision itself: the four co-owners of whether an agent is ready. Engineering owns the rollback time. The CFO owns the per-task cost, including the runaway case. Legal owns the audit surface, what can be reconstructed when a decision is questioned. And product, you, owns the approval moment, where the human&rsquo;s authority is exercised. The discipline is that each of these has a <em>named</em> owner who can answer for it before launch, not a diffuse &ldquo;we looked at it.&rdquo; A pre-launch review where any of the four questions has no name attached is a review that has found its own gap.</p>
+    <p>What does not get delegated is the synthesis. The engineers own rollback, the designers own the approval moment, the experts own correctness, but holding them together, deciding whether the whole adds up to a product that should exist and behave the way it does, is the PM&rsquo;s, and it is the part of the job the previous chapters have been describing. You do not own the domains. You own whether they cohere.</p>
+    <h3 id="the-failure-that-vibe-coding-makes-tempting">The failure that vibe coding makes tempting</h3>
+    <p>There is a specific failure this part of the book has been building toward, and it is worth naming because the last chapter made it more tempting than ever. When you can prototype the product yourself, mock the UI yourself, and describe the backend to a model yourself, it becomes possible to believe you can own all of it alone, that the collaborators are friction to route around. The vibe-coding chapter showed why that belief ships a house of cards. This chapter shows the deeper cost: the PM who builds everything alone is not just shipping insecure code, they are personally occupying five runtime domains they are not equipped to own, which means each of those domains is unowned by anyone who can actually do it. The kill switch does not get architected, the approval moment does not get designed, the domain correctness does not get certified, because the one person doing all of it could only ever do one of them well.</p>
+    <p>The agentic shift did not make the team optional. It made the seams between the team the place the product lives. Pick one agent you are responsible for and ask who owns each of the five domains by name. Every domain that resolves to &ldquo;me&rdquo; or to no one is a domain that is about to fail, and it will fail in production, where the failures are expensive and the postmortem lands on your desk.</p>
+  <div class="chapter-nav"><a class="prev" href="ch05-vibe-coding.html">Vibe Coding for Value: Prototyping to Decide</a><a class="next" href="ch07-design-behavior.html">You Built the Agent. Now Design the Behavior</a></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
