@@ -21,6 +21,7 @@ SITE_TITLE = "The Agentic Team"
 SITE_SUB   = "How Agentic AI Reshapes the Roles That Build It"
 CANON      = "https://agenticaiproductmanagement.com/book5/"
 HUB        = "../index.html"
+DRAFT      = True   # adds "Draft" to landing eyebrow and sidebar brand title
 
 # (md-path-relative-to-chapters/, sidebar-label, section, display-num)
 # section: "front" | "part" | "ref"
@@ -281,7 +282,8 @@ def build_sidebar(active_md: str) -> str:
 
     # Hub link at top
     items.append(f'    <div class="sidebar-hub"><a href="{HUB}">&larr; All Books</a></div>')
-    items.append(f'    <div class="sidebar-brand"><a href="index.html">{SITE_TITLE}</a>'
+    draft_tag = ' <span style="font-size:11px;font-weight:400;color:var(--ink-muted)">(Draft)</span>' if DRAFT else ''
+    items.append(f'    <div class="sidebar-brand"><a href="index.html">{SITE_TITLE}{draft_tag}</a>'
                  f'<div class="sidebar-brand-sub">{SITE_SUB}</div></div>')
 
     # Map each section to its part-opener entry, so we can link the section header to it.
@@ -484,7 +486,7 @@ def generate_index():
 <div class="landing">
   <div class="landing-hero">
     <div class="landing-back"><a href="{HUB}">&larr; The Agentic AI Series</a></div>
-    <div class="landing-eyebrow">Book 3 in the series</div>
+    <div class="landing-eyebrow">Book 3 in the series{" &nbsp;&middot;&nbsp; Draft" if DRAFT else ""}</div>
     <h1 class="landing-title">{SITE_TITLE}</h1>
     <p class="landing-subtitle">{SITE_SUB}</p>
     <div class="landing-byline">By <a href="https://www.linkedin.com/in/yoram-friedman/" target="_blank" rel="noopener">Yoram Friedman</a></div>

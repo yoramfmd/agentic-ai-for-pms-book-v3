@@ -22,6 +22,7 @@ SITE_TITLE = "The Agentic AI Practitioner"
 SITE_SUB   = "Keeping the Judgment the Machine Cannot Hold"
 CANON      = "https://agenticaiproductmanagement.com/book6/"
 HUB        = "../index.html"
+DRAFT      = True   # adds "Draft" to landing eyebrow and sidebar brand title
 
 # Section assignment by H1 title. Keys are exact H1 strings.
 # Values: (sidebar-label, section-key, display-num)
@@ -267,7 +268,8 @@ def _is_part_opener(entry):
 def build_sidebar(active_fname: str, ordered_entries):
     items: list[str] = []
     items.append(f'    <div class="sidebar-hub"><a href="{HUB}">&larr; All Books</a></div>')
-    items.append(f'    <div class="sidebar-brand"><a href="index.html">{SITE_TITLE}</a>'
+    draft_tag = ' <span style="font-size:11px;font-weight:400;color:var(--ink-muted)">(Draft)</span>' if DRAFT else ''
+    items.append(f'    <div class="sidebar-brand"><a href="index.html">{SITE_TITLE}{draft_tag}</a>'
                  f'<div class="sidebar-brand-sub">{SITE_SUB}</div></div>')
 
     # Map each section to its part-opener entry (if any), so we can link the section header to it.
@@ -466,7 +468,7 @@ def generate_index(entries):
 <div class="landing">
   <div class="landing-hero">
     <div class="landing-back"><a href="{HUB}">&larr; The Agentic AI Series</a></div>
-    <div class="landing-eyebrow">Book 4 in the series</div>
+    <div class="landing-eyebrow">Book 4 in the series{" &nbsp;&middot;&nbsp; Draft" if DRAFT else ""}</div>
     <h1 class="landing-title">{SITE_TITLE}</h1>
     <p class="landing-subtitle">{SITE_SUB}</p>
     <div class="landing-byline">By <a href="https://www.linkedin.com/in/yoram-friedman/" target="_blank" rel="noopener">Yoram Friedman</a></div>
