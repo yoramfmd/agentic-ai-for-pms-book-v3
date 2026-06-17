@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 5: Vibe Coding for Value: Prototyping to Decide &mdash; Why Agentic AI Products Fail</title>
+<meta name="description" content="You can now build a working full-stack prototype in a weekend without writing code. Describe what you want to one of the app builders and it returns a deployed ">
+<link rel="canonical" href="https://agenticaiproductmanagement.com/book4/ch05-vibe-coding.html">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .sidebar-hub { margin-bottom: var(--space-4); padding-bottom: var(--space-3);
+    border-bottom: 1px solid var(--rule); font-size: 12px; font-family: var(--sans); }
+  .sidebar-hub a { color: var(--ink-muted); text-decoration: none; }
+  .sidebar-hub a:hover { color: var(--blue-deep); }
+</style>
+</head>
+<body>
+<div class="book">
+  <aside class="sidebar">
+    <div class="sidebar-hub"><a href="../index.html">&larr; All Books</a></div>
+    <div class="sidebar-brand"><a href="index.html">Why Agentic AI Products Fail</a><div class="sidebar-brand-sub">Building Channel 1 and the Supervisory Layer That Governs It</div></div>
+    <div class="sidebar-section">Front Matter</div>
+    <ul class="sidebar-list">
+      <li><a href="preface.html">Preface: The Job Did Not Shrink. It Shifted.</a></li>
+      <li><a href="field-snapshot.html">How the Job Actually Changed: A Field Snapshot</a></li>
+      <li><a href="two-channels.html">The Two Channels</a></li>
+    </ul>
+    <div class="sidebar-section">Part I · Decide</div>
+    <ul class="sidebar-list">
+      <li><a href="ch01-ai-literacy.html">1. What You Need to Know About AI</a></li>
+      <li><a href="ch02-not-a-bridge.html">2. You Are Not a Bridge Anymore</a></li>
+      <li><a href="ch03-not-every-problem.html">3. Not Every Problem Deserves an Agent</a></li>
+    </ul>
+    <div class="sidebar-section">Part II · Prototype & Collaborate</div>
+    <ul class="sidebar-list">
+      <li><a href="ch04-how-work-splits.html">4. How the Work Splits</a></li>
+      <li><a href="ch05-vibe-coding.html" class="active">5. Vibe Coding for Value: Prototyping to Decide</a></li>
+      <li><a href="ch06-collaborator.html">6. The PM as Collaborator</a></li>
+    </ul>
+    <div class="sidebar-section">Part III · Design</div>
+    <ul class="sidebar-list">
+      <li><a href="ch07-design-behavior.html">7. You Built the Agent. Now Design the Behavior</a></li>
+      <li><a href="ch08-two-hitl.html">8. Two Kinds of Human-in-the-Loop</a></li>
+      <li><a href="ch09-evals.html">9. Evals: What the Checkmarks Prove</a></li>
+    </ul>
+    <div class="sidebar-section">Part IV · Operate</div>
+    <ul class="sidebar-list">
+      <li><a href="ch10-guardrails.html">10. Operational Guardrails</a></li>
+      <li><a href="ch11-observation.html">11. You Can’t Measure What You Didn’t Design</a></li>
+      <li><a href="ch12-record-complete.html">12. The Record Is Complete. The Picture Is Wrong.</a></li>
+      <li><a href="ch13-silent-degradation.html">13. Silent Degradation</a></li>
+      <li><a href="ch14-audit-trails.html">14. Audit Trails That Survive the Agent</a></li>
+    </ul>
+    <div class="sidebar-section">Part V · The Human System</div>
+    <ul class="sidebar-list">
+      <li><a href="ch15-deference.html">15. Deference: The Problem After Capability</a></li>
+      <li><a href="ch16-change-management.html">16. Change Management: From Actor to Supervisor</a></li>
+      <li><a href="ch17-hitl-fails.html">17. Why Human-in-the-Loop Fails</a></li>
+      <li><a href="ch18-skill-erosion.html">18. Skill Erosion: Deskilling, Never-Skilling, Cognitive Surrender</a></li>
+      <li><a href="ch19-team-member.html">19. The Agent Is a Team Member Nobody Hired</a></li>
+    </ul>
+    <div class="sidebar-section">Part VI · Carry the Weight</div>
+    <ul class="sidebar-list">
+      <li><a href="ch20-people-never-seen.html">20. What You Owe the People Your Agent Never Sees</a></li>
+      <li><a href="ch21-governance.html">21. Agent Behavior Governance</a></li>
+      <li><a href="ch22-day-in-life.html">22. A Day in the Life of the Agentic PM</a></li>
+    </ul>
+    <div class="sidebar-section">Back Matter</div>
+    <ul class="sidebar-list">
+      <li><a href="agent-note.html">The Agent This Book Was Written With</a></li>
+      <li><a href="appendix-a.html">Appendix A: The Two Briefs, Worked</a></li>
+      <li><a href="appendix-b.html">Appendix B: The Field Manual</a></li>
+      <li><a href="glossary.html">Glossary</a></li>
+      <li><a href="references.html">References and Sources</a></li>
+    </ul>
+  </aside>
+  <div class="main">
+    <div class="chapter">
+      <div class="chapter-meta">Part II · Prototype & Collaborate &nbsp;&middot;&nbsp; Chapter 5</div>
+            <h1>Chapter 5: Vibe Coding for Value: Prototyping to Decide</h1>
+    <blockquote><p><em>A functional prototype built in a day is the new spec, but only as a learning instrument, never as a demo and never as a product. Vibe coding is for validating value and de-risking a bet. The whole discipline is knowing exactly where the working demo lies to you.</em></p></blockquote>
+    <p>You can now build a working full-stack prototype in a weekend without writing code. Describe what you want to one of the app builders and it returns a deployed application: a frontend, a backend, a database, a login screen, all of it apparently functional. This is real, not aspirational; it is the 2026 baseline. For a PM it is one of the most useful capabilities that has ever existed, and one of the most dangerous, and the danger is the exact thing that makes it useful. The speed that lets you validate a bet in a day is the same speed that produces something that looks finished and is not.</p>
+    <p>This chapter is about using that capability for what it is good for and refusing to use it for what it is not. The good is large. The trap is specific, documented, and has a name.</p>
+    <h3 id="why-a-prototype-beats-a-doc-now">Why a prototype beats a doc now</h3>
+    <p>The PRD was always a proxy. You wrote down what the product should do because building it to find out was too expensive, so a document stood in for the thing, and everyone argued about the document. The argument was never really about the document; it was about a product nobody could see yet. The spec was the cheapest available way to externalize a guess.</p>
+    <p>When building the real thing drops to an afternoon, the proxy loses its reason to exist. You no longer have to argue about a description of the product when you can put a working version of it in front of the person whose reaction you actually need. A prototype answers in an hour what a spec review debates for a week, because it replaces opinion about a hypothetical with a reaction to a thing. This is the sense in which the prototype is the new spec: not that it ships, but that it is now the cheapest way to externalize and test a product guess, which is what the spec was for all along.</p>
+    <p>That only holds if you treat the prototype as a <em>learning instrument</em> and not a demo. A prototype&rsquo;s job is to invalidate your riskiest assumption as fast as possible, before you commit real money. The discovery practitioners have a discipline for this, the opportunity solution tree, which is just a way of naming which assumption you are actually testing: is the risk that people do not want this (desirability), that they will not switch to it (adoption), or that it will not work at scale (feasibility)? A prototype is the right test only for the first two. If you build a vibe-coded prototype before naming the riskiest assumption it is meant to attack, you are not doing discovery. You are doing demo theater with better production values.</p>
+    <h3 id="what-vibe-coding-is-actually-good-for">What vibe coding is actually good for</h3>
+    <p>Used as a learning instrument, the prototype does three things a document cannot.</p>
+    <p>It shows instead of telling. A stakeholder who would nod through a PRD section and then ask for the opposite thing at launch cannot misunderstand a screen they are clicking. The prototype collapses the translation loss between what you meant and what they pictured.</p>
+    <p>It de-risks a bet before the bet is expensive. The whole point of building fast is to fail fast, on the assumption that would have sunk the project anyway, while the cost of being wrong is an afternoon rather than a quarter.</p>
+    <p>And it tests a job to be done against reality rather than against a persona slide. Put the prototype in front of someone who has the problem and watch where they get confused, where they stop, where they reach for something it does not do. That is data a spec review cannot produce, because the spec review is populated by people imagining the user instead of being one.</p>
+    <p>None of this requires the prototype to be good code. It requires it to be good enough to provoke a real reaction. That is a low bar, and the vibe-coding tools clear it easily, which is exactly why the next section matters.</p>
+    <h3 id="where-the-working-demo-lies-to-you">Where the working demo lies to you</h3>
+    <p>Here is the trap, and it is not a soft warning. A vibe-coded app generates code that works under the conditions you happened to test. It does not generate code that is secure, scalable, or maintainable under the conditions you did not test or imagine. The demo is honest about the happy path and silent about everything else, and the silence reads as success.</p>
+    <p>The numbers are not subtle. Across multiple independent 2025-2026 studies, between forty and sixty-five percent of AI-generated code contains security vulnerabilities. One audit found AI-generated code produced nearly three times the security issues per change as human-written code. More than nine in ten vibe-coded apps audited in early 2026 had at least one hallucination-related flaw. A separate finding: roughly a fifth of the software packages AI tools recommend do not exist, and attackers have started pre-registering the predictable fake names with malicious code, waiting for vibe-coded apps to install them. The tool that built your prototype in an afternoon will, with high probability, have built something an attacker can walk into.</p>
+    <div class="callout">
+      <div class="callout-title">The house of cards. Lovable is the largest of the vibe-coding platforms, and the most documented. An audit of one of its featured education apps, a few hours of a security researcher&rsquo;s time, found sixteen vulnerabilities, six of them critical. The most severe was authentication logic that ran backwards: it blocked logged-in users and let anonymous ones in. The app worked. The demo would have been flawless. And it exposed 18,697 user records, thousands of them student accounts with minors among them. When the researcher reported it, the platform closed the ticket without responding.</div>
+      <p>The point is not that this one platform is bad. The same class of failure has been found across every platform in the category, because it is structural: these tools generate code that passes the test the builder ran, and the builder did not run the test that mattered.</p>
+    </div>
+    <p>This is the MVP house of cards from chapter three, in its newest form. The claim is direct: a vibe-coded app is an MVP, the smallest thing that runs and demos, and we are now producing MVPs faster than ever and stacking them the same way we always did. The mechanism has not changed. Only the speed has, and speed is exactly what removed the friction that used to slow the stacking down. When an MVP took six weeks, the cost of building one bought you a little time to ask whether you should. When it takes an afternoon, that pause disappears, and the cards go up faster than anyone can count them.</p>
+    <p>Someone will object that a vibe-coded app is not really an MVP, that it is less, because a hand-built MVP had a person who understood every line and chose the scope on purpose, while a vibe-coded app has no one who knows what is inside it. That objection is correct, and it makes the problem worse, not better. A traditional MVP was a thin card, but a <em>read</em> one; its author knew where it was load-bearing and where it was not. A vibe-coded card is just as thin and <em>unread</em>, generated by something that cannot tell secure from insecure, only plausible from implausible. So the newest form of the house of cards is not merely faster. Each layer rests on the assumption that the layer beneath it is sound, and now no human has checked whether it is. The structure stands until the first condition no one tested arrives, and then it does not fall gracefully.</p>
+    <h3 id="what-you-build-and-what-you-must-not-ship">What you build and what you must not ship</h3>
+    <p>So the line is bright, and it is the line the whole chapter turns on. You build the prototype to <em>decide</em>. You do not ship it to <em>users</em>. A working demo is not enterprise-ready, secure, scalable, maintainable software, and the gap between the two is precisely the skill of the engineering team, which is the subject of the next chapter. The PM who confuses the prototype for the product has not saved the build cost. They have moved it downstream to the worst possible moment, the production incident, and attached your name to it.</p>
+    <p>This is also where the preface&rsquo;s promise comes due: vibe coding does not turn the PM into a builder. It turns the PM into someone who can <em>test a bet cheaply</em>, which is a different and more valuable thing. The prototype is yours to make and yours to learn from. Turning it into something a real user can safely touch is work you hand to people who do it for a living, with the prototype as the richest spec you have ever handed them, one they can run, click, and interrogate rather than read and reinterpret.</p>
+    <p>The handoff is the payoff. A prototype carried to engineering is worth more than any document because it resolves the ambiguity a document preserves: this is what I mean, here is the flow, here is the thing the user reacted to. But it carries one obligation. You hand over the <em>learning</em>, what the prototype proved and disproved, not the code, which was never built to survive. The instinct to &ldquo;just productionize the prototype to save time&rdquo; is the instinct that builds the house of cards on purpose.</p>
+    <p>A closing question for your own roadmap. Take the bet you are least sure of. What is the single question a one-day prototype would answer, and what result would actually kill the idea? If you cannot name the killing result, you are not planning to learn from the prototype. You are planning to fall in love with it.</p>
+  <div class="chapter-nav"><a class="prev" href="ch04-how-work-splits.html">How the Work Splits</a><a class="next" href="ch06-collaborator.html">The PM as Collaborator</a></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

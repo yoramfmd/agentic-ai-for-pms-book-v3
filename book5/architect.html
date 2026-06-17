@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Whose Job Is It That the Whole Thing Holds? &mdash; The Agentic Team</title>
+<meta name="description" content="There was always one person on the project who was not on the team. In the rooms I worked in she was called the solution architect, and she did not sit in the s">
+<link rel="canonical" href="https://agenticaiproductmanagement.com/book5/architect.html">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .sidebar-hub { margin-bottom: var(--space-4); padding-bottom: var(--space-3);
+    border-bottom: 1px solid var(--rule); font-size: 12px; font-family: var(--sans); }
+  .sidebar-hub a { color: var(--ink-muted); text-decoration: none; }
+  .sidebar-hub a:hover { color: var(--blue-deep); }
+  .sidebar-section a { color: inherit; text-decoration: none; }
+  .sidebar-section a:hover { color: var(--blue-deep); }
+  .sidebar-section-active a { color: var(--ink); }
+</style>
+</head>
+<body>
+<div class="book">
+  <aside class="sidebar">
+    <div class="sidebar-hub"><a href="../index.html">&larr; All Books</a></div>
+    <div class="sidebar-brand"><a href="index.html">The Agentic Team</a><div class="sidebar-brand-sub">How Agentic AI Reshapes the Roles That Build It</div></div>
+    <div class="sidebar-section">Part I · Foundations</div>
+    <ul class="sidebar-list">
+      <li><a href="what-youre-building.html">1. What You Are Actually Building</a></li>
+      <li><a href="deciding-what-to-build.html">2. Deciding What to Build, and Whether To</a></li>
+      <li><a href="the-triad-premise.html">3. The Team Was Built for a Different Product</a></li>
+    </ul>
+    <div class="sidebar-section"><a href="OPENER.html">Part II · The Work Reshapes</a></div>
+    <ul class="sidebar-list">
+      <li><a href="ux.html">4. Is There Still a UX?</a></li>
+      <li><a href="dev.html">5. Who Wrote This Code, and Who Answers for It?</a></li>
+      <li><a href="scrum.html">6. Is There Still a Scrum?</a></li>
+      <li><a href="architect.html" class="active">7. Whose Job Is It That the Whole Thing Holds?</a></li>
+      <li><a href="pm.html">8. What’s Left for the PM?</a></li>
+    </ul>
+    <div class="sidebar-section">Part III · Failures</div>
+    <ul class="sidebar-list">
+      <li><a href="silent-degradation.html">9. The Failure No One Is Watching</a></li>
+      <li><a href="the-calendar-the-agent-could-not-see.html">10. The Calendar the Agent Could Not See</a></li>
+      <li><a href="the-boundary-and-the-wall.html">11. The Boundary and the Wall</a></li>
+      <li><a href="the-green-checkmark.html">12. The Green Checkmark Nobody Owned</a></li>
+      <li><a href="who-watches-who-stops.html">13. Who Watches It, and Who Can Stop It</a></li>
+      <li><a href="built-before-enforced-at-the-moment.html">14. Built Before, Authorized at the Moment</a></li>
+      <li><a href="the-people-the-agent-erodes.html">15. The People the Agent Is Eroding</a></li>
+    </ul>
+    <div class="sidebar-section">Part IV · The Collaboration Model</div>
+    <ul class="sidebar-list">
+      <li><a href="the-grid.html">16. The Model Is Old. The Column Is New.</a></li>
+      <li><a href="filling-the-grid.html">17. Filling the Grid</a></li>
+      <li><a href="what-flows-between-the-cells.html">18. What Flows Between the Cells</a></li>
+    </ul>
+    <div class="sidebar-section">Part V · The Org Model</div>
+    <ul class="sidebar-list">
+      <li><a href="grow-the-box.html">19. Start With the Box You Already Have</a></li>
+      <li><a href="the-team-member-nobody-hired.html">20. The Team Member Nobody Hired</a></li>
+      <li><a href="staffing-by-stage.html">21. Who Sits in the New Seats</a></li>
+    </ul>
+    <div class="sidebar-section">Part VI · Agents Building Agents</div>
+    <ul class="sidebar-list">
+      <li><a href="the-team-member-who-hires.html">22. The Team Member Who Hires</a></li>
+      <li><a href="who-watches-the-watchers.html">23. When the Watchers Are Agents Too</a></li>
+      <li><a href="governing-the-fleet.html">24. Governing What You Cannot Watch</a></li>
+    </ul>
+    <div class="sidebar-section">Part VII · Carry the Weight</div>
+    <ul class="sidebar-list">
+      <li><a href="the-constitution.html">25. The Agent’s Constitution</a></li>
+      <li><a href="carry-the-weight.html">26. Carry the Weight</a></li>
+    </ul>
+    <div class="sidebar-section">Reference</div>
+    <ul class="sidebar-list">
+      <li><a href="references.html">References and Sources</a></li>
+    </ul>
+  </aside>
+  <div class="main">
+    <div class="chapter">
+      <div class="chapter-meta">Part II · The Work Reshapes &nbsp;&middot;&nbsp; Chapter 7</div>
+            <h1>Whose Job Is It That the Whole Thing Holds?</h1>
+    <p>There was always one person on the project who was not on the team. In the rooms I worked in she was called the solution architect, and she did not sit in the standup, did not own a backlog, did not ship a feature. She showed up earlier than that, at the point where someone proposed building a thing, and her job was to say whether it could be built here. Not whether it could be built in the abstract, anyone can build anything in the abstract, but whether it could be built into this system, the one already running, with its latency budget and its data model and its compliance obligations and its particular ways of falling over, without breaking the guarantees the running system already made to the people who depended on it. She approved requirements for feasibility. If she said no, the feature did not happen, however much the product manager wanted it. She was the person responsible for the whole thing continuing to hold.</p>
+    <p>She is the most interesting role in this section, because she is the one the agent should have erased and did not. Everyone can recite the story by now: AI can build anything, so feasibility is solved, so the person whose job was to judge feasibility has nothing left to judge. It is a clean story and it is wrong, and being precise about why it is wrong is the most useful thing this chapter can do, because the same error is being made about the architect that was almost made about every other role in this book.</p>
+    <h2 id="two-feasibilities-and-the-agent-only-killed-one">Two feasibilities, and the agent only killed one</h2>
+    <p>The word feasibility was always carrying two different questions, and the confusion between them is the whole misunderstanding.</p>
+    <p>The first is implementation feasibility. Can this be coded, in what language, with what libraries, in how many weeks. For most of software&rsquo;s history this was a real and expensive question, and a large part of what the architect did was answer it: knowing that the thing the product manager wanted would take two engineers four months, or that the database they were on could not do what the feature required, or that the integration did not exist yet. The agent really did kill this question, or close to it. The cost of producing code collapsed; the stack is increasingly a detail the agent handles; the four-month estimate became an afternoon. If implementation feasibility were the whole of the architect&rsquo;s job, the story would be right and this would be a short chapter.</p>
+    <p>The second is fit feasibility, and it is a different question wearing the same word. Not can it be built, but will it fit and survive. Does this feature, built, hold inside the existing system without breaking its latency guarantees. Does it respect the data model or quietly corrupt it. Does it stay inside the security boundaries and the regulatory rules. Does it scale, or fall over at the load the business is about to put on it. When it fails, and everything fails, how far does the failure spread before something stops it. That question was never about whether the code could be written. It was about whether the system as a whole would still be a system afterward. And that question did not get easier when the agent arrived. It got harder, and more urgent, for a reason that is the spine of this whole book: the agent generates locally correct code at high speed and slams it into the running system, and nothing in that loop is asking the fit question. The thing that used to ask it, slowly, before the build, was the architect.</p>
+    <p>The evidence that this is real and not a defense of a threatened profession is unusually direct, because the research caught the agent failing at exactly this seam. Study after study in 2026 found the same split: agentic coding tools hit high functional correctness, the code does what the prompt said, while producing design and architectural defects at volume, the code does not fit the system it landed in. One analysis of a leading AI coding tool on real projects found ninety percent-plus functional correctness alongside more than a thousand design issues per project. Another, with the title this chapter could have borrowed, &ldquo;Architecture Without Architects,&rdquo; found that the agents are now making architectural decisions silently, by prompt, with no review, a small change in the instruction quietly tripling the structure of the system. The function is fine. The fit is unowned. The agent is very good at the first feasibility and blind to the second, and the second is the one the whole system depends on.</p>
+    <h2 id="the-fast-machine-and-the-slow-check">The fast machine and the slow check</h2>
+    <p>It helps to name what kind of thing the agent is, because it explains the blindness exactly.</p>
+    <p>The agent is a fast, fluent, pattern-matched, confident producer of output. Handed a task, it does not pause to ask whether the thing it is about to do is safe at the level of the whole system; it produces the plausible answer at speed and moves on. There is a useful analogy from how people think. Psychologists describe a fast system that answers immediately and automatically, pattern over deliberation, and a slow system that interrupts the fast one to check, to reason through consequences, to ask whether the confident first answer actually holds. The agent is all fast system. It has no slow one of its own, and it will not grow one by being told to be careful, because carefulness is not a quality you can prompt into a system whose nature is to answer fast.</p>
+    <p>The architect is the slow system of the engineering organization. Her entire function is to be the deliberate check that interrupts the fast confident output and asks the questions the producer does not stop to ask: does this fit, what breaks, how far does it spread, can we undo it. This is not a metaphor for effect; it is the literal division of labor. And it tells you what an agentic team without an architect is. It is a fast system with no slow one attached, an organization that produces confident output at machine speed with nothing deliberate standing between the output and the running system. That is the same danger this book has named at every level, speed with the brake removed, stated one more way: the brake was always a slow, deliberate check on a fast, confident producer, and the architect was where that check lived.</p>
+    <h2 id="the-job-at-two-scales-which-are-the-same-scale">The job at two scales, which are the same scale</h2>
+    <p>The architect&rsquo;s responsibility runs across a range that looks like two different jobs and is one. At the top of the range is everything people mean by enterprise readiness: does the system survive a region going down, is there a disaster-recovery path that has actually been tested, does it degrade gracefully or catastrophically under load, can it be audited, does it meet the regulatory bar for the industry it operates in. These are the large questions about whether the whole thing holds, and they were always architect questions, and the agentic shift made them more pressing because there is now far more code, changing far faster, touching all of it.</p>
+    <p>At the bottom of the range are the decisions that look small and are not, and one of them is the cleanest illustration in this chapter of what the architect does, so it is worth slowing down on.</p>
+    <p>An agentic product needs access control. The agent, in the course of its work, can reach data, and it must not reach data outside the boundary it is allowed, the tenant, the user, the classification. There are two ways to enforce that, and choosing between them is an architectural decision that no agent will make for itself.</p>
+    <p>The first way is to tell the agent: put the rule in the prompt, the system instructions, the guidance file, do not access records outside the current tenant. The second is to make the boundary unreachable, a façade between the agent&rsquo;s runtime and the data that physically refuses any request outside the allowed scope, so the forbidden records are not exposed to the agent at all. Both satisfy the words of the requirement. Only the second survives an agent that decides, on the run where the inputs line up wrong, that the rule does not apply this time. The later part of this book takes that distinction apart in full, because it is where agentic products break and where the ownership of safety actually splits. What matters here is narrower and is about the architect&rsquo;s craft: the two options are indistinguishable in the requirement and indistinguishable in the code the agent writes, and the entire difference between a system that asks the agent to be safe and a system in which the agent cannot be unsafe lives in one architectural decision about where the enforcement sits.</p>
+    <p>That decision is invisible to everyone else on the team. The product manager specified that data must be protected; the agent will dutifully implement either version. The choice between them is a deliberate, slow, consequence-reasoning act, the slow system asking the question the fast one skipped, and it is the same act as the disaster-recovery plan performed on a smaller object. The whole holding together is made of thousands of these, and that this one also turns out to decide whether the product is safe is the subject of a later chapter; here it is simply the clearest small picture of what the architect does that no one watches.</p>
+    <h2 id="where-she-sits-now">Where she sits now</h2>
+    <p>So the architect did not lose her job to the agent. Her job lost its cheap half and kept its expensive one, which is the move this entire section has been describing, performed on the one role that was always almost pure judgment to begin with. That is why she belongs here, and why she is in some ways the clearest case in the book. The product manager, the designer, the engineer each had a craft with a large production component, the document, the screen, the code, that made it look like the production was the job. The architect barely had a production component to lose. Her work was always the judgment about whether the whole thing would hold. The agent stripped the small amount of building she did and left her with the part that was always the real job, and made that part scarcer and more consequential at the same time, because now the system changes faster than any human can watch.</p>
+    <p>This is why, in practice, the architect belongs at the go/no-go and not after it. The decision brief that carries a product to its gate asks whether the agent&rsquo;s tool use can be bounded and what the architecture will cost to run once it is re-entering the model dozens or hundreds of times per task, and those are fit questions, not business ones, which means the suitability call the room makes at the gate is partly hers to make. A team that decides to build and then brings the architect in to figure out how has inverted the order: the fit judgment that should have gated the bet arrives after the bet is placed, which is how a product clears its go/no-go on a cost model that the architecture cannot honor. Her gate sits at the front of the two passes, on the decision, and then again all the way through the second pass, on the boundary the executable brief encodes and the ADR enforces.</p>
+    <p>The named version of this is already visible in how the most serious practitioners describe the new work. The architect is moving, in their words, from builder to auditor, from writing the system to governing how the system gets written; from code-level hygiene to system-level boundaries, the boundaries the agent is not allowed to cross. There is a newer construct, harness engineering, for the discipline of building the apparatus that constrains the agent, the guardrails and feedback loops and the façade in the access-control example, rather than building the feature. None of these are the architect disappearing. They are the architect&rsquo;s gate moving from before the build, where it used to sit when building was slow, into the running system, where the decisions now have to be enforced because the building no longer pauses to let her approve anything.</p>
+    <p>This is also where the architect connects to the larger structure this book keeps returning to. The team that builds the agent and the team that supervises the running system are different functions, and the supervision function is the one organizations reliably forget to staff. The architect is where that supervisory judgment lives for the system as a whole. She is not on the team that ships; she is the standing answer to the question of whether what ships will hold, and whether the thing already running survives what ships next. An organization that has a product manager deciding what to build, designers and engineers building it, agents accelerating all of them, and no one whose explicit job is the integrity of the whole, is not a lean organization. It is an organization that has removed its slow system and will discover what that costs at the worst possible moment, which is the only moment a missing architect ever announces itself.</p>
+    <h2 id="the-honest-open-question">The honest open question</h2>
+    <p>I will not pretend the role&rsquo;s future is settled, because it is not. The title is under pressure; many organizations are folding the architect into a staff or principal engineering role, or into the platform team, rather than keeping the name. That is real, and it does not undercut the argument, because the argument was never about the title. It is about the function. Wherever the fit judgment lives, in a person called an architect or a person called a principal engineer or a small group who own the platform, the judgment itself is what got more valuable, and the open question is not whether it survives but who, by name, owns it on a given team. On most teams today the answer is the same uncomfortable answer as everywhere else in this book: no one in particular, which means it is done late, or partially, or by whoever is holding the outage.</p>
+    <p>And there is a real unknown underneath, the one worth ending on rather than resolving. Some of the fit judgment can be encoded, expressed as architecture-as-code, fitness functions, the physical façades, so that the system checks its own integrity instead of relying on a human to catch each violation. How much can be encoded this way, and how much is irreducibly a human reasoning about consequences in a specific context that no rule anticipated, is not known yet. The optimistic bet is that the architect&rsquo;s judgment increasingly hardens into harnesses the agent runs against. The honest position is that we do not yet know where the line sits between the judgment you can encode and the judgment you cannot, and until we do, the slow system has to be a person, because the one thing we have established is that the fast system will not check itself.</p>
+  <div class="chapter-nav"><a class="prev" href="scrum.html">Is There Still a Scrum?</a><a class="next" href="pm.html">What’s Left for the PM?</a></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

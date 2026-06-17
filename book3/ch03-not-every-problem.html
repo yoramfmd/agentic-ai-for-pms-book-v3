@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 3. Not Every Problem Deserves an Agent &mdash; Agentic AI for Busy Product Managers</title>
+<meta name="description" content="The most expensive agentic AI mistake you can make is not an engineering failure. The model worked. The integration held. The agent did what it was designe">
+<link rel="canonical" href="https://agenticaiproductmanagement.com/ch03-not-every-problem.html">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .sidebar-hub { margin-bottom: var(--space-4); padding-bottom: var(--space-3);
+    border-bottom: 1px solid var(--rule); font-size: 12px; font-family: var(--sans); }
+  .sidebar-hub a { color: var(--ink-muted); text-decoration: none; }
+  .sidebar-hub a:hover { color: var(--blue-deep); }
+</style>
+</head>
+<body>
+
+<div class="book">
+
+  <aside class="sidebar">
+    <div class="sidebar-hub"><a href="../index.html">&larr; All Books</a></div>
+      <div class="sidebar-brand">
+      <a href="index.html">Agentic AI for Busy Product Managers</a>
+      <div class="sidebar-brand-sub">Designing the Agent and the Supervisor</div>
+    </div>
+    <div class="sidebar-section">Front matter</div>
+    <ul class="sidebar-list">
+      <li><a href="ch00-preface.html">Preface</a></li>
+    </ul>
+    <div class="sidebar-section">Tools</div>
+    <ul class="sidebar-list">
+      <li><a href="cost-calculator.html">Agent Cost Calculator</a></li>
+      <li><a href="downloads.html">Templates &amp; Checklists</a></li>
+    </ul>
+    <div class="sidebar-section">Chapters</div>
+    <ul class="sidebar-list">
+      <li><a href="ch01-ai-literacy.html">1. What You Need to Know</a></li>
+      <li><a href="ch02-not-a-bridge.html">2. You Are Not a Bridge Anymore</a></li>
+      <li><a href="ch03-not-every-problem.html" class="active">3. Not Every Problem Deserves an Agent</a>
+      <ul class="sidebar-sub">
+        <li><a href="#two-questions-before-the-first-line-of-code">Two Questions Before the First Line of Code</a></li>
+        <li><a href="#the-four-suitability-tests">The Four Suitability Tests</a></li>
+        <li><a href="#three-places-agents-fail-by-design">Three Places Agents Fail by Design</a></li>
+        <li><a href="#the-cost-model-most-pms-never-build">The Cost Model Most PMs Never Build</a></li>
+        <li><a href="#the-right-comparison">The Right Comparison</a></li>
+        <li><a href="#when-the-objective-function-is-wrong">When the Objective Function Is Wrong</a></li>
+        <li><a href="#earned-vs-scheduled-autonomy">Earned vs. Scheduled Autonomy</a></li>
+        <li><a href="#before-you-commit">Before You Commit</a></li>
+      </ul></li>
+      <li><a href="ch04-two-briefs.html">4. The Two Briefs</a></li>
+      <li><a href="ch05-design-behavior.html">5. Now Design the Behavior</a></li>
+      <li><a href="ch06-evals.html">6. AI Evals</a></li>
+      <li><a href="ch07-observation.html">7. You Can&#x27;t Measure What You Didn&#x27;t Design</a></li>
+      <li><a href="ch08-change-management.html">8. Change Management</a></li>
+      <li><a href="ch09-silent-degradation.html">9. Silent Degradation</a></li>
+      <li><a href="ch10-frameworks-to-boundaries.html">10. From Frameworks to Boundaries</a></li>
+      <li><a href="ch11-people-never-seen.html">11. People Your Agent Will Never See</a></li>
+      <li><a href="ch12-personnel-infrastructure.html">12. The Personnel Infrastructure</a></li>
+      <li><a href="ch13-field-manual.html">13. Operating the Loop</a></li>
+    </ul>
+    <div class="sidebar-section">Reference</div>
+    <ul class="sidebar-list">
+      <li><a href="appendix-a-platform.html">Appendix A. Platform Taxonomy</a></li>
+      <li><a href="appendix-b-glossary.html">Appendix B. Glossary</a></li>
+      <li><a href="appendix-c-frameworks.html">Appendix C. The Frameworks</a></li>
+      <li><a href="references.html">References</a></li>
+    </ul>
+  </aside>
+
+  <main class="main">
+  <article class="chapter">
+
+    <p class="chapter-meta">Chapter 3 &middot; Pre-build</p>
+    <h1>Not Every Problem Deserves an Agent</h1>
+    <p class="chapter-stage"><em>Stage: pre-build</em></p>
+    <p>The most expensive agentic AI mistake you can make is not an engineering failure. The model worked. The integration held. The agent did what it was designed to do. The problem was the problem itself.</p>
+    <p>The use case was never a good fit, and the team discovered this after six months of development, a production deployment, and an invoice that was difficult to explain to finance.</p>
+    <p>If you have spent the past decade in vertical deterministic SaaS, this is exactly where your experience can hurt you. You have a well-honed instinct to look at any repetitive workflow and imagine how software could take it over. You know how to translate &ldquo;our people are drowning in manual steps&rdquo; into a backlog. In deterministic systems, that instinct is mostly a strength. With agents, it can send you straight into the wrong class of problem.</p>
+    <p>This chapter is the candidacy assessment that keeps you out of it. The book&rsquo;s PM operating loop runs through four states, pre-build, pre-launch, post-launch, and the governance layer that cuts across all three, and each chapter carries a stage tag to anchor you in it.</p>
+    <hr class="soft">
+    <h2 id="two-questions-before-the-first-line-of-code">Two Questions Before the First Line of Code</h2>
+    <p>Every agentic project should start with two questions you were never required to answer in deterministic SaaS.</p>
+    <p>Is this problem structurally suited for an agent at all? If it is, at what task volume and error cost does an agent beat the best non-agent alternative?</p>
+    <p>The first half of this chapter is a suitability assessment. The second half is the cost model most PMs never build. The third is a note on what makes movement up the autonomy ladder a real engineering question rather than a calendar event.</p>
+    <hr class="soft">
+    <h2 id="the-four-suitability-tests">The Four Suitability Tests</h2>
+    <p>A problem is well suited for an agent when four conditions hold. If any one fails, the problem is not ready. The work is scoping, not building.</p>
+    <p><strong>The decision repeats at volume.</strong> An agent creates value by handling many instances of the same decision type across time. A one-time strategic call, however complex, does not benefit from agency. Test question: how many times per day or week does this decision get made in the organization today?</p>
+    <p><strong>The outcome is measurable.</strong> If you cannot define what a correct decision looks like, you cannot evaluate the agent, detect when it drifts, or calibrate user trust over time. Outcomes that depend on stakeholder politics, relationship history, or unstated organizational preferences are not measurable in the sense an agent requires. Test question: can you score a sample of past decisions as right or wrong without significant disagreement among the people who made them?</p>
+    <p><strong>The tool use is bounded.</strong> Agents with broad system access will eventually touch something unintended. The value of an agent scales with the precision of its tool boundaries, not the breadth of its permissions. Test question: can you enumerate every system the agent needs to access to complete the task, and nothing beyond?</p>
+    <p><strong>The consequences are recoverable.</strong> Wrong decisions happen at a predictable rate. The suitability question is whether the cost of a wrong decision, at the rate this agent will produce them, is one the organization can absorb without structural damage. Test question: what does the worst-case failure look like, and what does recovery cost?</p>
+    <div class="callout">
+      <div class="callout-label">Concept</div>
+      <div class="callout-title">The Four Suitability Tests</div>
+      <p>Before committing to build an agent, four conditions must hold. (1) Volume: the decision repeats at meaningful scale. (2) Measurability: you can score past decisions as right or wrong without disagreement. (3) Bounded tools: you can enumerate every system the agent needs, and nothing beyond. (4) Recoverable consequences: the worst-case failure at the expected error rate is survivable.</p>
+      <p>If any one fails, you are not ready to build. You are ready to keep scoping. This is the clinical candidacy assessment applied to product decisions: the procedure may be excellent, but is this patient the right candidate?</p>
+    </div>
+    <p>If you cannot answer these four with concrete examples and numbers, you are not ready to build an agent. You are ready to do more scoping.</p>
+    <hr class="soft">
+    <h2 id="three-places-agents-fail-by-design">Three Places Agents Fail by Design</h2>
+    <p>The evidence from real deployments converges on a consistent pattern. Agents succeed at tactical decisions: high-volume, bounded, measurable, with feedback loops that allow calibration. Recommendation ranking, document routing, alert triage, scheduling optimization, data extraction. They fail in three specific places, and those failures are not execution problems. They are problem-type problems.</p>
+    <p><strong>Strategic decisions.</strong> Goals requiring judgment about what to optimize for, weighing competing values the organization has not reconciled, or choosing between paths whose consequences will only be legible in retrospect. These decisions do not have a ground truth the agent can learn from, because there is not a single right answer. Teams that automate them get confident output, applied consistently, on a decision whose consistency was never the goal.</p>
+    <p><strong>Private-knowledge decisions.</strong> The most underappreciated failure dimension. An agent cannot replicate the judgment of a person who knows the relationship history, the political constraints, or the unwritten rules that govern a given decision. Sales outreach to a specific account, executive communications, strategic vendor negotiations, performance conversations: all fall into this category. Teams that automate these workflows are not saving time. They are trading human judgment for machine confidence on exactly the decisions where confidence without judgment is the core failure mode.</p>
+    <p><strong>Asymmetric-consequence decisions.</strong> Decisions where being wrong costs meaningfully more than being right saves. Regulatory filings, customer trust events at a high-value account, medical triage in a small minority of cases that dominate the outcome distribution. Expected-value math that looks favorable in aggregate can be ruinous when the tail is fat. A ninety-eight percent success rate at this class of decision is still two outcomes a hundred that the organization cannot afford.</p>
+    <hr class="soft">
+    <h2 id="the-cost-model-most-pms-never-build">The Cost Model Most PMs Never Build</h2>
+    <p>Here is the question that separates teams that deploy agents successfully from teams that quietly decommission them a few months later. At what task volume does this agent break even against the best available alternative, and is that volume realistic within the planning horizon?</p>
+    <p>Most agentic business cases are built on capability assumptions. The agent can do this task. It can scale. What they omit is the cost structure, which is fundamentally different from every other technology investment you have evaluated in deterministic SaaS. A significant share of early agentic AI projects are being abandoned due to escalating costs and unclear business value. These are not execution failures. They are cost models that were never built.</p>
+    <p>Three cost patterns appear consistently when teams look backward at the numbers. The floor price is the minimum cost that exists whether the agent handles two tasks a day or two thousand; most business cases model on optimistic volume and almost none model what the system costs when volume comes in at half of projection, because the compounding expenses sit behind the vendor quote: orchestration, human oversight, and the maintenance triggered by model updates every three to six months. The field manual in Chapter 13 turns this into a candidacy checklist, but the practitioner correction to carry now is simple: whatever number is in the initial business case, multiply it by 1.5 before presenting it to finance.</p>
+    <p><em>The per-task operational cost.</em> In many service workflows, a fully loaded human interaction costs a few dollars. An agent handling similar interactions can land well below that, when it completes the task end-to-end without human review. The unit economics collapse the moment significant human review is required on every output. Most organizations still require human validation of agent outputs. Human oversight does not disappear because you deployed an agent. It gets restructured into a recurring labor cost that must appear in the model.</p>
+    <p><em>The cost trajectory.</em> One additional person costs one salary. An agent&rsquo;s variable cost scales with usage: ten times the volume will drive a meaningfully higher bill, even if caching, batching, and small-model routing keep it from being literally ten times. Multi-agent orchestration can add coordination overhead that makes the curve steeper, with agents handing context back and forth, re-establishing state, and resolving disagreements. The crossover point where the agent is cheaper per task than the alternative exists at a specific volume and complexity threshold. That threshold must be modeled before the team commits.</p>
+    <h3 id="what-the-token-bill-actually-measures">What the Token Bill Actually Measures</h3>
+    <p>Every agentic cost discussion eventually lands on the word tokens, but few business cases explain what that means in practice.</p>
+    <p>A token is roughly three-quarters of a word. The model charges for every token it reads and every token it produces. Reading is cheap. Thinking and writing is expensive. Output tokens cost three to five times more than input tokens because the model generates them sequentially, one at a time, while input can be processed in parallel. This asymmetry is the first thing most cost models get wrong by omission.</p>
+    <p>The second is complexity. Standard models produce a visible response and stop. Reasoning models, and standard models configured for extended thinking, generate an internal chain of thought before producing any visible output. Those internal reasoning tokens are billed at full output rates even though the user never sees them. A billing dispute that requires the agent to work through contract terms, transaction history, and policy exceptions can generate thousands of invisible reasoning tokens before a single word of the response appears. The quality improvement is real. So is the cost multiplier. Switching from a standard model to a reasoning model for complex tasks is not a free upgrade. It is a deliberate cost decision.</p>
+    <p>The third driver is context accumulation. Retrieval-augmented generation (RAG) is the pattern where an agent retrieves relevant documents and injects their content into the conversation before responding. Those document tokens are billed as input tokens on every call in the session. If a refund agent retrieves a ten-page returns policy at the start of a conversation and the conversation runs eight turns, that document is billed eight times. Context caching can reduce this significantly for static documents, but it requires deliberate architecture and most initial deployments do not use it. RAG is not free retrieval. It is paid context injection, and the bill compounds with every additional turn.</p>
+    <p>The fourth driver is one almost no customer service cost model includes: multimodal inputs. Images processed by vision-capable models are priced differently from text, often equivalent to several hundred to several thousand text tokens depending on resolution. A scanned invoice is processed as an image, not as text. A customer who uploads a photo of a damaged product, a PDF warranty document, and a handwritten note in a single support interaction has already consumed an order of magnitude more input tokens than a purely text interaction, before the agent has reasoned or responded at all. CSR deployments that model cost on text conversations and then encounter real customer behavior, which increasingly involves attachments, face a cost structure that was never in the business case.</p>
+    <p>A fifth driver compounds all of these: retry behavior. When an agent fails a step and retries, the failed attempt stays in the context stream, accumulating additional tokens before settling on an answer. A refund agent that encounters all of these simultaneously, a reasoning model handling a complex dispute across a ten-turn conversation, with retrieved policy documents, customer-uploaded attachments, and retries on a failed tool call, is operating at a cost per interaction that bears no resemblance to the average the business case modeled.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Cost Layer</th>
+          <th>Typical Range</th>
+          <th>Driver</th>
+          <th>PM Implication</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Floor cost, year one</td>
+          <td>$175K to $450K for enterprise deployments; evaluation and monitoring alone $60K to $120K</td>
+          <td>Orchestration, monitoring, security review, maintenance, model update cycles every 3 to 6 months</td>
+          <td>Floor exists whether volume hits projection or half of projection. Model both.</td>
+        </tr>
+        <tr>
+          <td>TCO underestimate</td>
+          <td>40 to 60 percent below actual</td>
+          <td>Teams anchor on vendor quote and miss compounding expenses</td>
+          <td>Multiply the initial business case by 1.5 before presenting to finance</td>
+        </tr>
+        <tr>
+          <td>Multi-agent coordination</td>
+          <td>~37% of total tokens spent on coordination</td>
+          <td>Agents re-establishing context, handing off state, resolving disagreement</td>
+          <td>Adding agents does not divide the work; it multiplies the token bill</td>
+        </tr>
+        <tr>
+          <td>Multi-agent token multiplier</td>
+          <td>~3.5x tokens for a four-agent system vs. single-agent for the same outcome</td>
+          <td>Coordination plus retry behavior</td>
+          <td>Multi-agent architecture is a cost decision, not just a design decision</td>
+        </tr>
+        <tr>
+          <td>Agentic vs. single-shot, same task</td>
+          <td>10x to 50x more tokens per customer service case</td>
+          <td>Multi-step planning, tool calls, retries</td>
+          <td>Unit economics only hold if the agent closes the case end-to-end</td>
+        </tr>
+        <tr>
+          <td>Traditional automation vs. agent, routing</td>
+          <td>$0.001 per task vs. $0.10 to $0.20 per task</td>
+          <td>Deterministic logic has no inference cost</td>
+          <td>For routing, agents are 100 to 200x more expensive per task</td>
+        </tr>
+        <tr>
+          <td>Traditional automation vs. agent, scheduling</td>
+          <td>$0.01 per task vs. $0.60 to $1.20 per task</td>
+          <td>Same pattern, slightly more complex logic</td>
+          <td>The cost differential for routine work is structural, not marginal</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="table-caption">Table 3.1. Published cost benchmarks for enterprise agentic deployments.</p>
+    <p>A concrete frame for the break-even question. Deploying an enterprise agentic workflow in a single HR function often lands in the $450,000 to $650,000 first-year range in real deployments. To achieve a twelve-month return on investment, the organization needs to displace the work of six to ten full-time employees through efficiency gains. That is not an argument against building. It is an argument for knowing the number before the project starts, and for choosing the function where that displacement is achievable and measurable. The teams that model this before building find the right use cases. The teams that discover it on the invoice have a different conversation.</p>
+    <h3 id="brownfield-vs-greenfield-the-floor-price-inversion">Brownfield vs. Greenfield: The Floor-Price Inversion</h3>
+    <p>The conventional cost diagram, agentic AI starts with a higher floor price and wins at sufficient volume through lower marginal cost, is wrong as a universal claim. The floor-price comparison inverts for a large fraction of enterprise deployments. The most important variable is whether the enterprise already holds the underlying platform license.</p>
+    <p>Consider the 2025 to 2026 pricing of the platforms most enterprise PMs are working inside. SAP Joule Base is included in all SAP cloud subscriptions at no additional cost. Salesforce Agentforce Foundations gives Enterprise+ customers two hundred thousand free Flex Credits. ServiceNow folded AI capabilities into base product licenses in April 2026. Microsoft Copilot Studio is included with M365 Copilot for internal agents at no additional charge. For enterprises already running these platforms, which is most large enterprises, the incremental floor price of the agentic layer can be lower than adding a new RPA deployment. The conventional diagram is approximately correct only for greenfield deployments with no existing AI-capable platform license.</p>
+    <p>The pricing war caveat is worth naming. Current enterprise AI pricing is partially artificially suppressed. Vendors are absorbing AI costs to defend existing seat revenue and block competitive displacement during the consolidation phase. SAP CEO Christian Klein stated in March 2025 that SAP is shifting from per-user to AI-consumption pricing, because as agents replace human users, per-seat revenue collapses. When consolidation pressure forces vendors to recover their GPU and inference infrastructure investment, the floor price picture changes. Business cases built on current bundled pricing should include a repricing stress test. If the agent&rsquo;s economics depend on bundled pricing that the vendor is currently absorbing, you have not modeled the cost. You have modeled the promotion.</p>
+    <h3 id="the-token-pricing-reference">The Token Pricing Reference</h3>
+    <p>One reference table belongs in this section, because the token-pricing asymmetry between input and output tokens is the single most consequential number most cost models omit.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Model</th>
+          <th>Input per 1M tokens</th>
+          <th>Output per 1M tokens</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>GPT-4o</td>
+          <td>$2.50</td>
+          <td>$10.00</td>
+        </tr>
+        <tr>
+          <td>GPT-4o-mini</td>
+          <td>$0.15</td>
+          <td>$0.60</td>
+        </tr>
+        <tr>
+          <td>Claude Sonnet 4.6</td>
+          <td>$3.00</td>
+          <td>$15.00</td>
+        </tr>
+        <tr>
+          <td>Claude Haiku</td>
+          <td>$0.25</td>
+          <td>$1.25</td>
+        </tr>
+        <tr>
+          <td>Llama 3.1 70B (self-hosted)</td>
+          <td>~$0.40</td>
+          <td>~$0.40</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="table-caption">Table 3.2. Token pricing across major models, illustrative as of April 2026; provider prices change often, so verify at the provider&rsquo;s pricing page before you build a business case on these numbers. Output tokens run roughly 3 to 5 times the price of input tokens (and more on some models) because output is generated sequentially while input is processed in parallel; self-hosted models do not carry this asymmetry.</p>
+    <p>Cost per task scales with complexity, not just volume. Simple tasks, email classification, FAQ, single-step output, run between two-tenths of a cent and four cents per task. Moderate tasks, customer support with two or three steps and tool use, run nine to twenty-six cents per task at mid-tier models. Complex tasks, dispute resolution with five or more steps and multiple tool calls, run fifty cents to two dollars or more per task. The complexity tax is the line where most agentic business cases break. A multi-step dispute resolution at one to two dollars per task can exceed the cost of a fully loaded outsourced human handle cost.</p>
+    <h3 id="outcome-based-pricing-changes-the-risk-structure">Outcome-Based Pricing Changes the Risk Structure</h3>
+    <p>One emerging pattern is worth knowing about, because it collapses the floor-price-versus-marginal-cost tradeoff the conventional diagram assumes. Several vendors have moved to outcome-based pricing. Intercom Fin charges ninety-nine cents per resolved conversation, with no charge for failures. Zendesk charges one dollar fifty per automated resolution. Salesforce Agentforce charges two dollars per conversation, regardless of resolution, or alternatively Flex Credits at ten cents per action.</p>
+    <p>Outcome-based pricing means the enterprise pays only for demonstrated value. When the agent fails the resolution, the vendor absorbs the cost. This is structurally different from per-token pricing in a way that matters for the suitability conversation. If outcome pricing is available for the workflow you are scoping, the cost model question becomes simpler: at what resolution rate does this vendor stay profitable, and how does that align with what the workflow can accept? If outcome pricing is not available, you are holding the failure cost yourself. That is its own cost line.</p>
+    <h3 id="production-outcome-quality-not-just-cost">Production Outcome Quality, Not Just Cost</h3>
+    <p>One last set of numbers, because cost is one column of the comparison and outcome quality is the other. Recent customer service production benchmarks, drawn from 2026 industry data on AI-handled tickets versus human-handled tickets versus hybrid deployments, look like this.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Metric</th>
+          <th>AI agent</th>
+          <th>Human agent</th>
+          <th>Hybrid (22% escalation)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Resolution time</td>
+          <td>1.9 min</td>
+          <td>11.4 min</td>
+          <td>Mixed</td>
+        </tr>
+        <tr>
+          <td>Cost per resolution</td>
+          <td>$0.62</td>
+          <td>$7.40</td>
+          <td>$2.10</td>
+        </tr>
+        <tr>
+          <td>CSAT</td>
+          <td>4.1 / 5.0</td>
+          <td>4.3 / 5.0</td>
+          <td>4.25 / 5.0</td>
+        </tr>
+        <tr>
+          <td>Re-contact rate (72h)</td>
+          <td>11.3%</td>
+          <td>8.7%</td>
+          <td>n/a</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="table-caption">Table 3.3. Customer service production benchmarks, 2026. The re-contact rate is the hidden cost most CSAT-driven cost models miss.</p>
+    <p>The re-contact rate is the line that matters and that the cost-per-resolution figure does not capture. AI-resolved tickets are thirty percent more likely to generate a follow-up contact within seventy-two hours. That follow-up is itself an interaction with a cost, and the customer experience of having to come back is the kind of thing that does not show up in average handle time and does show up in customer lifetime value six months later. A cost model that compares dollar-sixty-two AI to dollar-seven-forty human and stops there is comparing the wrong columns.</p>
+    <hr class="soft">
+    <h2 id="the-right-comparison">The Right Comparison</h2>
+    <p>The correct comparison is not agent versus doing nothing. It is agent versus the current best alternative, which is often a human with better deterministic tooling, a traditional automation or RPA flow (RPA, robotic process automation, which scripts the user interface steps of existing systems), or a simpler AI integration (classification, extraction, summarization) without action.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Option</th>
+          <th>Unit cost</th>
+          <th>Setup cost</th>
+          <th>Governance</th>
+          <th>Best fit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Human with better tooling</td>
+          <td>High per task</td>
+          <td>Low</td>
+          <td>Embedded in the org</td>
+          <td>Low volume, high judgment, ambiguous inputs</td>
+        </tr>
+        <tr>
+          <td>Traditional automation or RPA</td>
+          <td>Very low</td>
+          <td>Moderate</td>
+          <td>Minimal</td>
+          <td>Deterministic, rule-based, stable interfaces</td>
+        </tr>
+        <tr>
+          <td>Constrained AI (classification, extraction, summarization)</td>
+          <td>Low</td>
+          <td>Low to moderate</td>
+          <td>Moderate</td>
+          <td>Narrow, well-bounded tasks with a human consumer</td>
+        </tr>
+        <tr>
+          <td>Full agent</td>
+          <td>Variable, often high once oversight is priced in</td>
+          <td>High</td>
+          <td>Substantial and ongoing</td>
+          <td>High volume where judgment can be bounded and consequences are recoverable</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="table-caption">Table 3.4. Alternatives to an agent, by workflow.</p>
+    <p>For many workflows, the right answer is not an agent. Consider a pattern that has appeared repeatedly in customer-service pilots. A team launches with a vision of an end-to-end agent that handles support cases across channels, calls tools, and closes tickets without human involvement. During the pilot, three cost drivers appear that were not in the original model: multi-step planning, retries, and tool calls drive an order of magnitude more compute per task than a single-shot model; orchestration overhead accumulates through approval gates, audit trails, and monitoring; and integrating the agent with legacy ticketing systems turns the quick win into a multi-year process redesign. When the team runs the head-to-head comparison, the fully agentic path carries a higher cost per resolved ticket with no measurable improvement in resolution rate. Leadership cancels the full-agent initiative and standardizes on a constrained assistant plus RPA pattern that should have been the baseline comparison from the start.</p>
+    <p>Traditional automation handles deterministic, rule-based processes at very low per-task cost with no inference overhead. If the task can be solved with scripted logic or RPA, an agent is usually the wrong tool. The cost differential is not marginal. It is structural.</p>
+    <p>RPA economics are worth knowing because the comparison the agent has to win is not against doing nothing but against a mature alternative with thirty years of operational learning behind it. Licensing is roughly 25 to 30 percent of total RPA cost, while implementation and maintenance is 70 to 75 percent. Implementation-to-license ratio runs 3:1 to 4:1. A representative three-year RPA TCO sits near 1.4 million euros against 250,000 euros in software licenses. Annual ongoing maintenance is 40 percent or more of initial implementation cost. And 30 to 50 percent of RPA projects fail before scaling to production. The point is not that RPA is bad. The point is that the comparison agentic AI has to beat is not the demo. It is RPA at full operational maturity, which has a cost structure most agentic business cases do not bother to model.</p>
+    <p>Agentic implementation runs $40,000 to $200,000 depending on orchestration complexity, before adding the observability and governance stack: guardrails, monitoring, eval pipeline, somewhere between $50,000 and $200,000 in build cost plus ongoing operational overhead. The observability stack has no RPA equivalent. It is a permanent operational cost unique to probabilistic systems. Gartner&rsquo;s prediction that 40 percent or more of agentic AI projects will be canceled by 2027 is grounded in this layer specifically: the cost of observation infrastructure, accumulating across years, against business cases that did not budget for it.</p>
+    <p>Under MVP culture, governance, observation, context engineering, and supervisory design tend to be deferred in favor of shipping the happy path. Each deferral is small in isolation. Stacked, they become the load-bearing weakness of the product. Agentic systems are particularly vulnerable because the deferred work is exactly the work the probabilistic behavior requires. A deterministic MVP can afford to defer monitoring for a sprint. An agentic MVP cannot. When the house of cards collapses, it collapses in production, under load, at the moment a confident wrong answer has been applied at scale. Build the supervisory half in from the first sprint, or do not call it an MVP.</p>
+    <hr class="soft">
+    <h2 id="when-the-objective-function-is-wrong">When the Objective Function Is Wrong</h2>
+    <p>There is a failure mode that does not show up in the suitability tests or the cost model until it is too late: optimizing for the wrong thing.</p>
+    <p>Klarna, the Swedish fintech company that lets consumers split purchases into installments, deployed an AI assistant in customer service that handled the workload of roughly seven hundred agents. Cost per interaction dropped by roughly forty percent. On the metrics they chose, volume handled, average handle time, cost per interaction, the project looked like a clear win.</p>
+    <p>Over time, a pattern emerged. In the complex, emotionally loaded cases that determined whether high-value customers stayed or left, the assistant was quietly underperforming. It made choices that preserved short-term efficiency at the expense of long-term trust. By mid-2025, Klarna had deliberately shifted work back to human agents for those interactions. CEO Siemiatkowski was direct about the lesson: cost was too predominant an evaluation factor, and the result was lower quality.</p>
+    <p>Klarna did not misjudge AI&rsquo;s capability. It misjudged the total cost of quality degradation in edge cases and the irreversibility of bad customer interactions in the moments that mattered most. All four suitability tests had looked favorable. The fourth condition, recoverability, was harder to meet than the model assumed, at a cost that did not appear in the original dashboard. The pattern is one you will see repeatedly in the field. The agent technically did what it was asked to do, and the surrounding environment did not reward the behavior required for long-term value. Recoverability is the blind spot. Volume, measurability, and bounded tools sit on the surface of the business case. Recoverability lives in the tail of the distribution, where the metrics the team chose do not look. The system worked. The evaluation framework did not.</p>
+    <p>There is a Channel 2 dimension to the Klarna case that the original cost-model conversation rarely surfaces. Chapter 1 named it. The supervisor population the agent reshapes is often the population you would need to detect the failure mode you were not measuring. By the time Klarna&rsquo;s twelve months of agent operation had filtered the case mix the human supervisors saw, the supervisors who would have caught the silent quality degradation in high-stakes cases had been calibrating against a sample the agent had already pre-filtered. The cases the agent handled invisibly badly did not appear in the escalation queue. The supervisor could not calibrate against them, because the agent had filtered them out. Recoverability is harder to model than the four suitability tests imply, and the supervision paradox is part of why.</p>
+    <p>Suitability and cost can both be green while the thing you are optimizing for quietly destroys value at the edges, and while the population that would otherwise have noticed has been gradually retrained to look elsewhere.</p>
+    <p>One reconstruction of the Klarna numbers is worth carrying with you. The original February 2024 press release claimed forty million dollars in profit improvement from the AI assistant, framed in coverage as savings against existing agents. The figure was technically an estimate of cost avoidance from not hiring additional agents to handle growth volume, not savings from firing existing agents. Klarna&rsquo;s headcount reduction was attributed primarily to attrition and hiring restraint. That nuance was absent from most of the coverage, including coverage that PMs were citing in their own business cases six months later.</p>
+    <p>What was also absent from the original forty-million-dollar claim was the cost line for AI API and infrastructure operational cost. The cost of observability, monitoring, and eval infrastructure. The customer satisfaction degradation on complex cases. The customer retention impact. The escalation premium, the higher cost of human resolution after AI has already failed and the customer is frustrated. The compliance risk and redesign cost. The rehiring and retraining cost. The institutional knowledge loss. None of those were in the press release. All of them showed up in production.</p>
+    <p>The reconstructed verdict is more honest than either the press release or the walkback alone. The forty-million-dollar claim holds as directionally correct against a counterfactual in which Klarna would have hired additional agents at prevailing fully loaded cost. The claim is substantially overstated against a hybrid deployment, AI for tier-one simple queries, humans for complex and emotional cases, where production data shows hybrid models close the CSAT gap to nearly nothing while maintaining most of the cost reduction. Klarna optimized for full automation when the evidence supports a hybrid deployment point as the value-maximizing outcome. The cost model that selects the correct deployment point is not the same cost model that maximizes cost reduction. Most business cases do not yet distinguish between them.</p>
+    <hr class="soft">
+    <h2 id="earned-vs-scheduled-autonomy">Earned vs. Scheduled Autonomy</h2>
+    <p>One note before the chapter closes. Chapter 2 introduced the autonomy ladder as an earned, not scheduled, climb. Most of the agentic deployments running in production today have scheduled their autonomy, substituting review counts and calendar events for demonstrated competence in the failure modes that actually matter. That is a governance gap, not a governance model. Earned vs. Scheduled Autonomy gets full treatment in Chapter 5, where the runtime artifacts (autonomy boundary, approval moment, audit surface, recovery workflow) make it implementable. The Chapter 3 point is only this: pre-build, you decide whether the problem is suitable. Pre-launch, you decide whether the agent has earned its starting rung. Post-launch, you decide whether it has earned the next one. Three decisions, one discipline.</p>
+    <hr class="soft">
+    <h2 id="before-you-commit">Before You Commit</h2>
+    <p>Healthcare is where AI is being stress-tested under the most demanding conditions: highest stakes, most rigorous evaluation requirements, least tolerance for confident wrong answers. Clinical practice does not deploy a procedure just because it works in general. It begins with a candidacy assessment: indication, contraindication, risk-benefit ratio at the patient level. The procedure may be excellent. The question is whether this patient, at this moment, is the right candidate.</p>
+    <p>The same logic applies to agentic AI. The four suitability conditions are the candidacy assessment at the problem level. If any cannot be answered with confidence, the problem is not ready for an agent. If all four hold, one cost question remains: at what task volume does this agent break even against the current best alternative, and will you realistically reach that volume within twelve months?</p>
+    <p>If neither question has a clear number, you are not ready to build. You are ready to do more scoping.</p>
+    <p>An agent deployed into the wrong problem does not just fail to create value. It creates a specific kind of damage: automated confidence applied at scale to decisions that required judgment. That is harder to recover from than a project that was never started.</p>
+    <p>Suitability and cost are both probabilistic questions. You are not predicting whether the agent will work. You are predicting the shape of the distribution of outcomes, and whether the organization can absorb the tail. Most cost models also miss Channel 2 entirely. The supervisory interface, the training time, the incident response, the governance overhead: all of it is cost, and none of it is in the vendor quote. If those costs are not in your model, your model is not finished. It is a demo with a launch date in a different disguise.</p>
+    <h3 id="the-two-questions-checklist">The Two Questions Checklist</h3>
+    <p>Bring these to your team before any build decision.</p>
+    <p><strong>Suitability:</strong></p>
+    <ul>
+      <li>Does the decision repeat at meaningful volume? (State the number.)</li>
+      <li>Can you score a sample of past decisions as right or wrong without significant disagreement?</li>
+      <li>Can you enumerate every system the agent needs to access, and nothing beyond?</li>
+      <li>What does the worst-case failure look like, and what does recovery cost? Can the organization absorb it at the expected error rate?</li>
+    </ul>
+    <p><strong>Cost:</strong></p>
+    <ul>
+      <li>What is the floor price, whether volume hits projection or half of projection?</li>
+      <li>What is the per-task cost when human review is required on every output, not just the happy path?</li>
+      <li>At what volume does the agent beat the best non-agent alternative? Will you reach that volume within twelve months?</li>
+      <li>Have you run the 1.5x correction on the initial business case before presenting to finance?</li>
+      <li>Have you modeled a repricing stress test if you are relying on bundled platform pricing?</li>
+    </ul>
+    <h3 id="the-five-conditions-for-agentic-wins">The Five Conditions for Agentic Wins</h3>
+    <p>One classification framework, drawn from the patterns visible across enterprise deployments in 2025 and 2026, is worth memorizing as a final filter before the build decision. Agentic AI wins, on combined cost and outcome, when all five of these conditions hold simultaneously.</p>
+    <p>The enterprise already holds the underlying platform license, so the agentic floor price is incremental rather than greenfield. The tasks involve natural language, judgment, or unstructured input, not purely deterministic logic. The failure consequences are recoverable and detectable within the same session, not deferred and silent. The organization has supervision capacity, including an eval pipeline, an observability stack, and a defined human escalation path. And the outcome is measurable at resolution level, not just task completion level (the procurement-agent failure mode from Chapter 7 is precisely the case where task completion looks green and resolution did not happen).</p>
+    <p>If any one of those five fails, the agent is not the right answer for this problem at this moment. Traditional automation, RPA, or constrained AI without action wins instead, and the cost differential is not marginal. It is structural. A team that builds an agent into a problem that fails any of the five is not making a borderline call. They are making a category error.</p>
+    <p>Three artifacts to carry forward. They are the raw material of the next chapter, where the suitability decision and the cost model become the Human Brief, and from there the design that follows. The four suitability tests as the pre-build candidacy assessment. The cost model with its five token-bill drivers, its brownfield-versus-greenfield floor-price inversion, and its 1.5x correction. And the earned-versus-scheduled autonomy distinction, which the briefs in Chapter 4 record and the runtime design artifacts in Chapter 5 are built to support.</p>
+    <div class="callout callout-pocket">
+      <ul>
+        <li>A problem is ready for an agent only when all <strong>four suitability tests</strong> pass: volume, measurability, bounded tools, recoverable consequences. One failure means more scoping, not a build.</li>
+        <li><strong>Recoverable consequences</strong> is the blind spot. The first three sit on the surface of the business case; recoverability lives in the tail, where the chosen metrics do not look.</li>
+        <li>Compare the agent against the <strong>best non-agent alternative</strong>, not against doing nothing. Often the right answer is traditional automation, constrained AI, or a human with better tooling.</li>
+        <li>Multiply the initial business case by <strong>1.5x</strong> before you show finance. The compounding costs, orchestration, oversight, model-update maintenance, are absent from most quotes.</li>
+        <li>Multi-agent is a <strong>cost decision</strong>, not just a design one. A four-agent system can run roughly 3.5 times the tokens of a single-agent system for the same outcome.</li>
+      </ul>
+    </div>
+
+    <nav class="chapter-nav">
+      <a class="prev" href="ch02-not-a-bridge.html">You Are Not a Bridge Anymore</a>
+      <a class="next" href="ch04-two-briefs.html">The Two Briefs</a>
+    </nav>
+
+  </article>
+  </main>
+</div>
+
+</body>
+</html>

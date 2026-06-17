@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Green Checkmark Nobody Owned &mdash; The Agentic Team</title>
+<meta name="description" content="Picture a health system rolling out a care-coordination agent that has passed every offline evaluation the vendor ran and every test the integration team wrote.">
+<link rel="canonical" href="https://agenticaiproductmanagement.com/book5/the-green-checkmark.html">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .sidebar-hub { margin-bottom: var(--space-4); padding-bottom: var(--space-3);
+    border-bottom: 1px solid var(--rule); font-size: 12px; font-family: var(--sans); }
+  .sidebar-hub a { color: var(--ink-muted); text-decoration: none; }
+  .sidebar-hub a:hover { color: var(--blue-deep); }
+  .sidebar-section a { color: inherit; text-decoration: none; }
+  .sidebar-section a:hover { color: var(--blue-deep); }
+  .sidebar-section-active a { color: var(--ink); }
+</style>
+</head>
+<body>
+<div class="book">
+  <aside class="sidebar">
+    <div class="sidebar-hub"><a href="../index.html">&larr; All Books</a></div>
+    <div class="sidebar-brand"><a href="index.html">The Agentic Team</a><div class="sidebar-brand-sub">How Agentic AI Reshapes the Roles That Build It</div></div>
+    <div class="sidebar-section">Part I · Foundations</div>
+    <ul class="sidebar-list">
+      <li><a href="what-youre-building.html">1. What You Are Actually Building</a></li>
+      <li><a href="deciding-what-to-build.html">2. Deciding What to Build, and Whether To</a></li>
+      <li><a href="the-triad-premise.html">3. The Team Was Built for a Different Product</a></li>
+    </ul>
+    <div class="sidebar-section"><a href="OPENER.html">Part II · The Work Reshapes</a></div>
+    <ul class="sidebar-list">
+      <li><a href="ux.html">4. Is There Still a UX?</a></li>
+      <li><a href="dev.html">5. Who Wrote This Code, and Who Answers for It?</a></li>
+      <li><a href="scrum.html">6. Is There Still a Scrum?</a></li>
+      <li><a href="architect.html">7. Whose Job Is It That the Whole Thing Holds?</a></li>
+      <li><a href="pm.html">8. What’s Left for the PM?</a></li>
+    </ul>
+    <div class="sidebar-section">Part III · Failures</div>
+    <ul class="sidebar-list">
+      <li><a href="silent-degradation.html">9. The Failure No One Is Watching</a></li>
+      <li><a href="the-calendar-the-agent-could-not-see.html">10. The Calendar the Agent Could Not See</a></li>
+      <li><a href="the-boundary-and-the-wall.html">11. The Boundary and the Wall</a></li>
+      <li><a href="the-green-checkmark.html" class="active">12. The Green Checkmark Nobody Owned</a></li>
+      <li><a href="who-watches-who-stops.html">13. Who Watches It, and Who Can Stop It</a></li>
+      <li><a href="built-before-enforced-at-the-moment.html">14. Built Before, Authorized at the Moment</a></li>
+      <li><a href="the-people-the-agent-erodes.html">15. The People the Agent Is Eroding</a></li>
+    </ul>
+    <div class="sidebar-section">Part IV · The Collaboration Model</div>
+    <ul class="sidebar-list">
+      <li><a href="the-grid.html">16. The Model Is Old. The Column Is New.</a></li>
+      <li><a href="filling-the-grid.html">17. Filling the Grid</a></li>
+      <li><a href="what-flows-between-the-cells.html">18. What Flows Between the Cells</a></li>
+    </ul>
+    <div class="sidebar-section">Part V · The Org Model</div>
+    <ul class="sidebar-list">
+      <li><a href="grow-the-box.html">19. Start With the Box You Already Have</a></li>
+      <li><a href="the-team-member-nobody-hired.html">20. The Team Member Nobody Hired</a></li>
+      <li><a href="staffing-by-stage.html">21. Who Sits in the New Seats</a></li>
+    </ul>
+    <div class="sidebar-section">Part VI · Agents Building Agents</div>
+    <ul class="sidebar-list">
+      <li><a href="the-team-member-who-hires.html">22. The Team Member Who Hires</a></li>
+      <li><a href="who-watches-the-watchers.html">23. When the Watchers Are Agents Too</a></li>
+      <li><a href="governing-the-fleet.html">24. Governing What You Cannot Watch</a></li>
+    </ul>
+    <div class="sidebar-section">Part VII · Carry the Weight</div>
+    <ul class="sidebar-list">
+      <li><a href="the-constitution.html">25. The Agent’s Constitution</a></li>
+      <li><a href="carry-the-weight.html">26. Carry the Weight</a></li>
+    </ul>
+    <div class="sidebar-section">Reference</div>
+    <ul class="sidebar-list">
+      <li><a href="references.html">References and Sources</a></li>
+    </ul>
+  </aside>
+  <div class="main">
+    <div class="chapter">
+      <div class="chapter-meta">Part III · Failures &nbsp;&middot;&nbsp; Chapter 12</div>
+            <h1>The Green Checkmark Nobody Owned</h1>
+    <p>Picture a health system rolling out a care-coordination agent that has passed every offline evaluation the vendor ran and every test the integration team wrote. The checkmarks are all green. Ten weeks in, a cardiology fellow notices something the green checkmarks did not: the agent is sorting a class of heart-failure patients against a clinical guideline that the field revised three years earlier. The outputs are fluent, confident, formatted exactly like the examples the agent learned from, and reasoning from criteria that medicine has retired. The evaluation suite tested whether the agent&rsquo;s output matched the data it was trained on. It did. The training data was the old guideline. Everything the suite was built to check, it checked, and passed, and what it proved had quietly stopped being what anyone thought it proved.</p>
+    <p>This is a chapter about a single green checkmark and how many different people have to have done their jobs for it to mean what the release meeting assumes it means. The prior book in this series treated evaluation as a two-party arrangement, and stated it cleanly: engineering runs the evals, the product manager owns what success means. That division is correct as far as it goes, and this book keeps it. But the cardiology failure did not happen because engineering ran the evals badly or because the product manager defined success badly. Engineering ran exactly the evals it was given, and they passed. The product manager&rsquo;s definition of success, the agent stratifies patients correctly, was met by every measure the suite contained. The failure lived in a place neither of those two roles was looking, and the gap between them is a job, and on that team the job belonged to no one.</p>
+    <h2 id="what-the-green-checkmark-actually-certifies">What the green checkmark actually certifies</h2>
+    <p>Start with what an evaluation is, because the whole chapter depends on being precise about it. An eval checks whether the agent makes the decisions it was designed to make under conditions that resemble the real world. It runs against a <em>golden dataset</em>: a curated set of inputs paired with the outputs a team would accept, the edge cases it knows about, and the answers the agent must never give. The suite grades the agent against that dataset, and a green result means the agent&rsquo;s behavior matched the dataset&rsquo;s expectations.</p>
+    <p>Read that definition again and the first crack appears, because it contains an assumption nobody states: the green checkmark is only as good as the golden dataset, and the golden dataset is a human artifact that can be wrong, incomplete, or out of date. The cardiology agent passed because the golden dataset encoded the old guideline as the correct answer. The suite did not malfunction. It faithfully certified the agent against a reference that had expired, and faithfully reported green, because grading the agent against the dataset is exactly what it is built to do and the dataset is exactly what it was given. A green checkmark certifies that the agent matches the golden dataset. It certifies nothing about whether the golden dataset is right. And the question of whether the golden dataset is right is not an engineering question and not, by itself, a product-management question. It is a domain question, and it is the first of the seats the two-party model leaves empty.</p>
+    <p>There are deeper cracks inside the eval itself, and they matter because each one is a place a different person has to be paying attention. A green check on a non-deterministic agent is one sample, not a proof: run the same case again and the agent, drawing on varying retrieval and context, may answer differently, so the honest number is the pass rate across many runs and the shape of the worst slice, not a single check. End-to-end reliability compounds downward: ten steps each ninety-five percent reliable produce a system around sixty percent reliable, because the rates multiply rather than average, so a suite that tests each component in isolation has tested the components and not the system. And an agent can produce a perfectly correct-looking output on top of an action that never happened, the confirmation message for an update that no system ever received, so checking what the agent <em>said</em> and checking what actually <em>changed</em> are two different gates and a suite that runs only the first has half a gate. Each of these is real, and each of them is a discipline somebody has to own, and naming who is the work of this chapter.</p>
+    <h2 id="three-roles-where-the-prior-book-saw-two">Three roles where the prior book saw two</h2>
+    <p>Lay the failure modes next to the people and a third seat appears between the two the old model named, and a fourth standing just behind it.</p>
+    <p>Engineering still runs the evals, in the sense of building and operating the harness, the thing that executes the suite and reports the result. That has not changed and it is real work. But sitting between engineering and the product manager is a set of responsibilities that the two-party model quietly assigned to whoever happened to pick them up, and on most teams that meant no one held them on purpose. Who curates the golden dataset, and keeps it current as the world it encodes changes. Who decides the suite runs each case ten times and reports the worst tenth rather than the average. Who validates that the automated judge, the model scoring the other model at production volume, is calibrated against outputs humans have already labeled, because a judge has documented, systematic biases, toward longer answers, toward the answer shown first, toward its own model family, and an uncalibrated judge has a noise floor no one has measured. Who writes the coverage statement that says which scenarios were tested and, the line teams omit, which were knowingly left out. Who treats a vendor&rsquo;s silent model update as the deployment it is and re-runs the regression suite when the ground shifts. None of those is harness-building, and none of them is defining what success means at the product level. They are their own discipline, the discipline of making the green checkmark trustworthy, and that discipline is a role: the <em>eval owner</em>. The teams that have one have a person who can say not just that the suite passed but what the pass is worth. The teams that do not have one have a green checkmark that everyone trusts and no one stands behind.</p>
+    <p>And behind the eval owner stands the domain expert, owning the one thing neither engineering nor the eval owner nor the product manager can supply: whether the answer the golden dataset calls correct is actually correct in the world. The prior book drew this line precisely, structural correctness an eval can certify, domain correctness only an expert can, and then, writing from the product manager&rsquo;s seat, folded the consequence back onto the product manager anyway. But a product manager cannot know that a heart-failure guideline was revised three years ago. A cardiologist can, and only a cardiologist can, and the agent had been running for ten weeks against a retired standard precisely because the person who could see it was not in the loop that built or maintained the golden dataset. Domain correctness is not a thing the product manager owns and delegates. It is a thing the domain expert owns, and the team either built a seat for that ownership or discovered its absence the way this health system did, by luck, ten weeks late, when a fellow happened to read the output closely.</p>
+    <h2 id="the-seam-is-the-checkmark-itself">The seam is the checkmark itself</h2>
+    <p>So return to the green checkmark and watch how many hand-offs it silently depends on, because this is the shape of the failure and it is worth seeing whole.</p>
+    <p>The product manager defined success: the agent must stratify patients correctly. Correct, and not enough on its own, because &ldquo;correctly&rdquo; points at a standard the product manager cannot themselves verify. Engineering built the harness and ran the suite, faithfully, against the golden dataset it was handed. The golden dataset encoded a clinical guideline that someone, at some point, had captured as the correct answer, and that capture was never owned by anyone whose job was to keep it current, so it aged silently while everything around it stayed green. The domain expert who could have caught the expired guideline was consulted at the start, maybe, or maybe not, but was certainly not a standing owner of the dataset&rsquo;s correctness, because the two-party model had no seat for that ownership and so the responsibility evaporated into the gap between &ldquo;engineering runs it&rdquo; and &ldquo;the PM owns success.&rdquo; Every individual did their job. The checkmark went green. And the checkmark was a lie that no single person told, assembled out of a correct harness, a faithful suite, an expired dataset, and a missing owner, each of which was fine on its own.</p>
+    <p>That is the seam: one role produces a signal, other roles depend on it, and the failure lives in a hand-off no one believed was theirs. The product manager trusted the checkmark because engineering produced it. Engineering produced it faithfully because the dataset said so. The dataset said so because no one owned keeping it honest. The green checkmark is not a fact the team can read off a dashboard. It is the end of a chain of custody, and a chain of custody is only as strong as its weakest owned link, and the link nobody owns is the one that breaks. On a team that has closed this seam, a green eval is not done when the suite passes; it is done when the eval owner can state the pass rate and the judge&rsquo;s calibration and the coverage gaps, and the domain expert has signed that the golden dataset still reflects the world, and only then does the product manager read the green checkmark as meaning what the release meeting needs it to mean.</p>
+    <h2 id="four-hands-behind-one-checkmark">Four hands behind one checkmark</h2>
+    <p>It takes four people to make a green checkmark mean what the release meeting assumes it means, and a checkmark with any one of them missing certifies less than the room thinks while looking exactly as green.</p>
+    <p>Engineering owns the harness: building the eval infrastructure, running the suite, producing the number. The eval owner owns the trustworthiness of that number: the golden dataset&rsquo;s construction and upkeep, the pass-rate discipline rather than the single run, the judge&rsquo;s calibration against a human-labeled set with a threshold committed before the result is seen, the coverage statement including the deferred scenarios, and the treatment of every model update as a deployment that triggers a regression run. The domain expert owns correctness: whether the answers the golden dataset blesses are right in the world, and whether the standards it encodes are current, which is the one judgment no amount of eval engineering can manufacture and the one the cardiology case rested on. And the product manager owns the gate: what success means, what graceful failure looks like, which tradeoffs among cost and latency and reliability the product will accept, and the decision to ship or not, made on a green checkmark they now have reason to trust because three other people stand behind it.</p>
+    <p>There is one discipline that binds the four, and it is the eval owner&rsquo;s to drive: the green checkmark must come with its provenance, not just its color. A pass that arrives as a single green light is a pass with its chain of custody hidden, and a hidden chain of custody is where the expired guideline lives. A pass that arrives with its pass rate, its worst slice, its judge calibration, its coverage gaps, and a domain sign-off is a pass the product manager can actually gate on, because each link in the chain has a name attached. The difference between those two checkmarks is invisible in the release meeting, where both render as the same green. It becomes visible ten weeks later, in a cardiology ward, when someone reads the output closely enough to notice what the checkmark never checked.</p>
+    <p>Take the agent your team is closest to shipping and find the one eval number everyone in the room trusts. Then ask, of specific people and not the dashboard: who keeps the golden dataset current, who calibrated the judge, who signed that the answers it grades against are still correct in the world, and what it would look like for that number to be green while the decision underneath it is wrong. If the answer to any of those is that no one owns it, you have not found a gap in the test plan. You have found the cardiology ward, ten weeks early, while there is still time to put a name on the link that breaks. That question, and the others each chapter in this part leaves you with, are gathered into one instrument at the back of the book, the seam audit, to be run on one agent in one sitting.</p>
+  <div class="chapter-nav"><a class="prev" href="the-boundary-and-the-wall.html">The Boundary and the Wall</a><a class="next" href="who-watches-who-stops.html">Who Watches It, and Who Can Stop It</a></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

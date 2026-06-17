@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why Agentic AI Products Fail &mdash; Building Channel 1 and the Supervisory Layer That Governs It</title>
+<meta name="description" content="Every agentic product is two products: the agent that acts, and the supervisory layer that governs it. This book is about the supervisory layer &mdash; its four dimensions, its failure modes, and how to build it deliberately.">
+<link rel="canonical" href="https://agenticaiproductmanagement.com/book4/">
+<link rel="stylesheet" href="styles.css">
+<style>
+  body { font-family: var(--serif); }
+  .landing { max-width: 880px; margin: 0 auto; padding: var(--space-8) var(--space-6); }
+  .landing-hero { padding: var(--space-7) 0 var(--space-6); border-bottom: 1px solid var(--rule); margin-bottom: var(--space-7); }
+  .landing-eyebrow { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: var(--space-3); }
+  .landing-back { font-family: var(--sans); font-size: 13px; color: var(--ink-muted); margin-bottom: var(--space-4); }
+  .landing-back a { color: var(--blue-deep); text-decoration: none; }
+  .landing-back a:hover { text-decoration: underline; }
+  .landing-title { font-family: var(--serif); font-size: 44px; font-weight: 700; line-height: 1.1; color: var(--ink); margin-bottom: var(--space-3); }
+  .landing-subtitle { font-family: var(--serif); font-size: 22px; font-weight: 400; line-height: 1.3; color: var(--ink-soft); margin-bottom: var(--space-4); font-style: italic; }
+  .landing-byline { font-family: var(--sans); font-size: 14px; color: var(--ink-muted); }
+  .landing-byline a { color: var(--blue-deep); text-decoration: none; }
+  .landing-section { margin-bottom: var(--space-7); }
+  .landing-section h2 { font-family: var(--serif); font-size: 24px; font-weight: 600; margin-bottom: var(--space-4); color: var(--ink); border: none; padding: 0; }
+  .landing-section p { font-size: 18px; line-height: 1.65; color: var(--ink); margin-bottom: var(--space-4); }
+  .toc-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-3) var(--space-5); margin: var(--space-5) 0; }
+  .toc-card { padding: var(--space-3) var(--space-4); border: 0.5px solid var(--rule); border-radius: var(--radius-md); background: var(--bg); }
+  .toc-card a { color: var(--ink); text-decoration: none; display: block; }
+  .toc-card a:hover { color: var(--blue-deep); }
+  .toc-num { font-family: var(--sans); font-size: 11px; font-weight: 500; color: var(--ink-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 2px; }
+  .toc-title { font-family: var(--serif); font-size: 16px; font-weight: 500; line-height: 1.3; }
+  .cta-row { display: flex; gap: var(--space-3); flex-wrap: wrap; margin: var(--space-5) 0; }
+  .cta-btn { padding: var(--space-3) var(--space-5); font-family: var(--sans); font-size: 14px; font-weight: 500; border-radius: var(--radius-md); text-decoration: none; transition: all 0.15s; border: 1px solid var(--ink); }
+  .cta-primary { background: var(--ink); color: var(--bg); }
+  .cta-primary:hover { background: var(--ink-soft); }
+  .cta-secondary { background: transparent; color: var(--ink); }
+  .cta-secondary:hover { background: var(--tint-warm); }
+  .landing-footer { margin-top: var(--space-8); padding-top: var(--space-5); border-top: 1px solid var(--rule); font-family: var(--sans); font-size: 13px; color: var(--ink-muted); }
+  .landing-footer a { color: var(--blue-deep); text-decoration: none; }
+  @media (max-width: 720px) { .toc-grid { grid-template-columns: 1fr; } .landing-title { font-size: 32px; } }
+</style>
+</head>
+<body>
+<div class="landing">
+  <div class="landing-hero">
+    <div class="landing-back"><a href="../index.html">&larr; The Agentic AI Series</a></div>
+    <div class="landing-eyebrow">Book 2 in the series</div>
+    <h1 class="landing-title">Why Agentic AI Products Fail</h1>
+    <p class="landing-subtitle">Building Channel 1 and the Supervisory Layer That Governs It</p>
+    <div class="landing-byline">By <a href="https://www.linkedin.com/in/yoram-friedman/" target="_blank" rel="noopener">Yoram Friedman</a></div>
+  </div>
+
+  <div class="landing-section">
+    <p>Every agentic product is two products: the agent that acts, and the supervisory layer that governs it. Most teams build the first and assume the second takes care of itself. It does not. This book is organized around the supervisory layer &mdash; its four dimensions (technical, organizational, regulatory, and moral), its failure modes, and the discipline required to build it deliberately.</p>
+    <p>Twenty-two chapters across six parts, from deciding whether to build at all to carrying accountability for the people your agent will never see.</p>
+    <div class="cta-row">
+      <a class="cta-btn cta-primary" href="preface.html">Start reading &rarr;</a>
+      <a class="cta-btn cta-secondary" href="https://a.co/d/0cdvAyjn" target="_blank" rel="noopener">Buy on Amazon</a>
+    </div>
+  </div>
+
+  <div class="landing-section">
+    <h2>Contents</h2>
+    <div class="toc-grid">
+    <div class="toc-card">
+      <a href="preface.html">
+        <div class="toc-num">Front Matter</div>
+        <div class="toc-title">Preface: The Job Did Not Shrink. It Shifted.</div>
+      </a>
+    </div>    <div class="toc-card">
+      <a href="field-snapshot.html">
+        <div class="toc-num">Front Matter</div>
+        <div class="toc-title">How the Job Actually Changed: A Field Snapshot</div>
+      </a>
+    </div>    <div class="toc-card">
+      <a href="two-channels.html">
+        <div class="toc-num">Front Matter</div>
+        <div class="toc-title">The Two Channels</div>
+      </a>
+    </div>    <div class="toc-card">
+      <a href="ch01-ai-literacy.html">
+        <div class="toc-num">Part I · Decide &middot; Ch. 1</div>
+        <div class="toc-title">What You Need to Know About AI</div>
+      </a>
+    </div>    <div class="toc-card">
+      <a href="ch02-not-a-bridge.html">
+        <div class="toc-num">Part I · Decide &middot; Ch. 2</div>
+        <div class="toc-title">You Are Not a Bridge Anymore</div>
+      </a>
+    </div>    <div class="toc-card">
+      <a href="ch03-not-every-problem.html">
+        <div class="toc-num">Part I · Decide &middot; Ch. 3</div>
+        <div class="toc-title">Not Every Problem Deserves an Agent</div>
+      </a>
+    </div>    <div class="toc-card">
+      <a href="ch04-how-work-splits.html">
+        <div class="toc-num">Part II · Prototype & Collaborate &middot; Ch. 4</div>
+        <div class="toc-title">How the Work Splits</div>
+      </a>
+    </div>    <div class="toc-card">
+      <a href="ch05-vibe-coding.html">
+        <div class="toc-num">Part II · Prototype & Collaborate &middot; Ch. 5</div>
+        <div class="toc-title">Vibe Coding for Value: Prototyping to Decide</div>
+      </a>
+    </div>    <div class="toc-card">
+      <a href="ch06-collaborator.html">
+        <div class="toc-num">Part II · Prototype & Collaborate &middot; Ch. 6</div>
+        <div class="toc-title">The PM as Collaborator</div>
+      </a>
+    </div>    <div class="toc-card">
+      <a href="ch07-design-behavior.html">
+        <div class="toc-num">Part III · Design &middot; Ch. 7</div>
+        <div class="toc-title">You Built the Agent. Now Design the Behavior</div>
+      </a>
+    </div>    <div class="toc-card">
+      <a href="ch08-two-hitl.html">
+        <div class="toc-num">Part III · Design &middot; Ch. 8</div>
+        <div class="toc-title">Two Kinds of Human-in-the-Loop</div>
+      </a>
+    </div>    <div class="toc-card">
+      <a href="ch09-evals.html">
+        <div class="toc-num">Part III · Design &middot; Ch. 9</div>
+        <div class="toc-title">Evals: What the Checkmarks Prove</div>
+      </a>
+    </div>    <div class="toc-card">
+      <a href="ch10-guardrails.html">
+        <div class="toc-num">Part IV · Operate &middot; Ch. 10</div>
+        <div class="toc-title">Operational Guardrails</div>
+      </a>
+    </div>    <div class="toc-card">
+      <a href="ch11-observation.html">
+        <div class="toc-num">Part IV · Operate &middot; Ch. 11</div>
+        <div class="toc-title">You Can&#x27;t Measure What You Didn&#x27;t Design</div>
+      </a>
+    </div>    <div class="toc-card">
+      <a href="ch12-record-complete.html">
+        <div class="toc-num">Part IV · Operate &middot; Ch. 12</div>
+        <div class="toc-title">The Record Is Complete. The Picture Is Wrong.</div>
+      </a>
+    </div>    <div class="toc-card">
+      <a href="ch13-silent-degradation.html">
+        <div class="toc-num">Part IV · Operate &middot; Ch. 13</div>
+        <div class="toc-title">Silent Degradation</div>
+      </a>
+    </div>    <div class="toc-card">
+      <a href="ch14-audit-trails.html">
+        <div class="toc-num">Part IV · Operate &middot; Ch. 14</div>
+        <div class="toc-title">Audit Trails That Survive the Agent</div>
+      </a>
+    </div>    <div class="toc-card">
+      <a href="ch15-deference.html">
+        <div class="toc-num">Part V · The Human System &middot; Ch. 15</div>
+        <div class="toc-title">Deference: The Problem After Capability</div>
+      </a>
+    </div>    <div class="toc-card">
+      <a href="ch16-change-management.html">
+        <div class="toc-num">Part V · The Human System &middot; Ch. 16</div>
+        <div class="toc-title">Change Management: From Actor to Supervisor</div>
+      </a>
+    </div>    <div class="toc-card">
+      <a href="ch17-hitl-fails.html">
+        <div class="toc-num">Part V · The Human System &middot; Ch. 17</div>
+        <div class="toc-title">Why Human-in-the-Loop Fails</div>
+      </a>
+    </div>    <div class="toc-card">
+      <a href="ch18-skill-erosion.html">
+        <div class="toc-num">Part V · The Human System &middot; Ch. 18</div>
+        <div class="toc-title">Skill Erosion: Deskilling, Never-Skilling, Cognitive Surrender</div>
+      </a>
+    </div>    <div class="toc-card">
+      <a href="ch19-team-member.html">
+        <div class="toc-num">Part V · The Human System &middot; Ch. 19</div>
+        <div class="toc-title">The Agent Is a Team Member Nobody Hired</div>
+      </a>
+    </div>    <div class="toc-card">
+      <a href="ch20-people-never-seen.html">
+        <div class="toc-num">Part VI · Carry the Weight &middot; Ch. 20</div>
+        <div class="toc-title">What You Owe the People Your Agent Never Sees</div>
+      </a>
+    </div>    <div class="toc-card">
+      <a href="ch21-governance.html">
+        <div class="toc-num">Part VI · Carry the Weight &middot; Ch. 21</div>
+        <div class="toc-title">Agent Behavior Governance</div>
+      </a>
+    </div>    <div class="toc-card">
+      <a href="ch22-day-in-life.html">
+        <div class="toc-num">Part VI · Carry the Weight &middot; Ch. 22</div>
+        <div class="toc-title">A Day in the Life of the Agentic PM</div>
+      </a>
+    </div>
+    </div>
+  </div>
+
+  <footer class="landing-footer">
+    <p>Free to read online. &copy; 2026 Yoram Friedman. All rights reserved. &nbsp;&middot;&nbsp; <a href="../index.html">All Books</a></p>
+  </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demo Cost Calculator &mdash; Agentic AI for Busy Product Managers</title>
+<meta name="description" content="Interactive cost-model calculator. Adjust six parameters and see how the agentic-versus-human break-even points shift.">
+<style>
+  :root {
+    --bg: #ffffff;
+    --ink: #1a1a1a;
+    --ink-soft: #5f5e5a;
+    --ink-muted: #888780;
+    --rule: #e0e0de;
+    --tint-warm: #f8f8f6;
+    --blue-deep: #185FA5;
+    --green-deep: #1D9E75;
+    --amber-deep: #BA7517;
+    --red-deep: #A32D2D;
+    --gray-step-onshore: #5F5E5A;
+    --gray-step-offshore: #B4B2A9;
+    --serif: "Charter", "Iowan Old Style", "Georgia", "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--sans); background: var(--bg); color: var(--ink); padding: 24px; max-width: 900px; margin: 0 auto; line-height: 1.55; }
+  h1 { font-family: var(--serif); font-size: 22px; font-weight: 600; margin-bottom: 4px; color: var(--ink); }
+  .subtitle { font-size: 13px; color: var(--ink-muted); margin-bottom: 24px; }
+  .controls { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+  .control-group { background: var(--tint-warm); border-radius: 10px; padding: 16px; border: 0.5px solid var(--rule); }
+  .control-group h2 { font-size: 13px; font-weight: 600; margin: 0 0 14px 0; color: var(--ink); }
+  .slider-row { margin-bottom: 12px; }
+  .slider-row:last-child { margin-bottom: 0; }
+  .slider-label { display: flex; justify-content: space-between; font-size: 12px; color: var(--ink-soft); margin-bottom: 4px; }
+  .slider-label span:last-child { font-weight: 500; color: var(--ink); }
+  input[type=range] { width: 100%; accent-color: #0A1628; }
+  .legend { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 12px; font-size: 12px; color: var(--ink-soft); }
+  .legend-item { display: flex; align-items: center; gap: 5px; }
+  .chart-wrap { position: relative; width: 100%; height: 380px; }
+  .crossovers { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; margin-top: 16px; }
+  .crossover-card { background: var(--tint-warm); border-radius: 8px; padding: 12px; border-left-width: 3px; border-left-style: solid; border: 0.5px solid var(--rule); }
+  .crossover-card .card-label { font-size: 11px; color: var(--ink-muted); margin-bottom: 4px; }
+  .crossover-card .card-value { font-size: 16px; font-weight: 500; color: var(--ink); }
+  .footnote { font-size: 11px; color: var(--ink-muted); margin-top: 16px; line-height: 1.6; }
+  @media (max-width: 720px) {
+    .controls { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div style="max-width:900px;margin:0 auto 0;padding:14px 18px;background:#fff4e6;border:1px solid #ffd8a8;border-radius:10px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:13.5px;color:#5f5e5a;margin-top:8px;">
+  <strong style="color:#BA7517;">Demo / test calculator.</strong>
+  This is an illustrative model for one scenario (customer-service cost by solution type), built to show the <em>shape</em> of the agentic-versus-alternative break-even, not to price your specific case. The numbers are sample assumptions. Use it to build intuition, then build your own with the prompt at the bottom of this page.
+  &nbsp;<a href="index.html" style="color:#185FA5;">&larr; Back to the book</a>
+</div>
+
+<h1>Customer Service: Cost Comparison by Solution Type</h1>
+<p class="subtitle">Adjust assumptions to see how crossover points shift. All values are monthly costs in USD.</p>
+
+<div class="controls">
+  <div class="control-group">
+    <h2>Human agents</h2>
+    <div class="slider-row">
+      <div class="slider-label"><span>Onshore cost / agent / mo</span><span id="lbl-onshore">$4,500</span></div>
+      <input type="range" id="sl-onshore" min="2000" max="8000" step="100" value="4500">
+    </div>
+    <div class="slider-row">
+      <div class="slider-label"><span>Outsourced cost / agent / mo</span><span id="lbl-offshore">$1,200</span></div>
+      <input type="range" id="sl-offshore" min="400" max="3000" step="100" value="1200">
+    </div>
+    <div class="slider-row">
+      <div class="slider-label"><span>Capacity (calls / agent / mo)</span><span id="lbl-capacity">900</span></div>
+      <input type="range" id="sl-capacity" min="400" max="1500" step="50" value="900">
+    </div>
+  </div>
+
+  <div class="control-group">
+    <h2>IVR &amp; agentic</h2>
+    <div class="slider-row">
+      <div class="slider-label"><span>IVR floor price / mo</span><span id="lbl-ivr-floor">$3,000</span></div>
+      <input type="range" id="sl-ivr-floor" min="500" max="8000" step="100" value="3000">
+    </div>
+    <div class="slider-row">
+      <div class="slider-label"><span>Agentic floor &mdash; brownfield / mo</span><span id="lbl-ag-floor-b">$1,200</span></div>
+      <input type="range" id="sl-ag-floor-b" min="0" max="5000" step="100" value="1200">
+    </div>
+    <div class="slider-row">
+      <div class="slider-label"><span>Agentic floor &mdash; greenfield / mo</span><span id="lbl-ag-floor-g">$6,500</span></div>
+      <input type="range" id="sl-ag-floor-g" min="1000" max="15000" step="500" value="6500">
+    </div>
+  </div>
+</div>
+
+<div class="legend">
+  <div class="legend-item"><svg width="22" height="10"><line x1="0" y1="5" x2="22" y2="5" stroke="#5F5E5A" stroke-width="2.5"/></svg>Human &mdash; onshore</div>
+  <div class="legend-item"><svg width="22" height="10"><line x1="0" y1="5" x2="22" y2="5" stroke="#B4B2A9" stroke-width="2"/></svg>Human &mdash; outsourced</div>
+  <div class="legend-item"><svg width="22" height="10"><line x1="0" y1="5" x2="22" y2="5" stroke="#185FA5" stroke-width="2.5"/></svg>IVR / traditional SaaS</div>
+  <div class="legend-item"><svg width="22" height="10"><line x1="0" y1="5" x2="22" y2="5" stroke="#1D9E75" stroke-width="2" stroke-dasharray="6 4"/></svg>Agentic simple (brownfield)</div>
+  <div class="legend-item"><svg width="22" height="10"><line x1="0" y1="5" x2="22" y2="5" stroke="#BA7517" stroke-width="2" stroke-dasharray="6 4"/></svg>Agentic complex (brownfield)</div>
+  <div class="legend-item"><svg width="22" height="10"><line x1="0" y1="5" x2="22" y2="5" stroke="#A32D2D" stroke-width="2" stroke-dasharray="3 4"/></svg>Agentic complex (greenfield)</div>
+</div>
+
+<div class="chart-wrap">
+  <canvas id="costChart" role="img" aria-label="Interactive line chart comparing monthly cost trajectories for human agents, IVR, and agentic AI. Adjust sliders to change assumptions.">Interactive cost comparison. Human agents scale in steps at capacity limits. IVR scales linearly. Agentic simple tasks stay low. Agentic complex tasks rise faster and can exceed human cost at volume.</canvas>
+</div>
+
+<div class="crossovers" id="crossover-cards"></div>
+
+<p class="footnote">
+  Cost curves are illustrative models based on published benchmarks (2025 to 2026). Human agent capacity: ~900 calls/month for chat/voice hybrid operations (industry average). Onshore fully loaded cost includes salary, benefits, management overhead, and training. Outsourced range reflects Southeast Asia and Eastern Europe operations. IVR floor includes platform license, telephony, and maintenance. Agentic brownfield assumes existing SAP, Salesforce, ServiceNow, or Microsoft platform license. Agentic greenfield includes infrastructure build, orchestration layer, and observability stack. Agentic marginal cost modeled as nonlinear (token cost compounds with reasoning complexity). Current agentic floor costs are partially suppressed by vendor pricing incentives during the platform consolidation period and are subject to change. Sources: HfS Research, Gartner, Deloitte RPA surveys; Intercom, Zendesk, and Salesforce published pricing (2025 to 2026); Digital Applied Customer Service AI Statistics 2026.
+</p>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const pts = [];
+for (let v = 0; v <= 5400; v += 300) pts.push(v);
+
+function getVals() {
+  return {
+    onshore:  +document.getElementById('sl-onshore').value,
+    offshore: +document.getElementById('sl-offshore').value,
+    capacity: +document.getElementById('sl-capacity').value,
+    ivrFloor: +document.getElementById('sl-ivr-floor').value,
+    agFloorB: +document.getElementById('sl-ag-floor-b').value,
+    agFloorG: +document.getElementById('sl-ag-floor-g').value
+  };
+}
+
+function computeData(v) {
+  const V = getVals();
+  return {
+    onshore:  (Math.ceil(v / V.capacity) || 1) * V.onshore,
+    offshore: (Math.ceil(v / V.capacity) || 1) * V.offshore,
+    ivr:      V.ivrFloor + v * 2.8,
+    simpleB:  V.agFloorB + v * 1.5 + v * v * 0.00015,
+    complexB: V.agFloorB + v * 2.6 + v * v * 0.00075,
+    complexG: V.agFloorG + v * 2.6 + v * v * 0.00075
+  };
+}
+
+function findCrossover(fnA, fnB) {
+  for (let v = 300; v <= 5400; v += 300) {
+    const prev = fnA(v - 300) - fnB(v - 300);
+    const curr = fnA(v) - fnB(v);
+    if (prev < 0 && curr >= 0) return v;
+    if (prev > 0 && curr <= 0) return v;
+  }
+  return null;
+}
+
+const labels = pts.map((v, i) => i % 2 === 0 ? (v >= 1000 ? (v/1000).toFixed(1)+'k' : String(v)) : '');
+
+const chart = new Chart(document.getElementById('costChart'), {
+  type: 'line',
+  data: {
+    labels,
+    datasets: [
+      { label: 'Human - onshore',             data: [], borderColor: '#5F5E5A', backgroundColor: 'transparent', borderWidth: 2.5, pointRadius: 0, tension: 0, stepped: true },
+      { label: 'Human - outsourced',          data: [], borderColor: '#B4B2A9', backgroundColor: 'transparent', borderWidth: 2,   pointRadius: 0, tension: 0, stepped: true },
+      { label: 'IVR / traditional SaaS',      data: [], borderColor: '#185FA5', backgroundColor: 'transparent', borderWidth: 2.5, pointRadius: 0, tension: 0.3 },
+      { label: 'Agentic simple (brownfield)', data: [], borderColor: '#1D9E75', backgroundColor: 'transparent', borderWidth: 2,   pointRadius: 0, tension: 0.3, borderDash: [6,4] },
+      { label: 'Agentic complex (brownfield)',data: [], borderColor: '#BA7517', backgroundColor: 'transparent', borderWidth: 2,   pointRadius: 0, tension: 0.3, borderDash: [6,4] },
+      { label: 'Agentic complex (greenfield)',data: [], borderColor: '#A32D2D', backgroundColor: 'transparent', borderWidth: 2,   pointRadius: 0, tension: 0.3, borderDash: [3,4] }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    interaction: { mode: 'index', intersect: false },
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          label: ctx => ctx.dataset.label + ': $' + Math.round(ctx.parsed.y).toLocaleString(),
+          title: items => 'Volume: ' + pts[items[0].dataIndex].toLocaleString() + ' calls/mo'
+        }
+      }
+    },
+    scales: {
+      x: {
+        title: { display: true, text: 'Monthly call volume', font: { size: 12 }, color: '#888' },
+        grid: { color: 'rgba(0,0,0,0.06)' },
+        ticks: { font: { size: 11 }, color: '#888', maxRotation: 0 }
+      },
+      y: {
+        title: { display: true, text: 'Monthly cost (USD)', font: { size: 12 }, color: '#888' },
+        grid: { color: 'rgba(0,0,0,0.06)' },
+        ticks: {
+          font: { size: 11 }, color: '#888',
+          callback: v => '$' + (v >= 1000 ? (v/1000).toFixed(0)+'k' : v)
+        }
+      }
+    }
+  }
+});
+
+function updateChart() {
+  const V = getVals();
+  document.getElementById('lbl-onshore').textContent    = '$' + V.onshore.toLocaleString();
+  document.getElementById('lbl-offshore').textContent   = '$' + V.offshore.toLocaleString();
+  document.getElementById('lbl-capacity').textContent   = V.capacity.toLocaleString();
+  document.getElementById('lbl-ivr-floor').textContent  = '$' + V.ivrFloor.toLocaleString();
+  document.getElementById('lbl-ag-floor-b').textContent = '$' + V.agFloorB.toLocaleString();
+  document.getElementById('lbl-ag-floor-g').textContent = '$' + V.agFloorG.toLocaleString();
+
+  const rows = pts.map(v => computeData(v));
+  chart.data.datasets[0].data = rows.map(r => r.onshore);
+  chart.data.datasets[1].data = rows.map(r => r.offshore);
+  chart.data.datasets[2].data = rows.map(r => r.ivr);
+  chart.data.datasets[3].data = rows.map(r => r.simpleB);
+  chart.data.datasets[4].data = rows.map(r => r.complexB);
+  chart.data.datasets[5].data = rows.map(r => r.complexG);
+  chart.update('none');
+
+  const fn = key => v => computeData(v)[key];
+  const crossovers = [
+    { label: 'Agentic complex GF vs onshore humans',    val: findCrossover(fn('complexG'), fn('onshore')),  color: '#A32D2D' },
+    { label: 'Agentic complex GF vs outsourced humans', val: findCrossover(fn('complexG'), fn('offshore')), color: '#A32D2D' },
+    { label: 'Agentic complex BF vs outsourced humans', val: findCrossover(fn('complexB'), fn('offshore')), color: '#BA7517' },
+    { label: 'IVR vs onshore humans',                   val: findCrossover(fn('ivr'), fn('onshore')),       color: '#185FA5' },
+  ];
+
+  document.getElementById('crossover-cards').innerHTML = crossovers.map(c => `
+    <div class="crossover-card" style="border-left-color:${c.color}">
+      <div class="card-label">${c.label}</div>
+      <div class="card-value">${c.val ? c.val.toLocaleString() + ' calls/mo' : 'No crossover in range'}</div>
+    </div>
+  `).join('');
+}
+
+['sl-onshore','sl-offshore','sl-capacity','sl-ivr-floor','sl-ag-floor-b','sl-ag-floor-g']
+  .forEach(id => document.getElementById(id).addEventListener('input', updateChart));
+
+updateChart();
+</script>
+
+<section style="max-width:900px;margin:40px auto 0;padding:24px;border-top:1px solid #e0e0de;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">
+  <h2 style="font-family:'Charter','Iowan Old Style','Georgia',serif;font-size:20px;font-weight:600;color:#1a1a1a;margin-bottom:10px;">Build your own calculator</h2>
+  <p style="font-size:14.5px;color:#5f5e5a;line-height:1.6;margin-bottom:14px;">This demo prices one scenario. Your agent has different drivers. Copy the prompt below into the AI assistant of your choice and adapt it to your case. It produces a single self-contained HTML file you can host or open locally, the same way this page works.</p>
+  <p style="font-size:13px;color:#888780;margin-bottom:8px;">Prompt:</p>
+  <textarea readonly onclick="this.select()" style="width:100%;height:340px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12.5px;line-height:1.5;padding:14px;border:1px solid #e0e0de;border-radius:8px;background:#f8f8f6;color:#1a1a1a;resize:vertical;">Build a single self-contained HTML file (inline CSS and JS, Chart.js from a CDN) that is an interactive cost calculator for an agentic-AI product decision. The goal is to show a product manager the break-even between an AI agent and its best non-agent alternative as a function of monthly task volume.
+
+CONTEXT (replace with your own numbers):
+- The decision being automated: [e.g. customer-service ticket resolution].
+- Alternatives to compare: [e.g. AI agent / constrained AI + human / traditional automation (RPA) / all-human].
+- Volume axis: monthly task count from 0 to [e.g. 5000].
+
+COST MODEL, per alternative, make each of these an adjustable slider with a sensible default and a visible current value:
+1. Fixed monthly floor cost (orchestration, integrations, monitoring, eval maintenance) , exists regardless of volume.
+2. Per-task variable cost. For the agent, compute this from: model calls per task (the number of times one task re-enters the model), tokens per call, and price per token, so the user can see the "architecture multiplier" rather than just a sticker price.
+3. Human supervision cost: the share of tasks escalated to a human times the loaded cost per human review. This is the cost the agent does NOT remove.
+4. Wrongful-action risk cost: expected cost of an incorrect autonomous action times its rate. Let the user price how bad a wrong action is.
+
+OUTPUT:
+- A line chart (Chart.js) with monthly volume on the x-axis and total monthly cost on the y-axis, one line per alternative, updating live as sliders move.
+- A set of "crossover" cards that state, in plain language, at what volume each alternative becomes the cheapest, and which alternative wins at the user's current settings.
+- A one-line takeaway that names the cheapest option at the current volume and the volume at which the agent overtakes the best alternative (or states that it never does at these settings).
+
+STYLE: clean, serif headings, sans body, neutral palette, mobile-responsive, no external dependencies except Chart.js from a CDN. Add a short note that all figures are the user's own assumptions and not authoritative pricing.
+
+DISCIPLINE: the point is not a precise quote. It is to make visible that (a) the agent has a fixed floor that does not disappear at low volume, (b) the per-task cost is driven by model re-entries and context size, not the sticker price per token, and (c) the escalated minority still costs human review, so "agent cheaper than a human per task" is the wrong comparison. Make those three lessons legible in the UI copy.</textarea>
+  <p style="font-size:13px;color:#888780;margin-top:14px;">The reasoning behind every line of this model is in <a href="ch03-not-every-problem.html" style="color:#185FA5;">Chapter 3, Not Every Problem Deserves an Agent</a>.</p>
+</section>
+
+</body>
+</html>

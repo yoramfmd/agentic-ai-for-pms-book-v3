@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Appendix G: The Post-Mortem and Dissent Ledger &mdash; The Agentic AI Practitioner</title>
+<meta name="description" content="An agent-behavior post-mortem is not an outage post-mortem. The system was up the whole time and did exactly what it was built to do; the outcome was still wron">
+<link rel="canonical" href="https://agenticaiproductmanagement.com/book6/the-post-mortem-and-dissent-ledger.html">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .sidebar-hub { margin-bottom: var(--space-4); padding-bottom: var(--space-3);
+    border-bottom: 1px solid var(--rule); font-size: 12px; font-family: var(--sans); }
+  .sidebar-hub a { color: var(--ink-muted); text-decoration: none; }
+  .sidebar-hub a:hover { color: var(--blue-deep); }
+  .sidebar-section a { color: inherit; text-decoration: none; }
+  .sidebar-section a:hover { color: var(--blue-deep); }
+  .sidebar-section-active a { color: var(--ink); }
+</style>
+</head>
+<body>
+<div class="book">
+  <aside class="sidebar">
+    <div class="sidebar-hub"><a href="../index.html">&larr; All Books</a></div>
+    <div class="sidebar-brand"><a href="index.html">The Agentic AI Practitioner</a><div class="sidebar-brand-sub">Keeping the Judgment the Machine Cannot Hold</div></div>
+    <div class="sidebar-section">Front Matter</div>
+    <ul class="sidebar-list">
+      <li><a href="preface-the-job-is-now-the-person.html">Preface</a></li>
+      <li><a href="the-series-in-one-page.html">The Series in One Page</a></li>
+    </ul>
+    <div class="sidebar-section"><a href="part-the-stakes.html">Part I · The Stakes</a></div>
+    <ul class="sidebar-list">
+      <li><a href="the-perishable-asset.html">1. The Perishable Asset</a></li>
+      <li><a href="not-all-humans-in-the-loop-are-the-same-human.html">2. Not All Humans in the Loop Are the Same Human</a></li>
+      <li><a href="the-apprenticeship-you-no-longer-get.html">3. The Apprenticeship You No Longer Get</a></li>
+    </ul>
+    <div class="sidebar-section"><a href="part-the-practice.html">Part II · The Practice</a></div>
+    <ul class="sidebar-list">
+      <li><a href="reps-not-reading.html">4. Reps, Not Reading</a></li>
+      <li><a href="the-loop-that-teaches-you-back.html">5. The Loop That Teaches You Back</a></li>
+      <li><a href="reading-the-actor-under-the-costume.html">6. Reading the Actor Under the Costume</a></li>
+      <li><a href="configuration-is-self-knowledge.html">7. Configuration Is Self-Knowledge</a></li>
+      <li><a href="the-proficiency-check.html">8. The Proficiency Check</a></li>
+    </ul>
+    <div class="sidebar-section"><a href="part-the-craft.html">Part III · The Craft</a></div>
+    <ul class="sidebar-list">
+      <li><a href="the-brief-as-craft.html">9. The Brief as Craft</a></li>
+      <li><a href="eval-literacy-for-the-gate-owner.html">10. Eval Literacy for the Gate Owner</a></li>
+      <li><a href="the-steady-state.html">11. The Steady State</a></li>
+      <li><a href="which-frameworks-still-hold.html">12. Which Frameworks Still Hold</a></li>
+      <li><a href="operating-inside-the-org.html">13. Operating Inside the Org</a></li>
+    </ul>
+    <div class="sidebar-section"><a href="part-the-career.html">Part IV · The Career</a></div>
+    <ul class="sidebar-list">
+      <li><a href="the-role-landscape.html">14. The Role Landscape</a></li>
+      <li><a href="no-certification-for-this.html">15. No Certification for This</a></li>
+    </ul>
+    <div class="sidebar-section">Reference</div>
+    <ul class="sidebar-list">
+      <li><a href="the-practitioners-record.html">The Practitioner's Record</a></li>
+      <li><a href="the-loop-templates.html">A. The Loop Templates</a></li>
+      <li><a href="the-model-dossier.html">B. The Model Dossier</a></li>
+      <li><a href="the-proficiency-record.html">C. The Proficiency Record</a></li>
+      <li><a href="the-two-briefs.html">D. The Two Briefs</a></li>
+      <li><a href="the-gate-owners-checklist.html">E. The Gate Owner's Checklist</a></li>
+      <li><a href="the-steady-state-page.html">F. The Steady-State Page</a></li>
+      <li><a href="the-post-mortem-and-dissent-ledger.html" class="active">G. The Post-Mortem and Dissent Ledger</a></li>
+      <li><a href="the-first-month.html">H. The First Month</a></li>
+      <li><a href="notes-and-sources.html">Notes and Sources</a></li>
+      <li><a href="references.html">References</a></li>
+    </ul>
+  </aside>
+  <div class="main">
+    <div class="chapter">
+      <div class="chapter-meta">Reference</div>
+            <h1>Appendix G: The Post-Mortem and Dissent Ledger</h1>
+    <p><em>One post-mortem per wrong action in production; one ledger line per concern you raise, scored quarterly. Companion to Chapter 13.</em></p>
+    <hr>
+    <h3 id="part-1-the-agent-behavior-post-mortem">Part 1: The agent-behavior post-mortem</h3>
+    <p>An agent-behavior post-mortem is not an outage post-mortem. The system was up the whole time and did exactly what it was built to do; the outcome was still wrong. So it asks where the judgment was supposed to live and why it did not catch this. Three required sections:</p>
+    <p><strong>1. Did the boundary hold, and which kind of failure follows?</strong> Did the agent act inside the autonomy it was granted, in which case the boundary itself was set wrong and the fix is a product decision; or did it act outside its boundary, in which case the control failed and the fix is an engineering one? Name which, because they are different failures with different owners.</p>
+    <blockquote><p>_____</p></blockquote>
+    <p><strong>2. Which instrument caught it, or should have and did not?</strong> Name the instrument. A post-mortem that does not name the instrument gap has not found the real failure, which is usually that nobody was watching the dial that would have shown it.</p>
+    <blockquote><p>_____</p></blockquote>
+    <p><strong>3. What changes?</strong> Stated as a specific edit to the boundary, the eval set, or the instrument. Never as a vow of vigilance. A post-mortem whose action item is increased vigilance will be re-run, verbatim, in a quarter.</p>
+    <blockquote><p>_____</p></blockquote>
+    <h3 id="part-2-the-dissent-ledger">Part 2: The dissent ledger</h3>
+    <p>Every concern you raise is a prediction, and predictions can be scored. Log them. Read the ledger quarterly and compute your dissent precision: when you raised a concern, how often were you right.</p>
+    <p>The four moves the concern can take: build the artifact; translate into CEO math; replace &ldquo;when does it ship&rdquo; with &ldquo;what is our rollback time&rdquo;; use governance as a procurement filter.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Concern raised</th>
+          <th>Which of the four moves it took</th>
+          <th>Prediction (what would go wrong)</th>
+          <th>Ground-truth resolution</th>
+          <th>Running dissent precision</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+    <p><strong>The demotion note.</strong> Apply the proficiency regime&rsquo;s demotion rule to your own objections. If your dissent precision falls, that is not a signal to raise concerns louder. It is a signal that your read of this domain has drifted, and your objections need recalibrating before they need amplifying. A signal that never varies carries no information; the room routes around the PM who is always concerned for the same reason it routes around the agent that always escalates.</p>
+    <hr>
+  <div class="chapter-nav"><a class="prev" href="the-steady-state-page.html">F. The Steady-State Page</a><a class="next" href="the-first-month.html">H. The First Month</a></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

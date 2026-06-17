@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 6: Reading the Actor Under the Costume &mdash; The Agentic AI Practitioner</title>
+<meta name="description" content="A team I will call composite shipped two features last quarter that came out of the same prompt. Same instruction, same persona file, same task: read this and t">
+<link rel="canonical" href="https://agenticaiproductmanagement.com/book6/reading-the-actor-under-the-costume.html">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .sidebar-hub { margin-bottom: var(--space-4); padding-bottom: var(--space-3);
+    border-bottom: 1px solid var(--rule); font-size: 12px; font-family: var(--sans); }
+  .sidebar-hub a { color: var(--ink-muted); text-decoration: none; }
+  .sidebar-hub a:hover { color: var(--blue-deep); }
+  .sidebar-section a { color: inherit; text-decoration: none; }
+  .sidebar-section a:hover { color: var(--blue-deep); }
+  .sidebar-section-active a { color: var(--ink); }
+</style>
+</head>
+<body>
+<div class="book">
+  <aside class="sidebar">
+    <div class="sidebar-hub"><a href="../index.html">&larr; All Books</a></div>
+    <div class="sidebar-brand"><a href="index.html">The Agentic AI Practitioner</a><div class="sidebar-brand-sub">Keeping the Judgment the Machine Cannot Hold</div></div>
+    <div class="sidebar-section">Front Matter</div>
+    <ul class="sidebar-list">
+      <li><a href="preface-the-job-is-now-the-person.html">Preface</a></li>
+      <li><a href="the-series-in-one-page.html">The Series in One Page</a></li>
+    </ul>
+    <div class="sidebar-section"><a href="part-the-stakes.html">Part I · The Stakes</a></div>
+    <ul class="sidebar-list">
+      <li><a href="the-perishable-asset.html">1. The Perishable Asset</a></li>
+      <li><a href="not-all-humans-in-the-loop-are-the-same-human.html">2. Not All Humans in the Loop Are the Same Human</a></li>
+      <li><a href="the-apprenticeship-you-no-longer-get.html">3. The Apprenticeship You No Longer Get</a></li>
+    </ul>
+    <div class="sidebar-section"><a href="part-the-practice.html">Part II · The Practice</a></div>
+    <ul class="sidebar-list">
+      <li><a href="reps-not-reading.html">4. Reps, Not Reading</a></li>
+      <li><a href="the-loop-that-teaches-you-back.html">5. The Loop That Teaches You Back</a></li>
+      <li><a href="reading-the-actor-under-the-costume.html" class="active">6. Reading the Actor Under the Costume</a></li>
+      <li><a href="configuration-is-self-knowledge.html">7. Configuration Is Self-Knowledge</a></li>
+      <li><a href="the-proficiency-check.html">8. The Proficiency Check</a></li>
+    </ul>
+    <div class="sidebar-section"><a href="part-the-craft.html">Part III · The Craft</a></div>
+    <ul class="sidebar-list">
+      <li><a href="the-brief-as-craft.html">9. The Brief as Craft</a></li>
+      <li><a href="eval-literacy-for-the-gate-owner.html">10. Eval Literacy for the Gate Owner</a></li>
+      <li><a href="the-steady-state.html">11. The Steady State</a></li>
+      <li><a href="which-frameworks-still-hold.html">12. Which Frameworks Still Hold</a></li>
+      <li><a href="operating-inside-the-org.html">13. Operating Inside the Org</a></li>
+    </ul>
+    <div class="sidebar-section"><a href="part-the-career.html">Part IV · The Career</a></div>
+    <ul class="sidebar-list">
+      <li><a href="the-role-landscape.html">14. The Role Landscape</a></li>
+      <li><a href="no-certification-for-this.html">15. No Certification for This</a></li>
+    </ul>
+    <div class="sidebar-section">Reference</div>
+    <ul class="sidebar-list">
+      <li><a href="the-practitioners-record.html">The Practitioner's Record</a></li>
+      <li><a href="the-loop-templates.html">A. The Loop Templates</a></li>
+      <li><a href="the-model-dossier.html">B. The Model Dossier</a></li>
+      <li><a href="the-proficiency-record.html">C. The Proficiency Record</a></li>
+      <li><a href="the-two-briefs.html">D. The Two Briefs</a></li>
+      <li><a href="the-gate-owners-checklist.html">E. The Gate Owner's Checklist</a></li>
+      <li><a href="the-steady-state-page.html">F. The Steady-State Page</a></li>
+      <li><a href="the-post-mortem-and-dissent-ledger.html">G. The Post-Mortem and Dissent Ledger</a></li>
+      <li><a href="the-first-month.html">H. The First Month</a></li>
+      <li><a href="notes-and-sources.html">Notes and Sources</a></li>
+      <li><a href="references.html">References</a></li>
+    </ul>
+  </aside>
+  <div class="main">
+    <div class="chapter">
+      <div class="chapter-meta">Part II · The Practice &nbsp;&middot;&nbsp; Chapter 6</div>
+            <h1>Chapter 6: Reading the Actor Under the Costume</h1>
+    <p>A team I will call composite shipped two features last quarter that came out of the same prompt. Same instruction, same persona file, same task: read this and tell me what is wrong with it. One feature was decisive and a little blunt. The other was careful, layered, slow to commit. The difference was not the prompt. The difference was that the prompt ran against two different models, and the persona file the team had written did not survive the difference, because it was tuned to one actor and applied to another.</p>
+    <p>Then, three weeks into the quarter, their internal copilot rolled forward to a newer model in a quiet upgrade nobody announced. Productivity dipped. Reviews took longer. The code that came back felt different, and the senior engineer who said so could not name what changed. She was not imagining it and she was not getting worse at her job. Her team had a member replaced and did not get to interview the replacement. The configuration that used to produce work matching their house style was now producing something subtly off, because the new actor had its own defaults the configuration was never written to override.</p>
+    <p>Nobody on that team could name the thing that changed, and that is the failure this chapter exists to prevent. You are going to learn to read the actor under the costume, the way a manager reads a new hire: not its performance under instruction, but its default under ambiguity. Because the default is the thing that ships when the instruction runs out, and the instruction always runs out.</p>
+    <h2 id="the-costume-and-the-actor">The costume and the actor</h2>
+    <p>The persona prompt is the costume. The model is the actor.</p>
+    <p>You already know you can dress an agent in a personality and it will wear it. The last two chapters depended on this. You can write an ENTP brainstormer that leads with the unexpected angle, defaults to yes-and, and resists summarizing at the end. You can write an ISTJ auditor that reads the full submission before commenting, labels findings as block or warning or note, and refuses to soften. Both are real. Both work. The nine-agent workshop worked precisely because the agents had distinct, intentional, persistent personalities, and the whole of Chapter 5&rsquo;s loop depends on roles holding. That part is solved. You can dress an agent in whatever personality you want, as long as you write the prompt.</p>
+    <p>This chapter is about what happens when the prompt runs out.</p>
+    <p>When the instruction is clear, the costume holds. The brainstormer brainstorms, the auditor audits. When the instruction is ambiguous, when the context window gets long enough that the persona becomes a faint signal, when you ask the agent something the persona did not anticipate, the costume slips and the actor underneath responds. And the actor has a personality the costume only borrowed. I gave two models the same instruction earlier this week, read this draft and tell me what is wrong with it. One returned four findings in four sentences. The other returned three paragraphs of context before the first finding. Same costume, same task, completely different default. The costume is real. The actor is realer. The actor wins when the stakes get high or the prompt gets thin, which is exactly when it matters.</p>
+    <p>This is observable to anyone who has worked with multiple frontier models for more than a few weeks, and it is not loose anthropomorphism. It is a structural property: the defaults under ambiguity, under pressure, under fatigue, yours, not the model&rsquo;s, are different across models, and they differ in ways that map predictably onto the same axes enterprise hiring has measured for decades. One model is light, fast, gets to the point. Another is serious, layered, takes longer to land. Put both in the same costume and one is a more convincing fit than the other, and put both in the opposite costume and the asymmetry reverses. You are not configuring one cooperative system. You are casting actors, and you had better know who you are casting.</p>
+    <h2 id="the-defaults-are-set-by-a-company-you-do-not-work-at">The defaults are set by a company you do not work at</h2>
+    <p>Here is the part that should change how you think about model selection, because it is the part nobody checks.</p>
+    <p>When you hire a human, their defaults are local. The candidate developed them through prior employers, education, lived experience, and your organization gets to observe, probe, and reject them during the interview against your own culture. Culture fit is the one hiring gate that exists specifically to catch a mismatch between an actor&rsquo;s default behaviors and your norms before that actor has authority. It works because the defaults are available to inspect.</p>
+    <p>For a model, the defaults are not local. They are baked in upstream, during training, by a company you do not work at, by people you have never met, optimizing for goals that may or may not align with yours. When the agent meets an ambiguous instruction, what does it reach for? Conservatism or speed? Escalation or autonomy? Caveats or confidence? Those choices were made for you, before you arrived, and the one HR mechanism designed to catch exactly this kind of misalignment cannot run, not because anyone forgot but because the evaluation surface is not available to you. A regulated organization that prizes conservative, escalation-heavy decision-making can deploy an agent whose defaults were tuned by a lab whose culture prizes breadth and speed, and nobody checked whether the cultures match, because nobody could.</p>
+    <p>I learned what this gate is for outside of software entirely. Early in my career I worked as the physician on shift at a cardiac center where the nurses had twenty years each and I was weeks out of my internship. On paper I supervised them. In practice I was learning from them while pretending to. What I learned fast was who to trust without checking and who to validate twice, and none of it was on their credentials. It was how they behaved under pressure: whether they said I am not sure, take a look instead of presenting every reading as certain; whether their tone got tighter or looser when things went wrong; whether they told you when they were guessing. Trust, calibration, composure, honesty about what you do not know. That is what you read in a colleague who acts in your workflow, and it is precisely what you cannot read off a model&rsquo;s spec sheet, and precisely what you most need to read before you let it act.</p>
+    <p>So the skill this chapter builds is the cardiac-center skill, pointed at models. Not what can it do under instruction, which is what the benchmark measures. What does it default to under ambiguity, which is what determines whether you would want it on the ambulance.</p>
+    <h2 id="every-upgrade-is-a-personnel-change">Every upgrade is a personnel change</h2>
+    <p>This is the consequence people miss, and it is expensive.</p>
+    <p>I worked with one model for months on writing. It was the colleague I had learned. I knew its rhythm, knew when to expect pushback and when to expect agreement, knew its tells, the small ways it signaled confidence versus hedging. If I gave it three paragraphs of context it returned three paragraphs of action. The fit was earned over hundreds of sessions. Then I moved to a newer, more capable model from the same vendor, and I could not find my voice anymore. The new one thinks differently. It takes longer to land, expands where I expected compression, returns nine paragraphs where the old one returned four. It may well be better at the underlying task. It is a different writer, and what I had with the old one was a working contract between a storyteller and an editor, and I did not have that contract with the new one yet. We were in the early weeks of getting to know each other, and the friction was real.</p>
+    <p>That friction is the tell. It is exactly what I would feel if a senior colleague I had worked with for years took another role and was replaced by someone allegedly more capable but with a different default register. The replacement might be the better writer. The team has still lost the working dynamic, and that loss has a real cost that nobody put on the deployment checklist. Even from the same vendor, even with the same brand name on the model, the upgrade is a personnel change. The team has to renegotiate the working contract, and for most enterprises running internal copilots that renegotiation happens invisibly, to thousands of users at once, without warning, every time the underlying model updates.</p>
+    <p>This is the correct diagnosis for a symptom that gets blamed on everything else. When I have watched a team&rsquo;s productivity dip in the weeks after a quiet model upgrade, it was not feature regression and it was not people getting worse. It was a workforce that just had a team member replaced and did not get to interview the replacement. The team that could not name what changed at the top of this chapter was experiencing this exactly, and they could not name it because the category does not have a name in their vocabulary yet. It has one now. Every model upgrade is a personnel change. Say it out loud when the next one ships and you will be the only one in the room who is not confused.</p>
+    <h2 id="the-assessment-you-already-know-how-to-run">The assessment you already know how to run</h2>
+    <p>The good news is that you are not inventing an instrument. The enterprise has spent fifty years running personality assessments on humans because the resume is not the colleague, and the methodology transfers almost directly.</p>
+    <p>I took one of these at SAP. Lumina: a questionnaire, a personal profile in four colors mapped across twenty-four qualities, then a facilitated workshop where you compare your profile with your colleagues&rsquo; and managers&rsquo; to surface the differences out loud. The workshop hands you four small foam cubes, one per color, with a phrase on each side. The green one says show me you care. The yellow one says involve me. The blue one says give me details. The red one says be brief, be bright, be gone, and that last line lodges in your head because it is funny and accurate at once. I am not red. I am a storyteller. I lead with context and land the point at the end of the paragraph, sometimes the second paragraph. For fifteen years that mismatch with a series of direct, outcome-first managers was an operating problem, and we fixed it deliberately. I learned to compress and write the bottom-line-up-front email. They learned to wait and let the story finish. The workshop did not give us the answer. It gave us shared language about what each of us defaulted to and an explicit contract about how we would meet in the middle. That, and not the report, is the only reason the assessment was worth the money.</p>
+    <p>The equivalent for a model is not science fiction. It is a test suite, and it is easier to build than the eval suites the field already ships and far easier than the safety evals. You construct a battery of ambiguous scenarios, each one designed to surface the default when the persona prompt is silent or contested. You observe what the model reaches for under stress: what it hedges, what it asserts, when it volunteers caveats and when it suppresses them, how it handles a contradictory instruction, how it handles a question outside its stated scope. You score the responses across dimensions like a Lumina profile, or you invent dimensions specific to the role. You run the battery once per model version, before you rely on it, and when the next version ships you run the same battery, compare, and name explicitly what changed. The methodology has been running on human hires for half a century. The reason it does not exist for agents is not technical. It is that nobody pointed the existing instruments at the new actors. You can point them.</p>
+    <h2 id="run-it-on-yourself-first">Run it on yourself first</h2>
+    <p>Build the battery the way the rest of this book builds everything: small, real, and on your own desk before it is anywhere near a product.</p>
+    <p>Pick six or eight scenarios that have no clean answer and that map to the defaults you actually care about. A request with a genuine internal contradiction, to see whether the model surfaces the conflict or silently resolves it and which way. A question just outside the stated scope, to see whether it escalates, declines, or confidently free-solos. A high-stakes ambiguous call, to see whether it gets more cautious or more assertive when the cost of being wrong goes up. A long-context task where the persona has faded to a whisper, to see who answers when the costume is barely on. A prompt that invites agreement, to see whether it flatters the premise you handed it or finds the flaw. A case where it should say I am guessing, to see whether it does, because the model that presents every reading as certain is the nurse I did not want on the ambulance.</p>
+    <p>Run the same battery across every model you use. The point is not to rank them. A ranking is a benchmark, and you have those. The point is to learn each one&rsquo;s temperament, because temperament is what survives the upgrade list and determines what ships when the prompt is thin. This battery is the starter version of the individual-scale assessment the enterprise has not built. Extend it as you learn which defaults bite you, and keep it, because it is another of this part&rsquo;s keepers, and it is the one you will rerun every time a model changes under you. Hold onto it. The book has a use for it later.</p>
+    <h2 id="the-defaults-i-have-mapped">The defaults I have mapped</h2>
+    <p>So you can see what the output looks like, here is the shape of the model dossier the battery produces, drawn from the models I run. The battery is the instrument; the dossier is the record it fills, one profile per actor, updated on every upgrade.</p>
+    <p>One of mine is light, fast, occasionally funny, and gets to the point. Under ambiguity it commits, sometimes before it should; its risk is false confidence cleanly stated. Another is serious and layered and takes longer to land; under ambiguity it expands and hedges, and its risk is that the finding that matters arrives in paragraph three where a tired reader will miss it. Same costume on both, same task, and the divergence is reliable enough that I now choose between them by temperament, not by chart. When I need a blunt first read I reach for the one that commits. When I need the careful long-context judgment I reach for the one that expands, and I read it knowing the load-bearing sentence will not be first.</p>
+    <p>That is the texture of a mapped default, and it is exactly the kind of knowledge no spec sheet hands you and only the battery produces. The same divergence shows up the moment you point the battery at non-writing work. Handing two models the same half-formed data-product spec to review, one would commit to a crisp read of what was missing and occasionally invent a requirement I never wrote; the other would surface every ambiguity in the document and bury the one that mattered under five that did not. Neither is better in the abstract. But once I had that mapped, the choice stopped being about benchmark scores: for a first pass that had to flag the load-bearing gap fast I reached for the one that commits, and for a careful review where a confidently invented requirement would cost a sprint I reached for the one that hedges, and read it knowing the real finding would not be first. The decision the dossier changed was not which model is best. It was which model I trust with which kind of mistake.</p>
+    <p>The reason to map these deliberately rather than absorb them by feel is the failure mode of absorbing them by feel. When the team adapts to an agent&rsquo;s defaults without naming them, by month six how we work here has shifted to accommodate the agent and nobody can say what changed or unwind it. Some people adapt, some quietly give up, some build private workarounds nobody documents. The mapped default is the antidote: it converts a drift you cannot see into a profile you can publish, compare, and renegotiate on purpose.</p>
+    <h2 id="what-this-buys-you">What this buys you</h2>
+    <p>The day you choose a model for a product, you are not choosing a benchmark score. You are choosing a temperament, and that temperament will assert itself in production at exactly the moments your spec did not foresee, which are the moments that make the news. The same default I map on my own desk, the one that commits under ambiguity, is the one that, scaled to a product touching a thousand users, decides how your agent behaves when a request is contradictory and no human is watching. Confidence calibration, the willingness to say I am guessing instead of asserting, is among the least solved problems in production AI, and it is a default, set upstream, that you can either assess deliberately or discover in an incident.</p>
+    <p>There is also the benign use, and it is worth naming so the chapter does not read as paranoia. The right application of a known, named default is as a translator between parties whose defaults are fixed. If my old managers and I were still on the same team, the accommodation we built over fifteen years would now be off the shelf: I write my storyteller email, an agent compresses it to three bullets for the manager, the manager replies in three bullets, the agent expands them into a paragraph I can absorb. Each of us gets the version that fits our default and nobody has to learn anyone else&rsquo;s register. That is not a dystopia. That is the correct use of a known temperament. The problem was never that models have defaults. The problem is the agent deployed as a team member with no assessment, the senior hire nobody interviewed.</p>
+    <p>You have now done the interview. You can read the actor under the costume, you know that every upgrade swaps the actor, and you have a battery that tells you who you just cast. The next move is the one a good manager makes after the interview. You write the onboarding. Mine, when I finally wrote it, turned out to be barely about the model at all.</p>
+    <hr>
+  <div class="chapter-nav"><a class="prev" href="the-loop-that-teaches-you-back.html">The Loop That Teaches You Back</a><a class="next" href="configuration-is-self-knowledge.html">Configuration Is Self-Knowledge</a></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

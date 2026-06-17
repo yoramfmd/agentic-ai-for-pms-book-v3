@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 3: Not Every Problem Deserves an Agent &mdash; Why Agentic AI Products Fail</title>
+<meta name="description" content="The cheapest agent is the one you decide not to build. Most agentic failures I have seen did not happen in production; they happened at the moment someone confu">
+<link rel="canonical" href="https://agenticaiproductmanagement.com/book4/ch03-not-every-problem.html">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .sidebar-hub { margin-bottom: var(--space-4); padding-bottom: var(--space-3);
+    border-bottom: 1px solid var(--rule); font-size: 12px; font-family: var(--sans); }
+  .sidebar-hub a { color: var(--ink-muted); text-decoration: none; }
+  .sidebar-hub a:hover { color: var(--blue-deep); }
+</style>
+</head>
+<body>
+<div class="book">
+  <aside class="sidebar">
+    <div class="sidebar-hub"><a href="../index.html">&larr; All Books</a></div>
+    <div class="sidebar-brand"><a href="index.html">Why Agentic AI Products Fail</a><div class="sidebar-brand-sub">Building Channel 1 and the Supervisory Layer That Governs It</div></div>
+    <div class="sidebar-section">Front Matter</div>
+    <ul class="sidebar-list">
+      <li><a href="preface.html">Preface: The Job Did Not Shrink. It Shifted.</a></li>
+      <li><a href="field-snapshot.html">How the Job Actually Changed: A Field Snapshot</a></li>
+      <li><a href="two-channels.html">The Two Channels</a></li>
+    </ul>
+    <div class="sidebar-section">Part I · Decide</div>
+    <ul class="sidebar-list">
+      <li><a href="ch01-ai-literacy.html">1. What You Need to Know About AI</a></li>
+      <li><a href="ch02-not-a-bridge.html">2. You Are Not a Bridge Anymore</a></li>
+      <li><a href="ch03-not-every-problem.html" class="active">3. Not Every Problem Deserves an Agent</a></li>
+    </ul>
+    <div class="sidebar-section">Part II · Prototype & Collaborate</div>
+    <ul class="sidebar-list">
+      <li><a href="ch04-how-work-splits.html">4. How the Work Splits</a></li>
+      <li><a href="ch05-vibe-coding.html">5. Vibe Coding for Value: Prototyping to Decide</a></li>
+      <li><a href="ch06-collaborator.html">6. The PM as Collaborator</a></li>
+    </ul>
+    <div class="sidebar-section">Part III · Design</div>
+    <ul class="sidebar-list">
+      <li><a href="ch07-design-behavior.html">7. You Built the Agent. Now Design the Behavior</a></li>
+      <li><a href="ch08-two-hitl.html">8. Two Kinds of Human-in-the-Loop</a></li>
+      <li><a href="ch09-evals.html">9. Evals: What the Checkmarks Prove</a></li>
+    </ul>
+    <div class="sidebar-section">Part IV · Operate</div>
+    <ul class="sidebar-list">
+      <li><a href="ch10-guardrails.html">10. Operational Guardrails</a></li>
+      <li><a href="ch11-observation.html">11. You Can’t Measure What You Didn’t Design</a></li>
+      <li><a href="ch12-record-complete.html">12. The Record Is Complete. The Picture Is Wrong.</a></li>
+      <li><a href="ch13-silent-degradation.html">13. Silent Degradation</a></li>
+      <li><a href="ch14-audit-trails.html">14. Audit Trails That Survive the Agent</a></li>
+    </ul>
+    <div class="sidebar-section">Part V · The Human System</div>
+    <ul class="sidebar-list">
+      <li><a href="ch15-deference.html">15. Deference: The Problem After Capability</a></li>
+      <li><a href="ch16-change-management.html">16. Change Management: From Actor to Supervisor</a></li>
+      <li><a href="ch17-hitl-fails.html">17. Why Human-in-the-Loop Fails</a></li>
+      <li><a href="ch18-skill-erosion.html">18. Skill Erosion: Deskilling, Never-Skilling, Cognitive Surrender</a></li>
+      <li><a href="ch19-team-member.html">19. The Agent Is a Team Member Nobody Hired</a></li>
+    </ul>
+    <div class="sidebar-section">Part VI · Carry the Weight</div>
+    <ul class="sidebar-list">
+      <li><a href="ch20-people-never-seen.html">20. What You Owe the People Your Agent Never Sees</a></li>
+      <li><a href="ch21-governance.html">21. Agent Behavior Governance</a></li>
+      <li><a href="ch22-day-in-life.html">22. A Day in the Life of the Agentic PM</a></li>
+    </ul>
+    <div class="sidebar-section">Back Matter</div>
+    <ul class="sidebar-list">
+      <li><a href="agent-note.html">The Agent This Book Was Written With</a></li>
+      <li><a href="appendix-a.html">Appendix A: The Two Briefs, Worked</a></li>
+      <li><a href="appendix-b.html">Appendix B: The Field Manual</a></li>
+      <li><a href="glossary.html">Glossary</a></li>
+      <li><a href="references.html">References and Sources</a></li>
+    </ul>
+  </aside>
+  <div class="main">
+    <div class="chapter">
+      <div class="chapter-meta">Part I · Decide &nbsp;&middot;&nbsp; Chapter 3</div>
+            <h1>Chapter 3: Not Every Problem Deserves an Agent</h1>
+    <blockquote><p><em>Whether to build an agent is a decision, gated by four tests and a real cost model, made before a line of code. Two things in the standard version of that decision need fixing: the measure of success has to be one you actually trust, not merely one you can compute, and the cost that decides the case is set by your architecture, not by which model you choose.</em></p></blockquote>
+    <p>The cheapest agent is the one you decide not to build. Most agentic failures I have seen did not happen in production; they happened at the moment someone confused &ldquo;we can build this&rdquo; with &ldquo;we should,&rdquo; and the confusion is more tempting now than ever, because building is nearly free and a demo is nearly instant. This chapter is the discipline that goes in front of that temptation: a small set of tests, and an honest cost model, applied before the team falls in love with a prototype.</p>
+    <p>There is a name for what the discipline prevents, and it will recur through the book: the <em>MVP house of cards</em>. The MVP was supposed to be a decision tool. Build the smallest thing that tests an assumption, measure, then decide: persevere, pivot, or stop. The load-bearing word in that sequence is <em>decide</em>, and the decision that matters most is <em>stop</em>. What happens in practice is that stop leaves the table. The business case is sold, the headcount is allocated, the board has seen the deck, so persevere becomes the only acceptable outcome and the test balloon quietly becomes a load-bearing structure. Then a second MVP consumes the output of the first, a third orchestrates the two, and before anyone draws an architecture diagram there is a compound system in production that no one designed as a system, each card labeled &ldquo;MVP,&rdquo; each one load-bearing. The house stands until one layer drifts, and then it does not fall dramatically; it fails quietly, over months, because no one built the monitoring and no one owns the system as a system.</p>
+    <p>This is why the suitability question comes before the build, not after it. The discipline is not anti-MVP. It is a redefinition of what <em>minimum</em> has to protect: minimum viable <em>safety</em>, the failure modes and escalation paths defined before any exposure; minimum viable <em>architecture</em>, the data contracts between layers and what happens when an upstream layer degrades; minimum viable <em>evidence</em>, a real stop trigger at each stage; and minimum viable <em>honesty</em>, calling a demo a demo and an experiment an experiment rather than letting MVP language disguise which one you are actually building. The tests in this chapter are how you decide whether you are laying a slice of architecture or adding another card.</p>
+    <h3 id="the-two-questions-before-any-code">The two questions before any code</h3>
+    <p>Before the suitability tests, two questions that kill most bad agent ideas on their own. First: is there a real, repeating problem here, or is &ldquo;let&rsquo;s add an agent&rdquo; the actual driver? An astonishing share of agent proposals are solutions shopping for a problem, and the tell is that no one can state the user pain without mentioning AI. Second: if this works perfectly, what changes for the customer? If the honest answer is &ldquo;not much,&rdquo; you have a technology project, not a product, and it will fail in production for reasons that have nothing to do with the model.</p>
+    <p>Pass those two and you have earned the right to the four tests.</p>
+    <h3 id="the-four-suitability-tests">The four suitability tests</h3>
+    <p>An agent is the right answer only when four conditions hold at once. Three are from the standard assessment; the fourth I have revised, because experience showed the original was too weak.</p>
+    <div class="callout">
+      <div class="callout-title">The Four Suitability Tests. Build an agent only when all four hold:</div>
+      <ol>
+      <li><strong>Repeats at volume.</strong> The task happens often enough that automating it pays back the design and supervision cost. A once-a-quarter task rarely clears the bar.</li>
+      <li><strong>Bounded tool use.</strong> The actions the agent needs are finite and definable. If &ldquo;do whatever it takes&rdquo; is the scope, you cannot reason about the blast radius.</li>
+      <li><strong>Recoverable consequences.</strong> When the agent is wrong, the damage can be caught and undone. Irreversible actions demand a human in the loop regardless of volume.</li>
+      <li><strong>Measurable and trusted.</strong> You can define what &ldquo;good&rdquo; output is, <em>and</em> the measure is one you would stake a decision on. A metric you can compute but do not trust is worse than none, because it green-lights an agent you cannot actually evaluate.</li>
+    </ol>
+    </div>
+    <p>The revision to the fourth test is the one that matters. The original said &ldquo;measurable,&rdquo; and teams duly produced a metric, an eval pass rate, a confidence score, a satisfaction proxy, and treated its existence as the green light. But a metric you do not trust is a trap: it makes the agent look governable while hiding that you cannot actually tell good output from bad. The clinical version is stark, a model scoring well on a benchmark that does not capture the failure that kills the patient, but it generalizes to every domain. If you cannot point to a measure you would bet on, this task is not yet suitable, however measurable it looks.</p>
+    <h3 id="what-the-token-bill-actually-measures">What the token bill actually measures</h3>
+    <p>Now the cost model, and here is the finding that reorders most teams&rsquo; intuition. The sticker price of a model, the dollars per million tokens, is the first number and almost never the deciding one. Token prices have fallen roughly tenfold a year; a frontier chat model that cost around thirty-six dollars per million tokens in early 2023 is now one to two dollars, with budget models a fraction of that. If your decision turns on the model&rsquo;s list price, you are optimizing the wrong variable.</p>
+    <p>The real bill is set by <em>architecture</em>. An agent does not make one model call; it makes many, re-entering the model as context grows, calling tools, retrying when something fails. For a typical agent this multiplies the base token cost by five to fifty times per task. For agentic coding workflows it runs one hundred to five hundred times. The same task on the same model can cost a cent or a dollar depending entirely on how the loop is built. So the cost question is not &ldquo;which model is cheapest.&rdquo; It is &ldquo;how many times will this architecture re-enter the model, and how long is the context each time,&rdquo; and that is a design decision you own, not a price you shop. (The runaway version of this, an architecture with no ceiling, is its own chapter; see operational guardrails.)</p>
+    <div class="callout">
+      <div class="callout-title">The break-even. An agent is worth its cost when the value of the task, times how often it runs, exceeds the <em>fully loaded</em> per-task cost: tokens times the architecture multiplier, plus the human supervision the agent still requires. Teams compare the model&rsquo;s sticker price to a human&rsquo;s hourly rate and conclude the agent is obviously cheaper. The full comparison includes the 5-to-50× multiplier and the cost of the human who must still watch it. Often the agent still wins. Sometimes, once you count it all, it does not, and that is a finding worth having before you build.</div>
+      
+    </div>
+    <h3 id="the-brownfield-inversion">The brownfield inversion</h3>
+    <p>One counterintuitive cost effect worth naming. In greenfield, a new product, the floor price is whatever the agent costs to run. In brownfield, replacing a step in an existing system, the floor can <em>invert</em>: the agent has to be cheaper than the marginal cost of the human step it replaces <em>and</em> worth the integration, change-management, and supervision cost the existing system imposes, which a greenfield build never paid. The result is that the same agent can clear the bar as a new product and fail it as a replacement, because the brownfield deployment carries costs the greenfield one does not. Decide which you are in before you run the math.</p>
+    <h3 id="earned-versus-scheduled-autonomy">Earned versus scheduled autonomy</h3>
+    <p>The last discipline connects back to the Autonomy Ladder. Once you decide to build, the question of how much autonomy to grant has a right answer and a common wrong one.</p>
+    <div class="callout">
+      <div class="callout-title">Utah Doctronic: autonomy on a schedule. A telehealth service moved its AI toward autonomous prescribing by a timetable, advancing the system&rsquo;s authority on a schedule rather than on demonstrated competence at the current level. Autonomy that advances because the calendar says so, rather than because the system has earned the next rung, is autonomy granted blind. The lesson is the rule: you move up the Autonomy Ladder on evidence the system behaves at its current rung, never on a date.</div>
+      
+    </div>
+    <p>The counter-case is just as instructive about going <em>too far</em> and walking it back.</p>
+    <div class="callout">
+      <div class="callout-title">Klarna: the rebalance. Klarna deployed an AI assistant it described as doing the work of roughly 700 human agents, a genuine and widely-cited efficiency. Then it rebalanced, bringing human support back into the loop for the cases the agent handled worse than advertised. The story is not &ldquo;the agent failed.&rdquo; It is that the right autonomy level was discovered in production and corrected, which is what mature deployment looks like. The failure would have been refusing to walk it back to protect the headline.</div>
+      
+    </div>
+    <h3 id="a-worked-suitability-sheet">A worked suitability sheet</h3>
+    <p>The chapter&rsquo;s practical output is a sheet you fill in before building, not a principle to nod at. For one candidate agent: state the repeating problem in one sentence with no mention of AI; list the bounded set of tools; name what happens when it is wrong and whether that is recoverable; name the measure of good output <em>and</em> whether you would stake a decision on it; estimate the architecture multiplier and the fully-loaded per-task cost against the task&rsquo;s value and volume; and place it on the Autonomy Ladder at the rung it has earned. If any line is blank or any test fails, you have not necessarily killed the idea, but you have found exactly where it is weak, and you owe yourself one written sentence on why you are building it anyway. Whether that sentence would survive being read aloud to your CFO is a fair test of whether you believe it.</p>
+    <p>Take one agent through the sheet, and keep it; this book returns to it. A support team wants to automate refunds: a customer asks for their money back, and today a human reads the request and decides. It repeats at volume, which passes the first test. The tool set is bounded, read the order and account, issue a refund, or escalate, which passes the second. Consequences are mostly recoverable, a wrong refund can be clawed back within a window, which passes the third but only conditionally, and that condition is where the boundary will later have to sit. And the measure of good output is the hard one: you can measure whether a refund was issued, but &ldquo;issued&rdquo; is not &ldquo;correct,&rdquo; and you would not stake the company&rsquo;s margin on the agent&rsquo;s judgment about the truly ambiguous cases, so the fourth test passes only if you build the evals and the supervision that make the output trusted, not merely measurable. On the Autonomy Ladder it earns, at most, the rung where it resolves the clear cases and escalates the rest. That is a buildable agent, and a revealing one, because every place the sheet came back &ldquo;yes, but&rdquo; is a place the supervisory layer will have to do work. Hold onto the refund agent; it reappears as the worked example runs through the design, operation, and human-system chapters, and it is the agent whose two briefs close the book in Appendix A.</p>
+  <div class="chapter-nav"><a class="prev" href="ch02-not-a-bridge.html">You Are Not a Bridge Anymore</a><a class="next" href="ch04-how-work-splits.html">How the Work Splits</a></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
