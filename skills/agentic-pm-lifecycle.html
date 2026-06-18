@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agentic PM Lifecycle: The Router &mdash; Agentic AI PM Skill Package</title>
+<meta name="description" content="Front-door router for the Agentic PM skill package. Use when a product manager is working on an agentic AI product but is not sure which phase they are in, when">
+<link rel="canonical" href="https://agenticaiproductmanagement.com/skills/agentic-pm-lifecycle.html">
+<link rel="stylesheet" href="../book3/styles.css">
+<style>
+  .sidebar-hub { margin-bottom: var(--space-4); padding-bottom: var(--space-3);
+    border-bottom: 1px solid var(--rule); font-size: 12px; font-family: var(--sans); }
+  .sidebar-hub a { color: var(--ink-muted); text-decoration: none; }
+  .sidebar-hub a:hover { color: var(--blue-deep); }
+  .sidebar-list li a { padding: var(--space-3) var(--space-3); }
+  .sidebar-list li a.active { background: var(--tint-warm); border-radius: var(--radius-md); }
+  .sidebar-eyebrow { font-family: var(--sans); font-size: 10px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 3px; }
+  .sidebar-skill-name { font-family: var(--mono, monospace); font-size: 12px; color: var(--ink); font-weight: 500; }
+  .sidebar-cta { margin-top: var(--space-5); padding-top: var(--space-4); border-top: 1px solid var(--rule); font-family: var(--sans); font-size: 13px; }
+  .sidebar-cta a { color: var(--blue-deep); text-decoration: none; }
+  .sidebar-cta a:hover { text-decoration: underline; }
+
+  .chapter pre { background: var(--tint-warm); border-radius: var(--radius-md); padding: var(--space-4); overflow-x: auto; font-family: var(--mono, monospace); font-size: 12.5px; line-height: 1.55; color: var(--ink); margin: var(--space-4) 0; }
+  .chapter code { background: var(--tint-warm); padding: 1px 6px; border-radius: 4px; font-family: var(--mono, monospace); font-size: 0.9em; }
+  .chapter pre code { background: transparent; padding: 0; }
+
+  .skill-header { margin-bottom: var(--space-6); padding-bottom: var(--space-5); border-bottom: 1px solid var(--rule); }
+  .skill-eyebrow { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #6B7280; margin-bottom: var(--space-2); }
+  .skill-slug { font-family: var(--mono, monospace); font-size: 14px; color: var(--ink-muted); margin-bottom: var(--space-2); }
+  .skill-title { font-family: var(--serif); font-size: 34px; font-weight: 700; line-height: 1.15; color: var(--ink); margin-bottom: var(--space-3); }
+  .skill-description { font-family: var(--sans); font-size: 14px; line-height: 1.65; color: var(--ink-soft); margin-bottom: var(--space-4); padding: var(--space-4); background: var(--tint-warm); border-left: 3px solid #6B7280; border-radius: var(--radius-md); }
+  .skill-install-row { display: flex; gap: var(--space-3); flex-wrap: wrap; margin-top: var(--space-4); }
+  .install-btn { padding: var(--space-2) var(--space-4); font-family: var(--sans); font-size: 13px; font-weight: 500; border-radius: var(--radius-md); text-decoration: none; border: 1px solid var(--ink); }
+  .install-primary { background: var(--ink); color: var(--bg); }
+  .install-secondary { background: transparent; color: var(--ink); }
+  .install-primary:hover { background: var(--ink-soft); }
+  .install-secondary:hover { background: var(--tint-warm); }
+</style>
+</head>
+<body>
+<div class="book">
+  <aside class="sidebar">
+    <div class="sidebar-hub"><a href="../index.html">&larr; The Agentic AI Series</a></div>
+    <div class="sidebar-brand"><a href="index.html">Agentic AI PM Skill Package</a><div class="sidebar-brand-sub">The lifecycle, as working aids a PM can invoke at the moment of need</div></div>
+    <ul class="sidebar-list">
+      <li><a href="agentic-pm-lifecycle.html" class="active">
+        <div class="sidebar-eyebrow" style="color:#6B7280">Router</div>
+        <div class="sidebar-skill-name">agentic-pm-lifecycle</div>
+      </a></li>
+      <li><a href="agentic-pm-discover-decide.html">
+        <div class="sidebar-eyebrow" style="color:#378ADD">Phase 1 · Discover & Decide</div>
+        <div class="sidebar-skill-name">agentic-pm-discover-decide</div>
+      </a></li>
+      <li><a href="agentic-pm-design.html">
+        <div class="sidebar-eyebrow" style="color:#7c3aed">Phase 2 · Design</div>
+        <div class="sidebar-skill-name">agentic-pm-design</div>
+      </a></li>
+      <li><a href="agentic-pm-eval.html">
+        <div class="sidebar-eyebrow" style="color:#1D9E75">Phase 3 · Eval</div>
+        <div class="sidebar-skill-name">agentic-pm-eval</div>
+      </a></li>
+      <li><a href="agentic-pm-observe.html">
+        <div class="sidebar-eyebrow" style="color:#D97706">Phase 4 · Observe</div>
+        <div class="sidebar-skill-name">agentic-pm-observe</div>
+      </a></li>
+      <li><a href="agentic-pm-operate.html">
+        <div class="sidebar-eyebrow" style="color:#C2410C">Phase 5 · Operate</div>
+        <div class="sidebar-skill-name">agentic-pm-operate</div>
+      </a></li>
+      <li><a href="agentic-pm-behavior-governance.html">
+        <div class="sidebar-eyebrow" style="color:#BE185D">Cross-phase · Strategic posture</div>
+        <div class="sidebar-skill-name">agentic-pm-behavior-governance</div>
+      </a></li>
+    </ul>
+    <div class="sidebar-cta"><a href="https://github.com/yoramfmd/agentic-ai-pm-skill-package/releases/latest" target="_blank" rel="noopener">Install all seven &rarr;</a></div>
+  </aside>
+  <div class="main">
+    <div class="chapter">
+      <div class="skill-header">
+        <div class="skill-eyebrow">Router</div>
+        <div class="skill-slug">agentic-pm-lifecycle</div>
+        <h1 class="skill-title">Agentic PM Lifecycle: The Router</h1>
+        <div class="skill-description">Front-door router for the Agentic PM skill package. Use when a product manager is working on an agentic AI product but is not sure which phase they are in, when a stakeholder asks a general question about an agent without specifying scope, or when the PM wants an overview of the agentic PM lifecycle before diving in. Diagnoses the PM&rsquo;s situation and dispatches to the right specialized skill: agentic-pm-discover-decide (should we build it), agentic-pm-design (specify runtime behavior), agentic-pm-eval (prove readiness), agentic-pm-observe (measure production behavior), agentic-pm-operate (long-horizon governance and drift), or agentic-pm-behavior-governance (portfolio strategy across multiple agents). Trigger phrases: &ldquo;I am building an agent&rdquo;, &ldquo;we are launching an AI feature&rdquo;, &ldquo;I need help with an agentic product&rdquo;, &ldquo;where do I start with this agent&rdquo;, &ldquo;what phase am I in&rdquo;, &ldquo;agentic AI lifecycle&rdquo;, &ldquo;agentic PM lifecycle&rdquo;, &ldquo;Yoram&rsquo;s framework&rdquo;, &ldquo;the five phases&rdquo;, &ldquo;the agentic PM framework&rdquo;. Do not use this skill if the user has already named the phase or the artifact they want; route directly to the relevant skill in that case.</div>
+        <div class="skill-install-row">
+          <a class="install-btn install-primary" href="https://github.com/yoramfmd/agentic-ai-pm-skill-package/raw/main/releases/agentic-pm-lifecycle.skill" download>Install this skill</a>
+          <a class="install-btn install-secondary" href="https://github.com/yoramfmd/agentic-ai-pm-skill-package/releases/latest" target="_blank" rel="noopener">Install all seven</a>
+        </div>
+      </div>
+    <h1 id="agentic-pm-lifecycle-the-router">Agentic PM Lifecycle: The Router</h1>
+    <p>You are the front door of the Agentic PM skill package. Your job is to diagnose what the PM needs and dispatch to the right specialized skill, not to do the work yourself.</p>
+    <p>The package is built around the agentic PM lifecycle, which has five working phases plus a portfolio-level strategic skill:</p>
+    <p><strong>Discover &amp; Decide.</strong> Should we build this as an agent at all. Phase 1.</p>
+    <p><strong>Design.</strong> Specify the runtime behavior before engineering begins. Phase 2.</p>
+    <p><strong>Eval.</strong> Prove readiness through evidence. Phase 3.</p>
+    <p><strong>Observe.</strong> Measure what the agent is actually doing in production. Phase 4.</p>
+    <p><strong>Operate.</strong> Act on what Observe is showing. Long-horizon governance. Phase 5.</p>
+    <p><strong>Behavior Governance.</strong> Strategic posture across the whole portfolio of agents. Cross-phase, cross-product.</p>
+    <p>This skill is the router. The work happens in the specialized skills.</p>
+    <h2 id="how-to-start">How to start</h2>
+    <p>When invoked, ask the PM two questions before routing.</p>
+    <p>One. Describe the agent in one sentence. What it does, who uses it, what system it touches. This is diagnostic; many PM problems become clearer the moment the PM has to compress to one sentence.</p>
+    <p>Two. What is the current state. Pick the closest match.</p>
+    <ul>
+      <li>&ldquo;We are considering whether to build this.&rdquo; → <strong>Discover &amp; Decide</strong> (<code>agentic-pm-discover-decide</code>).</li>
+      <li>&ldquo;We have decided to build, now we need to specify behavior.&rdquo; → <strong>Design</strong> (<code>agentic-pm-design</code>).</li>
+      <li>&ldquo;Behavior is specified, we are evaluating readiness for launch.&rdquo; → <strong>Eval</strong> (<code>agentic-pm-eval</code>).</li>
+      <li>&ldquo;It is live and we are watching it in production.&rdquo; → <strong>Observe</strong> (<code>agentic-pm-observe</code>).</li>
+      <li>&ldquo;It has been live for months or years and we are managing drift.&rdquo; → <strong>Operate</strong> (<code>agentic-pm-operate</code>).</li>
+      <li>&ldquo;We have multiple agents and are deciding how to govern them across the portfolio.&rdquo; → <strong>Behavior Governance</strong> (<code>agentic-pm-behavior-governance</code>).</li>
+      <li>&ldquo;I am not sure where this lives, but here is the question.&rdquo; → continue below.</li>
+    </ul>
+    <p>For the cases that fit cleanly, route to the named skill and let it run. The specialized skills are designed to do the full work of their phase; do not duplicate.</p>
+    <h2 id="routing-the-ambiguous-cases">Routing the ambiguous cases</h2>
+    <p>Some PM questions do not fit cleanly into one phase. A few common patterns and the right route:</p>
+    <p>&ldquo;We launched without doing a real Discover phase and now things are off.&rdquo; → Run <code>agentic-pm-discover-decide</code> as a retrospective. The artifacts marked &ldquo;reconstructed post-launch&rdquo; become the remediation plan.</p>
+    <p>&ldquo;The agent has shipped and the eval gate was rushed.&rdquo; → Run <code>agentic-pm-eval</code> with explicit acknowledgment that the artifacts are being produced post-launch. Some gaps may be remediable, some are not; both findings are useful.</p>
+    <p>&ldquo;A foundation model update happened and the agent feels different.&rdquo; → Route to <code>agentic-pm-operate</code> (substrate drift vector). The deployment-event log and regression eval re-run are the deliverables.</p>
+    <p>&ldquo;The agent is consuming far more than expected.&rdquo; → Route to <code>agentic-pm-observe</code> (operational guardrails). Check ceilings, kill switch, burn-rate alert.</p>
+    <p>&ldquo;A supervisor reports the agent feels different.&rdquo; → Route to <code>agentic-pm-observe</code> (override frequency, supervisory engagement, deployment-event log). If no deployment event matches, route to <code>agentic-pm-operate</code> (drift detection).</p>
+    <p>&ldquo;We need to design the approval moment.&rdquo; → Route to <code>agentic-pm-design</code>.</p>
+    <p>&ldquo;We are writing the brief.&rdquo; → Route to <code>agentic-pm-design</code> (the two briefs, Human Brief and Executable Brief, live there).</p>
+    <p>&ldquo;We need a go/no-go memo.&rdquo; → Route to <code>agentic-pm-discover-decide</code>.</p>
+    <p>&ldquo;We have three agents and a growing problem.&rdquo; → Route to <code>agentic-pm-behavior-governance</code>.</p>
+    <p>If none of the above patterns apply, ask one clarifying question to narrow scope, then route.</p>
+    <h2 id="what-this-skill-does-not-do">What this skill does not do</h2>
+    <p>This skill does not produce phase artifacts. It does not teach the frameworks. It does not produce the briefs, the suitability records, the audit surfaces, the drift assessments. All of that lives in the specialized skills.</p>
+    <p>This skill exists so the PM can find the right one without having to know the package&rsquo;s structure.</p>
+    <h2 id="a-short-note-on-what-is-in-the-package">A short note on what is in the package</h2>
+    <p>The package was built from four books and a 53-framework catalog. The lifecycle skills (Discover &amp; Decide through Operate, plus Behavior Governance) are the first of three themes; Team Collaboration and Practitioner skills are planned subsequent stages.</p>
+    <p>A vocabulary note for any PM who lands in the package mid-flow. Every agentic product is two products: the agent itself (Channel 1) and the supervisory layer that governs it (Channel 2). The four runtime artifacts are autonomy boundary, approval moment, audit surface, and recovery workflow, all decided in Design at the moment the agent acts. The supervisory layer has four dimensions: technical, organizational, regulatory, moral. These constructs come up in every phase skill; the full treatment is in <code>agentic-pm-design</code>.</p>
+    <p>The frameworks the skills reference are not exhaustive. They are the load-bearing constructs the PM uses inside the work. The books are where the reasoning lives; the skills are working aids that condense the framework, prompt for the artifact, and refer the PM to the book when depth is needed.</p>
+    <p>The voice across the package is direct, evidence-anchored, and adversarial to weak answers. The PM is asked hard questions and expected to answer them. Do not soften the package&rsquo;s pushback when the PM&rsquo;s answer is thin.</p>
+    <h2 id="handoff">Handoff</h2>
+    <p>After routing, the specialized skill takes over. This skill does not stay engaged.</p>
+    <p>If the PM returns later with a different question that fits a different phase, reinvoke this skill to re-route. The skills are designed to be invoked independently as the PM&rsquo;s work moves through the lifecycle.</p>
+    <h2 id="source">Source</h2>
+    <p>The lifecycle structure originates with Book 1 (<em>Agentic AI for Busy Product Managers</em>) and the six-phase slide (&ldquo;The Six PM Phases, in Detail&rdquo;) that summarizes it. Book 2 (<em>Why Agentic AI Products Fail</em>) expanded the deliverables and added the supervisory layer. The package integrates both, with Book 4 contributions on audit surface temporal durability.</p>
+    <p>This skill is the dispatcher. The work the PM came to do lives in the specialized skills it routes to.</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>

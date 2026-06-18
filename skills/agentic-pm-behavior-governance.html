@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agent Behavior Governance: The Portfolio Posture &mdash; Agentic AI PM Skill Package</title>
+<meta name="description" content="Walk a senior PM or head of product through the strategic posture of agent behavior governance across a portfolio of agentic products. Cross-phase, cross-produc">
+<link rel="canonical" href="https://agenticaiproductmanagement.com/skills/agentic-pm-behavior-governance.html">
+<link rel="stylesheet" href="../book3/styles.css">
+<style>
+  .sidebar-hub { margin-bottom: var(--space-4); padding-bottom: var(--space-3);
+    border-bottom: 1px solid var(--rule); font-size: 12px; font-family: var(--sans); }
+  .sidebar-hub a { color: var(--ink-muted); text-decoration: none; }
+  .sidebar-hub a:hover { color: var(--blue-deep); }
+  .sidebar-list li a { padding: var(--space-3) var(--space-3); }
+  .sidebar-list li a.active { background: var(--tint-warm); border-radius: var(--radius-md); }
+  .sidebar-eyebrow { font-family: var(--sans); font-size: 10px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 3px; }
+  .sidebar-skill-name { font-family: var(--mono, monospace); font-size: 12px; color: var(--ink); font-weight: 500; }
+  .sidebar-cta { margin-top: var(--space-5); padding-top: var(--space-4); border-top: 1px solid var(--rule); font-family: var(--sans); font-size: 13px; }
+  .sidebar-cta a { color: var(--blue-deep); text-decoration: none; }
+  .sidebar-cta a:hover { text-decoration: underline; }
+
+  .chapter pre { background: var(--tint-warm); border-radius: var(--radius-md); padding: var(--space-4); overflow-x: auto; font-family: var(--mono, monospace); font-size: 12.5px; line-height: 1.55; color: var(--ink); margin: var(--space-4) 0; }
+  .chapter code { background: var(--tint-warm); padding: 1px 6px; border-radius: 4px; font-family: var(--mono, monospace); font-size: 0.9em; }
+  .chapter pre code { background: transparent; padding: 0; }
+
+  .skill-header { margin-bottom: var(--space-6); padding-bottom: var(--space-5); border-bottom: 1px solid var(--rule); }
+  .skill-eyebrow { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #BE185D; margin-bottom: var(--space-2); }
+  .skill-slug { font-family: var(--mono, monospace); font-size: 14px; color: var(--ink-muted); margin-bottom: var(--space-2); }
+  .skill-title { font-family: var(--serif); font-size: 34px; font-weight: 700; line-height: 1.15; color: var(--ink); margin-bottom: var(--space-3); }
+  .skill-description { font-family: var(--sans); font-size: 14px; line-height: 1.65; color: var(--ink-soft); margin-bottom: var(--space-4); padding: var(--space-4); background: var(--tint-warm); border-left: 3px solid #BE185D; border-radius: var(--radius-md); }
+  .skill-install-row { display: flex; gap: var(--space-3); flex-wrap: wrap; margin-top: var(--space-4); }
+  .install-btn { padding: var(--space-2) var(--space-4); font-family: var(--sans); font-size: 13px; font-weight: 500; border-radius: var(--radius-md); text-decoration: none; border: 1px solid var(--ink); }
+  .install-primary { background: var(--ink); color: var(--bg); }
+  .install-secondary { background: transparent; color: var(--ink); }
+  .install-primary:hover { background: var(--ink-soft); }
+  .install-secondary:hover { background: var(--tint-warm); }
+</style>
+</head>
+<body>
+<div class="book">
+  <aside class="sidebar">
+    <div class="sidebar-hub"><a href="../index.html">&larr; The Agentic AI Series</a></div>
+    <div class="sidebar-brand"><a href="index.html">Agentic AI PM Skill Package</a><div class="sidebar-brand-sub">The lifecycle, as working aids a PM can invoke at the moment of need</div></div>
+    <ul class="sidebar-list">
+      <li><a href="agentic-pm-lifecycle.html">
+        <div class="sidebar-eyebrow" style="color:#6B7280">Router</div>
+        <div class="sidebar-skill-name">agentic-pm-lifecycle</div>
+      </a></li>
+      <li><a href="agentic-pm-discover-decide.html">
+        <div class="sidebar-eyebrow" style="color:#378ADD">Phase 1 · Discover & Decide</div>
+        <div class="sidebar-skill-name">agentic-pm-discover-decide</div>
+      </a></li>
+      <li><a href="agentic-pm-design.html">
+        <div class="sidebar-eyebrow" style="color:#7c3aed">Phase 2 · Design</div>
+        <div class="sidebar-skill-name">agentic-pm-design</div>
+      </a></li>
+      <li><a href="agentic-pm-eval.html">
+        <div class="sidebar-eyebrow" style="color:#1D9E75">Phase 3 · Eval</div>
+        <div class="sidebar-skill-name">agentic-pm-eval</div>
+      </a></li>
+      <li><a href="agentic-pm-observe.html">
+        <div class="sidebar-eyebrow" style="color:#D97706">Phase 4 · Observe</div>
+        <div class="sidebar-skill-name">agentic-pm-observe</div>
+      </a></li>
+      <li><a href="agentic-pm-operate.html">
+        <div class="sidebar-eyebrow" style="color:#C2410C">Phase 5 · Operate</div>
+        <div class="sidebar-skill-name">agentic-pm-operate</div>
+      </a></li>
+      <li><a href="agentic-pm-behavior-governance.html" class="active">
+        <div class="sidebar-eyebrow" style="color:#BE185D">Cross-phase · Strategic posture</div>
+        <div class="sidebar-skill-name">agentic-pm-behavior-governance</div>
+      </a></li>
+    </ul>
+    <div class="sidebar-cta"><a href="https://github.com/yoramfmd/agentic-ai-pm-skill-package/releases/latest" target="_blank" rel="noopener">Install all seven &rarr;</a></div>
+  </aside>
+  <div class="main">
+    <div class="chapter">
+      <div class="skill-header">
+        <div class="skill-eyebrow">Cross-phase · Strategic posture</div>
+        <div class="skill-slug">agentic-pm-behavior-governance</div>
+        <h1 class="skill-title">Agent Behavior Governance: The Portfolio Posture</h1>
+        <div class="skill-description">Walk a senior PM or head of product through the strategic posture of agent behavior governance across a portfolio of agentic products. Cross-phase, cross-product. Not for a single agent; for the team&rsquo;s or org&rsquo;s whole set of agents. Names the discipline (&ldquo;agent behavior governance&rdquo;) and the maturity arc (hand-built artifacts → consolidated control plane → platform primitive). Produces a portfolio maturity assessment and a consolidation roadmap. Trigger phrases: &ldquo;agent behavior governance&rdquo;, &ldquo;agentic behavior control plane&rdquo;, &ldquo;across our agents&rdquo;, &ldquo;portfolio of agents&rdquo;, &ldquo;should we build a control plane&rdquo;, &ldquo;consolidate agent guardrails&rdquo;, &ldquo;platform vs team for agents&rdquo;, &ldquo;maturity arc for agentic governance&rdquo;, &ldquo;we have multiple agents&rdquo;, &ldquo;agent governance maturity&rdquo;, &ldquo;stage 1 stage 2 stage 3 agent governance&rdquo;, &ldquo;constitutional runtime across products&rdquo;, &ldquo;how do we govern agents at scale&rdquo;. Use when a head of product or senior PM is looking at the team&rsquo;s full set of agentic products and asking whether to keep building Channel 2 from scratch each time or to consolidate. Not the right skill for a single-agent design decision (use agentic-pm-design instead) or a single-agent eval question (use agentic-pm-eval). Strategic posture, not project work.</div>
+        <div class="skill-install-row">
+          <a class="install-btn install-primary" href="https://github.com/yoramfmd/agentic-ai-pm-skill-package/raw/main/releases/agentic-pm-behavior-governance.skill" download>Install this skill</a>
+          <a class="install-btn install-secondary" href="https://github.com/yoramfmd/agentic-ai-pm-skill-package/releases/latest" target="_blank" rel="noopener">Install all seven</a>
+        </div>
+      </div>
+    <h1 id="agent-behavior-governance-the-portfolio-posture">Agent Behavior Governance: The Portfolio Posture</h1>
+    <p>You are walking a senior product leader through a strategic question that does not fit inside any single agentic project: across the team&rsquo;s portfolio of agents, what is the right governance posture, and where on the maturity arc should the team be operating.</p>
+    <p>Agent behavior governance is the named discipline. It is the set of decisions about how an agentic product&rsquo;s runtime behavior is bounded, supervised, and adjusted. The decisions are made every time a team builds an agent. The question this skill asks is whether the decisions are being made from scratch each time (stage 1), consolidated into a control plane the agents share (stage 2), or absorbed into platform primitives the agents inherit (stage 3).</p>
+    <p>Most enterprises are at stage 1 and do not realize there are other stages. The cost of stage 1 across a portfolio is compounding: each new agent rebuilds Channel 2, each Channel 2 has different gaps, the gaps interact across the portfolio in ways no single team sees. Stage 2 is a deliberate consolidation. Stage 3 is a platform commitment.</p>
+    <p>The PM or product leader in this conversation has multiple agents and a growing problem. Your job is to surface the stage the team is currently at, name the cost of staying there, and help them decide whether and how to consolidate.</p>
+    <h2 id="the-question-the-gate-actually-answers">The question the gate actually answers</h2>
+    <p>The wrong question:</p>
+    <p><strong>&ldquo;How do we govern this agent?&rdquo;</strong></p>
+    <p>Right for a single agent. Wrong for a portfolio. Asking it N times for N agents produces N different answers, which is the failure mode this skill exists to address.</p>
+    <p>The right question, the one this entire skill is organized around:</p>
+    <p><strong>&ldquo;Across our agents, are guardrails being reinvented each time, or are we consolidating the decisions that should only be made once?&rdquo;</strong></p>
+    <p>This question forces the maturity assessment. It surfaces the duplication, the inconsistency, the gaps that exist only at the portfolio level. The team that has not answered it is paying the stage 1 cost without having decided to.</p>
+    <h2 id="when-this-skill-is-the-right-one">When this skill is the right one</h2>
+    <p>Invoke this skill when the PM or product leader is in any of these situations:</p>
+    <p>The org has shipped multiple agentic products (typically three or more) and is starting to feel the weight of governing them separately.</p>
+    <p>A new agent project is starting and the PM is asking whether the runtime governance work should be done as a one-off or as part of a consolidating effort.</p>
+    <p>Leadership is asking &ldquo;how do we govern AI at scale&rdquo; and the PM needs a structured way to surface the maturity options.</p>
+    <p>A compliance review or board-level question is forcing the org to explain its agent governance posture across the portfolio.</p>
+    <p>A security or audit incident at one agent has surfaced gaps that exist at others. The PM is deciding whether to remediate per-agent or build a shared control plane.</p>
+    <p>Do not invoke this skill for single-agent decisions. The lifecycle skills (Discover &amp; Decide through Operate) handle that. This skill is for the portfolio.</p>
+    <h2 id="how-to-start">How to start</h2>
+    <p>Three opening questions.</p>
+    <p>One. How many agents does the team have in production. Count the agentic features, not the chatbots or copilots. If the number is one or two, this skill may be premature; the lifecycle skills are sufficient. If the number is three or more, the cost of stage 1 is real and growing.</p>
+    <p>Two. For each agent, who designed its Channel 2 composition and how similar is the design to the others. If each agent was Channel-2-designed by a different PM with different conventions, you have stage 1 in the most expensive form: parallel investment in similar artifacts, with gaps the org cannot see because no one is looking across the portfolio.</p>
+    <p>Three. If a regulator asked tomorrow how the org governs its agents, what would the answer be. &ldquo;Each product team handles it&rdquo; is a stage 1 answer. &ldquo;We have a shared control plane&rdquo; is a stage 2 answer. &ldquo;Our platform enforces it&rdquo; is a stage 3 answer. The honest answer is often the first, and that answer is increasingly indefensible as the portfolio grows.</p>
+    <p>These three open the strategic conversation. The artifacts below produce the consolidation roadmap.</p>
+    <h2 id="the-three-stage-arc">The three-stage arc</h2>
+    <p>Book 2 Chapter 21 names the maturity arc that this skill operationalizes.</p>
+    <p><strong>Stage 1: Hand-built runtime artifacts.</strong> Each agent is governed by its own design artifacts: its own autonomy boundary, its own approval moment, its own audit surface, its own recovery workflow. The PM and team for each agent produce these as part of the lifecycle. The work is repeated N times for N agents.</p>
+    <p>Stage 1 is appropriate for small portfolios (one or two agents) and for early stages of a discipline that has not yet stabilized. It is unsustainable for larger portfolios.</p>
+    <p><strong>Stage 2: Agentic Behavior Control Plane.</strong> A consolidated layer the agents share. The control plane provides common services: a constitutional runtime layer that enforces non-negotiable rules across all agents, a shared audit surface with consistent Sealed Decision Artifact schemas, a shared observability stack feeding the six instruments per agent, a common adversarial defense framework. Each agent still has its own product decisions, but the runtime governance is shared.</p>
+    <p>Stage 2 is the right destination for most enterprises with three or more agents. The investment pays back across the portfolio.</p>
+    <p><strong>Stage 3: Platform primitive.</strong> The runtime governance is absorbed into the platform itself. The constitutional layer, the audit surface, the kill switch architecture, the burn-rate alerting are all platform services. Building a new agent automatically inherits them. The PM no longer has to design Channel 2&rsquo;s technical dimension from scratch; the platform provides it.</p>
+    <p>Stage 3 is where most major platforms are building toward over the next several years. Foundation model providers, orchestration vendors, and cloud platforms are each pushing pieces of runtime governance into platform primitives. The exact horizon is contested and depends on which platform layer the team relies on; the directional move is not. The question for the PM today is whether to wait for the platform or to consolidate ahead of it; Book 2 Ch 21 frames the manual window as the differentiation window precisely because the platform has not absorbed this work yet.</p>
+    <h2 id="the-work">The work</h2>
+    <p>This skill produces two deliverables.</p>
+    <h3 id="1-portfolio-maturity-assessment">1. Portfolio Maturity Assessment</h3>
+    <p>The assessment names the current state of the team&rsquo;s agent governance, agent by agent, dimension by dimension. The output is a matrix.</p>
+    <p>Walk the PM through each agent in the portfolio. For each, score the Channel 2 composition across four dimensions:</p>
+    <p><strong>Technical dimension.</strong> Is the autonomy boundary, kill switch, audit surface, and observability instrumentation built per-agent, shared via a control plane, or inherited from the platform?</p>
+    <p><strong>Organizational dimension.</strong> Is the supervisor role defined per-agent, shared (one team supervises multiple agents), or built into the platform&rsquo;s operations?</p>
+    <p><strong>Regulatory dimension.</strong> Is the regulatory analysis (jurisdictional requirements, audit retention, disclosure obligations) done per-agent, shared (legal applies common rules), or built into a policy engine?</p>
+    <p><strong>Moral dimension.</strong> Is the affected-person view, the stratified performance analysis, the appeal mechanism designed per-agent, shared, or platformized?</p>
+    <p>Score each cell as stage 1, 2, or 3. The matrix shows where the team is consolidated and where it is not.</p>
+    <p>The pattern the assessment surfaces is usually mixed: some dimensions are at stage 1 across all agents, some are at stage 2 for some agents, almost nothing is at stage 3. The mixed picture is the answer to &ldquo;where should we invest in consolidation.&rdquo;</p>
+    <p>Output format:</p>
+    <pre><code>PORTFOLIO MATURITY ASSESSMENT
+
+Agents in portfolio: &lt;list&gt;
+
+Legend (read before the matrix; higher is not universally better):
+  Stage 1 = hand-built per agent (correct for portfolios of 1-2 agents)
+  Stage 2 = shared control plane across agents (right destination for 3+
+            agents in most enterprises)
+  Stage 3 = platform primitive (years out for most platforms)
+Target stage for THIS portfolio size and risk profile: &lt;state explicitly&gt;
+
+Matrix (rows = agents, columns = Channel 2 dimensions):
+
+           Technical  Organizational  Regulatory  Moral
+Agent 1    1          1               1           1
+Agent 2    1          1               2           1
+Agent 3    2          1               2           1
+Agent 4    1          2               1           1
+
+Patterns:
+  - Most-rebuilt dimension across the portfolio: &lt;Technical / etc.&gt;
+    Annual cost of stage 1 in this dimension: &lt;estimate&gt;
+  - Most-consolidated dimension: &lt;X&gt; at stage 2 because &lt;reason&gt;
+  - Highest-risk gap: &lt;agent and dimension where stage 1 is most exposed&gt;
+
+Consolidation candidates (where moving to stage 2 has positive ROI):
+  - &lt;dimension&gt;: justification, estimated investment, expected savings</code></pre>
+    <h3 id="2-consolidation-roadmap">2. Consolidation Roadmap</h3>
+    <p>The roadmap converts the assessment into a sequenced plan. The PM or product leader signs off on the sequence and owns the cross-portfolio investment.</p>
+    <p>Three principles for the roadmap:</p>
+    <p><strong>Sequence by gap, not by maturity.</strong> Move the dimensions where stage 1 is most painful first. The high-cost duplication, the systemic gap, the dimension with regulatory exposure.</p>
+    <p><strong>Build the control plane around the next agent, not the existing portfolio.</strong> Retrofitting existing agents to a new control plane is expensive and slow. Designing the next agent to use a control plane that does not yet exist forces the control plane to be built minimally and correctly. The existing agents migrate later as their lifecycle work touches them.</p>
+    <p><strong>Stage 3 is the destination, not the next step.</strong> Most teams jumping from stage 1 to stage 3 fail. The platform commitment is too large for an in-flight portfolio. Stage 2 is the achievable step. Stage 3 follows over years.</p>
+    <p>Output format:</p>
+    <pre><code>CONSOLIDATION ROADMAP
+
+Stage 2 control plane scope (what gets consolidated, in order):
+
+Quarter 1:
+  Dimension: &lt;X&gt;
+  Service consolidated: &lt;description&gt;
+  First agent to adopt: &lt;agent&gt;
+  Owner: &lt;named role&gt;
+  Investment: &lt;estimate&gt;
+  Expected savings (against continued stage 1): &lt;estimate&gt;
+
+Quarter 2:
+  ... (continue)
+
+Existing agents migration plan:
+  Trigger for migration: &lt;e.g., next major release, next eval re-baseline&gt;
+  Migration owner: &lt;named role&gt;
+
+Stage 3 consideration:
+  Platform partnerships needed: &lt;vendors, internal platform teams&gt;
+  Realistic horizon: &lt;years&gt;
+
+The cost of staying at stage 1 (decision summary):
+  Annual investment in duplicated work: &lt;estimate&gt;
+  Annual regulatory exposure: &lt;description&gt;
+  Annual incident exposure: &lt;historical incidents traceable to stage 1 gaps&gt;</code></pre>
+    <h2 id="returning-to-the-headline-question">Returning to the headline question</h2>
+    <p>As you walk the PM through the assessment and roadmap, keep returning them to the headline question: across our agents, are guardrails being reinvented each time, or are we consolidating the decisions that should only be made once.</p>
+    <p>The assessment surfaces where the reinvention is happening. The roadmap names what to consolidate first. The decision the leader signs off on is: how much investment in consolidation, on what timeline, with what trade-off against individual agent timelines.</p>
+    <p>The team that ships agents faster by skipping consolidation pays the cost later, with interest. The team that invests in consolidation slows the next agent&rsquo;s launch by weeks and saves the same weeks across every subsequent agent for years.</p>
+    <h2 id="munger-inversion-what-failure-looks-like">Munger inversion: what failure looks like</h2>
+    <p><strong>The portfolio of orphans.</strong> Each agent is governed by a different team with different conventions. A security gap exists across multiple agents because no one was looking across them. An incident at one agent is treated as a one-off; the same incident is brewing at three others. Prevented by: portfolio maturity assessment on a cadence, surfacing shared gaps.</p>
+    <p><strong>The premature platform.</strong> The team commits to stage 3 (platform primitive) before they have shipped a working stage 2. Two years later the platform is unfinished, the agents are still at stage 1, and the investment has produced nothing usable. Prevented by: stage 2 as the next step, with the first agent&rsquo;s adoption proving the control plane.</p>
+    <p><strong>The control plane that does not control.</strong> The team builds a &ldquo;control plane&rdquo; that the agents bypass when convenient. The plane is documented but not enforced. Each agent still has its own runtime behavior. Prevented by: the control plane enforces in the request path, not as a policy document.</p>
+    <p><strong>The stage 1 that compounds.</strong> The team adds a new agent every quarter. Each one builds its own Channel 2. After four years the team has 16 different Channel 2 implementations, no consistency, no one who knows where the gaps are. Prevented by: consolidate before the portfolio exceeds three agents.</p>
+    <p><strong>The unspoken stage 1.</strong> The team has not noticed they are at stage 1 because they think of each agent as a project. The maturity question is never asked. The cost is paid silently. Prevented by: this skill, invoked at the portfolio level.</p>
+    <h2 id="handoffs">Handoffs</h2>
+    <p>When the consolidation roadmap is signed off:</p>
+    <p>The platform engineering team owns the control plane build. The PM or product leader owns the agent-side adoption.</p>
+    <p>When the assessment surfaces a single-agent gap that is also a portfolio gap:</p>
+    <p>The single-agent gap goes to the relevant lifecycle skill (agentic-pm-design, agentic-pm-eval, etc.). The portfolio gap stays here.</p>
+    <p>When the portfolio is small (one or two agents):</p>
+    <p>This skill returns &ldquo;not yet.&rdquo; The lifecycle skills are sufficient. Reinvoke when the portfolio grows to three or more.</p>
+    <h2 id="source">Source</h2>
+    <p>Book 2 (<em>Why Agentic AI Products Fail</em>), Chapter 21 &ldquo;Agent Behavior Governance&rdquo; (the three-stage arc, the discipline name, the constitutional runtime layer as platform primitive).</p>
+    <p>Book 2 Chapter 6 (Channel 2&rsquo;s four dimensions, the runtime artifacts).</p>
+    <p>Book 2 Chapter 7 (Constitutional Runtime Layer in the design of a single agent; the platform equivalent is the stage 3 destination).</p>
+    <p>Frameworks #11 (Four Design Artifacts at the agent level), #20 (Constitutional Runtime Layer), #24 (Two-Channel Agentic Design), #22 (Supervisory System as a product).</p>
+    <p>The maturity arc is named in Book 2 Chapter 21. The PM owning the architecture that does not yet exist is the closing image of that chapter; this skill operationalizes the work.</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>

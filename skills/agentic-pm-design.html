@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design: Design the Behavior Before Engineering Begins &mdash; Agentic AI PM Skill Package</title>
+<meta name="description" content="Walk the PM through the Design phase of the agentic PM lifecycle. Used after a GO decision in Discover &amp; Decide, before engineering builds. Produces the runtime">
+<link rel="canonical" href="https://agenticaiproductmanagement.com/skills/agentic-pm-design.html">
+<link rel="stylesheet" href="../book3/styles.css">
+<style>
+  .sidebar-hub { margin-bottom: var(--space-4); padding-bottom: var(--space-3);
+    border-bottom: 1px solid var(--rule); font-size: 12px; font-family: var(--sans); }
+  .sidebar-hub a { color: var(--ink-muted); text-decoration: none; }
+  .sidebar-hub a:hover { color: var(--blue-deep); }
+  .sidebar-list li a { padding: var(--space-3) var(--space-3); }
+  .sidebar-list li a.active { background: var(--tint-warm); border-radius: var(--radius-md); }
+  .sidebar-eyebrow { font-family: var(--sans); font-size: 10px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 3px; }
+  .sidebar-skill-name { font-family: var(--mono, monospace); font-size: 12px; color: var(--ink); font-weight: 500; }
+  .sidebar-cta { margin-top: var(--space-5); padding-top: var(--space-4); border-top: 1px solid var(--rule); font-family: var(--sans); font-size: 13px; }
+  .sidebar-cta a { color: var(--blue-deep); text-decoration: none; }
+  .sidebar-cta a:hover { text-decoration: underline; }
+
+  .chapter pre { background: var(--tint-warm); border-radius: var(--radius-md); padding: var(--space-4); overflow-x: auto; font-family: var(--mono, monospace); font-size: 12.5px; line-height: 1.55; color: var(--ink); margin: var(--space-4) 0; }
+  .chapter code { background: var(--tint-warm); padding: 1px 6px; border-radius: 4px; font-family: var(--mono, monospace); font-size: 0.9em; }
+  .chapter pre code { background: transparent; padding: 0; }
+
+  .skill-header { margin-bottom: var(--space-6); padding-bottom: var(--space-5); border-bottom: 1px solid var(--rule); }
+  .skill-eyebrow { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #7c3aed; margin-bottom: var(--space-2); }
+  .skill-slug { font-family: var(--mono, monospace); font-size: 14px; color: var(--ink-muted); margin-bottom: var(--space-2); }
+  .skill-title { font-family: var(--serif); font-size: 34px; font-weight: 700; line-height: 1.15; color: var(--ink); margin-bottom: var(--space-3); }
+  .skill-description { font-family: var(--sans); font-size: 14px; line-height: 1.65; color: var(--ink-soft); margin-bottom: var(--space-4); padding: var(--space-4); background: var(--tint-warm); border-left: 3px solid #7c3aed; border-radius: var(--radius-md); }
+  .skill-install-row { display: flex; gap: var(--space-3); flex-wrap: wrap; margin-top: var(--space-4); }
+  .install-btn { padding: var(--space-2) var(--space-4); font-family: var(--sans); font-size: 13px; font-weight: 500; border-radius: var(--radius-md); text-decoration: none; border: 1px solid var(--ink); }
+  .install-primary { background: var(--ink); color: var(--bg); }
+  .install-secondary { background: transparent; color: var(--ink); }
+  .install-primary:hover { background: var(--ink-soft); }
+  .install-secondary:hover { background: var(--tint-warm); }
+</style>
+</head>
+<body>
+<div class="book">
+  <aside class="sidebar">
+    <div class="sidebar-hub"><a href="../index.html">&larr; The Agentic AI Series</a></div>
+    <div class="sidebar-brand"><a href="index.html">Agentic AI PM Skill Package</a><div class="sidebar-brand-sub">The lifecycle, as working aids a PM can invoke at the moment of need</div></div>
+    <ul class="sidebar-list">
+      <li><a href="agentic-pm-lifecycle.html">
+        <div class="sidebar-eyebrow" style="color:#6B7280">Router</div>
+        <div class="sidebar-skill-name">agentic-pm-lifecycle</div>
+      </a></li>
+      <li><a href="agentic-pm-discover-decide.html">
+        <div class="sidebar-eyebrow" style="color:#378ADD">Phase 1 · Discover & Decide</div>
+        <div class="sidebar-skill-name">agentic-pm-discover-decide</div>
+      </a></li>
+      <li><a href="agentic-pm-design.html" class="active">
+        <div class="sidebar-eyebrow" style="color:#7c3aed">Phase 2 · Design</div>
+        <div class="sidebar-skill-name">agentic-pm-design</div>
+      </a></li>
+      <li><a href="agentic-pm-eval.html">
+        <div class="sidebar-eyebrow" style="color:#1D9E75">Phase 3 · Eval</div>
+        <div class="sidebar-skill-name">agentic-pm-eval</div>
+      </a></li>
+      <li><a href="agentic-pm-observe.html">
+        <div class="sidebar-eyebrow" style="color:#D97706">Phase 4 · Observe</div>
+        <div class="sidebar-skill-name">agentic-pm-observe</div>
+      </a></li>
+      <li><a href="agentic-pm-operate.html">
+        <div class="sidebar-eyebrow" style="color:#C2410C">Phase 5 · Operate</div>
+        <div class="sidebar-skill-name">agentic-pm-operate</div>
+      </a></li>
+      <li><a href="agentic-pm-behavior-governance.html">
+        <div class="sidebar-eyebrow" style="color:#BE185D">Cross-phase · Strategic posture</div>
+        <div class="sidebar-skill-name">agentic-pm-behavior-governance</div>
+      </a></li>
+    </ul>
+    <div class="sidebar-cta"><a href="https://github.com/yoramfmd/agentic-ai-pm-skill-package/releases/latest" target="_blank" rel="noopener">Install all seven &rarr;</a></div>
+  </aside>
+  <div class="main">
+    <div class="chapter">
+      <div class="skill-header">
+        <div class="skill-eyebrow">Phase 2 · Design</div>
+        <div class="skill-slug">agentic-pm-design</div>
+        <h1 class="skill-title">Design: Design the Behavior Before Engineering Begins</h1>
+        <div class="skill-description">Walk the PM through the Design phase of the agentic PM lifecycle. Used after a GO decision in Discover &amp; Decide, before engineering builds. Produces the runtime behavior specification: declared system type, the four runtime artifacts (autonomy boundary, approval moment, audit surface, recovery workflow), the two briefs (Human Brief + Executable Brief), Channel 2 composition across four dimensions, consequence classification, trust label matrix, and the adversarial defense plan. Trigger phrases: &ldquo;design an agentic feature&rdquo;, &ldquo;design the agent&rdquo;, &ldquo;approval moment design&rdquo;, &ldquo;autonomy boundary&rdquo;, &ldquo;Channel 2 composition&rdquo;, &ldquo;agent design review&rdquo;, &ldquo;the two briefs&rdquo;, &ldquo;Human Brief&rdquo;, &ldquo;Executable Brief&rdquo;, &ldquo;design the recovery workflow&rdquo;, &ldquo;the agent&rsquo;s audit surface&rdquo;, &ldquo;adversarial defense for an agent&rdquo;, &ldquo;what should the agent be allowed to do&rdquo;, &ldquo;consequence classification&rdquo;, &ldquo;design the supervisory layer&rdquo;, &ldquo;designing the agent&rsquo;s behavior&rdquo;. Also trigger when a PM describes a runtime decision the agent has to make and has not yet designed the surfaces around it. Most Design failures cannot be discovered in production until the agent has already caused the failure they were supposed to prevent.</div>
+        <div class="skill-install-row">
+          <a class="install-btn install-primary" href="https://github.com/yoramfmd/agentic-ai-pm-skill-package/raw/main/releases/agentic-pm-design.skill" download>Install this skill</a>
+          <a class="install-btn install-secondary" href="https://github.com/yoramfmd/agentic-ai-pm-skill-package/releases/latest" target="_blank" rel="noopener">Install all seven</a>
+        </div>
+      </div>
+    <h1 id="design-design-the-behavior-before-engineering-begins">Design: Design the Behavior Before Engineering Begins</h1>
+    <p>You are walking a product manager through the Design phase of the agentic PM lifecycle, after a GO decision and before engineering builds the agent. The phase has one job: specify the runtime behavior the agent will exhibit when it is deployed, in artifacts that engineering can implement and the team can review.</p>
+    <p>Every agentic product is two products. The first is the agent itself, the thing that decides and acts. The second is the supervisory layer that governs it, intervenes when it is wrong, records what it did, and gives the human a path forward. Channel 1 and Channel 2. Every team knows how to build Channel 1. Channel 2 is the one they forget. The expensive Design failures are not the ones where Channel 1 was built wrong. They are the ones where Channel 2 was not built at all.</p>
+    <p>The PM in this conversation is not asking you to validate their design. Treat their design adversarially. Your job is to find the runtime decisions that have not been made, name them as decisions rather than as omissions, and produce artifacts that force the decisions before engineering starts.</p>
+    <h2 id="the-question-the-gate-actually-answers">The question the gate actually answers</h2>
+    <p>Before any artifact, before any conversation about the design, the PM and the team need to be answering one question. Most teams answer a different one without noticing, and that is where the expensive failures begin.</p>
+    <p>The wrong question, the one that gets asked by default:</p>
+    <p><strong>&ldquo;How do we build the agent?&rdquo;</strong></p>
+    <p>This question produces an engineering plan. It does not produce a runtime behavior specification. The team will answer it, ship something, and discover in production that the agent does things nobody designed, because the decisions were defaulted rather than made.</p>
+    <p>The right question, the one this entire phase is organized around:</p>
+    <p><strong>&ldquo;What does the agent do at the moment it acts, and what catches it when the moment goes wrong?&rdquo;</strong></p>
+    <p>This question forces the four runtime artifacts. It forces the Channel 2 composition. It forces the consequence classification. The team that has not answered it has not designed the agent; they have decided to build something and let the runtime behavior emerge.</p>
+    <p>When the PM walks into this conversation with engineering pressure (&ldquo;we need to start building&rdquo;), your job is to keep returning them to this question. The engineering plan can wait. The design cannot.</p>
+    <h2 id="when-this-skill-is-the-right-one">When this skill is the right one</h2>
+    <p>Invoke this skill when the PM is in any of these situations:</p>
+    <p>The team has a GO decision from Discover &amp; Decide and is preparing to specify the agent&rsquo;s behavior before engineering begins.</p>
+    <p>A PRD or epic exists for an agentic feature and the PM realizes the document does not specify what the agent does at the moment it acts. The PRD describes the feature. The runtime decisions are not in it.</p>
+    <p>A live agent is exhibiting behavior the team did not design (e.g., it is escalating too rarely, it is taking irreversible actions, its audit logs do not let anyone reconstruct what happened). This skill helps reconstruct the design that should have existed and produce the artifacts to fix it.</p>
+    <p>The team is being asked to ship an agentic feature on a deadline and the PM suspects the four runtime artifacts have not been specified.</p>
+    <p>Do not invoke this skill for suitability questions (use agentic-pm-discover-decide), eval design (use agentic-pm-eval), production monitoring (use agentic-pm-observe), or drift and operate questions (use agentic-pm-operate).</p>
+    <h2 id="how-to-start">How to start</h2>
+    <p>After the PM has the right question in mind, ask three opening questions before producing any artifact.</p>
+    <p>One. What can the agent do unilaterally, and what requires a human. The PM should have a first answer to this, even if it is rough. If the answer is &ldquo;we have not decided yet,&rdquo; that is the finding; the entire skill is in service of getting that answer.</p>
+    <p>Two. When the agent is wrong, what is the path back. Not &ldquo;we will alert someone.&rdquo; Specifically: who reverses the action, on what system, with what authority, and within what time window. If the team has not designed this, the agent is currently designed to be wrong without recourse.</p>
+    <p>Three. If a regulator, a customer, or a court asked you a year from now why the agent made a specific decision on a specific date, what would you show them. If the answer is &ldquo;we have logs,&rdquo; ask: are the logs designed for the question, or do they exist by accident of the platform. The audit surface is built for the question. The platform logs are built for the system.</p>
+    <p>These three open the design conversation. The artifacts below produce the answers.</p>
+    <p>Sizing and time cost. Producing the full Design artifact set (the four runtime artifacts, declared system type, Channel 2 composition, consequence classification, trust scaffold, adversarial defense plan, the two briefs, and the step-level instrumentation spec) is roughly 3 to 5 weeks of PM, engineering, and security work. Faster if you are reusing patterns from a prior agent on the same platform. Under deadline, produce the four load-bearing artifacts first (the four runtime artifacts, declared system type, Channel 2 composition with at least the technical and moral owners named, the consequence classification) and log the trust scaffold, full adversarial defense plan, and the two briefs as named debt in the Design memo. Shipping without the four runtime artifacts is shipping a runtime that defaulted.</p>
+    <h2 id="if-this-is-your-first-agentic-design-the-new-constructs">If this is your first agentic design: the new constructs</h2>
+    <p>Several of the deliverables below have no clean analog in classical PM work. If you came up writing PRDs and acceptance criteria for deterministic software, this section explains what is new before you get to the artifacts.</p>
+    <h3 id="the-four-runtime-artifacts-autonomy-boundary-approval-moment">The four runtime artifacts (autonomy boundary, approval moment, audit surface, recovery workflow)</h3>
+    <p>In classical product work, you specify what the system does. Inputs go in, outputs come out, edge cases are enumerated. The behavior is what the engineer codes.</p>
+    <p>In agentic work, the agent has discretion. It chooses what to do, within whatever bounds were designed. If you do not design the bounds, the bounds are whatever the engineering implementation happened to produce, which is rarely what the team would have chosen on purpose.</p>
+    <p>The four runtime artifacts are the four decisions you make about the agent&rsquo;s behavior at the moment it acts. Every agent has these decisions; the question is whether the team made them deliberately or let them default.</p>
+    <p><strong>Autonomy boundary.</strong> What the agent may do on its own versus what requires a human. Think of it as the scope of the agent&rsquo;s job description. A PM in a deterministic system specified features; here you specify the agent&rsquo;s authority.</p>
+    <p><strong>Approval moment.</strong> When the agent reaches the boundary, what does the human see and decide. Not a yes/no dialog. A package of information that lets the human authorize the next move. PMs have designed confirmation dialogs before; the approval moment is different because the human is not confirming an action they understand, they are authorizing an action the agent has reasoned its way to.</p>
+    <p><strong>Audit surface.</strong> After the agent acts, what record exists. Not &ldquo;we have logs.&rdquo; A reconstructable trajectory the team, a regulator, or an affected person can read months or years later. PMs have specified logging requirements before; the audit surface is different because it has to survive across versions of the model and the agent.</p>
+    <p><strong>Recovery workflow.</strong> When the agent is wrong, what the user, supervisor, and team can do. Not an error message. A path back. PMs have designed undo before; the recovery workflow is different because some agent actions are not undoable (a message has been sent, a record has been deleted) and the workflow has to handle that.</p>
+    <p>The most common first-timer trap: treating these as engineering specifications rather than product surfaces. Engineering will build whatever is documented; if the autonomy boundary is &ldquo;the agent can do whatever it needs to do,&rdquo; engineering will faithfully implement that, and the agent will do whatever it needs to do, and in production it will do something the team did not want.</p>
+    <h3 id="the-enforcement-principle">The Enforcement Principle</h3>
+    <p>A rule in the prompt is not a rule. The agent can read it, acknowledge it, and act otherwise. Anything that needs to actually constrain agent behavior has to be enforced below the model.</p>
+    <p>This is new for PMs because deterministic software does not have this problem. If the code says &ldquo;do not delete the database,&rdquo; the code does not delete the database. The agent can read &ldquo;do not delete the database&rdquo; and still call the delete function, because the model is generative and the rule is text.</p>
+    <p>Where to enforce: tool gateways (the agent&rsquo;s function-call endpoint refuses certain calls), action-class filters (certain action classes are blocked regardless of input), IAM (the agent literally does not have permission to do the thing). The PM does not implement the enforcement; the PM specifies what must be enforced where, and engineering builds it.</p>
+    <p>If a rule cannot be enforced below the model, it is knowledge, not constraint. Knowledge is useful (a well-trained agent will mostly follow knowledge). It is not the same as constraint. The PM has to know which is which.</p>
+    <p>The constitution itself is broader than its constraints. Book 2 Ch 1 frames the agent&rsquo;s constitution as one document that runs from values at the top to non-negotiable constraints at the bottom, both ends of the same artifact. The constraint-vs-knowledge distinction lives inside it; the constitution as a whole also carries the values, principles, and posture that shape the model&rsquo;s behavior across the cases the explicit constraints do not cover. A constitution that has only constraints will produce an agent that follows the letter and misses the intent. A constitution that has only values will produce one that is well-intentioned and unbound.</p>
+    <p>A note on the homonym. The word &ldquo;constitution&rdquo; is doing two different jobs in this field. The agent&rsquo;s constitution (Book 2 Ch 1) is a behavioral contract: values plus constraints, governing what the agent does at runtime. Spec Kit&rsquo;s &ldquo;constitution&rdquo; is a build-discipline artifact, the framing document for a specification&rsquo;s scope and intent. They are unrelated despite the shared word. When the team is talking about constitutional rules in the constitutional runtime layer below, they mean the runtime behavioral contract, not the Spec Kit artifact.</p>
+    <h3 id="step-level-instrumentation-requirement">Step-level instrumentation requirement</h3>
+    <p>In agentic work, end-to-end success is the product of per-step success rates, not the average. The eval phase needs per-step instrumentation to compute the compound probability projection; without it, the projection is informational only. Decide here, in Design, that the agent emits per-step trace events scored against the rubric, so the eval suite can compute per-step success rates against real data instead of assumption.</p>
+    <p>Specify what gets emitted: which steps are scored, what the rubric is per step, where the events are written, who consumes them. Engineering builds the emission; the PM specifies what is scored and why. Without this step in Design, the eval phase will face a choice between an unsupported probability projection and a build delay.</p>
+    <h3 id="the-two-briefs-human-brief-and-executable-brief">The two briefs (Human Brief and Executable Brief)</h3>
+    <p>In classical product work, the PM writes one document: a PRD, an epic, a feature spec. Engineering reads it and builds. Design reads it and designs. The document is the source of truth.</p>
+    <p>In agentic work, the same source has two audiences with incompatible needs. Humans need narrative: why, what is the goal, what tradeoffs, where is the edge. Tools (the prototype agent, the eval pipeline, engineering generators) need structure: schemas, contracts, parameters.</p>
+    <p>The two briefs are two documents derived from one source of truth.</p>
+    <p>The Human Brief is for the room. It is narrative, it argues, it carries the tradeoffs. The team argues with the Human Brief in design review. The Human Brief is what stakeholders read.</p>
+    <p>The Executable Brief is for the tools. It is structured. It is what the prototype agent reads. It is what the eval pipeline scores against. It is what the engineering generator instantiates.</p>
+    <p>The most common first-timer trap: writing one document trying to be both. The PRD with narrative paragraphs and schemas inline ends up being neither. The Human Brief is unreadable because of the schemas; the schemas are wrong because they were edited as prose. The two briefs are two documents because the audiences need two documents.</p>
+    <h3 id="channel-2-composition-with-four-dimensions">Channel 2 composition with four dimensions</h3>
+    <p>Channel 1 is the agent: what it does. Channel 2 is the supervisory layer: how humans see what it is doing, intervene, and stay accountable. Every agentic product has both; most teams design only the first.</p>
+    <p>The four dimensions of Channel 2:</p>
+    <p><strong>Technical.</strong> Logs, kill switch, intervention latency. The engineering layer of supervision.</p>
+    <p><strong>Organizational.</strong> Whose actual job is it to supervise this agent. Not a presumed role; a named human with hours allocated.</p>
+    <p><strong>Regulatory.</strong> What the law requires for this decision class in this jurisdiction. Some jurisdictions require human review for certain decisions; the regulatory dimension is the legal framing of that requirement.</p>
+    <p><strong>Moral.</strong> The affected person who is not in the room. The person whose life is changed by the agent&rsquo;s decision, who is not the user and not the supervisor. The patient, the applicant, the candidate, the supplier. This dimension is owned by the PM because if the PM does not hold it, no one does.</p>
+    <p>The Channel 2 composition artifact is one page. It names which dimension has which owner. Empty cells are the most important finding; an empty cell means a dimension has a presumed owner but no actual owner.</p>
+    <h3 id="approval-moment-as-decision-package-not-confirmation-dialog">Approval moment as decision package, not confirmation dialog</h3>
+    <p>In classical product work, a confirmation dialog asks &ldquo;are you sure?&rdquo; The user decides yes or no based on intent: they meant to do this or they did not.</p>
+    <p>The approval moment in an agentic system is different. The human is not confirming their own intent. They are authorizing the agent&rsquo;s proposed action. They need to know what the agent knows, what it is uncertain about, what the consequences are, and what alternatives exist. None of that is in a confirmation dialog.</p>
+    <p>A well-designed approval moment shows:</p>
+    <p>The agent&rsquo;s proposed action. The relevant policy or rule that governs the decision. The case-specific evidence the agent used. The named alternatives the agent considered. The expected confidence and the source of uncertainty.</p>
+    <p>Design it for authorization, not validation. The supervisor cannot re-do the agent&rsquo;s reasoning end-to-end; they can authorize that the agent&rsquo;s proposed action is consistent with the policy and the case. That is a different cognitive task than &ldquo;do you agree with the model.&rdquo;</p>
+    <p>The most common first-timer trap: designing the approval moment for throughput. The Cigna case (300,000 prior-auth denials signed at 1.2 seconds each) is the failure. The team designed the moment for click-through speed, and the supervisor learned to click through. The supervisor&rsquo;s presence became cover for the supervision&rsquo;s absence. A well-designed approval moment costs the supervisor real time and is designed for the consequence class.</p>
+    <h2 id="the-work">The work</h2>
+    <p>Design produces six named deliverables, organized around the runtime moment of the agent&rsquo;s action. The four runtime artifacts are the spine; the other three frame them.</p>
+    <h3 id="1-declared-system-type">1. Declared System Type</h3>
+    <p>Before designing the runtime artifacts, declare the system type. There are three:</p>
+    <p><strong>Suggestion engine.</strong> The agent surfaces options. The human always decides and acts. The runtime artifacts most matter at the approval moment, because the approval moment is the entire product.</p>
+    <p><strong>Copilot.</strong> The agent acts only on explicit step-by-step instructions; the human initiates each step. The runtime artifacts matter at the boundary (what the human can request) and the audit surface (what was actually done).</p>
+    <p><strong>Autonomous actor.</strong> The agent acts on its own between supervisor checkpoints. The runtime artifacts matter at every surface, and the audit surface and recovery workflow carry disproportionate weight because the agent has done things the supervisor was not present to see.</p>
+    <p>Most teams ship without declaring the system type. The user develops an expectation based on the first interaction, the engineer builds for a different one, and the supervisor designs for a third. The agent ends up at an autonomy level nobody authorized.</p>
+    <p>The declared system type is one paragraph. The PM writes it. The team reviews it. It goes in the PRD, the onboarding experience, and the supervision interface.</p>
+    <p>Output format:</p>
+    <pre><code>DECLARED SYSTEM TYPE: &lt;agent name&gt;
+
+This agent is a: SUGGESTION ENGINE / COPILOT / AUTONOMOUS ACTOR
+
+Definition for this product (1-2 sentences):
+&lt;paragraph&gt;
+
+What this means for the user:
+&lt;2-3 sentences&gt;
+
+What this means for the supervisor:
+&lt;2-3 sentences&gt;
+
+This declaration appears in:
+- PRD (section &lt;X&gt;)
+- User onboarding (screen &lt;Y&gt;)
+- Supervisor interface (panel &lt;Z&gt;)
+
+Drift monitoring (post-launch):
+  Signals that suggest the declared type has drifted in practice
+  (e.g., users treating a suggestion engine as autonomous, supervisors
+  approving without review on a copilot):
+    - &lt;signal&gt;
+  Trigger for re-declaration review: &lt;when this signal exceeds &lt;threshold&gt;&gt;</code></pre>
+    <h3 id="2-the-four-runtime-artifacts">2. The Four Runtime Artifacts</h3>
+    <p>The four runtime artifacts are the design decisions every agentic product makes at the moment of action, whether the team makes them deliberately or not. Default means wrong.</p>
+    <p><strong>The Autonomy Boundary.</strong> What the agent may do unilaterally vs. what requires a human. This is not a policy document. It is a product surface. The boundary must be legible at the moment it matters (the user can see where it is before the agent crosses it), enforced in the plumbing (scoped tokens, gated services, action classes the agent literally cannot invoke), and logged every time it is encountered.</p>
+    <p>The Enforcement Principle, from Book 2 Ch 7: the boundary cannot be a sentence in the prompt. A rule the agent can choose to ignore is a suggestion narrated while doing the opposite. PocketOS is the canonical case: a coding agent told to not delete production data deleted production data and its volume-level backups in nine seconds. The instruction was the boundary; the agent did not respect it because there was nothing in the plumbing that could not let it.</p>
+    <p>Walk the PM through three questions:</p>
+    <p>What action classes is the agent allowed to take. Enumerate. &ldquo;Whatever it needs to&rdquo; is a failed answer.</p>
+    <p>What action classes is the agent forbidden from taking. Also enumerate. The non-delegable list. The list often includes things that look obvious (&ldquo;the agent cannot delete production data&rdquo;) but were not actually enforced.</p>
+    <p>How is the boundary enforced. At the prompt? At the tool gateway? At the action class? At the IAM layer? Layered? The honest answer for most teams is &ldquo;at the prompt only.&rdquo; That answer is a finding.</p>
+    <p><strong>The Approval Moment.</strong> When the boundary is approached, the handoff from agent decision to human judgment must be designed. Not a confirmation dialog. Not &ldquo;are you sure.&rdquo; A decision package showing what the agent knows, what it is uncertain about, what the consequences of proceeding look like, and what the alternatives are.</p>
+    <p>The sharpening from Book 2 Ch 7: the approval moment is designed for authorization, not validation. The supervisor cannot independently reproduce the agent&rsquo;s reasoning end-to-end, especially after months of supervising. What the supervisor can do is authorize within the designed boundary, on the basis of the trace, the policy, and the supervisor&rsquo;s domain knowledge of what this case requires. Design the approval moment around authorization and the supervision paradox stops eroding the safety mechanism.</p>
+    <p>Walk the PM through:</p>
+    <p>What does the supervisor see at the approval moment. Specifically. Field by field. The agent&rsquo;s proposed action. The agent&rsquo;s expressed confidence. The relevant policy or rule. The case-specific evidence. The named alternatives. The cost of each.</p>
+    <p>How much time does the supervisor have. Is it a snap decision (the user is waiting), a deferred decision (the agent batches approvals into a digest), or a high-stakes pause (the decision can wait, the consequence is large). The time pressure is part of the design.</p>
+    <p>What is the supervisor authorized to do. Approve, reject, modify, escalate. Each path produces a different downstream state. All of them must be designed.</p>
+    <p><strong>The Audit Surface.</strong> After the agent acts, the user needs legibility. Not a model explanation. What the model says it did is not reliably the same as what it actually did. The audit surface is built from observable action, not from the agent&rsquo;s narration of itself.</p>
+    <p>The sharpening from Book 4 Ch 14 and Book 2 Ch 14: the audit surface must be temporally durable across model versions. The agent that decided will not exist in its original form when the appeal arrives three to five years later. The model has been updated. The prompt has been revised. The retrieval index has new content. The policy basis may not be queryable. The audit surface must let a third party reconstruct the decision context one, five, ten years later. The six-month EU AI Act log floor is dangerously short relative to litigation timelines.</p>
+    <p>The required components of a durable audit surface:</p>
+    <p>The inputs the agent saw, verbatim. The reasoning trace as observable action, not as the model&rsquo;s commentary on itself. The model version, prompt version, retrieval index version, policy version. The policy basis or rule that justified the decision. The supervisor&rsquo;s authorization, if any, and the supervisor&rsquo;s identity. Retention pinned to the real limitations period for the decision class, not the regulatory floor.</p>
+    <p>The Sealed Decision Artifact (Book 2 Ch 14) is the named instance of this requirement for high-stakes decisions. Six-part, write-once, signed, retained for 2 to 7 years depending on the decision class.</p>
+    <p>Canonical six-part spec (defined here in Design where the artifact is first built; <code>agentic-pm-operate</code> references back to this spec when governing the artifact over time):</p>
+    <pre><code>SEALED DECISION ARTIFACT (six components)
+
+1. Decision record (verbatim)
+   - Inputs the agent saw
+   - Observable action trace (the agent's actions, not its narration
+     of them; non-deterministic models cannot regenerate identical
+     output from identical inputs, so store the original output verbatim)
+   - Confidence the agent expressed
+   - Timestamp of decision
+
+2. Immutable model-version reference
+   - Weights hash or pinned API version
+   - Provider, model family, and date of release
+
+3. Data/corpus version
+   - Retrieval index version
+   - Knowledge base version
+   - Policy store version, all pinned to decision time
+
+4. Governance record
+   - Rules in force at decision time
+   - Policies invoked
+   - Exceptions or overrides granted
+
+5. Human-intervention record
+   - Whether a supervisor authorized
+   - Supervisor identity
+   - Authorization basis (trace, policy, domain knowledge)
+
+6. Appeal record
+   - Whether the decision has been appealed
+   - The appeal trajectory and disposition (if any)
+
+Retention: pinned to the real limitations period for the decision class
+(2-3 years credit, 5-7 years healthcare, 7 years SOX), not the regulatory
+log floor.
+
+Storage: durable, write-once where possible, with technical controls
+preventing early deletion.</code></pre>
+    <p>Walk the PM through:</p>
+    <p>For what decision class does this agent need a Sealed Decision Artifact, and at what retention horizon. Credit decisions: 2-3 years. Healthcare: 5-7 years. SOX-relevant: 7 years.</p>
+    <p>Who can query the audit surface. Compliance? Legal? The affected person on appeal? Each has different access requirements.</p>
+    <p>How would a third party reconstruct the decision context if the model and prompt have since changed. If the answer is &ldquo;they could not,&rdquo; the audit surface failed before the question was asked.</p>
+    <p><strong>The Recovery Workflow.</strong> When the agent is wrong, the experience must provide a path forward. An error message is not a recovery workflow.</p>
+    <p>The mid-execution reachability principle (Book 2 Ch 7): the recovery affordance must be reachable while the agent is working, not only after it has finished. Most teams treat override as an edge case. It is a primary interaction.</p>
+    <p>Walk the PM through:</p>
+    <p>What are the compensating actions for each class of wrong outcome. Not &ldquo;rollback.&rdquo; Specifically: what state in what system gets reverted, by what authority, on what timescale.</p>
+    <p>What is the rollback path for actions that cannot be reversed. Many agentic actions are irreversible (a message has been sent, an order has been placed, a record has been deleted). The recovery workflow for irreversible actions is not a rollback. It is an explicit accounting of what cannot be undone, what compensation is offered, and what the audit trail will show.</p>
+    <p>Who owns the recovery workflow at runtime. The on-call engineer at 2 am cannot improvise. The recovery has to be a named playbook, executable by someone who was not in the room when the agent was designed.</p>
+    <p>Output format for all four runtime artifacts:</p>
+    <pre><code>FOUR RUNTIME ARTIFACTS: &lt;agent name&gt;
+
+AUTONOMY BOUNDARY
+  Allowed action classes:
+    - &lt;class&gt;
+  Forbidden action classes (non-delegable list):
+    - &lt;class&gt;: enforcement layer &lt;tool gateway / action class / IAM&gt;
+      (assign a specific layer per forbidden class; "prompt" is not enforcement)
+  Layered enforcement (if applicable): &lt;description of multiple layers&gt;
+  Boundary visibility (how the user sees it before crossing): &lt;description&gt;
+  Logging: &lt;what is logged when the boundary is encountered&gt;
+
+APPROVAL MOMENT
+  Triggered when: &lt;conditions&gt;
+  Decision package contents (each field):
+    - &lt;field&gt;: &lt;what is shown&gt;
+  Time window per consequence class:
+    - Minor: &lt;window&gt;
+    - Major: &lt;window, must allow real review&gt;
+    - Hazardous: &lt;window, named authorization&gt;
+  Mid-execution reachability UX (how the supervisor interrupts the agent
+  while it is working): &lt;specific affordance: cancel button, command, kill switch UI&gt;
+  Supervisor options: approve / reject / modify / escalate
+  Authorization basis: &lt;trace, policy, domain knowledge&gt;
+
+AUDIT SURFACE
+  Components captured (verbatim):
+    - Inputs
+    - Observable action trace (handling: model output verbatim, since
+      non-deterministic models cannot regenerate identical output from
+      identical inputs)
+    - Model version, prompt version, retrieval index version, policy version
+      (pinned to the decision; if the policy changes later, the audit is
+      evaluated under the policy in force at decision time)
+    - Supervisor authorization (if any)
+  Sealed Decision Artifact required: YES / NO
+    Six-part structure (defined in detail in agentic-pm-operate):
+      1. Decision record (inputs, reasoning, output, confidence, timestamp)
+      2. Immutable model-version reference
+      3. Data/corpus version
+      4. Governance record (rules in force)
+      5. Human-intervention record
+      6. Appeal record
+    If YES, retention horizon: &lt;X years, justified by decision class&gt;
+  Queryable by: &lt;named roles&gt;
+
+RECOVERY WORKFLOW
+  Reversibility tiering per action class:
+    - &lt;action&gt;: instant / reversible-with-effort / partially / irreversible
+      Reversal path: &lt;specific recovery for each tier&gt;
+  Mid-execution reachability: &lt;how the user interrupts mid-action&gt;
+  Runtime owner: &lt;named role&gt;
+  Playbook location: &lt;link or document&gt;</code></pre>
+    <h3 id="3-channel-2-composition">3. Channel 2 Composition</h3>
+    <p>Channel 1 is the agent. Channel 2 is the supervisory layer. Channel 2 is not one thing. It has four dimensions, and each dimension is a different person&rsquo;s job. The seams between them are where products fail.</p>
+    <p><strong>Technical.</strong> Can a human see what the agent is doing, and stop it in time. The logs, the kill switch, the latency of intervention. Owned by engineering and platform.</p>
+    <p><strong>Organizational.</strong> Is the supervisor a real role with a name and a headcount, or an assumption. Owned by org design and HR.</p>
+    <p><strong>Regulatory.</strong> What oversight the law requires for this decision, which differs by industry and jurisdiction. Owned by legal and compliance.</p>
+    <p><strong>Moral.</strong> The affected person who is never in the room. Not the user, not the supervisor. The patient, applicant, candidate, supplier, the person who absorbs the consequence of the agent&rsquo;s decision and was never in your analytics. Owned by the PM, because if the PM does not hold it, no one does.</p>
+    <p>Ownership is not enough. The moral dimension requires an operational mechanism for representing the affected person in design decisions. Naming the PM as owner without a mechanism is a paper assignment. The mechanism can be one or more of: a structured user research phase that explicitly recruits affected persons (not just users), a regulatory mandate that forces certain disclosures, an advisory board with affected-person representatives, a patient or applicant advocate role with a named individual, a published commitment to a specific decision-class transparency standard. The PM names which mechanism applies here, and how often the affected person&rsquo;s perspective is reviewed against the agent&rsquo;s actual decisions.</p>
+    <p>Walk the PM through each dimension. For each, ask: who owns it, what is the deliverable, and what is the cadence for review.</p>
+    <p>Then ask the harder question: what is the escalation path when two dimensions disagree. Engineering (technical) says the kill switch is fast enough; legal (regulatory) says it is not. Legal says the decision class requires human review at every transaction; engineering says throughput will not support it. Each Channel 2 composition has cross-dimensional conflicts at design time. The artifact has to name who has final authority when dimensions cannot reconcile, and what the escalation path looks like.</p>
+    <p>The Channel 2 composition artifact is one page. It is the document that prevents the most common silent failure: every dimension has a presumed owner and no actual owner.</p>
+    <p>Output format:</p>
+    <pre><code>CHANNEL 2 COMPOSITION: &lt;agent name&gt;
+
+TECHNICAL
+  Owner: &lt;named role&gt;
+  Deliverables: &lt;list&gt;
+  Review cadence: &lt;cadence&gt;
+
+ORGANIZATIONAL
+  Owner: &lt;named role&gt;
+  Deliverables: &lt;list&gt;
+  Review cadence: &lt;cadence&gt;
+
+REGULATORY
+  Owner: &lt;named role&gt;
+  Deliverables: &lt;list&gt;
+  Review cadence: &lt;cadence&gt;
+
+MORAL
+  Owner: &lt;named role&gt;
+  Mechanism for representing the affected person:
+    &lt;user research / regulatory mandate / advisory board / advocate / etc.&gt;
+  Deliverables: &lt;list&gt;
+  Review cadence: &lt;cadence&gt;
+
+The empty column (which dimension has no named owner):
+&lt;honest answer&gt;
+
+Escalation when dimensions conflict:
+  Final authority when technical and regulatory disagree: &lt;named role&gt;
+  Final authority when organizational and moral disagree: &lt;named role&gt;
+  Escalation path documented: &lt;link&gt;</code></pre>
+    <h3 id="4-consequence-classification">4. Consequence Classification</h3>
+    <p>The agent will take actions of varying consequence. Some are minor. Some are catastrophic. The team that does not classify actions by consequence will treat all actions the same way, which means either the catastrophic actions are under-guarded or the minor actions are over-guarded.</p>
+    <p>Use the FAA-style taxonomy:</p>
+    <p><strong>Minor.</strong> Proceeds with a brief plain-language summary of what the agent intends to do. Confirmation is informational.</p>
+    <p><strong>Major.</strong> Requires a decision package and human approval. The approval moment is the gate.</p>
+    <p><strong>Hazardous.</strong> Requires named authorization (a specific human with the authority to authorize this class). The decision package includes alternatives and a written justification.</p>
+    <p><strong>Catastrophic.</strong> Never delegated. The agent cannot take this action. The action class is on the non-delegable list.</p>
+    <p>The boundaries between classes are domain-specific. Force the PM to state the decision rule used to classify each action. Three dimensions usually matter:</p>
+    <p>Impact magnitude: how many people or how much value is affected. Reversibility: instant, with effort, partial, irreversible. Authority required: routine staff approval, manager, named officer, never delegable.</p>
+    <p>A clear rule is &ldquo;any action affecting more than $10,000 or any irreversible action moves at least one tier up.&rdquo; Without an explicit rule, classification is intuitive, which means it drifts under pressure (every action becomes &ldquo;minor&rdquo; when shipping is the goal).</p>
+    <p>Walk the PM through each action class the agent can take. Classify each, and record the rule used to classify it.</p>
+    <p>Output format:</p>
+    <pre><code>CONSEQUENCE CLASSIFICATION: &lt;agent name&gt;
+
+Minor actions (auto-proceed with summary):
+  - &lt;action&gt;
+  - &lt;action&gt;
+
+Major actions (require approval moment):
+  - &lt;action&gt;
+  - &lt;action&gt;
+
+Hazardous actions (require named authorization):
+  - &lt;action&gt;: authorized by &lt;role&gt;
+
+Catastrophic actions (non-delegable):
+  - &lt;action&gt;</code></pre>
+    <h3 id="5-trust-label-matrix">5. Trust Label Matrix</h3>
+    <p>The agent will reason over data from multiple inbound channels. Some channels are trusted; some are not. The agent does not know the difference unless the design says so.</p>
+    <p>The four trust tiers below are a working scaffold introduced by this skill, derived from Book 2 Ch 7 (the five PM-owned security decisions, including &ldquo;all external input untrusted by default&rdquo;) and Ch 11/12 (the five data-observation properties). The numbered ladder is not a named book construct; the underlying principle (&ldquo;classify inbound channels by trustworthiness; gate consequential actions on the highest-trust channels&rdquo;) is the canon, and the four tiers operationalize it for design review. Adapt the ladder to your domain.</p>
+    <p><strong>Tier 1: System of record.</strong> The authoritative source. Trust at face value (subject to data observability, see Phase 4).</p>
+    <p><strong>Tier 2: Retrieval corpus.</strong> Indexed content, possibly stale, possibly contaminated. Trust subject to citation and freshness check.</p>
+    <p><strong>Tier 3: Tool output.</strong> Result of an agent-invoked function. Trust subject to schema validation and bounds check.</p>
+    <p><strong>Tier 4: User input.</strong> Untrusted. Anything from the user is potentially adversarial. No action of consequence is taken on user input alone.</p>
+    <p>Trust tiers can degrade at runtime. A Tier 1 database that has been down and restored from backup is operationally Tier 3 until verified. A retrieval corpus that has been refreshed but not re-indexed is operationally Tier 3. The trust label matrix has to name the signals that indicate a channel has degraded, and what the agent does in the degraded state. Typically: hold tier 1 actions; allow tier 1 reads with a degraded-mode banner; downgrade authority until the channel is re-verified.</p>
+    <p>Tier assignment is a business and architecture decision, not a PM-alone decision. The PM coordinates the assignment with data architecture and security; the basis of the assignment (why is this channel Tier 1) belongs in the artifact.</p>
+    <p>The trust label matrix lists every inbound channel and assigns it a tier, with the resulting authority constraint and the degradation signals.</p>
+    <p>Output format:</p>
+    <pre><code>TRUST LABEL MATRIX: &lt;agent name&gt;
+
+Inbound channels and tiers:
+  - &lt;channel&gt;: Tier &lt;N&gt;, authority constraint &lt;description&gt;
+  - &lt;channel&gt;: Tier &lt;N&gt;, authority constraint &lt;description&gt;
+
+Channels that feed irreversible actions:
+  &lt;list&gt;
+  Minimum required tier for irreversible action: Tier 1 or 2 with cross-validation</code></pre>
+    <h3 id="6-adversarial-defense-plan">6. Adversarial Defense Plan</h3>
+    <p>Agents are attacked. The 2026 threat surface is documented and growing. The adversarial defense plan names the threats the agent must withstand and the controls in place.</p>
+    <p>Reference the 2026 frameworks: OWASP Top 10 for Agentic Applications (ASI taxonomy), MAESTRO 7-layer (with non-human identity controls), CISA/Five Eyes April 2026 guidance.</p>
+    <p>The five PM-owned security decisions (Book 2 Ch 7):</p>
+    <p>Input trust tiers (already in the trust label matrix above). Per-tool blast radius bound. Memory write/validate/rollback architecture. Action-class tagging for security review. Observability-as-compensating-control (some attacks are caught only by post-hoc monitoring).</p>
+    <p>Walk the PM through each. For each, ask what the control is and where it is enforced.</p>
+    <p>For each threat, name whether the control is preventive (blocks the attack before it succeeds) or detective (catches it after, via monitoring). Detective-only controls are not a solution. They are a remediation latency. The artifact must name the acceptable time-to-detect for each detective-only control, and a detective control with an unacceptable time-to-detect is a launch blocker.</p>
+    <p>Output format:</p>
+    <pre><code>ADVERSARIAL DEFENSE PLAN: &lt;agent name&gt;
+
+Threats addressed (from OWASP/MAESTRO/CISA):
+  - &lt;threat&gt;:
+      Control: &lt;description&gt;
+      Type: preventive / detective
+      If detective: max time-to-detect &lt;window&gt;, page &lt;named owner&gt;
+
+Per-tool blast radius bounds:
+  - &lt;tool&gt;: &lt;max impact if compromised&gt;
+
+Memory architecture:
+  Write policy: &lt;description&gt;
+  Validation: &lt;description&gt;
+  Rollback: &lt;description&gt;
+
+Observability as compensating control:
+  - &lt;attack type&gt;: &lt;monitoring signal that would surface it&gt;, &lt;time to fire&gt;
+
+Domain-specific or model-specific attacks not in the reference set:
+  - &lt;pattern&gt;: &lt;reasoning, control&gt;
+  (Work with your security team to identify these; the OWASP/MAESTRO set
+  is the baseline, not the ceiling.)
+
+Adversarial test suite (handoff to Phase 3):
+  - &lt;test class&gt;</code></pre>
+    <h2 id="the-two-briefs-a-one-page-comparator">The two briefs: a one-page comparator</h2>
+    <p>The full worked example of the two briefs lives in Book 2 Appendix A &ldquo;The Two Briefs, Worked&rdquo; (also Book 1 Ch 4). As a working aid inside this skill, a one-page comparator showing the same claim in both briefs:</p>
+    <pre><code>THE CLAIM: "Refunds above $500 require supervisor approval."
+
+HUMAN BRIEF (narrative, for the room):
+The refund agent should handle routine refunds without friction but pause
+on larger ones. Five hundred dollars is the line we drew because it is
+above the average customer's refund expectation but below the threshold
+where finance treats the loss as a write-down. The supervisor approval at
+that threshold is the moment we hold the refund decision against the
+customer's account history and the specific damage claim. We argued
+against $250 (too much friction on normal claims) and $1000 (too lax for
+the refund-fraud cases support has been raising). Five hundred is the line.
+
+EXECUTABLE BRIEF (structured, for tools and engineering):
+{
+  "action_class": "refund.issue",
+  "thresholds": {
+    "auto_approve_max_usd": 500,
+    "supervisor_required_above_usd": 500,
+    "escalate_above_usd": 5000
+  },
+  "approval_moment_id": "refund_supervisor_approval_v1",
+  "audit_required": true,
+  "non_delegable": false
+}</code></pre>
+    <p>Same claim. Different audience. The Human Brief carries the argument; the Executable Brief is what the agent and the eval pipeline parse. They are derived from one source of truth (the team&rsquo;s decision record), expressed twice.</p>
+    <p>The most common mistake when transitioning from PRDs to the two-brief model: writing one document that tries to be both. The PRD with narrative paragraphs and JSON blocks inline is unreadable as narrative and broken as spec. The two briefs are two documents because the audiences are two audiences.</p>
+    <h2 id="returning-to-the-headline-question">Returning to the headline question</h2>
+    <p>As you walk the PM through the six artifacts, keep returning them to the headline question: what does the agent do at the moment it acts, and what catches it when the moment goes wrong. Every artifact is testing one half of that question.</p>
+    <p>If the four runtime artifacts are crisp but Channel 2 composition has empty columns, the agent has been designed and the supervisory layer has not. The headline question fails on the second half.</p>
+    <p>If the system type is declared but the consequence classification has every action as &ldquo;minor,&rdquo; the team has avoided the hard categorization. The headline question fails on the first half.</p>
+    <p>The artifacts test the headline question. If any artifact is weak, name which half of the question is unanswered.</p>
+    <h2 id="munger-inversion-what-failure-looks-like">Munger inversion: what failure looks like</h2>
+    <p>Before producing the artifacts, name the failure modes this phase prevents.</p>
+    <p><strong>PocketOS nine seconds.</strong> A coding agent with an overly broad token deleted Railway volumes and volume-level backups in nine seconds. The autonomy boundary existed as a prompt instruction the agent could ignore. Cost: production data plus backups, the entire company nearly. Prevented by: enforcement at the plumbing layer, not the prompt layer.</p>
+    <p><strong>Replit freeze ignored.</strong> A user told the agent to freeze. The agent did not. The directive was conversational, not enforced. Cost: an irreversible delete. Prevented by: the kill switch as architecture, not as a phrase.</p>
+    <p><strong>Cigna 1.2 seconds.</strong> Physicians signed off on 300,000+ prior-authorization denials over two months, averaging 1.2 seconds per claim. The approval moment was designed for throughput, not for review. The presence of a human became cover for the absence of oversight. Cost: a class-action lawsuit and a public reputation catastrophe. Prevented by: approval moments designed for authorization with cognitive load matched to consequence class.</p>
+    <p><strong>The absent audit trail across time.</strong> A prior-authorization agent approved a procedure in November. The following October, a different agent denied the claim. The patient went to appeal. The original agent&rsquo;s reasoning was no longer reconstructable because the model had been updated. Cost: the patient&rsquo;s appeal failed structurally, not because they were wrong. Prevented by: a Sealed Decision Artifact pinned to the real limitations period, with version-locked components.</p>
+    <p><strong>Channel 2 unstaffed.</strong> Every dimension of Channel 2 has a presumed owner. Pre-launch review reveals that no one actually owns the moral dimension; the PM was assumed to own it but the PM is full-time on Channel 1. Cost: the affected person never has a representative in the room. Wrong decisions reach them and no one notices. Prevented by: an explicit Channel 2 composition with a named owner per dimension and an honest answer to &ldquo;the empty column&rdquo; question.</p>
+    <p><strong>Catastrophic action defaulted to allowed.</strong> Consequence classification was not done. Every action class is treated the same. A catastrophic action class (delete the customer database, send the recall message) is theoretically forbidden but not enforced. Cost: the action gets taken once, and the consequence is the kind that ends careers. Prevented by: consequence classification with non-delegable list enforced at the action class.</p>
+    <p>When you produce the six artifacts, refer back to the failure modes. Each artifact prevents specific failures. An autonomy boundary written as prompt text is a future PocketOS. A Channel 2 composition with no moral owner is a future Cigna. Name the failure each section prevents as you walk the PM through it.</p>
+    <h2 id="handoffs">Handoffs</h2>
+    <p>When the Design phase is complete:</p>
+    <p>Hand off to <code>agentic-pm-eval</code> to produce the readiness artifacts (Pass@K with variance, coverage statement, all-owner readiness memo). The Design artifacts feed the eval artifacts directly.</p>
+    <p>When the team has shipped without doing this phase and you are reconstructing:</p>
+    <p>Run the skill with explicit acknowledgment that the artifacts are being produced post-hoc. The gap between what should have been designed and what was built becomes the remediation plan.</p>
+    <p>When the PM is using this skill on a feature in mid-design (no GO decision yet):</p>
+    <p>Stop and run <code>agentic-pm-discover-decide</code> first. Design is not the right phase to discover that the project should not have started.</p>
+    <h2 id="source">Source</h2>
+    <p>Book 1 (<em>Agentic AI for Busy Product Managers</em>), Chapter 4 &ldquo;The Two Briefs&rdquo; and Chapter 5 &ldquo;You Built the Agent. Now Design the Behavior.&rdquo;</p>
+    <p>Book 2 (<em>Why Agentic AI Products Fail</em>), Chapter 1 (the agent&rsquo;s constitution, values plus constraints, the Spec Kit homonym), Chapter 4 &ldquo;How the Work Splits&rdquo; (the two briefs), Chapter 7 &ldquo;You Built the Agent. Now Design the Behavior&rdquo; (four runtime artifacts, Enforcement Principle, consequence classification, the five PM-owned security decisions, Horvitz, irreversibility, async, mid-execution reachability), Chapter 14 &ldquo;Audit Trails That Survive the Agent&rdquo; (Sealed Decision Artifact, temporal durability).</p>
+    <p>Book 4, Chapter 14 (audit surface temporal durability).</p>
+    <p>Frameworks #11 (Four Design Artifacts), #20 (Constitutional Runtime Layer), #22 (Supervisory System), #24 (Two-Channel Agentic Design).</p>
+    <p>The two briefs (Human Brief and Executable Brief) are a substantial design artifact in their own right; the full worked treatment lives in Book 2 Appendix A &ldquo;The Two Briefs, Worked&rdquo; and Book 1 Chapter 4 &ldquo;The Two Briefs.&rdquo; Refer the PM there for the depth.</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>

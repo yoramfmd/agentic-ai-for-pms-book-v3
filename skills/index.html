@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agentic AI PM Skill Package &mdash; agenticaiproductmanagement.com</title>
+<meta name="description" content="A Claude Cowork skill package for product managers building agentic AI products. Seven skills covering the agentic PM lifecycle. Companion to the four-book Agentic AI Series.">
+<link rel="canonical" href="https://agenticaiproductmanagement.com/skills/">
+<link rel="stylesheet" href="../book3/styles.css">
+<style>
+  body { font-family: var(--serif); }
+  .landing { max-width: 880px; margin: 0 auto; padding: var(--space-8) var(--space-6); }
+
+  /* hero */
+  .landing-hero { padding: var(--space-7) 0 var(--space-6); border-bottom: 1px solid var(--rule); margin-bottom: var(--space-7); }
+  .landing-back { font-family: var(--sans); font-size: 13px; color: var(--ink-muted); margin-bottom: var(--space-4); }
+  .landing-back a { color: var(--blue-deep); text-decoration: none; }
+  .landing-back a:hover { text-decoration: underline; }
+  .landing-eyebrow { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: var(--space-3); }
+  .landing-title { font-family: var(--serif); font-size: 44px; font-weight: 700; line-height: 1.1; color: var(--ink); margin-bottom: var(--space-3); }
+  .landing-subtitle { font-family: var(--serif); font-size: 22px; font-weight: 400; line-height: 1.3; color: var(--ink-soft); margin-bottom: var(--space-4); font-style: italic; }
+  .landing-byline { font-family: var(--sans); font-size: 14px; color: var(--ink-muted); }
+  .landing-byline a { color: var(--blue-deep); text-decoration: none; }
+
+  /* sections */
+  .landing-section { margin-bottom: var(--space-7); }
+  .landing-section p { font-size: 18px; line-height: 1.65; color: var(--ink); margin-bottom: var(--space-4); }
+  .landing-section h2 { font-family: var(--serif); font-size: 24px; font-weight: 600; margin-bottom: var(--space-4); color: var(--ink); border: none; padding: 0; }
+  .landing-section h3 { font-family: var(--serif); font-size: 18px; font-weight: 600; margin: var(--space-5) 0 var(--space-3); color: var(--ink); }
+
+  /* CTA row */
+  .cta-row { display: flex; gap: var(--space-3); flex-wrap: wrap; margin: var(--space-5) 0; }
+  .cta-btn { padding: var(--space-3) var(--space-5); font-family: var(--sans); font-size: 14px; font-weight: 500; border-radius: var(--radius-md); text-decoration: none; transition: all 0.15s; border: 1px solid var(--ink); }
+  .cta-primary { background: var(--ink); color: var(--bg); }
+  .cta-primary:hover { background: var(--ink-soft); }
+  .cta-secondary { background: transparent; color: var(--ink); }
+  .cta-secondary:hover { background: var(--tint-warm); }
+
+  /* framework diagram */
+  .framework { margin: var(--space-6) 0 var(--space-7); }
+  .framework-title { font-family: var(--sans); font-size: 13px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: var(--space-4); }
+  /* The framework grid uses 5 columns × 6 rows. Each cell is placed individually
+     into a column and row, so all columns share the same row template and
+     align horizontally regardless of per-column content size. */
+  .framework-grid { display: grid; grid-template-columns: repeat(5, 1fr); grid-template-rows: auto auto auto 1fr auto 1fr; gap: 1px; background: var(--rule); border: 0.5px solid var(--rule); border-radius: var(--radius-md); overflow: hidden; }
+  .phase-col { display: contents; } /* the wrapper does not render its own grid; cells flow into the parent */
+  .phase-col > * { background: var(--bg); }
+  .phase-1 > * { grid-column: 1; }
+  .phase-2 > * { grid-column: 2; }
+  .phase-3 > * { grid-column: 3; }
+  .phase-4 > * { grid-column: 4; }
+  .phase-5 > * { grid-column: 5; }
+  .phase-header { padding: var(--space-3) var(--space-3); color: #fff; display: flex; align-items: center; gap: 10px; }
+  .phase-number { width: 26px; height: 26px; border-radius: 50%; background: rgba(255,255,255,0.25); display: flex; align-items: center; justify-content: center; font-family: var(--sans); font-size: 14px; font-weight: 700; }
+  .phase-name { font-family: var(--sans); font-size: 13px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; line-height: 1.15; }
+  .phase-1 .phase-header { background: #378ADD; }
+  .phase-2 .phase-header { background: #7c3aed; }
+  .phase-3 .phase-header { background: #1D9E75; }
+  .phase-4 .phase-header { background: #D97706; }
+  .phase-5 .phase-header { background: #C2410C; }
+  .phase-summary { padding: var(--space-3) var(--space-3); font-family: var(--sans); font-size: 12px; line-height: 1.5; color: var(--ink); }
+  .phase-section { padding: var(--space-2) var(--space-3) var(--space-3); }
+  .phase-section-label { font-family: var(--sans); font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 6px; padding-bottom: 4px; border-bottom: 1.5px solid currentColor; }
+  /* The diagram has six logical rows. Each cell maps to one row so columns align. */
+  .phase-header                  { grid-row: 1; }
+  .phase-summary                 { grid-row: 2; }
+  .phase-section.deliv-label     { grid-row: 3; padding-bottom: 0; }
+  .phase-section.deliv-list      { grid-row: 4; padding-top: 0; }
+  .phase-section.q-label         { grid-row: 5; padding-bottom: 0; }
+  .phase-section.q-list          { grid-row: 6; padding-top: 0; }
+  /* Original combined .phase-section blocks (label + list together) still need to
+     be split into separate cells; the markup change below handles that. */
+  .phase-1 .phase-section-label { color: #378ADD; }
+  .phase-2 .phase-section-label { color: #7c3aed; }
+  .phase-3 .phase-section-label { color: #1D9E75; }
+  .phase-4 .phase-section-label { color: #D97706; }
+  .phase-5 .phase-section-label { color: #C2410C; }
+  .phase-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 4px; }
+  .phase-list li { font-family: var(--sans); font-size: 11.5px; line-height: 1.4; color: var(--ink); padding-left: 14px; position: relative; }
+  .phase-list li::before { content: "✓"; position: absolute; left: 0; color: currentColor; font-size: 11px; top: 0; }
+  .phase-1 .phase-list li::before { color: #378ADD; }
+  .phase-2 .phase-list li::before { color: #7c3aed; }
+  .phase-3 .phase-list li::before { color: #1D9E75; }
+  .phase-4 .phase-list li::before { color: #D97706; }
+  .phase-5 .phase-list li::before { color: #C2410C; }
+  .phase-questions .phase-list { gap: 6px; }
+  .phase-questions li { font-style: italic; color: var(--ink-soft); padding-left: 9px; }
+  .phase-questions li::before { content: "·"; font-style: normal; font-weight: 700; top: -2px; font-size: 14px; }
+  .framework-foot { margin-top: var(--space-4); padding: var(--space-3) var(--space-4); background: var(--tint-warm); border-radius: var(--radius-md); display: flex; gap: var(--space-4); justify-content: space-between; flex-wrap: wrap; }
+  .framework-side { display: flex; align-items: center; gap: 8px; font-family: var(--sans); font-size: 12px; color: var(--ink-soft); }
+  .framework-side strong { color: var(--ink); font-weight: 700; }
+  .framework-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .framework-dot-router { background: #6B7280; }
+  .framework-dot-gov { background: #BE185D; }
+
+  @media (max-width: 900px) {
+    /* At narrow widths the 5-col aligned grid is too cramped; collapse to
+       per-column flex stacks (loses row alignment but stays readable). */
+    .framework-grid { grid-template-columns: 1fr 1fr; grid-template-rows: none; }
+    .phase-col { display: flex; flex-direction: column; background: var(--bg); }
+    .phase-col > * { grid-column: auto; }
+    .phase-1 > *, .phase-2 > *, .phase-3 > *, .phase-4 > *, .phase-5 > * { grid-column: auto; }
+  }
+  @media (max-width: 540px) {
+    .framework-grid { grid-template-columns: 1fr; }
+  }
+
+  /* skill grid */
+  .skills-table { display: grid; grid-template-columns: 1fr; gap: var(--space-3); margin: var(--space-5) 0; }
+  .skill-row { display: grid; grid-template-columns: 4px 1fr auto; gap: var(--space-4); padding: var(--space-4) var(--space-5); border: 0.5px solid var(--rule); border-radius: var(--radius-md); background: var(--bg); text-decoration: none; color: inherit; transition: box-shadow 0.15s, transform 0.15s; align-items: center; }
+  .skill-row:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.06); transform: translateY(-1px); }
+  .skill-row-cta { font-family: var(--sans); font-size: 12px; font-weight: 500; color: var(--blue-deep); white-space: nowrap; }
+  .skill-row-cta::after { content: " \2192"; }
+  .skill-accent { border-radius: 2px; }
+  .skill-row-1 .skill-accent { background: #6B7280; }
+  .skill-row-2 .skill-accent { background: #378ADD; }
+  .skill-row-3 .skill-accent { background: #7c3aed; }
+  .skill-row-4 .skill-accent { background: #1D9E75; }
+  .skill-row-5 .skill-accent { background: #D97706; }
+  .skill-row-6 .skill-accent { background: #C2410C; }
+  .skill-row-7 .skill-accent { background: #BE185D; }
+  .skill-body { display: flex; flex-direction: column; gap: var(--space-2); }
+  .skill-meta { font-family: var(--sans); font-size: 11px; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-muted); }
+  .skill-name { font-family: var(--mono, monospace); font-size: 14px; font-weight: 600; color: var(--ink); }
+  .skill-desc { font-family: var(--sans); font-size: 13px; color: var(--ink-soft); line-height: 1.55; }
+
+  /* book strip */
+  .book-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-3); margin: var(--space-4) 0; }
+  .book-strip a { padding: var(--space-3) var(--space-4); border: 0.5px solid var(--rule); border-radius: var(--radius-md); background: var(--bg); text-decoration: none; color: inherit; transition: box-shadow 0.15s; }
+  .book-strip a:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
+  .book-strip-num { font-family: var(--sans); font-size: 10px; font-weight: 500; color: var(--ink-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 4px; }
+  .book-strip-title { font-family: var(--serif); font-size: 14px; font-weight: 600; line-height: 1.25; color: var(--ink); }
+
+  .landing-evidence { background: var(--tint-warm); border-radius: var(--radius-lg); border-left: 3px solid var(--ink); padding: var(--space-5) var(--space-6); margin: var(--space-5) 0; }
+  .landing-evidence p { font-size: 17px; line-height: 1.6; margin-bottom: 0; color: var(--ink); }
+
+  .landing-footer { margin-top: var(--space-8); padding-top: var(--space-5); border-top: 1px solid var(--rule); font-family: var(--sans); font-size: 13px; color: var(--ink-muted); }
+  .landing-footer a { color: var(--blue-deep); text-decoration: none; }
+  .landing-footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 680px) {
+    .landing-title { font-size: 32px; }
+    .landing-subtitle { font-size: 18px; }
+    .book-strip { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<div class="landing">
+
+  <header class="landing-hero">
+    <div class="landing-back"><a href="../index.html">&larr; The Agentic AI Series</a></div>
+    <p class="landing-eyebrow">Companion to the Series &nbsp;&middot;&nbsp; Stage 1 of 3</p>
+    <h1 class="landing-title">Agentic AI PM Skill Package</h1>
+    <p class="landing-subtitle">The lifecycle, as working aids a PM can invoke at the moment of need.</p>
+    <div class="landing-byline">For <a href="https://www.anthropic.com/claude-cowork" target="_blank" rel="noopener">Claude Cowork</a> &nbsp;&middot;&nbsp; by <a href="https://www.linkedin.com/in/yoram-friedman/" target="_blank" rel="noopener">Yoram Friedman</a></div>
+  </header>
+
+  <section class="landing-section">
+    <p>Seven skills covering the agentic PM lifecycle, distilled from the four books in the series. Install in Claude Cowork and invoke at the moment of need. Each skill walks the PM through the work for one phase and produces the artifacts the team will defend in the room.</p>
+    <p>The skills are working aids. The books are where the reasoning lives. When a skill needs depth, it points back to the chapter.</p>
+
+    <div class="cta-row">
+      <a class="cta-btn cta-primary" href="https://github.com/yoramfmd/agentic-ai-pm-skill-package/releases/latest" target="_blank" rel="noopener">Download the seven skills &rarr;</a>
+      <a class="cta-btn cta-secondary" href="https://github.com/yoramfmd/agentic-ai-pm-skill-package" target="_blank" rel="noopener">View on GitHub</a>
+    </div>
+  </section>
+
+  <section class="landing-section">
+    <h2>What is in Stage 1</h2>
+    <p>Stage 1 covers the PM lifecycle: one front-door router, five phase skills, and one portfolio-level strategic skill.</p>
+
+    <div class="framework">
+      <div class="framework-title">The five phases, at a glance</div>
+      <div class="framework-grid">
+
+        <div class="phase-col phase-1">
+          <div class="phase-header">
+            <div class="phase-number">1</div>
+            <div class="phase-name">Decide</div>
+          </div>
+          <div class="phase-summary">Decide whether an agent is the right solution before engineering begins. Most expensive failures are prevented here.</div>
+          <div class="phase-section deliv-label">
+            <div class="phase-section-label">Deliverables</div>
+          </div>
+          <div class="phase-section deliv-list">
+            <ul class="phase-list">
+              <li>Suitability record (six criteria)</li>
+              <li>Context sufficiency map</li>
+              <li>Distribution gap analysis</li>
+              <li>Cost model with break-even</li>
+              <li>Go-or-no-go memo</li>
+            </ul>
+          </div>
+          <div class="phase-section phase-questions q-label">
+            <div class="phase-section-label">Questions answered</div>
+          </div>
+          <div class="phase-section phase-questions q-list">
+            <ul class="phase-list">
+              <li>Is the problem bounded with tolerable error?</li>
+              <li>Will the agent receive the relationships and semantics it needs?</li>
+              <li>Does the math work at projected volume?</li>
+              <li>Should we actually build this?</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="phase-col phase-2">
+          <div class="phase-header">
+            <div class="phase-number">2</div>
+            <div class="phase-name">Design</div>
+          </div>
+          <div class="phase-summary">Design the two products: the agent and the supervisory system. Runtime behavior engineered deliberately, not by default.</div>
+          <div class="phase-section deliv-label">
+            <div class="phase-section-label">Deliverables</div>
+          </div>
+          <div class="phase-section deliv-list">
+            <ul class="phase-list">
+              <li>Declared system type</li>
+              <li>Four runtime artifacts</li>
+              <li>Consequence classification</li>
+              <li>Trust scaffold</li>
+              <li>Channel 2 composition</li>
+              <li>Adversarial defense plan</li>
+            </ul>
+          </div>
+          <div class="phase-section phase-questions q-label">
+            <div class="phase-section-label">Questions answered</div>
+          </div>
+          <div class="phase-section phase-questions q-list">
+            <ul class="phase-list">
+              <li>What can the agent do unilaterally, what needs approval?</li>
+              <li>When a human approves, what information do they see?</li>
+              <li>How do we reverse the agent when it is wrong?</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="phase-col phase-3">
+          <div class="phase-header">
+            <div class="phase-number">3</div>
+            <div class="phase-name">Eval</div>
+          </div>
+          <div class="phase-summary">Prove readiness through evidence. Replaces the single pass-fail gate with distribution, projection, and state-validation.</div>
+          <div class="phase-section deliv-label">
+            <div class="phase-section-label">Deliverables</div>
+          </div>
+          <div class="phase-section deliv-list">
+            <ul class="phase-list">
+              <li>Pass@K with worst-slice variance</li>
+              <li>Compound probability projection</li>
+              <li>Semantic-vs-state validation</li>
+              <li>Coverage statement</li>
+              <li>Adversarial suite results</li>
+              <li>All-owner readiness memo</li>
+            </ul>
+          </div>
+          <div class="phase-section phase-questions q-label">
+            <div class="phase-section-label">Questions answered</div>
+          </div>
+          <div class="phase-section phase-questions q-list">
+            <ul class="phase-list">
+              <li>When we run the eval ten times, how often does it pass?</li>
+              <li>What is the end-to-end success rate, not per-step?</li>
+              <li>Did the target system actually change?</li>
+              <li>Are all four owners willing to sign?</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="phase-col phase-4">
+          <div class="phase-header">
+            <div class="phase-number">4</div>
+            <div class="phase-name">Observe</div>
+          </div>
+          <div class="phase-summary">Measure what the agent is actually doing in production. Continuous front end of Operate.</div>
+          <div class="phase-section deliv-label">
+            <div class="phase-section-label">Deliverables</div>
+          </div>
+          <div class="phase-section deliv-list">
+            <ul class="phase-list">
+              <li>Six observation instruments</li>
+              <li>Data-layer observation</li>
+              <li>Operational guardrails</li>
+              <li>Supervised-vs-bypass report</li>
+              <li>Supervisory engagement metrics</li>
+              <li>Stratified performance report</li>
+            </ul>
+          </div>
+          <div class="phase-section phase-questions q-label">
+            <div class="phase-section-label">Questions answered</div>
+          </div>
+          <div class="phase-section phase-questions q-list">
+            <ul class="phase-list">
+              <li>Did the agent do what the user intended?</li>
+              <li>Did it act outside its declared boundary?</li>
+              <li>Are humans still supervising or nodding along?</li>
+              <li>Is it calibrated, or confidently wrong?</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="phase-col phase-5">
+          <div class="phase-header">
+            <div class="phase-number">5</div>
+            <div class="phase-name">Operate</div>
+          </div>
+          <div class="phase-summary">Act on what Observe is showing. Governance runs at runtime. Drift, silent degradation, and retirement are named stages.</div>
+          <div class="phase-section deliv-label">
+            <div class="phase-section-label">Deliverables</div>
+          </div>
+          <div class="phase-section deliv-list">
+            <ul class="phase-list">
+              <li>Drift detection (six vectors)</li>
+              <li>Sealed Decision Artifact policy</li>
+              <li>Constitutional runtime rules</li>
+              <li>Adaptive governance rule set</li>
+              <li>Instrument half-life policy</li>
+              <li>Affected-person audit view</li>
+            </ul>
+          </div>
+          <div class="phase-section phase-questions q-label">
+            <div class="phase-section-label">Questions answered</div>
+          </div>
+          <div class="phase-section phase-questions q-list">
+            <ul class="phase-list">
+              <li>Is the agent still doing the thing it did at launch?</li>
+              <li>Has the model underneath shifted?</li>
+              <li>Are rules running at runtime or in review meetings?</li>
+              <li>Can we produce the full decision history?</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="framework-foot">
+        <div class="framework-side"><span class="framework-dot framework-dot-router"></span><span><strong>Router</strong> &nbsp;&middot;&nbsp; <code>agentic-pm-lifecycle</code> &nbsp;&middot;&nbsp; Diagnoses where the PM is and dispatches to the right phase skill.</span></div>
+        <div class="framework-side"><span class="framework-dot framework-dot-gov"></span><span><strong>Cross-phase</strong> &nbsp;&middot;&nbsp; <code>agentic-pm-behavior-governance</code> &nbsp;&middot;&nbsp; Portfolio strategy across multiple agents.</span></div>
+      </div>
+    </div>
+
+    <div class="skills-table">
+
+      <a class="skill-row skill-row-1" href="agentic-pm-lifecycle.html">
+        <div class="skill-accent"></div>
+        <div class="skill-body">
+          <div class="skill-meta">Router</div>
+          <div class="skill-name">agentic-pm-lifecycle</div>
+          <div class="skill-desc">Diagnoses the PM&rsquo;s situation and dispatches to the right specialized skill. Use when you are not sure which phase you are in.</div>
+        </div>
+        <span class="skill-row-cta">Read</span>
+      </a>
+
+      <a class="skill-row skill-row-2" href="agentic-pm-discover-decide.html">
+        <div class="skill-accent"></div>
+        <div class="skill-body">
+          <div class="skill-meta">Phase 1 &nbsp;&middot;&nbsp; Discover &amp; Decide</div>
+          <div class="skill-name">agentic-pm-discover-decide</div>
+          <div class="skill-desc">Decide whether to build the agent at all. Suitability record (six criteria), context sufficiency map, distribution gap analysis, cost model with break-even, go-or-no-go memo. Includes a fully worked example for a refund agent.</div>
+        </div>
+        <span class="skill-row-cta">Read</span>
+      </a>
+
+      <a class="skill-row skill-row-3" href="agentic-pm-design.html">
+        <div class="skill-accent"></div>
+        <div class="skill-body">
+          <div class="skill-meta">Phase 2 &nbsp;&middot;&nbsp; Design</div>
+          <div class="skill-name">agentic-pm-design</div>
+          <div class="skill-desc">Specify runtime behavior before engineering builds. The four runtime artifacts, the two briefs, Channel 2 composition, consequence classification, trust scaffold, adversarial defense plan, Sealed Decision Artifact spec.</div>
+        </div>
+        <span class="skill-row-cta">Read</span>
+      </a>
+
+      <a class="skill-row skill-row-4" href="agentic-pm-eval.html">
+        <div class="skill-accent"></div>
+        <div class="skill-body">
+          <div class="skill-meta">Phase 3 &nbsp;&middot;&nbsp; Eval</div>
+          <div class="skill-name">agentic-pm-eval</div>
+          <div class="skill-desc">Prove readiness through evidence. Pass@K with worst-slice variance, compound probability projection, semantic-vs-state validation, coverage statement, adversarial suite, LLM-as-judge calibration, model-version policy, all-owner readiness memo.</div>
+        </div>
+        <span class="skill-row-cta">Read</span>
+      </a>
+
+      <a class="skill-row skill-row-5" href="agentic-pm-observe.html">
+        <div class="skill-accent"></div>
+        <div class="skill-body">
+          <div class="skill-meta">Phase 4 &nbsp;&middot;&nbsp; Observe</div>
+          <div class="skill-name">agentic-pm-observe</div>
+          <div class="skill-desc">Measure what the agent is actually doing in production. Six observation instruments, data-layer observation, operational guardrails (ceilings, kill switch, circuit breaker, burn-rate), supervised-vs-bypass report, supervisory engagement metrics, stratified performance report.</div>
+        </div>
+        <span class="skill-row-cta">Read</span>
+      </a>
+
+      <a class="skill-row skill-row-6" href="agentic-pm-operate.html">
+        <div class="skill-accent"></div>
+        <div class="skill-body">
+          <div class="skill-meta">Phase 5 &nbsp;&middot;&nbsp; Operate</div>
+          <div class="skill-name">agentic-pm-operate</div>
+          <div class="skill-desc">Long-horizon governance. Drift detection (six vectors), Sealed Decision Artifact policy, instrument half-life, constitutional runtime rules, affected-person audit view, adaptive governance rule set, currency question, external audit on held-out sample.</div>
+        </div>
+        <span class="skill-row-cta">Read</span>
+      </a>
+
+      <a class="skill-row skill-row-7" href="agentic-pm-behavior-governance.html">
+        <div class="skill-accent"></div>
+        <div class="skill-body">
+          <div class="skill-meta">Cross-phase &nbsp;&middot;&nbsp; Strategic posture</div>
+          <div class="skill-name">agentic-pm-behavior-governance</div>
+          <div class="skill-desc">Portfolio strategy across multiple agents. Maturity assessment, consolidation roadmap, three-stage governance arc (hand-built artifacts &rarr; control plane &rarr; platform primitive).</div>
+        </div>
+        <span class="skill-row-cta">Read</span>
+      </a>
+
+    </div>
+  </section>
+
+  <section class="landing-section">
+    <h2>Who this is for</h2>
+    <p>A senior product manager (10+ years) who is fluent in classical product management and is now building, evaluating, or operating an agentic AI product. The skills assume PM fluency on the conventional craft. Each phase skill includes a &ldquo;first-timer foundations&rdquo; section that teaches the constructs new to agentic work (golden datasets, Pass@K, the four runtime artifacts, drift vectors, the Sealed Decision Artifact, the constitutional runtime layer).</p>
+    <p>If you are an enterprise PM team adopting agentic AI and looking for a shared discipline, the package is designed to be invoked phase by phase as the team&rsquo;s work moves through the lifecycle.</p>
+  </section>
+
+  <section class="landing-section">
+    <h2>How to install</h2>
+    <p>Each skill is packaged as a <code>.skill</code> zip. To install all seven:</p>
+    <p>1. Download the <a href="https://github.com/yoramfmd/agentic-ai-pm-skill-package/releases/latest" target="_blank" rel="noopener">latest release</a> from GitHub.<br>
+       2. In Claude Cowork, go to Settings &rarr; Capabilities &rarr; Skills.<br>
+       3. Drag each <code>.skill</code> file into the install area.<br>
+       4. The skills appear in your available skills list and can be invoked by name or by natural-language trigger.</p>
+    <p>To install one skill at a time, download only the <code>.skill</code> zip for that skill.</p>
+  </section>
+
+  <section class="landing-section">
+    <h2>The four books behind the skills</h2>
+    <p>The skills condense doctrine that is fully developed in the four books in the series. When a skill needs depth, it points back to a specific chapter. The books are free to read online.</p>
+
+    <div class="book-strip">
+      <a href="../book3/index.html">
+        <div class="book-strip-num">Book 1 &nbsp;&middot;&nbsp; The PM</div>
+        <div class="book-strip-title">Agentic AI for Busy Product Managers</div>
+      </a>
+      <a href="../book4/index.html">
+        <div class="book-strip-num">Book 2 &nbsp;&middot;&nbsp; The Failures</div>
+        <div class="book-strip-title">Why Agentic AI Products Fail</div>
+      </a>
+      <a href="../book5/index.html">
+        <div class="book-strip-num">Book 3 &nbsp;&middot;&nbsp; The Team</div>
+        <div class="book-strip-title">The Agentic Team</div>
+      </a>
+      <a href="../book6/index.html">
+        <div class="book-strip-num">Book 4 &nbsp;&middot;&nbsp; The Practitioner</div>
+        <div class="book-strip-title">The Agentic AI Practitioner</div>
+      </a>
+    </div>
+  </section>
+
+  <section class="landing-section">
+    <h2>What is coming next</h2>
+    <p>Stage 1 covers the lifecycle. Two more stages will follow:</p>
+    <p><strong>Stage 2: Team Collaboration.</strong> Five skills built from <em>The Agentic Team</em>: the collaboration grid, seam audit, agent-as-team-member onboarding, fleet governance, team skill protection.</p>
+    <p><strong>Stage 3: Practitioner.</strong> Five skills built from <em>The Agentic AI Practitioner</em>: proficiency check, model dossier, configuration interview, deliberate-practice loops, first-month on-ramp.</p>
+    <p>Stage 1 covers the PM&rsquo;s work. Stage 2 covers the team that ships with the PM. Stage 3 covers the individual who has to stay competent operating the agent over years. Each stage will be released as a separate skill bundle.</p>
+  </section>
+
+  <section class="landing-section">
+    <div class="landing-evidence">
+      <p><em>The skills are working aids, not condensed books. They condense doctrine into structured prompts and artifact templates the PM can use at the moment of need. The books are where the reasoning lives. The skills are how the reasoning shows up in the room when there are forty minutes to write the memo.</em></p>
+    </div>
+  </section>
+
+  <footer class="landing-footer">
+    <p>The package is free to read, install, and adapt under CC BY-NC 4.0. &copy; 2026 Yoram Friedman. &nbsp;&middot;&nbsp; <a href="https://github.com/yoramfmd/agentic-ai-pm-skill-package" target="_blank" rel="noopener">GitHub</a> &nbsp;&middot;&nbsp; <a href="https://www.linkedin.com/in/yoram-friedman/" target="_blank" rel="noopener">LinkedIn</a> &nbsp;&middot;&nbsp; <a href="../index.html">The Agentic AI Series</a></p>
+  </footer>
+
+</div>
+</body>
+</html>

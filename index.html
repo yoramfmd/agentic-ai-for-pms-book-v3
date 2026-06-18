@@ -34,6 +34,22 @@
   .book-card-2 .book-card-accent { background: #7c3aed; }
   .book-card-3 .book-card-accent { background: #1D9E75; }
   .book-card-4 .book-card-accent { background: #C2410C; }
+
+  /* ── skills card — wide horizontal, sibling to the books ── */
+  .skills-card { grid-column: 1 / -1; display: grid; grid-template-columns: 24px 1fr auto; gap: var(--space-5); align-items: center; padding: var(--space-5) var(--space-6); border: 0.5px solid var(--rule); border-radius: var(--radius-md); background: var(--bg); text-decoration: none; color: inherit; transition: box-shadow 0.15s, transform 0.15s; }
+  .skills-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.07); transform: translateY(-2px); }
+  .skills-accent { width: 3px; height: 100%; border-radius: 2px; background: linear-gradient(180deg, #378ADD 0%, #7c3aed 33%, #1D9E75 66%, #C2410C 100%); }
+  .skills-body { display: flex; flex-direction: column; gap: var(--space-2); }
+  .skills-eyebrow { font-family: var(--sans); font-size: 11px; font-weight: 500; color: var(--ink-muted); letter-spacing: 0.05em; text-transform: uppercase; }
+  .skills-title { font-family: var(--serif); font-size: 22px; font-weight: 700; line-height: 1.25; color: var(--ink); }
+  .skills-subtitle { font-family: var(--serif); font-size: 14px; font-style: italic; color: var(--ink-soft); line-height: 1.4; }
+  .skills-desc { font-family: var(--sans); font-size: 13px; color: var(--ink-soft); line-height: 1.6; max-width: 60ch; }
+  .skills-cta { font-family: var(--sans); font-size: 13px; font-weight: 500; color: var(--blue-deep); white-space: nowrap; }
+  .skills-cta::after { content: " \2192"; }
+  @media (max-width: 680px) {
+    .skills-card { grid-template-columns: 1fr; gap: var(--space-4); }
+    .skills-accent { width: 100%; height: 3px; }
+  }
   .book-num { font-family: var(--sans); font-size: 11px; font-weight: 500; color: var(--ink-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: var(--space-2); }
   .book-title { font-family: var(--serif); font-size: 18px; font-weight: 700; line-height: 1.25; color: var(--ink); margin-bottom: var(--space-2); }
   .book-subtitle { font-family: var(--serif); font-size: 13px; font-style: italic; color: var(--ink-soft); margin-bottom: var(--space-4); line-height: 1.4; }
@@ -134,6 +150,17 @@
         <span class="book-badge book-badge-print">Amazon</span>
         <span class="book-cta" onclick="event.stopPropagation();location.href='book6/preface-the-job-is-now-the-person.html'">Read</span>
       </div>
+    </a>
+
+    <a class="skills-card" href="skills/index.html">
+      <div class="skills-accent"></div>
+      <div class="skills-body">
+        <div class="skills-eyebrow">Companion &nbsp;&middot;&nbsp; Skill Package for Claude Cowork</div>
+        <div class="skills-title">Agentic AI PM Skill Package</div>
+        <div class="skills-subtitle">The lifecycle, as working aids the PM can invoke at the moment of need.</div>
+        <p class="skills-desc">Seven skills covering the agentic PM lifecycle, distilled from the four books. Install in Claude Cowork and invoke at the moment of need. Stage 1 of three.</p>
+      </div>
+      <span class="skills-cta">Install &amp; learn more</span>
     </a>
 
   </div>
