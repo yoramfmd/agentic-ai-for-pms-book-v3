@@ -415,7 +415,7 @@ def generate_index():
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{SITE_TITLE} &mdash; {SITE_SUB}</title>
-<meta name="description" content="Every agentic product is two products: the agent that acts, and the supervisory layer that governs it. This book is about the supervisory layer &mdash; its four dimensions, its failure modes, and how to build it deliberately.">
+<meta name="description" content="Every agentic product is two products: the agent that acts, and the supervisory layer that governs it. This book is about the supervisory layer, its four dimensions, its failure modes, and how to build it deliberately.">
 <link rel="canonical" href="{CANON}">
 <link rel="stylesheet" href="styles.css">
 <style>
@@ -461,7 +461,7 @@ def generate_index():
   </div>
 
   <div class="landing-section">
-    <p>Every agentic product is two products: the agent that acts, and the supervisory layer that governs it. Most teams build the first and assume the second takes care of itself. It does not. This book is organized around the supervisory layer &mdash; its four dimensions (technical, organizational, regulatory, and moral), its failure modes, and the discipline required to build it deliberately.</p>
+    <p>Every agentic product is two products: the agent that acts, and the supervisory layer that governs it. Most teams build the first and assume the second takes care of itself. It does not. This book is organized around the supervisory layer, its four dimensions (technical, organizational, regulatory, and moral), its failure modes, and the discipline required to build it deliberately.</p>
     <p>Twenty-two chapters across six parts, from deciding whether to build at all to carrying accountability for the people your agent will never see.</p>
     <div class="cta-row">
       <a class="cta-btn cta-primary" href="preface.html">Start reading &rarr;</a>
