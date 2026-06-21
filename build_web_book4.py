@@ -457,7 +457,7 @@ def generate_index():
     <div class="landing-eyebrow">Book 2 in the series</div>
     <h1 class="landing-title">{SITE_TITLE}</h1>
     <p class="landing-subtitle">{SITE_SUB}</p>
-    <div class="landing-byline">By <a href="https://www.linkedin.com/in/yoram-friedman/" target="_blank" rel="noopener">Yoram Friedman</a></div>
+    <div class="landing-byline">By <a href="https://www.linkedin.com/in/yoramf/" target="_blank" rel="noopener">Yoram Friedman</a></div>
   </div>
 
   <div class="landing-section">
