@@ -17,11 +17,11 @@ CHAPTERS = HERE.parent / "AgenticTeam" / "chapters"
 OUT      = HERE / "book5"
 OUT.mkdir(exist_ok=True)
 
-SITE_TITLE = "The Agentic Team"
+SITE_TITLE = "The Agentic AI Team"
 SITE_SUB   = "How Agentic AI Reshapes the Roles That Build It"
 CANON      = "https://agenticaiproductmanagement.com/book5/"
 HUB        = "../index.html"
-DRAFT      = True   # adds "Draft" to landing eyebrow and sidebar brand title
+DRAFT      = False  # adds "Draft" to landing eyebrow and sidebar brand title
 
 # (md-path-relative-to-chapters/, sidebar-label, section, display-num)
 # section: "front" | "part" | "ref"
