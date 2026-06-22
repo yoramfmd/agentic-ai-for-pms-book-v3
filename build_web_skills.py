@@ -271,6 +271,18 @@ def page_shell(skill_slug: str, eyebrow: str, color: str, title: str, descriptio
 <title>{html.escape(title)} &mdash; {SITE_TITLE}</title>
 <meta name="description" content="{desc_meta}">
 <link rel="canonical" href="{CANON}{skill_slug}.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="The Agentic AI Series">
+<meta property="og:title" content="{html.escape(title)}">
+<meta property="og:description" content="{desc_meta}">
+<meta property="og:image" content="https://agenticaiproductmanagement.com/assets/og-series.png">
+<meta property="og:image:width" content="1240">
+<meta property="og:image:height" content="1240">
+<meta property="og:url" content="{CANON}{skill_slug}.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{html.escape(title)}">
+<meta name="twitter:description" content="{desc_meta}">
+<meta name="twitter:image" content="https://agenticaiproductmanagement.com/assets/og-series.png">
 <link rel="stylesheet" href="../book3/styles.css">
 <style>
   .sidebar-hub {{ margin-bottom: var(--space-4); padding-bottom: var(--space-3);
@@ -357,7 +369,9 @@ def generate():
             title = skill_slug
 
         # Strip the first H1 (we render it from extracted title)
+        body = body.lstrip("\n")
         body = re.sub(r"^# .+\n", "", body, count=1)
+        body = body.lstrip("\n")
 
         description = fm.get("description", "").strip()
         # Clean up the description: strip leading colon if YAML > was misparsed
