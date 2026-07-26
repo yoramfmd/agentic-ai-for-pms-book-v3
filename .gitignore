@@ -11,3 +11,6 @@ __pycache__/
 *~
 .vscode/
 .idea/
+
+# Scratch
+_to_delete/
