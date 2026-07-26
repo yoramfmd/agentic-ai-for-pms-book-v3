@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI PM Interview Questions, Answered from the Product Seat</title>
+<meta name="description" content="The AI product manager interview questions circulating in 2026, answered from the product seat rather than the engineering seat. Plus the eleven questions nobody asks.">
+<link rel="canonical" href="https://agenticaiproductmanagement.com/interview/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="The Agentic AI Series">
+<meta property="og:title" content="AI PM Interview Questions, Answered from the Product Seat">
+<meta property="og:description" content="The AI product manager interview questions circulating in 2026, answered from the product seat rather than the engineering seat. Plus the eleven questions nobody asks.">
+<meta property="og:url" content="https://agenticaiproductmanagement.com/interview/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI PM Interview Questions, Answered from the Product Seat">
+<meta name="twitter:description" content="The AI product manager interview questions circulating in 2026, answered from the product seat rather than the engineering seat. Plus the eleven questions nobody asks.">
+<link rel="stylesheet" href="../book3/styles.css">
+<style>
+  body { font-family: var(--serif); }
+  .wrap { max-width: 880px; margin: 0 auto; padding: var(--space-8) var(--space-6); }
+
+  .hero { padding: var(--space-7) 0 var(--space-6); border-bottom: 1px solid var(--rule); margin-bottom: var(--space-6); }
+  .eyebrow { font-family: var(--sans); font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: var(--space-3); }
+  .eyebrow a { color: inherit; text-decoration: none; }
+  .eyebrow a:hover { text-decoration: underline; }
+  h1 { font-family: var(--serif); font-size: 42px; font-weight: 700; line-height: 1.12; color: var(--ink); margin-bottom: var(--space-3); border: none; padding: 0; }
+  .sub { font-family: var(--serif); font-size: 21px; font-weight: 400; line-height: 1.35; color: var(--ink-soft); font-style: italic; margin-bottom: var(--space-4); }
+  .byline { font-family: var(--sans); font-size: 14px; color: var(--ink-muted); }
+  .byline a { color: var(--blue-deep); text-decoration: none; }
+
+  .intro p { font-size: 17.5px; line-height: 1.68; color: var(--ink); margin-bottom: var(--space-4); }
+
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-3); margin: var(--space-5) 0 var(--space-6); }
+  .stat { border: 0.5px solid var(--rule); border-radius: var(--radius-md); padding: var(--space-4); background: var(--bg); }
+  .stat-n { font-family: var(--serif); font-size: 30px; font-weight: 700; color: var(--blue-deep); line-height: 1; margin-bottom: var(--space-2); }
+  .stat-l { font-family: var(--sans); font-size: 12.5px; line-height: 1.45; color: var(--ink-soft); }
+
+  .method { background: var(--tint-warm); border-radius: var(--radius-lg); border-left: 3px solid var(--ink); padding: var(--space-4) var(--space-5); margin: var(--space-5) 0 var(--space-7); }
+  .method p { font-family: var(--sans); font-size: 14px; line-height: 1.65; color: var(--ink-soft); margin: 0 0 var(--space-3); }
+  .method p:last-child { margin-bottom: 0; }
+  .method a { color: var(--blue-deep); }
+
+  .jump { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-7); }
+  .jump a { font-family: var(--sans); font-size: 12.5px; font-weight: 500; text-decoration: none; color: var(--blue-deep); background: var(--blue-tint); border: 0.5px solid var(--blue); border-radius: 20px; padding: 5px 13px; }
+  .jump a:hover { border-color: var(--ink-muted); }
+  .jump a.jump-alt { background: var(--tint-warm); border-color: var(--rule); color: var(--ink); }
+
+  .phase { margin-bottom: var(--space-8); scroll-margin-top: var(--space-5); }
+  .phase-head { border-bottom: 2px solid var(--ink); padding-bottom: var(--space-3); margin-bottom: var(--space-4); }
+  .phase-num { font-family: var(--sans); font-size: 11.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: var(--space-2); }
+  .phase h2 { font-family: var(--serif); font-size: 28px; font-weight: 700; color: var(--ink); margin: 0; border: none; padding: 0; }
+  .phase-lede { font-size: 16.5px; line-height: 1.65; color: var(--ink-soft); font-style: italic; margin-bottom: var(--space-6); }
+
+  .qa { margin-bottom: var(--space-6); padding-bottom: var(--space-5); border-bottom: 0.5px solid var(--rule); }
+  .qa:last-child { border-bottom: none; }
+  .qa h3 { font-family: var(--serif); font-size: 19.5px; font-weight: 700; line-height: 1.35; color: var(--ink); margin: 0 0 var(--space-3); border: none; padding: 0; }
+  .qa-asked { font-family: var(--sans); font-size: 13px; line-height: 1.55; color: var(--ink-muted); margin: 0 0 var(--space-3); }
+  .qa-asked span { display: inline-block; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; font-size: 10.5px; color: var(--ink); margin-right: 6px; }
+  .qa-a { font-size: 17px; line-height: 1.7; color: var(--ink); margin: 0 0 var(--space-3); }
+  .qa-refs { display: flex; flex-wrap: wrap; gap: 6px 8px; align-items: center; }
+  .qa-refs a { font-family: var(--sans); font-size: 12px; font-weight: 500; text-decoration: none; border-radius: 20px; padding: 4px 11px; border: 0.5px solid; white-space: nowrap; }
+  .qa-refs a.ref-primary { color: var(--blue-deep); background: var(--blue-tint); border-color: var(--blue); }
+  .qa-refs a.ref-more { color: var(--ink-soft); background: var(--tint-warm); border-color: var(--rule); }
+  .qa-refs a:hover { border-color: var(--ink-muted); color: var(--ink); }
+  @media (max-width: 680px) { .qa-refs a { white-space: normal; } }
+
+  .eleven .phase-head { border-bottom-color: var(--blue-deep); }
+  .eleven .phase-num { color: var(--blue-deep); }
+  .eleven .qa h3 { color: var(--blue-deep); }
+
+  .closing { border-top: 1px solid var(--rule); padding-top: var(--space-6); margin-top: var(--space-7); }
+  .closing h2 { font-family: var(--serif); font-size: 24px; font-weight: 600; margin-bottom: var(--space-4); border: none; padding: 0; }
+  .closing p { font-size: 17px; line-height: 1.68; margin-bottom: var(--space-4); }
+  .closing a { color: var(--blue-deep); }
+
+  .foot { margin-top: var(--space-7); padding-top: var(--space-5); border-top: 1px solid var(--rule); font-family: var(--sans); font-size: 13px; color: var(--ink-muted); }
+  .foot a { color: var(--blue-deep); text-decoration: none; }
+  .foot p { margin-bottom: var(--space-2); }
+
+  @media (max-width: 680px) {
+    h1 { font-size: 30px; }
+    .sub { font-size: 18px; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="hero">
+    <p class="eyebrow"><a href="../index.html">&larr; The Agentic AI Series</a> &nbsp;&middot;&nbsp; Reference</p>
+    <h1>AI PM Interview Questions, Answered from the Product Seat</h1>
+    <p class="sub">Fifty-five questions. Forty-four that are circulating, and eleven that are not.</p>
+    <div class="byline">By <a href="https://www.linkedin.com/in/yoramf/" target="_blank" rel="noopener">Yoram Friedman, MD</a> &nbsp;&middot;&nbsp; physician and enterprise product leader</div>
+  </header>
+
+  <section class="intro">
+    <p>Six published lists of AI product manager interview questions were analyzed for this page, 145 of them transcribed verbatim and tagged one by one. Half of the corpus asks how the model works and how to make the agent behave. Almost nothing asks how the system around it is supervised, and not one question in 145 asks who owns a wrong outcome.</p>
+
+    <div class="stats">
+      <div class="stat"><div class="stat-n">145</div><div class="stat-l">questions analyzed, from six published sources</div></div>
+      <div class="stat"><div class="stat-n">5.3 : 1</div><div class="stat-l">questions about the agent's behavior, versus the system supervising it</div></div>
+      <div class="stat"><div class="stat-n">82%</div><div class="stat-l">test the job up to launch. Seven percent test it after</div></div>
+      <div class="stat"><div class="stat-n">0</div><div class="stat-l">ask who owns a wrong outcome</div></div>
+    </div>
+
+    <p>That gap is not an oversight by the people writing these lists. It reflects a real belief about what the job is. The answers below are written from the other belief: that specifying what an agent may decide alone, where it stops, and who carries it when it is wrong is the product work, and the rest is the entry fee.</p>
+
+    <div class="method">
+      <p><strong>A note on what this is not.</strong> It is not an argument that the technical questions are illegitimate. A product manager who cannot say what a context window is will set a bad boundary, which is why this book has a literacy chapter. The problem is proportion. Literacy is one chapter of fifteen here, and roughly half of what the market asks.</p>
+      <p><strong>Method.</strong> Three sources published every question, so those were counted: a widely shared technical cheat sheet, Product Leadership's list of 25, and IdeaPlan's 30. Three more publish categories and rubrics rather than full question sets and were used as corroboration: Crosschq, KORE1, and LockedIn AI. Every question was tagged by hand to one phase of the lifecycle. Analysis run July 2026.</p>
+      <p><strong>How to use it.</strong> Each answer names what the question is usually testing, then gives the answer from the product seat, then links to the chapter it comes from. Every chapter of <em>Agentic AI for Busy Product Managers</em> is <a href="../book3/index.html">free to read online</a>.</p>
+    </div>
+
+    <nav class="jump"><a href="#ai-literacy">Phase 1. AI Literacy</a><a href="#discover-and-decide">Phase 2. Discover and Decide</a><a href="#design">Phase 3. Design</a><a href="#eval">Phase 4. Eval</a><a href="#observe-and-operate">Phase 5. Observe and Operate</a><a href="#the-eleven" class="jump-alt">The eleven nobody asks</a></nav>
+  </section>
+
+
+  <section class="phase" id="ai-literacy">
+    <div class="phase-head">
+      <div class="phase-num">Phase 1</div>
+      <h2>AI Literacy</h2>
+    </div>
+    <p class="phase-lede">The market spends about a quarter of its questions here. The book spends one chapter of fifteen. Literacy is real and you cannot set a boundary without it, but it is the entry fee, not the job.</p>
+    <article class="qa">
+      <h3>How does an LLM actually work? What is next-token prediction?</h3>
+      <p class="qa-asked"><span>What it is testing</span> Whether you can recite the mechanism.</p>
+      <p class="qa-a">It predicts the next token from a distribution, one token at a time, conditioned on everything in the window. The product consequence is the part worth saying out loud: there is no retrieval of a stored fact and no lookup of a correct answer. The system produces a plausible continuation. Everything downstream follows from that. It is why the same input can give you two answers, why confidence and correctness are not the same signal, and why a boundary you write in the prompt is a suggestion rather than a rule.</p>
+      <div class="qa-refs">
+        <a class="ref-primary" href="../book3/ch02-ai-literacy.html">Book 1, Chapter 2 &rarr;</a>
+        <a class="ref-more" href="../book4/ch01-ai-literacy.html">Book 2, Ch 1: What You Need to Know About AI &rarr;</a>
+      </div>
+    </article>
+    <article class="qa">
+      <h3>What is a context window, and what happens when you exceed it?</h3>
+      <p class="qa-asked"><span>What it is testing</span> Whether you know the number.</p>
+      <p class="qa-a">The window is the working memory for one call. Exceed it and something is dropped, and the interesting question is what. Most teams cannot say. If the boundary rules, the policy, and the customer history all live in the window, and the window is trimmed under load, then the thing that got dropped was a governance control. That is not a context problem. It is a design problem: anything the agent must not do belongs somewhere the trimming cannot reach.</p>
+      <div class="qa-refs">
+        <a class="ref-primary" href="../book3/ch06-design-behavior.html">Book 1, Chapter 6 &rarr;</a>
+        <a class="ref-more" href="../book4/ch07-design-behavior.html">Book 2, Ch 7: Now Design the Behavior &rarr;</a>
+      </div>
+    </article>
+    <article class="qa">
+      <h3>What are tokens, and why should a product manager care?</h3>
+      <p class="qa-asked"><span>What it is testing</span> Whether you know the unit.</p>
+      <p class="qa-a">It is the unit of both cost and memory, which makes it the one piece of model trivia that belongs in a business case. Two consequences. Your unit economics are denominated in it, so a task that re-enters the model six times costs six times what the demo implied, and almost every task does. And the context budget is finite, so the instructions, the retrieved documents, and the policy all compete for the same space. Deciding what wins that competition is a product decision nobody else will make for you.</p>
+      <div class="qa-refs">
+        <a class="ref-primary" href="../book3/ch04-not-every-problem.html">Book 1, Chapter 4 &rarr;</a>
+        <a class="ref-more" href="../book4/ch03-not-every-problem.html">Book 2, Ch 3: Not Every Problem Deserves an Agent &rarr;</a>
+      </div>
+    </article>
+    <article class="qa">
+      <h3>Why do models hallucinate, and what is your move as a PM?</h3>
+      <p class="qa-asked"><span>What it is testing</span> A definition, then a shrug.</p>
+      <p class="qa-a">The definition is easy: the system is generating plausible continuations, and a fluent wrong answer costs it nothing. The PM move is not to eliminate hallucination, which you cannot do. It is to decide which outputs need a source attached before anyone acts on them, which need a human in front of them, and which are cheap enough to be wrong. That is a consequence classification, and it is a product decision, not a model decision.</p>
+      <div class="qa-refs">
+        <a class="ref-primary" href="../book3/ch07-evals.html">Book 1, Chapter 7 &rarr;</a>
+        <a class="ref-more" href="../book4/ch09-evals.html">Book 2, Ch 9: Evals, What the Checkmarks Prove &rarr;</a>
+      </div>
+    </article>
+    <article class="qa">
+      <h3>Does a longer, sterner prompt fix hallucination? Why not?</h3>
+      <p class="qa-asked"><span>What it is testing</span> Whether you have tried it.</p>
+      <p class="qa-a">No, and the reason matters more than the answer. A prompt is context the model weighs, not a rule it obeys. Under an unusual input, a long instruction competes with everything else in the window and can lose. This is the same reason an autonomy boundary written into a system prompt is not a boundary. If the agent must never issue a refund above a threshold, that limit belongs in the execution path, where it is enforced rather than considered.</p>
+      <div class="qa-refs">
+        <a class="ref-primary" href="../book3/ch06-design-behavior.html">Book 1, Chapter 6 &rarr;</a>
+        <a class="ref-more" href="../book5/the-boundary-and-the-wall.html">Book 3, Ch 11: The Boundary and the Wall &rarr;</a>
+      </div>
+    </article>
+    <article class="qa">
+      <h3>Why do two identical prompts give different answers?</h3>
+      <p class="qa-asked"><span>What it is testing</span> Sampling and temperature.</p>
+      <p class="qa-a">Sampling, and that is the honest short answer. The longer one is the reason this question belongs in a PM interview at all: it means single-pass testing proves nothing. One green run tells you the system can pass, not that it does. Everything about how you evaluate, and every promise you make to a stakeholder about quality, has to be stated as a distribution over many runs rather than a result.</p>
+      <div class="qa-refs">
+        <a class="ref-primary" href="../book3/ch07-evals.html">Book 1, Chapter 7 &rarr;</a>
+        <a class="ref-more" href="../book4/ch09-evals.html">Book 2, Ch 9: Evals, What the Checkmarks Prove &rarr;</a>
+      </div>
+    </article>
+    <article class="qa">
+      <h3>What makes something an agent rather than a chatbot?</h3>
+      <p class="qa-asked"><span>What it is testing</span> A taxonomy.</p>
+      <p class="qa-a">Not autonomy, and not sophistication. The line is whether the system changes state. A chatbot produces text a person reads and acts on; the person is the last step. An agent takes the step itself. That single difference is what moves supervision from a review habit to a product you have to build, because once the system touches state, the question is no longer whether the output was good. It is whether the action was reversible and who is named when it was not.</p>
+      <div class="qa-refs">
+        <a class="ref-primary" href="../book3/ch03-not-a-bridge.html">Book 1, Chapter 3 &rarr;</a>
+        <a class="ref-more" href="../book4/two-channels.html">Book 2, The Two Channels &rarr;</a>
+      </div>
+    </article>
+    <article class="qa">
+      <h3>What is MCP, and why does it exist?</h3>
+      <p class="qa-asked"><span>What it is testing</span> Whether you follow the ecosystem.</p>
+      <p class="qa-a">It standardizes how a model reaches tools and data so every integration is not written twice. Useful. The PM point is what it does not solve: a standard connection protocol says nothing about which tools this agent may reach, under whose authority, or what gets logged when it does. The tool list is the agent's real authority, and MCP makes it easier to extend that list without anyone deciding they had extended it.</p>
+      <div class="qa-refs">
+        <a class="ref-primary" href="../book3/appendix-a-platform.html">Book 1, Appendix A &rarr;</a>
+        <a class="ref-more" href="../book4/ch21-governance.html">Book 2, Ch 21: Agent Behavior Governance &rarr;</a>
+      </div>
+    </article>
+    <article class="qa">
+      <h3>Explain how transformers work. What is attention?</h3>
+      <p class="qa-asked"><span>What it is testing</span> The depth filter. Interviewers use this one to end conversations.</p>
+      <p class="qa-a">Answer it, briefly and correctly, and then notice what it is doing. Attention lets the model weigh every token against every other, which is why context length is expensive and why what you put in the window matters more than how you phrase it. Beyond that, a PM who can explain attention and cannot say who owns a wrong refund has answered the easy question. Both are fair to ask. Only one of them is the job.</p>
+      <div class="qa-refs">
+        <a class="ref-primary" href="../book3/ch02-ai-literacy.html">Book 1, Chapter 2 &rarr;</a>
+        <a class="ref-more" href="../book4/ch01-ai-literacy.html">Book 2, Ch 1: What You Need to Know About AI &rarr;</a>
+      </div>
+    </article>  </section>
+  <section class="phase" id="discover-and-decide">
+    <div class="phase-head">
+      <div class="phase-num">Phase 2</div>
+      <h2>Discover and Decide</h2>
+    </div>
+    <p class="phase-lede">Fifteen percent of the circulating questions. This is where the expensive failures are prevented, before anyone writes code.</p>
+    <article class="qa">
+      <h3>When do you not use an LLM at all?</h3>
+      <p class="qa-asked"><span>What it is testing</span> Whether you will admit there is such a case.</p>
+      <p class="qa-a">When the decision is deterministic, when the ground truth is tabular, when the consequence of being wrong is not recoverable, or when the volume is too low to repay the supervision the boundary will require. Four conditions have to hold before an agent is the right shape: the decision repeats at real volume, you can score past decisions as right or wrong without argument, you can enumerate every system it touches, and the worst case at the expected error rate is survivable. If one fails, do more scoping.</p>
+      <div class="qa-refs">
+        <a class="ref-primary" href="../book3/ch04-not-every-problem.html">Book 1, Chapter 4 &rarr;</a>
+        <a class="ref-more" href="../book4/ch03-not-every-problem.html">Book 2, Ch 3: Not Every Problem Deserves an Agent &rarr;</a>
+      </div>
+    </article>
+    <article class="qa">
+      <h3>LLM or classical ML for churn prediction? Why XGBoost over an LLM for tabular data?</h3>
+      <p class="qa-asked"><span>What it is testing</span> Whether you reach for the fashionable tool.</p>
+      <p class="qa-a">Gradient boosting, for a tabular prediction with a labelled history, almost every time. It is cheaper per call, deterministic, simple to monitor, and explainable to a regulator. The real answer is that the question is upstream of the model: what decision does this prediction change, who acts on it, and what happens when it is wrong. Answer those and the model choice is usually obvious and usually boring.</p>
+      <div class="qa-refs">
+        <a class="ref-primary" href="../book3/ch04-not-every-problem.html">Book 1, Chapter 4 &rarr;</a>
+        <a class="ref-more" href="../book4/ch03-not-every-problem.html">Book 2, Ch 3: Not Every Problem Deserves an Agent &rarr;</a>
+      </div>
+    </article>
+    <article class="qa">
+      <h3>Build versus buy versus fine-tune. Walk me through the call.</h3>
+      <p class="qa-asked"><span>What it is testing</span> A framework.</p>
+      <p class="qa-a">Fine-tuning buys you behavior, not knowledge, and it buys you a maintenance obligation every time the base model moves. Buying buys you speed and a dependency you do not control, which makes the vendor's model release schedule part of your risk register. Building buys you control at a cost most teams understate by more than half. The question that resolves it is not capability. It is which of the three leaves you able to answer, eighteen months from now, why the system did what it did.</p>
+      <div class="qa-refs">
+        <a class="ref-primary" href="../book3/ch04-not-every-problem.html">Book 1, Chapter 4 &rarr;</a>
+        <a class="ref-more" href="../book4/ch03-not-every-problem.html">Book 2, Ch 3: Not Every Problem Deserves an Agent &rarr;</a>
+      </div>
+    </article>
+    <article class="qa">
+      <h3>Estimate the inference cost for ten million users.</h3>
+      <p class="qa-asked"><span>What it is testing</span> Arithmetic.</p>
+      <p class="qa-a">Do the arithmetic, then correct it. Token cost per call is the smallest term. Count how many times a single task re-enters the model, because a task that looks like one call is usually six. Then add the architecture multiplier, orchestration, integrations, the audit pipeline, eval maintenance, and the supervision the boundary requires, because a human reviewing the escalated minority is a line item. Take the number in the business case and multiply by 1.5 before you show it to finance.</p>
+      <div class="qa-refs">
+        <a class="ref-primary" href="../book3/ch04-not-every-problem.html">Book 1, Chapter 4 &rarr;</a>
+        <a class="ref-more" href="../book4/ch03-not-every-problem.html">Book 2, Ch 3: Not Every Problem Deserves an Agent &rarr;</a>
+      </div>
+    </article>
+    <article class="qa">
+      <h3>Your CEO wants AI in every feature. How do you push back?</h3>
+      <p class="qa-asked"><span>What it is testing</span> Whether you can manage up.</p>
+      <p class="qa-a">Not with a lecture on limitations. With a cost model and a consequence classification. Show two features side by side: one where the decision repeats ten thousand times a month and a wrong answer costs a re-run, and one where it repeats twelve times and a wrong answer costs a customer. The first is a candidate. The second is a slide. The argument that works is arithmetic, and it is much harder to overrule than an opinion about readiness.</p>
+      <div class="qa-refs">
+        <a class="ref-primary" href="../book3/ch04-not-every-problem.html">Book 1, Chapter 4 &rarr;</a>
+        <a class="ref-more" href="../book4/ch03-not-every-problem.html">Book 2, Ch 3: Not Every Problem Deserves an Agent &rarr;</a>
+      </div>
+    </article>
+    <article class="qa">
+      <h3>How do you decide which features should use AI and which should not?</h3>
+      <p class="qa-asked"><span>What it is testing</span> Prioritization instinct.</p>
+      <p class="qa-a">Run the four suitability tests on each, and then ask the question that is missing from most frameworks: what does the supervision cost. A feature that passes on volume and measurability but requires a trained human to review every escalated case has a break-even that includes that person's time. Features do not fail this test because the model is not good enough. They fail because the loaded cost, counted in full, never clears the alternative.</p>
+      <div class="qa-refs">
+        <a class="ref-primary" href="../book3/ch04-not-every-problem.html">Book 1, Chapter 4 &rarr;</a>
+        <a class="ref-more" href="../book5/deciding-what-to-build.html">Book 3, Ch 2: Deciding What to Build, and Whether To &rarr;</a>
+      </div>
+    </article>
+    <article class="qa">
+      <h3>What would you do with a model that has ten times the capability at ten times the cost?</h3>
+      <p class="qa-asked"><span>What it is testing</span> Judgment on a trade-off with no right answer.</p>
+      <p class="qa-a">Route it. Almost no product needs its best model on every call, and paying flagship rates for classification is how unit economics quietly break at volume. Send the hard minority to the expensive model and the rest to a cheap one, and make the router's decision a logged event, because when quality drops you will want to know which model answered. The interesting part of this question is not the model. It is that routing is now a product decision with a cost curve.</p>
+      <div class="qa-refs">
+        <a class="ref-primary" href="../book3/ch04-not-every-problem.html">Book 1, Chapter 4 &rarr;</a>
+      </div>
+    </article>
+    <article class="qa">
+      <h3>Describe a time you decided not to use AI for a feature.</h3>
+      <p class="qa-asked"><span>What it is testing</span> Whether you have ever said no.</p>
+      <p class="qa-a">A real answer here names the condition that failed, not a general reservation about readiness. The strongest version is a case where the model worked and you still said no, because the consequence class was wrong, or because the supervision the boundary required did not exist and nobody was going to fund it. That is the answer that separates someone who has shipped an agent from someone who has read about one.</p>
+      <div class="qa-refs">
+        <a class="ref-primary" href="../book3/ch04-not-every-problem.html">Book 1, Chapter 4 &rarr;</a>
+        <a class="ref-more" href="../book5/deciding-what-to-build.html">Book 3, Ch 2: Deciding What to Build, and Whether To &rarr;</a>
+      </div>
+    </article>
+    <article class="qa">
+      <h3>How do you think about competitive moats in AI products?</h3>
+      <p class="qa-asked"><span>What it is testing</span> Strategy instinct. Usually answered with proprietary data.</p>
+      <p class="qa-a">Everyone rents the same model, so the model is not the moat, and proprietary data by itself is not either, because a pile of records nobody has given meaning to is not something an agent can reason over correctly. What is defensible is the semantic layer: the definitions, the business rules, and the context that travel with the data. Then add the supervisory layer. A competitor can copy your feature in a quarter. Reproducing the boundary, the audit surface, and the people trained to operate them takes a good deal longer.</p>
+      <div class="qa-refs">
+        <a class="ref-primary" href="../book3/appendix-a-platform.html">Book 1, Appendix A &rarr;</a>
+        <a class="ref-more" href="../book4/ch21-governance.html">Book 2, Ch 21: Agent Behavior Governance &rarr;</a>
+      </div>
+    </article>  </section>
+  <section class="phase" id="design">
+    <div class="phase-head">
+      <div class="phase-num">Phase 3</div>
+      <h2>Design</h2>
+    </div>
+    <p class="phase-lede">The canon asks 37 questions about designing what the agent does and 7 about designing the system that supervises it. Five to one. This section is the half that goes missing.</p>
+    <article class="qa">
+      <h3>Design an AI feature that summarizes unread messages.</h3>
+      <p class="qa-asked"><span>What it is testing</span> Whether you can spec a pipeline.</p>
+      <p class="qa-a">Spec the pipeline, then keep going, because the pipeline is the easy half. What may this feature do without asking: read only, or also mark as read, also archive, also reply. What does the person see at the moment they accept a summary, and can they get to the original. What is the record if the summary dropped the one message that mattered. A summarizer that only reads is a low-consequence product. The version that acts is a different product with the same demo.</p>
+      <div class="qa-refs">
+        <a class="ref-primary" href="../book3/ch06-design-behavior.html">Book 1, Chapter 6 &rarr;</a>
+        <a class="ref-more" href="../book4/ch07-design-behavior.html">Book 2, Ch 7: Now Design the Behavior &rarr;</a>
+      </div>
+    </article>
+    <article class="qa">
+      <h3>RAG versus fine-tuning versus prompting. When do you pick each?</h3>
+      <p class="qa-asked"><span>What it is testing</span> A decision tree.</p>
+      <p class="qa-a">Prompting for behavior you will change weekly, RAG for knowledge that changes faster than you can retrain, fine-tuning for a form or a style you need consistently and cheaply. The part the decision tree leaves out: RAG makes your retrieval layer part of your attack surface and part of your audit surface at the same time. If you cannot say which documents the agent read to produce a given answer, you have not finished the design, whatever the retrieval metrics say.</p>
+      <div class="qa-refs">
+        <a class="ref-primary" href="../book3/ch06-design-behavior.html">Book 1, Chapter 6 &rarr;</a>
+        <a class="ref-more" href="../book4/ch07-design-behavior.html">Book 2, Ch 7: Now Design the Behavior &rarr;</a>
+      </div>
+    </article>
+    <article class="qa">
+      <h3>How would you give an agent memory?</h3>
+      <p class="qa-asked"><span>What it is testing</span> Vector stores and summarization strategies.</p>
+      <p class="qa-a">Answer the mechanics, then separate two things the question conflates. Memory is what the agent recalls and may weigh. Policy is what the agent may do. Putting a limit into a memory file makes it a preference the model balances against everything else in the window. Memory that drifts is inconvenient. Policy that drifts is an incident. Decide which of your files are which, and enforce the second category outside the model.</p>
+      <div class="qa-refs">
+        <a class="ref-primary" href="../book3/ch06-design-behavior.html">Book 1, Chapter 6 &rarr;</a>
+        <a class="ref-more" href="../book5/the-constitution.html">Book 3, Ch 25: The Agent's Constitution &rarr;</a>
+      </div>
+    </article>
+    <article class="qa">
+      <h3>Where do you draw the safety redlines? How would you define a redline?</h3>
+      <p class="qa-asked"><span>What it is testing</span> Values. This is one of the two good supervisory questions in circulation.</p>
+      <p class="qa-a">A redline is not a strong preference. It is a limit the execution path enforces, which the agent cannot be argued out of by an unusual input or a persuasive user, and which fails closed. The test is mechanical: if the only thing standing between the agent and the action is a sentence in a prompt, you have a guideline. Draw the line at the actions whose consequences are not recoverable, and write it where the code, not the model, decides.</p>
+      <div class="qa-refs">
+        <a class="ref-primary" href="../book3/ch11-frameworks-to-boundaries.html">Book 1, Chapter 11 &rarr;</a>
+        <a class="ref-more" href="../book5/the-boundary-and-the-wall.html">Book 3, Ch 11: The Boundary and the Wall &rarr;</a>
+      </div>
+    </article>
+    <article class="qa">
+      <h3>How do you design for failure, with bad tool calls and timeouts?</h3>
+      <p class="qa-asked"><span>What it is testing</span> Engineering resilience.</p>
+      <p class="qa-a">Retries and circuit breakers are the engineering answer and they are correct. The product answer is the recovery workflow: what compensating action exists when the agent was wrong and the call succeeded. Is rollback reachable mid-execution, not only after completion. What cannot be undone, and is the person told that before the action rather than after. For actions whose consequences move faster than any alert cycle, the only real control is a kill switch upstream of execution.</p>
+      <div class="qa-refs">
+        <a class="ref-primary" href="../book3/ch06-design-behavior.html">Book 1, Chapter 6 &rarr;</a>
+        <a class="ref-more" href="../book4/ch10-guardrails.html">Book 2, Ch 10: Operational Guardrails &rarr;</a>
+      </div>
+    </article>
+    <article class="qa">
+      <h3>What is human-in-the-loop, and when should a product use it?</h3>
+      <p class="qa-asked"><span>What it is testing</span> A definition. It usually gets one.</p>
+      <p class="qa-a">The definition is the least useful part. HITL is a design commitment that someone competent is positioned to catch the error, and it decays quietly in production: a person approving forty of these an hour is not reviewing, they are clicking. Two separate things get called HITL. Transaction-level review, a human on each action, is expensive and does not scale. Program-level review, a sampled audit with a named owner, does. Say which one you mean and price it.</p>
+      <div class="qa-refs">
+        <a class="ref-primary" href="../book3/ch09-change-management.html">Book 1, Chapter 9 &rarr;</a>
+        <a class="ref-more" href="../book4/ch08-two-hitl.html">Book 2, Ch 8: Two Kinds of Human-in-the-Loop &rarr;</a>
+      </div>
+    </article>
+    <article class="qa">
+      <h3>How would you design a human-in-the-loop feedback system?</h3>
+      <p class="qa-asked"><span>What it is testing</span> An interface. The best question in the whole circulating set.</p>
+      <p class="qa-a">Design the approval moment as a product surface. What the person sees is a decision package, not a confirmation dialog: what the agent proposes, what it relied on, what the alternatives were, and what happens if nobody decides inside the window. Frame it as authorization within a designed boundary rather than validation of the agent's reasoning, because the second framing does not survive the predictable erosion of the reviewer's competence. Then instrument override frequency, because that number is your early warning.</p>
+      <div class="qa-refs">
+        <a class="ref-primary" href="../book3/ch09-change-management.html">Book 1, Chapter 9 &rarr;</a>
+        <a class="ref-more" href="../book4/ch08-two-hitl.html">Book 2, Ch 8: Two Kinds of Human-in-the-Loop &rarr;</a>
+        <a class="ref-more" href="../book4/ch17-hitl-fails.html">Book 2, Ch 17: Why Human-in-the-Loop Fails &rarr;</a>
+      </div>
+    </article>
+    <article class="qa">
+      <h3>How do you handle ambiguous AI outputs?</h3>
+      <p class="qa-asked"><span>What it is testing</span> Confidence scores.</p>
+      <p class="qa-a">Not by surfacing a confidence number, which most users read as an accuracy guarantee and which is usually poorly calibrated anyway. By deciding, before launch, what the system does when it is unsure: escalate, ask, degrade to a narrower answer, or refuse. Ambiguity is not an edge case to handle in the UI. It is a behavior to specify, with a named destination for each case, in the brief the engineers build from.</p>
+      <div class="qa-refs">
+        <a class="ref-primary" href="../book3/ch05-two-briefs.html">Book 1, Chapter 5 &rarr;</a>
+        <a class="ref-more" href="../book4/ch07-design-behavior.html">Book 2, Ch 7: Now Design the Behavior &rarr;</a>
+      </div>
+    </article>
+    <article class="qa">
+      <h3>What is your framework for deciding whether a feature is too risky to ship?</h3>
+      <p class="qa-asked"><span>What it is testing</span> Whether you have a framework.</p>
+      <p class="qa-a">Classify by consequence, not by proximity to the customer. For each action type: is it reversible, at what cost, on what timescale, and who is named to carry it when it goes wrong. Then a gate with three non-negotiables before build, not before launch. The boundary is enforced in the execution path rather than the prompt. The decision record can be reconstructed later. The kill switch is reachable and has been rehearsed. A spec that violates one does not proceed, however good the demo looks.</p>
+      <div class="qa-refs">
+        <a class="ref-primary" href="../book3/ch05-two-briefs.html">Book 1, Chapter 5 &rarr;</a>
+        <a class="ref-more" href="../book5/the-green-checkmark.html">Book 3, Ch 12: The Green Checkmark Nobody Owned &rarr;</a>
+      </div>
+    </article>  </section>
+  <section class="phase" id="eval">
+    <div class="phase-head">
+      <div class="phase-num">Phase 4</div>
+      <h2>Eval</h2>
+    </div>
+    <p class="phase-lede">Twelve percent of the questions, and the one area where the market's instincts are close to right. The gap here is not coverage. It is that almost every question assumes a single pass.</p>
+    <article class="qa">
+      <h3>How would you evaluate this feature before launch?</h3>
+      <p class="qa-asked"><span>What it is testing</span> Whether you know what an eval set is.</p>
+      <p class="qa-a">Curate the cases, including the ones the old workflow handled badly and the failures that must never ship. Then run them many times, not once, and report a pass rate with its variance rather than a result. Report the worst slice alongside the median, because the average hides the population you are about to hurt. And validate state, not just text: an agent that says it issued the refund and did not has passed a semantic check and failed the only one that matters.</p>
+      <div class="qa-refs">
+        <a class="ref-primary" href="../book3/ch07-evals.html">Book 1, Chapter 7 &rarr;</a>
+        <a class="ref-more" href="../book4/ch09-evals.html">Book 2, Ch 9: Evals, What the Checkmarks Prove &rarr;</a>
+      </div>
+    </article>
+    <article class="qa">
+      <h3>Whiteboard an evaluation framework from scratch.</h3>
+      <p class="qa-asked"><span>What it is testing</span> Structure under pressure. Asked at Meta, among others.</p>
+      <p class="qa-a">Five parts. The curated set with the endorsed outcome for each case. The distribution: how many runs, what pass rate, what variance, what floor. State validation separate from output validation. A coverage statement that names which intents, failure modes, and adversarial inputs were tested and which gaps you deliberately deferred. And the sign-off: who accepts the residual risk, by name. The last one is the part most whiteboard answers leave out and the part that makes the rest binding.</p>
+      <div class="qa-refs">
+        <a class="ref-primary" href="../book3/ch07-evals.html">Book 1, Chapter 7 &rarr;</a>
+        <a class="ref-more" href="../book4/ch09-evals.html">Book 2, Ch 9: Evals, What the Checkmarks Prove &rarr;</a>
+      </div>
+    </article>
+    <article class="qa">
+      <h3>How do you evaluate a non-deterministic system?</h3>
+      <p class="qa-asked"><span>What it is testing</span> Whether you understand the core problem.</p>
+      <p class="qa-a">You stop asking whether it passed and start asking how often. Pass@K over many runs, with the variance reported, and a stated floor rather than an average. Then project the compound: a five-step workflow at ninety-five percent per step is not a ninety-five percent workflow. Most agentic quality surprises are this arithmetic arriving late.</p>
+      <div class="qa-refs">
+        <a class="ref-primary" href="../book3/ch07-evals.html">Book 1, Chapter 7 &rarr;</a>
+        <a class="ref-more" href="../book4/ch09-evals.html">Book 2, Ch 9: Evals, What the Checkmarks Prove &rarr;</a>
+      </div>
+    </article>
+    <article class="qa">
+      <h3>What is LLM-as-judge, and when do you trust it?</h3>
+      <p class="qa-asked"><span>What it is testing</span> Whether you have used one.</p>
+      <p class="qa-a">A model scoring another model's output, which is cheap and scales and is the only practical option at volume. Trust it after you have characterized its false-pass rate against human labels, and account for the documented biases: it prefers longer answers, it is sensitive to position, and it is easier on models from its own family. An uncalibrated judge is not a measurement. It is a second opinion from something with the same blind spots.</p>
+      <div class="qa-refs">
+        <a class="ref-primary" href="../book3/ch07-evals.html">Book 1, Chapter 7 &rarr;</a>
+        <a class="ref-more" href="../book4/ch09-evals.html">Book 2, Ch 9: Evals, What the Checkmarks Prove &rarr;</a>
+      </div>
+    </article>
+    <article class="qa">
+      <h3>How do you set accuracy targets when you have no baseline?</h3>
+      <p class="qa-asked"><span>What it is testing</span> Whether you invent a number.</p>
+      <p class="qa-a">You do have a baseline. It is the current process, and it is worse than everyone remembers. Sample what humans actually do today, score it with the same rubric you will use on the agent, and you have the comparison the business case needs. Setting a target without that number is how teams end up defending ninety-two percent against an imagined ninety-nine, when the humans were at eighty-four.</p>
+      <div class="qa-refs">
+        <a class="ref-primary" href="../book3/ch07-evals.html">Book 1, Chapter 7 &rarr;</a>
+      </div>
+    </article>
+    <article class="qa">
+      <h3>Offline evals passed but users are unhappy. What now?</h3>
+      <p class="qa-asked"><span>What it is testing</span> Debugging instinct.</p>
+      <p class="qa-a">Assume the coverage statement is where the answer is, and go read it. The eval suite tested the distribution you imagined; production sent a different one. Look for the inputs the eval assumed were clean, the intents nobody wrote a case for, and the slice you averaged away. This is also the moment to check whether users are unhappy about the output or about the experience around it, because a correct answer delivered at the wrong moment is a design failure that no eval was ever going to catch.</p>
+      <div class="qa-refs">
+        <a class="ref-primary" href="../book3/ch08-observation.html">Book 1, Chapter 8 &rarr;</a>
+        <a class="ref-more" href="../book4/ch11-observation.html">Book 2, Ch 11: You Can't Measure What You Didn't Design &rarr;</a>
+      </div>
+    </article>
+    <article class="qa">
+      <h3>Explain precision, recall, and F1 to a stakeholder.</h3>
+      <p class="qa-asked"><span>What it is testing</span> Whether you can translate.</p>
+      <p class="qa-a">Do it in their currency, not in statistics. Precision is how often we are right when we act. Recall is how much of the real thing we caught. F1 balances them and hides which one you chose to sacrifice. Then ask the question the metrics exist to serve: in this workflow, which error costs more, acting wrongly or missing something. That answer sets the threshold, and it belongs to the domain expert, not to the model.</p>
+      <div class="qa-refs">
+        <a class="ref-primary" href="../book3/ch07-evals.html">Book 1, Chapter 7 &rarr;</a>
+      </div>
+    </article>
+    <article class="qa">
+      <h3>How do you catch regressions after a model swap?</h3>
+      <p class="qa-asked"><span>What it is testing</span> Regression testing.</p>
+      <p class="qa-a">Re-run the golden set and compare distributions rather than headline scores, because a swap that improves the median and degrades the tail reads as an upgrade and behaves as an incident. Then note the harder problem: your vendor can change the model underneath you without a version number. Deployment events have to be logged as first-class product events, or your quality signal has no independent variable and you are debugging in the dark.</p>
+      <div class="qa-refs">
+        <a class="ref-primary" href="../book3/ch10-silent-degradation.html">Book 1, Chapter 10 &rarr;</a>
+        <a class="ref-more" href="../book4/ch13-silent-degradation.html">Book 2, Ch 13: Silent Degradation &rarr;</a>
+      </div>
+    </article>
+    <article class="qa">
+      <h3>How do you evaluate faithfulness versus retrieval quality?</h3>
+      <p class="qa-asked"><span>What it is testing</span> Whether you know these are two different failures.</p>
+      <p class="qa-a">They fail independently and they need separate numbers. Retrieval quality asks whether the right documents came back. Faithfulness asks whether the answer stayed inside what came back. A system can retrieve perfectly and then assert something the documents never said, and a single blended quality score hides which half broke. Measure them apart, then add the third that most teams skip: whether the retrieved source was still current. An answer faithful to a superseded policy is wrong in the way that reaches a regulator.</p>
+      <div class="qa-refs">
+        <a class="ref-primary" href="../book3/ch07-evals.html">Book 1, Chapter 7 &rarr;</a>
+        <a class="ref-more" href="../book4/ch09-evals.html">Book 2, Ch 9: Evals, What the Checkmarks Prove &rarr;</a>
+      </div>
+    </article>  </section>
+  <section class="phase" id="observe-and-operate">
+    <div class="phase-head">
+      <div class="phase-num">Phase 5</div>
+      <h2>Observe and Operate</h2>
+    </div>
+    <p class="phase-lede">Seven percent of the circulating questions cover everything that happens after launch. Eighty-two percent cover everything before it. An interview shaped this way selects for someone who can get an agent shipped, not for anyone who can still tell, two years later, whether it is doing the right thing.</p>
+    <article class="qa">
+      <h3>What is observability for AI products?</h3>
+      <p class="qa-asked"><span>What it is testing</span> Whether you will say logs, traces, and metrics.</p>
+      <p class="qa-a">Those are the substrate, not the answer. Six things need an instrument: task success on the real distribution, unintended actions, override frequency, confidence calibration, time to roll back, and time to recover from an incident. Notice that two of them measure the human rather than the model. Override frequency drifting toward zero is the single most useful number you will have, because it is how you find out that supervision became clicking.</p>
+      <div class="qa-refs">
+        <a class="ref-primary" href="../book3/ch08-observation.html">Book 1, Chapter 8 &rarr;</a>
+        <a class="ref-more" href="../book4/ch11-observation.html">Book 2, Ch 11: You Can't Measure What You Didn't Design &rarr;</a>
+      </div>
+    </article>
+    <article class="qa">
+      <h3>What would you check first when quality drops?</h3>
+      <p class="qa-asked"><span>What it is testing</span> Triage instinct.</p>
+      <p class="qa-a">Whether anything changed underneath you, before you touch your own code. The model version, the retrieval corpus, the upstream data, the prompt someone edited on Friday. Most agentic quality incidents are not regressions in your system; they are changes in something your system depends on and does not control. If you cannot answer what version answered this request, that is the finding, and it outranks the quality drop.</p>
+      <div class="qa-refs">
+        <a class="ref-primary" href="../book3/ch10-silent-degradation.html">Book 1, Chapter 10 &rarr;</a>
+        <a class="ref-more" href="../book4/ch13-silent-degradation.html">Book 2, Ch 13: Silent Degradation &rarr;</a>
+      </div>
+    </article>
+    <article class="qa">
+      <h3>Models improve monthly. What stays constant?</h3>
+      <p class="qa-asked"><span>What it is testing</span> Whether you have a stable answer in a moving field.</p>
+      <p class="qa-a">The boundary, the record, the named owner, and the recovery path. Capability moves every quarter and the questions do not: what may this system do alone, how do we know it did, who carries it when it is wrong, and how do we undo it. Everything you build against a specific model's behavior is a depreciating asset. Everything you build against those four questions survives the swap.</p>
+      <div class="qa-refs">
+        <a class="ref-primary" href="../book3/ch11-frameworks-to-boundaries.html">Book 1, Chapter 11 &rarr;</a>
+        <a class="ref-more" href="../book4/ch21-governance.html">Book 2, Ch 21: Agent Behavior Governance &rarr;</a>
+      </div>
+    </article>
+    <article class="qa">
+      <h3>How do you measure the success of an AI feature?</h3>
+      <p class="qa-asked"><span>What it is testing</span> Metrics.</p>
+      <p class="qa-a">Start by naming the seductive wrong metric and excluding it, because for most agents it is share resolved without a human, and optimizing it means training the system to avoid escalating the cases that needed escalating. Success is the outcome the workflow existed to produce, measured on the full distribution, with the escalation rate tracked as a health signal rather than a cost. If escalations fall and outcomes do not improve, the agent got more confident, not better.</p>
+      <div class="qa-refs">
+        <a class="ref-primary" href="../book3/ch08-observation.html">Book 1, Chapter 8 &rarr;</a>
+        <a class="ref-more" href="../book4/ch12-record-complete.html">Book 2, Ch 12: The Record Is Complete, the Picture Is Wrong &rarr;</a>
+      </div>
+    </article>
+    <article class="qa">
+      <h3>Satisfaction is 95 percent but NPS dropped after launch. What happened?</h3>
+      <p class="qa-asked"><span>What it is testing</span> Analytical instinct.</p>
+      <p class="qa-a">Satisfaction is measured on the people who completed the flow. NPS includes the people who gave up, escalated, or quietly stopped trusting it. Look at the five percent, because in an agentic product the tail is not noise; it is the population whose case was exactly the kind the old workflow handled badly, which is the population the agent was built for. A green dashboard measuring the easy majority is the most common way this goes wrong.</p>
+      <div class="qa-refs">
+        <a class="ref-primary" href="../book3/ch08-observation.html">Book 1, Chapter 8 &rarr;</a>
+        <a class="ref-more" href="../book4/ch12-record-complete.html">Book 2, Ch 12: The Record Is Complete, the Picture Is Wrong &rarr;</a>
+      </div>
+    </article>
+    <article class="qa">
+      <h3>How do you build a roadmap when capabilities evolve this fast?</h3>
+      <p class="qa-asked"><span>What it is testing</span> Planning under uncertainty.</p>
+      <p class="qa-a">Separate the roadmap into what depends on model capability and what does not. The supervisory layer, the audit surface, the recovery path, and the accountability model do not get cheaper when the model gets better; they get more necessary, because better models are trusted with more consequential actions. Plan those on a normal horizon. Plan the capability-dependent work in short cycles and expect to throw some of it away.</p>
+      <div class="qa-refs">
+        <a class="ref-primary" href="../book3/ch13-personnel-infrastructure.html">Book 1, Chapter 13 &rarr;</a>
+        <a class="ref-more" href="../book5/staffing-by-stage.html">Book 3, Ch 21: Who Sits in the New Seats &rarr;</a>
+      </div>
+    </article>
+    <article class="qa">
+      <h3>How do you debug an AI product?</h3>
+      <p class="qa-asked"><span>What it is testing</span> Process.</p>
+      <p class="qa-a">You need the decision trajectory: what the agent was asked, what it retrieved, which tools it called with what arguments, and what came back. Not chain-of-thought, which is a narrative rather than a record. If that trajectory is not reconstructable for an arbitrary request from six months ago, you cannot debug the product and you also cannot answer a regulator or an affected customer. Debuggability and auditability are the same build, and teams that treat them separately do the work twice.</p>
+      <div class="qa-refs">
+        <a class="ref-primary" href="../book3/ch08-observation.html">Book 1, Chapter 8 &rarr;</a>
+        <a class="ref-more" href="../book4/ch14-audit-trails.html">Book 2, Ch 14: Audit Trails That Survive the Agent &rarr;</a>
+      </div>
+    </article>
+    <article class="qa">
+      <h3>How would you design an A/B test for an AI feature?</h3>
+      <p class="qa-asked"><span>What it is testing</span> Experiment design.</p>
+      <p class="qa-a">The mechanics are the same and one assumption is not. In an ordinary test the treatment holds still. Here the model underneath can change mid-experiment, without a version number and without telling you, which means the treatment arm is not one thing. Log the model version on every call and treat a vendor deployment as an event that ends the experiment. Then choose the metric with care, because the tempting one, share resolved without a human, improves when the agent stops escalating the cases it should have escalated.</p>
+      <div class="qa-refs">
+        <a class="ref-primary" href="../book3/ch08-observation.html">Book 1, Chapter 8 &rarr;</a>
+        <a class="ref-more" href="../book4/ch11-observation.html">Book 2, Ch 11: You Can't Measure What You Didn't Design &rarr;</a>
+        <a class="ref-more" href="../book4/ch13-silent-degradation.html">Book 2, Ch 13: Silent Degradation &rarr;</a>
+      </div>
+    </article>  </section>
+  <section class="phase eleven" id="the-eleven">
+    <div class="phase-head">
+      <div class="phase-num">The gap</div>
+      <h2>The eleven questions nobody asks</h2>
+    </div>
+    <p class="phase-lede">Across 145 questions from six published sources, these got zero. Not one asked who owns a wrong outcome. Not one asked where the autonomy boundary sits, what the human sees at the approval moment, whether the record can be reconstructed, or what happens to the agent's knowledge when you turn it off. Ask these in your next interview, from either side of the table.</p>
+    <article class="qa">
+      <h3>Who owns a wrong outcome, by name, and where does that name appear?</h3>
+      <p class="qa-a">Not the team, not the function. One person per action type. And the name belongs in the product interface, not only in the governance document, because a name in a policy is a name nobody sees at the moment it matters.</p>
+      <div class="qa-refs">
+        <a class="ref-primary" href="../book3/ch05-two-briefs.html">Book 1, Chapter 5 &rarr;</a>
+        <a class="ref-more" href="../book5/the-green-checkmark.html">Book 3, Ch 12: The Green Checkmark Nobody Owned &rarr;</a>
+      </div>
+    </article>
+    <article class="qa">
+      <h3>What may this agent do without asking anyone?</h3>
+      <p class="qa-a">The autonomy boundary is the single most consequential product decision in an agentic system and it is usually made implicitly, by whoever wired the tool list. Ask a candidate to state it for a system they shipped. Most cannot, which is the finding.</p>
+      <div class="qa-refs">
+        <a class="ref-primary" href="../book3/ch06-design-behavior.html">Book 1, Chapter 6 &rarr;</a>
+        <a class="ref-more" href="../book5/the-boundary-and-the-wall.html">Book 3, Ch 11: The Boundary and the Wall &rarr;</a>
+      </div>
+    </article>
+    <article class="qa">
+      <h3>What does the human see at the approval moment?</h3>
+      <p class="qa-a">A decision package, or a confirmation dialog. One of those is a supervisory product and the other is a speed bump that trains people to click. Ask what information is on the screen, what the alternatives were, and what happens when nobody responds inside the window.</p>
+      <div class="qa-refs">
+        <a class="ref-primary" href="../book3/ch09-change-management.html">Book 1, Chapter 9 &rarr;</a>
+        <a class="ref-more" href="../book4/ch08-two-hitl.html">Book 2, Ch 8: Two Kinds of Human-in-the-Loop &rarr;</a>
+      </div>
+    </article>
+    <article class="qa">
+      <h3>Can you reconstruct why the agent did what it did, six months later?</h3>
+      <p class="qa-a">Observable actions and retrieved context, for an arbitrary past request. If the answer is that the logs roll off after thirty days, the system has no audit surface, and the incident that needs one has not happened yet.</p>
+      <div class="qa-refs">
+        <a class="ref-primary" href="../book3/ch08-observation.html">Book 1, Chapter 8 &rarr;</a>
+        <a class="ref-more" href="../book4/ch14-audit-trails.html">Book 2, Ch 14: Audit Trails That Survive the Agent &rarr;</a>
+      </div>
+    </article>
+    <article class="qa">
+      <h3>What is the compensating action when the agent was wrong?</h3>
+      <p class="qa-a">Rollback reachable mid-execution, not only after completion. What cannot be undone at all, and whether the person is told that before the action rather than after.</p>
+      <div class="qa-refs">
+        <a class="ref-primary" href="../book3/ch06-design-behavior.html">Book 1, Chapter 6 &rarr;</a>
+        <a class="ref-more" href="../book4/ch10-guardrails.html">Book 2, Ch 10: Operational Guardrails &rarr;</a>
+      </div>
+    </article>
+    <article class="qa">
+      <h3>Is the boundary enforced in the execution path, or written in the prompt?</h3>
+      <p class="qa-a">This is the one question that separates a governed agent from a well-intentioned one, and it takes ten seconds to ask. A limit the model weighs is a preference. A limit the code enforces is a boundary.</p>
+      <div class="qa-refs">
+        <a class="ref-primary" href="../book3/ch11-frameworks-to-boundaries.html">Book 1, Chapter 11 &rarr;</a>
+        <a class="ref-more" href="../book5/the-boundary-and-the-wall.html">Book 3, Ch 11: The Boundary and the Wall &rarr;</a>
+        <a class="ref-more" href="../book5/built-before-enforced-at-the-moment.html">Book 3, Ch 14: Built Before, Authorized at the Moment &rarr;</a>
+      </div>
+    </article>
+    <article class="qa">
+      <h3>What causes a demotion, and who is named to act on it?</h3>
+      <p class="qa-a">Autonomy is earned, not scheduled. If a system moves up the ladder on a clean calendar rather than on demonstrated competence in the failure modes that matter, the autonomy was scheduled. And if the demotion thresholds are not defined before launch, they get defined under pressure after the first incident.</p>
+      <div class="qa-refs">
+        <a class="ref-primary" href="../book3/ch15-field-manual.html">Book 1, Field manual, section 2 &rarr;</a>
+        <a class="ref-more" href="../book4/ch21-governance.html">Book 2, Ch 21: Agent Behavior Governance &rarr;</a>
+      </div>
+    </article>
+    <article class="qa">
+      <h3>Is your kill switch reachable, and when did you last rehearse it?</h3>
+      <p class="qa-a">Every team says they have one. Far fewer have used it outside an incident. For actions whose consequences move faster than an alert-and-respond cycle, the kill switch is not a backstop; it is the only control that operates on the right timescale.</p>
+      <div class="qa-refs">
+        <a class="ref-primary" href="../book3/ch06-design-behavior.html">Book 1, Chapter 6 &rarr;</a>
+        <a class="ref-more" href="../book5/who-watches-who-stops.html">Book 3, Ch 13: Who Watches It, and Who Can Stop It &rarr;</a>
+      </div>
+    </article>
+    <article class="qa">
+      <h3>How will you know when your supervisor has stopped really supervising?</h3>
+      <p class="qa-a">Sustained use of a competent system erodes the competence of the person supervising it. That is the supervision paradox, and it means the human in the loop on day 400 is not the human you designed for on day one. Override frequency trending toward zero is the signal. Somebody has to be watching it.</p>
+      <div class="qa-refs">
+        <a class="ref-primary" href="../book3/ch01-user-who-left-the-room.html">Book 1, Chapter 1 &rarr;</a>
+        <a class="ref-more" href="../book4/ch15-deference.html">Book 2, Ch 15: Deference, the Problem After Capability &rarr;</a>
+        <a class="ref-more" href="../book4/ch17-hitl-fails.html">Book 2, Ch 17: Why Human-in-the-Loop Fails &rarr;</a>
+      </div>
+    </article>
+    <article class="qa">
+      <h3>What happens to the agent's knowledge when you decommission it?</h3>
+      <p class="qa-a">Retiring an agent is closer to an employee leaving than to deleting a service. The audit trail has to survive it, the tasks have to go somewhere, and the judgment encoded in its configuration is institutional knowledge that walks out of the building unless someone writes it down.</p>
+      <div class="qa-refs">
+        <a class="ref-primary" href="../book3/ch13-personnel-infrastructure.html">Book 1, Chapter 13 &rarr;</a>
+        <a class="ref-more" href="../book5/the-team-member-nobody-hired.html">Book 3, Ch 20: The Team Member Nobody Hired &rarr;</a>
+      </div>
+    </article>
+    <article class="qa">
+      <h3>Who is trained to do this work without the agent, and how often do they practice?</h3>
+      <p class="qa-a">Aviation solved this with recurrent proficiency requirements decades ago. Software has not adopted it. If the answer is that nobody has done this manually in eighteen months, the recovery plan for an outage is a hope.</p>
+      <div class="qa-refs">
+        <a class="ref-primary" href="../book3/ch14-no-certification.html">Book 1, Chapter 14 &rarr;</a>
+        <a class="ref-more" href="../book4/ch18-skill-erosion.html">Book 2, Ch 18: Skill Erosion &rarr;</a>
+      </div>
+    </article>  </section>
+
+  <section class="closing">
+    <h2>If you are on the hiring side</h2>
+    <p>The eleven questions above are the cheapest diagnostic in this document. They take a minute each, they cannot be prepared for from a listicle, and the answers separate a candidate who has operated an agent in production from one who has read about it. A candidate who can explain attention and cannot tell you who owns a wrong refund has answered the easy question.</p>
+    <p>The full versions live in <a href="../book3/index.html">Book 1</a>, and the checklists are in the <a href="../book3/ch15-field-manual.html">field manual</a>. There are <a href="../book3/downloads.html">templates and checklists</a> if you want the working versions.</p>
+  </section>
+
+  <footer class="foot">
+    <p><a href="../index.html">&larr; The Agentic AI Series</a> &nbsp;&middot;&nbsp; <a href="../book3/index.html">Agentic AI for Busy Product Managers</a> &nbsp;&middot;&nbsp; Articles: <a href="https://data-decisions-and-clinics.com">data-decisions-and-clinics.com</a> &nbsp;&middot;&nbsp; <a href="https://www.linkedin.com/in/yoramf/">LinkedIn</a></p>
+    <p>&copy; 2026 Yoram Friedman. All rights reserved.</p>
+  </footer>
+
+</div>
+</body>
+</html>

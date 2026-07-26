@@ -51,6 +51,7 @@
   .skills-card { grid-column: 1 / -1; display: grid; grid-template-columns: 24px 1fr auto; gap: var(--space-5); align-items: center; padding: var(--space-5) var(--space-6); border: 0.5px solid var(--rule); border-radius: var(--radius-md); background: var(--bg); text-decoration: none; color: inherit; transition: box-shadow 0.15s, transform 0.15s; }
   .skills-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.07); transform: translateY(-2px); }
   .skills-accent { width: 3px; height: 100%; border-radius: 2px; background: linear-gradient(180deg, #378ADD 0%, #7c3aed 33%, #1D9E75 66%, #C2410C 100%); }
+  .skills-accent-qa { background: linear-gradient(180deg, #185FA5 0%, #378ADD 100%); }
   .skills-body { display: flex; flex-direction: column; gap: var(--space-2); }
   .skills-eyebrow { font-family: var(--sans); font-size: 11px; font-weight: 500; color: var(--ink-muted); letter-spacing: 0.05em; text-transform: uppercase; }
   .skills-title { font-family: var(--serif); font-size: 22px; font-weight: 700; line-height: 1.25; color: var(--ink); }
@@ -173,6 +174,17 @@
         <p class="skills-desc">Seven skills covering the agentic PM lifecycle, distilled from the four books. Install in Claude Cowork and invoke at the moment of need. Stage 1 of three.</p>
       </div>
       <span class="skills-cta">Install &amp; learn more</span>
+    </a>
+
+    <a class="skills-card" href="interview/index.html">
+      <div class="skills-accent skills-accent-qa"></div>
+      <div class="skills-body">
+        <div class="skills-eyebrow">Companion &nbsp;&middot;&nbsp; Interview Reference</div>
+        <div class="skills-title">AI PM Interview Questions, Answered</div>
+        <div class="skills-subtitle">Fifty-five questions, answered from the product seat rather than the engineering seat.</div>
+        <p class="skills-desc">The questions circulating in 2026, answered against the lifecycle and linked to the chapter each answer comes from. Plus the eleven questions nobody asks, including who owns a wrong outcome.</p>
+      </div>
+      <span class="skills-cta">Read the answers</span>
     </a>
 
   </div>
