@@ -275,14 +275,14 @@ def page_shell(skill_slug: str, eyebrow: str, color: str, title: str, descriptio
 <meta property="og:site_name" content="The Agentic AI Series">
 <meta property="og:title" content="{html.escape(title)}">
 <meta property="og:description" content="{desc_meta}">
-<meta property="og:image" content="https://agenticaiproductmanagement.com/assets/og-series.png">
-<meta property="og:image:width" content="1240">
-<meta property="og:image:height" content="1240">
+<meta property="og:image" content="https://agenticaiproductmanagement.com/assets/og-series-wide.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:url" content="{CANON}{skill_slug}.html">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{html.escape(title)}">
 <meta name="twitter:description" content="{desc_meta}">
-<meta name="twitter:image" content="https://agenticaiproductmanagement.com/assets/og-series.png">
+<meta name="twitter:image" content="https://agenticaiproductmanagement.com/assets/og-series-wide.jpg">
 <link rel="stylesheet" href="../book3/styles.css">
 <style>
   .sidebar-hub {{ margin-bottom: var(--space-4); padding-bottom: var(--space-3);

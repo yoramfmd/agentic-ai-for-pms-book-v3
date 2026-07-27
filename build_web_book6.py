@@ -327,14 +327,14 @@ def page_shell(title: str, desc: str, fname: str, meta_line: str,
 <meta property="og:site_name" content="The Agentic AI Series">
 <meta property="og:title" content="{html.escape(title)}">
 <meta property="og:description" content="{html.escape(desc[:160])}">
-<meta property="og:image" content="https://agenticaiproductmanagement.com/assets/og-series.png">
-<meta property="og:image:width" content="1240">
-<meta property="og:image:height" content="1240">
+<meta property="og:image" content="https://agenticaiproductmanagement.com/assets/og-series-wide.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:url" content="{CANON}{fname}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{html.escape(title)}">
 <meta name="twitter:description" content="{html.escape(desc[:160])}">
-<meta name="twitter:image" content="https://agenticaiproductmanagement.com/assets/og-series.png">
+<meta name="twitter:image" content="https://agenticaiproductmanagement.com/assets/og-series-wide.jpg">
 <link rel="stylesheet" href="styles.css">
 <style>
   .sidebar-hub {{ margin-bottom: var(--space-4); padding-bottom: var(--space-3);
