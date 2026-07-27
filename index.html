@@ -94,6 +94,82 @@
     .books-grid { grid-template-columns: repeat(2, 1fr); }
   }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://yoramfriedman.com/#person",
+      "name": "Yoram Friedman",
+      "givenName": "Yoram",
+      "familyName": "Friedman",
+      "honorificSuffix": "MD",
+      "url": "https://yoramfriedman.com/",
+      "jobTitle": "Product Management Leader",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "SAP"
+      },
+      "description": "Physician and enterprise product leader. Author of the Agentic AI for Product Leaders series.",
+      "knowsAbout": [
+        "Agentic AI",
+        "AI product management",
+        "Clinical workflow",
+        "Health technology",
+        "Data products"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/yoramf/",
+        "https://yoramfriedman.com/",
+        "https://data-decisions-and-clinics.com/",
+        "https://www.amazon.com/stores/Yoram-Friedman-MD/author/B0H4F8RJNL"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://agenticaiproductmanagement.com/#website",
+      "url": "https://agenticaiproductmanagement.com/",
+      "name": "The Agentic AI Series",
+      "author": {
+        "@id": "https://yoramfriedman.com/#person"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "ItemList",
+      "name": "The Agentic AI Series",
+      "itemListOrder": "https://schema.org/ItemListOrderAscending",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "url": "https://agenticaiproductmanagement.com/book3/",
+          "name": "Agentic AI for Busy Product Managers"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "url": "https://agenticaiproductmanagement.com/book4/",
+          "name": "Why Agentic AI Products Fail"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "url": "https://agenticaiproductmanagement.com/book5/",
+          "name": "The Agentic AI Team"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "url": "https://agenticaiproductmanagement.com/book6/",
+          "name": "The Agentic AI Practitioner"
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
