@@ -366,6 +366,10 @@ def page_shell(title: str, desc: str, fname: str, meta_line: str,
   .sidebar-section a:hover {{ color: var(--blue-deep); }}
   .sidebar-section-active a {{ color: var(--ink); }}
 </style>
+<!-- SITE-EXTRAS:BEGIN -->
+<script defer src="https://cloud.umami.is/script.js" data-website-id="6701185a-719e-4b6f-baaf-dcd504ef6b1a"></script>
+<script defer src="/assets/site-extras.js"></script>
+<!-- SITE-EXTRAS:END -->
 </head>
 <body>
 <div class="book">
@@ -493,6 +497,10 @@ def generate_index():
   .landing-footer a {{ color: var(--blue-deep); text-decoration: none; }}
   @media (max-width: 720px) {{ .toc-grid {{ grid-template-columns: 1fr; }} .landing-title {{ font-size: 32px; }} }}
 </style>
+<!-- SITE-EXTRAS:BEGIN -->
+<script defer src="https://cloud.umami.is/script.js" data-website-id="6701185a-719e-4b6f-baaf-dcd504ef6b1a"></script>
+<script defer src="/assets/site-extras.js"></script>
+<!-- SITE-EXTRAS:END -->
 </head>
 <body>
 <div class="landing">
