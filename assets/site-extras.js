@@ -27,7 +27,7 @@
     if (host === location.hostname.replace(/^www\./, '')) return;
 
     var name = 'outbound';
-    if (/amazon\.|amzn\./.test(host))                       name = 'amazon-click';
+    if (/(^|\.)(amazon\.|amzn\.to$|a\.co$)/.test(host))    name = 'amazon-click';
     else if (/data-decisions-and-clinics\.com$/.test(host))  name = 'blog-click';
     else if (/linkedin\.com$/.test(host))                    name = 'linkedin-click';
 
