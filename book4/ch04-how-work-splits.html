@@ -6,6 +6,18 @@
 <title>Chapter 4: How the Work Splits &mdash; Why Agentic AI Products Fail</title>
 <meta name="description" content="Before the book takes the new job apart chapter by chapter, this chapter shows you its shape whole, so the parts that follow have somewhere to sit. The rest of ">
 <link rel="canonical" href="https://agenticaiproductmanagement.com/book4/ch04-how-work-splits.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="The Agentic AI Series">
+<meta property="og:title" content="Chapter 4: How the Work Splits">
+<meta property="og:description" content="Before the book takes the new job apart chapter by chapter, this chapter shows you its shape whole, so the parts that follow have somewhere to sit. The rest of ">
+<meta property="og:image" content="https://agenticaiproductmanagement.com/assets/og-series-wide.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://agenticaiproductmanagement.com/book4/ch04-how-work-splits.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Chapter 4: How the Work Splits">
+<meta name="twitter:description" content="Before the book takes the new job apart chapter by chapter, this chapter shows you its shape whole, so the parts that follow have somewhere to sit. The rest of ">
+<meta name="twitter:image" content="https://agenticaiproductmanagement.com/assets/og-series-wide.jpg">
 <link rel="stylesheet" href="styles.css">
 <style>
   .sidebar-hub { margin-bottom: var(--space-4); padding-bottom: var(--space-3);
@@ -17,12 +29,6 @@
 <script defer src="https://cloud.umami.is/script.js" data-website-id="6701185a-719e-4b6f-baaf-dcd504ef6b1a"></script>
 <script defer src="/assets/site-extras.js"></script>
 <!-- SITE-EXTRAS:END -->
-<!-- OG-IMAGE:BEGIN -->
-<meta property="og:image" content="https://agenticaiproductmanagement.com/assets/og-series-wide.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta name="twitter:image" content="https://agenticaiproductmanagement.com/assets/og-series-wide.jpg">
-<!-- OG-IMAGE:END -->
 </head>
 <body>
 <div class="book">
@@ -119,7 +125,7 @@
     <p>Read the two side by side and the shift is concrete. The story has one field, the happy path, and verifies it with a test that passes. The spec has four, outcome, bounds, eval set, and the definition of acceptable failure, and it is graded by a distribution over real judged cases. Engineering can build to the second and cannot build to the first, because the first never said what the agent was allowed to get wrong. This is the work-unit shift made literal: not a better-written story, a different primitive. When you find yourself writing an acceptance criterion for an agent&rsquo;s judgment and it reads as pass/fail, that is the signal that you are using the deterministic tool on the probabilistic core, and the case you are not writing down is the one that will reach the affected person.</p>
     <h3 id="where-the-tracks-reconverge-and-what-is-owned-by-whom">Where the tracks reconverge, and what is owned by whom</h3>
     <p>The two tracks come back together at the release decision, and the decision is no longer binary, ship or do not ship. It is a question of how much autonomy the agent is allowed to launch with, the rung on the autonomy ladder it has earned, and the gate has two halves that must both pass. Channel 1 readiness: the agent does the job, validated with users, evals clearing the bar you set. Channel 2 readiness: the supervision is live, the boundaries enforced, the kill switch reachable, the observation instruments running, the audit recording. An agent is not ready because Channel 1 works. It is ready when both halves clear, and a launch review where the Channel 2 half has no named owner is a review that has found its own gap.</p>
-    <p>That owner question is the one the operating model makes unavoidable. Channel 1&rsquo;s deliverables have obvious homes; Channel 2&rsquo;s do not, which is why they get skipped. Someone owns the supervisory interface, which is design. Someone owns the runtime controls and the kill switch, which is engineering or platform. Someone owns whether the agent is still correct in production, which is the role the field is beginning to call the agent supervisor. These roles do not have stable titles in most organizations yet, but they are appearing, agent supervisor, agent QA lead, AI operations manager, and the chapter on the agent as a team member returns to who they are and why no one has hired them. And the synthesis, whether the whole adds up to a product that should exist and behave the way it does, is yours. The operating model does not remove work from your plate. It names the work that was falling on the floor.</p>
+    <p>That owner question is the one the operating model makes unavoidable. Channel 1&rsquo;s deliverables have obvious homes; Channel 2&rsquo;s do not, which is why they get skipped. Someone owns the supervisory interface, which is design. Someone owns the runtime controls and the kill switch, which is engineering or platform. Someone owns whether the agent is still correct in production, which is the role the field is beginning to call the agent supervisor. The titles are not stable yet, agent supervisor, agent QA lead, AI operations manager, and the team-member chapter returns to why no one has hired them. And the synthesis, whether the whole adds up to a product that should exist and behave the way it does, is yours, in the single-seat frame this book is written from; the next book in the series divides that frame across a team. The operating model does not remove work from your plate. It names the work that was falling on the floor.</p>
     <p>After launch, the model does not end, which is the last way it breaks from the lifecycle you are used to. The classic process tapered into maintenance; this one&rsquo;s center of gravity is <em>after</em> the agent ships, because that is where the supervisory track does most of its work and where the agent drifts. The governance itself runs as three streams on three clocks: the pre-deployment work that has to be done before the agent first acts, the runtime controls that ship with it, and the post-deployment work, audit, drift detection, the decision to retrain or retire, that starts at launch and never stops. Treating governance as one task on the backlog hides that it has three different timelines, and the one that never ends is the one teams forget to staff.</p>
     <p>Pull back far enough and three things have changed at the level of the job, not the task. You no longer run a linear chain from market doc to spec to epic; you manage a living system of intent, evidence, prototype, controls, evals, and supervision, all of it in motion at once. The central artifact is no longer the spec that gets handed off; it is the executable brief that everything else is generated from. And the core of the work is no longer only deciding what the product should do. It is deciding what the agent is allowed to do, when it must stop, when it must ask, and how the organization watches it once it is doing it. That last sentence is the whole job in one line, and none of it was on the old job description.</p>
     <p>So map your own next agent against this shape. Where does Channel 2 open the work, and have you set the boundary before designing the agent, or after. Is your brief one document trying to be two. Is the agent&rsquo;s behavior written as user stories with pass-fail criteria it cannot actually meet, or as outcome specs graded by evals. And after launch, who owns the track that does not end. The shape is the answer to what your Monday looks like, and the places it does not fit your current process are the places your current process was built for a kind of software the agent is not.</p>

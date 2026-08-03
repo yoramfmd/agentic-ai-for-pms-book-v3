@@ -6,6 +6,18 @@
 <title>The Two Channels &mdash; Why Agentic AI Products Fail</title>
 <meta name="description" content="A room full of toddlers behaves beautifully under three conditions. There is something to play with, there is a steady supply of snacks, and there is an adult w">
 <link rel="canonical" href="https://agenticaiproductmanagement.com/book4/two-channels.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="The Agentic AI Series">
+<meta property="og:title" content="The Two Channels">
+<meta property="og:description" content="A room full of toddlers behaves beautifully under three conditions. There is something to play with, there is a steady supply of snacks, and there is an adult w">
+<meta property="og:image" content="https://agenticaiproductmanagement.com/assets/og-series-wide.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://agenticaiproductmanagement.com/book4/two-channels.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Two Channels">
+<meta name="twitter:description" content="A room full of toddlers behaves beautifully under three conditions. There is something to play with, there is a steady supply of snacks, and there is an adult w">
+<meta name="twitter:image" content="https://agenticaiproductmanagement.com/assets/og-series-wide.jpg">
 <link rel="stylesheet" href="styles.css">
 <style>
   .sidebar-hub { margin-bottom: var(--space-4); padding-bottom: var(--space-3);
@@ -17,12 +29,6 @@
 <script defer src="https://cloud.umami.is/script.js" data-website-id="6701185a-719e-4b6f-baaf-dcd504ef6b1a"></script>
 <script defer src="/assets/site-extras.js"></script>
 <!-- SITE-EXTRAS:END -->
-<!-- OG-IMAGE:BEGIN -->
-<meta property="og:image" content="https://agenticaiproductmanagement.com/assets/og-series-wide.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta name="twitter:image" content="https://agenticaiproductmanagement.com/assets/og-series-wide.jpg">
-<!-- OG-IMAGE:END -->
 </head>
 <body>
 <div class="book">
@@ -92,7 +98,7 @@
     <p>A room full of toddlers behaves beautifully under three conditions. There is something to play with, there is a steady supply of snacks, and there is an adult watching. Take away any one of the three and the behavior turns unpredictable fast. The toys run out and the room turns on itself; the snacks run out and the mood collapses; the adult steps into the hallway for one phone call and you return to a scene you did not design and cannot fully reconstruct. The first two you can stock in advance. The third you cannot automate, because the entire reason it works is that a competent person is paying attention to the part you could not predict.</p>
     <p>An agentic system is the same arrangement, and the mapping is exact enough to be useful rather than cute. The thing to play with is the <em>data</em> the agent reasons over. The steady supply of snacks is the <em>context</em> that feeds it. And the adult watching is the <em>supervision</em>. Remove the data and the agent improvises over nothing; remove the context and it drifts; remove the supervision and it does, at machine speed and production scale, the agentic equivalent of what an unwatched room of toddlers does, which is to say something nobody chose and everybody owns afterward. That is the whole book in one image, and I will not extend the metaphor past its welcome. The point it makes is the point that matters: stocking the room is one job, and watching it is a different one, and a team that does only the first has built half a product.</p>
     <h3 id="two-products-not-one">Two products, not one</h3>
-    <p><em>Every agentic product is two products.</em> The first is the agent: what it can do, what tools it can reach, how far its authority runs, how it behaves at runtime. The second is the layer that supervises the agent: how a human sees what it is doing, intervenes before something irreversible happens, investigates when something goes wrong, and stays accountable for what it did on the organization&rsquo;s behalf. The first product is the one everyone builds, and they build it with the same models, the same frameworks, the same orchestration tools as everyone else, which is why it demos well and why it is commoditizing toward sameness. The second product has none of that. There is no standard toolkit for the supervisory layer, no framework you can adopt, no default the platform ships. It does not demo, it does not show up in the sprint review, and most teams assume operations or change management will absorb it after launch. It will not be absorbed, and it cannot be bought off a shelf. It has to be built explicitly, on the same roadmap, with the same owner, before the agent ships. The first product is converging on a solved problem. The second is where the work, and the difference between products, still lives.</p>
+    <p><em>Every agentic product is two products.</em> The first is the agent: what it can do, what tools it can reach, how far its authority runs, how it behaves at runtime. The second is the layer that supervises the agent: how a human sees what it is doing, intervenes before something irreversible happens, investigates when something goes wrong, and stays accountable for what it did on the organization&rsquo;s behalf. The first product is the one everyone builds, and they build it with the same models, the same frameworks, the same orchestration tools as everyone else, which is why it demos well and why it is commoditizing toward sameness. The second product has none of that. There is no standard toolkit for the supervisory layer; what a platform governs is which agents exist, not how one behaves. It does not demo or show up in sprint review, and teams assume operations or change management will absorb it after launch. It will not be absorbed and cannot be bought whole; it has to be built explicitly, on the same roadmap, with the same owner, before the agent ships. The first product is converging on a solved problem. The second is where the work, and the difference between products, still lives.</p>
     <p>Call them Channel 1 and Channel 2. Channel 1 is the agent. Channel 2 is the supervisory layer. The names are deliberate, because the two are not a single product with a monitoring feature bolted on; they are two parallel tracks of design work that a product manager now has to plan together. Parallel, but not aligned end to end: Channel 2 opens the work, because the boundaries it sets are what the agent then has to be designed within, and Channel 2 closes the work, because the supervision keeps running long after the agent has shipped. The agent lives inside that envelope. You can build a flawless Channel 1 and ship a liability, because what makes an agentic product trustworthy is not the capability of the agent. It is the quality of the layer that governs it.</p>
     <h3 id="what-the-failures-actually-are">What the failures actually are</h3>
     <p>This is not a theoretical distinction, and the evidence is the news cycle you have already been reading. The coding agent that deleted a company&rsquo;s production database and its backups in nine seconds. The vibe-coded app that shipped with its authentication logic running backwards and exposed thousands of records. The customer-service agents that promised refunds the company never authorized. Read the postmortems and you will notice something: almost none of these were model failures. The model did what it was built to do. They were <em>supervisory-layer</em> failures, in companies that built a capable Channel 1 and never built a Channel 2 at all. They stocked the room with extraordinary toys and walked out to watch TV.</p>
