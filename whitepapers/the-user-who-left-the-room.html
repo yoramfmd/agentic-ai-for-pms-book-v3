@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The User Who Left the Room &mdash; Agentic AI for Product Leaders</title>
+<meta name="description" content="For twenty years a user story worked because a trained person stood at the other end, completing the specification at runtime for free. Take them out and it has to be written down.">
+<link rel="canonical" href="https://agenticaiproductmanagement.com/whitepapers/the-user-who-left-the-room.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="The Agentic AI Series">
+<meta property="og:title" content="The User Who Left the Room">
+<meta property="og:description" content="For twenty years a user story worked because a trained person stood at the other end, completing the specification at runtime for free. Take them out and it has to be written down.">
+<meta property="og:image" content="https://agenticaiproductmanagement.com/whitepapers/og/the-user-who-left-the-room.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://agenticaiproductmanagement.com/whitepapers/the-user-who-left-the-room.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The User Who Left the Room">
+<meta name="twitter:description" content="For twenty years a user story worked because a trained person stood at the other end, completing the specification at runtime for free. Take them out and it has to be written down.">
+<meta name="twitter:image" content="https://agenticaiproductmanagement.com/whitepapers/og/the-user-who-left-the-room.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The User Who Left the Room",
+  "description": "For twenty years a user story worked because a trained person stood at the other end, completing the specification at runtime for free. Take them out and it has to be written down.",
+  "author": {
+    "@type": "Person",
+    "name": "Yoram Friedman",
+    "jobTitle": "Physician and enterprise product leader"
+  },
+  "isPartOf": {
+    "@type": "CreativeWorkSeries",
+    "name": "Agentic AI for Product Leaders"
+  },
+  "url": "https://agenticaiproductmanagement.com/whitepapers/the-user-who-left-the-room.html",
+  "inLanguage": "en"
+}
+</script>
+<link rel="stylesheet" href="../book3/styles.css">
+<style>
+  /* ── whitepaper section, layered on book3/styles.css ── */
+  body { font-family: var(--serif); }
+  .wp { max-width: 880px; margin: 0 auto; padding: var(--space-6) var(--space-6) var(--space-8); }
+  .wp-back { font-family: var(--sans); font-size: 13px; margin-bottom: var(--space-6); }
+  .wp-back a { color: var(--ink-muted); text-decoration: none; }
+  .wp-back a:hover { color: var(--ink); }
+
+  /* ── landing ── */
+  .wp-hero { padding: var(--space-6) 0 var(--space-6); border-bottom: 1px solid var(--rule); margin-bottom: var(--space-7); }
+  .wp-eyebrow { font-family: var(--sans); font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: var(--space-3); }
+  .wp-h1 { font-family: var(--serif); font-size: 44px; font-weight: 700; line-height: 1.1; color: var(--ink); margin-bottom: var(--space-3); }
+  .wp-sub { font-family: var(--serif); font-size: 21px; font-weight: 400; line-height: 1.35; color: var(--ink-soft); font-style: italic; margin-bottom: var(--space-5); }
+  .wp-intro p { font-size: 18px; line-height: 1.65; margin-bottom: var(--space-4); }
+
+  .wp-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-4); margin: var(--space-6) 0 var(--space-7); }
+  .wp-card { display: flex; flex-direction: column; border: 0.5px solid var(--rule); border-radius: var(--radius-md); background: var(--bg); text-decoration: none; color: inherit; overflow: hidden; transition: box-shadow 0.15s, transform 0.15s; }
+  .wp-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.10); transform: translateY(-2px); }
+  /* the paper's own cover, cropped to the title band. It carries the title and
+     subtitle, so the card body does not repeat them. */
+  .wp-cover-wrap { flex: 0 0 auto; position: relative; width: 100%; aspect-ratio: 800 / 588; overflow: hidden; background: #021535; border-bottom: 0.5px solid var(--rule); }
+  .wp-cover { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+  /* the crop lands mid-paragraph on some covers. Fade the last few percent into
+     the cover's own navy so the cut reads as an edge rather than a slice. */
+  .wp-cover-wrap::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 22%;
+    background: linear-gradient(to bottom, rgba(2,21,53,0) 0%, rgba(2,21,53,0.75) 55%, #021535 100%); }
+  .wp-card-body { display: flex; flex-direction: column; flex-grow: 1; padding: var(--space-5); }
+  .wp-card-q { font-family: var(--sans); font-size: 11px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--blue-deep); margin-bottom: var(--space-3); line-height: 1.4; }
+  .wp-card-desc { font-family: var(--sans); font-size: 14px; color: var(--ink-soft); line-height: 1.6; margin-bottom: var(--space-4); flex-grow: 1; }
+  .wp-card-meta { font-family: var(--sans); font-size: 12px; color: var(--ink-muted); display: flex; gap: var(--space-3); align-items: center; }
+  .wp-card-cta { font-family: var(--sans); font-size: 13px; font-weight: 500; color: var(--blue-deep); margin-left: auto; white-space: nowrap; }
+
+  /* ── article ── */
+  .wp-art { max-width: var(--measure); margin: 0 auto; }
+  .wp-art .wp-h1 { font-size: 38px; }
+  .wp-art-meta { font-family: var(--sans); font-size: 13px; color: var(--ink-muted); margin-bottom: var(--space-5); }
+  .wp-stamp { font-family: var(--sans); font-size: 13.5px; line-height: 1.55; color: var(--amber-deep);
+    background: var(--amber-tint); border-left: 3px solid var(--amber); border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    padding: var(--space-3) var(--space-4); margin-bottom: var(--space-5); }
+  .wp-dl { display: flex; align-items: center; gap: var(--space-4); flex-wrap: wrap; padding: var(--space-4) var(--space-5); border: 0.5px solid var(--rule); border-radius: var(--radius-md); background: var(--tint-warm); margin-bottom: var(--space-7); font-family: var(--sans); font-size: 14px; }
+  .wp-dl-thumb { width: 78px; height: auto; border-radius: 3px; border: 0.5px solid rgba(0,0,0,0.15); flex: 0 0 auto; }
+  .wp-dl-btn { display: inline-block; padding: 8px 16px; border-radius: var(--radius-sm); background: var(--blue-deep); color: #fff; text-decoration: none; font-weight: 500; font-size: 14px; }
+  .wp-dl-btn:hover { background: var(--blue); text-decoration: none; }
+  .wp-dl-note { color: var(--ink-muted); }
+
+  .wp-part { font-family: var(--sans); font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue-deep); margin: var(--space-8) 0 var(--space-2); }
+  .wp-part + h2 { margin-top: 0; padding-top: 0; border-top: none; }
+  .wp-lede { font-size: 20px; line-height: 1.5; color: var(--ink-soft); margin-bottom: var(--space-5); }
+  /* figures break out of the reading measure, they were drawn for a wider column */
+  .wp-art figure { margin: var(--space-7) 0; width: 116%; margin-left: -8%; }
+  .wp-art figure svg { width: 100%; height: auto; display: block; }
+  /* SVG font-family is a presentation attribute, so the body serif rule wins
+     without this. The figures were drawn in a sans and must stay in one. */
+  .wp-art figure svg text, .wp-art figure svg tspan { font-family: var(--sans); }
+  .wp-art figcaption { font-family: var(--sans); font-size: 13px; line-height: 1.5; color: var(--ink-muted); border-top: 1px solid var(--rule); padding-top: var(--space-2); margin-top: var(--space-3); }
+  .wp-num { display: grid; grid-template-columns: auto 1fr; gap: var(--space-4); border-top: 2px solid var(--ink); padding-top: var(--space-3); margin: var(--space-5) 0; }
+  .wp-num-n { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-muted); padding-top: 3px; }
+  .wp-num p { margin-bottom: var(--space-2); }
+  .wp-num p:last-child { margin-bottom: 0; }
+  .wp-cols { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-5); margin: var(--space-5) 0; }
+  .wp-cols h3 { margin-top: 0; }
+  .wp-stat { display: grid; grid-template-columns: auto 1fr; gap: var(--space-5); align-items: baseline;
+    border-top: 2px solid var(--ink); padding-top: var(--space-3); margin: var(--space-6) 0; }
+  .wp-stat-n { font-family: var(--serif); font-size: 34px; font-weight: 700; line-height: 1; color: var(--ink); white-space: nowrap; }
+  .wp-stat-t { font-family: var(--sans); font-size: 14px; line-height: 1.55; color: var(--ink-soft); }
+  /* tables, like figures, were laid out for a wider column than the reading measure */
+  .wp-art table { border-collapse: collapse; width: 116%; margin-left: -8%; margin-top: var(--space-6);
+    margin-bottom: var(--space-6); font-family: var(--sans); font-size: 13.5px; }
+  .wp-art th { text-align: left; font-weight: 600; border-bottom: 1.5px solid var(--ink); padding: var(--space-3); white-space: nowrap; }
+  .wp-art td { border-bottom: 0.5px solid var(--rule); padding: var(--space-3); vertical-align: top; color: var(--ink-soft); }
+  /* only short numeric cells are held on one line. Prose columns wrap normally. */
+  .wp-art td.wp-n { white-space: nowrap; color: var(--ink); }
+  .wp-art caption { caption-side: bottom; text-align: left; font-family: var(--sans); font-size: 13px;
+    line-height: 1.5; color: var(--ink-muted); padding-top: var(--space-3); }
+  .wp-closing { background: var(--tint-warm); border-radius: var(--radius-lg); padding: var(--space-6); margin: var(--space-7) 0; }
+  .wp-closing .wp-part { margin-top: 0; }
+  .wp-closing h2 { margin-top: var(--space-2); padding-top: 0; border-top: none; }
+  .wp-note { font-family: var(--sans); font-size: 13px; line-height: 1.6; color: var(--ink-muted); border-top: 1px solid var(--rule); padding-top: var(--space-4); margin-top: var(--space-7); }
+  .wp-note a { color: var(--ink-soft); }
+  .wp-src { font-family: var(--sans); font-size: 14px; margin-top: var(--space-7); padding: var(--space-5); border: 0.5px solid var(--rule); border-radius: var(--radius-md); background: var(--tint-warm); }
+  .wp-src-h { font-weight: 600; color: var(--ink); margin-bottom: var(--space-3); font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; }
+  .wp-src ul { margin: 0 0 0 var(--space-5); }
+  .wp-src li { margin-bottom: var(--space-2); color: var(--ink-soft); }
+
+  @media (max-width: 700px) {
+    .wp { padding: var(--space-5) var(--space-4) var(--space-7); }
+    .wp-grid { grid-template-columns: 1fr; }
+    .wp-h1 { font-size: 32px; }
+    .wp-art .wp-h1 { font-size: 28px; }
+    .wp-art figure { width: 100%; margin-left: 0; }
+    .wp-cols { grid-template-columns: 1fr; }
+    .wp-stat { grid-template-columns: 1fr; gap: var(--space-2); }
+    .wp-sub { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+<div class="wp wp-art">
+  <div class="wp-back"><a href="index.html">&larr; All whitepapers</a></div>
+  <div class="wp-eyebrow">Whitepaper &middot; What did the person know that nobody wrote down?</div>
+  <h1 class="wp-h1">The User Who Left the Room</h1>
+  <div class="wp-sub">What a trained person was silently supplying, and who supplies it now</div>
+  <div class="wp-art-meta">Yoram Friedman, MD &middot; 8 pages &middot; 3 figures</div>
+
+  <div class="wp-dl">
+    <img class="wp-dl-thumb" src="covers/the-user-who-left-the-room.jpg" width="800" height="588" alt="">
+    <a class="wp-dl-btn" href="pdf/The-User-Who-Left-the-Room.pdf" download
+       data-umami-event="whitepaper-download"
+       data-umami-event-paper="the-user-who-left-the-room">Download the PDF</a>
+    <span class="wp-dl-note">8 pages &middot; 230 KB &middot; formatted for print and for sharing</span>
+  </div>
+
+<div class="wp-part">The argument</div>
+<h2>She has not written code. She has written policy.</h2>
+
+<p class="wp-lede">It is late, and an engineer is turning a goal into an agent. The ticket she
+picked up reads the way tickets have read for twenty years.</p>
+
+<p><em>As a support agent, I want to see the customer's complaint history so I can resolve the
+complaint fairly.</em></p>
+
+<p>She has shipped a hundred features from stories like it, and she starts this one the same
+way. Then she notices what is missing. She is not building a screen for a support agent to
+read. She is building the thing that resolves the complaint, start to finish, with no support
+agent in the chair.</p>
+
+<p>So she opens the model and begins writing the parts the story never mentioned. What the
+refund ceiling is. Which records the agent may change and which it may only read. When a
+payment needs a human signature. What has to be kept as proof once the case is closed.</p>
+
+<p>None of it was in the story, because the story described a person who would have known all
+of it without being told. By the time she ships, she has made a dozen decisions that were
+never hers to make.</p>
+
+<blockquote><p>The specification was never complete. It was completed at runtime, for
+free, by the person in the chair. Take that person out and the judgment does not leave with
+them. It becomes context nobody wrote down, sitting in the one place it cannot stay: unstated,
+in a system that acts on its own.</p></blockquote>
+
+<div class="wp-sect">
+<div class="wp-part">Part one</div>
+<h2>The half of the specification nobody was paying for</h2>
+
+<p class="wp-lede">Take the one line the engineer started from. Written for a person, it needs
+nothing more.</p>
+
+<p>The support agent already knows that store credit under fifty dollars is hers to grant,
+that a refund over two hundred goes to a supervisor, that a customer who has charged back
+twice gets escalated rather than refunded, and that the note explaining the decision has to be
+saved for the auditors.</p>
+
+<p>None of that knowledge was free, and none of it was in the story.</p>
+
+<figure><svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" font-family="72, Arial, sans-serif">
+  <text x="0" y="12" font-size="10.5" fill="#5a616b" letter-spacing="1.5">WHAT THE STORY SAID</text>
+  <rect x="0" y="24" width="300" height="58" rx="4" fill="#f2f6fb" stroke="#2E78C9" stroke-width="1.5"/>
+  <text x="14" y="46" font-size="11.5" fill="#14161a">As a support agent, I want to see the</text>
+  <text x="14" y="63" font-size="11.5" fill="#14161a">customer&#8217;s complaint history, so I can</text>
+  <text x="14" y="78" font-size="11.5" fill="#14161a">resolve the complaint fairly.</text>
+
+  <text x="0" y="112" font-size="10.5" fill="#C2571A" letter-spacing="1.5">WHAT THE READER SUPPLIED, FREE, AT RUNTIME</text>
+  <g font-size="11.5" fill="#14161a">
+    <rect x="0" y="124" width="300" height="24" rx="3" fill="#fdf4ee"/><text x="12" y="140">Store credit under fifty dollars is hers to grant</text>
+    <rect x="0" y="152" width="300" height="24" rx="3" fill="#fdf4ee"/><text x="12" y="168">Refund over two hundred goes to a supervisor</text>
+    <rect x="0" y="180" width="300" height="24" rx="3" fill="#fdf4ee"/><text x="12" y="196">Two chargebacks means escalate, not refund</text>
+    <rect x="0" y="208" width="300" height="24" rx="3" fill="#fdf4ee"/><text x="12" y="224">The note explaining it is kept for the auditors</text>
+  </g>
+  <text x="0" y="256" font-size="11.5" fill="#5a616b">None of it in the story. None of it free to the company.</text>
+
+  <path d="M320 150 L370 150" stroke="#5a616b" stroke-width="2" marker-end="url(#d)"/>
+
+  <text x="392" y="12" font-size="10.5" fill="#5a616b" letter-spacing="1.5">WHAT IT COST TO PUT IT THERE</text>
+  <g font-size="11.5" fill="#14161a">
+    <text x="392" y="36">Interviewed for judgment, background, training</text>
+    <text x="392" y="60">Company onboarding</text>
+    <text x="392" y="84">Support-agent training</text>
+    <text x="392" y="108">Policies read, and signed for</text>
+    <text x="392" y="132">Supervised probation beside a senior agent</text>
+    <text x="392" y="156">Named accountability for the outcome</text>
+  </g>
+  <line x1="392" y1="176" x2="720" y2="176" stroke="#dfe3e9" stroke-width="1"/>
+  <text x="392" y="200" font-size="12" fill="#C2571A" font-weight="600">The agent sat no interview.</text>
+  <text x="392" y="218" font-size="12" fill="#C2571A" font-weight="600">It completed no onboarding, signed no policy,</text>
+  <text x="392" y="236" font-size="12" fill="#C2571A" font-weight="600">and served no supervised probation.</text>
+  <text x="392" y="266" font-size="12" fill="#021535">The story did not get more complicated.</text>
+  <text x="392" y="284" font-size="12" fill="#021535">The reader changed, and the reader had been</text>
+  <text x="392" y="299" font-size="12" fill="#021535">carrying half the specification.</text>
+  <defs><marker id="d" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 z" fill="#5a616b"/></marker></defs>
+</svg><figcaption>Figure 1. The story on the left is the artifact the company paid for. The
+column beside it is what the reader supplied at no marginal cost, and the column on the right
+is what it took to put it there. One of those three things is now missing, and it is not the
+story.</figcaption></figure>
+
+<p>She was interviewed for her judgment, her background and her training before she was
+hired. She went through company onboarding and then support-agent training. She was handed the
+relevant policies, asked to read them, and made to sign that she had. Then she worked beside a
+senior agent as a trainee until someone decided she could be trusted on her own.</p>
+
+<p>The user story could stay silent on the refund ceiling because the company had spent months
+and an entire hiring pipeline making sure the person who would read it already knew the ceiling
+by heart.</p>
+
+<p>Written for an agent, all of it has to be on the page before the agent runs: the ceiling,
+the escalation trigger, the chargeback rule, the record that has to survive the case. The
+agent sat no interview. It completed no onboarding. It signed no policy and served no
+supervised probation.</p>
+
+<blockquote><p>The story did not get more complicated. The reader changed, and the reader
+had been carrying half the specification.</p></blockquote>
+
+<h3>You are not building a better tool</h3>
+
+<p>Notice what the story was specifying all along. When its target was a person, it described
+a tool: a way to make someone who already knew the job faster at it. A dashboard is a tool. A
+queue is a tool. A history view is a tool.</p>
+
+<p>Take the person out of the room and the tool is beside the point. What you have to build
+now is the thing the story never described, because it never had to. Not a sharper instrument
+for a competent human. The competent actor itself.</p>
+
+<p>That is a different product, not a harder version of the same one, and most of the
+difficulty teams run into is the cost of not having noticed the substitution.</p>
+</div>
+<div class="wp-sect">
+<div class="wp-part">Part two</div>
+<h2>Medicine settled a version of this a long time ago</h2>
+
+<p class="wp-lede">Worth borrowing, because the stakes there never allowed the shortcut.</p>
+
+<p>An attending physician cannot stand at every bedside at every hour. So the judgment is not
+handed to the night nurse as a description of what the attending would do if she were there.
+It is handed over as an order set and a protocol: the thresholds, the doses, the vital sign
+that means stop and call.</p>
+
+<p>The nurse acts inside a boundary the attending drew in advance, because the attending holds
+the authority and the nurse, at three in the morning, needs the decision already made rather
+than improvised.</p>
+
+<figure><svg viewBox="0 0 720 250" xmlns="http://www.w3.org/2000/svg" font-family="72, Arial, sans-serif">
+  <text x="0" y="12" font-size="10.5" fill="#2E78C9" letter-spacing="1.5">HOW MEDICINE HANDS OVER JUDGMENT</text>
+  <rect x="0" y="26" width="150" height="46" rx="4" fill="#2E78C9"/>
+  <text x="75" y="46" font-size="11.5" fill="#ffffff" text-anchor="middle">Attending</text>
+  <text x="75" y="62" font-size="11.5" fill="#ffffff" text-anchor="middle">holds the authority</text>
+  <path d="M162 49 L206 49" stroke="#2E78C9" stroke-width="2" marker-end="url(#e1)"/>
+  <rect x="216" y="20" width="196" height="58" rx="4" fill="#f2f6fb" stroke="#2E78C9" stroke-width="1.5"/>
+  <text x="230" y="40" font-size="11.5" fill="#14161a" font-weight="600">The order set</text>
+  <text x="230" y="57" font-size="11.5" fill="#14161a">thresholds, doses, and the vital</text>
+  <text x="230" y="72" font-size="11.5" fill="#14161a">sign that means stop and call</text>
+  <path d="M424 49 L468 49" stroke="#2E78C9" stroke-width="2" marker-end="url(#e1)"/>
+  <rect x="478" y="26" width="180" height="46" rx="4" fill="#2E78C9" opacity="0.55"/>
+  <text x="568" y="46" font-size="11.5" fill="#ffffff" text-anchor="middle">Nurse acts inside</text>
+  <text x="568" y="62" font-size="11.5" fill="#ffffff" text-anchor="middle">a boundary drawn in advance</text>
+  <text x="0" y="98" font-size="11.5" fill="#5a616b">The decision is already made, because at three in the morning it cannot be improvised.</text>
+
+  <line x1="0" y1="122" x2="720" y2="122" stroke="#dfe3e9" stroke-width="1"/>
+
+  <text x="0" y="146" font-size="10.5" fill="#C2571A" letter-spacing="1.5">HOW MOST TEAMS HAND OVER JUDGMENT</text>
+  <rect x="0" y="160" width="150" height="46" rx="4" fill="#C2571A" opacity="0.35"/>
+  <text x="75" y="180" font-size="11.5" fill="#021535" text-anchor="middle">Domain owner</text>
+  <text x="75" y="196" font-size="11.5" fill="#021535" text-anchor="middle">not on the project</text>
+  <path d="M162 183 L206 183" stroke="#C2571A" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#e2)"/>
+  <rect x="216" y="154" width="196" height="58" rx="4" fill="#fdf4ee" stroke="#C2571A" stroke-width="1.5"/>
+  <text x="230" y="174" font-size="11.5" fill="#14161a" font-weight="600">The user story</text>
+  <text x="230" y="191" font-size="11.5" fill="#14161a">describes the daytime, when</text>
+  <text x="230" y="206" font-size="11.5" fill="#14161a">someone knowledgeable was there</text>
+  <path d="M424 183 L468 183" stroke="#C2571A" stroke-width="2" marker-end="url(#e2)"/>
+  <rect x="478" y="160" width="180" height="46" rx="4" fill="#C2571A"/>
+  <text x="568" y="180" font-size="11.5" fill="#ffffff" text-anchor="middle">Engineer fills the blanks</text>
+  <text x="568" y="196" font-size="11.5" fill="#ffffff" text-anchor="middle">alone, in a prompt</text>
+  <text x="0" y="234" font-size="12" fill="#C2571A" font-weight="600">The authority and the decision have come apart. The person holding the ticket is not the person who holds the judgment.</text>
+  <defs>
+    <marker id="e1" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 z" fill="#2E78C9"/></marker>
+    <marker id="e2" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 z" fill="#C2571A"/></marker>
+  </defs>
+</svg><figcaption>Figure 2. Two ways of handing judgment to something that will act without
+you. In one, the person who holds the authority writes the boundary down in advance and the
+actor works inside it. In the other, the person who holds the authority is not on the project,
+and the blank gets filled by whoever is holding the ticket.</figcaption></figure>
+
+<p>An agent needs exactly what the night nurse gets, and it needs the people who hold the
+judgment to be the ones who write it down. What it usually gets instead is a story that still
+describes the daytime, when someone knowledgeable was always in the room, handed to the last
+engineer to touch it.</p>
+
+<p>The order set is worth studying for a second reason. It is not a description of good
+practice, and it is not a training document. It is executable at three in the morning by
+someone who is competent, tired, and alone, and it survives contact with a case nobody
+anticipated because it says what to do when the situation leaves the protocol. Most agent
+briefs fail exactly that test.</p>
+</div>
+
+<div class="wp-sect">
+<div class="wp-part">Part three</div>
+<h2>The deliverable that did not change</h2>
+
+<p class="wp-lede">Look at what has moved on the team, and what has not.</p>
+
+<p><strong>Engineering has already changed its unit of work.</strong> A strong team building an
+agent does not hand over a sequence of screens to implement. It works from a statement of
+intent and the limits around it, an outcome and the boundaries on how the agent may reach it.
+Watch a capable engineer build an agent and you will see her writing conditions and
+constraints, not procedures. The unit moved from the steps to the goal and the guardrails.</p>
+
+<p><strong>Design is moving too.</strong> The designer's object is no longer only the screen
+the user reads on the way to a decision. It is the moment a human is pulled back into the loop
+to approve or override, and what that human sees when they arrive: enough to make a real
+judgment, or a summary polished enough to rubber-stamp. When the user is doing the task, you
+design the task. When the agent is doing the task and a person supervises it, you design the
+interruption. Those are different crafts.</p>
+
+<p><strong>The product manager's deliverable, in most organizations, has not moved at
+all.</strong> It is still a user story and a set of screens describing what a person would do,
+in a product where a person increasingly does not do it.</p>
+
+<figure><svg viewBox="0 0 720 210" xmlns="http://www.w3.org/2000/svg" font-family="72, Arial, sans-serif">
+  <g font-size="10.5" fill="#5a616b" letter-spacing="1.4">
+    <text x="120" y="14">THE OLD UNIT</text>
+    <text x="430" y="14">THE UNIT NOW</text>
+  </g>
+  <g font-size="12" fill="#021535" font-weight="600" text-anchor="end">
+    <text x="106" y="48">Engineering</text>
+    <text x="106" y="106">Design</text>
+    <text x="106" y="164">Product</text>
+  </g>
+  <!-- engineering -->
+  <rect x="120" y="30" width="270" height="30" rx="4" fill="#dfe3e9"/>
+  <text x="132" y="50" font-size="11.5" fill="#5a616b">a sequence of screens to implement</text>
+  <path d="M398 45 L418 45" stroke="#2E78C9" stroke-width="2" marker-end="url(#f1)"/>
+  <rect x="430" y="30" width="290" height="30" rx="4" fill="#2E78C9"/>
+  <text x="442" y="50" font-size="11.5" fill="#ffffff">an outcome, and the limits around it</text>
+  <!-- design -->
+  <rect x="120" y="88" width="270" height="30" rx="4" fill="#dfe3e9"/>
+  <text x="132" y="108" font-size="11.5" fill="#5a616b">the screen on the way to a decision</text>
+  <path d="M398 103 L418 103" stroke="#2E78C9" stroke-width="2" marker-end="url(#f1)"/>
+  <rect x="430" y="88" width="290" height="30" rx="4" fill="#2E78C9"/>
+  <text x="442" y="108" font-size="11.5" fill="#ffffff">the interruption, and what it shows</text>
+  <!-- product -->
+  <rect x="120" y="146" width="270" height="30" rx="4" fill="#C2571A" opacity="0.9"/>
+  <text x="132" y="166" font-size="11.5" fill="#ffffff">a user story and a set of screens</text>
+  <path d="M398 161 L418 161" stroke="#C2571A" stroke-width="2" stroke-dasharray="4 3"/>
+  <rect x="430" y="146" width="290" height="30" rx="4" fill="none" stroke="#C2571A" stroke-width="2" stroke-dasharray="5 4"/>
+  <text x="575" y="166" font-size="11.5" fill="#C2571A" text-anchor="middle" font-weight="600">unchanged in most organizations</text>
+  <text x="120" y="200" font-size="12" fill="#021535">Two of the three deliverables moved. The one that carries the judgment did not.</text>
+  <defs><marker id="f1" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 z" fill="#2E78C9"/></marker></defs>
+</svg><figcaption>Figure 3. Two of the three deliverables changed shape as soon as the
+software started acting. The third did not, and it is the one that was carrying the
+judgment.</figcaption></figure>
+
+<h3>Where the decision actually lands</h3>
+
+<p>Because the story reaches the engineer carrying none of the conditions the running system
+needs, the engineer supplies them. Alone, in a prompt, at the one altitude in the whole
+organization least equipped to own them.</p>
+
+<p>She is not the person who has carried the refund rules in her head for fifteen years. She
+is not the one accountable when a payment goes out that should not have. She is the one
+holding the ticket at the moment the blank had to be filled.</p>
+
+<blockquote><p>A product manager's deliverable exists to make the next person's work
+possible. When it still describes a user who will not be in the room, it makes the designer
+guess at the approval moment and the engineer guess at the policy, and it quietly reassigns
+decisions that belong to the business onto whoever is downstream when the deadline hits.</p></blockquote>
+</div>
+<div class="wp-sect">
+<div class="wp-part">Part four</div>
+<h2>The audit that finds the missing half</h2>
+
+<p class="wp-lede">There is a mechanical way to find what the departed user was carrying, and it
+takes an afternoon rather than a project.</p>
+
+<p>Take one story from a product you are about to make agentic. Name the person who was going
+to read it. Then write down what that person knew when they sat down, in four
+categories.</p>
+
+<div class="wp-num"><div class="wp-num-n">One &middot; Authority</div><div><p>What were they allowed to decide alone, and where did their authority stop? A number, not
+  a principle. Fifty dollars, two hundred dollars, this record but not that one. If the
+  organization has never written the number down, that is the finding, and it is a finding
+  about the organization rather than about the agent.</p></div></div><div class="wp-num"><div class="wp-num-n">Two &middot; Exceptions</div><div><p>What made them stop and hand the case to someone else? The chargeback pattern, the
+  account that smells wrong, the request that is technically outside policy but right on the
+  merits. This is the category people find hardest to articulate, because it lived as
+  recognition rather than as a rule, and it is the category the agent will meet on day one.</p></div></div><div class="wp-num"><div class="wp-num-n">Three &middot; Evidence</div><div><p>What did they write down, for whom, and how long did it need to survive? A note for the
+  auditor is a different artifact from a note for the next agent on the case, and the person
+  in the chair knew which one they were writing.</p></div></div><div class="wp-num"><div class="wp-num-n">Four &middot; Accountability</div><div><p>Who answered when they got it wrong, and what happened next? If the honest answer for the
+  agent version is nobody, that is not a governance gap to close later. It is the design
+  problem, and it is yours.</p></div></div><p>Then compare that list against your actual specification. Every line that is in the first
+and not the second is currently being supplied by an engineer in a prompt, at deadline, by
+inference.</p>
+
+<div class="callout">
+<h3>The test that ends the argument</h3>
+<p>Hand your brief to someone who knows the domain and did not write
+it, and ask them to name the case where the agent would get it wrong. If they can do it in
+under a minute, the brief is describing the daytime. Every experienced practitioner carries a
+catalogue of the cases that look ordinary and are not, and none of that catalogue is in a user
+story, because the story was written for someone who already had it.</p>
+</div>
+</div>
+
+<div class="wp-sect">
+<div class="wp-part">Part five</div>
+<h2>Who actually holds the judgment</h2>
+
+<p class="wp-lede">The hardest part of this work is not writing the judgment down. It is that
+the person who holds it is usually not in the room where the writing happens.</p>
+
+<p>The support agent with fifteen years of refund decisions is not on the project. The claims
+adjuster who knows which exclusions are contestable is not in the sprint. The nurse who knows
+which vital sign is the one that matters at three in the morning is on shift. They are the
+source, and the org chart has them nowhere near the specification.</p>
+
+<p>That is the actual work, and it is product work rather than engineering work. Finding the
+person who holds the judgment, getting them to say what they know, and turning what they say
+into something a system can act on before it acts. Not a description of what a good
+practitioner would do. A boundary a system can be held to.</p>
+
+<p>There is an uncomfortable corollary. Some of what that person knows is wrong, or out of
+date, or is a habit that was never policy. Writing it down surfaces that, which is why the
+exercise is often resisted and why it is worth doing anyway. An organization that cannot state
+its own refund rule does not have a rule. It has a person, and it is about to replace
+them.</p>
+
+<blockquote><p>Every agentic product is an audit of what your organization actually
+decided, conducted by a system that will act on whatever it finds. Most organizations discover
+in that audit that a surprising amount of their policy was a person.</p></blockquote>
+</div>
+
+<div class="wp-closing">
+<div class="wp-part">The one line</div>
+<h2>The user has left the room. What they knew has to be put on the page.</h2>
+<p>Not as a description of what a competent person would have done, which is a training
+document. As a boundary the system carries before it acts: the authority with a number on it,
+the exception that stops the run, the record that survives the case, and the name of the person
+who answers when it is wrong. That is the new unit of product work, and nobody downstream can
+produce it for you.</p>
+</div>
+
+<div class="wp-src">
+  <div class="wp-src-h">The books behind this paper</div>
+  <ul>
+    <li><a href="../book3/ch01-user-who-left-the-room.html">The User Who Left the Room</a>. Book 1, chapter 1. The Departed User framework in full.</li>
+    <li><a href="../book3/ch05-two-briefs.html">The Two Briefs: From Decision to Buildable Spec</a>. Book 1, chapter 5. Where the judgment goes once it has to be written down.</li>
+    <li><a href="../book4/ch04-how-work-splits.html">How the Work Splits</a>. Book 2, chapter 4. The shift from user story to outcome specification.</li>
+    <li><a href="../book5/the-boundary-and-the-wall.html">The Boundary and the Wall</a>. Book 3. Who decides a boundary, and who enforces it.</li>
+  </ul>
+</div>
+
+<div class="wp-note">
+<p><strong>Sources and status.</strong> Drawn from the <em>Agentic AI for Product Leaders</em>
+series by Yoram Friedman, principally <em>Agentic AI for Busy Product Managers</em> (second
+edition), chapter 1 and the Departed User framework, together with the two briefs and the four
+runtime artifacts; <em>Why Agentic AI Products Fail</em> on the work-unit shift from user story
+to outcome specification and on the enforcement principle; and <em>The Agentic AI Team</em> on
+the seam between the person who decides a boundary and the person who enforces it. The support
+agent, the refund thresholds and the engineer at her desk are an illustrative composite. The
+order set and protocol comparison is drawn from clinical practice and from the author's
+clinical training; it is offered as an analogy for how authority is delegated in advance, not
+as a claim about any specific protocol. The Departed User is the author's framework.</p>
+</div>
+</div>
+
+<script defer src="https://cloud.umami.is/script.js" data-website-id="6701185a-719e-4b6f-baaf-dcd504ef6b1a"></script>
+<script defer src="../assets/site-extras.js"></script>
+</body>
+</html>

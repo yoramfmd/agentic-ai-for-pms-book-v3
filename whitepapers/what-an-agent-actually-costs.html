@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What an Agent Actually Costs &mdash; Agentic AI for Product Leaders</title>
+<meta name="description" content="The number that decides your product is not the model's price. It is how often your architecture re-enters the model. How to compute a defensible per-task cost and compare it to the alternative.">
+<link rel="canonical" href="https://agenticaiproductmanagement.com/whitepapers/what-an-agent-actually-costs.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="The Agentic AI Series">
+<meta property="og:title" content="What an Agent Actually Costs">
+<meta property="og:description" content="The number that decides your product is not the model's price. It is how often your architecture re-enters the model. How to compute a defensible per-task cost and compare it to the alternative.">
+<meta property="og:image" content="https://agenticaiproductmanagement.com/whitepapers/og/what-an-agent-actually-costs.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://agenticaiproductmanagement.com/whitepapers/what-an-agent-actually-costs.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="What an Agent Actually Costs">
+<meta name="twitter:description" content="The number that decides your product is not the model's price. It is how often your architecture re-enters the model. How to compute a defensible per-task cost and compare it to the alternative.">
+<meta name="twitter:image" content="https://agenticaiproductmanagement.com/whitepapers/og/what-an-agent-actually-costs.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "What an Agent Actually Costs",
+  "description": "The number that decides your product is not the model's price. It is how often your architecture re-enters the model. How to compute a defensible per-task cost and compare it to the alternative.",
+  "author": {
+    "@type": "Person",
+    "name": "Yoram Friedman",
+    "jobTitle": "Physician and enterprise product leader"
+  },
+  "isPartOf": {
+    "@type": "CreativeWorkSeries",
+    "name": "Agentic AI for Product Leaders"
+  },
+  "url": "https://agenticaiproductmanagement.com/whitepapers/what-an-agent-actually-costs.html",
+  "inLanguage": "en"
+}
+</script>
+<link rel="stylesheet" href="../book3/styles.css">
+<style>
+  /* ── whitepaper section, layered on book3/styles.css ── */
+  body { font-family: var(--serif); }
+  .wp { max-width: 880px; margin: 0 auto; padding: var(--space-6) var(--space-6) var(--space-8); }
+  .wp-back { font-family: var(--sans); font-size: 13px; margin-bottom: var(--space-6); }
+  .wp-back a { color: var(--ink-muted); text-decoration: none; }
+  .wp-back a:hover { color: var(--ink); }
+
+  /* ── landing ── */
+  .wp-hero { padding: var(--space-6) 0 var(--space-6); border-bottom: 1px solid var(--rule); margin-bottom: var(--space-7); }
+  .wp-eyebrow { font-family: var(--sans); font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: var(--space-3); }
+  .wp-h1 { font-family: var(--serif); font-size: 44px; font-weight: 700; line-height: 1.1; color: var(--ink); margin-bottom: var(--space-3); }
+  .wp-sub { font-family: var(--serif); font-size: 21px; font-weight: 400; line-height: 1.35; color: var(--ink-soft); font-style: italic; margin-bottom: var(--space-5); }
+  .wp-intro p { font-size: 18px; line-height: 1.65; margin-bottom: var(--space-4); }
+
+  .wp-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-4); margin: var(--space-6) 0 var(--space-7); }
+  .wp-card { display: flex; flex-direction: column; border: 0.5px solid var(--rule); border-radius: var(--radius-md); background: var(--bg); text-decoration: none; color: inherit; overflow: hidden; transition: box-shadow 0.15s, transform 0.15s; }
+  .wp-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.10); transform: translateY(-2px); }
+  /* the paper's own cover, cropped to the title band. It carries the title and
+     subtitle, so the card body does not repeat them. */
+  .wp-cover-wrap { flex: 0 0 auto; position: relative; width: 100%; aspect-ratio: 800 / 588; overflow: hidden; background: #021535; border-bottom: 0.5px solid var(--rule); }
+  .wp-cover { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+  /* the crop lands mid-paragraph on some covers. Fade the last few percent into
+     the cover's own navy so the cut reads as an edge rather than a slice. */
+  .wp-cover-wrap::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 22%;
+    background: linear-gradient(to bottom, rgba(2,21,53,0) 0%, rgba(2,21,53,0.75) 55%, #021535 100%); }
+  .wp-card-body { display: flex; flex-direction: column; flex-grow: 1; padding: var(--space-5); }
+  .wp-card-q { font-family: var(--sans); font-size: 11px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--blue-deep); margin-bottom: var(--space-3); line-height: 1.4; }
+  .wp-card-desc { font-family: var(--sans); font-size: 14px; color: var(--ink-soft); line-height: 1.6; margin-bottom: var(--space-4); flex-grow: 1; }
+  .wp-card-meta { font-family: var(--sans); font-size: 12px; color: var(--ink-muted); display: flex; gap: var(--space-3); align-items: center; }
+  .wp-card-cta { font-family: var(--sans); font-size: 13px; font-weight: 500; color: var(--blue-deep); margin-left: auto; white-space: nowrap; }
+
+  /* ── article ── */
+  .wp-art { max-width: var(--measure); margin: 0 auto; }
+  .wp-art .wp-h1 { font-size: 38px; }
+  .wp-art-meta { font-family: var(--sans); font-size: 13px; color: var(--ink-muted); margin-bottom: var(--space-5); }
+  .wp-stamp { font-family: var(--sans); font-size: 13.5px; line-height: 1.55; color: var(--amber-deep);
+    background: var(--amber-tint); border-left: 3px solid var(--amber); border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    padding: var(--space-3) var(--space-4); margin-bottom: var(--space-5); }
+  .wp-dl { display: flex; align-items: center; gap: var(--space-4); flex-wrap: wrap; padding: var(--space-4) var(--space-5); border: 0.5px solid var(--rule); border-radius: var(--radius-md); background: var(--tint-warm); margin-bottom: var(--space-7); font-family: var(--sans); font-size: 14px; }
+  .wp-dl-thumb { width: 78px; height: auto; border-radius: 3px; border: 0.5px solid rgba(0,0,0,0.15); flex: 0 0 auto; }
+  .wp-dl-btn { display: inline-block; padding: 8px 16px; border-radius: var(--radius-sm); background: var(--blue-deep); color: #fff; text-decoration: none; font-weight: 500; font-size: 14px; }
+  .wp-dl-btn:hover { background: var(--blue); text-decoration: none; }
+  .wp-dl-note { color: var(--ink-muted); }
+
+  .wp-part { font-family: var(--sans); font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue-deep); margin: var(--space-8) 0 var(--space-2); }
+  .wp-part + h2 { margin-top: 0; padding-top: 0; border-top: none; }
+  .wp-lede { font-size: 20px; line-height: 1.5; color: var(--ink-soft); margin-bottom: var(--space-5); }
+  /* figures break out of the reading measure, they were drawn for a wider column */
+  .wp-art figure { margin: var(--space-7) 0; width: 116%; margin-left: -8%; }
+  .wp-art figure svg { width: 100%; height: auto; display: block; }
+  /* SVG font-family is a presentation attribute, so the body serif rule wins
+     without this. The figures were drawn in a sans and must stay in one. */
+  .wp-art figure svg text, .wp-art figure svg tspan { font-family: var(--sans); }
+  .wp-art figcaption { font-family: var(--sans); font-size: 13px; line-height: 1.5; color: var(--ink-muted); border-top: 1px solid var(--rule); padding-top: var(--space-2); margin-top: var(--space-3); }
+  .wp-num { display: grid; grid-template-columns: auto 1fr; gap: var(--space-4); border-top: 2px solid var(--ink); padding-top: var(--space-3); margin: var(--space-5) 0; }
+  .wp-num-n { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-muted); padding-top: 3px; }
+  .wp-num p { margin-bottom: var(--space-2); }
+  .wp-num p:last-child { margin-bottom: 0; }
+  .wp-cols { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-5); margin: var(--space-5) 0; }
+  .wp-cols h3 { margin-top: 0; }
+  .wp-stat { display: grid; grid-template-columns: auto 1fr; gap: var(--space-5); align-items: baseline;
+    border-top: 2px solid var(--ink); padding-top: var(--space-3); margin: var(--space-6) 0; }
+  .wp-stat-n { font-family: var(--serif); font-size: 34px; font-weight: 700; line-height: 1; color: var(--ink); white-space: nowrap; }
+  .wp-stat-t { font-family: var(--sans); font-size: 14px; line-height: 1.55; color: var(--ink-soft); }
+  /* tables, like figures, were laid out for a wider column than the reading measure */
+  .wp-art table { border-collapse: collapse; width: 116%; margin-left: -8%; margin-top: var(--space-6);
+    margin-bottom: var(--space-6); font-family: var(--sans); font-size: 13.5px; }
+  .wp-art th { text-align: left; font-weight: 600; border-bottom: 1.5px solid var(--ink); padding: var(--space-3); white-space: nowrap; }
+  .wp-art td { border-bottom: 0.5px solid var(--rule); padding: var(--space-3); vertical-align: top; color: var(--ink-soft); }
+  /* only short numeric cells are held on one line. Prose columns wrap normally. */
+  .wp-art td.wp-n { white-space: nowrap; color: var(--ink); }
+  .wp-art caption { caption-side: bottom; text-align: left; font-family: var(--sans); font-size: 13px;
+    line-height: 1.5; color: var(--ink-muted); padding-top: var(--space-3); }
+  .wp-closing { background: var(--tint-warm); border-radius: var(--radius-lg); padding: var(--space-6); margin: var(--space-7) 0; }
+  .wp-closing .wp-part { margin-top: 0; }
+  .wp-closing h2 { margin-top: var(--space-2); padding-top: 0; border-top: none; }
+  .wp-note { font-family: var(--sans); font-size: 13px; line-height: 1.6; color: var(--ink-muted); border-top: 1px solid var(--rule); padding-top: var(--space-4); margin-top: var(--space-7); }
+  .wp-note a { color: var(--ink-soft); }
+  .wp-src { font-family: var(--sans); font-size: 14px; margin-top: var(--space-7); padding: var(--space-5); border: 0.5px solid var(--rule); border-radius: var(--radius-md); background: var(--tint-warm); }
+  .wp-src-h { font-weight: 600; color: var(--ink); margin-bottom: var(--space-3); font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; }
+  .wp-src ul { margin: 0 0 0 var(--space-5); }
+  .wp-src li { margin-bottom: var(--space-2); color: var(--ink-soft); }
+
+  @media (max-width: 700px) {
+    .wp { padding: var(--space-5) var(--space-4) var(--space-7); }
+    .wp-grid { grid-template-columns: 1fr; }
+    .wp-h1 { font-size: 32px; }
+    .wp-art .wp-h1 { font-size: 28px; }
+    .wp-art figure { width: 100%; margin-left: 0; }
+    .wp-cols { grid-template-columns: 1fr; }
+    .wp-stat { grid-template-columns: 1fr; gap: var(--space-2); }
+    .wp-sub { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+<div class="wp wp-art">
+  <div class="wp-back"><a href="index.html">&larr; All whitepapers</a></div>
+  <div class="wp-eyebrow">Whitepaper &middot; Should we build it?</div>
+  <h1 class="wp-h1">What an Agent Actually Costs</h1>
+  <div class="wp-sub">Token economics and the build decision, for product managers</div>
+  <div class="wp-art-meta">Yoram Friedman, MD &middot; 15 pages &middot; 3 figures</div>
+
+  <div class="wp-stamp">Model prices stamped mid-2026 and already drifting. The ratios the argument rests on have held across vendors and three years of price movement; the table has not.</div>
+
+  <div class="wp-dl">
+    <img class="wp-dl-thumb" src="covers/what-an-agent-actually-costs.jpg" width="800" height="588" alt="">
+    <a class="wp-dl-btn" href="pdf/What-an-Agent-Actually-Costs.pdf" download
+       data-umami-event="whitepaper-download"
+       data-umami-event-paper="what-an-agent-actually-costs">Download the PDF</a>
+    <span class="wp-dl-note">15 pages &middot; 335 KB &middot; formatted for print and for sharing</span>
+  </div>
+
+<h2>The number that decides your product is one nobody will quote you.</h2>
+<p class="wp-lede">Most teams cost an agent by looking up a price per million tokens, multiplying by volume, and comparing the result to an hourly rate. Every step of that is wrong, and the errors do not cancel.</p>
+
+<p>The number that decides your product is not the model's price. It is the
+<strong>architecture multiplier</strong>. An agent does not call the model once. It re-enters
+the model repeatedly within a single task: to classify, to read what it retrieved, to weigh
+the result, to check policy, to draft, to retry the step that failed. For an ordinary
+enterprise agent that is five to fifty model calls per task. For an agent that writes code it
+is one hundred to five hundred. The same task on the same model can cost a cent or a dollar
+depending entirely on how the loop is built.</p>
+
+<figure><svg viewBox="0 0 720 260" xmlns="http://www.w3.org/2000/svg" font-family="72, Arial, sans-serif">
+  <!-- ordinary software -->
+  <text x="0" y="12" font-size="10.5" fill="#C2571A" letter-spacing="1.5">ORDINARY SOFTWARE &#183; ONE CALL</text>
+  <circle cx="24" cy="52" r="12" fill="#C2571A"/>
+  <path d="M42 52 L112 52" stroke="#C2571A" stroke-width="2.5" marker-end="url(#o)"/>
+  <circle cx="132" cy="52" r="12" fill="none" stroke="#C2571A" stroke-width="2.5"/>
+  <text x="0"   y="84" font-size="11" fill="#5a616b">task in</text>
+  <text x="132" y="84" font-size="11" fill="#5a616b" text-anchor="middle">answer out</text>
+  <text x="220" y="57" font-size="12" fill="#021535">Cost is the call. You can look it up.</text>
+
+  <line x1="0" y1="106" x2="720" y2="106" stroke="#dfe3e9" stroke-width="1"/>
+
+  <!-- agent loop -->
+  <text x="0" y="130" font-size="10.5" fill="#2E78C9" letter-spacing="1.5">AN AGENT &#183; THE SAME TASK</text>
+  <circle cx="24" cy="176" r="12" fill="#2E78C9"/>
+  <g fill="#2E78C9">
+    <rect x="60"  y="164" width="10" height="24" rx="3" opacity="0.30"/>
+    <rect x="86"  y="160" width="10" height="32" rx="3" opacity="0.38"/>
+    <rect x="112" y="156" width="10" height="40" rx="3" opacity="0.46"/>
+    <rect x="138" y="152" width="10" height="48" rx="3" opacity="0.54"/>
+    <rect x="164" y="148" width="10" height="56" rx="3" opacity="0.62"/>
+    <rect x="190" y="144" width="10" height="64" rx="3" opacity="0.70"/>
+    <rect x="216" y="140" width="10" height="72" rx="3" opacity="0.78"/>
+    <rect x="242" y="136" width="10" height="80" rx="3" opacity="0.86"/>
+    <rect x="268" y="132" width="10" height="88" rx="3" opacity="0.94"/>
+    <rect x="294" y="128" width="10" height="96" rx="3"/>
+  </g>
+  <text x="60"  y="240" font-size="11" fill="#5a616b">classify</text>
+  <text x="186" y="240" font-size="11" fill="#5a616b" text-anchor="middle">read, weigh, check, draft, retry</text>
+  <text x="304" y="240" font-size="11" fill="#5a616b" text-anchor="end">record</text>
+  <circle cx="336" cy="176" r="12" fill="none" stroke="#2E78C9" stroke-width="2.5"/>
+  <text x="336" y="212" font-size="11" fill="#5a616b" text-anchor="middle">answer out</text>
+
+  <text x="380" y="152" font-size="12" fill="#021535">Cost is the number of re-entries, times the</text>
+  <text x="380" y="170" font-size="12" fill="#021535">context each one carries. Five to fifty for an</text>
+  <text x="380" y="188" font-size="12" fill="#021535">ordinary agent. A hundred to five hundred</text>
+  <text x="380" y="206" font-size="12" fill="#021535">when it writes code.</text>
+  <text x="380" y="230" font-size="12" fill="#2E78C9" font-weight="600">You designed that number. Nobody quoted it to you.</text>
+
+  <defs><marker id="o" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 z" fill="#C2571A"/></marker></defs>
+</svg><figcaption>Figure 1. Where the cost actually comes from. In ordinary software the cost is the call, and you can look it up. In an agent the cost is the number of times the loop re-enters the model, times the context each pass carries. That number is a design decision, and it does not appear in any quote. Schematic, not measured.</figcaption></figure>
+
+<blockquote><p>The cost question is not <em>which model is cheapest</em>. It is <em>how many times will
+  this architecture re-enter the model, and how long is the context each time</em>. That is a
+  design decision you own, not a price you shop.</p></blockquote>
+
+<p>Three consequences follow for the person making the build decision. The number in your
+business case is produced by your architecture, which means it is negotiable by design and
+not by procurement. Most of the available savings come from four or five mechanisms that are
+architectural rather than commercial, and none of them appear in a vendor quote. And the bill
+has no natural ceiling, because a loop that re-enters the model has no reason to stop unless
+something stops it, which makes cost control a runtime safety control rather than a finance
+report.</p>
+
+<p>One more, and it sets the frame for everything after it. <strong>Do not model a price
+decline.</strong> Per-token list prices have fallen steeply for three years, and it is
+tempting to let that carry a marginal business case. It should not. The capital committed to
+AI infrastructure has to be recovered, efficiency gains are being spent on more capable and
+more expensive models rather than on serving today's capability more cheaply, and tokens
+consumed per task are rising independently of price through longer reasoning traces and more
+verbose output. Model per-task cost as flat. The bet is asymmetric: model flat and prices
+fall, you get a windfall; model a decline that does not arrive, and your case fails after you
+have staffed it.</p>
+
+<div class="wp-sect"><div class="wp-part">Part 1</div>
+<h2>Two ratios, and the reason the price list is not the story</h2>
+
+<p>The <strong>prompt</strong> is everything you hand the model to work from: the instruction,
+the question, the documents you retrieved, and the running conversation. The
+<strong>token</strong> is the unit the model reads and writes in, a chunk of text smaller than
+a word, roughly three-quarters of a word. A page runs several hundred tokens. Tokens matter
+for one blunt reason. They are the unit you pay in and the unit the model's attention is spent
+on.</p>
+
+<p>Every call has a cost going in and a cost coming out, and those are not the same size. Two
+ratios carry almost all of the practical content, and unlike absolute prices they have held
+across vendors and across three years of price movement. Carry the ratios, not the cents.</p>
+
+<div class="box tinted">
+<p><strong>Output costs five to six times input.</strong> The
+reason is mechanical rather than commercial: input is processed in parallel, output is
+generated one token at a time. This is the single most consequential number most cost models
+omit. Self-hosting reprices the asymmetry rather than removing it: decoding is still
+sequential, so it reappears as throughput cost instead of a line on an invoice.</p>
+<p><strong>A small model costs about five times less than the flagship
+in the same family</strong>, on both input and output. That ratio is what should drive routing
+decisions. A tier has also opened above the flagship at roughly twice flagship rates, which
+puts its output at ten times the flagship's input, comparing across units deliberately to
+make the point. The question that tier forces is not
+whether it is better; it is whether the step it takes is worth ten flagship steps, and for
+most production traffic the answer is no.</p>
+</div>
+
+<table class="wp-table">
+  <thead><tr><th>Tier</th><th>Model</th><th>Input /1M</th><th>Output /1M</th><th>Out : in</th><th>What this tier is for</th></tr></thead>
+  <tr><td>Research</td><td>Anthropic Fable 5</td><td class="wp-n">$10.00</td><td class="wp-n">$50.00</td><td class="wp-n">5.0x</td><td>Decisions where being wrong costs more than the run. Its output runs ten times a flagship's input and fifty times a small model's. Not production traffic.</td></tr>
+  <tr><td rowspan="3">Flagship</td><td>Anthropic Opus 5</td><td class="wp-n">$5.00</td><td class="wp-n">$25.00</td><td class="wp-n">5.0x</td><td rowspan="3">Genuine multi-step judgment, real ambiguity, work a senior person would have to stop and think about. The default most teams over-use.</td></tr>
+  <tr><td>OpenAI GPT-5.6 Sol</td><td class="wp-n">$5.00</td><td class="wp-n">$30.00</td><td class="wp-n">6.0x</td></tr>
+  <tr><td>Anthropic Sonnet 5</td><td class="wp-n">$3.00</td><td class="wp-n">$15.00</td><td class="wp-n">5.0x</td></tr>
+  <tr><td rowspan="3">Mid</td><td>OpenAI GPT-5.6 Terra</td><td class="wp-n">$2.50</td><td class="wp-n">$15.00</td><td class="wp-n">6.0x</td><td rowspan="3">The workhorse band. Bounded multi-step tasks with tool use, drafting against a spec, structured extraction that needs some judgment.</td></tr>
+  <tr><td>Google Gemini 3.1 Pro</td><td class="wp-n">$2.00</td><td class="wp-n">$12.00</td><td class="wp-n">6.0x</td></tr>
+  <tr><td>Google Gemini 3.6 Flash</td><td class="wp-n">$1.50</td><td class="wp-n">$7.50</td><td class="wp-n">5.0x</td></tr>
+  <tr><td rowspan="2">Small</td><td>OpenAI GPT-5.6 Luna</td><td class="wp-n">$1.00</td><td class="wp-n">$6.00</td><td class="wp-n">6.0x</td><td rowspan="2">Classification, routing, extraction, summarization, and the reading steps inside an agent loop. Where most of the saving lives, because most steps are these.</td></tr>
+  <tr><td>Anthropic Haiku 4.5</td><td class="wp-n">$1.00</td><td class="wp-n">$5.00</td><td class="wp-n">5.0x</td></tr>
+  <caption>Table 1. Illustrative mid-2026 snapshot. Prices change often; verify at the
+  provider's page before building a case on any cell. Sonnet 5 carries introductory pricing of
+  $2.00 and $10.00 through 31 August 2026, after which the figures above apply. Self-hosted open-weight models are absent because
+  their cost structure is fixed infrastructure rather than per token.</caption>
+</table>
+
+<p>Three takes from that table, and they outlast the numbers in it. <strong>The
+output-to-input ratio is five to six times everywhere</strong>, across three vendors and four
+tiers, which is why it is safe to build a mental model on. <strong>Price is a tier-selection
+criterion, not a vendor-selection one.</strong> Within a tier the vendors sit within noise of
+each other, so choosing a provider on cents is optimizing a rounding error. Choose on eval
+performance for your task and on latency, then take cost out by moving work down a tier. And
+<strong>the step between adjacent tiers is roughly five times and the span from top to
+bottom is roughly ten, like for like</strong>, which means the decision that moves your bill
+is not which flagship you use. It is how much of your traffic never needs one. The larger
+multiples quoted around this market, thirty or fifty times, are almost always comparing one
+tier's output price against another tier's input price. Check the units before you repeat
+one.</p>
+
+<p>Where the platform exposes a reasoning-effort setting alongside the model choice, treat the
+pair as the unit of the decision. A mid-tier model at high effort and a flagship at low effort
+are different points on the same curve, and for a task class you have eval coverage on, the
+cheaper point is often good enough.</p>
+
+<p>Two things do not show up on any price list and cost real money. <strong>Reasoning
+tokens</strong>: a reasoning model, or a standard model set to extended thinking, generates an
+internal chain of thought billed at full output rates that the user may never see; some
+providers expose the trace, all of them bill it. A dispute
+requiring the agent to work through contract terms, transaction history and policy exceptions
+can generate thousands of invisible tokens before a single visible word. And
+<strong>images</strong>: a scanned invoice is processed as an image, not as text, often
+equivalent to several hundred to several thousand text tokens depending on resolution. A
+customer who uploads a photo, a PDF and a handwritten note has consumed an order of magnitude
+more input than a text-only interaction before the agent has reasoned at all.</p>
+
+</div>
+
+<div class="wp-sect"><div class="wp-part">Part 2</div>
+<h2>An agent does not call the model once</h2>
+
+<p><strong>Reasoning depth.</strong> Extended thinking is not a free quality upgrade. It is an
+output-rate multiplier, and it should be decided per task class rather than set once for the
+product.</p>
+
+<p><strong>Context accumulation.</strong> Retrieved documents are billed as input on
+<em>every</em> call in the session. Retrieve a ten-page policy at the start of an eight-turn
+conversation and you pay for it eight times. Retrieval-augmented generation is not free
+retrieval; it is paid context injection, and the bill compounds with every turn.</p>
+
+<p><strong>Multimodal inputs.</strong> See above. The failure pattern is a business case
+modeled on text conversations meeting real customer behavior, which increasingly involves
+attachments.</p>
+
+<p><strong>Retries.</strong> The failed attempt usually stays in the context stream, so the
+second attempt costs more than the first and the third more than the second. The expensive
+part of a retry storm is the model re-invocation, not the failed downstream call.</p>
+
+<p><strong>Coordination.</strong> Published figures put roughly thirty-seven percent of tokens
+in a multi-agent system into coordination: re-establishing context, handing off state,
+resolving disagreement. A four-agent system can run about three and a half times the tokens of
+a single-agent system for the same outcome. Adding agents does not divide the work.</p>
+
+<p>These do not arrive one at a time. A reasoning model handling a complex dispute across ten
+turns, with retrieved documents, customer attachments and a retried tool call, operates at a
+cost per interaction that bears no resemblance to the average anyone modeled. Model the
+compound case as a named scenario with its own frequency, not as a tail you will notice
+later.</p>
+
+<table>
+  <tr><th>Cost layer</th><th>Typical range</th><th>What it means for the decision</th></tr>
+  <tr><td>Floor cost, year one</td><td>$175K to $450K for enterprise deployments; evaluation and monitoring alone $60K to $120K</td><td>The floor exists whether volume hits projection or half of it. Model both.</td></tr>
+  <tr><td>TCO underestimate</td><td>Actual runs 40 to 60 percent above the initial case</td><td>Multiply the initial case by 1.5 before presenting it to finance</td></tr>
+  <tr><td>Multi-agent coordination</td><td>~37% of total tokens; ~3.5x for a four-agent system vs. single-agent, same outcome</td><td>Agent count is a cost decision, not only a design one</td></tr>
+  <tr><td>Agentic vs. single-shot, same task</td><td>5x to 50x more tokens to complete one case than a single completion of the same task; 100x to 500x for code</td><td>Unit economics hold only if the agent closes the case end to end</td></tr>
+  <tr><td>Automation vs. agent, routing</td><td>$0.001 vs. $0.10 to $0.20 per task</td><td>For routing, an agent is 100 to 200x more expensive per task</td></tr>
+  <tr><td>Automation vs. agent, scheduling</td><td>$0.01 vs. $0.60 to $1.20 per task</td><td>The differential for routine work is structural, not marginal</td></tr>
+  <tr><td>Cost per task by complexity</td><td>Simple $0.002 to $0.04; moderate $0.09 to $0.26; complex $0.50 to $2.00+</td><td>The complexity tax is where most agentic business cases break</td></tr>
+  <caption>Table 2. Cost layers in enterprise agentic deployments, mid-2026. A mix of published
+  industry ranges and figures from this series; treat every row as a shape to replace with your
+  own measurement rather than as a citable benchmark.</caption>
+</table>
+
+
+<figure><svg viewBox="0 0 720 250" xmlns="http://www.w3.org/2000/svg" font-family="72, Arial, sans-serif">
+  <text x="0" y="12" font-size="10" fill="#5a616b" letter-spacing="1.4">COST PER TASK &#183; LOG SCALE</text>
+  <line x1="150" y1="204" x2="700" y2="204" stroke="#dfe3e9" stroke-width="2"/>
+  <!-- rows -->
+  <g font-size="11.5" fill="#021535">
+    <text x="140" y="46"  text-anchor="end">Deterministic automation</text>
+    <text x="140" y="90"  text-anchor="end">Simple agent task</text>
+    <text x="140" y="134" text-anchor="end">Moderate, tool use</text>
+    <text x="140" y="178" text-anchor="end">Complex, 5+ steps</text>
+  </g>
+  <!-- bars: log10 from 0.001 to 2.00 mapped across 150..680 -->
+  <rect x="150" y="32"  width="8"   height="18" rx="4" fill="#C2571A"/>
+  <rect x="150" y="76"  width="188" height="18" rx="4" fill="#2E78C9" opacity="0.55"/>
+  <rect x="150" y="120" width="330" height="18" rx="4" fill="#2E78C9" opacity="0.75"/>
+  <rect x="150" y="164" width="470" height="18" rx="4" fill="#2E78C9"/>
+  <g font-size="11.5" fill="#5a616b">
+    <text x="168" y="46">$0.001</text>
+    <text x="348" y="90">$0.002 to $0.04</text>
+    <text x="490" y="134">$0.09 to $0.26</text>
+    <text x="630" y="178">$0.50 to $2.00+</text>
+  </g>
+  <!-- the gap -->
+  <line x1="150" y1="226" x2="338" y2="226" stroke="#C2571A" stroke-width="2"/>
+  <path d="M150 222 L150 230 M338 222 L338 230" stroke="#C2571A" stroke-width="2"/>
+  <text x="346" y="230" font-size="11.5" fill="#C2571A" font-weight="600">100 to 200x, for routing work an agent did not need to do</text>
+</svg><figcaption>Figure 2. Cost per task by complexity, against the deterministic baseline, on a logarithmic scale. The complexity tax is where most agentic business cases break. The bracket is the number worth carrying into a build decision: for routing work, an agent runs a hundred to two hundred times the cost of logic you could have written down. Mid-2026 industry ranges.</figcaption></figure>
+
+</div>
+
+<div class="wp-sect"><div class="wp-part">Part 3</div>
+<h2>What actually moves the number, and whose call each one is</h2>
+
+<table class="wp-table">
+  <thead><tr><th>Lever</th><th>Typical effect</th><th>Whose call</th></tr></thead>
+  <tr><td><strong>Prompt caching.</strong> The agent replays its system prompt, tool definitions and context on every step; that repeated prefix is what caching is for.</td><td>Cached reads at ~1/10 base input price; break-even after one or two reads</td><td>Engineering builds it. You own prefix stability.</td></tr>
+  <tr><td><strong>Model routing.</strong> Send each task to the cheapest model that can do it; cheap model classifies, frontier model judges.</td><td>~5x on the routed share</td><td>You define the task classes</td></tr>
+  <tr><td><strong>Batch processing.</strong> Work with nobody waiting runs on queued endpoints.</td><td>~50% on both input and output</td><td>You decide what is truly interactive</td></tr>
+  <tr><td><strong>Shortening the loop.</strong> Fewer model re-entries per task; deterministic steps replace model calls.</td><td>Often 30 to 60%, highest ceiling of any lever</td><td>You and the architect, jointly</td></tr>
+  <tr><td><strong>Context engineering.</strong> Retrieve spans not documents; compact the running conversation; drop what the step does not need.</td><td>Large and compounding on long sessions</td><td>You, with the data team</td></tr>
+  <tr><td><strong>Gating reasoning mode.</strong> Extended thinking on per task class, not per product.</td><td>Removes an output-rate premium from the easy majority</td><td>Yours</td></tr>
+  <tr><td><strong>Output shape.</strong> Ask for the decision, not the essay; structured output over prose you will parse.</td><td>Direct, at the expensive end of the bill</td><td>Yours</td></tr>
+  <tr><td><strong>Retry hygiene.</strong> Circuit breaker per tool, backoff with jitter, summarize failed attempts rather than carrying them.</td><td>Bounds the tail rather than the average</td><td>Engineering; you set the thresholds</td></tr>
+  <tr><td><strong>Multimodal discipline.</strong> Extract once at the resolution the task needs; carry text forward.</td><td>Order of magnitude on attachment-heavy traffic</td><td>Shared</td></tr>
+  <tr><td><strong>Not using an agent.</strong> Deterministic logic has no inference cost at all.</td><td>100 to 200x on the tasks it applies to</td><td>Yours, and it is the build decision itself</td></tr>
+  <caption>Table 3. Ordered roughly by savings-to-effort for a typical enterprise agent.</caption>
+</table>
+
+<p>Four of these are worth a sentence more, because they are the ones a PM decides rather than
+reviews.</p>
+
+<p><strong>Caching pays on traffic shape, not on architecture alone.</strong> The saving is
+real for sustained interactive sessions and largely absent for bursty, low-frequency work,
+because caches expire on short windows measured in minutes. The arithmetic is worth checking rather than
+taking on trust: cached reads run at roughly a tenth of base input price, while writing to the
+cache costs a premium over it, a little above list for a short window and roughly double for a
+long one, which is what puts break-even at the first or second read. It also requires a stable
+prefix:
+a system prompt that interpolates a timestamp, session ID or user name at the top invalidates
+the cache on every call. Put volatile content at the end, and do not book the saving in an
+estimate before someone has checked your inter-call gap.</p>
+
+<p><strong>Shortening the loop has the highest ceiling and no vendor.</strong> Nobody sells it.
+It requires reading the trace of one real task, naming every model re-entry, and arguing with
+each one. Classification steps often do not need a model. Formatting steps almost never do.
+Steps that exist because an earlier step returned something unusable are a schema problem
+wearing a cost costume.</p>
+
+<p><strong>How you write the success criterion is a cost driver.</strong> An unmeasurable or
+unachievable goal is a loop generator: an agent told to reach a target it cannot verify will
+keep trying, and an agent told to reach one that is unattainable will keep trying forever. Make
+the criterion measurable, make sure the agent has a tool that can measure it, and give it an
+explicit budget, because the agent has no price model and cannot self-regulate on cost. This
+is Executable Brief work, and it belongs to you.</p>
+
+<p><strong>Deciding not to use an agent is the largest number here.</strong> Deterministic
+automation costs about a tenth of a cent for routing against ten to twenty cents for an agent.
+When a problem can be written down in advance, writing it down is not the lesser solution. This
+applies inside a product as well as to the build decision: a hybrid that handles the
+predictable eighty percent deterministically and routes the residue to an agent is usually the
+correct shape, and it is rarely the shape a demo produces.</p>
+
+<p>Two things you cannot model. Volume and committed-use discounts are negotiated case by case
+and unpublished, so treat any you win as margin rather than as an assumption. And pinning
+inference to a data-residency region costs about ten percent more, which is the one place a
+governance choice shows up as a line on an invoice.</p>
+
+</div>
+
+<div class="wp-sect"><div class="wp-part">Part 4</div>
+<h2>The bill has no ceiling unless you build one</h2>
+
+<p>Two agents in a production research system started talking to each other. One analyzed, the
+other verified, and a misclassified error taught the pair to treat "we disagree" as "retry with
+different parameters" rather than "stop." They retried week after week, passing the full
+conversation back and forth, the weekly bill climbing from pocket change into five figures.
+Nothing malfunctioned and every dashboard stayed green, because the system was doing exactly
+what it was built to do at a rate nobody had capped.</p>
+
+<p>An agent is not a batch job that runs a bounded operation and halts. It is a loop that
+re-enters the model, carries growing context, retries on failure, and calls tools that fail in
+ways that make it retry harder. Uncapped, it spends faster than a human review cycle can
+react.</p>
+
+<blockquote><p>A budget read after the call is an accountant. A budget checked before the call is a
+  brake. Every runaway shares one mechanic: hundreds or thousands of paid calls go out before
+  a human sees an alert.</p></blockquote>
+
+
+<figure><svg viewBox="0 0 720 220" xmlns="http://www.w3.org/2000/svg" font-family="72, Arial, sans-serif">
+  <text x="0" y="12" font-size="10.5" fill="#C2571A" letter-spacing="1.5">A BUDGET READ AFTER THE CALL &#183; AN ACCOUNTANT</text>
+  <g fill="#C2571A" opacity="0.75">
+    <rect x="0" y="26" width="13" height="22" rx="3"/><rect x="19" y="26" width="13" height="22" rx="3"/><rect x="38" y="26" width="13" height="22" rx="3"/><rect x="57" y="26" width="13" height="22" rx="3"/><rect x="76" y="26" width="13" height="22" rx="3"/><rect x="95" y="26" width="13" height="22" rx="3"/><rect x="114" y="26" width="13" height="22" rx="3"/><rect x="133" y="26" width="13" height="22" rx="3"/><rect x="152" y="26" width="13" height="22" rx="3"/><rect x="171" y="26" width="13" height="22" rx="3"/><rect x="190" y="26" width="13" height="22" rx="3"/><rect x="209" y="26" width="13" height="22" rx="3"/><rect x="228" y="26" width="13" height="22" rx="3"/><rect x="247" y="26" width="13" height="22" rx="3"/><rect x="266" y="26" width="13" height="22" rx="3"/><rect x="285" y="26" width="13" height="22" rx="3"/><rect x="304" y="26" width="13" height="22" rx="3"/><rect x="323" y="26" width="13" height="22" rx="3"/>
+  </g>
+  <path d="M352 37 L392 37" stroke="#C2571A" stroke-width="2" marker-end="url(#c1)"/>
+  <rect x="400" y="22" width="128" height="30" rx="4" fill="none" stroke="#C2571A" stroke-width="2"/>
+  <text x="464" y="42" font-size="11.5" fill="#021535" text-anchor="middle">dashboard, alert</text>
+  <text x="546" y="42" font-size="12" fill="#C2571A" font-weight="600">the money is already gone</text>
+  <text x="0" y="70" font-size="11" fill="#5a616b">Every one of these calls was paid for before anyone saw a number.</text>
+
+  <line x1="0" y1="94" x2="720" y2="94" stroke="#dfe3e9" stroke-width="1"/>
+
+  <text x="0" y="118" font-size="10.5" fill="#2E78C9" letter-spacing="1.5">A BUDGET CHECKED BEFORE THE CALL &#183; A BRAKE</text>
+  <g fill="#2E78C9" opacity="0.75">
+    <rect x="0" y="132" width="13" height="22" rx="3"/><rect x="19" y="132" width="13" height="22" rx="3"/><rect x="38" y="132" width="13" height="22" rx="3"/><rect x="57" y="132" width="13" height="22" rx="3"/><rect x="76" y="132" width="13" height="22" rx="3"/>
+  </g>
+  <rect x="100" y="126" width="10" height="34" rx="3" fill="#2E78C9"/>
+  <text x="122" y="148" font-size="11.5" fill="#021535">gate: is this call inside the ceiling for this agent, this window?</text>
+  <g fill="#dfe3e9">
+    <rect x="470" y="132" width="13" height="22" rx="3"/><rect x="489" y="132" width="13" height="22" rx="3"/><rect x="508" y="132" width="13" height="22" rx="3"/><rect x="527" y="132" width="13" height="22" rx="3"/><rect x="546" y="132" width="13" height="22" rx="3"/><rect x="565" y="132" width="13" height="22" rx="3"/><rect x="584" y="132" width="13" height="22" rx="3"/><rect x="603" y="132" width="13" height="22" rx="3"/>
+  </g>
+  <text x="470" y="176" font-size="11.5" fill="#5a616b">never issued</text>
+  <text x="0" y="200" font-size="12" fill="#2E78C9" font-weight="600">Same alert. The difference is which side of the call it sits on.</text>
+  <defs><marker id="c1" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 z" fill="#C2571A"/></marker></defs>
+</svg><figcaption>Figure 3. The same alert, on two sides of the call. Read afterwards it is a record of spending that already happened. Checked before the call, against the running total, it is the only thing that stops a runaway while the money is still in the room.</figcaption></figure>
+
+<div class="callout">
+<h3>The four controls, and who owns them</h3>
+<p><strong>Hard ceilings</strong> on tokens, requests and
+wall-clock, per agent per window, checked before the call. Not the per-call cap engineering
+already sets; these cap cumulative behavior across a run and across runs, which is where the
+money goes.</p>
+<p><strong>A kill switch</strong> outside the agent's runtime, so a
+misbehaving agent cannot suppress it. <strong>A circuit breaker</strong> per tool, tripping on
+infrastructure failures only. <strong>A burn-rate alert</strong> on spending velocity, not on
+the monthly total.</p>
+<p>Engineering owns the mechanisms. You own the numbers and the
+escalation: what the three ceilings are, what velocity counts as abnormal, and who gets paged
+at each tier. Those are product decisions disguised as infrastructure settings, and left
+implicit they default to whatever the framework shipped, which for cost is usually nothing.</p>
+</div>
+
+<p>Be precise about what the platforms do and do not give you, because the loose version of
+this claim is easy to refute. They do offer account-level monthly spend ceilings and budget
+alerts, and on two of the large clouds a budget policy can deny further calls once a threshold
+is crossed. What none of them ships is a per-agent, per-window ceiling evaluated before the
+call executes, which is the only control that stops one misbehaving agent rather than the whole
+account after the money is gone. Platforms enforce throughput, requests and
+tokens per minute; cost and consequence controls need business logic only you can write,
+because only you know what this agent is worth and what number should make a phone ring. The
+danger is not the gap. It is assuming the infrastructure is protecting you, shipping on that
+assumption, and finding out on a Saturday. A useful tell at a launch review: ask what the daily
+ceiling is and who gets paged when hourly burn triples. "We have a monthly budget alert" and a
+shrug means the agent has no brakes, only a receipt.</p>
+
+</div>
+
+<div class="wp-sect"><div class="wp-part">Part 5</div>
+<h2>The comparison that decides it, in six lines</h2>
+
+<p><strong>The break-even.</strong> An agent is worth its cost when the value of the task,
+times how often it runs, exceeds the fully loaded per-task cost: tokens times the architecture
+multiplier, plus the human supervision the agent still requires. Teams compare sticker price to
+an hourly rate and conclude the agent is obviously cheaper. Often it still wins. Sometimes,
+counted properly, it does not, and that is a finding worth having before you build.</p>
+
+<p><strong>The comparison is against the best alternative, not against nothing.</strong> The
+alternative might be traditional automation, a constrained non-agentic AI feature, or a human
+with better tooling. The agent has to beat that, not beat the empty field.</p>
+
+<div class="callout">
+<h3>The calculation, in six lines</h3>
+<p>You cannot do this from a price list. Lines 1 to 3 come from
+reading the trace of one real task, which means the first version of this number arrives after
+the prototype and not before it. Estimate them before you build, then replace them with
+measurements at the first opportunity.</p>
+<table>
+  <tr><th>#</th><th>Line</th><th>Where it comes from</th></tr>
+  <tr><td class="wp-n">1</td><td>Model re-entries per task, <em>N</em></td><td>Count them in a trace. Name each one and ask whether it needs a model at all.</td></tr>
+  <tr><td class="wp-n">2</td><td>Average input tokens carried per re-entry, <em>C</em></td><td>System prompt, tool definitions, retrieved content, conversation so far. This grows through the task; use the average, not the first call.</td></tr>
+  <tr><td class="wp-n">3</td><td>Average output tokens per re-entry, <em>O</em></td><td>Include reasoning tokens if extended thinking is on. They bill at output rates and do not appear in the response.</td></tr>
+  <tr><td class="wp-n">4</td><td>Compute per task = <em>N</em> &times; (<em>C</em> &times; input price + <em>O</em> &times; output price)</td><td>Priced per tier, per the routing you actually intend. Apply the caching discount only where the prefix is stable and the traffic is dense enough to hit a live cache.</td></tr>
+  <tr><td class="wp-n">5</td><td>Loaded per task = compute + supervision + downstream rework</td><td>Supervision is the escalation rate times the cost of a review. Rework is the correction the output needs before it is usable.</td></tr>
+  <tr><td class="wp-n">6</td><td>Case = loaded &times; volume &times; 1.5, plus the year-one floor</td><td>Compare against the best alternative at the same volume. Hold per-task cost flat across the horizon.</td></tr>
+</table>
+<p>Line 4 is where teams stop. Lines 5 and 6 are where the answer
+actually changes.</p>
+</div>
+
+<p><strong>Which line dominates depends on volume, and it flips.</strong> At low volume the
+year-one floor dominates and the token bill is noise; arguing about model choice on a thousand
+tasks a month is arguing about the wrong line, and the real question is whether the fixed cost
+of running an agentic product properly is worth carrying at all. At high volume the multiplier
+dominates and the floor amortises to nothing; there, architecture is the entire decision. Run
+the case at your projection and at half of it, because the two halves of that sentence give
+opposite advice and you need to know which side of the crossover you are on.</p>
+
+<p><strong>The 1.5x correction.</strong> Actual total cost of ownership runs forty to sixty
+percent above the initial case in typical deployments, because teams anchor on the vendor quote and miss
+orchestration, oversight, eval maintenance, and the model-update cycle that arrives every three
+to six months and costs a re-validation each time. Multiply before you present. If that makes
+the case fail, it was already failing and you found out cheaply.</p>
+
+<p><strong>Count the downstream rework.</strong> This is the line most often missing entirely.
+Where the agent's output requires more verification, correction or refactoring than the
+alternative's, that cost is real, it lands on a team that did not sign the business case, and
+no token meter reports it. For code-generating agents it can exceed the generation cost. Put a
+number on it or state explicitly that you have assumed it to be zero.</p>
+
+<p><strong>The multiplier does not transfer between task classes.</strong> Five to fifty for
+ordinary work, one hundred to five hundred for code. Benchmark your classification agent,
+extrapolate to your drafting agent, and you can be wrong by an order of magnitude. Measure per
+class. This mistake looks like diligence, which is why it survives review.</p>
+
+<p><strong>The brownfield inversion.</strong> In greenfield the floor is whatever the agent
+costs to run. In brownfield, replacing a step in a system that already works, the agent must
+beat the marginal cost of the human step <em>and</em> justify integration, change management
+and supervision that a greenfield build never paid. Meanwhile the licence component of that
+floor has been falling as platform vendors fold AI capability into base subscriptions, so the
+licence question and the loaded-cost question now move in opposite directions and have to be
+modeled separately.</p>
+
+<p><strong>Outcome-based pricing,</strong> where a vendor bills per resolved case rather than
+per token, simplifies the question to: at what resolution rate does this vendor stay
+profitable, and does that match what the workflow can accept? Where it is not on offer, you are
+holding the failure cost yourself, and that is its own line.</p>
+
+<div class="box tinted">
+<h3>Worked example: the refund agent</h3>
+<p>The bare model cost per refund decision is a couple of cents, far below the loaded cost of a
+human's time. That comparison is the trap.</p>
+<p><em>Count the re-entries.</em> One refund decision re-enters the model about eight times:
+classify the request, pull and read the order, weigh the account history, check the policy, run
+the fraud signal, draft the decision, format the audit record, and produce the escalation
+package when it escalates. Each pass carries a few thousand tokens of context. The multiplier
+is roughly ten times the bare cost, so a decision whose model cost is two cents has a real
+compute cost nearer twenty. That is before a human touches it.</p>
+<p><em>Add the supervision.</em> Say the agent resolves seventy percent autonomously and
+escalates thirty. The seventy percent cost cents each. The thirty percent still cost a human
+review, so the agent does not remove that cost; it concentrates the human on the cases where
+judgment pays. Break-even is not "agent cheaper than human per task." It is "fully loaded cost,
+including supervising the escalated minority, below the cost of humans reviewing all of it,
+with the wrongful-refund risk priced in." Here it clears, but only because the escalation rate
+is low enough that the supervised minority is truly a minority.</p>
+<p>The figures are illustrative and will move. The method is durable:
+count the model re-entries and the context each one carries, and you have the multiplier, which
+is the number that actually decides the case.</p>
+</div>
+
+</div>
+
+<div class="wp-sect"><div class="wp-part">Part 6</div>
+<h2>What to ask, and when</h2>
+
+<div class="wp-cols">
+<div>
+<h3>At the build decision</h3>
+<ul>
+<li>What is the best non-agent alternative, and by how much must the agent beat it?</li>
+<li>How many model re-entries for a typical task? For the worst one?</li>
+<li>Which of those could be deterministic?</li>
+<li>What is the loaded per-task cost, including supervision and downstream rework?</li>
+<li>Has the case been multiplied by 1.5, with per-task cost held flat rather than declining?</li>
+<li>Greenfield or brownfield, and which floor applies?</li>
+</ul>
+</div>
+<div>
+<h3>At the design review</h3>
+<ul>
+<li>Is the prefix stable enough to cache, and does our traffic shape realize the saving?</li>
+<li>Which task classes route to a small model, and on what signal?</li>
+<li>Which traffic is interactive by requirement rather than by habit?</li>
+<li>Is extended thinking on per class, or on by default?</li>
+<li>Does retrieval inject spans or whole documents, and does anything ever remove context?</li>
+<li>Is every success criterion measurable, with a tool that can measure it?</li>
+</ul>
+</div>
+</div>
+
+<h3>At the launch review</h3>
+<ul>
+<li>The three ceilings, as three numbers: tokens per run and per window, requests per window, wall-clock per run. Enforced before the call or logged after it?</li>
+<li>Does the kill switch live outside the agent's runtime, and who is paged when hourly burn triples, by name?</li>
+<li>What is per-task cost at the trajectory level, including coordination overhead and human review time? If nobody can produce it, that is a finding about a surface nobody designed.</li>
+</ul>
+
+</div>
+
+<div class="wp-closing">
+<h3>The one line to carry out of this</h3>
+<p>List price is the wrong number in both directions. Too high, because caching, batching and
+routing move real traffic well below it. Too low, because the architecture multiplier, the
+supervision, the floor cost and the downstream rework are all absent from it. The number that
+decides your product is produced by your design, which is the good news: it is yours to
+change.</p>
+</div>
+
+<div class="wp-src">
+  <div class="wp-src-h">The books behind this paper</div>
+  <ul>
+    <li><a href="../book3/ch04-not-every-problem.html">Not Every Problem Deserves an Agent</a>. Book 1, chapter 4. Suitability and cost, including the comparison against the alternative.</li>
+    <li><a href="../book4/ch03-not-every-problem.html">Not Every Problem Deserves an Agent</a>. Book 2, chapter 3. The token bill, and where the architecture multiplier comes from.</li>
+    <li><a href="../book4/ch10-guardrails.html">Operational Guardrails: Budgets, Ceilings, Kill-Switches</a>. Book 2, chapter 10. Why cost control is a runtime safety control.</li>
+    <li><a href="../book5/deciding-what-to-build.html">Deciding What to Build, and Whether To</a>. Book 3. Where the cost decision actually sits in an organization.</li>
+  </ul>
+</div>
+
+<div class="wp-note">
+<p><strong>Sources and status.</strong> Drawn from the <em>Agentic AI for Product Leaders</em>
+series by Yoram Friedman: <em>Agentic AI for Busy Product Managers</em> (second edition),
+chapter 4 on suitability and cost; <em>Why Agentic AI Products Fail</em>, chapter 3 on the
+token bill and chapter 10 on operational guardrails; <em>The Agentic AI Team</em>, on where the
+cost decision sits in the organization; and <em>The Agentic AI Practitioner</em> (forthcoming, September 2026), on the loaded
+cost model in the Human Brief. Benchmark ranges are industry figures stated as ranges and
+stamped to mid-2026, and should be replaced with your own measurements. The model prices in Table 1 are a
+snapshot and will be wrong before this document is. The ratios beside them have held across
+vendors and across three years of price movement, which is why the argument is built on the
+ratios and the table is offered only as a starting point. The runaway-loop and coordination
+figures are published incident and research data. The refund agent is an illustrative
+composite.</p>
+</div>
+</div>
+
+<script defer src="https://cloud.umami.is/script.js" data-website-id="6701185a-719e-4b6f-baaf-dcd504ef6b1a"></script>
+<script defer src="../assets/site-extras.js"></script>
+</body>
+</html>

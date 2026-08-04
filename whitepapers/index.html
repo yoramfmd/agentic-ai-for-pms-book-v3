@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Whitepapers &mdash; Agentic AI for Product Leaders</title>
+<meta name="description" content="Eight short whitepapers for product leaders building agentic AI: cost, readiness, supervision, prototyping, procurement, and the roles that arrive with the agent. Free to read and download.">
+<link rel="canonical" href="https://agenticaiproductmanagement.com/whitepapers/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Agentic AI Series">
+<meta property="og:title" content="Whitepapers &mdash; Agentic AI for Product Leaders">
+<meta property="og:description" content="Eight short whitepapers for product leaders building agentic AI: cost, readiness, supervision, prototyping, procurement, and the roles that arrive with the agent. Free to read and download.">
+<meta property="og:image" content="https://agenticaiproductmanagement.com/assets/og-series-wide.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://agenticaiproductmanagement.com/whitepapers/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Whitepapers &mdash; Agentic AI for Product Leaders">
+<meta name="twitter:description" content="Eight short whitepapers for product leaders building agentic AI: cost, readiness, supervision, prototyping, procurement, and the roles that arrive with the agent. Free to read and download.">
+<meta name="twitter:image" content="https://agenticaiproductmanagement.com/assets/og-series-wide.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Whitepapers",
+  "description": "Eight short whitepapers for product leaders building agentic AI: cost, readiness, supervision, prototyping, procurement, and the roles that arrive with the agent. Free to read and download.",
+  "url": "https://agenticaiproductmanagement.com/whitepapers/",
+  "author": {
+    "@type": "Person",
+    "name": "Yoram Friedman"
+  },
+  "hasPart": [
+    {
+      "@type": "Article",
+      "name": "The New PM Role",
+      "url": "https://agenticaiproductmanagement.com/whitepapers/the-new-pm-role.html"
+    },
+    {
+      "@type": "Article",
+      "name": "The User Who Left the Room",
+      "url": "https://agenticaiproductmanagement.com/whitepapers/the-user-who-left-the-room.html"
+    },
+    {
+      "@type": "Article",
+      "name": "Prototyping the Judgment",
+      "url": "https://agenticaiproductmanagement.com/whitepapers/prototyping-the-judgment.html"
+    },
+    {
+      "@type": "Article",
+      "name": "What an Agent Actually Costs",
+      "url": "https://agenticaiproductmanagement.com/whitepapers/what-an-agent-actually-costs.html"
+    },
+    {
+      "@type": "Article",
+      "name": "What the Platform Gives You",
+      "url": "https://agenticaiproductmanagement.com/whitepapers/what-the-platform-gives-you.html"
+    },
+    {
+      "@type": "Article",
+      "name": "What \"It Works\" Actually Means",
+      "url": "https://agenticaiproductmanagement.com/whitepapers/what-it-works-actually-means.html"
+    },
+    {
+      "@type": "Article",
+      "name": "Designing for the Supervising User",
+      "url": "https://agenticaiproductmanagement.com/whitepapers/designing-for-the-supervising-user.html"
+    },
+    {
+      "@type": "Article",
+      "name": "The Agent You Never Hired",
+      "url": "https://agenticaiproductmanagement.com/whitepapers/the-agent-you-never-hired.html"
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="../book3/styles.css">
+<style>
+  /* ── whitepaper section, layered on book3/styles.css ── */
+  body { font-family: var(--serif); }
+  .wp { max-width: 880px; margin: 0 auto; padding: var(--space-6) var(--space-6) var(--space-8); }
+  .wp-back { font-family: var(--sans); font-size: 13px; margin-bottom: var(--space-6); }
+  .wp-back a { color: var(--ink-muted); text-decoration: none; }
+  .wp-back a:hover { color: var(--ink); }
+
+  /* ── landing ── */
+  .wp-hero { padding: var(--space-6) 0 var(--space-6); border-bottom: 1px solid var(--rule); margin-bottom: var(--space-7); }
+  .wp-eyebrow { font-family: var(--sans); font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: var(--space-3); }
+  .wp-h1 { font-family: var(--serif); font-size: 44px; font-weight: 700; line-height: 1.1; color: var(--ink); margin-bottom: var(--space-3); }
+  .wp-sub { font-family: var(--serif); font-size: 21px; font-weight: 400; line-height: 1.35; color: var(--ink-soft); font-style: italic; margin-bottom: var(--space-5); }
+  .wp-intro p { font-size: 18px; line-height: 1.65; margin-bottom: var(--space-4); }
+
+  .wp-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-4); margin: var(--space-6) 0 var(--space-7); }
+  .wp-card { display: flex; flex-direction: column; border: 0.5px solid var(--rule); border-radius: var(--radius-md); background: var(--bg); text-decoration: none; color: inherit; overflow: hidden; transition: box-shadow 0.15s, transform 0.15s; }
+  .wp-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.10); transform: translateY(-2px); }
+  /* the paper's own cover, cropped to the title band. It carries the title and
+     subtitle, so the card body does not repeat them. */
+  .wp-cover-wrap { flex: 0 0 auto; position: relative; width: 100%; aspect-ratio: 800 / 588; overflow: hidden; background: #021535; border-bottom: 0.5px solid var(--rule); }
+  .wp-cover { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+  /* the crop lands mid-paragraph on some covers. Fade the last few percent into
+     the cover's own navy so the cut reads as an edge rather than a slice. */
+  .wp-cover-wrap::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 22%;
+    background: linear-gradient(to bottom, rgba(2,21,53,0) 0%, rgba(2,21,53,0.75) 55%, #021535 100%); }
+  .wp-card-body { display: flex; flex-direction: column; flex-grow: 1; padding: var(--space-5); }
+  .wp-card-q { font-family: var(--sans); font-size: 11px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--blue-deep); margin-bottom: var(--space-3); line-height: 1.4; }
+  .wp-card-desc { font-family: var(--sans); font-size: 14px; color: var(--ink-soft); line-height: 1.6; margin-bottom: var(--space-4); flex-grow: 1; }
+  .wp-card-meta { font-family: var(--sans); font-size: 12px; color: var(--ink-muted); display: flex; gap: var(--space-3); align-items: center; }
+  .wp-card-cta { font-family: var(--sans); font-size: 13px; font-weight: 500; color: var(--blue-deep); margin-left: auto; white-space: nowrap; }
+
+  /* ── article ── */
+  .wp-art { max-width: var(--measure); margin: 0 auto; }
+  .wp-art .wp-h1 { font-size: 38px; }
+  .wp-art-meta { font-family: var(--sans); font-size: 13px; color: var(--ink-muted); margin-bottom: var(--space-5); }
+  .wp-stamp { font-family: var(--sans); font-size: 13.5px; line-height: 1.55; color: var(--amber-deep);
+    background: var(--amber-tint); border-left: 3px solid var(--amber); border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    padding: var(--space-3) var(--space-4); margin-bottom: var(--space-5); }
+  .wp-dl { display: flex; align-items: center; gap: var(--space-4); flex-wrap: wrap; padding: var(--space-4) var(--space-5); border: 0.5px solid var(--rule); border-radius: var(--radius-md); background: var(--tint-warm); margin-bottom: var(--space-7); font-family: var(--sans); font-size: 14px; }
+  .wp-dl-thumb { width: 78px; height: auto; border-radius: 3px; border: 0.5px solid rgba(0,0,0,0.15); flex: 0 0 auto; }
+  .wp-dl-btn { display: inline-block; padding: 8px 16px; border-radius: var(--radius-sm); background: var(--blue-deep); color: #fff; text-decoration: none; font-weight: 500; font-size: 14px; }
+  .wp-dl-btn:hover { background: var(--blue); text-decoration: none; }
+  .wp-dl-note { color: var(--ink-muted); }
+
+  .wp-part { font-family: var(--sans); font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue-deep); margin: var(--space-8) 0 var(--space-2); }
+  .wp-part + h2 { margin-top: 0; padding-top: 0; border-top: none; }
+  .wp-lede { font-size: 20px; line-height: 1.5; color: var(--ink-soft); margin-bottom: var(--space-5); }
+  /* figures break out of the reading measure, they were drawn for a wider column */
+  .wp-art figure { margin: var(--space-7) 0; width: 116%; margin-left: -8%; }
+  .wp-art figure svg { width: 100%; height: auto; display: block; }
+  /* SVG font-family is a presentation attribute, so the body serif rule wins
+     without this. The figures were drawn in a sans and must stay in one. */
+  .wp-art figure svg text, .wp-art figure svg tspan { font-family: var(--sans); }
+  .wp-art figcaption { font-family: var(--sans); font-size: 13px; line-height: 1.5; color: var(--ink-muted); border-top: 1px solid var(--rule); padding-top: var(--space-2); margin-top: var(--space-3); }
+  .wp-num { display: grid; grid-template-columns: auto 1fr; gap: var(--space-4); border-top: 2px solid var(--ink); padding-top: var(--space-3); margin: var(--space-5) 0; }
+  .wp-num-n { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-muted); padding-top: 3px; }
+  .wp-num p { margin-bottom: var(--space-2); }
+  .wp-num p:last-child { margin-bottom: 0; }
+  .wp-cols { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-5); margin: var(--space-5) 0; }
+  .wp-cols h3 { margin-top: 0; }
+  .wp-stat { display: grid; grid-template-columns: auto 1fr; gap: var(--space-5); align-items: baseline;
+    border-top: 2px solid var(--ink); padding-top: var(--space-3); margin: var(--space-6) 0; }
+  .wp-stat-n { font-family: var(--serif); font-size: 34px; font-weight: 700; line-height: 1; color: var(--ink); white-space: nowrap; }
+  .wp-stat-t { font-family: var(--sans); font-size: 14px; line-height: 1.55; color: var(--ink-soft); }
+  /* tables, like figures, were laid out for a wider column than the reading measure */
+  .wp-art table { border-collapse: collapse; width: 116%; margin-left: -8%; margin-top: var(--space-6);
+    margin-bottom: var(--space-6); font-family: var(--sans); font-size: 13.5px; }
+  .wp-art th { text-align: left; font-weight: 600; border-bottom: 1.5px solid var(--ink); padding: var(--space-3); white-space: nowrap; }
+  .wp-art td { border-bottom: 0.5px solid var(--rule); padding: var(--space-3); vertical-align: top; color: var(--ink-soft); }
+  /* only short numeric cells are held on one line. Prose columns wrap normally. */
+  .wp-art td.wp-n { white-space: nowrap; color: var(--ink); }
+  .wp-art caption { caption-side: bottom; text-align: left; font-family: var(--sans); font-size: 13px;
+    line-height: 1.5; color: var(--ink-muted); padding-top: var(--space-3); }
+  .wp-closing { background: var(--tint-warm); border-radius: var(--radius-lg); padding: var(--space-6); margin: var(--space-7) 0; }
+  .wp-closing .wp-part { margin-top: 0; }
+  .wp-closing h2 { margin-top: var(--space-2); padding-top: 0; border-top: none; }
+  .wp-note { font-family: var(--sans); font-size: 13px; line-height: 1.6; color: var(--ink-muted); border-top: 1px solid var(--rule); padding-top: var(--space-4); margin-top: var(--space-7); }
+  .wp-note a { color: var(--ink-soft); }
+  .wp-src { font-family: var(--sans); font-size: 14px; margin-top: var(--space-7); padding: var(--space-5); border: 0.5px solid var(--rule); border-radius: var(--radius-md); background: var(--tint-warm); }
+  .wp-src-h { font-weight: 600; color: var(--ink); margin-bottom: var(--space-3); font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; }
+  .wp-src ul { margin: 0 0 0 var(--space-5); }
+  .wp-src li { margin-bottom: var(--space-2); color: var(--ink-soft); }
+
+  @media (max-width: 700px) {
+    .wp { padding: var(--space-5) var(--space-4) var(--space-7); }
+    .wp-grid { grid-template-columns: 1fr; }
+    .wp-h1 { font-size: 32px; }
+    .wp-art .wp-h1 { font-size: 28px; }
+    .wp-art figure { width: 100%; margin-left: 0; }
+    .wp-cols { grid-template-columns: 1fr; }
+    .wp-stat { grid-template-columns: 1fr; gap: var(--space-2); }
+    .wp-sub { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+<div class="wp">
+  <div class="wp-back"><a href="../index.html">&larr; All books</a></div>
+  <div class="wp-hero">
+    <div class="wp-eyebrow">Whitepapers &nbsp;&middot;&nbsp; Agentic AI for Product Leaders</div>
+    <h1 class="wp-h1">Eight papers, one question each</h1>
+    <div class="wp-sub">Short, self-contained, and drawn from the four books.</div>
+  </div>
+
+  <div class="wp-intro">
+    <p>Each of these answers a single question a product manager actually gets asked, in
+    eight to fifteen pages. They are drawn from the series but written to stand alone, so
+    you can hand one to a room that has not read any of the books.</p>
+    <p>They are ordered here the way I would read them, not alphabetically. Start anywhere.
+    Every one is free to read on this page and free to download.</p>
+  </div>
+
+  <div class="wp-grid">
+    <a class="wp-card" href="the-new-pm-role.html">
+      <div class="wp-cover-wrap"><img class="wp-cover" src="covers/the-new-pm-role.jpg" width="800" height="588" loading="lazy"
+           alt="The New PM Role. Three vectors, and only one of them is about tools."></div>
+      <div class="wp-card-body">
+        <div class="wp-card-q">What is my job now?</div>
+        <div class="wp-card-desc">Three vectors define the job now. Efficiency arrives for everyone on the same day, so it is the new floor. The other two, judgment and collaboration, cannot be bought or installed.</div>
+        <div class="wp-card-meta"><span>13 pages</span><span class="wp-card-cta">Read &rarr;</span></div>
+      </div>
+    </a>
+    <a class="wp-card" href="the-user-who-left-the-room.html">
+      <div class="wp-cover-wrap"><img class="wp-cover" src="covers/the-user-who-left-the-room.jpg" width="800" height="588" loading="lazy"
+           alt="The User Who Left the Room. What a trained person was silently supplying, and who supplies it now."></div>
+      <div class="wp-card-body">
+        <div class="wp-card-q">What did the person know that nobody wrote down?</div>
+        <div class="wp-card-desc">For twenty years a user story worked because a trained person stood at the other end, completing the specification at runtime for free. Take them out and it has to be written down.</div>
+        <div class="wp-card-meta"><span>8 pages</span><span class="wp-card-cta">Read &rarr;</span></div>
+      </div>
+    </a>
+    <a class="wp-card" href="prototyping-the-judgment.html">
+      <div class="wp-cover-wrap"><img class="wp-cover" src="covers/prototyping-the-judgment.jpg" width="800" height="588" loading="lazy"
+           alt="Prototyping the Judgment. What a product manager builds when the screen is no longer the product."></div>
+      <div class="wp-card-body">
+        <div class="wp-card-q">What do I prototype when there is no UI?</div>
+        <div class="wp-card-desc">PMs are told to prototype, and at high autonomy there is almost no interface left. The object of the prototype moved, from the screen to the judgment. The disagreements are the specification.</div>
+        <div class="wp-card-meta"><span>9 pages</span><span class="wp-card-cta">Read &rarr;</span></div>
+      </div>
+    </a>
+    <a class="wp-card" href="what-an-agent-actually-costs.html">
+      <div class="wp-cover-wrap"><img class="wp-cover" src="covers/what-an-agent-actually-costs.jpg" width="800" height="588" loading="lazy"
+           alt="What an Agent Actually Costs. Token economics and the build decision, for product managers."></div>
+      <div class="wp-card-body">
+        <div class="wp-card-q">Should we build it?</div>
+        <div class="wp-card-desc">The number that decides your product is not the model's price. It is how often your architecture re-enters the model. How to compute a defensible per-task cost and compare it to the alternative.</div>
+        <div class="wp-card-meta"><span>15 pages</span><span class="wp-card-cta">Read &rarr;</span></div>
+      </div>
+    </a>
+    <a class="wp-card" href="what-the-platform-gives-you.html">
+      <div class="wp-cover-wrap"><img class="wp-cover" src="covers/what-the-platform-gives-you.jpg" width="800" height="588" loading="lazy"
+           alt="What the Platform Gives You. And what you compose, what you write, and what nobody ships."></div>
+      <div class="wp-card-body">
+        <div class="wp-card-q">What do we buy?</div>
+        <div class="wp-card-desc">What the platform ships, what your team composes, what you write as policy, and what nobody shipped as of mid-2026. How to read a vendor page without overestimating or rebuilding it.</div>
+        <div class="wp-card-meta"><span>9 pages</span><span class="wp-card-cta">Read &rarr;</span></div>
+      </div>
+    </a>
+    <a class="wp-card" href="what-it-works-actually-means.html">
+      <div class="wp-cover-wrap"><img class="wp-cover" src="covers/what-it-works-actually-means.jpg" width="800" height="588" loading="lazy"
+           alt="What &quot;It Works&quot; Actually Means. Evidence, distributions, and the readiness question that stops a launch."></div>
+      <div class="wp-card-body">
+        <div class="wp-card-q">How do we know it works?</div>
+        <div class="wp-card-desc">A green checkmark on a probabilistic system does not mean the agent works. It means it passed once. The four places the testing instinct breaks, and what a launch review should refuse to accept.</div>
+        <div class="wp-card-meta"><span>10 pages</span><span class="wp-card-cta">Read &rarr;</span></div>
+      </div>
+    </a>
+    <a class="wp-card" href="designing-for-the-supervising-user.html">
+      <div class="wp-cover-wrap"><img class="wp-cover" src="covers/designing-for-the-supervising-user.jpg" width="800" height="588" loading="lazy"
+           alt="Designing for the Supervising User. The half of an agentic product that ships to the person watching."></div>
+      <div class="wp-card-body">
+        <div class="wp-card-q">Who watches it?</div>
+        <div class="wp-card-desc">Climb the autonomy ladder and your user becomes the supervisor of a job they used to do themselves. Nobody staffed that role. What you actually build for the person now watching.</div>
+        <div class="wp-card-meta"><span>10 pages</span><span class="wp-card-cta">Read &rarr;</span></div>
+      </div>
+    </a>
+    <a class="wp-card" href="the-agent-you-never-hired.html">
+      <div class="wp-cover-wrap"><img class="wp-cover" src="covers/the-agent-you-never-hired.jpg" width="800" height="588" loading="lazy"
+           alt="The Agent You Never Hired. Introducing an actor into a team that never interviewed it."></div>
+      <div class="wp-card-body">
+        <div class="wp-card-q">Why did the deployment fail when the model worked?</div>
+        <div class="wp-card-desc">Most agentic projects fail on arrival, not on capability. You onboarded a contractor with no statement of work and no termination clause, into a team that never interviewed it.</div>
+        <div class="wp-card-meta"><span>10 pages</span><span class="wp-card-cta">Read &rarr;</span></div>
+      </div>
+    </a>
+  </div>
+
+  <div class="wp-note">
+    <p>All eight are free. No email, no form. If one is useful, the four books behind them
+    are free to read online as well.</p>
+  </div>
+</div>
+
+<script defer src="https://cloud.umami.is/script.js" data-website-id="6701185a-719e-4b6f-baaf-dcd504ef6b1a"></script>
+<script defer src="../assets/site-extras.js"></script>
+</body>
+</html>

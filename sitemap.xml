@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://agenticaiproductmanagement.com/</loc><priority>1.0</priority></url>
+  <url><loc>https://agenticaiproductmanagement.com/whitepapers/</loc><priority>0.9</priority></url>
+  <url><loc>https://agenticaiproductmanagement.com/whitepapers/the-new-pm-role.html</loc><priority>0.8</priority></url>
+  <url><loc>https://agenticaiproductmanagement.com/whitepapers/the-user-who-left-the-room.html</loc><priority>0.8</priority></url>
+  <url><loc>https://agenticaiproductmanagement.com/whitepapers/prototyping-the-judgment.html</loc><priority>0.8</priority></url>
+  <url><loc>https://agenticaiproductmanagement.com/whitepapers/what-an-agent-actually-costs.html</loc><priority>0.8</priority></url>
+  <url><loc>https://agenticaiproductmanagement.com/whitepapers/what-the-platform-gives-you.html</loc><priority>0.8</priority></url>
+  <url><loc>https://agenticaiproductmanagement.com/whitepapers/what-it-works-actually-means.html</loc><priority>0.8</priority></url>
+  <url><loc>https://agenticaiproductmanagement.com/whitepapers/designing-for-the-supervising-user.html</loc><priority>0.8</priority></url>
+  <url><loc>https://agenticaiproductmanagement.com/whitepapers/the-agent-you-never-hired.html</loc><priority>0.8</priority></url>
   <url><loc>https://agenticaiproductmanagement.com/book3/</loc><priority>0.9</priority></url>
   <url><loc>https://agenticaiproductmanagement.com/book3/appendix-a-platform.html</loc><priority>0.7</priority></url>
   <url><loc>https://agenticaiproductmanagement.com/book3/appendix-b-glossary.html</loc><priority>0.7</priority></url>

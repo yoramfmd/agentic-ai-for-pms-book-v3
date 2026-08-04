@@ -1,0 +1,54 @@
+{
+  "the-new-pm-role": [
+    ["Not Every Problem Deserves an Agent", "../book3/ch04-not-every-problem.html", "Book 1, chapter 4. Suitability, and the cost comparison against traditional automation."],
+    ["You Are Not a Bridge Anymore", "../book4/ch02-not-a-bridge.html", "Book 2, chapter 2. The bridge-operator framing this paper's first vector comes from."],
+    ["How the Work Splits", "../book4/ch04-how-work-splits.html", "Book 2, chapter 4. The work-unit shift, and the two briefs."],
+    ["What's Left for the PM?", "../book5/pm.html", "Book 3. What the translation layer was carrying, and what survives its automation."],
+    ["The Boundary and the Wall", "../book5/the-boundary-and-the-wall.html", "Book 3. The seam between the PM who decides a boundary and the architect who enforces it."]
+  ],
+  "the-user-who-left-the-room": [
+    ["The User Who Left the Room", "../book3/ch01-user-who-left-the-room.html", "Book 1, chapter 1. The Departed User framework in full."],
+    ["The Two Briefs: From Decision to Buildable Spec", "../book3/ch05-two-briefs.html", "Book 1, chapter 5. Where the judgment goes once it has to be written down."],
+    ["How the Work Splits", "../book4/ch04-how-work-splits.html", "Book 2, chapter 4. The shift from user story to outcome specification."],
+    ["The Boundary and the Wall", "../book5/the-boundary-and-the-wall.html", "Book 3. Who decides a boundary, and who enforces it."]
+  ],
+  "prototyping-the-judgment": [
+    ["Vibe Coding for Value: Prototyping to Decide", "../book4/ch05-vibe-coding.html", "Book 2, chapter 5. Prototyping as a way to settle a question rather than to show a screen."],
+    ["How the Work Splits", "../book4/ch04-how-work-splits.html", "Book 2, chapter 4. The two briefs, and what engineering needs from you."],
+    ["Two Kinds of Human-in-the-Loop", "../book4/ch08-two-hitl.html", "Book 2, chapter 8. Program-level and transaction-level oversight, which is what channel two validates."],
+    ["Evals: What the Checkmarks Prove", "../book4/ch09-evals.html", "Book 2, chapter 9. The golden dataset the expert's endorsed cases become."],
+    ["The User Who Left the Room", "../book3/ch01-user-who-left-the-room.html", "Book 1, chapter 1. Why the third persona cannot validate anything."]
+  ],
+  "what-an-agent-actually-costs": [
+    ["Not Every Problem Deserves an Agent", "../book3/ch04-not-every-problem.html", "Book 1, chapter 4. Suitability and cost, including the comparison against the alternative."],
+    ["Not Every Problem Deserves an Agent", "../book4/ch03-not-every-problem.html", "Book 2, chapter 3. The token bill, and where the architecture multiplier comes from."],
+    ["Operational Guardrails: Budgets, Ceilings, Kill-Switches", "../book4/ch10-guardrails.html", "Book 2, chapter 10. Why cost control is a runtime safety control."],
+    ["Deciding What to Build, and Whether To", "../book5/deciding-what-to-build.html", "Book 3. Where the cost decision actually sits in an organization."]
+  ],
+  "what-the-platform-gives-you": [
+    ["What Your Platform Should Give You vs. What You Produce Yourself", "../book3/appendix-a-platform.html", "Book 1, appendix A. The platform taxonomy this paper's five categories come from."],
+    ["Evals: What the Checkmarks Prove", "../book4/ch09-evals.html", "Book 2, chapter 9. What the judge libraries and reference datasets are for."],
+    ["Operational Guardrails: Budgets, Ceilings, Kill-Switches", "../book4/ch10-guardrails.html", "Book 2, chapter 10. Including the hard cost kill-switch nobody ships."],
+    ["Filling the Grid", "../book5/filling-the-grid.html", "Book 3. Who owns the composition work when the platform stops."]
+  ],
+  "what-it-works-actually-means": [
+    ["Evals: What the Checkmarks Prove", "../book4/ch09-evals.html", "Book 2, chapter 9. The three eval breaks and the coverage statement."],
+    ["Two Kinds of Human-in-the-Loop", "../book4/ch08-two-hitl.html", "Book 2, chapter 8. Why program-level oversight can pass while transaction-level oversight fails."],
+    ["You Can't Measure What You Didn't Design", "../book3/ch08-observation.html", "Book 1, chapter 8. The six observation instruments and the four-owner readiness memo."],
+    ["The Green Checkmark Nobody Owned", "../book5/the-green-checkmark.html", "Book 3. Reliability compounding across chained steps, and who owns the gate."]
+  ],
+  "designing-for-the-supervising-user": [
+    ["Two Kinds of Human-in-the-Loop", "../book4/ch08-two-hitl.html", "Book 2, chapter 8. The distinction the whole paper rests on."],
+    ["Why Human-in-the-Loop Fails", "../book4/ch17-hitl-fails.html", "Book 2, chapter 17. The failure modes a signature-shaped review produces."],
+    ["Change Management: From Actor to Supervisor", "../book4/ch16-change-management.html", "Book 2, chapter 16. The transition that creates the supervising user."],
+    ["Skill Erosion: Deskilling, Never-Skilling, Cognitive Surrender", "../book4/ch18-skill-erosion.html", "Book 2, chapter 18. What happens to the supervisor's competence over time."],
+    ["Who Watches It, and Who Can Stop It", "../book5/who-watches-who-stops.html", "Book 3. Who owns the operation of the supervisory channel."]
+  ],
+  "the-agent-you-never-hired": [
+    ["The Agent Is a Team Member Nobody Hired", "../book4/ch19-team-member.html", "Book 2, chapter 19. The agent HR stack and its six functions."],
+    ["Silent Degradation", "../book4/ch13-silent-degradation.html", "Book 2, chapter 13. The compensatory drift vector, and what routing around the agent looks like."],
+    ["Deference: The Problem After Capability", "../book4/ch15-deference.html", "Book 2, chapter 15. Why the team stops questioning it."],
+    ["The Personnel Infrastructure That Does Not Exist", "../book3/ch13-personnel-infrastructure.html", "Book 1, chapter 13. The category gap, and the brownfield cost inversion."],
+    ["The Team Member Nobody Hired", "../book5/the-team-member-nobody-hired.html", "Book 3. The contractor framing, from the team's seat."]
+  ]
+}

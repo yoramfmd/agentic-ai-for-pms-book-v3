@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What the Platform Gives You &mdash; Agentic AI for Product Leaders</title>
+<meta name="description" content="What the platform ships, what your team composes, what you write as policy, and what nobody shipped as of mid-2026. How to read a vendor page without overestimating or rebuilding it.">
+<link rel="canonical" href="https://agenticaiproductmanagement.com/whitepapers/what-the-platform-gives-you.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="The Agentic AI Series">
+<meta property="og:title" content="What the Platform Gives You">
+<meta property="og:description" content="What the platform ships, what your team composes, what you write as policy, and what nobody shipped as of mid-2026. How to read a vendor page without overestimating or rebuilding it.">
+<meta property="og:image" content="https://agenticaiproductmanagement.com/whitepapers/og/what-the-platform-gives-you.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://agenticaiproductmanagement.com/whitepapers/what-the-platform-gives-you.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="What the Platform Gives You">
+<meta name="twitter:description" content="What the platform ships, what your team composes, what you write as policy, and what nobody shipped as of mid-2026. How to read a vendor page without overestimating or rebuilding it.">
+<meta name="twitter:image" content="https://agenticaiproductmanagement.com/whitepapers/og/what-the-platform-gives-you.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "What the Platform Gives You",
+  "description": "What the platform ships, what your team composes, what you write as policy, and what nobody shipped as of mid-2026. How to read a vendor page without overestimating or rebuilding it.",
+  "author": {
+    "@type": "Person",
+    "name": "Yoram Friedman",
+    "jobTitle": "Physician and enterprise product leader"
+  },
+  "isPartOf": {
+    "@type": "CreativeWorkSeries",
+    "name": "Agentic AI for Product Leaders"
+  },
+  "url": "https://agenticaiproductmanagement.com/whitepapers/what-the-platform-gives-you.html",
+  "inLanguage": "en"
+}
+</script>
+<link rel="stylesheet" href="../book3/styles.css">
+<style>
+  /* ── whitepaper section, layered on book3/styles.css ── */
+  body { font-family: var(--serif); }
+  .wp { max-width: 880px; margin: 0 auto; padding: var(--space-6) var(--space-6) var(--space-8); }
+  .wp-back { font-family: var(--sans); font-size: 13px; margin-bottom: var(--space-6); }
+  .wp-back a { color: var(--ink-muted); text-decoration: none; }
+  .wp-back a:hover { color: var(--ink); }
+
+  /* ── landing ── */
+  .wp-hero { padding: var(--space-6) 0 var(--space-6); border-bottom: 1px solid var(--rule); margin-bottom: var(--space-7); }
+  .wp-eyebrow { font-family: var(--sans); font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: var(--space-3); }
+  .wp-h1 { font-family: var(--serif); font-size: 44px; font-weight: 700; line-height: 1.1; color: var(--ink); margin-bottom: var(--space-3); }
+  .wp-sub { font-family: var(--serif); font-size: 21px; font-weight: 400; line-height: 1.35; color: var(--ink-soft); font-style: italic; margin-bottom: var(--space-5); }
+  .wp-intro p { font-size: 18px; line-height: 1.65; margin-bottom: var(--space-4); }
+
+  .wp-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-4); margin: var(--space-6) 0 var(--space-7); }
+  .wp-card { display: flex; flex-direction: column; border: 0.5px solid var(--rule); border-radius: var(--radius-md); background: var(--bg); text-decoration: none; color: inherit; overflow: hidden; transition: box-shadow 0.15s, transform 0.15s; }
+  .wp-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.10); transform: translateY(-2px); }
+  /* the paper's own cover, cropped to the title band. It carries the title and
+     subtitle, so the card body does not repeat them. */
+  .wp-cover-wrap { flex: 0 0 auto; position: relative; width: 100%; aspect-ratio: 800 / 588; overflow: hidden; background: #021535; border-bottom: 0.5px solid var(--rule); }
+  .wp-cover { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+  /* the crop lands mid-paragraph on some covers. Fade the last few percent into
+     the cover's own navy so the cut reads as an edge rather than a slice. */
+  .wp-cover-wrap::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 22%;
+    background: linear-gradient(to bottom, rgba(2,21,53,0) 0%, rgba(2,21,53,0.75) 55%, #021535 100%); }
+  .wp-card-body { display: flex; flex-direction: column; flex-grow: 1; padding: var(--space-5); }
+  .wp-card-q { font-family: var(--sans); font-size: 11px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--blue-deep); margin-bottom: var(--space-3); line-height: 1.4; }
+  .wp-card-desc { font-family: var(--sans); font-size: 14px; color: var(--ink-soft); line-height: 1.6; margin-bottom: var(--space-4); flex-grow: 1; }
+  .wp-card-meta { font-family: var(--sans); font-size: 12px; color: var(--ink-muted); display: flex; gap: var(--space-3); align-items: center; }
+  .wp-card-cta { font-family: var(--sans); font-size: 13px; font-weight: 500; color: var(--blue-deep); margin-left: auto; white-space: nowrap; }
+
+  /* ── article ── */
+  .wp-art { max-width: var(--measure); margin: 0 auto; }
+  .wp-art .wp-h1 { font-size: 38px; }
+  .wp-art-meta { font-family: var(--sans); font-size: 13px; color: var(--ink-muted); margin-bottom: var(--space-5); }
+  .wp-stamp { font-family: var(--sans); font-size: 13.5px; line-height: 1.55; color: var(--amber-deep);
+    background: var(--amber-tint); border-left: 3px solid var(--amber); border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    padding: var(--space-3) var(--space-4); margin-bottom: var(--space-5); }
+  .wp-dl { display: flex; align-items: center; gap: var(--space-4); flex-wrap: wrap; padding: var(--space-4) var(--space-5); border: 0.5px solid var(--rule); border-radius: var(--radius-md); background: var(--tint-warm); margin-bottom: var(--space-7); font-family: var(--sans); font-size: 14px; }
+  .wp-dl-thumb { width: 78px; height: auto; border-radius: 3px; border: 0.5px solid rgba(0,0,0,0.15); flex: 0 0 auto; }
+  .wp-dl-btn { display: inline-block; padding: 8px 16px; border-radius: var(--radius-sm); background: var(--blue-deep); color: #fff; text-decoration: none; font-weight: 500; font-size: 14px; }
+  .wp-dl-btn:hover { background: var(--blue); text-decoration: none; }
+  .wp-dl-note { color: var(--ink-muted); }
+
+  .wp-part { font-family: var(--sans); font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue-deep); margin: var(--space-8) 0 var(--space-2); }
+  .wp-part + h2 { margin-top: 0; padding-top: 0; border-top: none; }
+  .wp-lede { font-size: 20px; line-height: 1.5; color: var(--ink-soft); margin-bottom: var(--space-5); }
+  /* figures break out of the reading measure, they were drawn for a wider column */
+  .wp-art figure { margin: var(--space-7) 0; width: 116%; margin-left: -8%; }
+  .wp-art figure svg { width: 100%; height: auto; display: block; }
+  /* SVG font-family is a presentation attribute, so the body serif rule wins
+     without this. The figures were drawn in a sans and must stay in one. */
+  .wp-art figure svg text, .wp-art figure svg tspan { font-family: var(--sans); }
+  .wp-art figcaption { font-family: var(--sans); font-size: 13px; line-height: 1.5; color: var(--ink-muted); border-top: 1px solid var(--rule); padding-top: var(--space-2); margin-top: var(--space-3); }
+  .wp-num { display: grid; grid-template-columns: auto 1fr; gap: var(--space-4); border-top: 2px solid var(--ink); padding-top: var(--space-3); margin: var(--space-5) 0; }
+  .wp-num-n { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-muted); padding-top: 3px; }
+  .wp-num p { margin-bottom: var(--space-2); }
+  .wp-num p:last-child { margin-bottom: 0; }
+  .wp-cols { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-5); margin: var(--space-5) 0; }
+  .wp-cols h3 { margin-top: 0; }
+  .wp-stat { display: grid; grid-template-columns: auto 1fr; gap: var(--space-5); align-items: baseline;
+    border-top: 2px solid var(--ink); padding-top: var(--space-3); margin: var(--space-6) 0; }
+  .wp-stat-n { font-family: var(--serif); font-size: 34px; font-weight: 700; line-height: 1; color: var(--ink); white-space: nowrap; }
+  .wp-stat-t { font-family: var(--sans); font-size: 14px; line-height: 1.55; color: var(--ink-soft); }
+  /* tables, like figures, were laid out for a wider column than the reading measure */
+  .wp-art table { border-collapse: collapse; width: 116%; margin-left: -8%; margin-top: var(--space-6);
+    margin-bottom: var(--space-6); font-family: var(--sans); font-size: 13.5px; }
+  .wp-art th { text-align: left; font-weight: 600; border-bottom: 1.5px solid var(--ink); padding: var(--space-3); white-space: nowrap; }
+  .wp-art td { border-bottom: 0.5px solid var(--rule); padding: var(--space-3); vertical-align: top; color: var(--ink-soft); }
+  /* only short numeric cells are held on one line. Prose columns wrap normally. */
+  .wp-art td.wp-n { white-space: nowrap; color: var(--ink); }
+  .wp-art caption { caption-side: bottom; text-align: left; font-family: var(--sans); font-size: 13px;
+    line-height: 1.5; color: var(--ink-muted); padding-top: var(--space-3); }
+  .wp-closing { background: var(--tint-warm); border-radius: var(--radius-lg); padding: var(--space-6); margin: var(--space-7) 0; }
+  .wp-closing .wp-part { margin-top: 0; }
+  .wp-closing h2 { margin-top: var(--space-2); padding-top: 0; border-top: none; }
+  .wp-note { font-family: var(--sans); font-size: 13px; line-height: 1.6; color: var(--ink-muted); border-top: 1px solid var(--rule); padding-top: var(--space-4); margin-top: var(--space-7); }
+  .wp-note a { color: var(--ink-soft); }
+  .wp-src { font-family: var(--sans); font-size: 14px; margin-top: var(--space-7); padding: var(--space-5); border: 0.5px solid var(--rule); border-radius: var(--radius-md); background: var(--tint-warm); }
+  .wp-src-h { font-weight: 600; color: var(--ink); margin-bottom: var(--space-3); font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; }
+  .wp-src ul { margin: 0 0 0 var(--space-5); }
+  .wp-src li { margin-bottom: var(--space-2); color: var(--ink-soft); }
+
+  @media (max-width: 700px) {
+    .wp { padding: var(--space-5) var(--space-4) var(--space-7); }
+    .wp-grid { grid-template-columns: 1fr; }
+    .wp-h1 { font-size: 32px; }
+    .wp-art .wp-h1 { font-size: 28px; }
+    .wp-art figure { width: 100%; margin-left: 0; }
+    .wp-cols { grid-template-columns: 1fr; }
+    .wp-stat { grid-template-columns: 1fr; gap: var(--space-2); }
+    .wp-sub { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+<div class="wp wp-art">
+  <div class="wp-back"><a href="index.html">&larr; All whitepapers</a></div>
+  <div class="wp-eyebrow">Whitepaper &middot; What do we buy?</div>
+  <h1 class="wp-h1">What the Platform Gives You</h1>
+  <div class="wp-sub">And what you compose, what you write, and what nobody ships</div>
+  <div class="wp-art-meta">Yoram Friedman, MD &middot; 9 pages &middot; 2 figures</div>
+
+  <div class="wp-stamp">Capability survey stamped mid-2026. Platform capability moves quarterly and the gap line closes fastest. Verify any specific claim before repeating it in a procurement meeting.</div>
+
+  <div class="wp-dl">
+    <img class="wp-dl-thumb" src="covers/what-the-platform-gives-you.jpg" width="800" height="588" alt="">
+    <a class="wp-dl-btn" href="pdf/What-the-Platform-Gives-You.pdf" download
+       data-umami-event="whitepaper-download"
+       data-umami-event-paper="what-the-platform-gives-you">Download the PDF</a>
+    <span class="wp-dl-note">9 pages &middot; 247 KB &middot; formatted for print and for sharing</span>
+  </div>
+
+<div class="wp-part">The argument</div>
+<h2>Two ways to get this wrong, and both of them are expensive.</h2>
+
+<p class="wp-lede">The capabilities an agentic product requires do not arrive on your desk in a
+single product. They are distributed across what your platform ships, what your engineering
+team composes from platform events, what your product team writes as planning artifacts, what
+your organization enforces as policy, and what the industry does not ship at all.</p>
+
+<p>A product manager who cannot read that distinction fails in one of two directions.</p>
+
+<p><strong>Overestimate the platform</strong>, assume the governance capabilities are in the
+box because the vendor page implied they were, and ship an agent with holes in it.</p>
+
+<p><strong>Underestimate the platform</strong>, rebuild capabilities that have been
+commoditized for a year, and lose months to work somebody else already finished.</p>
+
+<blockquote><p>Both failures are common. Both are avoidable, and avoiding them is a
+reading skill rather than a technical one. You need a taxonomy for vendor pages, and a map of
+where each capability actually sits.</p></blockquote>
+
+<p>One caution before the map. This is the most perishable document in the series. Platform
+capability moves quarterly, and the gap line in particular is exactly the kind of thing that
+closes fast once a vendor decides to ship it. Treat every specific claim here as a dated
+snapshot and check it before you repeat it in a procurement meeting.</p>
+
+<div class="wp-sect">
+<div class="wp-part">Part one</div>
+<h2>Five categories, and why vendors blur them</h2>
+
+<p class="wp-lede">Almost every argument about what a platform should provide is really a
+disagreement about which of these five a capability belongs to.</p>
+
+<div class="wp-num"><div class="wp-num-n">A &middot; Platform primitive</div><div><p>A first-class feature the platform exposes that you consume directly. Typed approval and
+  interruption with pause and resume, agent tracing, judge evaluator libraries, versioned
+  reference datasets.</p></div></div><div class="wp-num"><div class="wp-num-n">B &middot; Derived metric</div><div><p>A number you compute on top of events the platform already captures. Override frequency
+  is a count of approval-interrupt events per unit time divided by total approvals. The
+  platform emits the events; the metric is your composition. Almost every observation
+  instrument lives here.</p></div></div><div class="wp-num"><div class="wp-num-n">C &middot; Release criterion or planning artifact</div><div><p>Something your team produces during planning and tracks in a work-management system. A
+  suitability declaration, a go or no-go memo, a coverage statement. Not a platform feature in
+  any sense.</p></div></div><div class="wp-num"><div class="wp-num-n">D &middot; Policy or governance requirement</div><div><p>An organizational standard the platform must support but does not define. Kill-switch
+  obligations, retention and right-to-delete, authority delegation, bias mitigation.</p></div></div><div class="wp-num"><div class="wp-num-n">E &middot; Base platform dependency</div><div><p>Not agent-specific, but required. Access control and identity, general logging, secret
+  management, data masking, rate limiting, tenant isolation. Vendors frequently repackage
+  these as AI capabilities. They are platform hygiene with a new label.</p>
+</div>
+
+<figure><svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" font-family="72, Arial, sans-serif">
+  <text x="0" y="12" font-size="10" fill="#5a616b" letter-spacing="1.4">WHERE A CAPABILITY ACTUALLY SITS</text>
+  <g>
+    <rect x="0"   y="26" width="134" height="40" rx="4" fill="#2E78C9"/>
+    <rect x="146" y="26" width="134" height="40" rx="4" fill="#2E78C9" opacity="0.72"/>
+    <rect x="292" y="26" width="134" height="40" rx="4" fill="#2E78C9" opacity="0.46"/>
+    <rect x="438" y="26" width="134" height="40" rx="4" fill="#2E78C9" opacity="0.26"/>
+    <rect x="584" y="26" width="136" height="40" rx="4" fill="none" stroke="#C2571A" stroke-width="2" stroke-dasharray="5 4"/>
+  </g>
+  <g font-size="11.5" fill="#ffffff" text-anchor="middle" font-weight="600">
+    <text x="67"  y="51">Platform ships it</text>
+    <text x="213" y="51">You compose it</text>
+  </g>
+  <g font-size="11.5" fill="#021535" text-anchor="middle" font-weight="600">
+    <text x="359" y="51">Your team writes it</text>
+    <text x="505" y="51">Your org enforces it</text>
+  </g>
+  <text x="652" y="51" font-size="11.5" fill="#C2571A" text-anchor="middle" font-weight="600">Nobody ships it</text>
+
+  <g font-size="10" fill="#5a616b" text-anchor="middle">
+    <text x="67"  y="84">COMMODITY LINE</text>
+    <text x="213" y="84">DERIVATION LINE</text>
+    <text x="359" y="84">PLANNING LINE</text>
+    <text x="505" y="84">POLICY LINE</text>
+    <text x="652" y="84">GAP LINE</text>
+  </g>
+
+  <g font-size="10.5" fill="#14161a">
+    <text x="0"   y="112">Tracing via</text><text x="0" y="127">OpenTelemetry</text>
+    <text x="0"   y="150">Judge evaluator</text><text x="0" y="165">libraries</text>
+    <text x="0"   y="188">Typed interruption</text><text x="0" y="203">with resume</text>
+    <text x="0"   y="226">Agent identity</text><text x="0" y="241">bound to IAM</text>
+    <text x="0"   y="264">Model version</text><text x="0" y="279">pinning</text>
+
+    <text x="146" y="112">The six observation</text><text x="146" y="127">instruments</text>
+    <text x="146" y="150">Pass@K with</text><text x="146" y="165">variance</text>
+    <text x="146" y="188">Compound probability</text><text x="146" y="203">across steps</text>
+    <text x="146" y="226">Per-task cost at the</text><text x="146" y="241">trajectory level</text>
+    <text x="146" y="264">Time to intervene,</text><text x="146" y="279">review depth</text>
+
+    <text x="292" y="112">Suitability record,</text><text x="292" y="127">go or no-go memo</text>
+    <text x="292" y="150">Coverage statement</text>
+    <text x="292" y="188">Four-owner readiness</text><text x="292" y="203">memo</text>
+    <text x="292" y="226">Non-delegable list</text>
+    <text x="292" y="264">Retirement decision</text><text x="292" y="279">memo</text>
+
+    <text x="438" y="112">Kill-switch</text><text x="438" y="127">obligations</text>
+    <text x="438" y="150">Retention and</text><text x="438" y="165">right to delete</text>
+    <text x="438" y="188">Authority delegation</text><text x="438" y="203">policy</text>
+    <text x="438" y="226">OWASP for agentic</text><text x="438" y="241">applications, MAESTRO</text>
+    <text x="438" y="264">Right of access for</text><text x="438" y="279">agent decisions</text>
+  </g>
+  <g font-size="10.5" fill="#C2571A">
+    <text x="584" y="112">Interruption budget</text><text x="584" y="127">router</text>
+    <text x="584" y="150">Background failure</text><text x="584" y="165">detection</text>
+    <text x="584" y="188">Supersession detection</text>
+    <text x="584" y="226">Shadow workflow</text><text x="584" y="241">measurement</text>
+    <text x="584" y="264">Pre-execution</text><text x="584" y="279">kill switch</text>
+  </g>
+</svg><figcaption>Figure 1. Where each capability sits, as of mid-2026. Reading left to
+right is reading how much of the work is yours. The rightmost column is the one that decides
+whether your roadmap is realistic.</figcaption></figure></div></div><div class="wp-sect">
+<div class="wp-part">Part two</div>
+<h2>The commodity line: stop building these</h2>
+
+<p class="wp-lede">These are Category A and available on every serious platform you will
+consider. Building them yourself is the second failure mode, and it costs months.</p>
+
+<p><strong>Tracing and observability.</strong> Every major platform emits, accepts, or
+standardizes on OpenTelemetry span capture. If a vendor claims AI observability as a
+differentiator, ask which events it emits that a base OpenTelemetry implementation does not.
+The answer is usually nothing, and the question is the fastest way to find out whether you are
+talking to an engineer or a marketer.</p>
+
+<p><strong>Judge evaluator libraries.</strong> Trajectory match, tool-call accuracy,
+groundedness, intent resolution. Available on every evaluation platform and most enterprise AI
+platforms. The methodology is commoditized. So is the bias literature on judge models, the
+longer-answer, position and same-family preferences. What is not commoditized is the
+calibration to your domain, which remains your work and is the part that decides whether the
+scores mean anything.</p>
+
+<p><strong>Typed approval and interruption with pause and resume.</strong> Every major agent
+framework has converged on the same pattern: a typed interruption object, durable run state,
+and an explicit approve or reject resume. If your framework does not expose this, you are on
+the wrong framework.</p>
+
+<p><strong>Agent identity bound to enterprise IAM.</strong> The major identity platforms now
+treat an agent as a first-class security principal. This is Category E hygiene relabeled, but
+it is available and you should consume it rather than invent it.</p>
+
+<p><strong>Per-trace token cost tracking, versioned reference datasets with lineage,
+date-stamped model version pinning and retirement notifications, and trajectory match at
+exact, in-order, any-order and superset granularity.</strong> All shipped. All boring. All
+yours for free.</p>
+
+<div class="callout">
+<h3>The question that reads a vendor page in one move</h3>
+<p>For any capability on the page, ask which of the five categories
+it is, and then ask what the platform does that a competent team could not compose from the
+events in the trace. A vendor selling a true Category A will answer immediately. A vendor
+selling Category B as though it were Category A will describe an outcome rather than a
+mechanism.</p>
+</div>
+</div>
+
+<div class="wp-sect">
+<div class="wp-part">Part three</div>
+<h2>The derivation line: the platform emits, you compose</h2>
+
+<p class="wp-lede">This is the line that causes the most damage, because the capability appears
+to exist. The data is there. The metric is not, and nobody tells you which is which.</p>
+
+<figure><svg viewBox="0 0 720 220" xmlns="http://www.w3.org/2000/svg" font-family="72, Arial, sans-serif">
+  <text x="0" y="12" font-size="10.5" fill="#2E78C9" letter-spacing="1.5">WHAT THE PLATFORM EMITS</text>
+  <g fill="#2E78C9" opacity="0.45">
+    <rect x="0"  y="26" width="46" height="17" rx="3"/><rect x="52" y="26" width="46" height="17" rx="3"/><rect x="104" y="26" width="46" height="17" rx="3"/>
+    <rect x="0"  y="49" width="46" height="17" rx="3"/><rect x="52" y="49" width="46" height="17" rx="3"/><rect x="104" y="49" width="46" height="17" rx="3"/>
+    <rect x="0"  y="72" width="46" height="17" rx="3"/><rect x="52" y="72" width="46" height="17" rx="3"/><rect x="104" y="72" width="46" height="17" rx="3"/>
+  </g>
+  <text x="0" y="108" font-size="10.5" fill="#5a616b">spans, tool calls, interrupt events, token counts, timestamps</text>
+
+  <path d="M172 57 L228 57" stroke="#5a616b" stroke-width="2" marker-end="url(#m)"/>
+  <text x="200" y="46" font-size="10.5" fill="#5a616b" text-anchor="middle">your team</text>
+  <text x="200" y="78" font-size="10.5" fill="#5a616b" text-anchor="middle">composes</text>
+
+  <text x="244" y="12" font-size="10.5" fill="#021535" letter-spacing="1.5">WHAT A LAUNCH REVIEW ASKS FOR</text>
+  <g font-size="11">
+    <rect x="244" y="24" width="216" height="24" rx="3" fill="#f2f6fb" stroke="#dfe3e9"/><text x="256" y="40" fill="#14161a">Override frequency</text>
+    <rect x="244" y="52" width="216" height="24" rx="3" fill="#f2f6fb" stroke="#dfe3e9"/><text x="256" y="68" fill="#14161a">Unintended action rate</text>
+    <rect x="244" y="80" width="216" height="24" rx="3" fill="#f2f6fb" stroke="#dfe3e9"/><text x="256" y="96" fill="#14161a">Pass@K with variance</text>
+    <rect x="244" y="108" width="216" height="24" rx="3" fill="#f2f6fb" stroke="#dfe3e9"/><text x="256" y="124" fill="#14161a">Per-task trajectory cost</text>
+    <rect x="244" y="136" width="216" height="24" rx="3" fill="#f2f6fb" stroke="#dfe3e9"/><text x="256" y="152" fill="#14161a">Time to intervene</text>
+  </g>
+  <g font-size="10.5" fill="#C2571A">
+    <text x="474" y="40">not a named metric</text>
+    <text x="474" y="68">not a named metric</text>
+    <text x="474" y="96">not a named metric</text>
+    <text x="474" y="124">not a named metric</text>
+    <text x="474" y="152">not a named metric</text>
+  </g>
+  <text x="0" y="196" font-size="12" fill="#021535">The events exist on essentially every platform. The metrics exist on almost none.</text>
+  <text x="0" y="214" font-size="12" fill="#2E78C9" font-weight="600">An instrument you cannot produce is a finding about a surface nobody designed, not a gap in your data pipeline.</text>
+  <defs><marker id="m" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 z" fill="#5a616b"/></marker></defs>
+</svg><figcaption>Figure 2. The gap between what a platform captures and what a launch
+review asks for. Every item on the right is derivable from the events on the left, and almost
+none of them ships as a named metric. Composition is your team's job.</figcaption></figure>
+
+<p>The six observation instruments, task success rate, unintended action rate, override
+frequency, confidence calibration, rollback time and incident recovery time, are derivable
+from trace data on every platform and named as primitives on almost none. A small number of
+evaluation-specialist platforms ship a subset. They are still a subset.</p>
+
+<p>Beyond those: <strong>Pass@K with K and variance reported</strong> is not a named metric on
+any major platform, though it is computable from repeated evaluation runs. <strong>Compound
+probability across chained steps</strong> is not shipped anywhere, though it is computable
+from per-step confidence scores if the platform emits them. <strong>Per-task cost at the
+trajectory level</strong>, including multi-agent coordination overhead and human review and
+rework time, is not shipped as a named metric, though it is derivable from token and span
+events plus integration with your human workflow system.</p>
+
+<p>Time to intervene, response rate per interruption priority, and review depth sit in the
+same place. The trace data exists. The named metrics do not.</p>
+
+<p>The practical consequence for a build plan is that every one of these is a small
+engineering task nobody scoped, because everyone assumed it came with the platform. Ask for
+them by name during evaluation, and treat any that cannot be produced at all as a finding
+about a surface nobody designed rather than as a reporting gap.</p>
+</div>
+
+<div class="wp-sect">
+<div class="wp-part">Part four</div>
+<h2>The planning line and the policy line</h2>
+
+<p class="wp-lede">Two lines that are not features at all, and where the mismarketing is most
+brazen.</p>
+
+<h3>What your team produces</h3>
+
+<p>The suitability assessment and the go or no-go memo. The coverage statement for the
+evaluation suite. The four-owner pre-launch readiness memo. Per-action consequence
+classification when produced as a design artifact. The retirement decision memo. The
+supervisory workflow composition document. The non-delegable list and the criteria that put a
+decision on it.</p>
+
+<p>These live in your work-management system, not on a platform dashboard. The platform may
+help generate evidence for them. The artifacts are your team's output, and any vendor
+marketing them as primitives is mismarketing.</p>
+
+<h3>What your organization enforces</h3>
+
+<p>Right of access for agent decisions affecting named individuals. Source-document
+supersession and data freshness policies. Authority delegation and approval chains.
+Kill-switch obligations. Retention and right-to-delete for agent reasoning traces.</p>
+
+<p>Security frameworks belong here too. The OWASP Top 10 for Agentic Applications and the
+Cloud Security Alliance's MAESTRO are policy frameworks the platform must support rather than
+features it provides. A platform may ship primitives that align with them, input trust
+classification, tool restriction by source. The policy is your organization's.</p>
+
+<blockquote><p>A vendor that claims to deliver compliance is selling you a mechanism.
+The compliance obligation does not transfer with the purchase order, and no contract has ever
+made it transfer.</p></blockquote>
+</div>
+<div class="wp-sect">
+<div class="wp-part">Part five</div>
+<h2>The gap line: what nobody ships</h2>
+
+<p class="wp-lede">Eight capabilities that the supervisory discipline asks you to own and that
+no major platform ships as a first-class feature as of mid-2026. You will demand them, build
+them, or work around them.</p>
+
+<div class="wp-num"><div class="wp-num-n">One</div><div><p><strong>Interruption budget router with a priority taxonomy.</strong> Every platform
+  ships an interruption mechanism. None ships the economics layer above it: a cap on how many
+  approval events a supervisor receives per hour, a classification by priority, and routing
+  against the cap.</p></div></div><div class="wp-num"><div class="wp-num-n">Two</div><div><p><strong>Background failure detection.</strong> A primitive that correlates semantic
+  success with an actual state change in the target system, so an agent cannot mark work
+  complete that never happened, is not shipped as a named feature anywhere. This is the
+  invisible-action failure, and the industry has no answer to it yet.</p></div></div><div class="wp-num"><div class="wp-num-n">Three</div><div><p><strong>Source-document supersession detection.</strong> Retrieval is universal.
+  Detection that fires re-validation when an underlying source changes is not, which is
+  precisely the failure that put a care-coordination agent on a three-year-old clinical
+  guideline while every checkmark stayed green.</p></div></div><div class="wp-num"><div class="wp-num-n">Four</div><div><p><strong>Context sufficiency validation as a typed pre-build gate.</strong> Retrieval that
+  returns something is universal. An assertion that the relational and governance context is
+  actually sufficient before the agent acts is not.</p></div></div><div class="wp-num"><div class="wp-num-n">Five</div><div><p><strong>Shadow workflow prevalence measurement.</strong> Detecting users running parallel
+  manual processes alongside the agent requires correlating agent usage with system-of-record
+  activity. No observability vendor integrates the two, which means the clearest signal that
+  your supervisory design failed is the one nobody can see.</p></div></div><div class="wp-num"><div class="wp-num-n">Six</div><div><p><strong>Real-time kill switch upstream of action execution.</strong> Most platforms ship
+  monitoring and alerting downstream of the action. Two large clouds come closest with budget
+  policies that can deny further calls at an account threshold. Nothing ships a per-agent,
+  per-window gate evaluated before the call executes.</p></div></div><div class="wp-num"><div class="wp-num-n">Seven</div><div><p><strong>Retirement workflow.</strong> Something that simultaneously preserves the audit
+  trail, blocks new invocations, and routes orphaned approval events. The components exist via
+  identity deprovisioning and audit retention. The composite does not.</p></div></div><div class="wp-num"><div class="wp-num-n">Eight</div><div><p><strong>Affected-person audit view.</strong> A person-centric query surface over agent
+  decisions, for right-of-access requests and for supervisory operations. Enterprise audit
+  products approximate it. None is agent-native, and the people who need it most are the ones
+  who are not your users.</p></div></div><p>Two things follow from that list. It is where the discipline is ahead of the field, which
+means it is where your own education should concentrate, because these are the capabilities
+that will be table stakes in eighteen months and are differentiating today. And it is a dated
+snapshot rather than a permanent gap. This is exactly the kind of capability that closes fast
+once a vendor decides to ship it, so re-run the list before you build anything on it.</p>
+</div>
+
+<div class="wp-sect">
+<div class="wp-part">Part six</div>
+<h2>Taking this into an evaluation</h2>
+
+<p class="wp-lede">Six questions, in the order that separates a real platform from a good
+deck.</p>
+
+<ul>
+<li>For each capability on the page, which of the five categories is it? Ask the vendor to
+answer in those terms and watch whether they can.</li>
+<li>Which events do you emit that a base OpenTelemetry implementation does not?</li>
+<li>Which of the six observation instruments ship as named metrics, and which would we
+compose?</li>
+<li>Can you show per-task cost at the trajectory level, including coordination overhead? If
+not, what would we build to get it?</li>
+<li>Is there a gate that evaluates a call against a per-agent budget before it executes, or
+only alerting after?</li>
+<li>When a model version changes underneath us, what do we get: notice, a pin, a diff, or an
+email after the fact?</li>
+</ul>
+
+<p>Then price the answers. Every capability that lands on the derivation line is a small
+engineering task nobody has scoped. Every one on the gap line is a decision to build, to
+demand it contractually, or to accept the exposure deliberately. Any of those three is
+defensible. Discovering it after launch is not.</p>
+</div>
+
+<div class="wp-closing">
+<div class="wp-part">The one line</div>
+<h2>The platform sells you mechanisms. It cannot sell you the obligation.</h2>
+<p>Read the page for category rather than for capability, and most vendor arguments resolve in
+a sentence. What ships is real and you should consume it. What you compose is a scoping task
+nobody wrote down. What your team writes and your organization enforces was never on the page.
+And the handful of things nobody ships yet are the ones worth knowing by name, because they
+are the difference between a roadmap that works and a roadmap that assumed.</p>
+</div>
+
+<div class="wp-src">
+  <div class="wp-src-h">The books behind this paper</div>
+  <ul>
+    <li><a href="../book3/appendix-a-platform.html">What Your Platform Should Give You vs. What You Produce Yourself</a>. Book 1, appendix A. The platform taxonomy this paper's five categories come from.</li>
+    <li><a href="../book4/ch09-evals.html">Evals: What the Checkmarks Prove</a>. Book 2, chapter 9. What the judge libraries and reference datasets are for.</li>
+    <li><a href="../book4/ch10-guardrails.html">Operational Guardrails: Budgets, Ceilings, Kill-Switches</a>. Book 2, chapter 10. Including the hard cost kill-switch nobody ships.</li>
+    <li><a href="../book5/filling-the-grid.html">Filling the Grid</a>. Book 3. Who owns the composition work when the platform stops.</li>
+  </ul>
+</div>
+
+<div class="wp-note">
+<p><strong>Sources and status.</strong> Drawn from the <em>Agentic AI for Product Leaders</em>
+series by Yoram Friedman, principally <em>Agentic AI for Busy Product Managers</em> (second
+edition), Appendix A, the platform taxonomy, together with the six observation instruments and
+the four-owner pre-launch readiness memo; <em>Why Agentic AI Products Fail</em>, chapter 9 on
+evals and chapter 10 on operational guardrails and the absence of a hard cost kill-switch; and
+<em>The Agentic AI Team</em> on who owns the composition work. The five categories, the four
+lines and the gap line are the author's taxonomy. The capability survey behind Parts two
+through five is stamped mid-2026 and is a snapshot rather than a standing claim; platform
+capability moves quarterly and the gap line closes fastest. Vendors are described by role or
+category rather than ranked, deliberately, because a ranking would date faster than the
+taxonomy and would be wrong in a different way for every reader. Security framework references
+are the OWASP Top 10 for Agentic Applications and the Cloud Security Alliance's MAESTRO.
+Figures 1 and 2 are structural maps rather than measured data.</p>
+</div>
+</div>
+
+<script defer src="https://cloud.umami.is/script.js" data-website-id="6701185a-719e-4b6f-baaf-dcd504ef6b1a"></script>
+<script defer src="../assets/site-extras.js"></script>
+</body>
+</html>
