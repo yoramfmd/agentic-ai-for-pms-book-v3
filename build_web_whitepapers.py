@@ -76,7 +76,9 @@ def convert(body, slug):
                   lambda m: '<blockquote><p>%s</p></blockquote>' % m.group(1).strip(),
                   body, flags=re.S)
     # numbered dimension blocks
-    body = re.sub(r'<div class="dim">\s*<div class="lbl">(.*?)</div>(.*?)</div>\s*(?=<div|<h|<p|$)',
+    # the lookahead must accept ANY following tag. Restricting it to <div/<h/<p made
+    # the non-greedy body backtrack and swallow a following <figure> into the block.
+    body = re.sub(r'<div class="dim">\s*<div class="lbl">(.*?)</div>(.*?)</div>\s*(?=<|$)',
                   lambda m: '<div class="wp-num"><div class="wp-num-n">%s</div><div>%s</div></div>'
                             % (m.group(1).strip(), m.group(2).strip()),
                   body, flags=re.S)
@@ -196,6 +198,11 @@ def build_article(w):
 {body_note}
 </div>
 """ + FOOT.format(assets='../assets')
+    # guards: nothing structural should end up nested inside a numbered block
+    for tag in ('<figure', '<table', '<h2'):
+        for m in re.finditer(r'<div class="wp-num">.*?</div>\s*</div>', page, flags=re.S):
+            assert tag not in m.group(0), '%s: %s nested inside a wp-num block' % (slug, tag)
+    assert not re.search(r'__[A-Z0-9]+__', page), slug
     open(os.path.join(OUT, slug + '.html'), 'w').write(page)
     return page
 

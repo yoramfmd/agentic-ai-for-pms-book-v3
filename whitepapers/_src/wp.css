@@ -52,8 +52,10 @@
      without this. The figures were drawn in a sans and must stay in one. */
   .wp-art figure svg text, .wp-art figure svg tspan { font-family: var(--sans); }
   .wp-art figcaption { font-family: var(--sans); font-size: 13px; line-height: 1.5; color: var(--ink-muted); border-top: 1px solid var(--rule); padding-top: var(--space-2); margin-top: var(--space-3); }
-  .wp-num { display: grid; grid-template-columns: auto 1fr; gap: var(--space-4); border-top: 2px solid var(--ink); padding-top: var(--space-3); margin: var(--space-5) 0; }
-  .wp-num-n { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-muted); padding-top: 3px; }
+  /* fixed label column: an "auto" track lets a long label shove the body right,
+     so the numbered blocks stop lining up with each other. */
+  .wp-num { display: grid; grid-template-columns: 132px 1fr; gap: var(--space-4); border-top: 2px solid var(--ink); padding-top: var(--space-3); margin: var(--space-5) 0; }
+  .wp-num-n { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-muted); padding-top: 3px; line-height: 1.4; }
   .wp-num p { margin-bottom: var(--space-2); }
   .wp-num p:last-child { margin-bottom: 0; }
   .wp-cols { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-5); margin: var(--space-5) 0; }
@@ -69,6 +71,9 @@
   .wp-art td { border-bottom: 0.5px solid var(--rule); padding: var(--space-3); vertical-align: top; color: var(--ink-soft); }
   /* only short numeric cells are held on one line. Prose columns wrap normally. */
   .wp-art td.wp-n { white-space: nowrap; color: var(--ink); }
+  /* a table inside a callout stays inside it; only free-standing tables break out */
+  .wp-art .callout table { width: 100%; margin-left: 0; margin-top: var(--space-4); margin-bottom: var(--space-4); font-size: 13px; }
+  .wp-art .callout th, .wp-art .callout td { padding: var(--space-2); }
   .wp-art caption { caption-side: bottom; text-align: left; font-family: var(--sans); font-size: 13px;
     line-height: 1.5; color: var(--ink-muted); padding-top: var(--space-3); }
   .wp-closing { background: var(--tint-warm); border-radius: var(--radius-lg); padding: var(--space-6); margin: var(--space-7) 0; }
@@ -89,5 +94,6 @@
     .wp-art figure { width: 100%; margin-left: 0; }
     .wp-cols { grid-template-columns: 1fr; }
     .wp-stat { grid-template-columns: 1fr; gap: var(--space-2); }
+    .wp-num { grid-template-columns: 1fr; gap: var(--space-2); }
     .wp-sub { font-size: 18px; }
   }

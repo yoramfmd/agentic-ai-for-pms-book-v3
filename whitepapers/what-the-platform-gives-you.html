@@ -93,8 +93,10 @@
      without this. The figures were drawn in a sans and must stay in one. */
   .wp-art figure svg text, .wp-art figure svg tspan { font-family: var(--sans); }
   .wp-art figcaption { font-family: var(--sans); font-size: 13px; line-height: 1.5; color: var(--ink-muted); border-top: 1px solid var(--rule); padding-top: var(--space-2); margin-top: var(--space-3); }
-  .wp-num { display: grid; grid-template-columns: auto 1fr; gap: var(--space-4); border-top: 2px solid var(--ink); padding-top: var(--space-3); margin: var(--space-5) 0; }
-  .wp-num-n { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-muted); padding-top: 3px; }
+  /* fixed label column: an "auto" track lets a long label shove the body right,
+     so the numbered blocks stop lining up with each other. */
+  .wp-num { display: grid; grid-template-columns: 132px 1fr; gap: var(--space-4); border-top: 2px solid var(--ink); padding-top: var(--space-3); margin: var(--space-5) 0; }
+  .wp-num-n { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-muted); padding-top: 3px; line-height: 1.4; }
   .wp-num p { margin-bottom: var(--space-2); }
   .wp-num p:last-child { margin-bottom: 0; }
   .wp-cols { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-5); margin: var(--space-5) 0; }
@@ -110,6 +112,9 @@
   .wp-art td { border-bottom: 0.5px solid var(--rule); padding: var(--space-3); vertical-align: top; color: var(--ink-soft); }
   /* only short numeric cells are held on one line. Prose columns wrap normally. */
   .wp-art td.wp-n { white-space: nowrap; color: var(--ink); }
+  /* a table inside a callout stays inside it; only free-standing tables break out */
+  .wp-art .callout table { width: 100%; margin-left: 0; margin-top: var(--space-4); margin-bottom: var(--space-4); font-size: 13px; }
+  .wp-art .callout th, .wp-art .callout td { padding: var(--space-2); }
   .wp-art caption { caption-side: bottom; text-align: left; font-family: var(--sans); font-size: 13px;
     line-height: 1.5; color: var(--ink-muted); padding-top: var(--space-3); }
   .wp-closing { background: var(--tint-warm); border-radius: var(--radius-lg); padding: var(--space-6); margin: var(--space-7) 0; }
@@ -130,6 +135,7 @@
     .wp-art figure { width: 100%; margin-left: 0; }
     .wp-cols { grid-template-columns: 1fr; }
     .wp-stat { grid-template-columns: 1fr; gap: var(--space-2); }
+    .wp-num { grid-template-columns: 1fr; gap: var(--space-2); }
     .wp-sub { font-size: 18px; }
   }
 </style>
@@ -194,10 +200,7 @@ disagreement about which of these five a capability belongs to.</p>
   any sense.</p></div></div><div class="wp-num"><div class="wp-num-n">D &middot; Policy or governance requirement</div><div><p>An organizational standard the platform must support but does not define. Kill-switch
   obligations, retention and right-to-delete, authority delegation, bias mitigation.</p></div></div><div class="wp-num"><div class="wp-num-n">E &middot; Base platform dependency</div><div><p>Not agent-specific, but required. Access control and identity, general logging, secret
   management, data masking, rate limiting, tenant isolation. Vendors frequently repackage
-  these as AI capabilities. They are platform hygiene with a new label.</p>
-</div>
-
-<figure><svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" font-family="72, Arial, sans-serif">
+  these as AI capabilities. They are platform hygiene with a new label.</p></div></div><figure><svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" font-family="72, Arial, sans-serif">
   <text x="0" y="12" font-size="10" fill="#5a616b" letter-spacing="1.4">WHERE A CAPABILITY ACTUALLY SITS</text>
   <g>
     <rect x="0"   y="26" width="134" height="40" rx="4" fill="#2E78C9"/>
@@ -258,7 +261,9 @@ disagreement about which of these five a capability belongs to.</p>
   </g>
 </svg><figcaption>Figure 1. Where each capability sits, as of mid-2026. Reading left to
 right is reading how much of the work is yours. The rightmost column is the one that decides
-whether your roadmap is realistic.</figcaption></figure></div></div><div class="wp-sect">
+whether your roadmap is realistic.</figcaption></figure>
+</div>
+<div class="wp-sect">
 <div class="wp-part">Part two</div>
 <h2>The commodity line: stop building these</h2>
 
