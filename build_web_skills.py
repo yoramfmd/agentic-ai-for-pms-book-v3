@@ -7,7 +7,7 @@ Output: series-web/skills/<skill>.html  (one page per skill)
         series-web/skills/index.html    (landing page; rebuilt by this script)
 
 Reuses the markdown-to-HTML engine from build_web_book5.py and the styling
-from book3/styles.css. Each skill page has a left sidebar listing all seven
+from book3/styles.css. Each skill page has a left sidebar listing all
 skills with the active one highlighted, and a main content area rendering
 the SKILL.md body. YAML frontmatter is parsed and surfaced as eyebrow + sub-headline.
 
@@ -41,6 +41,15 @@ SKILLS = [
     ("agentic-pm-operate",              "Phase 5 · Operate",                   "#C2410C"),
     ("agentic-pm-behavior-governance",  "Cross-phase · Strategic posture",     "#BE185D"),
 ]
+
+
+NUM_WORDS = {1:"one",2:"two",3:"three",4:"four",5:"five",6:"six",7:"seven",8:"eight",
+             9:"nine",10:"ten",11:"eleven",12:"twelve"}
+
+def count_word() -> str:
+    """Spelled-out skill count, derived from SKILLS so the copy cannot go stale."""
+    n = len(SKILLS)
+    return NUM_WORDS.get(n, str(n))
 
 
 def parse_frontmatter(md: str):
@@ -254,7 +263,7 @@ def build_sidebar(active_slug: str) -> str:
         items.append(f'        <div class="sidebar-skill-name">{slug_}</div>')
         items.append('      </a></li>')
     items.append("    </ul>")
-    items.append(f'    <div class="sidebar-cta"><a href="{RELEASES}" target="_blank" rel="noopener">Install all seven &rarr;</a></div>')
+    items.append(f'    <div class="sidebar-cta"><a href="{RELEASES}" target="_blank" rel="noopener">Install all {count_word()} &rarr;</a></div>')
     return "\n".join(items)
 
 
@@ -333,7 +342,7 @@ def page_shell(skill_slug: str, eyebrow: str, color: str, title: str, descriptio
         <div class="skill-description">{inline(description)}</div>
         <div class="skill-install-row">
           <a class="install-btn install-primary" href="{install_url}" download>Install this skill</a>
-          <a class="install-btn install-secondary" href="{RELEASES}" target="_blank" rel="noopener">Install all seven</a>
+          <a class="install-btn install-secondary" href="{RELEASES}" target="_blank" rel="noopener">Install all {count_word()}</a>
         </div>
       </div>
 {body_html}
