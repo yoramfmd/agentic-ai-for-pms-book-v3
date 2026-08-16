@@ -67,6 +67,10 @@
         <div class="sidebar-eyebrow" style="color:#378ADD">Phase 1 · Discover & Decide</div>
         <div class="sidebar-skill-name">agentic-pm-discover-decide</div>
       </a></li>
+      <li><a href="agentic-pm-brief.html">
+        <div class="sidebar-eyebrow" style="color:#4F46E5">Handover · The Two Briefs</div>
+        <div class="sidebar-skill-name">agentic-pm-brief</div>
+      </a></li>
       <li><a href="agentic-pm-design.html">
         <div class="sidebar-eyebrow" style="color:#7c3aed">Phase 2 · Design</div>
         <div class="sidebar-skill-name">agentic-pm-design</div>
@@ -201,6 +205,10 @@ Overall: GO / NO-GO / HOLD pending &lt;named condition&gt;</code></pre>
     <p><strong>Relational context.</strong> Which records relate to which, in what ways, under what conditions. Example: the agent reads a customer order; does it know the order belongs to a customer who has a complaint open, a payment dispute pending, or a contract clause that overrides standard policy. If the relational context is not in the agent&rsquo;s reach, it answers the wrong question fluently.</p>
     <p><strong>Semantic context.</strong> What the fields mean, not just what they say. &ldquo;Status: complete&rdquo; means different things in different systems. &ldquo;Patient: stable&rdquo; carries domain-specific implications a model will paper over with general knowledge. The semantic context is what the source system understood and the agent does not, unless the team designed the data interface to carry it.</p>
     <p><strong>Governance and policy context.</strong> Rules that apply to this decision class, exceptions, override authorities, jurisdictional variations. The agent does not know about the European regulatory exception unless someone wrote it into its retrieval corpus or its policy layer. The agent does not know about the customer&rsquo;s contract amendment unless the contract amendment lives in the system the agent reads from.</p>
+    <p><strong>The departed user&rsquo;s context.</strong> The three categories above all assume the context exists somewhere and the agent cannot reach it. There is a fourth source the map is blind to, and it is usually the largest: what a trained person was supplying at runtime that was never written down anywhere.</p>
+    <p>For twenty years a user story worked because someone stood at the other end of it and completed the specification for free. The support agent knew the refund ceiling. The warehouse manager knew which supplier ships early at quarter close and is not actually late. None of that was in a system, so none of it is lost in transit. It was never digital.</p>
+    <p>Ask the PM to name the person who does this work today, then walk four questions with them. <strong>Authority:</strong> what were they allowed to decide alone, and where did it stop? A number, not a principle. <strong>Exceptions:</strong> what made them stop and hand the case to someone else? This is the hardest to articulate, because it lived as recognition rather than as a rule, and it is what the agent meets in its first week. <strong>Evidence:</strong> what did they write down, for whom, and how long did it need to survive? <strong>Accountability:</strong> who answered when they got it wrong?</p>
+    <p>Two things to watch for. If the organization cannot state its own threshold as a number, that is not a context gap to close before launch. It is a finding about the organization, it belongs in the Go-or-No-Go memo, and an agent will not fix it. And the decomposition does not go all the way: some of what that person carries is tacit and resists being written at all. Whatever cannot be encoded is the argument for an approval moment in Design, so record the residue rather than pretending the list is complete.</p>
     <p><strong>Training data availability.</strong> The first-contact mismatch section discussed why the model was trained on resolved cases and will see first contact. The other dimension is whether enough representative resolved cases exist at all. Rare-disease diagnosis, low-frequency fraud patterns, edge regulatory decisions: the agent&rsquo;s reasoning depends on having seen enough analogous resolved cases. Inventory what is available. How many resolved cases of this decision class exist in the org&rsquo;s data. Are they representative of the production distribution. If the answer is &ldquo;we have 40 cases and most are from one customer segment,&rdquo; the agent will be brittle outside that segment, and the team should know it before committing to build.</p>
     <p>Output format:</p>
     <pre><code>CONTEXT SUFFICIENCY MAP: &lt;agent name&gt;
@@ -218,6 +226,15 @@ Gap: &lt;what is missing&gt;
 Governance context the agent needs:
   - &lt;rule or policy&gt;
 Gap: &lt;what is missing&gt;
+
+Departed-user context (never written down):
+  Person who does this work today: &lt;role&gt;
+  Authority (a number): &lt;threshold&gt;            | Stated by org? Y/N
+  Exceptions that stop the run: &lt;list&gt;
+  Evidence they produced, and its lifetime: &lt;list&gt;
+  Accountable when wrong: &lt;name or ROLE&gt;
+  Tacit residue that cannot be encoded: &lt;list&gt;  -&gt; carry to Design as approval-moment input
+Gap: &lt;what is missing, and what is an organizational finding rather than a build item&gt;
 
 Verdict: SUFFICIENT / INSUFFICIENT pending &lt;named additions&gt;
 Required before launch: &lt;list&gt;</code></pre>
@@ -283,6 +300,7 @@ Sensitivity to volume variance:
 Verdict: ECONOMICS CLEAR / ECONOMICS DO NOT CLEAR / VOLUME UNCERTAIN</code></pre>
     <h3 id="5-go-or-no-go-memo">5. Go-or-No-Go Memo</h3>
     <p>The memo is the artifact the PM defends in the room. One page. It synthesizes the prior four artifacts into a single recommendation with a single owner. The memo is signed by the PM and circulated. The signature matters; an unsigned go-or-no-go memo is a wish.</p>
+    <p>One category of finding gets its own line in the memo rather than being folded into the context gap: anything the Context Sufficiency Map surfaced as a rule the organization cannot state. A threshold that exists only in a person&rsquo;s head is not a build item and it does not close before launch. It is a decision the business has never made, and an agent will force it into the open whether or not anyone is ready. Naming it in the memo is how the PM avoids inheriting it by default.</p>
     <p>Memo structure:</p>
     <pre><code>GO-OR-NO-GO MEMO: &lt;agent name&gt;
 PM: &lt;name&gt;
@@ -554,7 +572,7 @@ Signed: J. Park</code></pre>
     <p>Run the skill the same way, but mark the artifacts as &ldquo;reconstructed post-launch&rdquo; so the team knows the assessment is being done retrospectively. The artifacts may show that the project should not have shipped. That is useful information even now.</p>
     <h2 id="source">Source</h2>
     <p>This skill is built from:</p>
-    <p>Book 1 (<em>Agentic AI for Busy Product Managers</em>), Chapter 3 &ldquo;Not Every Problem Deserves an Agent.&rdquo; The original Discover &amp; Decide foundation.</p>
+    <p>Book 1 (<em>Agentic AI for Busy Product Managers</em>, 2nd edition), Chapter 4 &ldquo;Not Every Problem Deserves an Agent.&rdquo; The original Discover &amp; Decide foundation. Chapter 1 &ldquo;The User Who Left the Room&rdquo; is the source for the departed-user category in the Context Sufficiency Map.</p>
     <p>Book 2 (<em>Why Agentic AI Products Fail</em>), Chapter 3 &ldquo;Not Every Problem Deserves an Agent&rdquo; (six suitability criteria, brownfield/greenfield, architecture multiplier, Klarna as maturity, MVP House of Cards), Chapter 4 &ldquo;How the Work Splits&rdquo; (operating model and the two briefs structure as the downstream artifact).</p>
     <p>Framework #27 (Agentic Suitability Assessment), #1 (Iceberg), #4 (MVP House of Cards), #34 (Earned vs Scheduled Autonomy), #9 (First-Contact Mismatch) in the canonical frameworks catalog.</p>
     <p>Refer the PM to these sources when they want to go deeper. The skill is a working aid. The books are where the reasoning is.</p>

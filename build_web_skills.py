@@ -34,6 +34,7 @@ REPO_URL   = "https://github.com/yoramfmd/agentic-ai-pm-skill-package"
 SKILLS = [
     ("agentic-pm-lifecycle",            "Router",                              "#6B7280"),
     ("agentic-pm-discover-decide",      "Phase 1 · Discover & Decide",         "#378ADD"),
+    ("agentic-pm-brief",                "Handover · The Two Briefs",           "#4F46E5"),
     ("agentic-pm-design",               "Phase 2 · Design",                    "#7c3aed"),
     ("agentic-pm-eval",                 "Phase 3 · Eval",                      "#1D9E75"),
     ("agentic-pm-observe",              "Phase 4 · Observe",                   "#D97706"),

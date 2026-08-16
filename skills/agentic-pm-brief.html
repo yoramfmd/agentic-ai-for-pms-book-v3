@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Two Briefs: From Decision to Buildable Spec &mdash; Agentic AI PM Skill Package</title>
+<meta name="description" content="Walk the PM from a settled go decision to the two briefs that hand an agentic feature to engineering. Produces the Human Brief (the document a room argues with)">
+<link rel="canonical" href="https://agenticaiproductmanagement.com/skills/agentic-pm-brief.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="The Agentic AI Series">
+<meta property="og:title" content="The Two Briefs: From Decision to Buildable Spec">
+<meta property="og:description" content="Walk the PM from a settled go decision to the two briefs that hand an agentic feature to engineering. Produces the Human Brief (the document a room argues with)">
+<meta property="og:image" content="https://agenticaiproductmanagement.com/assets/og-series-wide.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://agenticaiproductmanagement.com/skills/agentic-pm-brief.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Two Briefs: From Decision to Buildable Spec">
+<meta name="twitter:description" content="Walk the PM from a settled go decision to the two briefs that hand an agentic feature to engineering. Produces the Human Brief (the document a room argues with)">
+<meta name="twitter:image" content="https://agenticaiproductmanagement.com/assets/og-series-wide.jpg">
+<link rel="stylesheet" href="../book3/styles.css">
+<style>
+  .sidebar-hub { margin-bottom: var(--space-4); padding-bottom: var(--space-3);
+    border-bottom: 1px solid var(--rule); font-size: 12px; font-family: var(--sans); }
+  .sidebar-hub a { color: var(--ink-muted); text-decoration: none; }
+  .sidebar-hub a:hover { color: var(--blue-deep); }
+  .sidebar-list li a { padding: var(--space-3) var(--space-3); }
+  .sidebar-list li a.active { background: var(--tint-warm); border-radius: var(--radius-md); }
+  .sidebar-eyebrow { font-family: var(--sans); font-size: 10px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 3px; }
+  .sidebar-skill-name { font-family: var(--mono, monospace); font-size: 12px; color: var(--ink); font-weight: 500; }
+  .sidebar-cta { margin-top: var(--space-5); padding-top: var(--space-4); border-top: 1px solid var(--rule); font-family: var(--sans); font-size: 13px; }
+  .sidebar-cta a { color: var(--blue-deep); text-decoration: none; }
+  .sidebar-cta a:hover { text-decoration: underline; }
+
+  .chapter pre { background: var(--tint-warm); border-radius: var(--radius-md); padding: var(--space-4); overflow-x: auto; font-family: var(--mono, monospace); font-size: 12.5px; line-height: 1.55; color: var(--ink); margin: var(--space-4) 0; }
+  .chapter code { background: var(--tint-warm); padding: 1px 6px; border-radius: 4px; font-family: var(--mono, monospace); font-size: 0.9em; }
+  .chapter pre code { background: transparent; padding: 0; }
+
+  .skill-header { margin-bottom: var(--space-6); padding-bottom: var(--space-5); border-bottom: 1px solid var(--rule); }
+  .skill-eyebrow { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #4F46E5; margin-bottom: var(--space-2); }
+  .skill-slug { font-family: var(--mono, monospace); font-size: 14px; color: var(--ink-muted); margin-bottom: var(--space-2); }
+  .skill-title { font-family: var(--serif); font-size: 34px; font-weight: 700; line-height: 1.15; color: var(--ink); margin-bottom: var(--space-3); }
+  .skill-description { font-family: var(--sans); font-size: 14px; line-height: 1.65; color: var(--ink-soft); margin-bottom: var(--space-4); padding: var(--space-4); background: var(--tint-warm); border-left: 3px solid #4F46E5; border-radius: var(--radius-md); }
+  .skill-install-row { display: flex; gap: var(--space-3); flex-wrap: wrap; margin-top: var(--space-4); }
+  .install-btn { padding: var(--space-2) var(--space-4); font-family: var(--sans); font-size: 13px; font-weight: 500; border-radius: var(--radius-md); text-decoration: none; border: 1px solid var(--ink); }
+  .install-primary { background: var(--ink); color: var(--bg); }
+  .install-secondary { background: transparent; color: var(--ink); }
+  .install-primary:hover { background: var(--ink-soft); }
+  .install-secondary:hover { background: var(--tint-warm); }
+</style>
+<!-- SITE-EXTRAS:BEGIN -->
+<script defer src="https://cloud.umami.is/script.js" data-website-id="6701185a-719e-4b6f-baaf-dcd504ef6b1a"></script>
+<script defer src="/assets/site-extras.js"></script>
+<!-- SITE-EXTRAS:END -->
+</head>
+<body>
+<div class="book">
+  <aside class="sidebar">
+    <div class="sidebar-hub"><a href="../index.html">&larr; The Agentic AI Series</a></div>
+    <div class="sidebar-brand"><a href="index.html">Agentic AI PM Skill Package</a><div class="sidebar-brand-sub">The lifecycle, as working aids a PM can invoke at the moment of need</div></div>
+    <ul class="sidebar-list">
+      <li><a href="agentic-pm-lifecycle.html">
+        <div class="sidebar-eyebrow" style="color:#6B7280">Router</div>
+        <div class="sidebar-skill-name">agentic-pm-lifecycle</div>
+      </a></li>
+      <li><a href="agentic-pm-discover-decide.html">
+        <div class="sidebar-eyebrow" style="color:#378ADD">Phase 1 · Discover & Decide</div>
+        <div class="sidebar-skill-name">agentic-pm-discover-decide</div>
+      </a></li>
+      <li><a href="agentic-pm-brief.html" class="active">
+        <div class="sidebar-eyebrow" style="color:#4F46E5">Handover · The Two Briefs</div>
+        <div class="sidebar-skill-name">agentic-pm-brief</div>
+      </a></li>
+      <li><a href="agentic-pm-design.html">
+        <div class="sidebar-eyebrow" style="color:#7c3aed">Phase 2 · Design</div>
+        <div class="sidebar-skill-name">agentic-pm-design</div>
+      </a></li>
+      <li><a href="agentic-pm-eval.html">
+        <div class="sidebar-eyebrow" style="color:#1D9E75">Phase 3 · Eval</div>
+        <div class="sidebar-skill-name">agentic-pm-eval</div>
+      </a></li>
+      <li><a href="agentic-pm-observe.html">
+        <div class="sidebar-eyebrow" style="color:#D97706">Phase 4 · Observe</div>
+        <div class="sidebar-skill-name">agentic-pm-observe</div>
+      </a></li>
+      <li><a href="agentic-pm-operate.html">
+        <div class="sidebar-eyebrow" style="color:#C2410C">Phase 5 · Operate</div>
+        <div class="sidebar-skill-name">agentic-pm-operate</div>
+      </a></li>
+      <li><a href="agentic-pm-behavior-governance.html">
+        <div class="sidebar-eyebrow" style="color:#BE185D">Cross-phase · Strategic posture</div>
+        <div class="sidebar-skill-name">agentic-pm-behavior-governance</div>
+      </a></li>
+    </ul>
+    <div class="sidebar-cta"><a href="https://github.com/yoramfmd/agentic-ai-pm-skill-package/releases/latest" target="_blank" rel="noopener">Install all seven &rarr;</a></div>
+  </aside>
+  <div class="main">
+    <div class="chapter">
+      <div class="skill-header">
+        <div class="skill-eyebrow">Handover · The Two Briefs</div>
+        <div class="skill-slug">agentic-pm-brief</div>
+        <h1 class="skill-title">The Two Briefs: From Decision to Buildable Spec</h1>
+        <div class="skill-description">Walk the PM from a settled go decision to the two briefs that hand an agentic feature to engineering. Produces the Human Brief (the document a room argues with) and the Executable Brief (numbered, testable requirements a prototype, a coding agent, and a backlog can act on), with the enforcement conversation held deliberately between them. Also runs in review mode when a spec-generation tool drafted the spec and the PM has to approve it. Trigger phrases: &ldquo;write the spec&rdquo;, &ldquo;turn this into something engineering can build&rdquo;, &ldquo;what do I hand the coding agent&rdquo;, &ldquo;Human Brief&rdquo;, &ldquo;Executable Brief&rdquo;, &ldquo;the two briefs&rdquo;, &ldquo;spec-driven development&rdquo;, &ldquo;spec-based development&rdquo;, &ldquo;intent-driven development&rdquo;, &ldquo;review this generated spec&rdquo;, &ldquo;PRD for an agent&rdquo;, &ldquo;epic for an agentic feature&rdquo;, &ldquo;outcome spec&rdquo;, &ldquo;acceptance criteria for an agent&rdquo;. Use after the go decision and before runtime design.</div>
+        <div class="skill-install-row">
+          <a class="install-btn install-primary" href="https://github.com/yoramfmd/agentic-ai-pm-skill-package/raw/main/releases/agentic-pm-brief.skill" download>Install this skill</a>
+          <a class="install-btn install-secondary" href="https://github.com/yoramfmd/agentic-ai-pm-skill-package/releases/latest" target="_blank" rel="noopener">Install all seven</a>
+        </div>
+      </div>
+    <p>You are walking a product manager from a decision that has been made to the documents that make it buildable.</p>
+    <p>The decision is behind you. Someone has already established that this problem deserves an agent and roughly where its authority stops. What has not happened is the writing, and the most common way a good agent project goes wrong is that the second document gets written and the first never does. Engineering receives a spec, builds exactly what it says, and nobody can reconstruct why the boundary sits where it sits or who agreed to it.</p>
+    <p>The old artifact was a PRD, handed over, decomposed into an epic, built. That worked when the hard part was building. A coding agent will produce a working prototype of almost anything describable in an afternoon, so the hard part is now deciding what it should do, where its authority stops, and how the people around it will know when it is wrong. The artifact splits in two.</p>
+    <h2 id="the-question-the-gate-actually-answers">The question the gate actually answers</h2>
+    <p>Before any section of either document, the PM should be able to answer this:</p>
+    <p><strong>Can someone who was not in the room reconstruct why this boundary sits here, and can a system act on it without guessing?</strong></p>
+    <p>Those are two different questions with two different readers, which is the entire reason there are two briefs. A single document that tries to do both is unreadable as narrative and broken as spec, and it is the most common thing PMs produce when they first meet this problem.</p>
+    <h2 id="when-this-skill-is-the-right-one">When this skill is the right one</h2>
+    <p>Invoke this skill when:</p>
+    <p>The go decision is made and the PM is about to write something for engineering. This is the main case.</p>
+    <p>The PM has written a PRD for an agentic feature and it is not landing. Engineering is asking questions the document cannot answer, or the document reads as a list of features for something that makes judgments.</p>
+    <p>A spec-generation tool has produced a specification from the PM&rsquo;s intent, and the PM has to review and approve it. This is review mode, and it is covered below.</p>
+    <p>A coding agent produced a prototype that works and nobody can say whether it should ship. The brief is usually the thing that was skipped.</p>
+    <p>Do not invoke this skill for the go decision itself (use <code>agentic-pm-discover-decide</code>), for the runtime artifacts that make governance requirements physically real (use <code>agentic-pm-design</code>), or for eval construction beyond naming the set (use <code>agentic-pm-eval</code>).</p>
+    <h2 id="how-to-start">How to start</h2>
+    <p>Ask three questions before writing anything.</p>
+    <p><strong>&ldquo;Has the go decision actually been made, and by whom?&rdquo;</strong> If the answer is vague, stop and route to Discover and Decide. A brief written to justify a decision nobody made is a sales document, and it will specify the bet rather than argue it.</p>
+    <p><strong>&ldquo;Who is going to read each of these?&rdquo;</strong> Get names. The Human Brief has a sponsor, a finance partner, an architect, a domain expert. The Executable Brief has a prototype, possibly a coding agent, and a backlog. If the PM cannot name the humans, the Human Brief will drift into spec.</p>
+    <p><strong>&ldquo;What did Discover and Decide hand you?&rdquo;</strong> The suitability record, the cost model, and, if that phase was run properly, the departed user&rsquo;s context: the authority thresholds, the exceptions, the evidence requirements, and the tacit residue that could not be encoded. That material is the raw input to both briefs. If it does not exist, the PM is about to invent policy at a desk, which is the failure this whole package exists to prevent.</p>
+    <h2 id="if-this-is-your-first-two-brief-handover-the-new-constructs">If this is your first two-brief handover: the new constructs</h2>
+    <h3 id="the-unit-of-work-is-not-a-user-story">The unit of work is not a user story</h3>
+    <p>The user story works because ordinary software is deterministic. There is one correct output and a test that runs once and passes is a real answer. None of that holds for an agent&rsquo;s judgment. The output is a distribution, &ldquo;correct&rdquo; is a judgment rather than a binary, and a test that passes once tells you little because the next run may differ.</p>
+    <p>Write the refund behavior as a story and you get: <em>as a customer, when I request a refund for a defective item, the agent issues the refund.</em> Clean. It would pass grooming anywhere. And it describes the case that was never hard. The in-window defective item was always going to be refunded. The story has no field for the request just outside the window where the customer is right on the merits, the high-value account near churn worth more than the refund, or the amount ten times the others on an account that smells wrong. Those are the cases the agent is judged on.</p>
+    <p>So the unit becomes an <strong>outcome-centric spec</strong>: the outcome you want, the bounds the agent must stay inside, and the eval set that grades whether it got there, including what acceptable failure looks like.</p>
+    <p>One guardrail, because the careless version of this claim is wrong and a sharp engineer will catch it. The user story is not dead. The deterministic shell around the agent, the orchestration, the integrations, the screens a person clicks, is ordinary software and still gets ordinary stories. What resists the story is the probabilistic core. The signal to watch for: when an acceptance criterion for an agent&rsquo;s judgment reads as pass or fail, a deterministic tool is being applied to a probabilistic core, and the case not being written down is usually the one that reaches the person the agent affects.</p>
+    <h3 id="both-briefs-carry-both-channels">Both briefs carry both channels</h3>
+    <p>The tempting split is agent in one document, supervision in the other. That is how supervision ends up unbuilt.</p>
+    <p>The split is by audience and purpose, not by channel. In the Human Brief the supervisory layer appears as a decision the room owns: where the boundary sits, what honest oversight costs, who is accountable. In the Executable Brief it appears as buildable requirements: the autonomy boundary, the approval experience, the audit surface, the eval set. Supervision gets built because it was written into the spec, not because someone remembered.</p>
+    <h3 id="the-seam-between-the-briefs-is-a-conversation-not-a-formatti">The seam between the briefs is a conversation, not a formatting step</h3>
+    <p>This is the construct most PMs miss, and it is the reason this skill exists as its own thing.</p>
+    <p>The product manager owns <strong>where the boundary sits and why</strong>. Five hundred dollars rather than two fifty or a thousand, the argument for it, what it costs the business when it is wrong in each direction. Nobody else should make that call.</p>
+    <p>The product manager does <strong>not</strong> own <strong>how it is enforced</strong>. Whether a boundary is an instruction the agent reads or a physical layer in the call path, a scoped credential, a role-based access layer, a gate that fires before the action lands, is an implementation question. It belongs to the development manager and the architect, who know what the runtime can enforce and what enforcement costs.</p>
+    <p>So the work runs: author the Human Brief, <strong>stop</strong>, hold the enforcement conversation, then write the Executable Brief with the enforcement class settled. The stop is not friction in the workflow. It is the workflow. A brief that specifies both documents in one sitting has quietly made the architect&rsquo;s decisions on their behalf, and the result is a spec full of boundaries that exist as sentences.</p>
+    <h2 id="the-work">The work</h2>
+    <h3 id="1-the-human-brief">1. The Human Brief</h3>
+    <p><em>Audience: the sponsor, finance, engineering, design, the domain expert. Purpose: decide whether to build, where the boundaries sit, and whether the economics work. This is the document you argue with.</em></p>
+    <p>Eight sections, in prose a room can debate.</p>
+    <p><strong>1. The problem and the opportunity.</strong> What is costing money or going wrong today, and what the agent would change. One honest paragraph including the size.</p>
+    <p><strong>2. What we are building, and what we are deliberately not.</strong> The intended behavior in plain terms, and the adjacent thing it must not become, which is usually the failure mode of the obvious version.</p>
+    <p><strong>3. The cases that decide whether it is worth building.</strong> The hard cases, not the easy ones that were never the problem. If it only handles the easy cases the business case is weak, and this section is where that becomes visible.</p>
+    <p><strong>4. The business case and the go/no-go.</strong> The suitability tests, the cost model with real numbers, an explicit decision gate. Push here: the trap a finance partner will find is that per-decision token cost is not the real cost. The real cost is the architecture multiplier plus the supervision the boundary requires. Break-even is not &ldquo;agent cheaper than human per task,&rdquo; it is &ldquo;fully loaded cost, including supervising the escalated minority, below the cost of humans reviewing all of it, with the wrong-outcome risk priced in.&rdquo;</p>
+    <p><strong>5. Where the boundary sits, and why.</strong> The autonomy limit and the escalation triggers, stated as a deliberate choice with the risk named. This is the Channel 2 decision the room owns, and it is the section the enforcement conversation will consume.</p>
+    <p><strong>6. Accountability and how we will know.</strong> Who owns a wrong outcome, named before launch rather than in the incident review by pointing at whoever is nearest. Plus the instruments that will signal drift before the loss shows up.</p>
+    <p><strong>7. What success looks like, and what it does not.</strong> Written to exclude the seductive wrong metric, which for most agents is &ldquo;share resolved without a human.&rdquo;</p>
+    <p><strong>8. The open questions the room still owes.</strong> The business decisions not yet made, each flagged in the open. A question named here is one the room knows it must answer. A question left out is one that gets answered by default, in code, by whoever ships first.</p>
+    <p><strong>The test for this document:</strong> hand it to someone who was not in the room and ask them to argue the opposite of the boundary decision. If they cannot find the argument, section five is a statement rather than a decision.</p>
+    <h3 id="2-the-enforcement-conversation">2. The enforcement conversation</h3>
+    <p><em>Participants: the PM, the development manager, the architect. Duration: usually under an hour. Output: an enforcement class on every boundary.</em></p>
+    <p>Walk section five of the Human Brief line by line. For each boundary, the room decides one thing: is this a rule the agent can be argued out of, or a wall the execution path enforces.</p>
+    <p>The PM does not answer that question. The PM&rsquo;s job here is to supply what makes the question answerable, and this is the part to drill, because a boundary handed over as a bare number cannot be enforced sensibly. The architect has no basis for judging how hard to build the wall.</p>
+    <p>Every boundary needs four things attached before this conversation can happen:</p>
+    <p><strong>The number.</strong> Not a principle. Five hundred dollars, this record type and not that one, these three tools and no others.</p>
+    <p><strong>The consequence if it is crossed.</strong> Reversible within a window, or not. Blast radius in one line. Who is harmed, including the affected person who is not a user and will never be in the room.</p>
+    <p><strong>Whether a violation is a bad response or an incident.</strong> This is the field that decides everything downstream. A boundary whose violation produces an unhelpful answer can live in a prompt. A boundary whose violation produces an unrecoverable action cannot, at any level of emphasis, on any model.</p>
+    <p><strong>The evidence that it holds.</strong> The eval case that proves it and the signal that shows it drifting.</p>
+    <p>A Human Brief that carries the number without the consequence class has not handed over a decision. It has handed over a preference, and the architect will either over-build every boundary or guess. Both are expensive, and the second one is the nine-seconds case.</p>
+    <p>If the PM cannot fill the third field for a given boundary, that is the finding. It usually means the consequence was never thought through, and it belongs back in the Human Brief before anyone specifies anything.</p>
+    <h3 id="3-the-executable-brief">3. The Executable Brief</h3>
+    <p><em>Audience: the prototype, the coding agent, the backlog. Purpose: specify behavior, experience and governance precisely enough to generate a working prototype this week and seed a buildable backlog, with the supervisory layer written in as requirements. Derived from the Human Brief, after the enforcement conversation.</em></p>
+    <p>Three disciplines borrowed from spec-driven development tooling, taken on purpose:</p>
+    <p>Requirements are <strong>numbered and written as testable statements</strong>, not prose, so each can be checked off rather than interpreted.</p>
+    <p>Every place the spec is silent gets an <strong>explicit clarification marker</strong> rather than a quiet assumption. That marker is the difference between a gap you decided to leave and a gap a coding agent fills for you with whatever the simplest path suggests.</p>
+    <p>Behavior is graded against <strong>acceptance scenarios in given/when/then form</strong> a machine can run.</p>
+    <p>The structure is borrowed. The supervisory content is the part those tools do not give you, and the part this brief exists to add.</p>
+    <p>Nine sections:</p>
+    <p><strong>1. System type.</strong> Suggestion engine, copilot, or autonomous actor. Each carries a different accountability model.</p>
+    <p><strong>2. Outcome spec.</strong> The outcome the behavior is graded against, stated as a target over a distribution of cases, not a pass/fail story.</p>
+    <p><strong>3. Behavior (Channel 1), as numbered requirements.</strong> Inputs, available actions, tool and data scope. FR-1, FR-2, each phrased as something the system must do, with any unspecified detail flagged for clarification rather than assumed.</p>
+    <p><strong>4. Acceptance scenarios.</strong> The behavior target as runnable given/when/then cases, including the hard ones, so &ldquo;it works&rdquo; has a definition a system can check.</p>
+    <p><strong>5. Experience, the supervisory UX.</strong> What the human supervising the agent sees and does: the approval moment, the decision package, the surfaces that make oversight real rather than nominal.</p>
+    <p><strong>6. Governance (Channel 2), as numbered requirements.</strong> The autonomy boundary, the audit surface, the recovery workflow, the instruments. GR-1, GR-2, each a buildable checkable line, not a principle.</p>
+    <p><strong>7. Success criteria, measured.</strong> SC-1, SC-2, stated as numbers over the distribution and technology-agnostic, so they survive a change of model.</p>
+    <p><strong>8. Eval set.</strong> The curated cases with the endorsed outcome for each, including the hard ones and the never-ship failures.</p>
+    <p><strong>9. The gate it must pass.</strong> The non-negotiables checked before the spec proceeds: the boundary is enforced in the execution path rather than the prompt, the audit record is reconstructable, the kill switch is reachable. A spec that violates one does not proceed, however good the behavior looks.</p>
+    <p><strong>Section nine is where the enforcement conversation lands.</strong> That is the mechanism. The PM writes the GR requirements; the architect&rsquo;s call about rule versus wall shows up in the gate. If the gate is empty or generic, the conversation did not happen and the Executable Brief is a wish list with requirement numbers.</p>
+    <p>Each section lands with someone specific. System type and outcome are the PM&rsquo;s boundary call. The experience section is the designer&rsquo;s. The authorization rules and admissible evidence inside governance belong to the domain expert who holds that policy and carries a veto over anyone guessing on their behalf. The Executable Brief does not invent those seats; it is where their judgment is assembled into one buildable document.</p>
+    <h3 id="4-review-mode-when-the-spec-was-generated">4. Review mode: when the spec was generated</h3>
+    <p>Specification-driven development assumes the human authors the spec and the machine consumes it. A growing class of tooling inverts that. The human supplies intent in business language, the system asks a few clarifying questions, generates the specification, and the human approves the transition. Phase labels vary by vendor. The pattern does not.</p>
+    <p>That does not remove the Executable Brief. It automates the drafting and leaves the PM holding the review, which is the harder half. Reviewing a spec you did not author, for assumptions you did not make, in a domain where the system may hold more context than you, is harder than writing one. The generated artifact is complete and internally consistent, which is exactly what makes it look trustworthy. What it cannot tell you is whether it is the right thing to build.</p>
+    <p>It also does not remove the enforcement conversation. A generated spec contains boundaries whose enforcement class nobody decided, and a generation tool will render every one of them as instruction text, because that is the simplest path through the ambiguity.</p>
+    <p>The review checklist is not the author checklist reversed. Run it in this order:</p>
+    <p><strong>Which of my hard cases survived?</strong> Take section three of the Human Brief, the cases that decide whether it is worth building, and find each one in the generated spec. Generated specs are reliably good on the easy path and thin on the cases that motivated the project. Absence here is the most common and most expensive finding.</p>
+    <p><strong>What did it assume where I was silent?</strong> Search for the places the intent was underspecified and read what the system chose. It will have chosen something, and it will not be marked. Anything that should have been a clarification marker and is instead a confident line is a decision made by a tool on the PM&rsquo;s behalf.</p>
+    <p><strong>Is every boundary a sentence?</strong> Check section nine. If the gate is missing or every governance requirement reads as instruction text, the enforcement conversation still has to happen and the spec is not ready to hand to a builder.</p>
+    <p><strong>Does the outcome spec grade a distribution or a case?</strong> Generated specs drift toward pass/fail acceptance criteria because that is what most training data looks like.</p>
+    <p><strong>Who is the affected person here?</strong> They are almost never in a generated spec, because they were not in the intent.</p>
+    <p>Then the strongest single check, which is borrowed from the prototyping method and outperforms all of the above: <strong>hand the spec to someone who knows the domain and did not write it, and ask them to name the case where the agent gets it wrong.</strong> If they can do it in under a minute, the spec is describing the easy path.</p>
+    <h2 id="worked-example-the-refund-agent">Worked example: the refund agent</h2>
+    <p><strong>Human Brief, section five, where the boundary sits.</strong> The agent resolves refunds on its own up to a dollar limit set deliberately, because that single number decides how much trust we extend and how much exposure we accept. Above the limit, outside the window, or when a fraud signal fires, it routes to a human. We are choosing explicitly that a wrong escalation is acceptable and a wrong autonomous refund on a fraud-pattern case is not tolerable even once. That asymmetry is what the room should argue about.</p>
+    <p><strong>The same boundary entering the enforcement conversation, with its four fields:</strong></p>
+    <pre><code>BOUNDARY: autonomous refund ceiling
+  Number:        $500 auto, $500-$5,000 supervisor, &gt;$5,000 escalate
+  Consequence:   reversible via clawback within 72 hours below $5,000;
+                 above that, funds typically unrecoverable
+  Violation is:  BAD RESPONSE below $5,000  |  INCIDENT above $5,000
+                 INCIDENT at any amount when a fraud signal is present
+  Evidence:      EV-07 (fraud-signal case set), drift signal = clawback rate</code></pre>
+    <p><strong>What the architect and dev manager decided.</strong> The tiering below five thousand can be an instruction plus a narrow tool scope, since the outcome is recoverable and the cost of the agent getting it wrong is a refund we claw back. The fraud-signal case and the five-thousand ceiling are walls: a pre-call gate in the execution path and a credential that cannot authorize above the ceiling regardless of what the agent decides.</p>
+    <p><strong>The same boundary in the Executable Brief:</strong></p>
+    <pre><code>GR-3   The agent MUST NOT issue a refund above $5,000 under any condition.
+       Enforcement: execution path. Pre-call gate; agent credential scoped
+       below ceiling. Not prompt-enforced. [architect, confirmed 2026-08-15]
+
+GR-4   The agent MUST NOT issue an autonomous refund when the fraud service
+       returns a positive signal, at any amount.
+       Enforcement: execution path. Pre-call gate on fraud service response.
+       [architect, confirmed 2026-08-15]
+
+GR-5   The agent SHOULD route refunds between $500 and $5,000 to supervisor
+       approval.
+       Enforcement: instruction plus tool scope. Violation is a bad response,
+       recoverable via clawback within 72 hours. [accepted risk, PM]
+
+FR-9   The agent MUST NOT read stored payment details; order record and refund
+       amount only.
+       Enforcement: prototype as tool scope; production as a data-access layer
+       that never returns the payment record. [see note below]
+
+       [NEEDS CLARIFICATION: partial refunds against a multi-item order were
+       not specified in the Human Brief and are not assumed here.]
+
+GATE   GR-3, GR-4 enforced in execution path and verified by the architect
+       before this spec proceeds. Audit record reconstructable for every
+       refund. Kill switch reachable mid-execution.</code></pre>
+    <p><strong>One requirement, two builders.</strong> FR-9 is the clearest case of why the gate matters. The coding agent building a prototype this week implements it as an instruction and a narrow tool scope, honored as far as the agent cooperates, which is enough to test the flow. The engineers building production implement the same line as architecture: a data-access layer that returns the order and the amount and never exposes the payment record, so the agent cannot read what it is not handed, whether it tries or not.</p>
+    <p>One requirement. An instruction in the thing that proves the bet, an enforced structure in the thing that ships. Write both into the line, or the prototype&rsquo;s version is what gets shipped.</p>
+    <h2 id="returning-to-the-headline-question">Returning to the headline question</h2>
+    <p>As the PM works, keep returning them to the two halves.</p>
+    <p>If the Human Brief is thorough and the Executable Brief has no gate, the decision was made and the enforcement conversation was skipped. The boundaries will exist as sentences and the first incident will be about one of them.</p>
+    <p>If the Executable Brief is precise and the Human Brief was never written, the spec is a bet nobody argued with. It will be built exactly as specified and there will be no record of why, which surfaces the first time someone asks to move the number.</p>
+    <p>If both exist and section three of the Human Brief lists only easy cases, the business case is weak and the briefs are dressing it.</p>
+    <h2 id="munger-inversion-what-failure-looks-like">Munger inversion: what failure looks like</h2>
+    <p>Ask what would have to be true for this handover to fail badly, and work backwards.</p>
+    <p><strong>One document tried to be both.</strong> Narrative paragraphs with JSON blocks inline. Unreadable as an argument, broken as a spec, and it usually means the PM wrote the spec first and reverse-engineered the reasoning.</p>
+    <p><strong>The brief specified the bet instead of arguing it.</strong> A fluent document that describes the solution in detail without a decision gate has pre-decided the question. Speed is a multiplier, not a corrective.</p>
+    <p><strong>Every governance requirement is a sentence the agent reads.</strong> The most common failure and the most expensive. The prompt said not to and the agent did anyway, or the credential allowed what the prompt forbade.</p>
+    <p><strong>The eval set contains only cases the agent passes.</strong> Written after the prototype worked, from the prototype&rsquo;s own behavior.</p>
+    <p><strong>The open questions section is empty.</strong> Not because everything was decided, but because nobody wanted to write down what was not.</p>
+    <p><strong>A generated spec was approved because it looked complete.</strong> Internal consistency read as correctness.</p>
+    <h2 id="handoffs">Handoffs</h2>
+    <p><strong>From <code>agentic-pm-discover-decide</code>:</strong> the suitability record, the cost model, and the departed user&rsquo;s context. The authority thresholds and exceptions found there become section five of the Human Brief and the GR requirements of the Executable Brief. The tacit residue, what could not be encoded, is the argument for the approval moment in section five of the Executable Brief.</p>
+    <p><strong>To <code>agentic-pm-design</code>:</strong> the governance requirements, to be turned into the four runtime artifacts. The brief decides what the agent is allowed to do; the runtime makes the boundary real.</p>
+    <p><strong>To <code>agentic-pm-eval</code>:</strong> section eight, the eval set, as the seed of the golden dataset. The definition of acceptable failure travels with it.</p>
+    <p><strong>Later, to a seam audit:</strong> the gate in section nine is what a boundary-to-wall verification checks against. Every governance requirement should have a matching enforcement someone can point at, with a date.</p>
+    <h2 id="source">Source</h2>
+    <p>Book 1 (<em>Agentic AI for Busy Product Managers</em>, 2nd edition), Chapter 5 &ldquo;The Two Briefs: From Decision to Buildable Spec.&rdquo; The eight Human Brief sections, the nine Executable Brief sections, the outcome-centric spec argument, and the one-requirement-two-builders closing are drawn from it directly.</p>
+    <p>Book 2 (<em>Why Agentic AI Products Fail</em>), Appendix A &ldquo;The Two Briefs, Worked&rdquo; for the full worked pair, and Chapter 4 &ldquo;How the Work Splits&rdquo; for the operating model around them.</p>
+    <p>Book 3 (<em>The Agentic AI Team</em>) for the enforcement seam: a boundary specified only as an instruction is a wish rather than a wall, and the hand-off between the person who specifies it and the architect who enforces it is where the failure lives.</p>
+    <p>The numbered-requirement, clarification-marker and given/when/then disciplines are borrowed from spec-driven development tooling in the field. The supervisory content is not in those tools and is the reason this brief exists.</p>
+    <p>The refund figures, dates and requirement numbers in the worked example are illustrative.</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -67,6 +67,10 @@
         <div class="sidebar-eyebrow" style="color:#378ADD">Phase 1 · Discover & Decide</div>
         <div class="sidebar-skill-name">agentic-pm-discover-decide</div>
       </a></li>
+      <li><a href="agentic-pm-brief.html">
+        <div class="sidebar-eyebrow" style="color:#4F46E5">Handover · The Two Briefs</div>
+        <div class="sidebar-skill-name">agentic-pm-brief</div>
+      </a></li>
       <li><a href="agentic-pm-design.html">
         <div class="sidebar-eyebrow" style="color:#7c3aed">Phase 2 · Design</div>
         <div class="sidebar-skill-name">agentic-pm-design</div>
@@ -96,14 +100,14 @@
         <div class="skill-eyebrow">Router</div>
         <div class="skill-slug">agentic-pm-lifecycle</div>
         <h1 class="skill-title">Agentic PM Lifecycle: The Router</h1>
-        <div class="skill-description">Front-door router for the Agentic PM skill package. Use when a PM is working on an agentic AI product but is not sure which phase they are in. Diagnoses the situation and dispatches to: agentic-pm-discover-decide (should we build it), agentic-pm-design (specify runtime behavior), agentic-pm-eval (prove readiness), agentic-pm-observe (measure production), agentic-pm-operate (long-horizon governance and drift), or agentic-pm-behavior-governance (portfolio strategy). Trigger phrases: &ldquo;I am building an agent&rdquo;, &ldquo;we are launching an AI feature&rdquo;, &ldquo;where do I start with this agent&rdquo;, &ldquo;what phase am I in&rdquo;, &ldquo;agentic AI lifecycle&rdquo;, &ldquo;agentic PM lifecycle&rdquo;, &ldquo;the five phases&rdquo;, &ldquo;the agentic PM framework&rdquo;. Do not use this skill if the user has already named the phase or the artifact they want; route directly.</div>
+        <div class="skill-description">Front-door router for the Agentic PM skill package. Use when a PM is working on an agentic AI product but is not sure which phase they are in. Diagnoses the situation and dispatches to: agentic-pm-discover-decide (should we build it), agentic-pm-brief (write the two briefs engineering builds from), agentic-pm-design (specify runtime behavior), agentic-pm-eval (prove readiness), agentic-pm-observe (measure production), agentic-pm-operate (long-horizon governance and drift), or agentic-pm-behavior-governance (portfolio strategy). Trigger phrases: &ldquo;I am building an agent&rdquo;, &ldquo;we are launching an AI feature&rdquo;, &ldquo;where do I start with this agent&rdquo;, &ldquo;what phase am I in&rdquo;, &ldquo;agentic AI lifecycle&rdquo;, &ldquo;agentic PM lifecycle&rdquo;, &ldquo;the five phases&rdquo;, &ldquo;the agentic PM framework&rdquo;. Do not use this skill if the user has already named the phase or the artifact they want; route directly.</div>
         <div class="skill-install-row">
           <a class="install-btn install-primary" href="https://github.com/yoramfmd/agentic-ai-pm-skill-package/raw/main/releases/agentic-pm-lifecycle.skill" download>Install this skill</a>
           <a class="install-btn install-secondary" href="https://github.com/yoramfmd/agentic-ai-pm-skill-package/releases/latest" target="_blank" rel="noopener">Install all seven</a>
         </div>
       </div>
     <p>You are the front door of the Agentic PM skill package. Your job is to diagnose what the PM needs and dispatch to the right specialized skill, not to do the work yourself.</p>
-    <p>The package is built around the agentic PM lifecycle, which has five working phases plus a portfolio-level strategic skill:</p>
+    <p>The package is built around the agentic PM lifecycle, which has five working phases, one handover skill between Decide and Design, and a portfolio-level strategic skill:</p>
     <p><strong>Discover &amp; Decide.</strong> Should we build this as an agent at all. Phase 1.</p>
     <p><strong>Design.</strong> Specify the runtime behavior before engineering begins. Phase 2.</p>
     <p><strong>Eval.</strong> Prove readiness through evidence. Phase 3.</p>
@@ -117,7 +121,8 @@
     <p>Two. What is the current state. Pick the closest match.</p>
     <ul>
       <li>&ldquo;We are considering whether to build this.&rdquo; → <strong>Discover &amp; Decide</strong> (<code>agentic-pm-discover-decide</code>).</li>
-      <li>&ldquo;We have decided to build, now we need to specify behavior.&rdquo; → <strong>Design</strong> (<code>agentic-pm-design</code>).</li>
+      <li>&ldquo;We have decided to build, now we need to write the spec.&rdquo; → <strong>Brief</strong> (<code>agentic-pm-brief</code>).</li>
+      <li>&ldquo;We have decided to build, now we need to specify runtime behavior.&rdquo; → <strong>Design</strong> (<code>agentic-pm-design</code>).</li>
       <li>&ldquo;Behavior is specified, we are evaluating readiness for launch.&rdquo; → <strong>Eval</strong> (<code>agentic-pm-eval</code>).</li>
       <li>&ldquo;It is live and we are watching it in production.&rdquo; → <strong>Observe</strong> (<code>agentic-pm-observe</code>).</li>
       <li>&ldquo;It has been live for months or years and we are managing drift.&rdquo; → <strong>Operate</strong> (<code>agentic-pm-operate</code>).</li>
@@ -133,7 +138,8 @@
     <p>&ldquo;The agent is consuming far more than expected.&rdquo; → Route to <code>agentic-pm-observe</code> (operational guardrails). Check ceilings, kill switch, burn-rate alert.</p>
     <p>&ldquo;A supervisor reports the agent feels different.&rdquo; → Route to <code>agentic-pm-observe</code> (override frequency, supervisory engagement, deployment-event log). If no deployment event matches, route to <code>agentic-pm-operate</code> (drift detection).</p>
     <p>&ldquo;We need to design the approval moment.&rdquo; → Route to <code>agentic-pm-design</code>.</p>
-    <p>&ldquo;We are writing the brief.&rdquo; → Route to <code>agentic-pm-design</code> (the two briefs, Human Brief and Executable Brief, live there).</p>
+    <p>&ldquo;We are writing the brief.&rdquo; → Route to <code>agentic-pm-brief</code>. The Human Brief and Executable Brief live there, along with the enforcement conversation that belongs between them.</p>
+    <p>&ldquo;A tool generated our spec and I have to approve it.&rdquo; → Route to <code>agentic-pm-brief</code>, review mode.</p>
     <p>&ldquo;We need a go/no-go memo.&rdquo; → Route to <code>agentic-pm-discover-decide</code>.</p>
     <p>&ldquo;We have three agents and a growing problem.&rdquo; → Route to <code>agentic-pm-behavior-governance</code>.</p>
     <p>If none of the above patterns apply, ask one clarifying question to narrow scope, then route.</p>
@@ -149,7 +155,7 @@
     <p>After routing, the specialized skill takes over. This skill does not stay engaged.</p>
     <p>If the PM returns later with a different question that fits a different phase, reinvoke this skill to re-route. The skills are designed to be invoked independently as the PM&rsquo;s work moves through the lifecycle.</p>
     <h2 id="source">Source</h2>
-    <p>The lifecycle structure originates with Book 1 (<em>Agentic AI for Busy Product Managers</em>) and the six-phase slide (&ldquo;The Six PM Phases, in Detail&rdquo;) that summarizes it. Book 2 (<em>Why Agentic AI Products Fail</em>) expanded the deliverables and added the supervisory layer. The package integrates both, with Book 4 contributions on audit surface temporal durability.</p>
+    <p>The lifecycle structure originates with Book 1 (<em>Agentic AI for Busy Product Managers</em>, 2nd edition) and the six-phase slide (&ldquo;The Six PM Phases, in Detail&rdquo;) that summarizes it. Book 2 (<em>Why Agentic AI Products Fail</em>) expanded the deliverables and added the supervisory layer. The package integrates both, with Book 4 contributions on audit surface temporal durability.</p>
     <p>This skill is the dispatcher. The work the PM came to do lives in the specialized skills it routes to.</p>
     </div>
   </div>
