@@ -235,7 +235,7 @@ disagreement about which of these five a capability belongs to.</p>
     <text x="0"   y="264">Model version</text><text x="0" y="279">pinning</text>
 
     <text x="146" y="112">The six observation</text><text x="146" y="127">instruments</text>
-    <text x="146" y="150">Pass@K with</text><text x="146" y="165">variance</text>
+    <text x="146" y="150">Pass rate, worst</text><text x="146" y="165">slice, pass^k</text>
     <text x="146" y="188">Compound probability</text><text x="146" y="203">across steps</text>
     <text x="146" y="226">Per-task cost at the</text><text x="146" y="241">trajectory level</text>
     <text x="146" y="264">Time to intervene,</text><text x="146" y="279">review depth</text>
@@ -331,7 +331,7 @@ to exist. The data is there. The metric is not, and nobody tells you which is wh
   <g font-size="11">
     <rect x="244" y="24" width="216" height="24" rx="3" fill="#f2f6fb" stroke="#dfe3e9"/><text x="256" y="40" fill="#14161a">Override frequency</text>
     <rect x="244" y="52" width="216" height="24" rx="3" fill="#f2f6fb" stroke="#dfe3e9"/><text x="256" y="68" fill="#14161a">Unintended action rate</text>
-    <rect x="244" y="80" width="216" height="24" rx="3" fill="#f2f6fb" stroke="#dfe3e9"/><text x="256" y="96" fill="#14161a">Pass@K with variance</text>
+    <rect x="244" y="80" width="216" height="24" rx="3" fill="#f2f6fb" stroke="#dfe3e9"/><text x="256" y="96" fill="#14161a">Pass rate, worst slice, pass^k</text>
     <rect x="244" y="108" width="216" height="24" rx="3" fill="#f2f6fb" stroke="#dfe3e9"/><text x="256" y="124" fill="#14161a">Per-task trajectory cost</text>
     <rect x="244" y="136" width="216" height="24" rx="3" fill="#f2f6fb" stroke="#dfe3e9"/><text x="256" y="152" fill="#14161a">Time to intervene</text>
   </g>
@@ -354,7 +354,7 @@ frequency, confidence calibration, rollback time and incident recovery time, are
 from trace data on every platform and named as primitives on almost none. A small number of
 evaluation-specialist platforms ship a subset. They are still a subset.</p>
 
-<p>Beyond those: <strong>Pass@K with K and variance reported</strong> is not a named metric on
+<p>Beyond those: <strong>the pass rate with its worst slice, and pass^k</strong>, are not named metrics on
 any major platform, though it is computable from repeated evaluation runs. <strong>Compound
 probability across chained steps</strong> is not shipped anywhere, though it is computable
 from per-step confidence scores if the platform emits them. <strong>Per-task cost at the

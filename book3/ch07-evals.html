@@ -155,13 +155,16 @@
     <p>The three places the QA mental model breaks are the deterministic assumption, component-level testing, and execution observability. Each has its own failure mode. Each needs a different PM artifact.</p>
     <p><strong>The determinism problem.</strong> In traditional software QA, a passing test proves the code will behave correctly. Given the same input, the same code produces the same output, every time. One green checkmark means the behavior is fixed.</p>
     <p>In agentic AI, one green checkmark is a sample from a distribution. Even in systems configured for low variance, non-determinism persists at the system level due to retrieval variability, external tool responses, and context differences across sessions. The same agent, given the same task on different days, may succeed, fail, or take a path nobody anticipated.</p>
-    <p>The practical consequence: binary pass/fail is not a sufficient quality gate. Leading teams use repeated sampling and distribution-based metrics, tracking success rates across multiple runs. The practice has a name in the eval literature: Pass@K.</p>
+    <p>The practical consequence: binary pass/fail is not a sufficient quality gate. Leading teams use repeated sampling and distribution-based metrics, tracking success rates across multiple runs. The vocabulary here is worth getting exactly right, because the term most teams reach for is not the one they mean.</p>
     <div class="callout">
-      <div class="callout-title">Concept: Pass@K</div>
-      <p>Pass@K is the practice of running an eval k times (typically five to ten for internal release gates) and reporting the success rate across the distribution rather than a single binary result. In a non-deterministic system, a single passing run proves very little. A pass rate of 8 out of 10 tells you something meaningful about the system&rsquo;s reliability. A pass rate of 1 out of 1 tells you almost nothing.</p>
-    <p>Two numbers from the distribution matter for a release decision. The P50, the median pass rate, is the expected performance in a typical interaction. The P10, the worst-case ten percent of runs, determines user experience at scale. An 85 percent P50 with a 40 percent P10 is a system that succeeds in most interactions and fails badly in the cases that hit the tail. The P10 is the number most teams never calculate. When your engineering team reports eval results, the first question is: how many times was each eval run, and what is the P10?</p>
+      <div class="callout-title">Concept: three metrics, one set of runs</div>
+      <p>Run one eval ten times on a system that succeeds eighty percent of the time, and three different numbers fall out of the same runs. They answer three different questions, and two of them share a name closely enough that teams routinely report one while believing they have the other.</p>
+    <p><strong>pass@k</strong> asks whether at least one of the ten attempts succeeded. Here that is near certainty. It comes from code generation, where a developer generates several candidates, reads them, and keeps the best one, and in that setting it measures something real. As a gate on an agent that acts without review it measures almost nothing, because it improves every time you allow another attempt, and because nobody is standing there picking the good run out of the ten. If a vendor quotes pass@k for an autonomous system, that is the number to ask about.</p>
+    <p><strong>The pass rate</strong> asks how often it succeeded, and how bad the bad runs were. Here it is eighty percent, with a median and a worst slice worth reporting separately. This is the honest description of a distribution, and it is what most teams are actually computing when they say pass@k. Report it as P50 and P10 across cases, not across runs, because the question a gate owner is asking is which cases fail rather than which attempts did. An 85 percent P50 with a 40 percent P10 is a system that succeeds in most interactions and fails badly in the cases that hit the tail. The P10 is the number most teams never calculate.</p>
+    <p><strong>pass^k</strong> asks whether all k attempts succeeded. Here that is about eleven percent. This is the reliability question, and for anything acting on its own it is the one that matters, because a system a user meets repeatedly will meet its failure eventually.</p>
+    <p>Near-certainty, eighty percent, eleven percent. Same runs, three numbers, and only one of them answers the question an autonomy decision is asking. When your engineering team reports eval results, the first questions are: how many times was each eval run, what is the P10 and across what denominator, and what is pass^k?</p>
     </div>
-    <p>The value of Pass@K is in the shape of the distribution, not in a single green check.</p>
+    <p>The value is in the shape of the distribution and in the floor underneath it, not in a single green check. Run at least ten times; fewer will not separate a real distribution from noise.</p>
     <table>
       <thead>
         <tr>
@@ -179,7 +182,7 @@
         <tr>
           <td>8 of 10 pass</td>
           <td>10</td>
-          <td>Approximates the real success rate; adequate for most internal release gates</td>
+          <td>An eighty percent pass rate, and a pass^10 you have not yet measured; ten is the floor</td>
         </tr>
         <tr>
           <td>48 of 50 pass</td>
@@ -188,7 +191,7 @@
         </tr>
       </tbody>
     </table>
-    <p>Table 7.2. Pass@K in practice.</p>
+    <p>Table 7.2. What repeated runs buy you.</p>
     <p><strong>LLM-as-judge</strong> is the scaling mechanism most teams reach for when human review cannot keep up with eval volume. It uses a language model to score the output of another language model against a rubric. The tradeoff is that the judge introduces its own error rate, which must be characterized against a sample of human-labeled examples. A false-pass rate of 10 percent in the judge translates directly into a quality gate with a 10 percent blind spot. Judges are also not neutral graders: they favor longer answers even when length does not correlate with correctness, favor whichever answer is presented first in a side-by-side comparison, and favor outputs from the same model family. If the team has not characterized those errors against human-labeled reference examples, the eval scores have a noise floor the team has not measured.</p>
     <p>One specific calibration metric belongs in every PM&rsquo;s vocabulary here. <strong>True Negative Rate (TNR)</strong> is the proportion of actual failure cases the judge correctly labels as failures. If the judge receives a hundred outputs humans labeled as failed and flags ninety of them, TNR is 90 percent. The other ten passed the judge despite being wrong; those are the false-pass rate. TNR is the metric the judge is graded on, and it is the metric most teams do not produce. The PM&rsquo;s question at launch review is not &ldquo;does the judge work&rdquo; but &ldquo;what is the judge&rsquo;s True Negative Rate against a human-labeled failure set, and what minimum TNR did we declare before we measured it?&rdquo; Three artifacts before sign-off: the human-labeled failure set, the measured TNR, and the pre-declared minimum TNR. Without all three, the LLM-as-judge layer is performing eval theater.</p>
     <p><strong>The compound probability problem.</strong> This one has no equivalent in traditional software development, which is why it catches experienced PMs off guard.</p>
@@ -203,7 +206,7 @@
     <p>A short digression on the metric toolkit most PMs and engineers bring to this work.</p>
     <p>Physicians, data scientists, and ML engineers trained on classifier evaluation carry a familiar set of metrics into agent evaluation: accuracy, sensitivity, specificity, AUC, precision, recall, F1. These metrics retain meaning at the single-step level inside an agentic system. If one step of a workflow is a tool selector, a PII detector, a refusal classifier, or any other binary decision against a ground truth, classifier metrics apply directly. Tool call accuracy evaluators on enterprise eval platforms are examples of classifier metrics at single-step granularity.</p>
     <p>The same metrics break down for the agent end to end. A five-step workflow with four correct steps and one wrong step produces 80 percent step accuracy and 0 percent task success if the wrong step is the critical one. No classifier metric expresses that fact. Compound probability and end-to-end task success do. The practical guidance is direct: standard ML metrics like precision, recall, and accuracy, and NLP metrics like BLEU and BERTScore, do not cut it for multi-step agents.</p>
-    <p>The practical rule: use classifier metrics for single-step validators inside the agent (router selection, PII detection, refusal detection, tool call accuracy). Use Pass@K, end-to-end task success, and compound probability for the agent as a whole. A team reporting classifier metrics on the trajectory is reporting a number that cannot, mathematically, tell you whether the agent works.</p>
+    <p>The practical rule: use classifier metrics for single-step validators inside the agent (router selection, PII detection, refusal detection, tool call accuracy). Use the pass rate with its worst slice, pass^k, end-to-end task success, and compound probability for the agent as a whole. A team reporting classifier metrics on the trajectory is reporting a number that cannot, mathematically, tell you whether the agent works.</p>
     <p>One reconciliation note. Evaluation platforms still expose accuracy, precision, recall, and F1 on agent dashboards because the metrics are cheap to compute over tool-call events and familiar to any engineer who has shipped a classifier. Exposure does not mean sufficiency. When you see them in your tooling, read them as single-step diagnostics, not as an end-to-end quality signal.</p>
     <table>
       <thead>
@@ -228,10 +231,22 @@
           <td>Applied to agent trajectories; there is no single threshold to optimize end to end</td>
         </tr>
         <tr>
-          <td>Pass@K</td>
-          <td>Success distribution across K runs of the same eval</td>
-          <td>Non-deterministic agent trajectories, K between 5 and 50 depending on the release gate</td>
-          <td>K=1, which is a single sample and almost no signal; K chosen without variance reported alongside</td>
+          <td>pass@k</td>
+          <td>Whether at least one of k attempts succeeded</td>
+          <td>Code generation and other settings where a human picks among candidates</td>
+          <td>Used as a gate on an autonomous agent; it rises with every extra attempt you allow</td>
+        </tr>
+        <tr>
+          <td>Pass rate (P50, P10 across cases)</td>
+          <td>How often it succeeds, and how bad the tail is</td>
+          <td>The behavioral picture on non-deterministic trajectories, k of ten or more</td>
+          <td>The denominator is not stated; P50 across runs and P50 across cases are different claims</td>
+        </tr>
+        <tr>
+          <td>pass^k</td>
+          <td>Whether all k attempts succeeded</td>
+          <td>The autonomy gate: anything acting without per-action review</td>
+          <td>Reported without k, or with k below ten</td>
         </tr>
         <tr>
           <td>End-to-end task success</td>
@@ -289,7 +304,7 @@
     <p>DAX Copilot is an AI clinical documentation assistant used by physicians to reduce the administrative burden of note-writing. In a published randomized controlled trial, physicians adopted the tool readily and feedback was positive. The product was well-designed for its contract: a copilot that assists with documentation while the human reviews before submitting. Acceptance criteria were met. The contract was correct.</p>
     <p>The trial found no statistically significant improvement in documentation time or physician cognitive load.</p>
     <p>The product worked. The eval suite passed. The metric tracked, adoption, was not the metric that mattered. Time saved was the metric that mattered. Cognitive load reduced was the metric that mattered. The team that designed the trial did not connect the contract (a copilot for documentation efficiency) to the outcome measurement that would have proven the contract was being delivered.</p>
-    <p>This is an AI literacy failure before it is an evaluation failure. The lesson applies to any agentic feature where &ldquo;people are using it&rdquo; is treated as evidence that &ldquo;it is working.&rdquo; Adoption is a leading indicator of potential value. It is not a measure of delivered value. Pass@K, compound probability, and state validation are useless if the metric being passed is the wrong metric. The PM owns the connection between the contract and the outcome measurement, and the failure to make that connection is not detectable by any eval suite, because the eval suite was set up against the wrong target.</p>
+    <p>This is an AI literacy failure before it is an evaluation failure. The lesson applies to any agentic feature where &ldquo;people are using it&rdquo; is treated as evidence that &ldquo;it is working.&rdquo; Adoption is a leading indicator of potential value. It is not a measure of delivered value. The pass rate, pass^k, compound probability, and state validation are useless if the metric being passed is the wrong metric. The PM owns the connection between the contract and the outcome measurement, and the failure to make that connection is not detectable by any eval suite, because the eval suite was set up against the wrong target.</p>
     <hr>
     <h2 id="evals-are-one-signal-not-the-gate">Evals Are One Signal, Not the Gate</h2>
     <p>Leading teams treat evals as one signal among several. A passing eval suite informs the release decision. It does not make it.</p>
@@ -317,7 +332,7 @@
     <div class="callout callout-pocket">
       <div class="callout-label">Keep in your pocket</div>
       <ul>
-      <li><strong>Pass@K</strong>: run each eval 5-10 times and report the success rate across the distribution, not a single binary result.</li>
+      <li><strong>Pass rate, not pass@k</strong>: run each eval at least ten times and report the success rate with its worst slice, across cases. Report <strong>pass^k</strong>, the share of cases that succeed on every run, as the autonomy gate.</li>
       <li>Evals are one signal, not the gate. Pair offline evals with production monitoring and a clear incident response path.</li>
       <li>The <strong>coverage statement</strong> lists what was tested and what was deliberately deferred; both belong in the release package.</li>
       <li><strong>LLM-as-judge</strong> needs calibration. Measure True Negative Rate against a human-labeled failure set before trusting the gate.</li>

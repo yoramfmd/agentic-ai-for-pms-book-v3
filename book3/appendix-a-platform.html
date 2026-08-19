@@ -111,7 +111,7 @@
     <hr>
     <h2 id="what-you-compose-yourself-the-derivation-line">What You Compose Yourself (the Derivation Line)</h2>
     <p>The six instruments from Chapter 8 are composed, not bought. Task success rate, unintended action rate, override frequency, confidence calibration, rollback time, incident recovery time: derivable from the trace data on every platform, named as primitives on almost none. A small number of evaluation-specialist platforms ship a subset (for example, Action Completion and Agent Efficiency), and they are still a subset.</p>
-    <p>Pass@K with K and variance reporting is not a named metric on any major platform. It is computable from repeated eval runs. Compound probability across chained steps is not shipped anywhere. It is computable from per-step confidence scores if the platform emits them.</p>
+    <p>Pass rate with worst-slice variance, and pass^k, are not named metrics on any major platform. It is computable from repeated eval runs. Compound probability across chained steps is not shipped anywhere. It is computable from per-step confidence scores if the platform emits them.</p>
     <p>Per-task cost at the trajectory level, including multi-agent coordination overhead and human review and rework time, is not shipped as a named metric. It is derivable from token and span events plus integration with human workflow systems.</p>
     <p>Time-to-intervene, response rate per interruption priority, review depth, and most supervisory engagement metrics sit in the same place: trace data exists, named metrics do not, composition is your team&rsquo;s job.</p>
     <hr>

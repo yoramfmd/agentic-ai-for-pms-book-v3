@@ -235,10 +235,17 @@ failures.</p>
 given the same task on different days may succeed, fail, or take a path nobody anticipated. So
 a binary pass is not a quality gate, it is one draw.</p>
 
-<p>The practice that addresses this has a name in the evaluation literature: pass@k. Run each
-case some number of times, typically five to ten for an internal gate, and report the rate
-across runs. Eight of ten tells you something about reliability. One of one tells you almost
-nothing.</p>
+<p>The practice that addresses this is to run each case many times, at least ten for an
+internal gate, and report the rate across runs. Eight of ten tells you something about
+reliability. One of one tells you almost nothing. The vocabulary here is worth getting exactly
+right, because two of the industry&rsquo;s terms are close enough to swap by accident.
+<em>pass@k</em>, which comes from code generation, asks whether <em>any</em> of k attempts
+succeeded, so it rises every time you allow another attempt and flatters any system nobody is
+watching; it is the wrong gate for an agent that acts on its own. What belongs next to the pass
+rate is <em>pass^k</em>, the share of cases that succeed on <em>all</em> k runs, which is the
+reliability question and the one an autonomy decision is actually asking. On a system that
+succeeds eighty percent of the time, run ten times, those three numbers are roughly one hundred
+percent, eighty percent, and eleven percent.</p>
 
 <p>Then read the spread rather than the average, because the average is where the problem
 hides. An agent that is right eighty-five percent of the time on a typical case can be right

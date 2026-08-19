@@ -427,7 +427,7 @@
     <article class="qa" id="evaluate-non-deterministic-system">
       <h3>How do you evaluate a non-deterministic system? <a class="qa-anchor" href="#evaluate-non-deterministic-system" aria-label="Link to this question">#</a></h3>
       <p class="qa-asked"><span>What it is testing</span> Whether you understand the core problem.</p>
-      <p class="qa-a">You stop asking whether it passed and start asking how often. Pass@K over many runs, with the variance reported, and a stated floor rather than an average. Then project the compound: a five-step workflow at ninety-five percent per step is not a ninety-five percent workflow. Most agentic quality surprises are this arithmetic arriving late.</p>
+      <p class="qa-a">You stop asking whether it passed and start asking how often, and then whether it always does. The pass rate over at least ten runs, with the worst slice reported across cases rather than an average, and then pass^k, the share of cases that succeed on every run, which is the number an autonomy decision actually needs. Not pass@k, which asks only whether it ever worked and improves every time you allow another attempt. Then project the compound: a five-step workflow at ninety-five percent per step is not a ninety-five percent workflow. Most agentic quality surprises are this arithmetic arriving late.</p>
       <div class="qa-refs">
         <a class="ref-primary" href="../book3/ch07-evals.html">Book 1, Chapter 7 &rarr;</a>
         <a class="ref-more" href="../book4/ch09-evals.html">Book 2, Ch 9: Evals, What the Checkmarks Prove &rarr;</a>

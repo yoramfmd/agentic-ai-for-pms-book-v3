@@ -2,7 +2,7 @@
 """
 build_web_book6.py — generate the web edition of The Agentic AI Practitioner.
 
-Source: Books/AgenticPractitioner/BOOK4-FULL-DRAFT-v1.4-READING-COPY.md
+Source: Books/AgenticPractitioner/BOOK4-FULL-DRAFT-v1.8-READING-COPY.md
          (single consolidated reading copy; split on H1 boundaries)
 Output: series-web/book6/  (flat HTML, GitHub Pages ready)
 
@@ -14,7 +14,14 @@ import re, html, shutil
 from pathlib import Path
 
 HERE      = Path(__file__).resolve().parent
-SOURCE_MD = HERE.parent / "AgenticPractitioner" / "BOOK4-FULL-DRAFT-v1.4-READING-COPY.md"
+# WARNING (2026-08-19): the path below was pointing at v1.4, a file that no longer
+# exists, so this builder has been silently broken and book6/ on the site is still
+# generated from v1.4 content. Repointed to v1.8, but DO NOT rerun until the output
+# is diffed against the committed book6/: a trial run dropped two appendix links from
+# the sidebar and rewrote the Open Graph head block without the OG-IMAGE sentinels
+# that the committed files carry. Same class of drift as build_web_book5.py, which
+# additionally renders "\$" literally and leaves ":::card" fences unstyled.
+SOURCE_MD = HERE.parent / "AgenticPractitioner" / "BOOK4-FULL-DRAFT-v1.8-READING-COPY.md"
 OUT       = HERE / "book6"
 OUT.mkdir(exist_ok=True)
 

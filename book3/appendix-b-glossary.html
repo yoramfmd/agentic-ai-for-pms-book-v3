@@ -170,7 +170,9 @@
     <p><strong>Orchestration layer.</strong> The software above the model that manages prompts, tool calls, memory, and multi-step workflow.</p>
     <p><strong>OWASP Top 10 for Agentic Applications.</strong> The OWASP Gen AI Security Project&rsquo;s December 2025 vulnerability list specifically for agentic systems, refreshed as the 2026 edition (ASI01 through ASI10); policy framework, not platform primitive.</p>
     <p><strong>Override frequency.</strong> The rate at which humans reject or modify agent-proposed actions; falling over time can indicate supervisory erosion, not improved agent quality.</p>
-    <p><strong>Pass@K.</strong> The practice of running an eval K times and reporting the success distribution; the correct quality gate for non-deterministic systems.</p>
+    <p><strong>Pass rate.</strong> How often an eval case succeeds across repeated runs, reported as a median (P50) and a worst slice (P10) across cases. The honest description of a non-deterministic system&rsquo;s behavior, and what most teams mean when they say pass@k.</p>
+    <p><strong>pass@k.</strong> From code generation (Chen et al., 2021): a case counts as solved if at least one of k samples passes. It improves every time you allow another attempt, which makes it the wrong gate for an agent that acts without review.</p>
+    <p><strong>pass^k.</strong> From &tau;-bench (Yao et al., 2024): the share of cases that succeed on all k runs. The reliability gate, and the number an autonomy decision actually needs. Minimum k is ten.</p>
     <p><strong>PII detection.</strong> Identification of personally identifiable information in agent input or output; a single-step validator where classifier metrics apply.</p>
     <p><strong>Planning artifact (Category C).</strong> A PM-team output tracked in a work-management system (suitability declaration, go or no-go memo, coverage statement); not a platform feature.</p>
     <p><strong>Platform primitive (Category A).</strong> A first-class platform feature the PM or builder consumes directly.</p>

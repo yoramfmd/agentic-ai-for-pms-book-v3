@@ -224,7 +224,7 @@
     <p><em>(Chapter 7)</em></p>
     <p>Before approving a release based on eval results, confirm the following. Yes to all is required.</p>
     <ul>
-      <li><strong>Distribution, not a single pass.</strong> Were evals run at least five times? Is a pass rate reported, not a binary result? Is the P10 reported alongside the median?</li>
+      <li><strong>Distribution, not a single pass.</strong> Were evals run at least ten times? Is a pass rate reported, not a binary result? Is the P10 reported alongside the median, and across cases rather than across runs? Is pass^k reported, the share of cases that succeed on every run?</li>
       <li><strong>End-to-end threshold set.</strong> Is there a system-level success rate defined, not just component accuracy? Was the question &ldquo;What is the end-to-end success rate on the full workflow, run ten times?&rdquo; asked and answered?</li>
       <li><strong>State validation performed.</strong> Did evaluation verify actual system state changes, not only semantic output correctness?</li>
       <li><strong>Judge calibration documented.</strong> Is the false-pass rate of the automated judge characterized? Are the documented bias patterns (longer-answer, position, same-family) accounted for in the calibration?</li>
@@ -442,7 +442,7 @@
     <hr>
     <h2 id="12-red-flags">12. Red Flags</h2>
     <p>Use this section when you are asked to evaluate someone else&rsquo;s agentic project, or to audit your own. Each flag is a signal that the team has not done the work described in this book. Each maps to a chapter.</p>
-    <p><strong>&ldquo;The model passes all our evals.&rdquo;</strong> (Chapter 7) Passing evals is necessary, not sufficient. Ask for Pass@K, coverage statement, state validation, and judge calibration. If any is missing, the evals are telling you less than the team thinks.</p>
+    <p><strong>&ldquo;The model passes all our evals.&rdquo;</strong> (Chapter 7) Passing evals is necessary, not sufficient. Ask for the pass rate with its worst slice, pass^k, the coverage statement, state validation, and judge calibration. If any is missing, the evals are telling you less than the team thinks.</p>
     <p><strong>&ldquo;We will figure out the context later.&rdquo;</strong> (Chapter 2) The context is the product. If the team does not know which data, with what fidelity, with what relationships, the agent will reason over, you are looking at the next quietly-rolled-back shopping assistant.</p>
     <p><strong>&ldquo;Training will handle the supervision problem.&rdquo;</strong> (Chapter 9) Training creates structured-setting behavior. The production environment erases it. If Channel 2 is a training slide rather than a designed product surface, the agent is shipping without a nervous system.</p>
     <p><strong>&ldquo;Our supervisors are well trained.&rdquo;</strong> (Chapters 2, 9) Trained when. Trained on what. Practicing what skill, on what cadence, without AI assistance. If the answer is &ldquo;they were trained at onboarding,&rdquo; the supervision paradox has had whatever months or years to erode the training the deployment depends on.</p>
