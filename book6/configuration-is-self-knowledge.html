@@ -6,6 +6,18 @@
 <title>Chapter 7: Configuration Is Self-Knowledge &mdash; The Agentic AI Practitioner</title>
 <meta name="description" content="The first article I wrote with a model was competent, correct, and utterly hollow.">
 <link rel="canonical" href="https://agenticaiproductmanagement.com/book6/configuration-is-self-knowledge.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="The Agentic AI Series">
+<meta property="og:title" content="Chapter 7: Configuration Is Self-Knowledge">
+<meta property="og:description" content="The first article I wrote with a model was competent, correct, and utterly hollow.">
+<meta property="og:image" content="https://agenticaiproductmanagement.com/assets/og-series-wide.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://agenticaiproductmanagement.com/book6/configuration-is-self-knowledge.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Chapter 7: Configuration Is Self-Knowledge">
+<meta name="twitter:description" content="The first article I wrote with a model was competent, correct, and utterly hollow.">
+<meta name="twitter:image" content="https://agenticaiproductmanagement.com/assets/og-series-wide.jpg">
 <link rel="stylesheet" href="styles.css">
 <style>
   .sidebar-hub { margin-bottom: var(--space-4); padding-bottom: var(--space-3);
@@ -20,12 +32,6 @@
 <script defer src="https://cloud.umami.is/script.js" data-website-id="6701185a-719e-4b6f-baaf-dcd504ef6b1a"></script>
 <script defer src="/assets/site-extras.js"></script>
 <!-- SITE-EXTRAS:END -->
-<!-- OG-IMAGE:BEGIN -->
-<meta property="og:image" content="https://agenticaiproductmanagement.com/assets/og-series-wide.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta name="twitter:image" content="https://agenticaiproductmanagement.com/assets/og-series-wide.jpg">
-<!-- OG-IMAGE:END -->
 </head>
 <body>
 <div class="book">
@@ -69,12 +75,13 @@
       <li><a href="the-practitioners-record.html">The Practitioner's Record</a></li>
       <li><a href="the-loop-templates.html">A. The Loop Templates</a></li>
       <li><a href="the-model-dossier.html">B. The Model Dossier</a></li>
-      <li><a href="the-proficiency-record.html">C. The Proficiency Record</a></li>
-      <li><a href="the-two-briefs.html">D. The Two Briefs</a></li>
-      <li><a href="the-gate-owners-checklist.html">E. The Gate Owner's Checklist</a></li>
-      <li><a href="the-steady-state-page.html">F. The Steady-State Page</a></li>
-      <li><a href="the-post-mortem-and-dissent-ledger.html">G. The Post-Mortem and Dissent Ledger</a></li>
-      <li><a href="the-first-month.html">H. The First Month</a></li>
+      <li><a href="the-configuration-profile.html">C. The Configuration Profile</a></li>
+      <li><a href="the-proficiency-record.html">D. The Proficiency Record</a></li>
+      <li><a href="the-two-briefs.html">E. The Two Briefs</a></li>
+      <li><a href="the-gate-owners-checklist.html">F. The Gate Owner's Checklist</a></li>
+      <li><a href="the-steady-state-page.html">G. The Steady-State Page</a></li>
+      <li><a href="the-post-mortem-and-dissent-ledger.html">H. The Post-Mortem and Dissent Ledger</a></li>
+      <li><a href="the-first-month.html">I. The First Month</a></li>
       <li><a href="notes-and-sources.html">Notes and Sources</a></li>
       <li><a href="references.html">References</a></li>
     </ul>
@@ -90,7 +97,7 @@
     <h2 id="configuration-is-onboarding">Configuration is onboarding</h2>
     <p>Start with the reframe, because the entire chapter rests on it and it is usually mis-seen as a prompt-engineering detail.</p>
     <p>Every well-run team already has a version of the configuration file. The list of conventions, the style guide, the architectural decisions written as here is how we do it on this team, the explicit rules about what good looks like. On an engineering team these lived in a page new hires read in their first week, and then in the code-review feedback they got for their first three months, and gradually the new hire absorbed them and started producing work that looked like the team&rsquo;s work. The document was never the whole onboarding. The gradual absorption was.</p>
-    <p>For the agent, none of the gradual absorption happens. There is no first three months. The agent reads the rules each session, follows them within the limits of its context, and starts again the next time, with no organic learning, no accumulation, no quiet drift toward your house style. So the onboarding has to be explicit, written down, and continuously present, because the part that used to happen by osmosis now happens only if you wrote it or does not happen at all. The configuration file is not a settings panel. It is the new-hire packet, and it is the entire onboarding, and the agent re-reads it every session because it never remembers the last one.</p>
+    <p>For the agent, none of the gradual absorption happens. There is no first three months. Unless memory is deliberately persisted for it, the agent reads the rules each session, follows them within the limits of its context, and starts again the next time, with no organic learning, no accumulation, no quiet drift toward your house style. So the onboarding has to be explicit, written down, and continuously present, because the part that used to happen by osmosis now happens only if you wrote it or does not happen at all. The configuration file is not a settings panel. It is the new-hire packet, and it is the entire onboarding, and the agent re-reads it every session because whatever memory it carries is the one you built.</p>
     <p>Which is why the line that should make you slightly uncomfortable is this: if you have not written it, your work is being produced by an employee you did not onboard. The codebase that quietly shifts toward the agent&rsquo;s defaults over six months, the prose that comes back in the flat house style, the analysis that reaches the model&rsquo;s conclusions instead of yours, none of that is the agent failing. It is the agent doing exactly what an un-onboarded hire does, which is fall back on the defaults it brought from the last chapter, the ones set by a company you do not work at. The drift you start to notice is not the agent getting worse. It is your standards never having been stated, so the agent supplied its own.</p>
     <h2 id="the-profile-is-for-you-not-the-model">The profile is for you, not the model</h2>
     <p>Here is the part that changes what this exercise is.</p>

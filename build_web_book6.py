@@ -14,13 +14,12 @@ import re, html, shutil
 from pathlib import Path
 
 HERE      = Path(__file__).resolve().parent
-# WARNING (2026-08-19): the path below was pointing at v1.4, a file that no longer
-# exists, so this builder has been silently broken and book6/ on the site is still
-# generated from v1.4 content. Repointed to v1.8, but DO NOT rerun until the output
-# is diffed against the committed book6/: a trial run dropped two appendix links from
-# the sidebar and rewrote the Open Graph head block without the OG-IMAGE sentinels
-# that the committed files carry. Same class of drift as build_web_book5.py, which
-# additionally renders "\$" literally and leaves ":::card" fences unstyled.
+# 2026-08-19: this was pointing at BOOK4-FULL-DRAFT-v1.4-READING-COPY.md, a file that
+# no longer exists, so the builder had been failing and book6/ was frozen at v1.4.
+# Repointed to v1.8. SECTION_MAP below was updated at the same time: v1.5 inserted
+# "Appendix C: The Configuration Profile", which shifted D through H down one letter
+# and added I. Unmapped H1s are silently skipped, so the stale map would have dropped
+# seven appendices from the build without failing.
 SOURCE_MD = HERE.parent / "AgenticPractitioner" / "BOOK4-FULL-DRAFT-v1.8-READING-COPY.md"
 OUT       = HERE / "book6"
 OUT.mkdir(exist_ok=True)
@@ -36,6 +35,7 @@ DRAFT      = True   # adds "Draft" to landing eyebrow and sidebar brand title
 #   section-key controls the sidebar group; "skip" means do not render
 SECTION_MAP = {
     "The Agentic AI Series, Book 4 (working title)": ("__skip__", "skip", None),
+    "The Agentic AI Practitioner":                   ("__skip__", "skip", None),
     "Preface: The Job Is Now the Person":            ("Preface", "front", None),
     "The Series in One Page":                        ("The Series in One Page", "front", None),
     # Part I
@@ -67,12 +67,13 @@ SECTION_MAP = {
     "The Practitioner's Record":                     ("The Practitioner's Record", "ref", None),
     "Appendix A: The Loop Templates":                ("A. The Loop Templates", "ref", None),
     "Appendix B: The Model Dossier":                 ("B. The Model Dossier", "ref", None),
-    "Appendix C: The Proficiency Record":            ("C. The Proficiency Record", "ref", None),
-    "Appendix D: The Two Briefs":                    ("D. The Two Briefs", "ref", None),
-    "Appendix E: The Gate Owner's Checklist":        ("E. The Gate Owner's Checklist", "ref", None),
-    "Appendix F: The Steady-State Page":             ("F. The Steady-State Page", "ref", None),
-    "Appendix G: The Post-Mortem and Dissent Ledger":("G. The Post-Mortem and Dissent Ledger", "ref", None),
-    "Appendix H: The First Month":                   ("H. The First Month", "ref", None),
+    "Appendix C: The Configuration Profile":         ("C. The Configuration Profile", "ref", None),
+    "Appendix D: The Proficiency Record":            ("D. The Proficiency Record", "ref", None),
+    "Appendix E: The Two Briefs":                    ("E. The Two Briefs", "ref", None),
+    "Appendix F: The Gate Owner's Checklist":        ("F. The Gate Owner's Checklist", "ref", None),
+    "Appendix G: The Steady-State Page":             ("G. The Steady-State Page", "ref", None),
+    "Appendix H: The Post-Mortem and Dissent Ledger":("H. The Post-Mortem and Dissent Ledger", "ref", None),
+    "Appendix I: The First Month":                   ("I. The First Month", "ref", None),
     "Notes and Sources":                             ("Notes and Sources", "ref", None),
     "References":                                    ("References", "ref", None),
 }
@@ -90,7 +91,7 @@ def slug_filename(title: str) -> str:
     """Convert an H1 title to a stable HTML filename."""
     t = title.lower()
     t = re.sub(r"^chapter\s+\d+:\s*", "", t)
-    t = re.sub(r"^appendix\s+[a-h0-9]+:\s*", "", t)
+    t = re.sub(r"^appendix\s+[a-z0-9]+:\s*", "", t)
     t = re.sub(r"^part\s+[ivxlc]+:\s*", "part-", t)
     t = re.sub(r"[^\w\s-]", "", t)
     t = re.sub(r"[\s_]+", "-", t.strip())

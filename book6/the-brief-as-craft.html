@@ -6,6 +6,18 @@
 <title>Chapter 9: The Brief as Craft &mdash; The Agentic AI Practitioner</title>
 <meta name="description" content="A payments team gets a one-line request from leadership: instant payouts. Sellers on the marketplace want their money the moment a sale clears, not three busine">
 <link rel="canonical" href="https://agenticaiproductmanagement.com/book6/the-brief-as-craft.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="The Agentic AI Series">
+<meta property="og:title" content="Chapter 9: The Brief as Craft">
+<meta property="og:description" content="A payments team gets a one-line request from leadership: instant payouts. Sellers on the marketplace want their money the moment a sale clears, not three busine">
+<meta property="og:image" content="https://agenticaiproductmanagement.com/assets/og-series-wide.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://agenticaiproductmanagement.com/book6/the-brief-as-craft.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Chapter 9: The Brief as Craft">
+<meta name="twitter:description" content="A payments team gets a one-line request from leadership: instant payouts. Sellers on the marketplace want their money the moment a sale clears, not three busine">
+<meta name="twitter:image" content="https://agenticaiproductmanagement.com/assets/og-series-wide.jpg">
 <link rel="stylesheet" href="styles.css">
 <style>
   .sidebar-hub { margin-bottom: var(--space-4); padding-bottom: var(--space-3);
@@ -20,12 +32,6 @@
 <script defer src="https://cloud.umami.is/script.js" data-website-id="6701185a-719e-4b6f-baaf-dcd504ef6b1a"></script>
 <script defer src="/assets/site-extras.js"></script>
 <!-- SITE-EXTRAS:END -->
-<!-- OG-IMAGE:BEGIN -->
-<meta property="og:image" content="https://agenticaiproductmanagement.com/assets/og-series-wide.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta name="twitter:image" content="https://agenticaiproductmanagement.com/assets/og-series-wide.jpg">
-<!-- OG-IMAGE:END -->
 </head>
 <body>
 <div class="book">
@@ -69,12 +75,13 @@
       <li><a href="the-practitioners-record.html">The Practitioner's Record</a></li>
       <li><a href="the-loop-templates.html">A. The Loop Templates</a></li>
       <li><a href="the-model-dossier.html">B. The Model Dossier</a></li>
-      <li><a href="the-proficiency-record.html">C. The Proficiency Record</a></li>
-      <li><a href="the-two-briefs.html">D. The Two Briefs</a></li>
-      <li><a href="the-gate-owners-checklist.html">E. The Gate Owner's Checklist</a></li>
-      <li><a href="the-steady-state-page.html">F. The Steady-State Page</a></li>
-      <li><a href="the-post-mortem-and-dissent-ledger.html">G. The Post-Mortem and Dissent Ledger</a></li>
-      <li><a href="the-first-month.html">H. The First Month</a></li>
+      <li><a href="the-configuration-profile.html">C. The Configuration Profile</a></li>
+      <li><a href="the-proficiency-record.html">D. The Proficiency Record</a></li>
+      <li><a href="the-two-briefs.html">E. The Two Briefs</a></li>
+      <li><a href="the-gate-owners-checklist.html">F. The Gate Owner's Checklist</a></li>
+      <li><a href="the-steady-state-page.html">G. The Steady-State Page</a></li>
+      <li><a href="the-post-mortem-and-dissent-ledger.html">H. The Post-Mortem and Dissent Ledger</a></li>
+      <li><a href="the-first-month.html">I. The First Month</a></li>
       <li><a href="notes-and-sources.html">Notes and Sources</a></li>
       <li><a href="references.html">References</a></li>
     </ul>
@@ -99,7 +106,7 @@
     <p>The Human Brief is the artifact the room argues with. A room that cannot argue with it has not made the decisions that determine whether the product is buildable, trustworthy, and worth building at all. Which means the Human Brief is won or lost on the quality of the argument, and the argument is where most of these documents are thin, because the author confused stating a goal with making a case.</p>
     <h2 id="the-executable-brief-written-for-the-build">The Executable Brief: written for the build</h2>
     <p>The second document is the Executable Brief, and its job is precision.</p>
-    <p>It is the successor to the epic. It structures the experience, the behavior, and the governance in explicit enough form that a generation tool, and after it the engineers, take the path you intended rather than the shortest path through whatever ambiguity you left lying around. The mature pattern, and the one worth adopting, is to derive the Executable Brief from the Human Brief rather than write it cold. The Human Brief is the source of intent. The Executable Brief is what the build consumes. Machine can assist the derivation; you own it.</p>
+    <p>It is the successor to the epic. It structures the experience, the behavior, and the governance in explicit enough form that a generation tool, and after it the engineers, take the path you intended rather than the shortest path through whatever ambiguity you left lying around. The mature pattern, and the one worth adopting, is to derive the Executable Brief from the Human Brief rather than write it cold. The Human Brief is the source of intent. The Executable Brief is what the build consumes. A model can assist the derivation; you own it.</p>
     <p>The Executable Brief is read twice, by two readers who need different things from the same words. First by the coding agent that generates the prototype, then by the engineers who build the production system. The requirement &ldquo;the agent must not release funds outside the authorized scope&rdquo; becomes, in a prototype, an instruction the agent follows as far as it cooperates. In production it becomes an architectural control, a release-authorization layer that the agent cannot route around whether it cooperates or not. One requirement, two implementations, hardening from a prompt into a structure as the product moves from bet to build. The PM who writes the requirement clearly enough that both readers can act on it has done the job. The PM who writes it as a wish has shipped a prototype behavior and called it a production control.</p>
     <p>What the Executable Brief carries that the user story structurally cannot is four things, and they are the four that decide whether the agent is trustworthy. The outcome the agent is trying to achieve, stated as a reasonable senior operator would state it. The bounds, which is the supervisory layer made buildable: what the agent may do alone, where it must route to a human. The eval set, a curated collection of real cases each paired with the outcome a senior person actually endorsed, including the generous exception and the justified denial and the ambiguous escalation, so the agent is graded against judgment instead of a synthetic happy path. And what acceptable failure looks like, stated in advance, because some failures are tolerable and some are never-ship and the document has to say which is which.</p>
     <p>That fourth field is the one practitioners find hardest and skip most. For the payouts agent, a wrong hold, routing a clean payout to a human reviewer who did not strictly need to see it, is tolerable and expected. It costs a seller some patience and a reviewer some minutes. A wrong release on a fraud-pattern account is a never-ship failure; one occurrence fails the eval. The user story has nowhere to put that distinction. The outcome-centric spec is built around it. And notice the seam: every case the agent declines to decide is a case the supervisory layer has to be designed to catch. The escalation rule in the Executable Brief is a direct order to the supervisory layer: every case the agent declines is a case someone must be ready to catch.</p>
