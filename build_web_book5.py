@@ -21,6 +21,40 @@ SITE_TITLE = "The Agentic AI Team"
 SITE_SUB   = "How Agentic AI Reshapes the Roles That Build It"
 CANON      = "https://agenticaiproductmanagement.com/book5/"
 HUB        = "../index.html"
+
+# JSON-LD Book schema for the landing page. Hand-added to each book index in an
+# earlier pass and not emitted by any builder, so a rebuild silently dropped it.
+# Emitted here so a rebuild is a no-op. Keep BOOK_DESC in sync with the landing blurb.
+BOOK_DESC = 'Seven parts on the team behind the agent: who owns what, where the hand-offs fail, and what the prior frameworks got wrong about shared responsibility.'
+JSONLD = f'''<script type="application/ld+json">
+{{
+  "@context": "https://schema.org",
+  "@type": "Book",
+  "name": "{SITE_TITLE}",
+  "alternativeHeadline": "{SITE_SUB}",
+  "description": "{BOOK_DESC}",
+  "url": "{CANON}",
+  "author": {{
+    "@type": "Person",
+    "@id": "https://yoramfriedman.com/#person",
+    "name": "Yoram Friedman",
+    "honorificSuffix": "MD",
+    "url": "https://yoramfriedman.com/"
+  }},
+  "inLanguage": "en",
+  "about": [
+    "Agentic AI",
+    "Artificial intelligence",
+    "Product management"
+  ],
+  "isPartOf": {{
+    "@type": "BookSeries",
+    "name": "Agentic AI for Product Leaders",
+    "url": "https://agenticaiproductmanagement.com/"
+  }}
+}}
+</script>'''
+
 DRAFT      = False  # adds "Draft" to landing eyebrow and sidebar brand title
 
 # (md-path-relative-to-chapters/, sidebar-label, section, display-num)
@@ -113,7 +147,18 @@ def inline(s: str) -> str:
     s = re.sub(r"(\w)'(\w)", r"\1&rsquo;\2", s)
     s = re.sub(r"(?<=\w)'", "&rsquo;", s)
     s = s.replace("'", "&lsquo;")
+    # Markdown backslash escapes. Done last so the emphasis and link regexes above
+    # still see the escaped form. Without this, "\$600" ships as a literal backslash.
+    s = re.sub(r"\\([\\`*_{}\[\]()#+\-.!$~<>|])", r"\1", s)
     return s
+
+DECISION_CARD_CSS = """    <style>
+      .decision-card { padding: var(--space-4) var(--space-5); }
+      .decision-row { display: grid; grid-template-columns: 140px 1fr; gap: var(--space-3); margin: 0 0 var(--space-2); font-family: var(--sans); font-size: 14px; line-height: 1.5; }
+      .decision-label { font-weight: 600; font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-muted); padding-top: 2px; }
+      .decision-value { color: var(--ink); }
+      @media (max-width: 640px) { .decision-row { grid-template-columns: 1fr; gap: 2px; } }
+    </style>"""
 
 # ── block parser ──────────────────────────────────────────────────────────────
 
@@ -186,9 +231,14 @@ def render_body(md: str) -> str:
             t = s[3:]
             out.append(f'    <h2 id="{slug(t)}">{inline(t)}</h2>'); i += 1; continue
         # H3
-        if s.startswith("### "):
+        if s.startswith("### ") and not s.startswith("#### "):
             t = s[4:]
             out.append(f'    <h3 id="{slug(t)}">{inline(t)}</h3>'); i += 1; continue
+        # H4. Without this branch a "#### " line matches no branch and is also excluded
+        # by the paragraph guard below, so `i` never advances and render_body spins forever.
+        if s.startswith("#### "):
+            t = s[5:]
+            out.append(f'    <h4 id="{slug(t)}">{inline(t)}</h4>'); i += 1; continue
 
         # HR
         if re.match(r"^-{3,}$", s):
@@ -228,6 +278,17 @@ def render_body(md: str) -> str:
                     out.append(f'      <div class="callout-title">{inline(title)}</div>')
                     out.append("      " + render_body(rest_md).strip())
                     out.append("    </div>")
+                elif inner_lines and inner_lines[0].strip() == ":::card":
+                    # Decision card: "LABEL | value" rows between ":::card" and ":::".
+                    rows = [l for l in inner_lines[1:] if l.strip() and l.strip() != ":::"]
+                    out.append('    <blockquote class="decision-card">')
+                    for r in rows:
+                        label, _, value = r.partition("|")
+                        out.append('      <div class="decision-row">'
+                                   f'<span class="decision-label">{inline(label.strip())}</span>'
+                                   f'<span class="decision-value">{inline(value.strip())}</span></div>')
+                    out.append("    </blockquote>")
+                    out.append(DECISION_CARD_CSS)
                 else:
                     bq_inner = "\n".join(f"<p>{inline(l)}</p>" for l in inner_lines if l.strip())
                     out.append(f"    <blockquote>{bq_inner}</blockquote>")
@@ -497,6 +558,7 @@ def generate_index():
   .landing-footer a {{ color: var(--blue-deep); text-decoration: none; }}
   @media (max-width: 720px) {{ .toc-grid {{ grid-template-columns: 1fr; }} .landing-title {{ font-size: 32px; }} }}
 </style>
+{JSONLD}
 <!-- SITE-EXTRAS:BEGIN -->
 <script defer src="https://cloud.umami.is/script.js" data-website-id="6701185a-719e-4b6f-baaf-dcd504ef6b1a"></script>
 <script defer src="/assets/site-extras.js"></script>

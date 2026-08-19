@@ -1,6 +1,17 @@
 #!/usr/bin/env python3
 """
 gen_backmatter.py — generate the 4 missing back-matter pages for book4.
+
+DO NOT RUN without diffing the output against the committed book4/appendix-a.html,
+appendix-b.html, glossary.html and references.html. Verified 2026-08-19: this script
+does NOT reproduce them. It emits sidebar labels with raw "&" instead of "&amp;", which
+is invalid HTML, and its block indentation differs throughout. The committed pages came
+from an earlier version of this file that has since drifted. Reconcile before running.
+
+Fixed 2026-08-19: a "#### " heading matched no branch in render_body and was also
+excluded by the paragraph guard, so `i` never advanced and the script hung forever on
+the four "#### Template" lines in the manuscript. That is why it had stopped producing
+output at all. The same bug was fixed in build_web_book4.py and build_web_book5.py.
 Run from series-web/:  python3 gen_backmatter.py
 Source: ../AgenticFailure/MANUSCRIPT-v4.0-FULL-current-2026-05-31.md
 Output: book4/appendix-a.html, book4/appendix-b.html, book4/glossary.html, book4/references.html
@@ -114,8 +125,12 @@ def render_body(md):
         if not s or s.startswith("<!--") or re.match(r"^# ", s): i += 1; continue
         if s.startswith("## "):
             t = s[3:]; out.append(f'    <h2 id="{slug_fn(t)}">{inline(t)}</h2>'); i += 1; continue
-        if s.startswith("### "):
+        if s.startswith("### ") and not s.startswith("#### "):
             t = s[4:]; out.append(f'    <h3 id="{slug_fn(t)}">{inline(t)}</h3>'); i += 1; continue
+        # H4. Without this branch a "#### " line matches no branch and is also excluded
+        # by the paragraph guard below, so `i` never advances and render_body spins forever.
+        if s.startswith("#### "):
+            t = s[5:]; out.append(f'    <h4 id="{slug_fn(t)}">{inline(t)}</h4>'); i += 1; continue
         if re.match(r"^-{3,}$", s):
             out.append("    <hr>"); i += 1; continue
         if s.startswith("|"):

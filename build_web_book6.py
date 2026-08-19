@@ -28,6 +28,40 @@ SITE_TITLE = "The Agentic AI Practitioner"
 SITE_SUB   = "Keeping the Judgment the Machine Cannot Hold"
 CANON      = "https://agenticaiproductmanagement.com/book6/"
 HUB        = "../index.html"
+
+# JSON-LD Book schema for the landing page. Hand-added to each book index in an
+# earlier pass and not emitted by any builder, so a rebuild silently dropped it.
+# Emitted here so a rebuild is a no-op. Keep BOOK_DESC in sync with the landing blurb.
+BOOK_DESC = 'A deliberate-practice curriculum for AI product managers. How an individual PM builds and keeps the judgment the machine cannot hold.'
+JSONLD = f'''<script type="application/ld+json">
+{{
+  "@context": "https://schema.org",
+  "@type": "Book",
+  "name": "{SITE_TITLE}",
+  "alternativeHeadline": "{SITE_SUB}",
+  "description": "{BOOK_DESC}",
+  "url": "{CANON}",
+  "author": {{
+    "@type": "Person",
+    "@id": "https://yoramfriedman.com/#person",
+    "name": "Yoram Friedman",
+    "honorificSuffix": "MD",
+    "url": "https://yoramfriedman.com/"
+  }},
+  "inLanguage": "en",
+  "about": [
+    "Agentic AI",
+    "Artificial intelligence",
+    "Product management"
+  ],
+  "isPartOf": {{
+    "@type": "BookSeries",
+    "name": "Agentic AI for Product Leaders",
+    "url": "https://agenticaiproductmanagement.com/"
+  }}
+}}
+</script>'''
+
 DRAFT      = True   # adds "Draft" to landing eyebrow and sidebar brand title
 
 # Section assignment by H1 title. Keys are exact H1 strings.
@@ -487,6 +521,7 @@ def generate_index(entries):
   .landing-footer a {{ color: var(--blue-deep); text-decoration: none; }}
   @media (max-width: 720px) {{ .toc-grid {{ grid-template-columns: 1fr; }} .landing-title {{ font-size: 32px; }} }}
 </style>
+{JSONLD}
 <!-- SITE-EXTRAS:BEGIN -->
 <script defer src="https://cloud.umami.is/script.js" data-website-id="6701185a-719e-4b6f-baaf-dcd504ef6b1a"></script>
 <script defer src="/assets/site-extras.js"></script>
@@ -507,6 +542,7 @@ def generate_index(entries):
     <p>The series&rsquo; own evidence (Quiet Erosion, Supervision Paradox, cognitive surrender, validator atrophy) says the capability everything depends on is perishable. No book in the series until now teaches the maintenance program. Fifteen chapters and a full appendix set: a deliberate-practice curriculum grounded in deskilling evidence, modeled on aviation&rsquo;s mandatory no-automation proficiency checks.</p>
     <div class="cta-row">
       <a class="cta-btn cta-primary" href="preface-the-job-is-now-the-person.html">Start reading &rarr;</a>
+      <a class="cta-btn cta-secondary" href="https://www.amazon.com/dp/B0H6311T43?binding=kindle_edition" target="_blank" rel="noopener">The series on Amazon</a>
     </div>
   </div>
 

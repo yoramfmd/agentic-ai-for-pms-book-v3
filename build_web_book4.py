@@ -22,6 +22,40 @@ SITE_SUB   = "Building Channel 1 and the Supervisory Layer That Governs It"
 CANON      = "https://agenticaiproductmanagement.com/book4/"
 HUB        = "../index.html"
 
+# JSON-LD Book schema for the landing page. Hand-added to each book index in an
+# earlier pass and not emitted by any builder, so a rebuild silently dropped it.
+# Emitted here so a rebuild is a no-op. Keep BOOK_DESC in sync with the landing blurb.
+BOOK_DESC = 'Every agentic product is two products: the agent that acts, and the supervisory layer that governs it. Its four dimensions, its failure modes, and how to build it deliberately.'
+JSONLD = f'''<script type="application/ld+json">
+{{
+  "@context": "https://schema.org",
+  "@type": "Book",
+  "name": "{SITE_TITLE}",
+  "alternativeHeadline": "{SITE_SUB}",
+  "description": "{BOOK_DESC}",
+  "url": "{CANON}",
+  "author": {{
+    "@type": "Person",
+    "@id": "https://yoramfriedman.com/#person",
+    "name": "Yoram Friedman",
+    "honorificSuffix": "MD",
+    "url": "https://yoramfriedman.com/"
+  }},
+  "inLanguage": "en",
+  "about": [
+    "Agentic AI",
+    "Artificial intelligence",
+    "Product management"
+  ],
+  "isPartOf": {{
+    "@type": "BookSeries",
+    "name": "Agentic AI for Product Leaders",
+    "url": "https://agenticaiproductmanagement.com/"
+  }}
+}}
+</script>'''
+
+
 # Manual chapter registry — (slug, sidebar-label, section, display-num)
 # section: "front" | "partN" | "back"
 # Matches H1 titles in the manuscript
@@ -145,8 +179,12 @@ def render_body(md: str) -> str:
         if s.startswith("## "):
             t = s[3:]; out.append(f'    <h2 id="{slug_fn(t)}">{inline(t)}</h2>'); i += 1; continue
         # H3
-        if s.startswith("### "):
+        if s.startswith("### ") and not s.startswith("#### "):
             t = s[4:]; out.append(f'    <h3 id="{slug_fn(t)}">{inline(t)}</h3>'); i += 1; continue
+        # H4. Without this branch a "#### " line matches no branch and is also excluded
+        # by the paragraph guard below, so `i` never advances and render_body spins forever.
+        if s.startswith("#### "):
+            t = s[5:]; out.append(f'    <h4 id="{slug_fn(t)}">{inline(t)}</h4>'); i += 1; continue
         # HR
         if re.match(r"^-{3,}$", s):
             out.append("    <hr>"); i += 1; continue
@@ -465,6 +503,7 @@ def generate_index():
   .landing-footer a {{ color: var(--blue-deep); text-decoration: none; }}
   @media (max-width: 720px) {{ .toc-grid {{ grid-template-columns: 1fr; }} .landing-title {{ font-size: 32px; }} }}
 </style>
+{JSONLD}
 <!-- SITE-EXTRAS:BEGIN -->
 <script defer src="https://cloud.umami.is/script.js" data-website-id="6701185a-719e-4b6f-baaf-dcd504ef6b1a"></script>
 <script defer src="/assets/site-extras.js"></script>
@@ -485,7 +524,7 @@ def generate_index():
     <p>Twenty-two chapters across six parts, from deciding whether to build at all to carrying accountability for the people your agent will never see.</p>
     <div class="cta-row">
       <a class="cta-btn cta-primary" href="preface.html">Start reading &rarr;</a>
-      <a class="cta-btn cta-secondary" href="https://www.amazon.com/dp/B0F7LF1YLS" target="_blank" rel="noopener">Buy on Amazon</a>
+      <a class="cta-btn cta-secondary" href="https://a.co/d/0cdvAyjn" target="_blank" rel="noopener">Buy on Amazon</a>
     </div>
   </div>
 
