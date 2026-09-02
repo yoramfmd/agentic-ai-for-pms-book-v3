@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Phase 5 · Operate · Agentic AI for Product Leaders</title>
+<meta name="description" content="Phase 5 · Operate — Agentic AI for Product Leaders.">
+<link rel="canonical" href="https://agenticaiproductmanagement.com/book7/operate.html">
+<link rel="stylesheet" href="styles.css">
+<style>
+    .rule-line { border-top: 1.5px solid var(--ink, #1F2937); border-bottom: 1.5px solid var(--ink, #1F2937);
+                 padding: var(--space-3, 12px) 0; margin: var(--space-5, 24px) 0; }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    /* A card's numbered steps ran straight into "Worked:" with no gap, and the
+       gloss and phase-rail boxes had nothing under them before the prose
+       resumed. Yoram, 2026-08-24. */
+    .callout ol, .callout ul { margin-bottom: var(--space-4, 16px); }
+    .callout > p { margin-top: var(--space-3, 12px); }
+    .card.gloss, .card.phase-rail { margin: var(--space-5, 24px) 0; }
+    .card.gloss + p, .card.phase-rail + p, .rule-line + p { margin-top: var(--space-4, 16px); }
+    .phase-tree > summary { list-style: none; cursor: pointer; }
+    .phase-tree > summary::-webkit-details-marker { display: none; }
+    .phase-tree > summary::before { content: "\25B8"; display: inline-block;
+        width: 1em; color: var(--ink-muted, #777); font-size: 10px;
+        transition: transform .12s ease; }
+    .phase-tree[open] > summary::before { transform: rotate(90deg); }
+    /* The sidebar's link styling is scoped to `.sidebar-list a`, and a summary is
+       not inside that list, so the phase rows fell through to the browser default
+       and rendered blue and underlined while their own children did not. Yoram,
+       2026-08-24: "why does it look like blue underline links?" These mirror
+       `.sidebar-list a` rather than reinventing it. */
+    .phase-tree > summary { margin-bottom: 4px; }
+    .phase-tree > summary a { color: var(--ink-soft); text-decoration: none;
+        display: inline-block; padding: 4px 8px; border-radius: var(--radius-sm);
+        font-size: 13px; }
+    .phase-tree > summary a:hover { background: var(--rule-soft); color: var(--ink); }
+    .phase-tree > summary a.active { background: var(--ink); color: var(--bg); }
+    .phase-sub { margin: .2rem 0 .5rem 1.1rem; }
+    .phase-sub li { margin: .1rem 0; }
+    .phase-sub a { font-size: 12px; }
+    .tree-kind { display: block; font-size: 9px; letter-spacing: .06em;
+                 text-transform: uppercase; color: var(--ink-muted, #777); }
+    .pager { display: flex; justify-content: space-between; gap: 1rem;
+             margin-top: var(--space-6, 32px); padding-top: var(--space-4, 16px);
+             border-top: 0.5px solid var(--rule, #d8d8d4);
+             font-family: var(--sans); font-size: 13px; }
+</style>
+</head>
+<body>
+<div class="book">
+  <aside class="sidebar">
+    <div class="sidebar-hub"><a href="../index.html">&larr; All Books</a></div>
+    <div class="sidebar-brand"><a href="index.html">Agentic AI for Product Leaders</a>
+      <div class="sidebar-brand-sub">One agent, one company, from the sentence that proposed it to the year after it launched</div></div>
+    <div class="sidebar-section">Front Matter</div>
+    <ul class="sidebar-list">
+      <li><a href="preface.html">Before you start</a></li>
+    </ul>
+    <div class="sidebar-section">Part One · The argument</div>
+    <ul class="sidebar-list">
+      <li><a href="the-person-at-the-end-of-the-path.html">1. The person at the end of the path</a></li>
+      <li><a href="the-people-in-the-room.html">2. The people in the room</a></li>
+      <li><a href="the-colleague-nobody-interviewed.html">3. The colleague nobody interviewed</a></li>
+      <li><a href="what-an-agent-actually-is.html">4. What an agent actually is</a></li>
+      <li><a href="the-floor-and-the-plateau.html">5. The floor and the plateau</a></li>
+      <li><a href="the-brain-the-layers-the-loop.html">6. The brain, the layers, the loop</a></li>
+      <li><a href="the-judgment-gap-and-the-paradox.html">7. The judgment gap and the paradox</a></li>
+      <li><a href="the-two-products.html">8. The two products</a></li>
+      <li><a href="the-new-pm-role.html">9. The new PM role, and what you actually build</a></li>
+      <li><a href="the-shape-of-the-work.html">10. The shape of the work</a></li>
+    </ul>
+    <div class="sidebar-section">Part Two · The case</div>
+    <details class="phase-tree">
+      <summary><a href="decide.html">1. Decide</a></summary>
+      <ul class="sidebar-list phase-sub">
+        <li><a href="decide.html#exhibit-a"><span class="tree-kind">Exhibit A</span>The before-state</a></li>
+        <li><a href="decide.html#card-the-suitability-gate"><span class="tree-kind">Card</span>The Suitability Gate</a></li>
+        <li><a href="decide.html#card-the-shadow-census"><span class="tree-kind">Card</span>The Shadow Census</a></li>
+        <li><a href="decide.html#card-the-cost-ledger"><span class="tree-kind">Card</span>The Cost Ledger</a></li>
+        <li><a href="decide.html#card-the-judgment-prototype"><span class="tree-kind">Card</span>The Judgment Prototype</a></li>
+        <li><a href="decide.html#exhibit-b"><span class="tree-kind">Exhibit B</span>The go decision</a></li>
+        <li><a href="decide.html#card-the-funding-question"><span class="tree-kind">Card</span>The Funding Question</a></li>
+      </ul>
+    </details>
+    <details class="phase-tree">
+      <summary><a href="design.html">2. Design</a></summary>
+      <ul class="sidebar-list phase-sub">
+        <li><a href="design.html#card-the-ladder-and-the-break"><span class="tree-kind">Card</span>The Ladder and the Break</a></li>
+        <li><a href="design.html#card-the-declaration"><span class="tree-kind">Card</span>The Declaration</a></li>
+        <li><a href="design.html#exhibit-c"><span class="tree-kind">Exhibit C</span>The human brief</a></li>
+        <li><a href="design.html#exhibit-d"><span class="tree-kind">Exhibit D</span>The executable brief</a></li>
+        <li><a href="design.html#card-the-four-artifacts"><span class="tree-kind">Card</span>The Four Artifacts</a></li>
+        <li><a href="design.html#card-the-wall-sort"><span class="tree-kind">Card</span>The Wall Sort</a></li>
+        <li><a href="design.html#card-the-badge"><span class="tree-kind">Card</span>The Badge</a></li>
+        <li><a href="design.html#card-the-memory-terms"><span class="tree-kind">Card</span>The Memory Terms</a></li>
+        <li><a href="design.html#exhibit-e"><span class="tree-kind">Exhibit E</span>The approval screen</a></li>
+        <li><a href="design.html#card-the-approval-moment"><span class="tree-kind">Card</span>The Approval Moment</a></li>
+        <li><a href="design.html#card-the-onboarding-packet"><span class="tree-kind">Card</span>The Onboarding Packet</a></li>
+      </ul>
+    </details>
+    <details class="phase-tree">
+      <summary><a href="prove.html">3. Prove</a></summary>
+      <ul class="sidebar-list phase-sub">
+        <li><a href="prove.html#exhibit-f"><span class="tree-kind">Exhibit F</span>The eval readout</a></li>
+        <li><a href="prove.html#card-three-eval-breaks"><span class="tree-kind">Card</span>Three Eval Breaks</a></li>
+        <li><a href="prove.html#card-the-eval-stack"><span class="tree-kind">Card</span>The Eval Stack</a></li>
+        <li><a href="prove.html#card-the-fix-list"><span class="tree-kind">Card</span>The Fix List</a></li>
+        <li><a href="prove.html#card-hostile-reader"><span class="tree-kind">Card</span>Hostile Reader</a></li>
+        <li><a href="prove.html#card-rehearsal"><span class="tree-kind">Card</span>Rehearsal</a></li>
+        <li><a href="prove.html#card-the-four-question-review"><span class="tree-kind">Card</span>The Four-Question Review</a></li>
+      </ul>
+    </details>
+    <details class="phase-tree">
+      <summary><a href="observe.html">4. Observe</a></summary>
+      <ul class="sidebar-list phase-sub">
+        <li><a href="observe.html#exhibit-g"><span class="tree-kind">Exhibit G</span>The first month</a></li>
+        <li><a href="observe.html#card-six-instruments"><span class="tree-kind">Card</span>Six Instruments</a></li>
+        <li><a href="observe.html#card-certainty-inflation"><span class="tree-kind">Card</span>Certainty Inflation</a></li>
+        <li><a href="observe.html#exhibit-h"><span class="tree-kind">Exhibit H</span>The incident</a></li>
+        <li><a href="observe.html#card-upstream"><span class="tree-kind">Card</span>Upstream</a></li>
+        <li><a href="observe.html#card-supervision-collapse"><span class="tree-kind">Card</span>Supervision Collapse</a></li>
+        <li><a href="observe.html#card-felt-gain"><span class="tree-kind">Card</span>Felt Gain</a></li>
+      </ul>
+    </details>
+    <details class="phase-tree" open>
+      <summary><a href="operate.html" class="active">5. Operate</a></summary>
+      <ul class="sidebar-list phase-sub">
+        <li><a href="operate.html#exhibit-i"><span class="tree-kind">Exhibit I</span>The revision record</a></li>
+        <li><a href="operate.html#card-model-upgrade"><span class="tree-kind">Card</span>Model Upgrade</a></li>
+        <li><a href="operate.html#card-deprecation"><span class="tree-kind">Card</span>Deprecation</a></li>
+        <li><a href="operate.html#exhibit-j"><span class="tree-kind">Exhibit J</span>The appeal</a></li>
+        <li><a href="operate.html#card-constitutional-runtime"><span class="tree-kind">Card</span>Constitutional Runtime</a></li>
+        <li><a href="operate.html#card-the-supervisory-system"><span class="tree-kind">Card</span>The Supervisory System</a></li>
+        <li><a href="operate.html#exhibit-k"><span class="tree-kind">Exhibit K</span>The role</a></li>
+        <li><a href="operate.html#card-the-missing-supervisor"><span class="tree-kind">Card</span>The Missing Supervisor</a></li>
+        <li><a href="operate.html#card-retirement"><span class="tree-kind">Card</span>Retirement</a></li>
+      </ul>
+    </details>
+    <div class="sidebar-section">After</div>
+    <ul class="sidebar-list">
+      <li><a href="coda.html">What to keep</a></li>
+      <li><a href="appendix-climbing.html">Climbing: what changes as autonomy rises</a></li>
+      <li><a href="appendix-five-artifacts.html">Five artifacts, blank</a></li>
+      <li><a href="notes-and-sources.html">Sources and status notes, by chapter</a></li>
+      <li><a href="companion-site.html">The companion site</a></li>
+    </ul>
+  </aside>
+  <div class="main">
+    <div class="chapter">
+      <div class="chapter-meta">Part Two</div>
+      <h1>Phase 5 · Operate</h1>
+<h3>The colleague nobody interviewed</h3>
+<p>The email arrived on a Thursday in October and Dana nearly deleted it, because it was addressed to the billing contact and it read like a newsletter.</p>
+<p>The provider was retiring the model version Ostermill's agent ran on. Sixty days. A newer version was available, was better on every published benchmark, and would be substituted automatically for anyone who had not pinned.</p>
+<p>Ostermill had pinned, on Priya's insistence, in a line of the executable brief nobody had argued about in April. That pin bought them sixty days instead of a Tuesday morning.</p>
+<p>What it did not buy them was a choice about whether to move.</p>
+<p>This is the phase's first fact and everything else in it follows from that fact. The thing your agent is made of is not yours, does not hold still, and changes on a schedule you do not set and are not consulted about. Every other kind of software the people in that room had shipped sat on a substrate that moved slowly, with deprecation windows measured in years, and with backward compatibility treated as a promise rather than a courtesy.</p>
+<p>The useful way to think about the swap is not as a version upgrade. It is as a personnel change.</p>
+<p>A model upgrade is structurally the same event as replacing a colleague who has spent a year earning a working relationship with the team around them. The replacement may be better at the underlying work. That is usually true and it is not the point. The working dynamic has to be rebuilt: the register, the rhythm, the calibration of when to trust and when to check, the accumulated small knowledge of what this one is good and bad at.</p>
+<p>Ruth had four months of that. She knew the agent hedged on accounts with more than one contact and that it was reliably too formal with the shops it had written to before. None of that is in a document. All of it is going to be wrong in ninety days.</p>
+<p>The version everyone else ships is a release note. The version that survives contact is the onboarding packet from Design, run again.</p>
+<p>So Ostermill treated it as a hire, and the protocol was short.</p>
+<p>Re-run the whole graded set on the new model before anything moves, and compare case by case rather than on the headline. Read the provider's behavioral change notes as though they were references from a previous employer, which is to say carefully and with the assumption that the interesting things are the ones not mentioned. Re-calibrate the judge, because judge agreement is a property of the model doing the judging. Re-baseline the six instruments, because thresholds set against a model that no longer exists are measuring nothing. Tell the reviewers, in advance, in words, that the colleague is being replaced and their calibration is about to be wrong.</p>
+<p>And rehearse the rollback, with a measured time, before the swap rather than after it.</p>
+<p>The results of the first swap were the ordinary ones, which is to say mixed in a way no headline captures.</p>
+<p>Overall pass^10 went from eight of thirteen to nine. Two cases that had been clean at ten of ten dropped to eight. Three that had been short of ten came back clean, among them the adversarial case nobody had managed to fix before launch, the invoice memo carrying a planted instruction, which went from seven to ten. And the tone was different in a way no number caught and Ruth described within a week as friendlier, which was worse for the accounts that were ninety days late.</p>
+<p>That last one is the interesting one, because there is no instrument for it and there was never going to be.</p>
+<p>A model swap changes things the eval set was not built to ask about, and the eval set is built from the failures you already know about. The graded cases are a memory of past arguments. They cannot be a forecast of a behavior nobody has seen.</p>
+<p>Which is why the reviewer is the instrument for that class, and why telling her the swap was happening mattered more than the readout did.</p>
+<p>The second swap, in March, was harder, and it is the one that cost something.</p>
+<p>The provider deprecated the smaller model Ostermill used for the tone classifier, the fence from the wall sort, and the replacement behaved differently at the same threshold. Priya could have re-tuned it. What she found when she looked was that the whole fence had been calibrated once, in April, against a model that had now been replaced twice, and that nobody on the team could say why the threshold was 0.82 rather than 0.8 or 0.85.</p>
+<p>The number had outlived the reasoning that produced it. It was still being reported every month, in a table, with a green mark against it.</p>
+<p>That is a specific kind of decay and it is worth naming, because it does not look like decay from inside. It looks like a stable metric.</p>
+<p>The instruments themselves have a half-life, pegged to the cadence of the thing underneath them, and it is roughly eighteen months. Each release shifts capability, refusal behavior and context handling, and an instrument calibrated against the prior generation is measuring a system that is no longer running. An unchanged number over two model generations is not evidence of stability. It is usually evidence that the instrument stopped tracking.</p>
+<p>So each instrument at Ostermill now carries three fields it did not carry at launch: when it was last calibrated, who owns re-calibrating it, and what the threshold is for. That third field is the one that catches this failure, and it is a sentence rather than a number.</p>
+<p>The full re-calibration is expensive and mostly unnecessary. The cheap version is a held-out sample run against the current model: if nothing moves, the instrument is healthy and the scheduled cadence holds; if something moves, the full exercise just became urgent.</p>
+<p>There is one more thing about the substrate, and it is the one that costs nothing and gets skipped.</p>
+<p>The provider knows what changed and will not volunteer it. Ostermill's contract now carries a standing question, asked every ninety days and within fourteen days of any update: what is the training cutoff, what changed in the corpus, what was retracted or corrected, what are the behavioral differences from the prior version including capability changes and known regressions, and what is the update cadence.</p>
+<p>Marcus put it in the renewal calendar rather than in the engineering backlog, which is the correct desk for it, and added the line that makes it work.</p>
+<p>Absence of an answer is an answer.</p>
+<div class="card gloss"><div class="card-label">Substrate</div><div class="card-title">everything the agent is made of that the team did not write. The foundation model, the tokenizer, the retrieval index, the tool APIs, the provider's own system prompt and safety layer. Each moves independently, and each can move without anyone telling you.</div></div>
+<div class="callout" id="exhibit-i"><div class="callout-label">Exhibit I</div><div class="callout-title">The revision record</div>
+<p><strong>OSTERMILL INDUSTRIAL SUPPLY · Reminder agent · Revision record, launch to twelve months, extract</strong></p>
+<p><em>D. Okafor, June. Countersigned P. Nair, M. Ellery, R. Vaughn.</em></p>
+<div class="table-wrap"><table><thead><tr><th>Date</th><th>Event</th><th>RR</th><th>BU</th><th>What moved</th></tr></thead><tbody><tr><td>Aug</td><td>Retrieval scope: note field added, treated as untrusted</td><td>Yes</td><td>Yes</td><td>Incident class closed</td></tr><tr><td>Aug</td><td>Constitutional rule added: no send when account state changed within 7 days</td><td>Yes</td><td>Yes</td><td>Enforced list 5 to 6</td></tr><tr><td>Oct</td><td>Provider deprecation notice, 60 days</td><td>n/a</td><td>n/a</td><td>Pin held. Swap planned</td></tr><tr><td>Dec</td><td>Model swap 1, pinned version to pinned version</td><td>Yes</td><td>Yes</td><td>pass^10 8/13 to 9/13. Tone register changed</td></tr><tr><td>Jan</td><td>Second template, depot accounts</td><td>Yes</td><td>No</td><td>Scope. See note</td></tr><tr><td>Feb</td><td>Retrieval widened to shipment records</td><td>Yes</td><td>No</td><td>Scope. See note</td></tr><tr><td>Mar</td><td>Model swap 2, tone classifier replacement</td><td>Yes</td><td>Yes</td><td>Fence re-derived from scratch. Threshold now has a stated reason</td></tr><tr><td>Apr</td><td>Account type added, national accounts</td><td>No</td><td>No</td><td>Scope. <strong>Revoked June.</strong> See note</td></tr><tr><td>May</td><td>Rung 4, routine balances</td><td>Yes</td><td>Yes</td><td>Condition from Observe met at 1.4%</td></tr><tr><td>Jun</td><td>Write-off authority restored, small-balance, under floor</td><td>Yes</td><td>Yes</td><td>Both conditions met. See Exhibits F and J</td></tr></tbody></table></div>
+<p><em>RR: regression suite re-run. BU: instrument baseline updated.</em></p>
+<p><strong>Enforced list:</strong> four walls in April, three at launch after the write-off rule retired with the authority it bounded, four from August. The tone fence is counted with the mitigations, not here. Every version pinned into the decision record.</p>
+<p><strong>Eval set:</strong> twelve cases at launch, thirteen after the August incident, nineteen at twelve months.</p>
+<p><strong>Rungs:</strong> two case classes moved in the year. Everything else sits where it launched.</p>
+<p><strong>Instruments:</strong> all six re-calibrated at the March swap. Each now carries a calibration date, a named owner, and a sentence saying what the threshold is for.</p>
+<p><em>Margin, D. Okafor: the note on scope. Three rows above are accommodations. Each one took a meeting, each was reasonable, and none was worth blocking on the day. Diffed against the April declaration, they are a different product. We revoked one and wrote the rule that should have existed in January.</em></p>
+</div>
+<div class="callout" id="card-model-upgrade"><div class="callout-label">Card</div><div class="callout-title">Model Upgrade</div>
+<p><strong>When:</strong> the moment a provider announces a version change, and before any swap, however small.</p>
+<p><strong>Do this:</strong></p>
+<ol><li>Pin the version at launch. A team that has not pinned does not get a decision; it gets a Tuesday morning.</li><li>Treat the swap as a personnel change rather than a version bump. The replacement may be better at the work and the working relationship still has to be rebuilt.</li><li>Re-run the whole graded set before the swap, and compare case by case. A headline that improves can carry cases that regressed.</li><li>Re-calibrate the judge and re-baseline every instrument. Both are properties of the model, and neither survives a swap.</li><li>Read the behavioral change notes like references from a previous employer. The interesting parts are the omissions.</li><li>Tell the reviewers in advance, in words. Their calibration is about to be wrong, and they are the only instrument for the changes the eval set was not built to ask about.</li></ol>
+<p><strong>Worked:</strong> Ostermill's first swap took pass^10 from eight of thirteen to nine, dropped two clean cases to eight, and recovered three, including the injection case that shipped unfixed. It also made the agent friendlier, which no number caught and which was worse for accounts ninety days late. Ruth reported it in a week because somebody had told her to watch for it.</p>
+<p><strong>The failure it prevents:</strong> a productivity drop three to six weeks after a quiet upgrade, read as feature regression by a team that does not know a colleague was replaced.</p>
+<p><strong>The Rule.</strong> Every model upgrade is a personnel change nobody approved. Onboard it or inherit it.</p>
+<p><strong>Mechanism:</strong> Part One, Chapter 3 (an agent is a hire).</p>
+</div>
+<div class="callout" id="card-deprecation"><div class="callout-label">Card</div><div class="callout-title">Deprecation</div>
+<p><strong>When:</strong> at the vendor contract, at every renewal, and the day a deprecation notice arrives.</p>
+<p><strong>Do this:</strong></p>
+<ol><li>Put the currency question in the contract: training cutoff, corpus summary, retractions and corrections since the last update, behavioral change notes with known regressions, and the update cadence.</li><li>Give it a cadence rather than a trigger. Every ninety days and within fourteen days of any update, asked whether or not anything was announced.</li><li>Put it on the renewal calendar, not the engineering backlog. It is a commercial control and it needs a commercial owner.</li><li>Treat silence as information. Absence of an answer is an answer, and it should change what you are willing to run at high autonomy.</li><li>Never accept internal benchmark performance as evidence about your population. The relationship between the two is weaker than the marketing implies, and it can invert.</li><li>Validate locally before you promote anything on the strength of a new version. Your accounts are the only benchmark that describes your accounts.</li></ol>
+<p><strong>Worked:</strong> Ostermill's pin bought sixty days instead of a Tuesday morning, which was the whole value of a line nobody had argued about in April. The second deprecation took a model the tone fence depended on, and the replacement behaved differently at the same threshold.</p>
+<p><strong>The failure it prevents:</strong> discovering the substrate moved by reading a customer complaint, having had the notice sitting in a billing inbox for eight weeks.</p>
+<p><strong>The Rule.</strong> The thing your agent is made of is not yours and does not hold still.</p>
+<p><strong>Mechanism:</strong> Part One, Chapter 5 (the floor keeps rising).</p>
+</div>
+<h3>Six ways to become a different product</h3>
+<p>Drift is not one thing, and a team watching one or two of them will be surprised by the others, which are usually where the failure lives.</p>
+<p>The first is the reviewer. Vigilance falls as reliability rises, override rates trend toward zero, and time per approval shortens. Observe named this and gave it two cross-checks. Operate's job is to read it across quarters rather than across weeks, because the shape only appears at that length.</p>
+<p>The second is the substrate, which the last section was about. Six things move independently and any of them can move without the team knowing.</p>
+<p>The third is the strangest and the one Ostermill hit first. The team rotates, the dashboard outlives the reasoning, and the threshold that was set in service of a particular risk becomes a threshold nobody can explain. The tone classifier at 0.82 was this. The instrument was still running, still green, still reported, and it had been orphaned from its own purpose.</p>
+<p>The test is a question you can ask in a meeting. For each instrument, who owns it by name, and why is the threshold that number rather than a different one. If nobody can answer the second part, the instrument has stopped being an instrument and has become a habit.</p>
+<p>The fourth is the workaround, which Observe measured in a single month and which Operate reads as a trend. Ruth's spreadsheet was one quarter's data. Across a year the question is different: is the volume of work routed around the agent going up or down, and which case classes are drifting out of the supervised path. A rising trend is the product being abandoned in place while every metric stays green.</p>
+<p>The fifth is the threat environment, which learns. The adversarial cases that failed to get through in April were designed against what people were doing in April. Ostermill re-runs the hostile suite quarterly and adds to it from published patterns, on the reasoning that a defense dated by construction should at least know how dated it is.</p>
+<p>The sixth is scope, and it is the one that got them.</p>
+<p>Nobody decides to expand the mandate. What happens is that somebody asks for something small, and it is small, and the cost of saying no to it exceeds the visible cost of saying yes. A second template for the depot accounts, because the depots have different terms. Retrieval widened to shipment records, because a customer disputed a freight line and the answer was sitting right there. A new account type in April, national accounts, because they were already in the aging report and it seemed strange to exclude them.</p>
+<p>Each of those took a meeting. Each was reasonable. Not one was worth blocking on the day it was asked for.</p>
+<p>Diffed against the declaration signed in April, the agent in June was doing something the declaration did not describe. National accounts have negotiated terms, multiple contacts, and a relationship owner who expects to be consulted, which is most of the reasons the original scope excluded them, and none of those reasons were revisited in the meeting where they were added.</p>
+<p>So national accounts were revoked in June and the rule that should have existed in January was written down.</p>
+<p>Every scope extension is a deployment event and gets logged as one. And before any new accommodation is accepted, somebody runs the cumulative diff: not is this one small, but what does the product look like with this one added to all the others. That gate has a named owner and it produces a written answer, because the whole failure mode is that each step is defensible in isolation.</p>
+<p>Then the thing that is supposed to hold still while all six of those move.</p>
+<p>Some rules are not the model's to weigh. Not because the model is untrustworthy, but because the category is wrong: a rule that lives in a prompt is a consideration offered to a system whose core competence is reasoning around obstacles toward a goal.</p>
+<p>The constitutional layer is the small set of rules enforced in the request path, below the model, at the point the action is taken rather than at the point the decision is made. The agent can know the rule, decide to ignore it, and the action is still blocked, because the block does not consult the agent.</p>
+<p>Ostermill's list is short, and it stands at the length it started, which is the intended property. It has not stayed the same, though, and the difference matters. Two rules changed in the year, one out and one in, and both changes are in the revision record with a date and a name against them. A constitutional list that never changes is usually a list nobody is reading.</p>
+<p>No send to an account with a dispute flag. No send to an account flagged bankrupt or in legal escalation. No send to an account with a negotiation flag. No write to any field outside the agent's scoped credential. No action at all when the kill signal is set. And, added after the August incident, no send to an account whose state changed within seven days in any system the agent reads.</p>
+<p>Six, and it was six in April as well, though not the same six. The human brief's wall table listed four, because that table is written in the language of the work and the other two are written in the language of the platform: a credential that cannot reach outside its scope, and a signal that stops everything. Both were built in Design and neither belongs in a sentence about receivables. Then one left and one arrived. The rule against writing off above the small-balance floor retired at the gate in week eleven, along with the authority it existed to bound, because a wall around a capability the agent no longer has is not a control, it is a comment. The seven-day rule replaced it in August.</p>
+<p>Each of the six is enforced at the gateway, each carries a version number, and each version pinned into the record of every decision the agent makes. Which matters for a reason that has nothing to do with today.</p>
+<p>A year from now somebody will ask why the agent did what it did on a particular Tuesday. The rules in force on that Tuesday are not the rules in force at the time of the question. If the decision record does not pin the rule version, the auditor reads today's rules against last year's decision and reaches a confident wrong conclusion.</p>
+<p>Everything else Ostermill wanted the agent to do is knowledge rather than constraint: told, not enforced. That list is also written down, and being honest about which list a thing is on is most of the value.</p>
+<p>The fence from the wall sort is on the knowledge list. It has been on the knowledge list, in writing, since April.</p>
+<div class="callout" id="exhibit-j"><div class="callout-label">Exhibit J</div><div class="callout-title">The appeal</div>
+<p><strong>OSTERMILL INDUSTRIAL SUPPLY · Reminder agent · Reconstruction request 2027-05-14</strong></p>
+<p><em>Request from a customer's counsel. Assembled by D. Okafor, 19 May. Reviewed M. Ellery.</em></p>
+<p><strong>The request.</strong> The full basis for a reminder sent 14 September, on an invoice the customer states was under dispute at the time. Eight months elapsed. The agent has been swapped twice since.</p>
+<p><strong>What was produced, from the sealed record alone, without a running agent.</strong></p>
+<div class="table-wrap"><table><thead><tr><th>Component</th><th>Held</th></tr></thead><tbody><tr><td>Inputs read, verbatim</td><td>Yes</td></tr><tr><td>Reasoning chain, verbatim</td><td>Yes</td></tr><tr><td>Output, verbatim</td><td>Yes</td></tr><tr><td>Stated confidence</td><td>0.91</td></tr><tr><td>Model version</td><td>Pinned hash, the version retired in December</td></tr><tr><td>Retrieval index version</td><td>Pinned</td></tr><tr><td>Policy and tone-policy version</td><td>Pinned</td></tr><tr><td>Constitutional rule versions in force</td><td>Pinned, v3</td></tr><tr><td>Approving human, identity and timestamp</td><td>R. Vaughn, 14 Sept, 11:04, 68 seconds</td></tr></tbody></table></div>
+<p><strong>What it showed.</strong> The dispute existed, in an email thread, and no dispute flag was set on the account on 14 September. The agent read a correct and incomplete record. The wall held because the wall reads the flag.</p>
+<p><strong>Disposition.</strong> Charge credited. Reconstruction supplied in full. No finding of agent malfunction, and Ostermill does not offer that as a defense.</p>
+<p><em>Margin, M. Ellery: we could answer this because somebody stored the output and not only the inputs. The model that produced it does not exist any more and cannot be asked to produce it again. Storage was cheap. Reconstruction after the fact would have been impossible, and I would have had to say so in writing.</em></p>
+<p><em>Margin, D. Okafor: this is the same unset dispute flag that cost us the write-off authority in week eleven, arriving through a different door eleven months later. It is the third time that one records gap has produced an incident. It is now funded.</em></p>
+</div>
+<div class="callout" id="card-constitutional-runtime"><div class="callout-label">Card</div><div class="callout-title">Constitutional Runtime</div>
+<p><strong>When:</strong> whenever somebody proposes to control an agent's behavior by telling it something.</p>
+<p><strong>Do this:</strong></p>
+<ol><li>Sort every rule into enforced, mitigated, or told, and write all three lists down. These are Design's walls, fences and hopes under their run-time names, and being honest about which list a rule is on is most of the value.</li><li>Enforce the short list below the model, at the point the action is taken rather than the point the decision is made.</li><li>Keep the enforced list short and let it stay short. A long constitutional layer is usually a design that lost an argument somewhere else.</li><li>Version every rule, and pin the versions in force into the record of each decision.</li><li>Remember that a better model does not fix a constraint failure. The model can know the rule and act anyway; that is not a knowledge problem.</li><li>Review the mitigated and told lists after every incident. Incidents are the cheapest evidence you will ever get about which list a rule belonged on.</li></ol>
+<p><strong>Worked:</strong> Ostermill enforces four rules at the gateway and the list is the same length it was in April, having lost one and gained one, both logged. The tone fence has been on the mitigated list, in writing, since April, which is why nobody mistook it for a wall when it was tested. After the August incident a new candidate arrived and became the fourth enforced rule: no send to an account whose state changed within seven days in any system the agent reads.</p>
+<p><strong>The failure it prevents:</strong> a boundary that existed as a sentence, discovered on the day the agent found a sufficiently good reason to reason past it.</p>
+<p><strong>The Rule.</strong> A rule the model can weigh is a suggestion. Enforce it below the model or admit it is advice.</p>
+<p><strong>Mechanism:</strong> Part One, Chapter 4 (boundary as a part).</p>
+</div>
+<div class="callout" id="card-the-supervisory-system"><div class="callout-label">Card</div><div class="callout-title">The Supervisory System</div>
+<p><strong>When:</strong> at every quarterly review, and any time somebody proposes to cut the supervisory work to fund a feature.</p>
+<p><strong>Do this:</strong></p>
+<ol><li>Budget the second product as a product. It has users, surfaces, failure modes, maintenance and a roadmap, and it will lose every prioritization argument it enters without a line of its own.</li><li>Read all six drift vectors, not the one or two that are easy. Reviewer, substrate, orphaned instruments, workarounds, threat environment, scope.</li><li>Ask of each instrument who owns it and why the threshold is that number. An instrument nobody can justify has become a habit.</li><li>Log every scope extension as a deployment event, and run the cumulative diff before accepting the next one. Each step is defensible alone; that is the failure mode, not an exception to it.</li><li>Watch the workaround as a trend rather than a snapshot. Rising volume routed around the agent is abandonment in place, with the metrics still green.</li><li>Re-run the hostile suite quarterly. A defense is dated by construction, and the only question is how dated.</li></ol>
+<p><strong>Worked:</strong> three accommodations reached Ostermill's agent between January and April, each small, each reasonable, none worth blocking on the day. Diffed against the April declaration they were a different product, and national accounts were revoked in June. The gate that would have caught it earlier now runs before any new accommodation is accepted.</p>
+<p><strong>The failure it prevents:</strong> a product that arrives somewhere nobody chose, by a route where every individual step was defensible.</p>
+<p><strong>The Rule.</strong> Nobody decides to expand the mandate. It expands by accommodations too small to refuse.</p>
+<p><strong>Mechanism:</strong> Part One, Chapter 8 (the two products).</p>
+</div>
+<h3>The rung that was earned</h3>
+<p>In June, twelve months after launch, the agent got something back.</p>
+<p>The write-off authority had been taken away at the Prove gate, in under two minutes, and the reasoning had been good. A nine-dollar disputed line, the dispute real and living in an email thread, the dispute field empty as it is on five accounts a week, and every precondition of the wall satisfied. The agent wrote it off alone, correctly per policy, and Ostermill conceded a disputed charge with nobody in the path.</p>
+<p>The revocation came with a condition, which is the part that made it a suspension rather than a retirement.</p>
+<p>A dispute opened in the email queue creates an account flag within one business day. And the graded set carries four dispute-adjacent write-off cases at ten of ten.</p>
+<p>The first of those was never an agent problem. It was a records project, owned by Marcus with Ruth, sitting outside this team's control, competing against everything else the company wanted that year. It took a year. What moved it was not the agent at all. It was the reconstruction request in May, the third incident traceable to the same unset flag, arriving when the project was most of the way built and starved of the attention needed to finish it.</p>
+<p>This is worth sitting with, because it is the least romantic and most common way an agent capability gets unblocked.</p>
+<p>The condition was not a technical milestone the team could sprint at. It was a fact about the company. The agent's authority had been made contingent on something outside the model, outside the prompt, outside anything a better model would improve, and the only way through it was for the organization to change something about how it records disputes.</p>
+<p>Which is the honest form of most autonomy boundaries, once you look at them. A boundary is worth what its input is worth on the day it matters, and improving the input is usually somebody else's project.</p>
+<p>The four graded cases came at ten of ten in the June run, against a set that had grown from twelve cases to nineteen over the year. The flag was firing within a business day on a sample of forty disputes, measured rather than asserted. Marcus restored the authority in the same four-question format that had revoked it, and it took longer than the revocation had, which Dana noted approvingly.</p>
+<p>Restoring is supposed to be slower than revoking. A gate that takes a capability away in two minutes and gives it back in two minutes is not a gate.</p>
+<p><em>Margin, R. Vaughn: a year of doing the thirteen by hand and I now know which ones are borderline in a way I could not have told you last June. None of that is written down. Somebody should ask me before I forget it.</em></p>
+<p>So the ladder moved twice in the year and both moves were bought.</p>
+<p>Routine balances went to rung 4 in May, on the condition Observe had attached: a quarter of random-sample review with a fresh-eyes disagreement rate under two percent on drafts nobody queued. It came in at 1.4.</p>
+<p>Small-balance write-offs came back in June, on the two conditions above.</p>
+<p>One account sits outside all of that. The shop in Zanesville still orders, less than it did, and Ostermill cannot say whether the letter in July has anything to do with it. The daughter has never mentioned it. Part One said this damage would surface nine months on as an account that stopped ordering, in a quarter where several stopped, attributed by everyone who looked at it to the economy. It did not stop. It slowed, which is the same problem wearing a smaller number, and having the whole thing on the record, dated, with a postmortem against it, has not made the attribution any easier. It has only made it possible to know which question is the unanswerable one.</p>
+<p>Everything else sits exactly where it launched, which is the sentence Dana was proudest of in the revision record, and the one nobody outside the project found interesting.</p>
+<p>Both promotions came with a re-issued ledger, because a rung change re-prices the review line and the ledger is fiction until it is re-issued, and because a promotion is the only event that moves the line that matters. Rung 4 removes the approval, so the review seconds come out of the routine class entirely and what replaces them is the sampling: five drafts a week read properly instead of every draft read quickly. The compute line barely moves. The human line moves twice, down for the promoted class and up for the class that now carries the sampling, and the second movement is the one nobody forecasts, because it is created by the promotion rather than removed by it.</p>
+<p>Dana dated the new page and did not total it, for the reason the phase has already given: half of it is measured and half of it is judged, and a single figure would hide which half each number came from.</p>
+<p>There was one more thing that had to be checked before either promotion, and it is the artifact teams discover they needed at the worst possible moment.</p>
+<p>Who authorized the agent to do this, on what basis, and is that authorization still valid.</p>
+<p>Ostermill's write-off authority traced back to a credit policy signed by a CFO who had retired in October. The policy was still in force and the delegation was still written down. But the person who had made the judgment that a machine could exercise that authority under those conditions was no longer at the company, and had never been asked whether the conditions she had in mind were the ones now in the brief.</p>
+<p>The chain had not broken. It had simply gone unattended, which is the ordinary case: the delegator leaves, the policy stays, and the authority keeps running on a signature nobody has revisited.</p>
+<p>So the current holder re-confirmed it, in writing, before the restoration rather than after. The audit takes an afternoon a year and consists of one uncomfortable question per delegated authority: is the person who granted this still here, and if not, has the person now holding the role agreed to it.</p>
+<p>And one further check, which Ostermill had put off twice.</p>
+<p>Every number in this book so far has been produced by the team that built the thing. The eval set was drawn by the people who chose the cases. The instruments were composed by the people who decided what to measure. The judge was calibrated against a gold set assembled in-house. None of that is dishonest and all of it shares a blind spot, which is that you cannot design a test for a failure you have not imagined.</p>
+<p>The external audit runs on a held-out sample the vendor and the team did not help design, and it tests the monitoring rather than the agent. Ostermill's first one ran in April, and it found one thing nobody inside had thought to look for. Read by contact sequence rather than by case class, the agent's second and third reminders to the same account hardened faster than the tone policy intended. Every draft in the sequence was within policy on its own, which is why nothing caught it: every instrument the team had built reads one draft at a time, and the escalation only exists across drafts.</p>
+<p>That is the value of the exercise and it is the only way to get it. A team's own stratification encodes what the team already worries about, and its instruments encode the unit it already decided to measure.</p>
+<p>Which finally answers the question Design left open about the pod, and the answer is the reason the posting exists.</p>
+<p>The squad that built this agent was the right shape for building it. Five responsibilities, close to the problem, fast. What it cannot be is the thing that watches the result, and not because anyone on it lacks the skill. A pod is organized around getting something shipped, and every incentive inside it points at the product working. Asking that group to also be the standing judgment on whether the shipped thing is still right is asking a team to be its own second opinion.</p>
+<p>So the seat moves out. Not to a governance function bolted on beside the squad, which is the common answer and the weaker one, because a supervisor with a mandate and no authority is watching from across the room. It moves to somebody with the standing to stop the agent, holding the instruments and the sample and the scope diff.</p>
+<p>Out of the squad, in Ostermill's case, means to the controller, and it is worth being exact about what that does and does not buy. Marcus does not build the agent, which is the separation that matters: the watcher is not reporting to the desk whose work is being watched. What it does not buy is a clean conscience. He funds the thing, owns the number it moves, and holds the affected-person outcomes, so on the day the instruments say stop he is the person with the most reasons to hear them differently. A small company has nowhere better to put the seat. A larger one does, and should, and the test in either case is the same: can the person holding it stop the agent without asking the person who wants it running.</p>
+<p>The pod builds the agent. Something else has to carry it, and a year in, that something is a person with a job title.</p>
+<div class="callout" id="exhibit-k"><div class="callout-label">Exhibit K</div><div class="callout-title">The role</div>
+<p><strong>OSTERMILL INDUSTRIAL SUPPLY · Job posting, internal, June, extract</strong></p>
+<p><em>Drafted M. Ellery with D. Okafor. Grade and band set by HR. Posted internally first.</em></p>
+<p><strong>AGENT SUPERVISOR, RECEIVABLES.</strong> Reports to Controller.</p>
+<p><strong>Purpose.</strong> Ostermill operates one agent in receivables and expects to operate more. This role holds the run-time judgment: watching what the agent decides in production and catching the wrong call before it becomes an event.</p>
+<p><strong>What the role does.</strong></p>
+<ul><li>Reads the random sample weekly, drawn before send, on drafts the reader did not queue.</li><li>Owns the six instruments: their thresholds, their calibration dates, and the sentence saying what each threshold is for.</li><li>Runs the cumulative scope diff before any accommodation is accepted.</li><li>Maintains the graded set. Every incident becomes a case. Every case has an endorsement date.</li><li>Runs the quarterly frontline conversation about work being done outside the workflow, and treats the answers as data.</li><li>Holds the authority to pause the agent without asking permission first.</li></ul>
+<p><strong>What this role is not.</strong> Not the person who builds the agent. The watcher does not report to the desk that runs the thing being watched.</p>
+<p><strong>Required.</strong> Deep knowledge of the underlying work. This is not a monitoring role and cannot be filled by someone who has not done receivables.</p>
+<p><strong>Retention of practice.</strong> The post-holder works accounts directly one day a week. The day carries the approval queue for the classes that still draft for a person, which is 29 percent of volume since the routine-balance promotion in May and takes under two hours of it; the rest is ordinary receivables work. The day is set by the cadence and not by the size of that queue, so it does not shrink as classes are promoted and it does not taper. This is not a transitional arrangement. The judgment this role exercises is the judgment that decays when it stops being used, and there is no other way to keep it.</p>
+<p><em>Margin, M. Ellery: R. Vaughn has been doing most of this for a year without the title, the time, or the authority, and the parts she has not been doing are the parts she has not had time for. This posting is a correction, not an expansion.</em></p>
+<p><em>Margin, D. Okafor: the one-day-a-week clause is the line HR queried and the one I would defend hardest. Aviation made recurrent manual proficiency mandatory, on a schedule, whether or not anything has gone wrong, and I have not found a closer precedent. Nothing on that cadence exists in operations. This is our version of it and it costs one day in five.</em></p>
+</div>
+<div class="callout" id="card-the-missing-supervisor"><div class="callout-label">Card</div><div class="callout-title">The Missing Supervisor</div>
+<p><strong>When:</strong> the moment an agent goes into production, and every time someone says the existing team will absorb it.</p>
+<p><strong>Do this:</strong></p>
+<ol><li>Name the role and staff it. Somebody is already accountable when the agent is wrong; the question is whether they have the time, tools and authority to do anything about it.</li><li>Distinguish supervision from monitoring. Monitoring watches a number, and a number can be automated. Supervision watches a judgment, and it cannot.</li><li>Give the role independence, and the authority to stop things in advance and in writing. The watcher does not report to the desk that runs the thing being watched, and a supervisor who has to ask permission to pause is a reporting line rather than a control.</li><li>Require deep knowledge of the underlying work. This is not a monitoring job and cannot be filled by someone who has never done the work.</li><li>Sample by consequence and confidence, not uniformly, and build drift detection that does not depend on human attention. One in ten across everything spends the scarcest resource you have on the easiest cases, and human attention is the thing that drifts.</li><li>Keep the supervisor practicing the original work on a schedule. The validation skill is perishable and nothing else preserves it.</li></ol>
+<p><strong>Worked:</strong> Ruth had been doing most of this for a year with no title, no allocated time and no authority to pause anything, and the parts she had not been doing were the parts there had been no time for. Ostermill's posting carries a clause that the post-holder works accounts one day a week, permanently, which HR queried and Dana defended.</p>
+<p><strong>The failure it prevents:</strong> a supervisory function that exists in the org chart implicitly, is performed in the gaps of somebody's real job, and collapses the first busy quarter.</p>
+<p><strong>The Rule.</strong> The category exists. The category has not been built, and nobody is coming to build it for you.</p>
+<p><strong>Mechanism:</strong> Part One, Chapter 9 (what you actually build).</p>
+<p>One more thing about that posting, because it closes something Decide opened and it is easy to read as an operational detail.</p>
+<p>It is a salary. In April the ledger priced clerk minutes, review seconds and model calls, and it was an honest page for what it could see. It could not see this line, because in April there was no role to price. Twelve months later the cost of running the agent properly includes a person whose whole job is watching it, and that line arrived after every number in the business case was already signed.</p>
+<p>Which is the reason this chapter does not close with a total, and the reason to distrust the ones that do. A year-end figure would have to add a measured cost to a judged benefit and present the result as arithmetic. What can be said without cheating is the direction: the work got cheaper to do and more expensive to govern, and the second half of that sentence shows up later than the first, in a different budget, signed by somebody who was not in the room.</p>
+</div>
+<h3>The last page</h3>
+<p>Two things are still true a year in, and neither of them is a number.</p>
+<p>The first is that the agent never got the forty-one.</p>
+<p>Ruth held forty-one accounts by judgment in the week of March third, and the agent still does not decide a single one of them. It recognizes that they are not ordinary and hands them over with what it saw and why it stopped, which is the entire product, and the number it hands over has moved from forty-one to about thirty-six as the records improved underneath it.</p>
+<p>That is not a failure to automate. That is the design working exactly as specified, and it is worth being explicit about because the pull in the other direction never stops.</p>
+<p>Some of what Ruth carried could be written down, and it was: the thresholds, the tone, the account histories, the condition that means stop. Some of it could not, and pretending otherwise is how a brief passes review with the hardest third of the job missing. She recognizes that a pattern is off before she can say which number is wrong. She knows when the written policy is the wrong answer for this particular account this particular month.</p>
+<p>You can write down the rule. You cannot write down the recognition.</p>
+<p>The second is the one nobody at Ostermill has solved and this book will not pretend to.</p>
+<p>She learned the forty-one by doing the two hundred and twenty for twenty-two years. The agent now does the two hundred and twenty. The one-day-a-week clause in her posting is Ostermill's attempt at an answer and it is a partial one, because a day of practice is not the same as a career of it, and the person who fills that role in 2032 will not have had the twenty-two years.</p>
+<p>Aviation has the most developed institutional answer, and it is mandatory recurrent demonstration of manual proficiency, on a schedule, whether or not anything has gone wrong. Medicine has recertification, and it mostly tests knowledge rather than the hands. Nothing on aviation's cadence exists in operations or in software at all. The project that takes over the loop is the same project that removes the practice which built the competence to supervise it.</p>
+<p>Chapter 1 said the screen was the only casualty, and as a claim about artifacts it holds. Everything Ruth knew went into the agent. Everything she noticed stayed with her. The surface she worked on is the one object in the story with no successor, because what replaces it is built for somebody else doing a different job.</p>
+<p>What this page is naming is not an artifact, which is why it took a year to find. It is the practice that manufactured the noticing, and that has no heir either. The screen was the casualty you could see, on the day it happened, in a release note. This is the one that arrives twelve months later as a clause in a job posting about one day a week, which nobody at Ostermill can prove is enough, and which is the more expensive of the two.</p>
+<p>Ostermill wrote that down too, in the last paragraph of the revision record, under a heading that says what the company does not know.</p>
+<p>Which leaves the question of when this thing ends, because everything does.</p>
+<p>An agent gets retired the way it got hired, and the census from Decide is the reason: a retired agent left running is an unowned actor with a live login, and it will still be running in three years because nothing ever forced the question. Ostermill's register carries a decommission step with a name against it, and the decommission is not switching something off. It is the credential dying, the sealed records surviving their retention horizon rather than the agent's life, and one person confirming in writing that the work has somewhere to go.</p>
+<p>That last part is the one that catches teams out. An agent that has been running for three years has quietly absorbed a set of small tasks nobody wrote down, and the day it stops, those tasks do not stop. They land, unannounced, on whoever is nearest.</p>
+<div class="callout" id="card-retirement"><div class="callout-label">Card</div><div class="callout-title">Retirement</div>
+<p><strong>When:</strong> written at launch, not at the end. A decommission plan written on the day it is needed is written by whoever is available.</p>
+<p><strong>Do this:</strong></p>
+<ol><li>Put a decommission step in the register the day the agent enters it, including for the agents nobody expects to retire.</li><li>Retire it the way you offboard a person: revoke the credential and confirm in writing that it is gone. Switching off the interface is not retirement.</li><li>Keep the sealed records to their own retention horizon, not the agent's life. An appeal arrives about a decision, not about a running system, and the system will be gone.</li><li>Preserve the version pins with the records. An artifact whose versions were discarded with the agent cannot answer anything.</li><li>Find the work it absorbed that nobody wrote down. Small tasks accrete around it for years, and on the day it stops they land on whoever is nearest.</li><li>Name the person who confirms the work has somewhere to go, and get their signature before the credential dies.</li></ol>
+<p><strong>Worked:</strong> Ostermill's census found a freight-code script that had been reclassifying freight codes since the previous November, which nobody had thought of as an agent. Nothing had forced the question, because nothing ever does. The decommission step exists so the next one has a date and a name against it.</p>
+<p><strong>The failure it prevents:</strong> a retired agent still running on a live login, answerable to nobody, found by the next census or by an incident.</p>
+<p><strong>The Rule.</strong> An agent is retired the way it was hired. The credential dies and somebody signs.</p>
+<p><strong>Mechanism:</strong> Part One, Chapter 3 (an agent is a hire).</p>
+<div class="card phase-rail"><div class="card-label">The phase, closing</div><div class="card-title">Decide ✓ → Design ✓ → Prove ✓ → Observe ✓ → <strong>OPERATE ✓</strong> Produced: the substrate protocol and the currency question · six drift vectors under watch · the enforced, mitigated and told lists · a sealed record that answered an appeal · an external audit · one rung earned, one restored, one scope revoked · the role, staffed Closed: the write-off authority suspended in week eleven, restored in June on evidence. The only revoked authority in this book earned back.</div></div>
+<p>Which is roughly where this began.</p>
+<p>Tom said one sentence at the end of an operations review in February, about AI, and nobody in the room asked what it would cost, who would answer for it, or what would happen to the person whose judgment it was copying.</p>
+<p>Sixteen months later the answers exist, are written down, and are less impressive than the sentence was. The agent drafts. A person reads. Some accounts go up a rung when the evidence says so and one came back down. Ruth has a title now, and one day a week doing the work, and the forty-one she held in March are still hers.</p>
+<p>None of that would make a good demonstration.</p>
+<p>It is what shipping one of these actually looks like.</p>
+</div>
+<nav class="pager"><a href="observe.html">&larr; Phase 4 · Observe</a><a href="coda.html">Coda · What to keep &rarr;</a></nav>
+    </div>
+  </div>
+</div>
+</body>
+</html>

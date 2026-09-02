@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter 8 · The two products · Agentic AI for Product Leaders</title>
+<meta name="description" content="Chapter 8 · The two products — Agentic AI for Product Leaders.">
+<link rel="canonical" href="https://agenticaiproductmanagement.com/book7/the-two-products.html">
+<link rel="stylesheet" href="styles.css">
+<style>
+    .rule-line { border-top: 1.5px solid var(--ink, #1F2937); border-bottom: 1.5px solid var(--ink, #1F2937);
+                 padding: var(--space-3, 12px) 0; margin: var(--space-5, 24px) 0; }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    /* A card's numbered steps ran straight into "Worked:" with no gap, and the
+       gloss and phase-rail boxes had nothing under them before the prose
+       resumed. Yoram, 2026-08-24. */
+    .callout ol, .callout ul { margin-bottom: var(--space-4, 16px); }
+    .callout > p { margin-top: var(--space-3, 12px); }
+    .card.gloss, .card.phase-rail { margin: var(--space-5, 24px) 0; }
+    .card.gloss + p, .card.phase-rail + p, .rule-line + p { margin-top: var(--space-4, 16px); }
+    .phase-tree > summary { list-style: none; cursor: pointer; }
+    .phase-tree > summary::-webkit-details-marker { display: none; }
+    .phase-tree > summary::before { content: "\25B8"; display: inline-block;
+        width: 1em; color: var(--ink-muted, #777); font-size: 10px;
+        transition: transform .12s ease; }
+    .phase-tree[open] > summary::before { transform: rotate(90deg); }
+    /* The sidebar's link styling is scoped to `.sidebar-list a`, and a summary is
+       not inside that list, so the phase rows fell through to the browser default
+       and rendered blue and underlined while their own children did not. Yoram,
+       2026-08-24: "why does it look like blue underline links?" These mirror
+       `.sidebar-list a` rather than reinventing it. */
+    .phase-tree > summary { margin-bottom: 4px; }
+    .phase-tree > summary a { color: var(--ink-soft); text-decoration: none;
+        display: inline-block; padding: 4px 8px; border-radius: var(--radius-sm);
+        font-size: 13px; }
+    .phase-tree > summary a:hover { background: var(--rule-soft); color: var(--ink); }
+    .phase-tree > summary a.active { background: var(--ink); color: var(--bg); }
+    .phase-sub { margin: .2rem 0 .5rem 1.1rem; }
+    .phase-sub li { margin: .1rem 0; }
+    .phase-sub a { font-size: 12px; }
+    .tree-kind { display: block; font-size: 9px; letter-spacing: .06em;
+                 text-transform: uppercase; color: var(--ink-muted, #777); }
+    .pager { display: flex; justify-content: space-between; gap: 1rem;
+             margin-top: var(--space-6, 32px); padding-top: var(--space-4, 16px);
+             border-top: 0.5px solid var(--rule, #d8d8d4);
+             font-family: var(--sans); font-size: 13px; }
+</style>
+</head>
+<body>
+<div class="book">
+  <aside class="sidebar">
+    <div class="sidebar-hub"><a href="../index.html">&larr; All Books</a></div>
+    <div class="sidebar-brand"><a href="index.html">Agentic AI for Product Leaders</a>
+      <div class="sidebar-brand-sub">One agent, one company, from the sentence that proposed it to the year after it launched</div></div>
+    <div class="sidebar-section">Front Matter</div>
+    <ul class="sidebar-list">
+      <li><a href="preface.html">Before you start</a></li>
+    </ul>
+    <div class="sidebar-section">Part One · The argument</div>
+    <ul class="sidebar-list">
+      <li><a href="the-person-at-the-end-of-the-path.html">1. The person at the end of the path</a></li>
+      <li><a href="the-people-in-the-room.html">2. The people in the room</a></li>
+      <li><a href="the-colleague-nobody-interviewed.html">3. The colleague nobody interviewed</a></li>
+      <li><a href="what-an-agent-actually-is.html">4. What an agent actually is</a></li>
+      <li><a href="the-floor-and-the-plateau.html">5. The floor and the plateau</a></li>
+      <li><a href="the-brain-the-layers-the-loop.html">6. The brain, the layers, the loop</a></li>
+      <li><a href="the-judgment-gap-and-the-paradox.html">7. The judgment gap and the paradox</a></li>
+      <li><a href="the-two-products.html" class="active">8. The two products</a></li>
+      <li><a href="the-new-pm-role.html">9. The new PM role, and what you actually build</a></li>
+      <li><a href="the-shape-of-the-work.html">10. The shape of the work</a></li>
+    </ul>
+    <div class="sidebar-section">Part Two · The case</div>
+    <details class="phase-tree">
+      <summary><a href="decide.html">1. Decide</a></summary>
+      <ul class="sidebar-list phase-sub">
+        <li><a href="decide.html#exhibit-a"><span class="tree-kind">Exhibit A</span>The before-state</a></li>
+        <li><a href="decide.html#card-the-suitability-gate"><span class="tree-kind">Card</span>The Suitability Gate</a></li>
+        <li><a href="decide.html#card-the-shadow-census"><span class="tree-kind">Card</span>The Shadow Census</a></li>
+        <li><a href="decide.html#card-the-cost-ledger"><span class="tree-kind">Card</span>The Cost Ledger</a></li>
+        <li><a href="decide.html#card-the-judgment-prototype"><span class="tree-kind">Card</span>The Judgment Prototype</a></li>
+        <li><a href="decide.html#exhibit-b"><span class="tree-kind">Exhibit B</span>The go decision</a></li>
+        <li><a href="decide.html#card-the-funding-question"><span class="tree-kind">Card</span>The Funding Question</a></li>
+      </ul>
+    </details>
+    <details class="phase-tree">
+      <summary><a href="design.html">2. Design</a></summary>
+      <ul class="sidebar-list phase-sub">
+        <li><a href="design.html#card-the-ladder-and-the-break"><span class="tree-kind">Card</span>The Ladder and the Break</a></li>
+        <li><a href="design.html#card-the-declaration"><span class="tree-kind">Card</span>The Declaration</a></li>
+        <li><a href="design.html#exhibit-c"><span class="tree-kind">Exhibit C</span>The human brief</a></li>
+        <li><a href="design.html#exhibit-d"><span class="tree-kind">Exhibit D</span>The executable brief</a></li>
+        <li><a href="design.html#card-the-four-artifacts"><span class="tree-kind">Card</span>The Four Artifacts</a></li>
+        <li><a href="design.html#card-the-wall-sort"><span class="tree-kind">Card</span>The Wall Sort</a></li>
+        <li><a href="design.html#card-the-badge"><span class="tree-kind">Card</span>The Badge</a></li>
+        <li><a href="design.html#card-the-memory-terms"><span class="tree-kind">Card</span>The Memory Terms</a></li>
+        <li><a href="design.html#exhibit-e"><span class="tree-kind">Exhibit E</span>The approval screen</a></li>
+        <li><a href="design.html#card-the-approval-moment"><span class="tree-kind">Card</span>The Approval Moment</a></li>
+        <li><a href="design.html#card-the-onboarding-packet"><span class="tree-kind">Card</span>The Onboarding Packet</a></li>
+      </ul>
+    </details>
+    <details class="phase-tree">
+      <summary><a href="prove.html">3. Prove</a></summary>
+      <ul class="sidebar-list phase-sub">
+        <li><a href="prove.html#exhibit-f"><span class="tree-kind">Exhibit F</span>The eval readout</a></li>
+        <li><a href="prove.html#card-three-eval-breaks"><span class="tree-kind">Card</span>Three Eval Breaks</a></li>
+        <li><a href="prove.html#card-the-eval-stack"><span class="tree-kind">Card</span>The Eval Stack</a></li>
+        <li><a href="prove.html#card-the-fix-list"><span class="tree-kind">Card</span>The Fix List</a></li>
+        <li><a href="prove.html#card-hostile-reader"><span class="tree-kind">Card</span>Hostile Reader</a></li>
+        <li><a href="prove.html#card-rehearsal"><span class="tree-kind">Card</span>Rehearsal</a></li>
+        <li><a href="prove.html#card-the-four-question-review"><span class="tree-kind">Card</span>The Four-Question Review</a></li>
+      </ul>
+    </details>
+    <details class="phase-tree">
+      <summary><a href="observe.html">4. Observe</a></summary>
+      <ul class="sidebar-list phase-sub">
+        <li><a href="observe.html#exhibit-g"><span class="tree-kind">Exhibit G</span>The first month</a></li>
+        <li><a href="observe.html#card-six-instruments"><span class="tree-kind">Card</span>Six Instruments</a></li>
+        <li><a href="observe.html#card-certainty-inflation"><span class="tree-kind">Card</span>Certainty Inflation</a></li>
+        <li><a href="observe.html#exhibit-h"><span class="tree-kind">Exhibit H</span>The incident</a></li>
+        <li><a href="observe.html#card-upstream"><span class="tree-kind">Card</span>Upstream</a></li>
+        <li><a href="observe.html#card-supervision-collapse"><span class="tree-kind">Card</span>Supervision Collapse</a></li>
+        <li><a href="observe.html#card-felt-gain"><span class="tree-kind">Card</span>Felt Gain</a></li>
+      </ul>
+    </details>
+    <details class="phase-tree">
+      <summary><a href="operate.html">5. Operate</a></summary>
+      <ul class="sidebar-list phase-sub">
+        <li><a href="operate.html#exhibit-i"><span class="tree-kind">Exhibit I</span>The revision record</a></li>
+        <li><a href="operate.html#card-model-upgrade"><span class="tree-kind">Card</span>Model Upgrade</a></li>
+        <li><a href="operate.html#card-deprecation"><span class="tree-kind">Card</span>Deprecation</a></li>
+        <li><a href="operate.html#exhibit-j"><span class="tree-kind">Exhibit J</span>The appeal</a></li>
+        <li><a href="operate.html#card-constitutional-runtime"><span class="tree-kind">Card</span>Constitutional Runtime</a></li>
+        <li><a href="operate.html#card-the-supervisory-system"><span class="tree-kind">Card</span>The Supervisory System</a></li>
+        <li><a href="operate.html#exhibit-k"><span class="tree-kind">Exhibit K</span>The role</a></li>
+        <li><a href="operate.html#card-the-missing-supervisor"><span class="tree-kind">Card</span>The Missing Supervisor</a></li>
+        <li><a href="operate.html#card-retirement"><span class="tree-kind">Card</span>Retirement</a></li>
+      </ul>
+    </details>
+    <div class="sidebar-section">After</div>
+    <ul class="sidebar-list">
+      <li><a href="coda.html">What to keep</a></li>
+      <li><a href="appendix-climbing.html">Climbing: what changes as autonomy rises</a></li>
+      <li><a href="appendix-five-artifacts.html">Five artifacts, blank</a></li>
+      <li><a href="notes-and-sources.html">Sources and status notes, by chapter</a></li>
+      <li><a href="companion-site.html">The companion site</a></li>
+    </ul>
+  </aside>
+  <div class="main">
+    <div class="chapter">
+      <div class="chapter-meta">Part One</div>
+      <h1>Chapter 8 · The two products</h1>
+<h3>Who the agent is for</h3>
+<p>Ask who Ostermill's reminder agent is for and you get an answer that sounds complete and is missing two thirds of the people involved.</p>
+<p>The answer is the receivables team, because they are the ones who used to do this work. That is where the requirements come from, whose workflow gets redesigned, and whose satisfaction gets measured after launch.</p>
+<p>Three groups of people meet this product, and they need different things from it.</p>
+<p>There is Ruth, who used to make the decisions and now reviews them. There is Marcus, who does not touch almost any of them and is answerable for all of them. And there is the daughter opening the mail at the family shop, who never chose any of this and cannot tell a policy from a mistake.</p>
+<p>The first group is the one everybody builds for. The second gets a dashboard, usually late. The third gets nothing, because there is no surface where they appear.</p>
+<h3>The second product</h3>
+<p>What Ruth needs is not a smaller version of what she had.</p>
+<p>Her old work was the whole cycle: read the account, weigh it, decide, write, send. Her new work is a different job with a different shape, and it happens to be a job the company has never staffed, never described and never priced.</p>
+<p>She reviews. Which means she needs to see, for a draft she did not write, what the agent knew, what it was unsure about, what happens if she says no, and the strongest reason it might be wrong. She needs to reject as easily as she approves. She needs to hand cases upward, and to know that the handing-upward is a designed path rather than an email to Marcus.</p>
+<p>And she needs all of that to fit inside the time the work actually gives her, which is the constraint that kills most designs and which Part Two treats at length.</p>
+<p>None of that is a feature of the agent. It is a second product, built out of the half of Ruth that did not go into the first one, and it has everything a product has. Users, surfaces, failure modes, maintenance, a roadmap, and a line in a budget that does not exist because nobody wrote it.</p>
+<p>Build the first and skip the second and you have not shipped eighty percent of the job. You have shipped one of two products and called it the whole thing, and the one you skipped is the half whose only function is catching the first being wrong.</p>
+<h3>The third group, and the surface that does not exist</h3>
+<p>The daughter at the family shop is not a user of either product.</p>
+<p>She has no account, no session, no login, and no idea that a system was involved. She cannot be recruited for research, because she does not know she is in the population until the moment something goes wrong about her. There is no interview to run, no journey to map, and no satisfaction to measure.</p>
+<p>She is also the person the whole design is about, because she is who absorbs the errors.</p>
+<p>Nothing in the standard toolkit reaches her. That is not a gap in anyone's diligence; it is a structural feature of a product whose most consequential contact is with somebody outside the transaction. And the substitute is weak and should be called weak: a named person in the review whose job is to speak for her, and cases selected into the test set specifically because she is who gets hurt if the answer is wrong.</p>
+<p>That is representation rather than research. It is better than the alternative, which is that nobody in the room has any obligation to her at all.</p>
+<p>There is one more thing she needs and almost never gets, and it is the part regulation is arriving at first. If a decision was made about her, somebody has to be able to reconstruct why, months later, in terms she could understand. Not a log of what the system did. An account of why, that a person can stand behind. Part Two builds that surface in the Design phase and pays for it twice, once when the audit asks and once when somebody appeals.</p>
+<h3>What this costs</h3>
+<p>The uncomfortable part is the arithmetic, and stating it plainly is more useful than pretending it resolves.</p>
+<p>Two products cost more than one. The supervisory half has no revenue attached, produces no visible output, and its entire value is measured in things that did not happen. It will lose every prioritization argument it enters against a feature, because the feature has a number and it has an absence.</p>
+<p>And it degrades quietly if unbuilt. An organization that ships the agent alone does not get an error message. It gets good dashboards, a reviewer who reads faster every month, and a customer who stops ordering nine months later for reasons attributed to the economy.</p>
+<p>Ostermill builds both, and Part Two shows what the second one costs in a company that had not budgeted for it. The reason it gets built is not virtue. It is that Marcus is answerable for the number and worked out early that he could not answer for something he could not see.</p>
+<div class="rule-line"><strong>The Rule.</strong> Three groups meet the product: who did the work, who answers for it, and who it happens to. Only the third has no surface.</div>
+<nav class="pager"><a href="the-judgment-gap-and-the-paradox.html">&larr; Chapter 7 · The judgment gap and the paradox</a><a href="the-new-pm-role.html">Chapter 9 · The new PM role, and what you actually build &rarr;</a></nav>
+    </div>
+  </div>
+</div>
+</body>
+</html>

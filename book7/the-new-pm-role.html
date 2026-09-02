@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter 9 · The new PM role, and what you actually build · Agentic AI for Product Leaders</title>
+<meta name="description" content="Chapter 9 · The new PM role, and what you actually build — Agentic AI for Product Leaders.">
+<link rel="canonical" href="https://agenticaiproductmanagement.com/book7/the-new-pm-role.html">
+<link rel="stylesheet" href="styles.css">
+<style>
+    .rule-line { border-top: 1.5px solid var(--ink, #1F2937); border-bottom: 1.5px solid var(--ink, #1F2937);
+                 padding: var(--space-3, 12px) 0; margin: var(--space-5, 24px) 0; }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    /* A card's numbered steps ran straight into "Worked:" with no gap, and the
+       gloss and phase-rail boxes had nothing under them before the prose
+       resumed. Yoram, 2026-08-24. */
+    .callout ol, .callout ul { margin-bottom: var(--space-4, 16px); }
+    .callout > p { margin-top: var(--space-3, 12px); }
+    .card.gloss, .card.phase-rail { margin: var(--space-5, 24px) 0; }
+    .card.gloss + p, .card.phase-rail + p, .rule-line + p { margin-top: var(--space-4, 16px); }
+    .phase-tree > summary { list-style: none; cursor: pointer; }
+    .phase-tree > summary::-webkit-details-marker { display: none; }
+    .phase-tree > summary::before { content: "\25B8"; display: inline-block;
+        width: 1em; color: var(--ink-muted, #777); font-size: 10px;
+        transition: transform .12s ease; }
+    .phase-tree[open] > summary::before { transform: rotate(90deg); }
+    /* The sidebar's link styling is scoped to `.sidebar-list a`, and a summary is
+       not inside that list, so the phase rows fell through to the browser default
+       and rendered blue and underlined while their own children did not. Yoram,
+       2026-08-24: "why does it look like blue underline links?" These mirror
+       `.sidebar-list a` rather than reinventing it. */
+    .phase-tree > summary { margin-bottom: 4px; }
+    .phase-tree > summary a { color: var(--ink-soft); text-decoration: none;
+        display: inline-block; padding: 4px 8px; border-radius: var(--radius-sm);
+        font-size: 13px; }
+    .phase-tree > summary a:hover { background: var(--rule-soft); color: var(--ink); }
+    .phase-tree > summary a.active { background: var(--ink); color: var(--bg); }
+    .phase-sub { margin: .2rem 0 .5rem 1.1rem; }
+    .phase-sub li { margin: .1rem 0; }
+    .phase-sub a { font-size: 12px; }
+    .tree-kind { display: block; font-size: 9px; letter-spacing: .06em;
+                 text-transform: uppercase; color: var(--ink-muted, #777); }
+    .pager { display: flex; justify-content: space-between; gap: 1rem;
+             margin-top: var(--space-6, 32px); padding-top: var(--space-4, 16px);
+             border-top: 0.5px solid var(--rule, #d8d8d4);
+             font-family: var(--sans); font-size: 13px; }
+</style>
+</head>
+<body>
+<div class="book">
+  <aside class="sidebar">
+    <div class="sidebar-hub"><a href="../index.html">&larr; All Books</a></div>
+    <div class="sidebar-brand"><a href="index.html">Agentic AI for Product Leaders</a>
+      <div class="sidebar-brand-sub">One agent, one company, from the sentence that proposed it to the year after it launched</div></div>
+    <div class="sidebar-section">Front Matter</div>
+    <ul class="sidebar-list">
+      <li><a href="preface.html">Before you start</a></li>
+    </ul>
+    <div class="sidebar-section">Part One · The argument</div>
+    <ul class="sidebar-list">
+      <li><a href="the-person-at-the-end-of-the-path.html">1. The person at the end of the path</a></li>
+      <li><a href="the-people-in-the-room.html">2. The people in the room</a></li>
+      <li><a href="the-colleague-nobody-interviewed.html">3. The colleague nobody interviewed</a></li>
+      <li><a href="what-an-agent-actually-is.html">4. What an agent actually is</a></li>
+      <li><a href="the-floor-and-the-plateau.html">5. The floor and the plateau</a></li>
+      <li><a href="the-brain-the-layers-the-loop.html">6. The brain, the layers, the loop</a></li>
+      <li><a href="the-judgment-gap-and-the-paradox.html">7. The judgment gap and the paradox</a></li>
+      <li><a href="the-two-products.html">8. The two products</a></li>
+      <li><a href="the-new-pm-role.html" class="active">9. The new PM role, and what you actually build</a></li>
+      <li><a href="the-shape-of-the-work.html">10. The shape of the work</a></li>
+    </ul>
+    <div class="sidebar-section">Part Two · The case</div>
+    <details class="phase-tree">
+      <summary><a href="decide.html">1. Decide</a></summary>
+      <ul class="sidebar-list phase-sub">
+        <li><a href="decide.html#exhibit-a"><span class="tree-kind">Exhibit A</span>The before-state</a></li>
+        <li><a href="decide.html#card-the-suitability-gate"><span class="tree-kind">Card</span>The Suitability Gate</a></li>
+        <li><a href="decide.html#card-the-shadow-census"><span class="tree-kind">Card</span>The Shadow Census</a></li>
+        <li><a href="decide.html#card-the-cost-ledger"><span class="tree-kind">Card</span>The Cost Ledger</a></li>
+        <li><a href="decide.html#card-the-judgment-prototype"><span class="tree-kind">Card</span>The Judgment Prototype</a></li>
+        <li><a href="decide.html#exhibit-b"><span class="tree-kind">Exhibit B</span>The go decision</a></li>
+        <li><a href="decide.html#card-the-funding-question"><span class="tree-kind">Card</span>The Funding Question</a></li>
+      </ul>
+    </details>
+    <details class="phase-tree">
+      <summary><a href="design.html">2. Design</a></summary>
+      <ul class="sidebar-list phase-sub">
+        <li><a href="design.html#card-the-ladder-and-the-break"><span class="tree-kind">Card</span>The Ladder and the Break</a></li>
+        <li><a href="design.html#card-the-declaration"><span class="tree-kind">Card</span>The Declaration</a></li>
+        <li><a href="design.html#exhibit-c"><span class="tree-kind">Exhibit C</span>The human brief</a></li>
+        <li><a href="design.html#exhibit-d"><span class="tree-kind">Exhibit D</span>The executable brief</a></li>
+        <li><a href="design.html#card-the-four-artifacts"><span class="tree-kind">Card</span>The Four Artifacts</a></li>
+        <li><a href="design.html#card-the-wall-sort"><span class="tree-kind">Card</span>The Wall Sort</a></li>
+        <li><a href="design.html#card-the-badge"><span class="tree-kind">Card</span>The Badge</a></li>
+        <li><a href="design.html#card-the-memory-terms"><span class="tree-kind">Card</span>The Memory Terms</a></li>
+        <li><a href="design.html#exhibit-e"><span class="tree-kind">Exhibit E</span>The approval screen</a></li>
+        <li><a href="design.html#card-the-approval-moment"><span class="tree-kind">Card</span>The Approval Moment</a></li>
+        <li><a href="design.html#card-the-onboarding-packet"><span class="tree-kind">Card</span>The Onboarding Packet</a></li>
+      </ul>
+    </details>
+    <details class="phase-tree">
+      <summary><a href="prove.html">3. Prove</a></summary>
+      <ul class="sidebar-list phase-sub">
+        <li><a href="prove.html#exhibit-f"><span class="tree-kind">Exhibit F</span>The eval readout</a></li>
+        <li><a href="prove.html#card-three-eval-breaks"><span class="tree-kind">Card</span>Three Eval Breaks</a></li>
+        <li><a href="prove.html#card-the-eval-stack"><span class="tree-kind">Card</span>The Eval Stack</a></li>
+        <li><a href="prove.html#card-the-fix-list"><span class="tree-kind">Card</span>The Fix List</a></li>
+        <li><a href="prove.html#card-hostile-reader"><span class="tree-kind">Card</span>Hostile Reader</a></li>
+        <li><a href="prove.html#card-rehearsal"><span class="tree-kind">Card</span>Rehearsal</a></li>
+        <li><a href="prove.html#card-the-four-question-review"><span class="tree-kind">Card</span>The Four-Question Review</a></li>
+      </ul>
+    </details>
+    <details class="phase-tree">
+      <summary><a href="observe.html">4. Observe</a></summary>
+      <ul class="sidebar-list phase-sub">
+        <li><a href="observe.html#exhibit-g"><span class="tree-kind">Exhibit G</span>The first month</a></li>
+        <li><a href="observe.html#card-six-instruments"><span class="tree-kind">Card</span>Six Instruments</a></li>
+        <li><a href="observe.html#card-certainty-inflation"><span class="tree-kind">Card</span>Certainty Inflation</a></li>
+        <li><a href="observe.html#exhibit-h"><span class="tree-kind">Exhibit H</span>The incident</a></li>
+        <li><a href="observe.html#card-upstream"><span class="tree-kind">Card</span>Upstream</a></li>
+        <li><a href="observe.html#card-supervision-collapse"><span class="tree-kind">Card</span>Supervision Collapse</a></li>
+        <li><a href="observe.html#card-felt-gain"><span class="tree-kind">Card</span>Felt Gain</a></li>
+      </ul>
+    </details>
+    <details class="phase-tree">
+      <summary><a href="operate.html">5. Operate</a></summary>
+      <ul class="sidebar-list phase-sub">
+        <li><a href="operate.html#exhibit-i"><span class="tree-kind">Exhibit I</span>The revision record</a></li>
+        <li><a href="operate.html#card-model-upgrade"><span class="tree-kind">Card</span>Model Upgrade</a></li>
+        <li><a href="operate.html#card-deprecation"><span class="tree-kind">Card</span>Deprecation</a></li>
+        <li><a href="operate.html#exhibit-j"><span class="tree-kind">Exhibit J</span>The appeal</a></li>
+        <li><a href="operate.html#card-constitutional-runtime"><span class="tree-kind">Card</span>Constitutional Runtime</a></li>
+        <li><a href="operate.html#card-the-supervisory-system"><span class="tree-kind">Card</span>The Supervisory System</a></li>
+        <li><a href="operate.html#exhibit-k"><span class="tree-kind">Exhibit K</span>The role</a></li>
+        <li><a href="operate.html#card-the-missing-supervisor"><span class="tree-kind">Card</span>The Missing Supervisor</a></li>
+        <li><a href="operate.html#card-retirement"><span class="tree-kind">Card</span>Retirement</a></li>
+      </ul>
+    </details>
+    <div class="sidebar-section">After</div>
+    <ul class="sidebar-list">
+      <li><a href="coda.html">What to keep</a></li>
+      <li><a href="appendix-climbing.html">Climbing: what changes as autonomy rises</a></li>
+      <li><a href="appendix-five-artifacts.html">Five artifacts, blank</a></li>
+      <li><a href="notes-and-sources.html">Sources and status notes, by chapter</a></li>
+      <li><a href="companion-site.html">The companion site</a></li>
+    </ul>
+  </aside>
+  <div class="main">
+    <div class="chapter">
+      <div class="chapter-meta">Part One</div>
+      <h1>Chapter 9 · The new PM role, and what you actually build</h1>
+<h3>Three changes, and only one of them is about tools</h3>
+<p>Ask a room of product managers what AI has done to their job and you will get one answer, delivered with real enthusiasm, about how much faster everything is now.</p>
+<p>They are right, and it is the least important true thing they could have said.</p>
+<p>Three separate changes are happening at once, and almost every conversation treats them as one. Pulling them apart is most of the work of this chapter, because they have completely different half-lives, and the loudest one has the shortest.</p>
+<p>The first is efficiency. The drafting, the restating, the translation of the same idea into three audiences' languages, the first version of the requirement, the summary of the research, the competitive teardown. All of it is faster, and the improvement is not marginal.</p>
+<p>Here is the test for whether you are looking at this one. If the comparison to Excel feels apt, you are on the first change.</p>
+<p>That comparison is worth taking seriously rather than using as a dismissal. Excel was truly transformative and it promoted a particular kind of person: the one whose value was knowing which question to ask rather than knowing how to compute the answer. What it did not do was make any single company better at analysis than its competitors, because everyone got it. That is Chapter 5's floor arriving again, this time as efficiency rather than capability, and it rises whether or not you personally move.</p>
+<p>Efficiency carries a cost that the enthusiasm hides, and it is not a small caveat. Cheap production lowers the cost of building the wrong thing. A team that can produce three times the requirements, prototypes, and decks now produces three times as many candidate products, each arriving at its review with more momentum than it earned and less scrutiny than it would have survived when producing it was expensive. Speed is not neutral. Applied to a bad idea it is a delivery mechanism.</p>
+<p>Chapter 6 described the layers an agent needs, and the argument there was that the model is bought and the context is built. The same is true of the stack you work in personally, and most people have built none of it. They have a model, and they retype the same background into it every morning: what the product is, who the customers are, what was decided last quarter and why, which arguments have already been had and settled. The model is excellent and it arrives knowing nothing about you, every time, forever.</p>
+<p>What changes that is unglamorous and cumulative. A written record of your own decisions and the reasons behind them, in one place, in a form something can read. The standards you apply, written down once instead of re-explained. The things your organization has already tried and rejected, with the reason attached, so the same idea does not arrive fresh every eight months. None of that is a tool purchase. It is the same specification work this chapter has been describing, pointed at yourself, and it compounds in exactly the way tool skill does not.</p>
+<p>The reason it is worth naming here rather than filing under productivity is that it is the same capability. Sitting with Ruth and getting forty-one reasons onto paper, and sitting with your own work and getting the standards onto paper, are one skill wearing two hats. A person who cannot do it for themselves will struggle to do it for somebody else, and the second is the job.</p>
+<p>The second change is judgment, and it has almost none of the attention.</p>
+<p>Most of this book is about the second. This chapter is about what happens to you.</p>
+<h3>Where the analogy breaks</h3>
+<p>The Excel comparison holds for a surprisingly long time and then fails at exactly one point, and the point of failure is the whole subject.</p>
+<p>A spreadsheet computed exactly what you asked. If the formula was wrong, the wrongness was yours, reproducible, and sitting in a cell you could open. Nothing in the spreadsheet ever decided anything. It was very fast and it was completely passive, and every governance instinct the profession built around software assumed that passivity without ever needing to name it.</p>
+<p>An agent decides.</p>
+<p>That is the entire discontinuity, and it is why the questions it raises have no tool attached to any of them.</p>
+<p>Chapter 1 named four that have to be settled before an agent acts. What it may do alone. What it must never do, and whether that never is a rule or a wall. What evidence it may act on when two sources disagree. Who answers for the result, by name. Those are runtime questions, and they all assume the thing is being built.</p>
+<p>Standing where you stand, those questions do not stay the same size, and two more appear that Chapter 1 did not need.</p>
+<p>Before any of them sits a question nobody asked: should this be an agent at all, measured against the best available alternative rather than against nothing.</p>
+<p>The authority question survives unchanged, because it was always the load-bearing one. Where does its authority stop, and is that stop a sentence in a prompt or a wall in the execution path.</p>
+<p>The evidence question survives too, and it is the one that gets skipped, because it does not look like a governance question until the day it is. Which source wins when two of them disagree, and who decided that. Nobody puts it on a roadmap. It is settled anyway, by whoever writes the retrieval order, and it is settled either in a document you can point at or in a line of code you will find out about later.</p>
+<p>Between them sits a question Chapter 1 did not need, because a specification does not have to define its own success. What does correct mean when the output is probabilistic and the same input can produce different answers on different days.</p>
+<p>And the accountability question widens. Chapter 1 asked who answers for the result. The version you own asks who answers for the person on the receiving end who never chose any of this and is not in your analytics.</p>
+<p>None of those is a technology question. All of them are yours, and there is no product on the market that answers one, which is inconvenient, because a question with no vendor tends to go unasked.</p>
+<h3>What you actually build</h3>
+<p>Now the part everyone gets backwards, in both directions.</p>
+<p>The current advice to product managers is that they should build. Prototype it yourself, validate with customers, take it to engineering already working, do not wait for design or development. That advice is correct and it is being repeated by people who have not noticed that the thing being prototyped changed underneath them.</p>
+<p>Every prototype technique the profession has is a technique for showing an interface. Click through the flow, watch where the user hesitates, iterate. Excellent methods. They rest on an assumption nobody states, which is that a prototype's job is to show a screen.</p>
+<p>It never was. As Chapter 1 argued, the screen was the cheapest available proxy for the behavior. In deterministic software those were one act, because the person clicked and the system responded and both halves were visible in the same moment. For an agent they come apart, and the proxy stops measuring anything that matters.</p>
+<p>So prototyping does not stop. Its object moves, from the interface to the judgment.</p>
+<p>What that means concretely is worth being precise about, because it is smaller than people expect and it answers a bigger question.</p>
+<p>You pull twenty real cases out of the system of record, weighted deliberately toward the hard end, and you do not invent any of them. You wire a throwaway agent to them: a prompt, a couple of tools, a loop, an afternoon. Its output is not a screen. It is a table, one row per case, carrying what it decided, why in its own words, how confident it claimed to be, and whether it would have escalated. Plain text is fine. A spreadsheet is better than an interface.</p>
+<p>Then you sit with the person who makes those calls today and ask one question, twenty times. Which of these would you have decided differently.</p>
+<p>That is the whole technique. It costs less than what most teams currently do at this stage, not more.</p>
+<p>You will watch it run in Part Two. Decide is this chapter executed properly, on twenty cases pulled from one week of Ruth's actual work, and it ends with two of the three proposals withdrawn before anybody had spent money on either. That is the technique's entire value, and it is worth stating as a number rather than as a principle: it produced a no, twice, in a week, at the one point in a project where a no is still cheap.</p>
+<h3>What you do not build, and why that is the important half</h3>
+<p>Here is where the industry is installing a bad idea, and it is worth naming directly because it is flattering and it is wrong.</p>
+<p>The bad idea is that the product manager is becoming a junior engineer. That the real story is that PMs can now write code, that the boundary between the roles is dissolving, and that the future belongs to the product manager who ships. It is an appealing story. It is also a misreading of what just happened, and organizations acting on it are producing a specific and predictable mess.</p>
+<p>Start with what you deliberately do not build.</p>
+<p>You do not build a user interface. Not even a small one. The moment there is a UI, the conversation in the room becomes about the UI, and the UI is not what is in question. This is not a rule about your skills. It is a rule about the room's attention.</p>
+<p>You do not build production quality, error handling, retry logic, or anything you would be embarrassed to show an engineer, because nobody is going to run this and nobody is going to extend it. The code is not the first commit of the real system. It is scaffolding, and it comes down.</p>
+<p>And then there are three questions your prototype does not answer, which is the part that should settle the mini-developer argument for good.</p>
+<p>It does not tell you whether the system is reliable. Twenty cases test twenty decisions. They say nothing about what happens across a long trajectory where each step is individually defensible, nothing about compounding loops, nothing about retries that snowball their own context. Those are real and they are common and they belong to engineering.</p>
+<p>It does not tell you what the thing costs. A prototype that makes forty model calls to reach a good answer produces a table indistinguishable from one that makes four. Cost and latency are invisible in this artifact by construction. A good demonstration has hidden a bad business case more than once, and it will do it to you.</p>
+<p>And it does not tell you whether your boundary can be enforced. You decide where the boundary sits. The architect decides whether a wall stands there, or whether what you wrote is a sentence the agent can reason its way past on a sufficiently persuasive input. Those are different jobs held by different people, and the failure lives in the handoff rather than in either person's work.</p>
+<p>So the shape of the change is not that you have absorbed part of engineering's job. You build more than you used to, and you own less of the build than the enthusiasm suggests. What you build is deliberately disposable, deliberately not production, and deliberately answering a question that was previously answered by whoever argued most persuasively in a meeting.</p>
+<p>The tool that makes this possible is the same tool everyone is excited about, and the useful way to describe what changed is not that it got better. It used to produce a demonstration. Now it produces evidence.</p>
+<h3>Why the artifact has to be able to say no</h3>
+<p>There is one more discipline, and without it everything above turns into its opposite.</p>
+<p>A prototype that demonstrates well ends the decision. Not formally. The meeting continues, the paperwork gets filed, the gate is convened. But the moment a room watches a thing produce a sensible answer to a hard case, the question in the room has quietly changed from whether this should exist to how impressive it is, and no subsequent process recovers the first question. Nobody kills a thing they have seen working.</p>
+<p>This is worse with agents than it ever was with screens, and the reason is specific. A screen prototype needed polish to be convincing, and polish took time, and time gave the decision room to breathe. An agent needs no polish at all. It just has to answer well in the meeting.</p>
+<p>So two rules, and they are cheap.</p>
+<p>Write down the result that would stop you, before you build, in a sentence you cannot reinterpret afterward. Then show it to the room at the same time as the results, so nobody has to take your word for what it said in advance.</p>
+<p>And do not show the running agent. Show the table and the column where the expert disagreed. If somebody asks to see it run, that request is itself the signal: the conversation has moved.</p>
+<p>A prototype that cannot produce a no is not a prototype. It is a pitch.</p>
+<h3>The concession, and where the old advice is still right</h3>
+<p>None of this means the prevailing advice was wrong, and a chapter that ended without saying so would be dishonest in a way that is easy to spot.</p>
+<p>A product manager who cannot build is slower than one who can, and speed compounds across a career. That was true before this wave and it is more true now. The correction is not that product managers should stop building. It is that the thing worth building changed, and it changed as a function of where the product sits on the autonomy ladder rather than as a universal law.</p>
+<p>At the bottom of the ladder, where the agent suggests and a person does all the work, build the screen. The screen is the product there, the person is in the room, and every technique the profession has still applies without modification. Nobody should be reading this chapter as permission to stop doing usability work on a product that has users.</p>
+<p>It is at the top that the object moves, and it moves because the person who used to be in the room has left it. The case set becomes the artifact worth your afternoon, because the case set is where the judgment lives now.</p>
+<p>What survives all of it, and is the reason this job still exists, is the thing that was never the translation or the drafting or the deck. Only somebody with domain judgment looks at a fluent, well-formatted, confident answer and sees that it is the wrong answer. No tool substitutes for that, no efficiency gain approximates it, and it is becoming the most consequential work on the team at exactly the moment the profession is congratulating itself on how much faster the other part got.</p>
+<div class="rule-line"><strong>The Rule.</strong> You build more than you used to and own less of the build. The prototype is evidence, and it must be able to say no.</div>
+<nav class="pager"><a href="the-two-products.html">&larr; Chapter 8 · The two products</a><a href="the-shape-of-the-work.html">Chapter 10 · The shape of the work &rarr;</a></nav>
+    </div>
+  </div>
+</div>
+</body>
+</html>

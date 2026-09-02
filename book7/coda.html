@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Coda · What to keep · Agentic AI for Product Leaders</title>
+<meta name="description" content="Coda · What to keep — Agentic AI for Product Leaders.">
+<link rel="canonical" href="https://agenticaiproductmanagement.com/book7/coda.html">
+<link rel="stylesheet" href="styles.css">
+<style>
+    .rule-line { border-top: 1.5px solid var(--ink, #1F2937); border-bottom: 1.5px solid var(--ink, #1F2937);
+                 padding: var(--space-3, 12px) 0; margin: var(--space-5, 24px) 0; }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    /* A card's numbered steps ran straight into "Worked:" with no gap, and the
+       gloss and phase-rail boxes had nothing under them before the prose
+       resumed. Yoram, 2026-08-24. */
+    .callout ol, .callout ul { margin-bottom: var(--space-4, 16px); }
+    .callout > p { margin-top: var(--space-3, 12px); }
+    .card.gloss, .card.phase-rail { margin: var(--space-5, 24px) 0; }
+    .card.gloss + p, .card.phase-rail + p, .rule-line + p { margin-top: var(--space-4, 16px); }
+    .phase-tree > summary { list-style: none; cursor: pointer; }
+    .phase-tree > summary::-webkit-details-marker { display: none; }
+    .phase-tree > summary::before { content: "\25B8"; display: inline-block;
+        width: 1em; color: var(--ink-muted, #777); font-size: 10px;
+        transition: transform .12s ease; }
+    .phase-tree[open] > summary::before { transform: rotate(90deg); }
+    /* The sidebar's link styling is scoped to `.sidebar-list a`, and a summary is
+       not inside that list, so the phase rows fell through to the browser default
+       and rendered blue and underlined while their own children did not. Yoram,
+       2026-08-24: "why does it look like blue underline links?" These mirror
+       `.sidebar-list a` rather than reinventing it. */
+    .phase-tree > summary { margin-bottom: 4px; }
+    .phase-tree > summary a { color: var(--ink-soft); text-decoration: none;
+        display: inline-block; padding: 4px 8px; border-radius: var(--radius-sm);
+        font-size: 13px; }
+    .phase-tree > summary a:hover { background: var(--rule-soft); color: var(--ink); }
+    .phase-tree > summary a.active { background: var(--ink); color: var(--bg); }
+    .phase-sub { margin: .2rem 0 .5rem 1.1rem; }
+    .phase-sub li { margin: .1rem 0; }
+    .phase-sub a { font-size: 12px; }
+    .tree-kind { display: block; font-size: 9px; letter-spacing: .06em;
+                 text-transform: uppercase; color: var(--ink-muted, #777); }
+    .pager { display: flex; justify-content: space-between; gap: 1rem;
+             margin-top: var(--space-6, 32px); padding-top: var(--space-4, 16px);
+             border-top: 0.5px solid var(--rule, #d8d8d4);
+             font-family: var(--sans); font-size: 13px; }
+</style>
+</head>
+<body>
+<div class="book">
+  <aside class="sidebar">
+    <div class="sidebar-hub"><a href="../index.html">&larr; All Books</a></div>
+    <div class="sidebar-brand"><a href="index.html">Agentic AI for Product Leaders</a>
+      <div class="sidebar-brand-sub">One agent, one company, from the sentence that proposed it to the year after it launched</div></div>
+    <div class="sidebar-section">Front Matter</div>
+    <ul class="sidebar-list">
+      <li><a href="preface.html">Before you start</a></li>
+    </ul>
+    <div class="sidebar-section">Part One · The argument</div>
+    <ul class="sidebar-list">
+      <li><a href="the-person-at-the-end-of-the-path.html">1. The person at the end of the path</a></li>
+      <li><a href="the-people-in-the-room.html">2. The people in the room</a></li>
+      <li><a href="the-colleague-nobody-interviewed.html">3. The colleague nobody interviewed</a></li>
+      <li><a href="what-an-agent-actually-is.html">4. What an agent actually is</a></li>
+      <li><a href="the-floor-and-the-plateau.html">5. The floor and the plateau</a></li>
+      <li><a href="the-brain-the-layers-the-loop.html">6. The brain, the layers, the loop</a></li>
+      <li><a href="the-judgment-gap-and-the-paradox.html">7. The judgment gap and the paradox</a></li>
+      <li><a href="the-two-products.html">8. The two products</a></li>
+      <li><a href="the-new-pm-role.html">9. The new PM role, and what you actually build</a></li>
+      <li><a href="the-shape-of-the-work.html">10. The shape of the work</a></li>
+    </ul>
+    <div class="sidebar-section">Part Two · The case</div>
+    <details class="phase-tree">
+      <summary><a href="decide.html">1. Decide</a></summary>
+      <ul class="sidebar-list phase-sub">
+        <li><a href="decide.html#exhibit-a"><span class="tree-kind">Exhibit A</span>The before-state</a></li>
+        <li><a href="decide.html#card-the-suitability-gate"><span class="tree-kind">Card</span>The Suitability Gate</a></li>
+        <li><a href="decide.html#card-the-shadow-census"><span class="tree-kind">Card</span>The Shadow Census</a></li>
+        <li><a href="decide.html#card-the-cost-ledger"><span class="tree-kind">Card</span>The Cost Ledger</a></li>
+        <li><a href="decide.html#card-the-judgment-prototype"><span class="tree-kind">Card</span>The Judgment Prototype</a></li>
+        <li><a href="decide.html#exhibit-b"><span class="tree-kind">Exhibit B</span>The go decision</a></li>
+        <li><a href="decide.html#card-the-funding-question"><span class="tree-kind">Card</span>The Funding Question</a></li>
+      </ul>
+    </details>
+    <details class="phase-tree">
+      <summary><a href="design.html">2. Design</a></summary>
+      <ul class="sidebar-list phase-sub">
+        <li><a href="design.html#card-the-ladder-and-the-break"><span class="tree-kind">Card</span>The Ladder and the Break</a></li>
+        <li><a href="design.html#card-the-declaration"><span class="tree-kind">Card</span>The Declaration</a></li>
+        <li><a href="design.html#exhibit-c"><span class="tree-kind">Exhibit C</span>The human brief</a></li>
+        <li><a href="design.html#exhibit-d"><span class="tree-kind">Exhibit D</span>The executable brief</a></li>
+        <li><a href="design.html#card-the-four-artifacts"><span class="tree-kind">Card</span>The Four Artifacts</a></li>
+        <li><a href="design.html#card-the-wall-sort"><span class="tree-kind">Card</span>The Wall Sort</a></li>
+        <li><a href="design.html#card-the-badge"><span class="tree-kind">Card</span>The Badge</a></li>
+        <li><a href="design.html#card-the-memory-terms"><span class="tree-kind">Card</span>The Memory Terms</a></li>
+        <li><a href="design.html#exhibit-e"><span class="tree-kind">Exhibit E</span>The approval screen</a></li>
+        <li><a href="design.html#card-the-approval-moment"><span class="tree-kind">Card</span>The Approval Moment</a></li>
+        <li><a href="design.html#card-the-onboarding-packet"><span class="tree-kind">Card</span>The Onboarding Packet</a></li>
+      </ul>
+    </details>
+    <details class="phase-tree">
+      <summary><a href="prove.html">3. Prove</a></summary>
+      <ul class="sidebar-list phase-sub">
+        <li><a href="prove.html#exhibit-f"><span class="tree-kind">Exhibit F</span>The eval readout</a></li>
+        <li><a href="prove.html#card-three-eval-breaks"><span class="tree-kind">Card</span>Three Eval Breaks</a></li>
+        <li><a href="prove.html#card-the-eval-stack"><span class="tree-kind">Card</span>The Eval Stack</a></li>
+        <li><a href="prove.html#card-the-fix-list"><span class="tree-kind">Card</span>The Fix List</a></li>
+        <li><a href="prove.html#card-hostile-reader"><span class="tree-kind">Card</span>Hostile Reader</a></li>
+        <li><a href="prove.html#card-rehearsal"><span class="tree-kind">Card</span>Rehearsal</a></li>
+        <li><a href="prove.html#card-the-four-question-review"><span class="tree-kind">Card</span>The Four-Question Review</a></li>
+      </ul>
+    </details>
+    <details class="phase-tree">
+      <summary><a href="observe.html">4. Observe</a></summary>
+      <ul class="sidebar-list phase-sub">
+        <li><a href="observe.html#exhibit-g"><span class="tree-kind">Exhibit G</span>The first month</a></li>
+        <li><a href="observe.html#card-six-instruments"><span class="tree-kind">Card</span>Six Instruments</a></li>
+        <li><a href="observe.html#card-certainty-inflation"><span class="tree-kind">Card</span>Certainty Inflation</a></li>
+        <li><a href="observe.html#exhibit-h"><span class="tree-kind">Exhibit H</span>The incident</a></li>
+        <li><a href="observe.html#card-upstream"><span class="tree-kind">Card</span>Upstream</a></li>
+        <li><a href="observe.html#card-supervision-collapse"><span class="tree-kind">Card</span>Supervision Collapse</a></li>
+        <li><a href="observe.html#card-felt-gain"><span class="tree-kind">Card</span>Felt Gain</a></li>
+      </ul>
+    </details>
+    <details class="phase-tree">
+      <summary><a href="operate.html">5. Operate</a></summary>
+      <ul class="sidebar-list phase-sub">
+        <li><a href="operate.html#exhibit-i"><span class="tree-kind">Exhibit I</span>The revision record</a></li>
+        <li><a href="operate.html#card-model-upgrade"><span class="tree-kind">Card</span>Model Upgrade</a></li>
+        <li><a href="operate.html#card-deprecation"><span class="tree-kind">Card</span>Deprecation</a></li>
+        <li><a href="operate.html#exhibit-j"><span class="tree-kind">Exhibit J</span>The appeal</a></li>
+        <li><a href="operate.html#card-constitutional-runtime"><span class="tree-kind">Card</span>Constitutional Runtime</a></li>
+        <li><a href="operate.html#card-the-supervisory-system"><span class="tree-kind">Card</span>The Supervisory System</a></li>
+        <li><a href="operate.html#exhibit-k"><span class="tree-kind">Exhibit K</span>The role</a></li>
+        <li><a href="operate.html#card-the-missing-supervisor"><span class="tree-kind">Card</span>The Missing Supervisor</a></li>
+        <li><a href="operate.html#card-retirement"><span class="tree-kind">Card</span>Retirement</a></li>
+      </ul>
+    </details>
+    <div class="sidebar-section">After</div>
+    <ul class="sidebar-list">
+      <li><a href="coda.html" class="active">What to keep</a></li>
+      <li><a href="appendix-climbing.html">Climbing: what changes as autonomy rises</a></li>
+      <li><a href="appendix-five-artifacts.html">Five artifacts, blank</a></li>
+      <li><a href="notes-and-sources.html">Sources and status notes, by chapter</a></li>
+      <li><a href="companion-site.html">The companion site</a></li>
+    </ul>
+  </aside>
+  <div class="main">
+    <div class="chapter">
+      <div class="chapter-meta">Back matter</div>
+      <h1>Coda · What to keep</h1>
+<p>Sixteen months of one company, and a hundred pages of paperwork, and it comes down to a small number of things. Here they are, in the order they will matter to you.</p>
+<p>Before the list, one observation that took the whole book to become visible, and which is the list in a different unit.</p>
+<p>Every duration in this book that describes <strong>building</strong> something is measured in hours or days. The demonstration that convinced the room took four hours. The three prototypes, built badly on purpose, took a week. The fix that moved payment-in-transit from four of ten to ten of ten took an afternoon. The wall sort took ninety minutes. The adversarial pass took two days.</p>
+<p>Every duration that describes <strong>deciding what to build, getting the judgment out of the person holding it, or finding out what the thing actually did</strong>, is measured in weeks and months. A week beside Ruth. Three weeks from the signed memo to the briefs. Eleven weeks from that memo to a suite anyone would sign. Twelve months before the cost of running it properly appeared as a salary.</p>
+<p>The code was never the long pole. That is why better tools for writing code have changed the demonstration and not the discipline. They compress the hours and leave the months alone, which makes the room's conviction arrive sooner while the evidence arrives at exactly the speed it always did.</p>
+<h3>The scarce input is judgment, and somebody has to take it out of a person</h3>
+<p>This is the book's thesis and everything else is downstream of it.</p>
+<p>The model is bought. The tools are configured. The context is assembled, which is real work but it is work with a method. None of that is scarce. What is scarce is a written account of how a competent person decides, in the cases where the decision is not obvious, and there is exactly one way to get it, which is to sit next to them while they do the work.</p>
+<p>Ostermill's version took five days and produced a five-row table. Three hundred and twelve invoices in a week; two hundred and twenty written to; forty-one held back for reasons that had never been written down anywhere in twenty-two years. Nobody had asked. There was no document to find, no process map that contained it, and no amount of interviewing away from the desk that would have produced it, because the reasons only surface attached to cases.</p>
+<p>What that week looks like, plainly, because the book has now shown it rather than described it:</p>
+<p>You take real cases from the actual work, not the process documentation. You take enough of them that the hard ones show up, which at Ostermill was twenty. You ask why for each one and you write down the reason rather than the rule, because the rule is your summary and the reason is her answer. You do it in front of the person entitled to settle the argument, and you date it and get it signed, so that eight months later when the model has changed twice, the thing you are testing against is her judgment and not somebody's memory of it.</p>
+<p>Then you sort what you have into three piles. What is writable, which becomes the agent's instructions and later its graded set. What is barely writable, which is where most of the argument will be. And what resists every form of words, which is the residue.</p>
+<p><strong>The residue is not a rounding error and it is not a gap to close later.</strong> It is the reason a person stays in the story after the agent arrives. Ruth's forty-one were held on signals that live in an email thread, in the trade press, and in the fact that she knew the owner. The agent never got a single one of them, and that is the design working.</p>
+<p>You can write down the rule. You cannot write down the recognition.</p>
+<p>One more thing about this skill, and it is the reason to build it deliberately. Fluency with any particular tool depreciates on the release cycle. The ability to sit beside somebody and come away with their judgment on paper survives every model generation, because what it operates on is your company rather than the technology.</p>
+<h3>A green suite is not a gate</h3>
+<p>These systems answer differently on Tuesday. A passing test is one sample of a distribution, so run every case ten times and report both numbers: how often it succeeded, and how many cases succeeded every single time. The gap between those two is where the system is unreliable rather than wrong, and it is invisible in the number teams usually quote.</p>
+<p>Then look at the worst slice rather than the average, because the average is carried by the cases that were never hard. Ostermill shipped at eighty-six percent overall and refused a promotion on two cases out of twelve, and the two were the ones the domain expert would have held.</p>
+<p>And write down what you did not cover. Not to fix it. To say it, in the release package, while it is still a decision rather than an admission.</p>
+<h3>Governance runs at runtime</h3>
+<p>A rule in a specification is a preference expressed forcefully. A rule enforced in the path the system actually takes is a rule. Keep the enforced list short, name the rest as what they are, and never let a fence sit in a table with four walls, because everybody scans the table.</p>
+<p>The corollary is that the model underneath you is a supplier who ships without asking. Pin the version, re-run the whole set on every change, and rehearse the rollback until it has a measured time on it, because an untimed recovery is a belief.</p>
+<h3>There are two products, and the second one loses every argument</h3>
+<p>The thing that acts, and the system a person uses to supervise it. The second is smaller, later, and it is the one that decides whether the first is safe. It will lose every prioritization argument it enters against a feature unless somebody senior has decided in advance that it will not.</p>
+<p>Supervision that works is slower than supervision that does not. The version that catches things will always look worse on throughput than the version that rubber-stamps. Somebody has to sign for that trade knowing exactly what it is.</p>
+<h3>Somebody has to hold it, and that person does not exist yet</h3>
+<p>Every role you have acts on the product up to launch. This one starts at launch. It reads the instruments, keeps the graded set alive, and holds the authority to stop the thing without asking first. Staff it from the domain, not from the platform team, and do not let it report to the desk that runs what it watches.</p>
+<p>It will not be in your budget, because it was not in anybody's business case. It arrives about a year late, in every organization, and always after somebody has been doing the job informally without the title, the time, or the authority.</p>
+<h3>And the part nobody has solved</h3>
+<p>Ruth learned the thirty-six by doing the two hundred and twenty for twenty-two years. The agent now does the two hundred and twenty.</p>
+<p>The project that takes over the loop is the same project that removes the practice which built the competence to supervise it. Aviation is the only field with an institutional answer, and it is mandatory recurrent manual proficiency, on a schedule, whether or not anything has gone wrong. Nothing equivalent exists in operations, in medicine, or in software.</p>
+<p>Ostermill's answer is one day a week and a clause in a job posting, and nobody there can prove it is enough. It is written down anyway, under a heading that says what the company does not know, which is the last thing in this book worth copying.</p>
+<nav class="pager"><a href="operate.html">&larr; Phase 5 · Operate</a><a href="appendix-climbing.html">Appendix · Climbing: what changes as autonomy rises &rarr;</a></nav>
+    </div>
+  </div>
+</div>
+</body>
+</html>

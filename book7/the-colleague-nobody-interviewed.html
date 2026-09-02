@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter 3 · The colleague nobody interviewed · Agentic AI for Product Leaders</title>
+<meta name="description" content="Chapter 3 · The colleague nobody interviewed — Agentic AI for Product Leaders.">
+<link rel="canonical" href="https://agenticaiproductmanagement.com/book7/the-colleague-nobody-interviewed.html">
+<link rel="stylesheet" href="styles.css">
+<style>
+    .rule-line { border-top: 1.5px solid var(--ink, #1F2937); border-bottom: 1.5px solid var(--ink, #1F2937);
+                 padding: var(--space-3, 12px) 0; margin: var(--space-5, 24px) 0; }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    /* A card's numbered steps ran straight into "Worked:" with no gap, and the
+       gloss and phase-rail boxes had nothing under them before the prose
+       resumed. Yoram, 2026-08-24. */
+    .callout ol, .callout ul { margin-bottom: var(--space-4, 16px); }
+    .callout > p { margin-top: var(--space-3, 12px); }
+    .card.gloss, .card.phase-rail { margin: var(--space-5, 24px) 0; }
+    .card.gloss + p, .card.phase-rail + p, .rule-line + p { margin-top: var(--space-4, 16px); }
+    .phase-tree > summary { list-style: none; cursor: pointer; }
+    .phase-tree > summary::-webkit-details-marker { display: none; }
+    .phase-tree > summary::before { content: "\25B8"; display: inline-block;
+        width: 1em; color: var(--ink-muted, #777); font-size: 10px;
+        transition: transform .12s ease; }
+    .phase-tree[open] > summary::before { transform: rotate(90deg); }
+    /* The sidebar's link styling is scoped to `.sidebar-list a`, and a summary is
+       not inside that list, so the phase rows fell through to the browser default
+       and rendered blue and underlined while their own children did not. Yoram,
+       2026-08-24: "why does it look like blue underline links?" These mirror
+       `.sidebar-list a` rather than reinventing it. */
+    .phase-tree > summary { margin-bottom: 4px; }
+    .phase-tree > summary a { color: var(--ink-soft); text-decoration: none;
+        display: inline-block; padding: 4px 8px; border-radius: var(--radius-sm);
+        font-size: 13px; }
+    .phase-tree > summary a:hover { background: var(--rule-soft); color: var(--ink); }
+    .phase-tree > summary a.active { background: var(--ink); color: var(--bg); }
+    .phase-sub { margin: .2rem 0 .5rem 1.1rem; }
+    .phase-sub li { margin: .1rem 0; }
+    .phase-sub a { font-size: 12px; }
+    .tree-kind { display: block; font-size: 9px; letter-spacing: .06em;
+                 text-transform: uppercase; color: var(--ink-muted, #777); }
+    .pager { display: flex; justify-content: space-between; gap: 1rem;
+             margin-top: var(--space-6, 32px); padding-top: var(--space-4, 16px);
+             border-top: 0.5px solid var(--rule, #d8d8d4);
+             font-family: var(--sans); font-size: 13px; }
+</style>
+</head>
+<body>
+<div class="book">
+  <aside class="sidebar">
+    <div class="sidebar-hub"><a href="../index.html">&larr; All Books</a></div>
+    <div class="sidebar-brand"><a href="index.html">Agentic AI for Product Leaders</a>
+      <div class="sidebar-brand-sub">One agent, one company, from the sentence that proposed it to the year after it launched</div></div>
+    <div class="sidebar-section">Front Matter</div>
+    <ul class="sidebar-list">
+      <li><a href="preface.html">Before you start</a></li>
+    </ul>
+    <div class="sidebar-section">Part One · The argument</div>
+    <ul class="sidebar-list">
+      <li><a href="the-person-at-the-end-of-the-path.html">1. The person at the end of the path</a></li>
+      <li><a href="the-people-in-the-room.html">2. The people in the room</a></li>
+      <li><a href="the-colleague-nobody-interviewed.html" class="active">3. The colleague nobody interviewed</a></li>
+      <li><a href="what-an-agent-actually-is.html">4. What an agent actually is</a></li>
+      <li><a href="the-floor-and-the-plateau.html">5. The floor and the plateau</a></li>
+      <li><a href="the-brain-the-layers-the-loop.html">6. The brain, the layers, the loop</a></li>
+      <li><a href="the-judgment-gap-and-the-paradox.html">7. The judgment gap and the paradox</a></li>
+      <li><a href="the-two-products.html">8. The two products</a></li>
+      <li><a href="the-new-pm-role.html">9. The new PM role, and what you actually build</a></li>
+      <li><a href="the-shape-of-the-work.html">10. The shape of the work</a></li>
+    </ul>
+    <div class="sidebar-section">Part Two · The case</div>
+    <details class="phase-tree">
+      <summary><a href="decide.html">1. Decide</a></summary>
+      <ul class="sidebar-list phase-sub">
+        <li><a href="decide.html#exhibit-a"><span class="tree-kind">Exhibit A</span>The before-state</a></li>
+        <li><a href="decide.html#card-the-suitability-gate"><span class="tree-kind">Card</span>The Suitability Gate</a></li>
+        <li><a href="decide.html#card-the-shadow-census"><span class="tree-kind">Card</span>The Shadow Census</a></li>
+        <li><a href="decide.html#card-the-cost-ledger"><span class="tree-kind">Card</span>The Cost Ledger</a></li>
+        <li><a href="decide.html#card-the-judgment-prototype"><span class="tree-kind">Card</span>The Judgment Prototype</a></li>
+        <li><a href="decide.html#exhibit-b"><span class="tree-kind">Exhibit B</span>The go decision</a></li>
+        <li><a href="decide.html#card-the-funding-question"><span class="tree-kind">Card</span>The Funding Question</a></li>
+      </ul>
+    </details>
+    <details class="phase-tree">
+      <summary><a href="design.html">2. Design</a></summary>
+      <ul class="sidebar-list phase-sub">
+        <li><a href="design.html#card-the-ladder-and-the-break"><span class="tree-kind">Card</span>The Ladder and the Break</a></li>
+        <li><a href="design.html#card-the-declaration"><span class="tree-kind">Card</span>The Declaration</a></li>
+        <li><a href="design.html#exhibit-c"><span class="tree-kind">Exhibit C</span>The human brief</a></li>
+        <li><a href="design.html#exhibit-d"><span class="tree-kind">Exhibit D</span>The executable brief</a></li>
+        <li><a href="design.html#card-the-four-artifacts"><span class="tree-kind">Card</span>The Four Artifacts</a></li>
+        <li><a href="design.html#card-the-wall-sort"><span class="tree-kind">Card</span>The Wall Sort</a></li>
+        <li><a href="design.html#card-the-badge"><span class="tree-kind">Card</span>The Badge</a></li>
+        <li><a href="design.html#card-the-memory-terms"><span class="tree-kind">Card</span>The Memory Terms</a></li>
+        <li><a href="design.html#exhibit-e"><span class="tree-kind">Exhibit E</span>The approval screen</a></li>
+        <li><a href="design.html#card-the-approval-moment"><span class="tree-kind">Card</span>The Approval Moment</a></li>
+        <li><a href="design.html#card-the-onboarding-packet"><span class="tree-kind">Card</span>The Onboarding Packet</a></li>
+      </ul>
+    </details>
+    <details class="phase-tree">
+      <summary><a href="prove.html">3. Prove</a></summary>
+      <ul class="sidebar-list phase-sub">
+        <li><a href="prove.html#exhibit-f"><span class="tree-kind">Exhibit F</span>The eval readout</a></li>
+        <li><a href="prove.html#card-three-eval-breaks"><span class="tree-kind">Card</span>Three Eval Breaks</a></li>
+        <li><a href="prove.html#card-the-eval-stack"><span class="tree-kind">Card</span>The Eval Stack</a></li>
+        <li><a href="prove.html#card-the-fix-list"><span class="tree-kind">Card</span>The Fix List</a></li>
+        <li><a href="prove.html#card-hostile-reader"><span class="tree-kind">Card</span>Hostile Reader</a></li>
+        <li><a href="prove.html#card-rehearsal"><span class="tree-kind">Card</span>Rehearsal</a></li>
+        <li><a href="prove.html#card-the-four-question-review"><span class="tree-kind">Card</span>The Four-Question Review</a></li>
+      </ul>
+    </details>
+    <details class="phase-tree">
+      <summary><a href="observe.html">4. Observe</a></summary>
+      <ul class="sidebar-list phase-sub">
+        <li><a href="observe.html#exhibit-g"><span class="tree-kind">Exhibit G</span>The first month</a></li>
+        <li><a href="observe.html#card-six-instruments"><span class="tree-kind">Card</span>Six Instruments</a></li>
+        <li><a href="observe.html#card-certainty-inflation"><span class="tree-kind">Card</span>Certainty Inflation</a></li>
+        <li><a href="observe.html#exhibit-h"><span class="tree-kind">Exhibit H</span>The incident</a></li>
+        <li><a href="observe.html#card-upstream"><span class="tree-kind">Card</span>Upstream</a></li>
+        <li><a href="observe.html#card-supervision-collapse"><span class="tree-kind">Card</span>Supervision Collapse</a></li>
+        <li><a href="observe.html#card-felt-gain"><span class="tree-kind">Card</span>Felt Gain</a></li>
+      </ul>
+    </details>
+    <details class="phase-tree">
+      <summary><a href="operate.html">5. Operate</a></summary>
+      <ul class="sidebar-list phase-sub">
+        <li><a href="operate.html#exhibit-i"><span class="tree-kind">Exhibit I</span>The revision record</a></li>
+        <li><a href="operate.html#card-model-upgrade"><span class="tree-kind">Card</span>Model Upgrade</a></li>
+        <li><a href="operate.html#card-deprecation"><span class="tree-kind">Card</span>Deprecation</a></li>
+        <li><a href="operate.html#exhibit-j"><span class="tree-kind">Exhibit J</span>The appeal</a></li>
+        <li><a href="operate.html#card-constitutional-runtime"><span class="tree-kind">Card</span>Constitutional Runtime</a></li>
+        <li><a href="operate.html#card-the-supervisory-system"><span class="tree-kind">Card</span>The Supervisory System</a></li>
+        <li><a href="operate.html#exhibit-k"><span class="tree-kind">Exhibit K</span>The role</a></li>
+        <li><a href="operate.html#card-the-missing-supervisor"><span class="tree-kind">Card</span>The Missing Supervisor</a></li>
+        <li><a href="operate.html#card-retirement"><span class="tree-kind">Card</span>Retirement</a></li>
+      </ul>
+    </details>
+    <div class="sidebar-section">After</div>
+    <ul class="sidebar-list">
+      <li><a href="coda.html">What to keep</a></li>
+      <li><a href="appendix-climbing.html">Climbing: what changes as autonomy rises</a></li>
+      <li><a href="appendix-five-artifacts.html">Five artifacts, blank</a></li>
+      <li><a href="notes-and-sources.html">Sources and status notes, by chapter</a></li>
+      <li><a href="companion-site.html">The companion site</a></li>
+    </ul>
+  </aside>
+  <div class="main">
+    <div class="chapter">
+      <div class="chapter-meta">Part One</div>
+      <h1>Chapter 3 · The colleague nobody interviewed</h1>
+<h3>One sentence, at the end of a meeting</h3>
+<p>The monthly operations review at Ostermill runs the last Tuesday of the month and it runs long. Tom Brindle said it at the end of the February one, after the aging report had been on the screen for eleven minutes and everyone had run out of things to say about it.</p>
+<p>We should get some AI on this.</p>
+<p>Nobody in that room heard a proposal to add a decision-maker to the company. They heard a suggestion about software, which is what it sounded like, and it went into the minutes as an action item for Dana to look into.</p>
+<p>Notice what the sentence does not contain.</p>
+<p>There is no comparison in it. It proposes a technology against nothing, and against nothing every technology looks brilliant. It does not name what the thing would decide, or what it would be allowed to do without asking, or who would answer for it when it was wrong, because those questions do not attach to software and everyone present understood Tom to be talking about software.</p>
+<p>It does not even contain a noun for the thing that would do the work. AI is a field. A field cannot be given an account, a boundary, or a manager.</p>
+<p>He was not talking about software, and he could not have known he was not. This book will call the thing an agent, which is the word Tom needed and did not have. The category was missing from the room, and so was the word, and of the two the category is the larger absence.</p>
+<h3>What a company does before it adds an actor</h3>
+<p>Think about what Ostermill does when it adds a person. Any person.</p>
+<p>A new receivables clerk goes through a posting, a screen, two interviews, a reference check, an offer contingent on a background check, a start date, an onboarding week, ninety days of probation, and a manager who owns their output from the first morning. A contractor gets a statement of work, acceptance criteria, an end date and a termination clause. A vendor survives security review and whatever procurement has learned to be suspicious about since the last time. Even a new server gets a change ticket, a rollback plan and somebody's name on it.</p>
+<p>None of that is bureaucracy for its own sake. It is scar tissue. Every gate in that sequence exists because a company somewhere got burned without it, and most of them were installed by people who were personally present for the burning.</p>
+<p>The agent skipped all of it.</p>
+<p>It arrived as a software integration, because integration was the only category on the shelf, and integrations do not get interviewed. On a Monday it started reading the records Ruth used to read and making the class of decisions Ruth used to make. Nobody checked its references. Software does not have references.</p>
+<p>Except this software does, in every sense an organization chart cares about, and writing the file that was never created is a clarifying exercise.</p>
+<p>Employment history: trained by a company you have never visited, on material you cannot inspect, to preferences nobody wrote down for you. Temperament: agreeable under clear instruction, and under ambiguity reverting to defaults chosen by its maker, which you will discover one situation at a time. Cultural fit: unknown, and worse than unknown, unknowable, because the culture it absorbed is not local to your company and no interview probes it. References: none. Probation: none. Review cadence: none scheduled. Termination process: ask IT and watch them think about it for the first time.</p>
+<p>A company that hired a person on that file would deserve what followed.</p>
+<p>Yours deployed one last quarter.</p>
+<h3>The objection, which is correct and beside the point</h3>
+<p>The obvious objection arrives here and it deserves a straight answer rather than a dodge.</p>
+<p>Agents are not people. They are tools. Treating them as staff is anthropomorphic confusion, it flatters the technology, and it invites a category of sloppy thinking this industry has more than enough of already.</p>
+<p>All of that is right about the metaphysics. None of it touches the argument.</p>
+<p>The organization chart does not care about consciousness. It cares about who acts. A tool waits to be picked up, does exactly what it is told, and stops. This thing acts, at machine speed, with authority somebody delegated to it, and it does so in conditions its maker never described to you.</p>
+<p>The entire apparatus of hiring gates was never about the inner life of the hire. It was about the risk of adding an actor to a system that already works. Strip out the personhood and the risk sits exactly where it was. All you removed was the paperwork.</p>
+<p>The paperwork was the protection.</p>
+<p>There is a second objection, quieter and better. Some of those gates are about personhood and nothing else: employment law, benefits, the duty of care an employer owes a human being. Those do not transfer and should not. What transfers is the narrower set, the ones that exist because an actor with authority can do damage, and that set is most of the sequence.</p>
+<h3>What Tom actually proposed</h3>
+<p>Go back to the sentence, now that the file exists.</p>
+<p>We should get some AI on this.</p>
+<p>Read against the hiring sequence, that sentence proposes hiring somebody to make forty-one judgment calls a week, with no posting, no interview, no reference check, no probation, no named manager, and no termination process, into a role that has never been written down, at a company where the only person who understands the work has been doing it for twenty-two years and has never been asked to explain it.</p>
+<p>Tom is not careless. He is the most protective person in the building about customer relationships, and he raised it because the aging report was hurting the accounts he covers. He said a reasonable sentence in a reasonable meeting and everyone present understood it the same way, which is the problem rather than the excuse.</p>
+<p>An agent is a hire. No company hires for a role nobody can describe.</p>
+<p>That sentence is the whole of the next phase of this book, and it is worth being clear about what it costs, because it is not free. Describing the role means writing down what Ruth knows, which nobody has budgeted, which nobody has scheduled, and which is difficult work that will surface disagreements the company has been comfortably avoiding for years.</p>
+<p>Ostermill takes about five weeks to do it, and the five weeks are the reason the rest of this book has anything to show you.</p>
+<div class="rule-line"><strong>The Rule.</strong> An agent is a hire. Your gates exist because an actor with authority can do damage, and that reason did not change.</div>
+<nav class="pager"><a href="the-people-in-the-room.html">&larr; Chapter 2 · The people in the room</a><a href="what-an-agent-actually-is.html">Chapter 4 · What an agent actually is &rarr;</a></nav>
+    </div>
+  </div>
+</div>
+</body>
+</html>

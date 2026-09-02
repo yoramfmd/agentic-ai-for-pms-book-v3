@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Appendix · Five artifacts, blank · Agentic AI for Product Leaders</title>
+<meta name="description" content="Appendix · Five artifacts, blank — Agentic AI for Product Leaders.">
+<link rel="canonical" href="https://agenticaiproductmanagement.com/book7/appendix-five-artifacts.html">
+<link rel="stylesheet" href="styles.css">
+<style>
+    .rule-line { border-top: 1.5px solid var(--ink, #1F2937); border-bottom: 1.5px solid var(--ink, #1F2937);
+                 padding: var(--space-3, 12px) 0; margin: var(--space-5, 24px) 0; }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    /* A card's numbered steps ran straight into "Worked:" with no gap, and the
+       gloss and phase-rail boxes had nothing under them before the prose
+       resumed. Yoram, 2026-08-24. */
+    .callout ol, .callout ul { margin-bottom: var(--space-4, 16px); }
+    .callout > p { margin-top: var(--space-3, 12px); }
+    .card.gloss, .card.phase-rail { margin: var(--space-5, 24px) 0; }
+    .card.gloss + p, .card.phase-rail + p, .rule-line + p { margin-top: var(--space-4, 16px); }
+    .phase-tree > summary { list-style: none; cursor: pointer; }
+    .phase-tree > summary::-webkit-details-marker { display: none; }
+    .phase-tree > summary::before { content: "\25B8"; display: inline-block;
+        width: 1em; color: var(--ink-muted, #777); font-size: 10px;
+        transition: transform .12s ease; }
+    .phase-tree[open] > summary::before { transform: rotate(90deg); }
+    /* The sidebar's link styling is scoped to `.sidebar-list a`, and a summary is
+       not inside that list, so the phase rows fell through to the browser default
+       and rendered blue and underlined while their own children did not. Yoram,
+       2026-08-24: "why does it look like blue underline links?" These mirror
+       `.sidebar-list a` rather than reinventing it. */
+    .phase-tree > summary { margin-bottom: 4px; }
+    .phase-tree > summary a { color: var(--ink-soft); text-decoration: none;
+        display: inline-block; padding: 4px 8px; border-radius: var(--radius-sm);
+        font-size: 13px; }
+    .phase-tree > summary a:hover { background: var(--rule-soft); color: var(--ink); }
+    .phase-tree > summary a.active { background: var(--ink); color: var(--bg); }
+    .phase-sub { margin: .2rem 0 .5rem 1.1rem; }
+    .phase-sub li { margin: .1rem 0; }
+    .phase-sub a { font-size: 12px; }
+    .tree-kind { display: block; font-size: 9px; letter-spacing: .06em;
+                 text-transform: uppercase; color: var(--ink-muted, #777); }
+    .pager { display: flex; justify-content: space-between; gap: 1rem;
+             margin-top: var(--space-6, 32px); padding-top: var(--space-4, 16px);
+             border-top: 0.5px solid var(--rule, #d8d8d4);
+             font-family: var(--sans); font-size: 13px; }
+</style>
+</head>
+<body>
+<div class="book">
+  <aside class="sidebar">
+    <div class="sidebar-hub"><a href="../index.html">&larr; All Books</a></div>
+    <div class="sidebar-brand"><a href="index.html">Agentic AI for Product Leaders</a>
+      <div class="sidebar-brand-sub">One agent, one company, from the sentence that proposed it to the year after it launched</div></div>
+    <div class="sidebar-section">Front Matter</div>
+    <ul class="sidebar-list">
+      <li><a href="preface.html">Before you start</a></li>
+    </ul>
+    <div class="sidebar-section">Part One · The argument</div>
+    <ul class="sidebar-list">
+      <li><a href="the-person-at-the-end-of-the-path.html">1. The person at the end of the path</a></li>
+      <li><a href="the-people-in-the-room.html">2. The people in the room</a></li>
+      <li><a href="the-colleague-nobody-interviewed.html">3. The colleague nobody interviewed</a></li>
+      <li><a href="what-an-agent-actually-is.html">4. What an agent actually is</a></li>
+      <li><a href="the-floor-and-the-plateau.html">5. The floor and the plateau</a></li>
+      <li><a href="the-brain-the-layers-the-loop.html">6. The brain, the layers, the loop</a></li>
+      <li><a href="the-judgment-gap-and-the-paradox.html">7. The judgment gap and the paradox</a></li>
+      <li><a href="the-two-products.html">8. The two products</a></li>
+      <li><a href="the-new-pm-role.html">9. The new PM role, and what you actually build</a></li>
+      <li><a href="the-shape-of-the-work.html">10. The shape of the work</a></li>
+    </ul>
+    <div class="sidebar-section">Part Two · The case</div>
+    <details class="phase-tree">
+      <summary><a href="decide.html">1. Decide</a></summary>
+      <ul class="sidebar-list phase-sub">
+        <li><a href="decide.html#exhibit-a"><span class="tree-kind">Exhibit A</span>The before-state</a></li>
+        <li><a href="decide.html#card-the-suitability-gate"><span class="tree-kind">Card</span>The Suitability Gate</a></li>
+        <li><a href="decide.html#card-the-shadow-census"><span class="tree-kind">Card</span>The Shadow Census</a></li>
+        <li><a href="decide.html#card-the-cost-ledger"><span class="tree-kind">Card</span>The Cost Ledger</a></li>
+        <li><a href="decide.html#card-the-judgment-prototype"><span class="tree-kind">Card</span>The Judgment Prototype</a></li>
+        <li><a href="decide.html#exhibit-b"><span class="tree-kind">Exhibit B</span>The go decision</a></li>
+        <li><a href="decide.html#card-the-funding-question"><span class="tree-kind">Card</span>The Funding Question</a></li>
+      </ul>
+    </details>
+    <details class="phase-tree">
+      <summary><a href="design.html">2. Design</a></summary>
+      <ul class="sidebar-list phase-sub">
+        <li><a href="design.html#card-the-ladder-and-the-break"><span class="tree-kind">Card</span>The Ladder and the Break</a></li>
+        <li><a href="design.html#card-the-declaration"><span class="tree-kind">Card</span>The Declaration</a></li>
+        <li><a href="design.html#exhibit-c"><span class="tree-kind">Exhibit C</span>The human brief</a></li>
+        <li><a href="design.html#exhibit-d"><span class="tree-kind">Exhibit D</span>The executable brief</a></li>
+        <li><a href="design.html#card-the-four-artifacts"><span class="tree-kind">Card</span>The Four Artifacts</a></li>
+        <li><a href="design.html#card-the-wall-sort"><span class="tree-kind">Card</span>The Wall Sort</a></li>
+        <li><a href="design.html#card-the-badge"><span class="tree-kind">Card</span>The Badge</a></li>
+        <li><a href="design.html#card-the-memory-terms"><span class="tree-kind">Card</span>The Memory Terms</a></li>
+        <li><a href="design.html#exhibit-e"><span class="tree-kind">Exhibit E</span>The approval screen</a></li>
+        <li><a href="design.html#card-the-approval-moment"><span class="tree-kind">Card</span>The Approval Moment</a></li>
+        <li><a href="design.html#card-the-onboarding-packet"><span class="tree-kind">Card</span>The Onboarding Packet</a></li>
+      </ul>
+    </details>
+    <details class="phase-tree">
+      <summary><a href="prove.html">3. Prove</a></summary>
+      <ul class="sidebar-list phase-sub">
+        <li><a href="prove.html#exhibit-f"><span class="tree-kind">Exhibit F</span>The eval readout</a></li>
+        <li><a href="prove.html#card-three-eval-breaks"><span class="tree-kind">Card</span>Three Eval Breaks</a></li>
+        <li><a href="prove.html#card-the-eval-stack"><span class="tree-kind">Card</span>The Eval Stack</a></li>
+        <li><a href="prove.html#card-the-fix-list"><span class="tree-kind">Card</span>The Fix List</a></li>
+        <li><a href="prove.html#card-hostile-reader"><span class="tree-kind">Card</span>Hostile Reader</a></li>
+        <li><a href="prove.html#card-rehearsal"><span class="tree-kind">Card</span>Rehearsal</a></li>
+        <li><a href="prove.html#card-the-four-question-review"><span class="tree-kind">Card</span>The Four-Question Review</a></li>
+      </ul>
+    </details>
+    <details class="phase-tree">
+      <summary><a href="observe.html">4. Observe</a></summary>
+      <ul class="sidebar-list phase-sub">
+        <li><a href="observe.html#exhibit-g"><span class="tree-kind">Exhibit G</span>The first month</a></li>
+        <li><a href="observe.html#card-six-instruments"><span class="tree-kind">Card</span>Six Instruments</a></li>
+        <li><a href="observe.html#card-certainty-inflation"><span class="tree-kind">Card</span>Certainty Inflation</a></li>
+        <li><a href="observe.html#exhibit-h"><span class="tree-kind">Exhibit H</span>The incident</a></li>
+        <li><a href="observe.html#card-upstream"><span class="tree-kind">Card</span>Upstream</a></li>
+        <li><a href="observe.html#card-supervision-collapse"><span class="tree-kind">Card</span>Supervision Collapse</a></li>
+        <li><a href="observe.html#card-felt-gain"><span class="tree-kind">Card</span>Felt Gain</a></li>
+      </ul>
+    </details>
+    <details class="phase-tree">
+      <summary><a href="operate.html">5. Operate</a></summary>
+      <ul class="sidebar-list phase-sub">
+        <li><a href="operate.html#exhibit-i"><span class="tree-kind">Exhibit I</span>The revision record</a></li>
+        <li><a href="operate.html#card-model-upgrade"><span class="tree-kind">Card</span>Model Upgrade</a></li>
+        <li><a href="operate.html#card-deprecation"><span class="tree-kind">Card</span>Deprecation</a></li>
+        <li><a href="operate.html#exhibit-j"><span class="tree-kind">Exhibit J</span>The appeal</a></li>
+        <li><a href="operate.html#card-constitutional-runtime"><span class="tree-kind">Card</span>Constitutional Runtime</a></li>
+        <li><a href="operate.html#card-the-supervisory-system"><span class="tree-kind">Card</span>The Supervisory System</a></li>
+        <li><a href="operate.html#exhibit-k"><span class="tree-kind">Exhibit K</span>The role</a></li>
+        <li><a href="operate.html#card-the-missing-supervisor"><span class="tree-kind">Card</span>The Missing Supervisor</a></li>
+        <li><a href="operate.html#card-retirement"><span class="tree-kind">Card</span>Retirement</a></li>
+      </ul>
+    </details>
+    <div class="sidebar-section">After</div>
+    <ul class="sidebar-list">
+      <li><a href="coda.html">What to keep</a></li>
+      <li><a href="appendix-climbing.html">Climbing: what changes as autonomy rises</a></li>
+      <li><a href="appendix-five-artifacts.html" class="active">Five artifacts, blank</a></li>
+      <li><a href="notes-and-sources.html">Sources and status notes, by chapter</a></li>
+      <li><a href="companion-site.html">The companion site</a></li>
+    </ul>
+  </aside>
+  <div class="main">
+    <div class="chapter">
+      <div class="chapter-meta">Back matter</div>
+      <h1>Appendix · Five artifacts, blank</h1>
+<p>Every exhibit in Part Two is a real document with Ostermill's answers already in it. That is deliberate, because an empty template teaches nothing about what a good answer looks like. It is also insufficient, because the exhibits are easier to admire than to copy.</p>
+<p>These five are the ones that are hard to reconstruct from a worked example, and each is an artifact the case shows the value of, by its absence or by the failure it prevented. Fill them badly and you have still done better than not having them, because a bad answer written down is a bad answer somebody can argue with.</p>
+<p>One instruction that applies to all five. <strong>Date every one, and name an owner.</strong> An undated artifact ages into a wrong one silently, and an unowned one is a document rather than a control.</p>
+<p>### 1 · The graded case</p>
+<p>The unit of the eval suite. Not a test case, which asserts an output; a graded case, which records a judgment and who is entitled to make it.</p>
+<div class="table-wrap"><table><thead><tr><th>Field</th><th>What goes in it</th></tr></thead><tbody><tr><td>Case ID</td><td>Stable. It will outlive three model versions</td></tr><tr><td>Class</td><td>Routine, signal resolvable, signal not resolvable, adversarial</td></tr><tr><td>Provenance</td><td>Observed, and where from; or constructed, and against which rule</td></tr><tr><td>The situation</td><td>Enough state that the case can be re-run against a system that has changed</td></tr><tr><td>Correct behavior</td><td>What the agent should do, including doing nothing</td></tr><tr><td>Why</td><td>The reason, in the domain expert's words, not the PM's summary of them</td></tr><tr><td>Endorsed by, date</td><td>The person entitled to settle the argument. A name, not a team</td></tr><tr><td>k, and pass^k to date</td><td>Runs attempted, runs clean, at every version</td></tr></tbody></table></div>
+<p><strong>The distinction that does the work.</strong> Observed cases come out of the real week. Constructed cases cannot, because nobody's real week contains a planted instruction, and a set built only from observation has no adversarial half. Mark which is which.</p>
+<p><strong>Fails when:</strong> the reason is missing. A case with a right answer and no reason cannot be argued with when the model changes, so it gets quietly retired by whoever is inconvenienced by it.</p>
+<p><strong>Abstracted from:</strong> Exhibit F.</p>
+<p>### 2 · The judge calibration record</p>
+<p>Filed before the eval runs, not after. Its whole value is that the threshold was committed while nobody knew whether it would be met.</p>
+<div class="table-wrap"><table><thead><tr><th>Field</th><th>What goes in it</th></tr></thead><tbody><tr><td>What the judge scores</td><td>The specific property. Not "quality"</td></tr><tr><td>The rubric</td><td>The same text the human annotators were given. Verbatim</td></tr><tr><td>Gold set size, annotators</td><td>More than one annotator, or there is no agreement to measure</td></tr><tr><td>Agreement statistic, threshold</td><td>A statistic that discounts chance. Committed and dated <strong>before</strong> the run</td></tr><tr><td>Measured agreement</td><td>Against that threshold</td></tr><tr><td>Order effects</td><td>Pairwise comparisons run in both orders, scores averaged</td></tr><tr><td>Length control</td><td>The rubric's explicit penalty, or the demonstration that length does not correlate with score</td></tr><tr><td>Re-calibration due</td><td>A date. The judge ages with the model underneath it</td></tr></tbody></table></div>
+<p><strong>Fails when:</strong> the threshold is set after the number is known. Everyone does this in good faith and it converts the gate into a description.</p>
+<p><strong>Abstracted from:</strong> Exhibit F.</p>
+<p>### 3 · The retrieval scope decision record</p>
+<p>A configuration file says which fields the agent reads. This says why, and what was deliberately left out, which is the half that causes the incident.</p>
+<div class="table-wrap"><table><thead><tr><th>Field</th><th>What goes in it</th></tr></thead><tbody><tr><td>Sources in scope</td><td>System, table, field. Specific enough to diff</td></tr><tr><td>Trust level, per source</td><td>Trusted, or untrusted and therefore data rather than instruction</td></tr><tr><td>Sources out of scope</td><td>Named, one line each</td></tr><tr><td>The class of fact each exclusion loses</td><td>The point of the record. "Anything a person typed into a note"</td></tr><tr><td>Who can change this, and how</td><td>A named owner and a review step</td></tr><tr><td>Reviewed on</td><td>A date, and the next one</td></tr></tbody></table></div>
+<p><strong>Fails when:</strong> it does not exist, and the scope is discoverable only by reading a configuration file that has no reasons in it. Every field left out is a class of fact the agent cannot know, and the day one of them matters, nobody can say whether the omission was a decision or an oversight.</p>
+<p><strong>Abstracted from:</strong> Exhibit H.</p>
+<p>### 4 · The constitutional rule</p>
+<p>Three lists, and the distinctions between them are the whole artifact. A rule the agent is <em>told</em> is a preference expressed forcefully. A rule that is <em>enforced</em> is a rule.</p>
+<div class="table-wrap"><table><thead><tr><th>Field</th><th>What goes in it</th></tr></thead><tbody><tr><td>Rule ID, text</td><td>Short enough to quote in an incident review</td></tr><tr><td>List</td><td>Constitutional, enforced in the execution path; mitigated, stopped at the obvious cases; or told, carried in the brief</td></tr><tr><td>Enforcement point</td><td>The specific place it is checked. Blank means the rule is mitigated at best, and told at worst</td></tr><tr><td>What happens when it fires</td><td>Block, route, log. And who sees it</td></tr><tr><td>Why it is on this list</td><td>Especially for the told ones. There is usually a cost that was not paid</td></tr><tr><td>Last time it fired</td><td>Never is a finding, not a reassurance</td></tr></tbody></table></div>
+<p><strong>Keep the constitutional list short.</strong> A long one is not a stronger constitution. It is a told list that has been relabeled.</p>
+<p><strong>Fails when:</strong> a fence is filed among the walls. Everybody scans the table, four walls and a fence read as five walls, and the organization believes it has a guarantee it does not have.</p>
+<p><strong>Abstracted from:</strong> Exhibit C and the constitutional runtime in Operate.</p>
+<p>### 5 · The supervisory ledger</p>
+<p>The cost of running the agent properly, split so that nobody can present a ratio built from one measured number and one asserted one.</p>
+<div class="table-wrap"><table><thead><tr><th>Line</th><th>Measured or judged</th><th>Owner</th></tr></thead><tbody><tr><td>Model and tool cost, per task class</td><td>Measured, dated</td><td></td></tr><tr><td>Review minutes, at a loaded rate, per rung</td><td>Measured</td><td></td></tr><tr><td>Recovery cost when the agent is wrong</td><td>Measured, where an incident exists</td><td></td></tr><tr><td>Eval maintenance, per model change</td><td>Measured, and it recurs</td><td></td></tr><tr><td>Instrument reading, hours per week</td><td>Measured, and it recurs</td><td></td></tr><tr><td>The supervisory seat, when it exists</td><td>Measured, and it is a salary</td><td></td></tr><tr><td>What the agent is worth</td><td><strong>Judged.</strong> A name signs here</td><td></td></tr></tbody></table></div>
+<p><strong>The rule of the form.</strong> Costs are a rate times a quantity. Value is a counterfactual, and the central one is usually a harm that did not occur, which cannot be measured because it did not happen. Keep the two columns apart and do not divide one by the other.</p>
+<p><strong>Fails when:</strong> the review line is left out. It is almost always the largest line, it is the only one that changes when the rung changes, and a pilot that omitted it becomes a production system that cannot afford itself.</p>
+<p><strong>Abstracted from:</strong> Exhibit B, Exhibit G, and the ledger in Decide.</p>
+<p>### A closing note on all five</p>
+<p>None of these is long, and none of them is the point. The point is that each one forces a sentence somebody would otherwise not write: the reason behind a correct answer, the threshold before the result, the field deliberately excluded, the rule that is only a preference, the number that is a judgment. Those five sentences are where the failures in this book actually started.</p>
+<nav class="pager"><a href="appendix-climbing.html">&larr; Appendix · Climbing: what changes as autonomy rises</a><a href="notes-and-sources.html">Sources and status notes, by chapter &rarr;</a></nav>
+    </div>
+  </div>
+</div>
+</body>
+</html>

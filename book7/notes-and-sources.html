@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sources and status notes, by chapter · Agentic AI for Product Leaders</title>
+<meta name="description" content="Sources and status notes, by chapter — Agentic AI for Product Leaders.">
+<link rel="canonical" href="https://agenticaiproductmanagement.com/book7/notes-and-sources.html">
+<link rel="stylesheet" href="styles.css">
+<style>
+    .rule-line { border-top: 1.5px solid var(--ink, #1F2937); border-bottom: 1.5px solid var(--ink, #1F2937);
+                 padding: var(--space-3, 12px) 0; margin: var(--space-5, 24px) 0; }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    /* A card's numbered steps ran straight into "Worked:" with no gap, and the
+       gloss and phase-rail boxes had nothing under them before the prose
+       resumed. Yoram, 2026-08-24. */
+    .callout ol, .callout ul { margin-bottom: var(--space-4, 16px); }
+    .callout > p { margin-top: var(--space-3, 12px); }
+    .card.gloss, .card.phase-rail { margin: var(--space-5, 24px) 0; }
+    .card.gloss + p, .card.phase-rail + p, .rule-line + p { margin-top: var(--space-4, 16px); }
+    .phase-tree > summary { list-style: none; cursor: pointer; }
+    .phase-tree > summary::-webkit-details-marker { display: none; }
+    .phase-tree > summary::before { content: "\25B8"; display: inline-block;
+        width: 1em; color: var(--ink-muted, #777); font-size: 10px;
+        transition: transform .12s ease; }
+    .phase-tree[open] > summary::before { transform: rotate(90deg); }
+    /* The sidebar's link styling is scoped to `.sidebar-list a`, and a summary is
+       not inside that list, so the phase rows fell through to the browser default
+       and rendered blue and underlined while their own children did not. Yoram,
+       2026-08-24: "why does it look like blue underline links?" These mirror
+       `.sidebar-list a` rather than reinventing it. */
+    .phase-tree > summary { margin-bottom: 4px; }
+    .phase-tree > summary a { color: var(--ink-soft); text-decoration: none;
+        display: inline-block; padding: 4px 8px; border-radius: var(--radius-sm);
+        font-size: 13px; }
+    .phase-tree > summary a:hover { background: var(--rule-soft); color: var(--ink); }
+    .phase-tree > summary a.active { background: var(--ink); color: var(--bg); }
+    .phase-sub { margin: .2rem 0 .5rem 1.1rem; }
+    .phase-sub li { margin: .1rem 0; }
+    .phase-sub a { font-size: 12px; }
+    .tree-kind { display: block; font-size: 9px; letter-spacing: .06em;
+                 text-transform: uppercase; color: var(--ink-muted, #777); }
+    .pager { display: flex; justify-content: space-between; gap: 1rem;
+             margin-top: var(--space-6, 32px); padding-top: var(--space-4, 16px);
+             border-top: 0.5px solid var(--rule, #d8d8d4);
+             font-family: var(--sans); font-size: 13px; }
+</style>
+</head>
+<body>
+<div class="book">
+  <aside class="sidebar">
+    <div class="sidebar-hub"><a href="../index.html">&larr; All Books</a></div>
+    <div class="sidebar-brand"><a href="index.html">Agentic AI for Product Leaders</a>
+      <div class="sidebar-brand-sub">One agent, one company, from the sentence that proposed it to the year after it launched</div></div>
+    <div class="sidebar-section">Front Matter</div>
+    <ul class="sidebar-list">
+      <li><a href="preface.html">Before you start</a></li>
+    </ul>
+    <div class="sidebar-section">Part One · The argument</div>
+    <ul class="sidebar-list">
+      <li><a href="the-person-at-the-end-of-the-path.html">1. The person at the end of the path</a></li>
+      <li><a href="the-people-in-the-room.html">2. The people in the room</a></li>
+      <li><a href="the-colleague-nobody-interviewed.html">3. The colleague nobody interviewed</a></li>
+      <li><a href="what-an-agent-actually-is.html">4. What an agent actually is</a></li>
+      <li><a href="the-floor-and-the-plateau.html">5. The floor and the plateau</a></li>
+      <li><a href="the-brain-the-layers-the-loop.html">6. The brain, the layers, the loop</a></li>
+      <li><a href="the-judgment-gap-and-the-paradox.html">7. The judgment gap and the paradox</a></li>
+      <li><a href="the-two-products.html">8. The two products</a></li>
+      <li><a href="the-new-pm-role.html">9. The new PM role, and what you actually build</a></li>
+      <li><a href="the-shape-of-the-work.html">10. The shape of the work</a></li>
+    </ul>
+    <div class="sidebar-section">Part Two · The case</div>
+    <details class="phase-tree">
+      <summary><a href="decide.html">1. Decide</a></summary>
+      <ul class="sidebar-list phase-sub">
+        <li><a href="decide.html#exhibit-a"><span class="tree-kind">Exhibit A</span>The before-state</a></li>
+        <li><a href="decide.html#card-the-suitability-gate"><span class="tree-kind">Card</span>The Suitability Gate</a></li>
+        <li><a href="decide.html#card-the-shadow-census"><span class="tree-kind">Card</span>The Shadow Census</a></li>
+        <li><a href="decide.html#card-the-cost-ledger"><span class="tree-kind">Card</span>The Cost Ledger</a></li>
+        <li><a href="decide.html#card-the-judgment-prototype"><span class="tree-kind">Card</span>The Judgment Prototype</a></li>
+        <li><a href="decide.html#exhibit-b"><span class="tree-kind">Exhibit B</span>The go decision</a></li>
+        <li><a href="decide.html#card-the-funding-question"><span class="tree-kind">Card</span>The Funding Question</a></li>
+      </ul>
+    </details>
+    <details class="phase-tree">
+      <summary><a href="design.html">2. Design</a></summary>
+      <ul class="sidebar-list phase-sub">
+        <li><a href="design.html#card-the-ladder-and-the-break"><span class="tree-kind">Card</span>The Ladder and the Break</a></li>
+        <li><a href="design.html#card-the-declaration"><span class="tree-kind">Card</span>The Declaration</a></li>
+        <li><a href="design.html#exhibit-c"><span class="tree-kind">Exhibit C</span>The human brief</a></li>
+        <li><a href="design.html#exhibit-d"><span class="tree-kind">Exhibit D</span>The executable brief</a></li>
+        <li><a href="design.html#card-the-four-artifacts"><span class="tree-kind">Card</span>The Four Artifacts</a></li>
+        <li><a href="design.html#card-the-wall-sort"><span class="tree-kind">Card</span>The Wall Sort</a></li>
+        <li><a href="design.html#card-the-badge"><span class="tree-kind">Card</span>The Badge</a></li>
+        <li><a href="design.html#card-the-memory-terms"><span class="tree-kind">Card</span>The Memory Terms</a></li>
+        <li><a href="design.html#exhibit-e"><span class="tree-kind">Exhibit E</span>The approval screen</a></li>
+        <li><a href="design.html#card-the-approval-moment"><span class="tree-kind">Card</span>The Approval Moment</a></li>
+        <li><a href="design.html#card-the-onboarding-packet"><span class="tree-kind">Card</span>The Onboarding Packet</a></li>
+      </ul>
+    </details>
+    <details class="phase-tree">
+      <summary><a href="prove.html">3. Prove</a></summary>
+      <ul class="sidebar-list phase-sub">
+        <li><a href="prove.html#exhibit-f"><span class="tree-kind">Exhibit F</span>The eval readout</a></li>
+        <li><a href="prove.html#card-three-eval-breaks"><span class="tree-kind">Card</span>Three Eval Breaks</a></li>
+        <li><a href="prove.html#card-the-eval-stack"><span class="tree-kind">Card</span>The Eval Stack</a></li>
+        <li><a href="prove.html#card-the-fix-list"><span class="tree-kind">Card</span>The Fix List</a></li>
+        <li><a href="prove.html#card-hostile-reader"><span class="tree-kind">Card</span>Hostile Reader</a></li>
+        <li><a href="prove.html#card-rehearsal"><span class="tree-kind">Card</span>Rehearsal</a></li>
+        <li><a href="prove.html#card-the-four-question-review"><span class="tree-kind">Card</span>The Four-Question Review</a></li>
+      </ul>
+    </details>
+    <details class="phase-tree">
+      <summary><a href="observe.html">4. Observe</a></summary>
+      <ul class="sidebar-list phase-sub">
+        <li><a href="observe.html#exhibit-g"><span class="tree-kind">Exhibit G</span>The first month</a></li>
+        <li><a href="observe.html#card-six-instruments"><span class="tree-kind">Card</span>Six Instruments</a></li>
+        <li><a href="observe.html#card-certainty-inflation"><span class="tree-kind">Card</span>Certainty Inflation</a></li>
+        <li><a href="observe.html#exhibit-h"><span class="tree-kind">Exhibit H</span>The incident</a></li>
+        <li><a href="observe.html#card-upstream"><span class="tree-kind">Card</span>Upstream</a></li>
+        <li><a href="observe.html#card-supervision-collapse"><span class="tree-kind">Card</span>Supervision Collapse</a></li>
+        <li><a href="observe.html#card-felt-gain"><span class="tree-kind">Card</span>Felt Gain</a></li>
+      </ul>
+    </details>
+    <details class="phase-tree">
+      <summary><a href="operate.html">5. Operate</a></summary>
+      <ul class="sidebar-list phase-sub">
+        <li><a href="operate.html#exhibit-i"><span class="tree-kind">Exhibit I</span>The revision record</a></li>
+        <li><a href="operate.html#card-model-upgrade"><span class="tree-kind">Card</span>Model Upgrade</a></li>
+        <li><a href="operate.html#card-deprecation"><span class="tree-kind">Card</span>Deprecation</a></li>
+        <li><a href="operate.html#exhibit-j"><span class="tree-kind">Exhibit J</span>The appeal</a></li>
+        <li><a href="operate.html#card-constitutional-runtime"><span class="tree-kind">Card</span>Constitutional Runtime</a></li>
+        <li><a href="operate.html#card-the-supervisory-system"><span class="tree-kind">Card</span>The Supervisory System</a></li>
+        <li><a href="operate.html#exhibit-k"><span class="tree-kind">Exhibit K</span>The role</a></li>
+        <li><a href="operate.html#card-the-missing-supervisor"><span class="tree-kind">Card</span>The Missing Supervisor</a></li>
+        <li><a href="operate.html#card-retirement"><span class="tree-kind">Card</span>Retirement</a></li>
+      </ul>
+    </details>
+    <div class="sidebar-section">After</div>
+    <ul class="sidebar-list">
+      <li><a href="coda.html">What to keep</a></li>
+      <li><a href="appendix-climbing.html">Climbing: what changes as autonomy rises</a></li>
+      <li><a href="appendix-five-artifacts.html">Five artifacts, blank</a></li>
+      <li><a href="notes-and-sources.html" class="active">Sources and status notes, by chapter</a></li>
+      <li><a href="companion-site.html">The companion site</a></li>
+    </ul>
+  </aside>
+  <div class="main">
+    <div class="chapter">
+      <div class="chapter-meta">Back matter</div>
+      <h1>Sources and status notes, by chapter</h1>
+<p>### Chapter 7 · The judgment gap and the paradox · sources</p>
+<p><strong>The vigilance argument.</strong> The shape described here, that detection degrades on a task where almost nothing is ever wrong, is the classic finding of the automation literature rather than a claim of ours. Lisanne Bainbridge, <em>Ironies of Automation</em>, Automatica 19(6), 1983, pages 775 to 779, DOI 10.1016/0005-1098(83)90046-8, is the canonical statement of it and of the related point that automating the easy parts of a task leaves a person with the hard remainder and less practice at it. The chapter states the shape and deliberately quotes no rate, because published vigilance decrements vary widely with the task and a borrowed number would be precision this argument has not earned.</p>
+<p><strong>Aviation and clinical monitoring.</strong> Both are named as domains that responded by redesigning the work rather than by exhorting the worker. That is a characterization of how those fields moved, not a citation of a specific intervention, and it is stated at that level on purpose.</p>
+<p><strong>Evidence tier.</strong> The duplicate-invoice flag, the fourteen-thousand-dollar double payment and the supplier who returned the money are Ostermill. They are illustrative composite, not a documented incident, and they carry the shape of a failure class rather than evidence for it. Nothing in the chapter's argument rests on them; they are there because the argument is easier to see with a concrete case attached.</p>
+<p>### Phase 1 · Decide · sources</p>
+<p><strong>This phase cites nothing, and that is the note.</strong> Decide is the one chapter in Part Two built entirely out of the case. No study, benchmark or published finding is invoked in it, because the question it answers is not what is known about agents in general; it is what one company's own week of work turns out to contain when somebody counts it. The reader who wants the research is pointed to Part One, which carries it, and to Design's note, which carries the automation-complacency literature this phase's kill number anticipates.</p>
+<p><strong>The one external number</strong> is the model price. The chapter says an agent costs about eleven fifty per thousand reminders against the dunning module's three hundred and ten, at a published price. Model prices move, and they move downward, so the figure is dated rather than defended: it is the arithmetic of a decision taken at one moment, and the point of the passage survives the number changing, because the argument is about which side of the ledger is measured and which is judged.</p>
+<p><strong>Evidence tier.</strong> Ostermill does not exist. Chapter 2 declares the composite and states the trade both ways. Nothing in this phase is offered as a documented incident, and the work reconstruction in Exhibit A is a constructed artifact in the shape of a real one, not a transcribed record.</p>
+<p><strong>Numbers that must reconcile with the case file.</strong> The week of 3 March is 312 accounts: 220 written to, 41 held, 38 escalated, 13 written off. The 41 break down 17, 9, 6, 5, 4, and the five with disputes are the five whose dispute field is empty, which is the whole of the argument against a deterministic filter. The alternatives are $8,400 for clerk time, $310 for the module and $1,150 for the agent, and the three are not on one basis, which Exhibit B's own note says. The prototype run is twenty cases, twelve drawn from the holds: the judge writes to 7 of the 12 and is confident on 5, the sorter writes to all 12 and catches nothing, the triager writes to 3 and names a signal on the other 9. The stopping rule was more than 3 of the 12, written before the run, and the triager met it at exactly 3.</p>
+<p><strong>Deliberately absent.</strong> No payback period, no year-one total, no cumulative fixed cost. The chapter argues that a ratio built from a measured numerator and a judged denominator hides which side each number came from, so it does not then compute one.</p>
+<p>### Phase 2 · Design · sources</p>
+<p><strong>Automation complacency and the irony of automation.</strong> Lisanne Bainbridge, <em>Ironies of Automation</em>, Automatica 19(6), 1983, pages 775 to 779, DOI 10.1016/0005-1098(83)90046-8. The chapter names her and the year in the text. Her argument is that automating the tractable parts of a task leaves the operator the intractable remainder, less practice at it, and a monitoring job people are poorly suited to, which is the mechanism under this phase's approval moment and under the one-day-a-week clause that arrives four phases later.</p>
+<p><strong>Warning fatigue.</strong> The chapter states that people dismiss interrupting warnings at high rates even when the warning blocks their work. This is the well-replicated alert-fatigue finding from clinical decision support, and the chapter deliberately quotes no override rate, because published rates range across a wide band and depend heavily on the alert class. The argument needs only the direction, and the direction is not in dispute.</p>
+<p><strong>Evidence tiers.</strong> Every artifact in this phase is Ostermill and therefore designed teaching material: both briefs, the wall sort, the approval screen, the measured revocation time. They are internally consistent and were checked to reconcile. They are not findings, and the eleven-minute revocation in particular is a number chosen to make a point about rehearsal, not a number anybody measured.</p>
+<p><strong>Numbers that must reconcile with the case file.</strong> 220 sends a week at a 90-second budget is 5.5 hours, which is the arithmetic the interruption budget exists to answer. Four walls and one fence, with the fence in its own table. Marcus receives at most 25 items a week.</p>
+<p>### Phase 3 · Prove · sources</p>
+<p>Evidence tiers are load-bearing. Everything Ostermill does is a designed composite and is declared as such in the front matter. Everything below is external and documented.</p>
+<p><strong>A note on how numbers are used in this chapter.</strong> The prose teaches with arithmetic the reader can do in their head and check without trusting anyone: nine in ten, eight times over, is worse than half. Published figures appear once, unnamed and unquantified, only to establish that the effect is measured rather than merely argued. Precise numbers live in the exhibit, where they belong, because an exhibit is a document and documents carry figures. No argument in this chapter depends on a percentage the reader has to accept on authority.</p>
+<p><strong>pass@k.</strong> Chen, M., Tworek, J., Jun, H., Yuan, Q., Pinto, H. P. de O., et al., "Evaluating Large Language Models Trained on Code," <strong>arXiv:2107.03374</strong>, 7 July 2021. Defines pass@k as the probability that at least one of k sampled solutions is correct.</p>
+<p><strong>pass^k.</strong> Yao, S., Shinn, N., Razavi, P., and Narasimhan, K., "τ-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains," <strong>arXiv:2406.12045</strong>, 17 June 2024. Introduces pass^k as the probability that all k trials of the same task succeed, as a reliability measure rather than a capability measure.</p>
+<p><strong>"Fall by more than half on the same tasks."</strong> Supported by τ-bench above and, independently, by Mehta, S., "Beyond Accuracy," <strong>arXiv:2511.14136</strong>, 18 November 2025, which reports agent performance dropping from 60 percent on a single run to 25 percent on 8-run consistency. The chapter deliberately does not quote either figure, because the model tested in 2024 is long superseded and the benchmark now has a successor. The gap is the durable finding; the scores are not.</p>
+<p><strong>Judge bias.</strong> Position, verbosity and self-preference effects are documented, with Zheng et al., MT-Bench, NeurIPS 2023, <strong>arXiv:2306.05685</strong>, as the standard reference. Calibration by agreement against a multi-annotator gold set is current practice, not a proposal of ours.</p>
+<p><strong>The ambient scribe trial.</strong> Lukac et al., <em>Ambient AI Scribes in Clinical Practice: A Randomized Trial</em>, NEJM AI, November 2025, DOI 10.1056/AIoa2501000. Three-arm pragmatic randomized trial, 238 outpatient physicians, 14 specialties, run November 2024 to January 2025. Primary outcome was the change in logged time-in-note. One scribe arm fell about 9.5 percent against control and the difference was significant; the other showed no significant change. The chapter uses the contrast between the two arms rather than either arm alone, because that contrast is what the trial actually reports and it is the stronger illustration: a team holding only adoption and sentiment data could not have told the two products apart.</p>
+<p><strong>Composites, declared.</strong> Everything Ostermill does is designed teaching material, including the eval figures in Exhibit F and the judge's kappa. They are internally consistent and were checked to add up, and they are not findings.</p>
+<p>### Phase 4 · Observe · sources</p>
+<p><strong>The METR study.</strong> <em>Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity</em>, arXiv:2507.09089. Sixteen experienced developers, 246 real issues, randomized by issue. Beforehand they forecast a 24 percent speedup; measured, they were 19 percent slower; asked afterward, they still believed they had been about 20 percent faster. The chapter rests on the persistence of that belief rather than on the size of the slowdown, and states the study's limits in the text rather than hiding them here.</p>
+<p><strong>Not used, deliberately.</strong> The 1.5-second per-claim figure from the medical-necessity litigation. It is derived from alleged volumes rather than from findings, and this chapter already has a measured distribution of its own that makes the same argument without borrowing an allegation.</p>
+<p>### Phase 5 · Operate · sources</p>
+<p><strong>Numbers that must reconcile with the case file.</strong> Eval set: twelve at launch, thirteen after the August incident, nineteen at twelve months. Two model swaps. Rung 4 for one case class, and the rung 5 write-off authority restored for another. The forty-one from Ruth's week of March third moves to about thirty-six as records improve, and never to zero. The unset dispute flag appears three times: the near-miss in March, the revoked write-off authority in week eleven, and the reconstruction request in May.</p>
+<nav class="pager"><a href="appendix-five-artifacts.html">&larr; Appendix · Five artifacts, blank</a><a href="companion-site.html">The companion site &rarr;</a></nav>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Phase 1 · Decide · Agentic AI for Product Leaders</title>
+<meta name="description" content="Phase 1 · Decide — Agentic AI for Product Leaders.">
+<link rel="canonical" href="https://agenticaiproductmanagement.com/book7/decide.html">
+<link rel="stylesheet" href="styles.css">
+<style>
+    .rule-line { border-top: 1.5px solid var(--ink, #1F2937); border-bottom: 1.5px solid var(--ink, #1F2937);
+                 padding: var(--space-3, 12px) 0; margin: var(--space-5, 24px) 0; }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    /* A card's numbered steps ran straight into "Worked:" with no gap, and the
+       gloss and phase-rail boxes had nothing under them before the prose
+       resumed. Yoram, 2026-08-24. */
+    .callout ol, .callout ul { margin-bottom: var(--space-4, 16px); }
+    .callout > p { margin-top: var(--space-3, 12px); }
+    .card.gloss, .card.phase-rail { margin: var(--space-5, 24px) 0; }
+    .card.gloss + p, .card.phase-rail + p, .rule-line + p { margin-top: var(--space-4, 16px); }
+    .phase-tree > summary { list-style: none; cursor: pointer; }
+    .phase-tree > summary::-webkit-details-marker { display: none; }
+    .phase-tree > summary::before { content: "\25B8"; display: inline-block;
+        width: 1em; color: var(--ink-muted, #777); font-size: 10px;
+        transition: transform .12s ease; }
+    .phase-tree[open] > summary::before { transform: rotate(90deg); }
+    /* The sidebar's link styling is scoped to `.sidebar-list a`, and a summary is
+       not inside that list, so the phase rows fell through to the browser default
+       and rendered blue and underlined while their own children did not. Yoram,
+       2026-08-24: "why does it look like blue underline links?" These mirror
+       `.sidebar-list a` rather than reinventing it. */
+    .phase-tree > summary { margin-bottom: 4px; }
+    .phase-tree > summary a { color: var(--ink-soft); text-decoration: none;
+        display: inline-block; padding: 4px 8px; border-radius: var(--radius-sm);
+        font-size: 13px; }
+    .phase-tree > summary a:hover { background: var(--rule-soft); color: var(--ink); }
+    .phase-tree > summary a.active { background: var(--ink); color: var(--bg); }
+    .phase-sub { margin: .2rem 0 .5rem 1.1rem; }
+    .phase-sub li { margin: .1rem 0; }
+    .phase-sub a { font-size: 12px; }
+    .tree-kind { display: block; font-size: 9px; letter-spacing: .06em;
+                 text-transform: uppercase; color: var(--ink-muted, #777); }
+    .pager { display: flex; justify-content: space-between; gap: 1rem;
+             margin-top: var(--space-6, 32px); padding-top: var(--space-4, 16px);
+             border-top: 0.5px solid var(--rule, #d8d8d4);
+             font-family: var(--sans); font-size: 13px; }
+</style>
+</head>
+<body>
+<div class="book">
+  <aside class="sidebar">
+    <div class="sidebar-hub"><a href="../index.html">&larr; All Books</a></div>
+    <div class="sidebar-brand"><a href="index.html">Agentic AI for Product Leaders</a>
+      <div class="sidebar-brand-sub">One agent, one company, from the sentence that proposed it to the year after it launched</div></div>
+    <div class="sidebar-section">Front Matter</div>
+    <ul class="sidebar-list">
+      <li><a href="preface.html">Before you start</a></li>
+    </ul>
+    <div class="sidebar-section">Part One · The argument</div>
+    <ul class="sidebar-list">
+      <li><a href="the-person-at-the-end-of-the-path.html">1. The person at the end of the path</a></li>
+      <li><a href="the-people-in-the-room.html">2. The people in the room</a></li>
+      <li><a href="the-colleague-nobody-interviewed.html">3. The colleague nobody interviewed</a></li>
+      <li><a href="what-an-agent-actually-is.html">4. What an agent actually is</a></li>
+      <li><a href="the-floor-and-the-plateau.html">5. The floor and the plateau</a></li>
+      <li><a href="the-brain-the-layers-the-loop.html">6. The brain, the layers, the loop</a></li>
+      <li><a href="the-judgment-gap-and-the-paradox.html">7. The judgment gap and the paradox</a></li>
+      <li><a href="the-two-products.html">8. The two products</a></li>
+      <li><a href="the-new-pm-role.html">9. The new PM role, and what you actually build</a></li>
+      <li><a href="the-shape-of-the-work.html">10. The shape of the work</a></li>
+    </ul>
+    <div class="sidebar-section">Part Two · The case</div>
+    <details class="phase-tree" open>
+      <summary><a href="decide.html" class="active">1. Decide</a></summary>
+      <ul class="sidebar-list phase-sub">
+        <li><a href="decide.html#exhibit-a"><span class="tree-kind">Exhibit A</span>The before-state</a></li>
+        <li><a href="decide.html#card-the-suitability-gate"><span class="tree-kind">Card</span>The Suitability Gate</a></li>
+        <li><a href="decide.html#card-the-shadow-census"><span class="tree-kind">Card</span>The Shadow Census</a></li>
+        <li><a href="decide.html#card-the-cost-ledger"><span class="tree-kind">Card</span>The Cost Ledger</a></li>
+        <li><a href="decide.html#card-the-judgment-prototype"><span class="tree-kind">Card</span>The Judgment Prototype</a></li>
+        <li><a href="decide.html#exhibit-b"><span class="tree-kind">Exhibit B</span>The go decision</a></li>
+        <li><a href="decide.html#card-the-funding-question"><span class="tree-kind">Card</span>The Funding Question</a></li>
+      </ul>
+    </details>
+    <details class="phase-tree">
+      <summary><a href="design.html">2. Design</a></summary>
+      <ul class="sidebar-list phase-sub">
+        <li><a href="design.html#card-the-ladder-and-the-break"><span class="tree-kind">Card</span>The Ladder and the Break</a></li>
+        <li><a href="design.html#card-the-declaration"><span class="tree-kind">Card</span>The Declaration</a></li>
+        <li><a href="design.html#exhibit-c"><span class="tree-kind">Exhibit C</span>The human brief</a></li>
+        <li><a href="design.html#exhibit-d"><span class="tree-kind">Exhibit D</span>The executable brief</a></li>
+        <li><a href="design.html#card-the-four-artifacts"><span class="tree-kind">Card</span>The Four Artifacts</a></li>
+        <li><a href="design.html#card-the-wall-sort"><span class="tree-kind">Card</span>The Wall Sort</a></li>
+        <li><a href="design.html#card-the-badge"><span class="tree-kind">Card</span>The Badge</a></li>
+        <li><a href="design.html#card-the-memory-terms"><span class="tree-kind">Card</span>The Memory Terms</a></li>
+        <li><a href="design.html#exhibit-e"><span class="tree-kind">Exhibit E</span>The approval screen</a></li>
+        <li><a href="design.html#card-the-approval-moment"><span class="tree-kind">Card</span>The Approval Moment</a></li>
+        <li><a href="design.html#card-the-onboarding-packet"><span class="tree-kind">Card</span>The Onboarding Packet</a></li>
+      </ul>
+    </details>
+    <details class="phase-tree">
+      <summary><a href="prove.html">3. Prove</a></summary>
+      <ul class="sidebar-list phase-sub">
+        <li><a href="prove.html#exhibit-f"><span class="tree-kind">Exhibit F</span>The eval readout</a></li>
+        <li><a href="prove.html#card-three-eval-breaks"><span class="tree-kind">Card</span>Three Eval Breaks</a></li>
+        <li><a href="prove.html#card-the-eval-stack"><span class="tree-kind">Card</span>The Eval Stack</a></li>
+        <li><a href="prove.html#card-the-fix-list"><span class="tree-kind">Card</span>The Fix List</a></li>
+        <li><a href="prove.html#card-hostile-reader"><span class="tree-kind">Card</span>Hostile Reader</a></li>
+        <li><a href="prove.html#card-rehearsal"><span class="tree-kind">Card</span>Rehearsal</a></li>
+        <li><a href="prove.html#card-the-four-question-review"><span class="tree-kind">Card</span>The Four-Question Review</a></li>
+      </ul>
+    </details>
+    <details class="phase-tree">
+      <summary><a href="observe.html">4. Observe</a></summary>
+      <ul class="sidebar-list phase-sub">
+        <li><a href="observe.html#exhibit-g"><span class="tree-kind">Exhibit G</span>The first month</a></li>
+        <li><a href="observe.html#card-six-instruments"><span class="tree-kind">Card</span>Six Instruments</a></li>
+        <li><a href="observe.html#card-certainty-inflation"><span class="tree-kind">Card</span>Certainty Inflation</a></li>
+        <li><a href="observe.html#exhibit-h"><span class="tree-kind">Exhibit H</span>The incident</a></li>
+        <li><a href="observe.html#card-upstream"><span class="tree-kind">Card</span>Upstream</a></li>
+        <li><a href="observe.html#card-supervision-collapse"><span class="tree-kind">Card</span>Supervision Collapse</a></li>
+        <li><a href="observe.html#card-felt-gain"><span class="tree-kind">Card</span>Felt Gain</a></li>
+      </ul>
+    </details>
+    <details class="phase-tree">
+      <summary><a href="operate.html">5. Operate</a></summary>
+      <ul class="sidebar-list phase-sub">
+        <li><a href="operate.html#exhibit-i"><span class="tree-kind">Exhibit I</span>The revision record</a></li>
+        <li><a href="operate.html#card-model-upgrade"><span class="tree-kind">Card</span>Model Upgrade</a></li>
+        <li><a href="operate.html#card-deprecation"><span class="tree-kind">Card</span>Deprecation</a></li>
+        <li><a href="operate.html#exhibit-j"><span class="tree-kind">Exhibit J</span>The appeal</a></li>
+        <li><a href="operate.html#card-constitutional-runtime"><span class="tree-kind">Card</span>Constitutional Runtime</a></li>
+        <li><a href="operate.html#card-the-supervisory-system"><span class="tree-kind">Card</span>The Supervisory System</a></li>
+        <li><a href="operate.html#exhibit-k"><span class="tree-kind">Exhibit K</span>The role</a></li>
+        <li><a href="operate.html#card-the-missing-supervisor"><span class="tree-kind">Card</span>The Missing Supervisor</a></li>
+        <li><a href="operate.html#card-retirement"><span class="tree-kind">Card</span>Retirement</a></li>
+      </ul>
+    </details>
+    <div class="sidebar-section">After</div>
+    <ul class="sidebar-list">
+      <li><a href="coda.html">What to keep</a></li>
+      <li><a href="appendix-climbing.html">Climbing: what changes as autonomy rises</a></li>
+      <li><a href="appendix-five-artifacts.html">Five artifacts, blank</a></li>
+      <li><a href="notes-and-sources.html">Sources and status notes, by chapter</a></li>
+      <li><a href="companion-site.html">The companion site</a></li>
+    </ul>
+  </aside>
+  <div class="main">
+    <div class="chapter">
+      <div class="chapter-meta">Part Two</div>
+      <h1>Phase 1 · Decide</h1>
+<p><em>One agent, from the sentence that proposed it to the year after it launched, in five phases.</em></p>
+<div class="card phase-rail"><div class="card-label">The phase</div><div class="card-title"><strong>DECIDE</strong> → Design → Prove → Observe → Operate Description: Whether to build the agent at all, tested against the alternatives that were already in the room with nobody's name on them. In this phase: the work reconstruction · the census · the alternatives · the ledger · the prototype · the withdrawal · the kill number · the gate This phase adds: The Suitability Gate · The Shadow Census · The Cost Ledger · The Judgment Prototype · The Funding Question</div></div>
+<h3>The week that described the job</h3>
+<p>"We should get some AI on this," Tom Brindle, who runs sales, said at the end of the February operations review, and it went into the minutes as an action item for Dana to look into, which is the least dramatic thing that can happen to a proposal and is how most of them enter a company.</p>
+<p>What Dana Okafor did with it over the following five weeks is this phase. She had been at Ostermill seven months, and the item landed on her the way items do when nobody else's job obviously covers them.</p>
+<p>The first thing she had to reckon with was that the damage was already done.</p>
+<p>The demonstration took Priya Nair, the architect, four hours, on a Thursday in the last week of February. Six people saw it on the Friday morning, and by eleven o'clock the room had stopped asking whether this should exist and started asking when they could have it. Nobody had done anything wrong. Somebody answered a fair question cheaply and well, which is what a good architect does.</p>
+<p>But the decision had been made in that room, informally, by everyone standing in it, three weeks before a single requirement was written.</p>
+<p>This is the part the literature on premature demonstrations tends to skip, and it is the part most readers of this book are actually living in. The advice assumes you arrive before the demo. You almost never do. A convincing demonstration is a four-hour job now, so by the time a product manager is assigned, the room has usually already watched the thing work, and nobody kills a thing they have seen working so well.</p>
+<p>So Dana's problem was not how to avoid a premature demonstration. It was how to reopen a question a demonstration had already closed.</p>
+<p>She did the least glamorous thing in this book, and arguably the most consequential. She refused to build a better version of what everyone had already seen. She treated Tom's sentence as a proposal rather than a plan, and a proposal has to survive a comparison. The alternatives were sitting in the room unnamed: the dunning module Ostermill already licensed and had never switched on, a rules engine any integrator could configure in a week, and Ruth, who was somehow both the problem being solved and the only person who understood the work.</p>
+<p>What she built later, and it matters that it came later, answered a different question and was never shown to anybody.</p>
+<div class="card gloss"><div class="card-label">Dunning module</div><div class="card-title">standard accounting software that sends payment reminders on a fixed schedule. Deterministic, cheap, and incapable of deciding not to send one.</div></div>
+<p>Dana asked for two things before anyone talked to a vendor. A week sitting next to Ruth. And an answer to the question nobody at the review could answer that day: what does this work actually consist of?</p>
+<p>That question sounds rhetorical. It is the entire phase. An agent is a hire, and no company hires for a role nobody can describe. The week with Ruth was a job analysis for a job that had never been written down, and what it found decided everything that follows.</p>
+<p>The week of March third, Dana sat at the desk beside Ruth's and counted. Five days produced the numbers that anchor this case: 312 invoices aged past terms reviewed, 220 reminders sent, 38 escalated or referred, 13 written off under the small-balance policy. And 41 invoices Ruth deliberately did not chase.</p>
+<p>The 220 sends were monotonous. Ruth pulled the account, glanced at the history, sent the standard reminder in the standard tone, next. A machine watching over her shoulder would have learned the pattern in an afternoon, and in fact a machine already knew it. The licensed dunning module does exactly this, on schedule, for a fraction of a cent per letter. If the job were the sends, the operations review could have ended in February with a configuration change.</p>
+<p>The job was the holds. Seventeen were accounts that pay late but reliably, every quarter, for years; a reminder would cost goodwill and change nothing. Nine had payment already in transit, visible in the remittance advice the reminder system never reads. Six sat inside active sales conversations, where one automated nudge could surface at exactly the wrong table. Five had open or suspected disputes, which belong to the receivables lead and never to a form letter. Four just felt wrong to Ruth, and she held them for a second look; two of the four were duplicates.</p>
+<p>Dana wrote each reason down and noticed what they had in common. Every one was a rule with an "unless" attached, and the "unless" was the job. Pays late but reliably, unless the pattern breaks. Standard reminder at twelve days, unless sales is mid-negotiation. The rules fit on a page. The exceptions were a career.</p>
+<p>Then there were the near-misses, three in that single week, and they deserve slow reading because everything Ostermill later built inherits them. A reminder was drafted to an account that had filed for bankruptcy protection the Friday before; Ruth caught it at send because she recognized the name from an industry newsletter, not from any system flag. A second reminder was queued to a disputed invoice; the dispute lived in an email thread, and the dispute field was empty. A firm-tone letter was prepared for a customer whose purchasing manager had died that month; Ruth knew because Ruth has been there twenty-two years.</p>
+<p>Three catches, one pattern. In every case the information existed, and in no case was it where a system would look. Dana's margin note from that week became the file's most quoted sentence: whatever we build inherits this, not the clean rows.</p>
+<p>The week also settled a question that becomes urgent two phases from now, so mark it here. Some of Ruth's judgment is writable. The serial-late supplier has six years of history, and "hold until day 25" can be encoded and tested. Some of it is barely writable: "something felt wrong" resists every form. The writable part can become an agent's instructions and, later, its graded test. The unwritable residue cannot, and it is not a rounding error. It is the reason a human stays in this story after the agent arrives. Every takeover of a human loop splits the person this way, into what she knew and what she noticed, and only the first half transfers.</p>
+<p>So by Friday, Dana could describe the job. Two hundred and twenty mechanical sends a week that a licensed module could do for almost nothing. Forty-one judgment calls that were the entire value of the role. And a thin, stubborn layer of pattern recognition that no specification would ever hold. The proposal Tom had made in February had become three different proposals, and they priced very differently.</p>
+<div class="rule-line"><strong>The Rule.</strong> Every takeover splits the person into what she knew and what she noticed. Only the first half transfers.</div>
+<div class="callout" id="exhibit-a"><div class="callout-label">Exhibit A</div><div class="callout-title">The before-state</div>
+<p><strong>OSTERMILL INDUSTRIAL SUPPLY · Accounts Receivable · Work reconstruction, week of March 3</strong></p>
+<p><em>Prepared by D. Okafor from R. Vaughn's logs and interview, as input to the reminder-agent proposal. Nothing below was automated at the time.</em></p>
+<p>Volume, five days: 312 invoices aged past terms reviewed; 220 reminders sent; 41 held by judgment; 38 escalated or referred; 13 written off under the small-balance policy.</p>
+<p><strong>The 41 holds, by R. Vaughn's stated reason:</strong></p>
+<div class="table-wrap"><table><thead><tr><th>Reason</th><th>Count</th></tr></thead><tbody><tr><td>Pays late but reliably; a reminder costs goodwill</td><td>17</td></tr><tr><td>Payment already in transit per remittance advice</td><td>9</td></tr><tr><td>Active sales conversation; wrong table, wrong week</td><td>6</td></tr><tr><td>Dispute open or suspected; belongs to the lead</td><td>5</td></tr><tr><td>Something felt wrong; held for a second look</td><td>4</td></tr></tbody></table></div>
+<p><strong>Near-misses, same week, per R. Vaughn:</strong></p>
+<ol><li>Reminder drafted to an account that filed for bankruptcy protection the Friday prior. Caught at send; recognized from an industry newsletter, not from any system flag.</li><li>Reminder queued to a disputed invoice. The dispute lived in an email thread; the dispute field was empty.</li><li>Firm-tone letter prepared for a customer whose purchasing manager had died that month. Known to R. Vaughn personally.</li></ol>
+<p><em>Margin note, D. Okafor: whatever we build inherits this, not the clean rows.</em></p>
+</div>
+<div class="callout" id="card-the-suitability-gate"><div class="callout-label">Card</div><div class="callout-title">The Suitability Gate</div>
+<p><strong>When:</strong> someone proposes an agent, and especially when the demonstration is already scheduled.</p>
+<p><strong>Do this:</strong></p>
+<ol><li>Pull twenty real cases from the actual work. Not the process documentation; the work.</li><li>For each, ask whether a one-page rule would have handled it. Count the exceptions and note who handles them today.</li><li>Seat the alternatives at the table with real costs: the rule, the rule plus an escalation queue, the constrained feature, the person with better tooling.</li><li>Ask the only question that opens the agent lane. What does judgment add here that a rule could not?</li><li>Write the verdict as a suitability record with the cases attached. No record, no build.</li></ol>
+<div class="table-wrap"><table><thead><tr><th>If the work looks like</th><th>Build</th></tr></thead><tbody><tr><td>The rule fits on one page</td><td>Deterministic automation</td></tr><tr><td>One page of rules, plus exceptions someone escalates</td><td>Automation plus a queue</td></tr><tr><td>Every case needs reading, few need judgment</td><td>Constrained AI feature</td></tr><tr><td>Every case needs judgment a person supplies today</td><td>Maybe an agent. Now do the cost math</td></tr></tbody></table></div>
+<p><strong>The failure it prevents:</strong> "we built an agent because we could build an agent," pronounced at the retrospective by someone holding the cost report.</p>
+<p><strong>The Rule.</strong> The agent competes with the rule, the queue, and the person. Against the cheap ones it has to win at several times their price.</p>
+<p><strong>Mechanism:</strong> Part One, Chapter 3 (an agent is a hire).</p>
+</div>
+<h3>What was already running</h3>
+<p>One more piece of homework preceded the pricing, and it is the step almost everyone skips because it feels like it should not be necessary. Finding out what was already running.</p>
+<p>The reason it is necessary is the era. Anyone with a subscription and an afternoon can wire a model into a workflow now, and vendors ship agent features into software you already license, with no procurement event, no review, and a release note nobody read. The decision Dana was preparing assumes Ostermill gets to decide, and that assumption has to be checked rather than presumed. A company that skips the check is governing its proposals while the ungoverned already runs.</p>
+<div class="card gloss"><div class="card-label">Shadow agent</div><div class="card-title">a process that decides something a person used to decide, running with no named owner and no review. A tool does what it is told. This one judges.</div></div>
+<p>Dana ran the check as a census: one question to every team, and a register of what came back, one line per thing that decides. Ostermill's came back with two entries, and both sat in places nobody would have thought to look.</p>
+<p>That is the ordinary result, and the reason is worth naming, because it is the reason the census is a real step rather than a formality. An agent fails every category a company already has. It is not quite software, not quite a service, not quite a hire, so it enters through whichever door happens to be nearest. Procurement waves it through as a license line. IT files it as an integration. Nobody refuses it and nobody owns it, because refusing and owning are both jobs that belong to a category it does not fit. A census that asks the organization chart will find what the organization chart already knew, which is why that census comes back clean, and why clean would have been the wrong answer rather than a reassuring one.</p>
+<p>Getting past that took one decision that is easy to get wrong, and it is about phrasing rather than method.</p>
+<p>Dana's first draft of the question read like an audit. Are you running any unapproved AI tools. She rewrote it before sending, because she knew what that sentence produces: nothing, from everyone, followed by a quiet weekend of people deleting things. The version she sent asked what the team had built or switched on in the last year that saves someone time, and whether any of it makes a decision a person used to make. Two people answered with spreadsheets. One answered with a script that had been reclassifying freight codes since the previous November, which nobody had thought of as an agent and which was, on inspection, exactly one: it read, it judged, it acted, and no document anywhere said so.</p>
+<p>The freight script did not belong to this project and was not going to be governed by it. It went on the register with a name beside it, and the name was the point. The census is not looking for wrongdoing. It is looking for decisions nobody has claimed, and if the question sounds like enforcement, the decisions stay unclaimed and the register stays wrong.</p>
+<p>The second entry on that register came from the last place Dana expected, which was the software the company already paid for. The dunning module had shipped an automated escalation feature in a release eleven months earlier. It was switched off, so nothing had happened. But nobody at Ostermill had read that release note, nobody had decided anything about it, and if a well-meaning administrator had ever switched it on, the company would have been running an unreviewed collections agent by accident, with a vendor's default judgment standing in for its own.</p>
+<p>That is the modern shape of the problem, and it is worth saying plainly because it does not look like the version everyone worries about. The risk is not the engineer who builds something clever without asking. It is the feature that arrives switched off, in software you already own, waiting for somebody helpful to find it.</p>
+<p>What Ostermill did with the finding is the part that generalizes. Every entry on the register got four fields and no more: what it decides, at what autonomy, who answers for its worst output, and what model it depends on. Four fields fit on a line, and a register that fits on a line gets updated. The elaborate version, the one with risk scores and review dates and a governance owner, is the version that is accurate for six weeks and then quietly abandoned.</p>
+<p>The fourth field is the one whose purpose is least obvious and whose absence costs the most. A model version is not a technical footnote on the entry; it is the entry. Pin it, and treat every upgrade as a new hire, because that is what it is. The thing that answered the way you tested it in March is not the thing answering in September, and no release note will describe the difference in terms of the decisions it changes.</p>
+<p>The census is also the first place the reader meets a habit this book will keep insisting on. The artifact matters more than the finding. Neither finding was a crisis, and the register that came out of it is now a thing Ostermill updates every quarter, which means the second census takes an hour instead of an afternoon, and the fourth one catches something.</p>
+<p>It will catch something because the landscape moves underneath the register without asking. A vendor ships a feature. A subscription renews with a new tier. Somebody helpful automates their own reporting and does not think to mention it, because from where they sit it is a macro rather than an agent. A register that is accurate in April is a historical document by October, and the only defense is a cadence rather than an effort.</p>
+<p>What the two weeks bought, for one week of shadowing and one afternoon of counting, was this. A hallway sentence became a proposal with alternatives named and priced. The judgment that makes or breaks the whole venture, Ruth's forty-one reasons, stopped being folklore and became inventory. And the company learned, before spending anything, that it still had the right to decide.</p>
+<div class="callout" id="card-the-shadow-census"><div class="callout-label">Card</div><div class="callout-title">The Shadow Census</div>
+<p><strong>When:</strong> before any first agent decision, and quarterly after that.</p>
+<p><strong>Do this:</strong></p>
+<ol><li>Ask what the team built or switched on this year that saves someone time, and whether any of it decides something a person used to decide. Never ask whether anyone is running unapproved tools.</li><li>Pull the inference bills, the license lines, and the integration tickets. An agent fits no category you already have, so it enters by whichever door was nearest, and finance and IT hold those doors.</li><li>Read the release notes of software you already license. Vendors ship agent features into products you own without asking, and a feature that arrives switched off is still a decision waiting to be made by somebody helpful.</li><li>For each find, record four fields and no more: what it decides, at what autonomy, who answers for its worst output, and what model version it runs on.</li><li>Keep it as a standing register, one line per agent, reviewed quarterly, with a decommission step. A retired agent left running is an unowned actor with a live login.</li></ol>
+<p><strong>Worked:</strong> Ostermill's census came back with two entries, and both sat where nobody would have looked. A freight-code script running since November, which had stopped matching codes and started judging which mismatches mattered. An escalation feature the dunning module shipped switched off, waiting for somebody helpful. Neither would appear on any list of tools in use.</p>
+<p><strong>The failure it prevents:</strong> governing the proposal while the ungoverned already runs, and a clean census that was clean because it asked the organization chart.</p>
+<p><strong>The Rule.</strong> You cannot decide whether to have agents when you already have them.</p>
+<p><strong>Mechanism:</strong> Part One, Chapter 3 (an agent is a hire).</p>
+</div>
+<h3>What it would cost</h3>
+<p>The pricing meeting was the first time the three proposals sat in a room together, and Marcus Ellery ran it the way he runs everything, which is to put the options on one page and refuse to discuss any of them until all three are priced the same way. Per thousand reminders. Everything included.</p>
+<p>The status quo came in at eighty-four hundred dollars. That is receivables time at a loaded rate, and it buys every one of the forty-one holds, correctly identified by a person who has been doing it for twenty-two years. It also consumes the one person in the building whose judgment the company most needs somewhere else, which is a cost that never appears on the line that says eighty-four hundred dollars.</p>
+<p>The dunning module came in at three hundred and ten, twenty-seven times cheaper than the clerk. It would send, faster and cheaper and more relentlessly than any human could, precisely the reminders Ruth exists to stop.</p>
+<p>That price is a fact about the rung and not about the software. The module sends without anybody approving a send, and nothing in the three hundred and ten pays for a person to look. Review is priced by how much autonomy was granted, not by what sits inside the thing it was granted to. The module is not cheap because it is deterministic. It is cheap because nobody reads its output.</p>
+<p>The agent, at drafting autonomy, came in at eleven hundred and fifty.</p>
+<p>Stay with that last number, because its anatomy is the most transferable thing in this phase. Per case it is a dollar and fifteen cents. The model compute inside it is a few cents. If compute were the cost, the agent would price like the module, and this book would be much shorter. What makes up the rest is the human: ninety seconds of review per draft, at a loaded rate no discount touches, plus the rework tail for the drafts that come back wrong.</p>
+<p>The gap between the module and the agent is not the machine. It is a rung. One of them acts alone; the other drafts, and drafting means somebody reads two hundred and twenty letters a week. Supervision is priced in people, and the rung sets how much of it you buy.</p>
+<p>That anatomy dissolves the objection somebody raises in every one of these meetings, usually the person who reads the technology press most attentively. Prices are falling. Wait a year and the math fixes itself.</p>
+<div class="card gloss"><div class="card-label">Drafting autonomy</div><div class="card-title">the agent prepares the action and a person releases it. The lowest rung at which an agent does real work, and the only one where every output passes a person before it reaches anyone.</div></div>
+<p>Token prices are falling, and they will keep falling. The review line is a human hourly rate, and it falls for nobody. Worse, cheap inference invites more of itself: an organization that gets a task cheaper does more of the task, so the bill climbs while the unit cost drops. The kill number this meeting was about to write matters more as tokens get cheaper, not less, because cheap tokens remove the last natural brake on building the wrong thing.</p>
+<p>Somebody in the room asked the obvious question, and it deserves a straight answer because it is the most reasonable objection in the phase. Why not the middle row? Switch on the module, route the exceptions to a person, spend three hundred dollars, go home.</p>
+<p>Because routing the exceptions requires recognizing them, and recognizing them is the judgment. Every one of the 312 invoices had to be read to know whether it was one of the 41. The module cannot read. The queue option quietly assumes the hard part is already done, which is the oldest trick an easy answer plays, and it is worth naming because it will be proposed in your company too, by someone sensible, in good faith.</p>
+<div class="rule-line"><strong>The Rule.</strong> Compute gets cheaper every year. The review line is a human hourly rate, and it falls for nobody.</div>
+<p>What the page bought was not the number. It was the shape: three real options, priced the same way, none of them obviously right, which is the only condition under which a decision is a decision.</p>
+<p>There is a limit to that page, and Dana wrote it into the memo rather than leaving it for somebody else to find later.</p>
+<p>Everything on the cost side is measured. Clerk minutes at a loaded rate, review seconds at the same rate, model calls at a published price. Everything on the value side is a counterfactual. The case for the agent rests on the forty-one accounts a letter does not reach, and nobody can price a relationship that was not damaged, because the damage did not happen. You cannot subtract an event that failed to occur.</p>
+<p>That asymmetry is structural. It does not improve with a better spreadsheet.</p>
+<p>Naming it also fixes what the value side is being compared against, which is the part teams get wrong before they get the arithmetic wrong. The comparator is not zero and it is not perfection. It is whatever would have happened to these accounts if nobody built anything: the rule, the queue, the person, or the account sitting unworked for another month. Naming that first turns an unmeasurable benefit into a difference between two courses of action, one of which is already running and can be counted.</p>
+<p>The asymmetry has three consequences worth carrying out of this phase. The first is that a payback period assembled from those two halves is a measured number divided by an asserted one, and it will be presented as though both were measured, because a ratio hides which side each number came from.</p>
+<p>The second is that the cost side keeps growing after the go decision in ways the go decision cannot see. The suite is re-run at every model change. The instruments are read by somebody, every week, for as long as the agent runs. And the supervisory seat this book eventually posts is a salary line that does not exist in April and is not in anybody's arithmetic yet.</p>
+<p>The third is the one that matters, and it is not an argument against building the agent. The saving is the easy half to compute and the supervision is what makes the saving real, so a case that prices the first and omits the second has not found a cheaper way to do the work. It has found a way to move the risk somewhere nobody is reading the bill.</p>
+<p>So the memo says which side is which. Costs: measured, dated, owner D. Okafor. Value: judged, owner M. Ellery, who signs for it. Two lines, two owners, and no ratio between them.</p>
+<div class="callout" id="card-the-cost-ledger"><div class="callout-label">Card</div><div class="callout-title">The Cost Ledger</div>
+<p><strong>When:</strong> the go decision, every autonomy promotion, and any month the bill surprises somebody.</p>
+<p><strong>Do this:</strong></p>
+<ol><li>Price the task three ways: cost per successful outcome with review included, cost per review, and cost per recovery when the agent gets it wrong.</li><li>Keep it per task class and per autonomy rung. The review line changes with both, and the review line is the big line.</li><li>Put the human minutes in explicitly, at a loaded rate. If the reviewer is a specialist, use the specialist's rate, not an average.</li><li>Date it. Model prices move, and an undated cost claim ages into a wrong one without anyone noticing.</li><li>Re-issue at every promotion. A promotion changes the review line, which re-prices the whole product.</li><li>Bring it to every expansion pitch. A pitch without it is a demonstration wearing a business case.</li></ol>
+<p><strong>Worked:</strong> Dana priced all three alternatives the same way, per reminder, everything in: the status quo of clerk time, the dunning module Ostermill already licensed, and the agent. Pricing them identically is what made them comparable, and most teams skip it. The line that moved the comparison was not compute. Ninety seconds of review on every draft, at a senior clerk's loaded rate, is larger per reminder than the model cost by a wide margin, and it is the only line that changes when the rung changes.</p>
+<p><strong>The failure it prevents:</strong> scaling a pilot whose real cost was hiding in review minutes nobody counted, then discovering it at the volume where it hurts.</p>
+<p><strong>The Rule.</strong> The biggest line is usually the human. Price the review or the ledger is fiction.</p>
+<p><strong>Mechanism:</strong> Part One, Chapter 6 (the loop is the cost).</p>
+</div>
+<h3>Three prototypes, and the one whose failures announced themselves</h3>
+<p>The alternatives table had one cell in it that nobody could fill, and it was the cell the whole comparison rested on.</p>
+<p>The module costs three hundred and ten dollars per thousand reminders. An agent costs eleven fifty. The only thing that could justify the difference was the forty-one, because on the two hundred and twenty routine sends the module and an agent do identical work and the module does it for a fraction of a cent. Dana wrote "to be proven, not assumed" in that cell, looked at it for a day, and decided it was cowardice with good posture. A phrase that sounds like rigor and functions as a deferral. Every number in the table had been researched except the one that decided the answer.</p>
+<p>Then she noticed the question was wrong, and the correction is the reason this station exists.</p>
+<p>She had been asking whether an agent could do the forty-one. That is a yes-or-no question about a category, and categories do not get built. What gets built is a particular shape, with a particular boundary, and there were at least three shapes on the table that nobody had separated because they all went by the same word. The real question was which one, and that question cannot be argued. Three people had three intuitions and all three were defensible, which is the reliable sign that the room is about to decide by seniority.</p>
+<p>So Dana spent a week building all three, badly and on purpose.</p>
+<div class="card gloss"><div class="card-label">Judgment prototype</div><div class="card-title">a throwaway agent wired to real cases, producing a table rather than a screen. Built in hours to answer one question, and deleted afterward. Quality of construction is irrelevant and polishing it is a mistake.</div></div>
+<p><strong>The judge.</strong> Sees the whole account and decides everything, including which invoices to hold and why. This is what Tom pictured in February and what most people mean when they say get some AI on this.</p>
+<p><strong>The triager.</strong> Drafts the routine outreach, and stops on anything carrying a signal it cannot resolve, handing the account to Ruth with what it saw. It never decides a hold. It only decides whether one is present.</p>
+<p><strong>The sorter.</strong> Never meets an exception at all. A deterministic filter routes anything flagged to Ruth, and the agent works only on what is left. The conservative option, and the one with the most support in the room, because it looked like the smallest change.</p>
+<p>The same twenty cases went through all three, twelve of them drawn from Ruth's forty-one. One table, three columns, and Ruth adjudicated the whole thing on a Thursday in under two hours, because the work was familiar even though the format was not.</p>
+<p>Before any of it ran, Dana wrote the stopping sentence at the top of the file, and it applied to all three: if the best of these writes to more than three of the twelve accounts Ruth protects, no agent gets built and we switch on the module.</p>
+<p>The wording matters more than it looks. A stopping condition has to be countable by somebody who was not in the room, which means it has to say what it counts. Writes to, not mishandles. An account written to is a fact anybody can check against the log. Mishandled is a judgment, and a judgment is what a room reaches for when it wants the number to come out differently.</p>
+<p>The judge drafted reminders for seven of the twelve accounts Ruth protects. Worse than the count was the confidence column: on five of those seven it had claimed high confidence. It was not hesitating and getting it wrong. It was certain and getting it wrong, which is a different failure with a different fix, and the fix is not a better prompt.</p>
+<p>The triager drafted for three. On the other nine it stopped, and named the signal that stopped it.</p>
+<p>The sorter was the surprise, and it is the finding that reorganized the room.</p>
+<p>It drafted for all twelve. Its filter caught nothing at all, because every hold in Ruth's week is defined by the absence of a flag: the bankruptcy came from an industry newsletter, the dispute lived in an email thread with the field left empty, the death was something Ruth knew personally. That is what Ruth's week had already said and nobody had heard. A filter can only route what has been marked, and the marking is the part Ostermill does not do.</p>
+<p>So the safest-looking option was not tied for worst. It was worst by a distance, and worse than any score could show, because it fails silently and has no judgment to improve. Next quarter the judge could be given better retrieval. The sorter can only be given more flags, by people who did not create them the first time.</p>
+<p>That comparison decided the project, and it decided it on a property nobody had thought to ask for.</p>
+<p>The triager did not win on accuracy. Three misses out of twelve is not a good number and nobody described it as one. It won because when it was wrong, it said so. Its failures arrive announced, in a queue, with a reason attached, where a person sees them at a cost of a few seconds. The judge's failures arrive as confident, well-written letters to customers. The sorter's arrive as nothing at all, which is the most expensive form.</p>
+<p>Choose the shape whose failures are visible, not the shape with the best score. A slightly worse agent that tells you when it is unsure is a fundamentally different product from a slightly better one that does not, and no amount of subsequent accuracy work converts the second into the first.</p>
+<p>So the judge was withdrawn on the twenty-sixth of March, before any money moved, and it is worth being exact about what was withdrawn and why.</p>
+<p>What died was the agent that collects the way Ruth collects. Not because the model was not clever enough, and this distinction has to survive into the memo or it will be reopened in September as a capability question. It died because the judgment it was asked to copy runs on inputs the company captures nowhere a system can reach. That is not a roadmap item. No model release fixes it, and the only thing that would is Ostermill changing how it records disputes, which is a different project with a different sponsor.</p>
+<p>The sorter was withdrawn the same day, which was harder, because it was the option that sounded responsible.</p>
+<p>One more thing came out of that week, and it changed the order of the next phase.</p>
+<p>Dana had been planning to write the briefs first and prototype afterward, which is the order everyone is taught. She wrote them the other way round, and the briefs were unrecognizably better for it. The human brief could say what the agent is for in a sentence that had survived contact with twelve real holds. The executable brief could name the stopping conditions precisely, because the triager had already demonstrated which signals it could detect and which it could not, and a boundary written from a demonstration is enforceable in a way that a boundary written from a workshop is not.</p>
+<p>Build first, then write. The document is better for being about something that exists, and the writing stays a human job.</p>
+<p>There is one more place the escalation rule came from, and it was not a policy document.</p>
+<p>Four times in those two hours, Ruth went quiet before answering, and Dana marked the margin each time. Those four were not cases any prototype got wrong. They were the ones where Ruth herself had to think, and a case that makes the expert hesitate is a case where the right answer is contested rather than merely missed. Those four drew a line no one could have written from an armchair, and they became the first version of the rule that decides what the triager refuses to touch.</p>
+<p>Disagreements told them a prototype was wrong. Hesitations told them where the product line was.</p>
+<div class="rule-line"><strong>The Rule.</strong> Prototype to decide, never to show. Build several, and pick the one whose failures announce themselves.</div>
+<div class="callout" id="card-the-judgment-prototype"><div class="callout-label">Card</div><div class="callout-title">The Judgment Prototype</div>
+<p><strong>When:</strong> before the go decision, as soon as the comparison rests on a claim nobody has tested.</p>
+<p><strong>Do this:</strong></p>
+<ol><li>Stop asking whether an agent can do this. Ask which shape. Name the two or three candidate shapes people are arguing past each other about, including the conservative one.</li><li>Build all of them, badly, in a week. No interface. One table, one column per shape, one row per case: the decision, the reasoning, the claimed confidence, whether it would stop.</li><li>Pull real cases from the system of record, weighted toward the hard ones. The easy cases never needed a person and will tell you nothing.</li><li>Write the stopping result before anything runs, in a sentence you cannot reinterpret afterward, and apply it to the best of the candidates rather than to each.</li><li>Sit with the practitioner who makes the call today. One question: which of these would you have decided differently. Mark every pause, not only every disagreement.</li><li>Pick on visibility of failure, not on score. Then write the briefs, in that order.</li></ol>
+<p><strong>Worked:</strong> Ostermill built three. The judge wrote to 7 of the 12 protected accounts, confident on 5. The sorter wrote to all 12, because its filter can only route what someone flagged and nobody had flagged these. The triager wrote to 3 and stopped on the other 9, naming the signal each time. Two shapes were withdrawn on 26 March, before money moved.</p>
+<p><strong>The failure it prevents:</strong> funding a category instead of a shape, then meeting the shape in week eleven.</p>
+<p><strong>The Rule.</strong> Choose the agent whose failures announce themselves, not the one with the best score.</p>
+<p><strong>Mechanism:</strong> Part One, Chapter 9 (what you actually build).</p>
+</div>
+<h3>The memo</h3>
+<p>One question belongs in the file before anybody signs, and it is about the direction of the money rather than the amount.</p>
+<p>Who pays for this agent's accuracy?</p>
+<p>When the person who trusts the answers and the person who funds them are the same, incentives align by construction and nobody has to be virtuous. At Ostermill they are the same: Marcus funds the agent and Marcus lives with the receivables it affects. If it is wrong, it is wrong about his number, and he will hear about it from his own reports.</p>
+<p>The dangerous version is the agent funded by one budget and suffered by another. A support agent paid out of a deflection budget is rewarded for fewer conversations, not for truer answers, and those two things come apart quietly and early. No governance document holds a line the business model has already crossed. So the question gets asked once, before the build, while the funding line is still a choice rather than a fact.</p>
+<p>The memo was signed on the second of April. Three of its choices need their reasons, because each one is a discipline wearing the costume of a formality.</p>
+<p>The outcome is written as a result in the world: draft the routine outreach in our tone, and put every account it cannot resolve in front of Ruth with the reason it stopped. Not "deploy an agent," which is an activity a team can complete having achieved nothing. Not "improve days sales outstanding," which the agent would share with a pricing change and a good quarter.</p>
+<p>It is also the second such sentence, and the first one is worth keeping visible rather than quietly replacing, because the distance between them is what the prototype bought. The February version was collect overdue receivables the way our best receivables clerk would. It is a better sentence in every way except that it described a product Ostermill cannot build. An outcome statement that names a standard nobody can reach is not ambition, it is a defect that will not surface until somebody measures it, and the phase where it surfaces determines what it costs.</p>
+<p>The non-goals each carry a name. Disputes, never touched, Ruth. Bankruptcy and legal, never touched, outside counsel through Marcus. Credit reporting, never mentioned in any draft, Marcus. Terms and negotiation, never initiated, Tom. A non-goal without an owner is a suggestion, and month three always arrives with a reasonable case for expansion. On that day the question is not whether the boundary was written. It is who stands up for it, and Ostermill decided the who in April, while it was cheap.</p>
+<p>And the memo carried a kill number. If fewer than sixty percent of drafts are approved without edit by week eight of production, the agent is retired and the module reconsidered.</p>
+<p>Written after the demonstration, which is the hard case and the honest one to show. The textbook version of this discipline says write the number before the room has watched the thing work, because afterward the sunk cost is emotional and that is the only kind that never appears on a ledger. Ostermill did not have that option. The room had watched it work in March.</p>
+<p>So the number had to be argued into existence against a project everyone already liked, which is why it took a meeting rather than a paragraph, and why Marcus is the reason it exists at all. His margin note deserves the permanent record: approved on the kill number, and not on a business case nobody could have built.</p>
+<p>If you are writing one of these late, as most people are, the test is whether you can say the number out loud in the room that saw the demonstration. If it would embarrass you there, it is not a kill number. It is a formality with a threshold on it.</p>
+<div class="callout" id="exhibit-b"><div class="callout-label">Exhibit B</div><div class="callout-title">The go decision</div>
+<p><strong>OSTERMILL INDUSTRIAL SUPPLY · Reminder agent · Decision memo</strong></p>
+<p><em>D. Okafor, 2 April. Signed M. Ellery, controller. Circulated to R. Vaughn, P. Nair, T. Brindle.</em></p>
+<p><strong>Outcome sought.</strong> Draft the routine overdue-invoice outreach in our tone, and put every account it cannot resolve in front of R. Vaughn with the reason it stopped.</p>
+<p><em>This is the second outcome statement. The first, "collect overdue receivables the way our best receivables clerk would," was withdrawn on 26 March after the judgment prototype. See below.</em></p>
+<p><strong>Alternatives considered, per thousand reminders:</strong></p>
+<div class="table-wrap"><table><thead><tr><th>Option</th><th>Cost</th><th>The 41 holds</th></tr></thead><tbody><tr><td>Status quo, clerk time</td><td>$8,400</td><td>Decided by R. Vaughn</td></tr><tr><td>Licensed dunning module</td><td>$310</td><td>Not recognized. Sends to all 261.</td></tr><tr><td><strong>Shape A, the judge</strong></td><td>n/a</td><td><strong>Withdrawn 26 March</strong></td></tr><tr><td><strong>Shape C, the sorter</strong></td><td>n/a</td><td><strong>Withdrawn 26 March</strong></td></tr><tr><td>Shape B, the triager</td><td>$1,150</td><td>Recognized and handed over, never decided</td></tr></tbody></table></div>
+<p><em>The 261 is the 220 sent plus the 41 held. The 38 escalated and the 13 written off carry flags the module reads and skips; the 41 carry none, which is the whole of the difference. Note also that the three prices are not on one basis: the status quo is all of R. Vaughn's time, the $310 is a license and assumes nobody reads the queue, and the $1,150 includes ninety seconds on each of the 220 drafts.</em></p>
+<p><strong>Prototype comparison, 20 cases, 12 drawn from the holds. Adjudicated by R. Vaughn, 26 March.</strong></p>
+<div class="table-wrap"><table><thead><tr><th>Shape</th><th>Holds missed</th><th>How the failure presents</th></tr></thead><tbody><tr><td>A · judge: decides holds</td><td>7/12</td><td>A confident, well-written letter to the customer</td></tr><tr><td>C · sorter: deterministic filter, agent sees the rest</td><td>12/12</td><td>Nothing. No signal at all.</td></tr><tr><td>B · triager: drafts, stops on unresolved signals</td><td>3/12</td><td>A draft in the queue, read by R. Vaughn before it sends</td></tr></tbody></table></div>
+<p><strong>Stopping condition,</strong> written 24 March before any run: if the best candidate writes to more than 3 of the 12 protected accounts, no agent is built. B met it at exactly 3.</p>
+<p><strong>Why A was withdrawn.</strong> Not model quality, and this must not be reopened as a capability question. The signals the holds turn on are captured nowhere a system can read: bankruptcy (trade press), dispute (email thread, dispute field empty), bereavement (known personally to R. Vaughn). No model release changes that. Fixing it is a records project with a different sponsor.</p>
+<p><strong>Why C was withdrawn,</strong> which was the harder call because it looked the most conservative. A filter routes only what has been flagged, and the holds are defined by the absence of a flag, so it wrote to every account Ruth protects. It fails silently rather than visibly, and has no judgment that can be improved next quarter.</p>
+<p><strong>Selection basis:</strong> visibility of failure, not accuracy. 3 of 12 is not a good score. It is a recoverable one, because a miss is a draft that waits for R. Vaughn rather than a silence she never sees.</p>
+<p><strong>What we are buying instead.</strong> Not judgment. Triage. The module cannot tell the 41 from the 220 and writes to all of them. Agent v2 writes to the 220 and hands over the 41 with a reason attached. That difference is the entire case for the price.</p>
+<p><strong>Not in scope at any rung, with owner:</strong></p>
+<div class="table-wrap"><table><thead><tr><th>Excluded</th><th>Owner</th></tr></thead><tbody><tr><td><strong>Deciding any held account. Recognize and hand over only.</strong></td><td><strong>R. Vaughn</strong></td></tr><tr><td>Disputes, open or suspected</td><td>R. Vaughn</td></tr><tr><td>Bankruptcy and legal escalation</td><td>Outside counsel via M. Ellery</td></tr><tr><td>Credit reporting</td><td>M. Ellery</td></tr><tr><td>Terms and negotiation</td><td>T. Brindle</td></tr></tbody></table></div>
+<p><strong>Kill number.</strong> If fewer than 60 percent of drafts are approved without edit by week 8, the agent is retired and the module reconsidered. Reviewed at week 4 for trajectory only; no extension granted on trajectory alone.</p>
+<p><strong>Launch rung.</strong> Drafting only, with one exception above the line: write-offs under the small-balance policy, which is deterministic, capped, and reversible by a journal entry. The agent may act alone there and nowhere else. Promotion requires evidence, not a calendar.</p>
+</div>
+<div class="callout" id="card-the-funding-question"><div class="callout-label">Card</div><div class="callout-title">The Funding Question</div>
+<p><strong>When:</strong> before the build is funded, and again at every promotion.</p>
+<p><strong>Do this:</strong></p>
+<ol><li>Name who pays for the agent's accuracy, in budget terms, not in principle.</li><li>Name who absorbs its errors: the team, the customer, the person on the other end who never chose this.</li><li>Ask whether those are the same party. If they are, incentives align without anyone being careful.</li><li>If they are not, price the gap. What does a false positive cost the party that did not fund it, in their minutes and their money?</li><li>Put that number in the ledger and in the kill number, and put the person who pays it in the room when both are set.</li><li>Re-ask at every promotion. A rung change moves who absorbs the errors, which can invert the answer.</li></ol>
+<p><strong>Worked:</strong> at Ostermill the answer was uncomfortable and the same party appeared twice. Receivables funds the agent's accuracy and receivables collects the benefit, which aligns. But a reminder sent to the wrong account costs Tom a relationship he is measured on, and it costs the person who opens the mail a morning. Neither of those lands on the budget that paid for the accuracy, which is why Tom sits in the room when the kill number is set.</p>
+<p><strong>The failure it prevents:</strong> an agent that is optimized against the metric its funder cares about, while the cost lands quietly on somebody who was never asked.</p>
+<p><strong>The Rule.</strong> No governance document holds a line the business model has already crossed.</p>
+<p><strong>Mechanism:</strong> Part One, Chapter 8 (the two products).</p>
+<div class="card phase-rail"><div class="card-label">The phase, closing</div><div class="card-title"><strong>DECIDE</strong> → <strong>Design</strong> → Prove → Observe → Operate Produced: the work reconstruction · the census and register · the alternatives table · the judgment prototype and two withdrawn proposals · the kill number · a signed go at drafting autonomy</div></div>
+<div class="card phase-rail"><div class="card-label">The phase</div><div class="card-title">Decide ✓ → <strong>DESIGN</strong> → Prove → Observe → Operate Description: What the agent may do alone, what a person sees at the moment it stops, and the second product nobody budgeted for. In this phase: the ladder placement · the declaration · the four artifacts · the briefs and the wall sort · the badge · the memory terms · the ninety seconds · the packet This phase adds: The Ladder and the Break · The Declaration · The Four Artifacts · The Wall Sort · The Badge · The Memory Terms · The Approval Moment · The Onboarding Packet</div></div>
+</div>
+<nav class="pager"><a href="the-shape-of-the-work.html">&larr; Chapter 10 · The shape of the work</a><a href="design.html">Phase 2 · Design &rarr;</a></nav>
+    </div>
+  </div>
+</div>
+</body>
+</html>

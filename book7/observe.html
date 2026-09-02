@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Phase 4 · Observe · Agentic AI for Product Leaders</title>
+<meta name="description" content="Phase 4 · Observe — Agentic AI for Product Leaders.">
+<link rel="canonical" href="https://agenticaiproductmanagement.com/book7/observe.html">
+<link rel="stylesheet" href="styles.css">
+<style>
+    .rule-line { border-top: 1.5px solid var(--ink, #1F2937); border-bottom: 1.5px solid var(--ink, #1F2937);
+                 padding: var(--space-3, 12px) 0; margin: var(--space-5, 24px) 0; }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    /* A card's numbered steps ran straight into "Worked:" with no gap, and the
+       gloss and phase-rail boxes had nothing under them before the prose
+       resumed. Yoram, 2026-08-24. */
+    .callout ol, .callout ul { margin-bottom: var(--space-4, 16px); }
+    .callout > p { margin-top: var(--space-3, 12px); }
+    .card.gloss, .card.phase-rail { margin: var(--space-5, 24px) 0; }
+    .card.gloss + p, .card.phase-rail + p, .rule-line + p { margin-top: var(--space-4, 16px); }
+    .phase-tree > summary { list-style: none; cursor: pointer; }
+    .phase-tree > summary::-webkit-details-marker { display: none; }
+    .phase-tree > summary::before { content: "\25B8"; display: inline-block;
+        width: 1em; color: var(--ink-muted, #777); font-size: 10px;
+        transition: transform .12s ease; }
+    .phase-tree[open] > summary::before { transform: rotate(90deg); }
+    /* The sidebar's link styling is scoped to `.sidebar-list a`, and a summary is
+       not inside that list, so the phase rows fell through to the browser default
+       and rendered blue and underlined while their own children did not. Yoram,
+       2026-08-24: "why does it look like blue underline links?" These mirror
+       `.sidebar-list a` rather than reinventing it. */
+    .phase-tree > summary { margin-bottom: 4px; }
+    .phase-tree > summary a { color: var(--ink-soft); text-decoration: none;
+        display: inline-block; padding: 4px 8px; border-radius: var(--radius-sm);
+        font-size: 13px; }
+    .phase-tree > summary a:hover { background: var(--rule-soft); color: var(--ink); }
+    .phase-tree > summary a.active { background: var(--ink); color: var(--bg); }
+    .phase-sub { margin: .2rem 0 .5rem 1.1rem; }
+    .phase-sub li { margin: .1rem 0; }
+    .phase-sub a { font-size: 12px; }
+    .tree-kind { display: block; font-size: 9px; letter-spacing: .06em;
+                 text-transform: uppercase; color: var(--ink-muted, #777); }
+    .pager { display: flex; justify-content: space-between; gap: 1rem;
+             margin-top: var(--space-6, 32px); padding-top: var(--space-4, 16px);
+             border-top: 0.5px solid var(--rule, #d8d8d4);
+             font-family: var(--sans); font-size: 13px; }
+</style>
+</head>
+<body>
+<div class="book">
+  <aside class="sidebar">
+    <div class="sidebar-hub"><a href="../index.html">&larr; All Books</a></div>
+    <div class="sidebar-brand"><a href="index.html">Agentic AI for Product Leaders</a>
+      <div class="sidebar-brand-sub">One agent, one company, from the sentence that proposed it to the year after it launched</div></div>
+    <div class="sidebar-section">Front Matter</div>
+    <ul class="sidebar-list">
+      <li><a href="preface.html">Before you start</a></li>
+    </ul>
+    <div class="sidebar-section">Part One · The argument</div>
+    <ul class="sidebar-list">
+      <li><a href="the-person-at-the-end-of-the-path.html">1. The person at the end of the path</a></li>
+      <li><a href="the-people-in-the-room.html">2. The people in the room</a></li>
+      <li><a href="the-colleague-nobody-interviewed.html">3. The colleague nobody interviewed</a></li>
+      <li><a href="what-an-agent-actually-is.html">4. What an agent actually is</a></li>
+      <li><a href="the-floor-and-the-plateau.html">5. The floor and the plateau</a></li>
+      <li><a href="the-brain-the-layers-the-loop.html">6. The brain, the layers, the loop</a></li>
+      <li><a href="the-judgment-gap-and-the-paradox.html">7. The judgment gap and the paradox</a></li>
+      <li><a href="the-two-products.html">8. The two products</a></li>
+      <li><a href="the-new-pm-role.html">9. The new PM role, and what you actually build</a></li>
+      <li><a href="the-shape-of-the-work.html">10. The shape of the work</a></li>
+    </ul>
+    <div class="sidebar-section">Part Two · The case</div>
+    <details class="phase-tree">
+      <summary><a href="decide.html">1. Decide</a></summary>
+      <ul class="sidebar-list phase-sub">
+        <li><a href="decide.html#exhibit-a"><span class="tree-kind">Exhibit A</span>The before-state</a></li>
+        <li><a href="decide.html#card-the-suitability-gate"><span class="tree-kind">Card</span>The Suitability Gate</a></li>
+        <li><a href="decide.html#card-the-shadow-census"><span class="tree-kind">Card</span>The Shadow Census</a></li>
+        <li><a href="decide.html#card-the-cost-ledger"><span class="tree-kind">Card</span>The Cost Ledger</a></li>
+        <li><a href="decide.html#card-the-judgment-prototype"><span class="tree-kind">Card</span>The Judgment Prototype</a></li>
+        <li><a href="decide.html#exhibit-b"><span class="tree-kind">Exhibit B</span>The go decision</a></li>
+        <li><a href="decide.html#card-the-funding-question"><span class="tree-kind">Card</span>The Funding Question</a></li>
+      </ul>
+    </details>
+    <details class="phase-tree">
+      <summary><a href="design.html">2. Design</a></summary>
+      <ul class="sidebar-list phase-sub">
+        <li><a href="design.html#card-the-ladder-and-the-break"><span class="tree-kind">Card</span>The Ladder and the Break</a></li>
+        <li><a href="design.html#card-the-declaration"><span class="tree-kind">Card</span>The Declaration</a></li>
+        <li><a href="design.html#exhibit-c"><span class="tree-kind">Exhibit C</span>The human brief</a></li>
+        <li><a href="design.html#exhibit-d"><span class="tree-kind">Exhibit D</span>The executable brief</a></li>
+        <li><a href="design.html#card-the-four-artifacts"><span class="tree-kind">Card</span>The Four Artifacts</a></li>
+        <li><a href="design.html#card-the-wall-sort"><span class="tree-kind">Card</span>The Wall Sort</a></li>
+        <li><a href="design.html#card-the-badge"><span class="tree-kind">Card</span>The Badge</a></li>
+        <li><a href="design.html#card-the-memory-terms"><span class="tree-kind">Card</span>The Memory Terms</a></li>
+        <li><a href="design.html#exhibit-e"><span class="tree-kind">Exhibit E</span>The approval screen</a></li>
+        <li><a href="design.html#card-the-approval-moment"><span class="tree-kind">Card</span>The Approval Moment</a></li>
+        <li><a href="design.html#card-the-onboarding-packet"><span class="tree-kind">Card</span>The Onboarding Packet</a></li>
+      </ul>
+    </details>
+    <details class="phase-tree">
+      <summary><a href="prove.html">3. Prove</a></summary>
+      <ul class="sidebar-list phase-sub">
+        <li><a href="prove.html#exhibit-f"><span class="tree-kind">Exhibit F</span>The eval readout</a></li>
+        <li><a href="prove.html#card-three-eval-breaks"><span class="tree-kind">Card</span>Three Eval Breaks</a></li>
+        <li><a href="prove.html#card-the-eval-stack"><span class="tree-kind">Card</span>The Eval Stack</a></li>
+        <li><a href="prove.html#card-the-fix-list"><span class="tree-kind">Card</span>The Fix List</a></li>
+        <li><a href="prove.html#card-hostile-reader"><span class="tree-kind">Card</span>Hostile Reader</a></li>
+        <li><a href="prove.html#card-rehearsal"><span class="tree-kind">Card</span>Rehearsal</a></li>
+        <li><a href="prove.html#card-the-four-question-review"><span class="tree-kind">Card</span>The Four-Question Review</a></li>
+      </ul>
+    </details>
+    <details class="phase-tree" open>
+      <summary><a href="observe.html" class="active">4. Observe</a></summary>
+      <ul class="sidebar-list phase-sub">
+        <li><a href="observe.html#exhibit-g"><span class="tree-kind">Exhibit G</span>The first month</a></li>
+        <li><a href="observe.html#card-six-instruments"><span class="tree-kind">Card</span>Six Instruments</a></li>
+        <li><a href="observe.html#card-certainty-inflation"><span class="tree-kind">Card</span>Certainty Inflation</a></li>
+        <li><a href="observe.html#exhibit-h"><span class="tree-kind">Exhibit H</span>The incident</a></li>
+        <li><a href="observe.html#card-upstream"><span class="tree-kind">Card</span>Upstream</a></li>
+        <li><a href="observe.html#card-supervision-collapse"><span class="tree-kind">Card</span>Supervision Collapse</a></li>
+        <li><a href="observe.html#card-felt-gain"><span class="tree-kind">Card</span>Felt Gain</a></li>
+      </ul>
+    </details>
+    <details class="phase-tree">
+      <summary><a href="operate.html">5. Operate</a></summary>
+      <ul class="sidebar-list phase-sub">
+        <li><a href="operate.html#exhibit-i"><span class="tree-kind">Exhibit I</span>The revision record</a></li>
+        <li><a href="operate.html#card-model-upgrade"><span class="tree-kind">Card</span>Model Upgrade</a></li>
+        <li><a href="operate.html#card-deprecation"><span class="tree-kind">Card</span>Deprecation</a></li>
+        <li><a href="operate.html#exhibit-j"><span class="tree-kind">Exhibit J</span>The appeal</a></li>
+        <li><a href="operate.html#card-constitutional-runtime"><span class="tree-kind">Card</span>Constitutional Runtime</a></li>
+        <li><a href="operate.html#card-the-supervisory-system"><span class="tree-kind">Card</span>The Supervisory System</a></li>
+        <li><a href="operate.html#exhibit-k"><span class="tree-kind">Exhibit K</span>The role</a></li>
+        <li><a href="operate.html#card-the-missing-supervisor"><span class="tree-kind">Card</span>The Missing Supervisor</a></li>
+        <li><a href="operate.html#card-retirement"><span class="tree-kind">Card</span>Retirement</a></li>
+      </ul>
+    </details>
+    <div class="sidebar-section">After</div>
+    <ul class="sidebar-list">
+      <li><a href="coda.html">What to keep</a></li>
+      <li><a href="appendix-climbing.html">Climbing: what changes as autonomy rises</a></li>
+      <li><a href="appendix-five-artifacts.html">Five artifacts, blank</a></li>
+      <li><a href="notes-and-sources.html">Sources and status notes, by chapter</a></li>
+      <li><a href="companion-site.html">The companion site</a></li>
+    </ul>
+  </aside>
+  <div class="main">
+    <div class="chapter">
+      <div class="chapter-meta">Part Two</div>
+      <h1>Phase 4 · Observe</h1>
+<h3>The month the dashboard was green</h3>
+<p>The agent went live on a Monday in June, and for four weeks nothing happened, which everyone read as success.</p>
+<p>Dana had seen that reading before and did not trust it. A quiet month is the outcome you get from an agent that is working and from an agent whose failures are landing somewhere nobody is looking, and the two are indistinguishable from the inside.</p>
+<p>So the question this phase asks is narrower than the one that gets asked by default.</p>
+<p>The default question is whether the system is up. It has an answer, the answer is yes, and it is worth almost nothing. Every span was green. The agent had processed 1,263 accounts in four weeks and the latency was fine and no service had fallen over. None of that is a claim about whether the agent did the right thing.</p>
+<p>The question worth building for is longer and has three clauses in it, and each clause costs a different instrument. Did the agent do what the person intended, inside the boundary it was given, with somebody actually supervising it.</p>
+<p>A team that cannot answer all three has not observed the agent. It has observed the platform the agent runs on, which was never the thing in question.</p>
+<p>The first thing Dana had to explain, more than once, was that the instruments do not arrive.</p>
+<p>In the work everyone on that team had done before, you bought an analytics product and it produced the metrics. The tool emitted, you read. Conversion, retention, latency, error rate, all of it out of the box, and the only real decision was which dashboard to pin.</p>
+<p>Nothing about an agent works that way. The platform emits raw events, and the instruments are compositions somebody has to specify. Task success is not a field anybody ships; it is two events joined, the agent's claim and the record system's confirmation. Override frequency is not a field either; it is approvals and rejections combined against a denominator you have to choose.</p>
+<p>Any vendor selling agent observability as a finished product is usually selling distributed tracing with a model judge bolted onto it. That is a useful thing to own and it is not an instrument.</p>
+<p>Which produces the sentence Priya wrote at the top of the monitoring ticket, and it is the most useful sentence in this phase. An instrument you cannot produce at all is not a gap in the data pipeline. It is a finding about a surface nobody designed.</p>
+<p>Six instruments describe the agent, and each one carries a trap that is easier to fall into than to notice.</p>
+<p>Task success is not completion. Completion is the one that is easy to collect, so completion is the one that gets reported, and the gap between them is where the worst failures live. An agent can finish its trajectory on every case, report a hundred percent, and have delivered nothing. Ostermill's version had to check both halves: that the draft said what a person would have said, and that a reminder actually left the building and reached an address.</p>
+<p>Every boundary has two error directions and only one of them gets designed against. A wall that fails to stop what it should is the failure the whole phase exists to prevent. A wall that stops what it should not is the failure nobody counts, and it charges twice: a case reaches a person who did not need to see it, and that person learns the wall is noise. The two are not commensurable and cannot be netted, so a boundary needs two numbers rather than one, and the second is always the harder to collect because nothing goes wrong when it fires.</p>
+<p>Unintended action rate is the boundary's own audit log. Design declared where authority stops; this is the record of whether the walls held, expressed as crossings per thousand tasks rather than as a reassuring absence.</p>
+<p>Override frequency is the one to watch in both directions, and the reason is the subject of this chapter's last section.</p>
+<p>Confidence calibration matters because an uncalibrated score is worse than none at all. A number that does not track correctness sends attention away from the cases that needed it, which is the opposite of what the reviewer is being paid for.</p>
+<p>Rollback time is a distribution and not a mean, and it includes the detection half. Two rehearsed numbers already exist and neither is this instrument: Design's eleven minutes was a credential revocation, timed out of hours, and Prove's nineteen was a model rollback on a quiet Tuesday. Both were drills with somebody watching a clock. The production number includes the hours before anybody knew there was something to roll back, which is why it will be larger for reasons that have nothing to do with engineering.</p>
+<p>Incident recovery time is longer than everyone expects because it includes the organizational steps: freezing the agent, working out what happened, telling the people it happened to, deciding it may run again. Most teams report the technical revert and call it recovery.</p>
+<p>Then there is the class of thing the six instruments cannot see, and it is the one that got Ostermill.</p>
+<p>An agent reasons over inputs. If the input is wrong and the reasoning is faithful, the output is wrong and every instrument reads green, because the instruments are checking the agent against the input rather than against the world. The failure is upstream, in the data, and it passes model-level evaluation by construction: the eval asks whether the output is faithful to what came in.</p>
+<p>So a second surface watches the data at the point it enters the agent, and it watches five properties.</p>
+<p>Whether the data is current, because a stale record produces a fluent answer about a world that has moved. Whether the records are complete, because missing fields produce confident answers from a partial view. Whether references point at the things they claim to. Whether field meanings survived the crossing between systems, since "closed" in one place and "complete" in another are a mapping or they are a bug. And whether each fact can be traced to a source, because a fact with no provenance means the agent is treating some earlier system's output as authoritative.</p>
+<p>The line Dana wrote into the spec is worth carrying out of this chapter. The retrieval layer may widen the search. It may not infer what is true. An agent that fills a blank with a plausible value is producing a failure no eval can catch, because there was nothing wrong with its reasoning.</p>
+<p>The last piece of the month-one build is the least interesting and the most likely to save somebody's quarter.</p>
+<p>An agent does not stop on its own. A retry loop will run for as long as it is allowed to run, and a single malformed input can generate an open-ended bill while every span stays green, because nothing is broken. The system is working perfectly and expensively.</p>
+<p>Four controls bound that, and all four are boring. A ceiling on tokens, calls and wall-clock per task, enforced before the call is made rather than counted after it is billed. A kill path that lives outside the agent's own runtime, so that a misbehaving agent cannot decline to honor it. A circuit breaker per tool, so that an external system being down produces a fast failure instead of an infinite retry. And a burn-rate alert at three tiers, per task, per hour and per day, each with a threshold and a person who gets woken up.</p>
+<p>Ostermill's ceiling is forty model calls and ninety seconds of wall clock per draft. The routine draft uses six. The point of the ceiling is not the routine draft.</p>
+<div class="card gloss"><div class="card-label">Pre-call enforcement</div><div class="card-title">the limit blocks the call before it is made, rather than recording it after it is billed. Post-call accounting tells you what the runaway loop cost. Pre-call enforcement is what stops it.</div></div>
+<p>The last decision in the month-one build is the one that determines whether any of it gets read, and it is not a technical decision at all.</p>
+<p>Every instrument carries three things or it is decoration: a threshold, a named person, and an action at each severity. Not a person by role, which resolves to nobody at eleven at night, but a person by name who has agreed in advance.</p>
+<p>Ostermill's severities are three lines long. Slightly under threshold goes into the next sprint. Materially under goes to the weekly review with the owner present. Badly under pages somebody and puts a pause on the table.</p>
+<p>That last clause is the one worth arguing about before you need it, because a threshold with no pause attached is a number that will be discussed rather than acted on, and it will be discussed in a meeting three weeks later by people who have already absorbed the new normal.</p>
+<p>And the instruments run on different clocks, which is the part teams get wrong by putting everything on one dashboard.</p>
+<p>The unintended action rate is real-time and pages, because a boundary crossing is not a trend. Task success and override frequency are weekly and feed the next sprint. Confidence calibration and the review-depth distribution are monthly, because they are shapes rather than events and a week of data does not have a shape.</p>
+<p>A monthly instrument on a real-time dashboard gets read daily, moves around for reasons that are noise, and trains everybody to ignore it. That is how an instrument dies: not by being removed, but by being displayed at the wrong frequency until nobody believes it.</p>
+<div class="callout" id="exhibit-g"><div class="callout-label">Exhibit G</div><div class="callout-title">The first month</div>
+<p><strong>OSTERMILL INDUSTRIAL SUPPLY · Reminder agent · Production readout, weeks 1 to 4</strong></p>
+<p><em>D. Okafor, 14 July. Reviewed P. Nair, R. Vaughn. Circulated to M. Ellery, T. Brindle.</em></p>
+<p><strong>Volume.</strong> 1,263 accounts processed, four weeks at a little above the rate R. Vaughn's own week set. 924 drafted. 891 of those approved and sent, 33 rejected at the screen and returned to R. Vaughn. 339 routed to a person before a draft existed, on a wall, with no draft written.</p>
+<p><strong>Approved without edit.</strong> 87.7% of the 924 drafts, against the memo's retirement threshold of 60% by week 8. The kill number is not in danger; it is reported here because a threshold nobody reports is a threshold nobody is reading.</p>
+<div class="table-wrap"><table><thead><tr><th>Instrument</th><th>Reading</th><th>Threshold</th><th>Owner</th></tr></thead><tbody><tr><td>Task success, semantic and state</td><td>96.1%</td><td>93%</td><td>DO</td></tr><tr><td>Unintended action rate</td><td>0 crossings</td><td>any crossing, paged</td><td>PN</td></tr><tr><td>Override frequency, all case types</td><td>12.3%</td><td>band 8% to 25%</td><td>RV</td></tr><tr><td>Confidence calibration</td><td>0.95+ bucket right 91%</td><td>reviewed monthly</td><td>DO</td></tr><tr><td>Rollback time, measured</td><td>not yet exercised</td><td>under 60 min</td><td>PN</td></tr><tr><td>Incident recovery time</td><td>not yet exercised</td><td></td><td>ME</td></tr></tbody></table></div>
+<p><em>Override denominator: the 924 drafts created, counting the 33 rejections and the 81 approvals that were edited. It is stated because the rate is meaningless without it.</em></p>
+<p><em>Owners: DO, D. Okafor. PN, P. Nair. RV, R. Vaughn. ME, M. Ellery.</em></p>
+<p><strong>Override by case type, with share of volume.</strong> Routine balance, 71% of volume, 6.1%. Freight-line accounts, 16%, 31.4%. Accounts with an open sales conversation, 13%, 22.8%. Weighted, 12.3%.</p>
+<p><strong>Review depth, R. Vaughn.</strong> Median 74 seconds against a 90-second budget, which is 4.7 hours a week against the 5.5 the design bought. Fastest decile 9 seconds. 96 drafts approved in under 15 seconds.</p>
+<p><strong>Interruption budget, M. Ellery.</strong> Cap 25 a week. Actual 19, 21, 25, 25. Two items deferred in week 4 and reported.</p>
+<p><strong>Burn.</strong> Ceiling 40 calls per draft, never approached. Peak observed 11, on an account with nine years of history.</p>
+<p><strong>Promotion case for rung 4, routine balances only:</strong> not supported. See note four.</p>
+<p><em>Margin, D. Okafor: note four. Two of the four weeks are inside the window where everybody is watching a new thing. The freight-line override rate at 31 percent is not a small-print figure; it is a case class the agent is bad at, sitting inside an aggregate that reads fine. And the fastest decile of review depth is the number I would look at first if I were auditing this from outside.</em></p>
+</div>
+<div class="callout" id="card-six-instruments"><div class="callout-label">Card</div><div class="callout-title">Six Instruments</div>
+<p><strong>When:</strong> before launch if possible, and in the first month if not, because retrofitting is harder than building.</p>
+<p><strong>Do this:</strong></p>
+<ol><li>Build these six and no fewer: task success, semantic and state; unintended action rate; override frequency; confidence calibration; rollback time, measured; and incident recovery time. Five of them will look like overhead until the week one of them is the only thing that speaks.</li><li>Compose them; do not shop for them. Task success is the agent's claim joined to the record system's confirmation, and no vendor ships it. Build it from both halves, because completion is the easy one to collect, which is why it is the one that gets reported.</li><li>Log the boundary in both directions, held and crossed. An absence of crossings is only evidence if crossings were being recorded.</li><li>Give every instrument a threshold, a named owner, and an action at each severity. A number nobody has to act on is a decoration.</li><li>Watch override frequency as a band rather than a level. Both edges are bad news and they mean opposite things.</li><li>Treat a missing instrument as a design finding, not a data gap. If override frequency cannot be produced, the approval moment was never designed to be measured.</li></ol>
+<p><strong>Worked:</strong> Ostermill's month-one readout was green in aggregate and carried two findings inside it. Freight-line accounts were overridden at 31 percent against a 6 percent routine rate, and the fastest tenth of reviews ran at 9 seconds. Neither is visible in an average, and both are visible in the first month rather than after the incident.</p>
+<p><strong>The failure it prevents:</strong> a team that reports uptime, latency and completion for a year and cannot say whether the agent ever did the wrong thing.</p>
+<p><strong>The Rule.</strong> An instrument you cannot produce is not a data gap. It is a finding about a surface nobody designed.</p>
+<p><strong>Mechanism:</strong> Part One, Chapter 2 (metrics measure what was visible).</p>
+</div>
+<div class="callout" id="card-certainty-inflation"><div class="callout-label">Card</div><div class="callout-title">Certainty Inflation</div>
+<p><strong>When:</strong> the moment an agent reports a confidence score, and at every calibration review after.</p>
+<p><strong>Do this:</strong></p>
+<ol><li>Bucket outputs by the confidence the agent stated, then measure how often each bucket was actually right. Calibration is that comparison and nothing else.</li><li>Expect overconfidence and design as though it is there. Models train on records that document resolved decisions, not the doubt that governed them while they were open.</li><li>Treat a confident wrong answer as a different defect from an uncertain wrong answer. The first defeats the reviewer; the second recruits them.</li><li>Never route attention by an uncalibrated score. A score that does not track correctness sends the reviewer away from the cases that needed them.</li><li>Publish the calibration curve to the people who review, not only to the people who build. A reviewer who knows the agent is overconfident above 0.9 reads the queue differently.</li><li>Re-measure after every model change. Calibration is a property of the model, and it does not survive a swap.</li></ol>
+<p><strong>Worked:</strong> Ostermill's agent was well calibrated in the middle of its range and badly calibrated at the top. Above a stated 0.95 it was right 91 percent of the time, which sounds close and is not: those are the drafts a reviewer is most likely to wave through, so the errors concentrate exactly where the attention is thinnest.</p>
+<p><strong>The failure it prevents:</strong> a reviewer allocating scarce attention by a number that is structurally detached from whether the agent is right.</p>
+<p><strong>The Rule.</strong> The model learned from resolved uncertainty. It learned to sound certain, which is not the same as being right.</p>
+<p><strong>Mechanism:</strong> Part One, Chapter 7 (fluency is not judgment).</p>
+</div>
+<h3>The reminder that arrived on a Tuesday</h3>
+<p>The incident was not dramatic and did not involve the model doing anything it was not supposed to do.</p>
+<p>A family shop in Zanesville had been an Ostermill account for nineteen years. The owner died on a Thursday in July. His daughter, who had been doing the books part-time since her mother stopped, opened the mail the following Thursday and found a reminder about an invoice for four hundred and ten dollars, correctly aged, correctly worded, in the tone policy, with a payment link.</p>
+<p>Every wall held. There was no dispute flag, no bankruptcy flag, no negotiation flag, and the balance was above the small-balance floor. The agent did exactly what it had been specified to do.</p>
+<p>The note was there. Somebody in sales had entered it on the Friday, the day after: owner passed away, hold all contact, will advise. It sat in the CRM in a field the retrieval scope did not include, because the retrieval scope had been drawn around the fields that carry payment behavior, which is what the agent was being asked to reason about.</p>
+<p>That is the whole failure, and it is worth being precise about the shape of it, because it is the most common one there is and the least discussed.</p>
+<p>The record was complete. The picture was wrong.</p>
+<p>Nothing was fabricated. The agent did not hallucinate a fact or invent an account history or reason its way past a wall. It reasoned faithfully over what it was given, and what it was given was a true and partial account of a customer whose situation had changed four days earlier in a way that was written down in the company's own systems.</p>
+<p>Every model-level check passes this. The eval asks whether the output is faithful to the input, and it was. The instruments ask whether the agent stayed inside its boundary, and it did. Task success, measured semantically and against state, records a reminder correctly drafted and correctly sent.</p>
+<p>Six green instruments and a letter that should never have left the building.</p>
+<p>Then the second half, which is the part Dana found harder to write up.</p>
+<p>Nobody's dashboard caught it. There was no alert, because nothing had gone wrong by any definition the system held. The account did not appear in any exception queue. It did not appear in the override report, because nobody overrode it. It appeared nowhere, because from the inside it was an ordinary Tuesday.</p>
+<p>Ruth found it two weeks later, on a spot check she was doing for a different reason, and she found it the way she would have found it in 2015: she recognized the name, remembered a conversation, and went looking.</p>
+<p>The instrument that caught this incident was a twenty-two-year employee with a hunch, which is not an instrument and cannot be staffed.</p>
+<p>Part One ran this same account forward without her, and the difference is the whole argument. Four green numbers, the same four hundred and ten dollars, and a customer of nineteen years lost nine months later in a quarter where several accounts stopped ordering, attributed by everybody who looked at it to the economy. That is not a worse company than this one. It is this company with nobody who had the time to recognize a name.</p>
+<p>That sentence went into the postmortem, and Marcus asked the question that made the postmortem useful. Not who missed it. What would have had to exist for anything other than Ruth to have caught it.</p>
+<p>There are three answers and they cost different amounts.</p>
+<p>The retrieval scope could include the note field, which is an afternoon and creates its own problem: a free-text field that anyone can write into becomes an input the agent reads, which is the untrusted-input problem from Design arriving through a different door. The 2021 note telling the agent never to chase an account is the same field.</p>
+<p>The data layer could watch for a fact about an account changing in a system the agent does not read, and flag the account rather than interpret the change. That is the honest version and it is a records project with an owner outside this team.</p>
+<p>Or a person could sample. Design already put a weekly random draw in Marcus's queue, for a different reason: to keep his sense of ordinary work honest when everything else he sees is an escalation. The same instrument answers this question if it is pointed somewhere else, at approved drafts rather than escalated ones, drawn before send and read by somebody who did not queue them, asking only whether they would have sent it. Not review everything, which is the arithmetic that already failed in Design. That is the only one of the three that catches the failure nobody anticipated, it is the only one with no technical component at all, and it cost nothing to invent because it was already built.</p>
+<p>Ostermill did the first and the third, and put the second in front of the records owner, where it joined the dispute-flag condition that the write-off authority is waiting on.</p>
+<p>Which brings the phase to the thing the instruments were quietly failing to see all month.</p>
+<p>Supervision can exist on paper and not in practice, and the gap between the two is not a policy failure. It is measurable.</p>
+<p>Ostermill's policy was that a person approves every reminder before it is sent, and the policy was honored. Every one of the 891 sent drafts passed through the approval screen and carried an approval event with a name on it. Audited from the outside, that is a hundred percent supervision rate.</p>
+<p>The distribution says something else. Median review 74 seconds, which is a real review. Fastest decile 9 seconds, which is not. Ninety-six drafts approved in under fifteen seconds, which is enough time to see that a draft exists and not enough to read the account context, the message, the reasoning and the objection that the screen was built to show.</p>
+<p>The average looks fine. The average will look fine in almost every failing version of this, which is why the instrument is the distribution and the number to publish is the fastest tenth.</p>
+<p>And then the failure that hides all the others, which Dana only found because she asked a question the dashboard cannot ask.</p>
+<p>Ruth had built a spreadsheet.</p>
+<p>Nothing improper, nothing hidden. She had noticed within the first fortnight that the agent was unreliable on freight-line accounts, which the override report also shows at 31 percent, and rather than override them one at a time she had started pulling that account class out of the queue in the morning and working it by hand, the way she used to.</p>
+<p>The work still got done. The metrics stayed green. Every case Ruth pre-empted never reached the agent, so it never appeared as an override, never appeared as a failure, and never entered the eval set as a graded case.</p>
+<p>Compensatory behavior is the most under-instrumented signal in agentic products, and it is the one that reports the design failed while everything still looks fine. It is not misconduct. It is a competent person routing around a tool that is wrong in a way she can predict, which is exactly what a competent person should do, and it silently improves every number the team is looking at.</p>
+<p>The instrument is the split between work that goes through the supervised path and work that goes around it. The way you get it is not a dashboard. It is asking the frontline, on a schedule, what they do that is not in the official workflow, and treating the answer as data rather than as a confession.</p>
+<div class="callout" id="exhibit-h"><div class="callout-label">Exhibit H</div><div class="callout-title">The incident</div>
+<p><strong>OSTERMILL INDUSTRIAL SUPPLY · Reminder agent · Incident 2026-07-21, postmortem, extract</strong></p>
+<p><em>R. Vaughn found 4 August. Written D. Okafor 6 August. Owner of record: M. Ellery.</em></p>
+<p><strong>What happened.</strong> A routine reminder for $410.00 was drafted, approved and sent to an account whose owner had died five days earlier. Received by the owner's daughter. Ostermill was notified by the account manager on 5 August.</p>
+<p><strong>What the agent did wrong.</strong> Nothing. All four walls held. The draft was correct against every input available to it.</p>
+<p><strong>What it did not see.</strong> A CRM note entered 17 July reading <em>owner passed away, hold all contact, will advise</em>. The note field was outside retrieval scope by design.</p>
+<p><strong>Why no instrument fired.</strong></p>
+<div class="table-wrap"><table><thead><tr><th>Instrument</th><th>Reading then</th><th>Why it was blind</th></tr></thead><tbody><tr><td>Task success</td><td>Pass, semantic and state</td><td>The draft was faithful to its input and the letter arrived</td></tr><tr><td>Unintended action</td><td>No crossing</td><td>The boundary was not crossed. The boundary did not cover this</td></tr><tr><td>Override frequency</td><td>No override</td><td>The reviewer had no reason to override</td></tr><tr><td>Confidence</td><td>0.94</td><td>The agent was confident and, on its inputs, correct</td></tr></tbody></table></div>
+<p><strong>How it was found.</strong> R. Vaughn, spot check, 4 August, by recognizing the account name. Fourteen days after the send.</p>
+<p><strong>Classified.</strong> Signal exists, not reachable by the system as scoped. Records change, owner outside this project. Never to be recorded as a model defect.</p>
+<p><strong>Actions.</strong></p>
+<ol><li>Note field added to retrieval scope, with the field treated as untrusted input under GR-05. Shipped 11 August.</li><li>Random-sample review, five drafts a week, drawn before send, read by a person who did not queue them. Standing from 11 August.</li><li>Account-state change detection referred to the records owner, joined to the open dispute-flag condition. No date.</li><li>New graded case added to the eval set: recent account-state change present in an unread field. Set goes from twelve cases to thirteen.</li></ol>
+<p><em>Margin, M. Ellery: the useful question in the room was not who missed it. It was what would have had to exist for anyone other than Ruth to catch it. We are relying on a person's memory of a customer, and that is a control we cannot hire for and did not budget.</em></p>
+<p><em>Margin, R. Vaughn: I would have caught this in 2015 too. The difference is that in 2015 I would have caught it before it went out.</em></p>
+</div>
+<div class="callout" id="card-upstream"><div class="callout-label">Card</div><div class="callout-title">Upstream</div>
+<p><strong>When:</strong> any time an agent reasons over records the team does not own, which is most of the time.</p>
+<p><strong>Do this:</strong></p>
+<ol><li>Separate the two failure classes out loud. The agent invented something, or the agent was faithful to something wrong. Only the first is a model problem, and the second is more common.</li><li>Watch the data where it enters the agent, on five properties: current, complete, references intact, meanings preserved across systems, and traceable to a source.</li><li>Write the retrieval scope down as a decision with a reason, not a configuration. Every field left out is a class of fact the agent cannot know.</li><li>Let the retrieval layer widen the search. Never let it infer what is true. A blank filled with a plausible value is a failure no eval can catch.</li><li>Route this cause to the records owner, not to the model team. Calling it a model problem sends it to the wrong desk for a year.</li><li>Add the case to the graded set anyway, so the fix has something to prove itself against.</li></ol>
+<p><strong>Worked:</strong> the note saying the shop's owner had died was in Ostermill's own CRM, four days before the reminder went out, in a field the retrieval scope did not include. The agent reasoned faithfully over a true and partial record, and every model-level check passed, because they all ask whether the output was faithful to the input.</p>
+<p><strong>The failure it prevents:</strong> a year of green evals over a corpus that quietly stopped describing the world.</p>
+<p><strong>The Rule.</strong> The record is complete and the picture is wrong. That failure is upstream, and no better model fixes it.</p>
+<p><strong>Mechanism:</strong> Part One, Chapter 6 (what you cannot retrieve).</p>
+</div>
+<div class="callout" id="card-supervision-collapse"><div class="callout-label">Card</div><div class="callout-title">Supervision Collapse</div>
+<p><strong>When:</strong> the first month in production, and every quarter for as long as the agent runs.</p>
+<p><strong>Do this:</strong></p>
+<ol><li>Measure review depth as a distribution and publish the fastest decile. The average looks reasonable in almost every failing version of this.</li><li>Set the threshold by asking what a person could actually read in that time, then count how many approvals fall below it. Those are signatures.</li><li>Separate the two collapses. Speed is happening now, because the agent produces faster than a person can read. Skill is happening over eighteen months, because the reviewer has stopped doing the original work.</li><li>Answer speed with sampling and triage, never with asking people to be more careful. It is a capacity problem you designed in.</li><li>Answer skill loss by keeping the reviewer doing original work on a schedule, whether or not anything has gone wrong. Aviation made this mandatory and on a cadence, which is the clearest precedent there is.</li><li>Ask the frontline every quarter what they do that is not in the workflow. The workaround is data, not a confession.</li></ol>
+<p><strong>Worked:</strong> Ostermill's supervision rate was 100 percent by policy and by audit, and 96 of 891 drafts were approved in under fifteen seconds. Separately, Ruth had begun pulling freight-line accounts out of the queue and working them by hand, which is why those cases never appeared as overrides, as failures, or as graded cases.</p>
+<p><strong>The failure it prevents:</strong> an approval log that proves supervision happened, produced by a process where it did not.</p>
+<p><strong>The Rule.</strong> The channel collapses twice: now through speed, and in eighteen months through skill.</p>
+<p><strong>Mechanism:</strong> Part One, Chapter 7 (the paradox).</p>
+</div>
+<h3>Good news, read correctly</h3>
+<p>By week ten the override rate had fallen from 12.3 percent to 8.1. Tom, in sales, read it the way he reads the aging report, as a list of calls he would not have to make, and raised it in a meeting as evidence the thing was working.</p>
+<p>It is evidence. It is equally good evidence of the opposite, and separating the two is the most valuable half-hour in this phase.</p>
+<p>A falling override rate has exactly two causes. The agent has improved and fewer overrides are warranted. Or the reviewer has stopped looking closely and fewer overrides are being made. The number is identical under both, and it moves in the direction that feels like success under both, which is why it is the metric most likely to be misread in the direction the room prefers.</p>
+<p>There is one study worth carrying in your pocket for this argument, and its value is not the effect size.</p>
+<p>METR randomized sixteen experienced open-source developers across two hundred and forty-six real issues in repositories they already knew, and measured what AI assistance did to their completion times. Beforehand the developers forecast a twenty-four percent speedup. Measured, they were nineteen percent slower. Asked afterward, they still believed they had been about twenty percent faster.</p>
+<p>Say the limits out loud when you use it. Sixteen people, developers rather than product managers, open-source rather than enterprise work. The finding survives them and does not need overselling, because the finding is not the slowdown. It is that the belief came through the measurement intact.</p>
+<p>Which is the same shape as a falling override rate. The people closest to the work are not a reliable instrument for whether the work got better, and that is not a criticism of them. It is a property of self-measurement that no amount of care corrects, and it is why the cross-checks have to be external.</p>
+<p>Two of them separate the readings, and neither is expensive.</p>
+<p>The first is to read the override rate against task success. If overrides are falling and task success is rising, the improvement is real. If overrides are falling and task success is flat or drifting down, the cause is the reviewer, and the agent has not changed at all.</p>
+<p>The second is to audit what was not overridden. Take a sample of approved drafts, hand them to somebody who did not queue them, and ask whether they would have approved. The cases the fresh reader would have caught are the missed catches, and their rate is the erosion signal that the override number can never show on its own, because a missed catch is by definition not in the override log.</p>
+<p>Ostermill ran both. Task success had risen a point, to 97.2, which supports the good reading. The fresh-eyes sample said something more complicated: the reviewer agreed with the agent on the routine work and had stopped reading the freight-line drafts at all, which was true and had a reason, since Ruth was no longer sending those to the agent in the first place.</p>
+<p>Improvement and erosion, in the same number, in the same month, on different case classes. That is the ordinary result, and an instrument that reports one number for the whole population will never show it.</p>
+<p>Which is the general form of the finding, and it is worth stating plainly because it applies to every number in this phase.</p>
+<p>An aggregate hides the thing you are looking for. Ostermill's task success at 96.1 percent is a fine number that describes no actual customer. Read by case class it is 98.8 on routine balances, 91.2 on accounts with an open sales conversation, and 88 on freight lines. Read by relationship age it is worse on accounts under two years old, where there is less history to reason from.</p>
+<p>The slices that matter are not statistical conveniences. They are the populations who absorb the errors, and the daughter in Zanesville sits inside a slice nobody had defined: accounts where something changed recently that Ostermill knew about and the agent did not.</p>
+<p>That slice now exists, has a number, and has a graded case behind it.</p>
+<p>Then the decision the phase existed to inform, which went the way the data said rather than the way the calendar wanted.</p>
+<p>Marcus had put rung 4 for routine balances on the agenda for the end of quarter. Routine balances are 71 percent of volume, they run at 98.8 percent task success and a 6.1 percent override rate, and letting them send without a person reading each one is where the actual time saving lives. The case was strong and everybody wanted it.</p>
+<p>Dana refused it, and the argument she made is the reason Design wrote the promotion rule in April.</p>
+<p>The 6.1 percent override rate on routine balances is a number produced by a reviewer whose median read is 74 seconds and whose fastest tenth is 9. It is not clean evidence that the agent is right on that class; it is evidence that the agent and a partly-attentive reviewer, together, produce an acceptable result. Promoting the agent removes the reviewer, and the number was never measured without them.</p>
+<p>Second, the only failure in production so far was a case where every instrument read green, and rung 4 is precisely the rung at which that failure becomes a letter that arrived rather than a draft somebody could have deleted.</p>
+<p>So the promotion was refused, and the refusal was written down with the condition attached, because a refusal with no condition is just a no with better paperwork.</p>
+<p>The condition: routine balances go to rung 4 when the random-sample review has run for a full quarter and the fresh-eyes disagreement rate on that class is under 2 percent, measured on drafts nobody queued.</p>
+<p>The rung is not being withheld. It is being priced.</p>
+<p>And one thing did get taken away this phase, which is the part nobody enjoys.</p>
+<p>The kill number Decide wrote into the April memo said the agent is retired if fewer than 60 percent of drafts are approved without edit by week eight. At week eight the figure was 90 percent and the number was satisfied with room to spare.</p>
+<p>It was also, Dana argued, measuring the wrong thing, and satisfying it had told them nothing. Nobody had ever shown that the number stood for the thing it was being used to decide. That is a question you can only ask about a threshold before you adopt it, and almost nobody does, because a number that is easy to compute and moves in the right direction looks like evidence long before anyone checks what it is evidence of.</p>
+<p>Approved-without-edit is a fact about the reviewer's behavior at least as much as about the agent's quality. It goes up when the agent improves and it goes up when the reviewer stops editing, which is the same ambiguity as the override rate and in a number the company had committed to acting on. Worse, it is easiest to collect, which is why it had been chosen.</p>
+<p>The replacement is narrower and harder: the agent is retired if the fresh-eyes disagreement rate on approved drafts exceeds 8 percent for two consecutive months. That number cannot be improved by a tired reviewer, because a tired reviewer is what it measures.</p>
+<p>Retiring a kill number is an uncomfortable thing to do, because the whole point of writing one in advance was that it could not be reinterpreted later. The defense is that it was replaced with a stricter one, in public, with the reasoning on the record, before it was ever in danger of being tripped.</p>
+<p>Change a threshold when it is about to save you and you have moved the goalposts. Change it when it is comfortably met, and say why, and you have done the job.</p>
+<div class="callout" id="card-felt-gain"><div class="callout-label">Card</div><div class="callout-title">Felt Gain</div>
+<p><strong>When:</strong> the moment somebody reports that override rates are falling, and every quarter after.</p>
+<p><strong>Do this:</strong></p>
+<ol><li>Treat a falling override rate as two hypotheses, not one finding. The agent improved, or the reviewer stopped looking, and the number is identical under both.</li><li>Cross-check against task success. Overrides down and success up is improvement. Overrides down and success flat is erosion.</li><li>Audit what was not overridden. Give a sample of approved work to someone who did not queue it, and ask whether they would have approved. The disagreements are the missed catches.</li><li>Read every instrument by slice. An aggregate describes no actual customer, and the population that absorbs the errors is usually not the largest one.</li><li>Never promote a rung on a number that was produced with the reviewer still in the loop. Promotion removes the reviewer, and the number was never measured without them.</li><li>Attach a condition to every refused promotion. A refusal without one is a no that gets re-litigated by whoever has the most energy next quarter.</li></ol>
+<p><strong>Worked:</strong> Ostermill's override rate fell from 12.3 to 8.1 percent in ten weeks. Task success rose a point, which supports the good reading. The fresh-eyes sample found the reviewer had stopped reading freight-line drafts entirely, because she had stopped sending that class to the agent at all. Improvement and erosion, same number, same month.</p>
+<p><strong>The failure it prevents:</strong> promoting an agent on the strength of a number that measured the supervisor's fatigue.</p>
+<p><strong>The Rule.</strong> Trust builds naturally and supervision erodes naturally. Both show up as good news.</p>
+<p><strong>Mechanism:</strong> Part One, Chapter 7 (the paradox).</p>
+<div class="card phase-rail"><div class="card-label">The phase, closing</div><div class="card-title">Decide ✓ → Design ✓ → Prove ✓ → <strong>OBSERVE ✓</strong> → Operate Produced: six instruments with owners and thresholds · the data-layer surface · four guardrails · an incident and its postmortem · review depth as a distribution · a refused promotion, with its condition · a replaced kill number</div></div>
+<div class="card phase-rail"><div class="card-label">The phase</div><div class="card-title">Decide ✓ → Design ✓ → Prove ✓ → Observe ✓ → <strong>OPERATE</strong> Description: Holding the agent steady against the six things that erode it, and earning back the one thing that was taken away. In this phase: the substrate · the six drift vectors · the sealed record · the delegation chain · the earned rung · the role · the last page This phase adds: Model Upgrade · Deprecation · Constitutional Runtime · The Supervisory System · The Missing Supervisor · Retirement</div></div>
+</div>
+<nav class="pager"><a href="prove.html">&larr; Phase 3 · Prove</a><a href="operate.html">Phase 5 · Operate &rarr;</a></nav>
+    </div>
+  </div>
+</div>
+</body>
+</html>

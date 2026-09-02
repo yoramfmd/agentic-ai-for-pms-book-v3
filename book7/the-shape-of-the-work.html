@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter 10 · The shape of the work · Agentic AI for Product Leaders</title>
+<meta name="description" content="Chapter 10 · The shape of the work — Agentic AI for Product Leaders.">
+<link rel="canonical" href="https://agenticaiproductmanagement.com/book7/the-shape-of-the-work.html">
+<link rel="stylesheet" href="styles.css">
+<style>
+    .rule-line { border-top: 1.5px solid var(--ink, #1F2937); border-bottom: 1.5px solid var(--ink, #1F2937);
+                 padding: var(--space-3, 12px) 0; margin: var(--space-5, 24px) 0; }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    /* A card's numbered steps ran straight into "Worked:" with no gap, and the
+       gloss and phase-rail boxes had nothing under them before the prose
+       resumed. Yoram, 2026-08-24. */
+    .callout ol, .callout ul { margin-bottom: var(--space-4, 16px); }
+    .callout > p { margin-top: var(--space-3, 12px); }
+    .card.gloss, .card.phase-rail { margin: var(--space-5, 24px) 0; }
+    .card.gloss + p, .card.phase-rail + p, .rule-line + p { margin-top: var(--space-4, 16px); }
+    .phase-tree > summary { list-style: none; cursor: pointer; }
+    .phase-tree > summary::-webkit-details-marker { display: none; }
+    .phase-tree > summary::before { content: "\25B8"; display: inline-block;
+        width: 1em; color: var(--ink-muted, #777); font-size: 10px;
+        transition: transform .12s ease; }
+    .phase-tree[open] > summary::before { transform: rotate(90deg); }
+    /* The sidebar's link styling is scoped to `.sidebar-list a`, and a summary is
+       not inside that list, so the phase rows fell through to the browser default
+       and rendered blue and underlined while their own children did not. Yoram,
+       2026-08-24: "why does it look like blue underline links?" These mirror
+       `.sidebar-list a` rather than reinventing it. */
+    .phase-tree > summary { margin-bottom: 4px; }
+    .phase-tree > summary a { color: var(--ink-soft); text-decoration: none;
+        display: inline-block; padding: 4px 8px; border-radius: var(--radius-sm);
+        font-size: 13px; }
+    .phase-tree > summary a:hover { background: var(--rule-soft); color: var(--ink); }
+    .phase-tree > summary a.active { background: var(--ink); color: var(--bg); }
+    .phase-sub { margin: .2rem 0 .5rem 1.1rem; }
+    .phase-sub li { margin: .1rem 0; }
+    .phase-sub a { font-size: 12px; }
+    .tree-kind { display: block; font-size: 9px; letter-spacing: .06em;
+                 text-transform: uppercase; color: var(--ink-muted, #777); }
+    .pager { display: flex; justify-content: space-between; gap: 1rem;
+             margin-top: var(--space-6, 32px); padding-top: var(--space-4, 16px);
+             border-top: 0.5px solid var(--rule, #d8d8d4);
+             font-family: var(--sans); font-size: 13px; }
+</style>
+</head>
+<body>
+<div class="book">
+  <aside class="sidebar">
+    <div class="sidebar-hub"><a href="../index.html">&larr; All Books</a></div>
+    <div class="sidebar-brand"><a href="index.html">Agentic AI for Product Leaders</a>
+      <div class="sidebar-brand-sub">One agent, one company, from the sentence that proposed it to the year after it launched</div></div>
+    <div class="sidebar-section">Front Matter</div>
+    <ul class="sidebar-list">
+      <li><a href="preface.html">Before you start</a></li>
+    </ul>
+    <div class="sidebar-section">Part One · The argument</div>
+    <ul class="sidebar-list">
+      <li><a href="the-person-at-the-end-of-the-path.html">1. The person at the end of the path</a></li>
+      <li><a href="the-people-in-the-room.html">2. The people in the room</a></li>
+      <li><a href="the-colleague-nobody-interviewed.html">3. The colleague nobody interviewed</a></li>
+      <li><a href="what-an-agent-actually-is.html">4. What an agent actually is</a></li>
+      <li><a href="the-floor-and-the-plateau.html">5. The floor and the plateau</a></li>
+      <li><a href="the-brain-the-layers-the-loop.html">6. The brain, the layers, the loop</a></li>
+      <li><a href="the-judgment-gap-and-the-paradox.html">7. The judgment gap and the paradox</a></li>
+      <li><a href="the-two-products.html">8. The two products</a></li>
+      <li><a href="the-new-pm-role.html">9. The new PM role, and what you actually build</a></li>
+      <li><a href="the-shape-of-the-work.html" class="active">10. The shape of the work</a></li>
+    </ul>
+    <div class="sidebar-section">Part Two · The case</div>
+    <details class="phase-tree">
+      <summary><a href="decide.html">1. Decide</a></summary>
+      <ul class="sidebar-list phase-sub">
+        <li><a href="decide.html#exhibit-a"><span class="tree-kind">Exhibit A</span>The before-state</a></li>
+        <li><a href="decide.html#card-the-suitability-gate"><span class="tree-kind">Card</span>The Suitability Gate</a></li>
+        <li><a href="decide.html#card-the-shadow-census"><span class="tree-kind">Card</span>The Shadow Census</a></li>
+        <li><a href="decide.html#card-the-cost-ledger"><span class="tree-kind">Card</span>The Cost Ledger</a></li>
+        <li><a href="decide.html#card-the-judgment-prototype"><span class="tree-kind">Card</span>The Judgment Prototype</a></li>
+        <li><a href="decide.html#exhibit-b"><span class="tree-kind">Exhibit B</span>The go decision</a></li>
+        <li><a href="decide.html#card-the-funding-question"><span class="tree-kind">Card</span>The Funding Question</a></li>
+      </ul>
+    </details>
+    <details class="phase-tree">
+      <summary><a href="design.html">2. Design</a></summary>
+      <ul class="sidebar-list phase-sub">
+        <li><a href="design.html#card-the-ladder-and-the-break"><span class="tree-kind">Card</span>The Ladder and the Break</a></li>
+        <li><a href="design.html#card-the-declaration"><span class="tree-kind">Card</span>The Declaration</a></li>
+        <li><a href="design.html#exhibit-c"><span class="tree-kind">Exhibit C</span>The human brief</a></li>
+        <li><a href="design.html#exhibit-d"><span class="tree-kind">Exhibit D</span>The executable brief</a></li>
+        <li><a href="design.html#card-the-four-artifacts"><span class="tree-kind">Card</span>The Four Artifacts</a></li>
+        <li><a href="design.html#card-the-wall-sort"><span class="tree-kind">Card</span>The Wall Sort</a></li>
+        <li><a href="design.html#card-the-badge"><span class="tree-kind">Card</span>The Badge</a></li>
+        <li><a href="design.html#card-the-memory-terms"><span class="tree-kind">Card</span>The Memory Terms</a></li>
+        <li><a href="design.html#exhibit-e"><span class="tree-kind">Exhibit E</span>The approval screen</a></li>
+        <li><a href="design.html#card-the-approval-moment"><span class="tree-kind">Card</span>The Approval Moment</a></li>
+        <li><a href="design.html#card-the-onboarding-packet"><span class="tree-kind">Card</span>The Onboarding Packet</a></li>
+      </ul>
+    </details>
+    <details class="phase-tree">
+      <summary><a href="prove.html">3. Prove</a></summary>
+      <ul class="sidebar-list phase-sub">
+        <li><a href="prove.html#exhibit-f"><span class="tree-kind">Exhibit F</span>The eval readout</a></li>
+        <li><a href="prove.html#card-three-eval-breaks"><span class="tree-kind">Card</span>Three Eval Breaks</a></li>
+        <li><a href="prove.html#card-the-eval-stack"><span class="tree-kind">Card</span>The Eval Stack</a></li>
+        <li><a href="prove.html#card-the-fix-list"><span class="tree-kind">Card</span>The Fix List</a></li>
+        <li><a href="prove.html#card-hostile-reader"><span class="tree-kind">Card</span>Hostile Reader</a></li>
+        <li><a href="prove.html#card-rehearsal"><span class="tree-kind">Card</span>Rehearsal</a></li>
+        <li><a href="prove.html#card-the-four-question-review"><span class="tree-kind">Card</span>The Four-Question Review</a></li>
+      </ul>
+    </details>
+    <details class="phase-tree">
+      <summary><a href="observe.html">4. Observe</a></summary>
+      <ul class="sidebar-list phase-sub">
+        <li><a href="observe.html#exhibit-g"><span class="tree-kind">Exhibit G</span>The first month</a></li>
+        <li><a href="observe.html#card-six-instruments"><span class="tree-kind">Card</span>Six Instruments</a></li>
+        <li><a href="observe.html#card-certainty-inflation"><span class="tree-kind">Card</span>Certainty Inflation</a></li>
+        <li><a href="observe.html#exhibit-h"><span class="tree-kind">Exhibit H</span>The incident</a></li>
+        <li><a href="observe.html#card-upstream"><span class="tree-kind">Card</span>Upstream</a></li>
+        <li><a href="observe.html#card-supervision-collapse"><span class="tree-kind">Card</span>Supervision Collapse</a></li>
+        <li><a href="observe.html#card-felt-gain"><span class="tree-kind">Card</span>Felt Gain</a></li>
+      </ul>
+    </details>
+    <details class="phase-tree">
+      <summary><a href="operate.html">5. Operate</a></summary>
+      <ul class="sidebar-list phase-sub">
+        <li><a href="operate.html#exhibit-i"><span class="tree-kind">Exhibit I</span>The revision record</a></li>
+        <li><a href="operate.html#card-model-upgrade"><span class="tree-kind">Card</span>Model Upgrade</a></li>
+        <li><a href="operate.html#card-deprecation"><span class="tree-kind">Card</span>Deprecation</a></li>
+        <li><a href="operate.html#exhibit-j"><span class="tree-kind">Exhibit J</span>The appeal</a></li>
+        <li><a href="operate.html#card-constitutional-runtime"><span class="tree-kind">Card</span>Constitutional Runtime</a></li>
+        <li><a href="operate.html#card-the-supervisory-system"><span class="tree-kind">Card</span>The Supervisory System</a></li>
+        <li><a href="operate.html#exhibit-k"><span class="tree-kind">Exhibit K</span>The role</a></li>
+        <li><a href="operate.html#card-the-missing-supervisor"><span class="tree-kind">Card</span>The Missing Supervisor</a></li>
+        <li><a href="operate.html#card-retirement"><span class="tree-kind">Card</span>Retirement</a></li>
+      </ul>
+    </details>
+    <div class="sidebar-section">After</div>
+    <ul class="sidebar-list">
+      <li><a href="coda.html">What to keep</a></li>
+      <li><a href="appendix-climbing.html">Climbing: what changes as autonomy rises</a></li>
+      <li><a href="appendix-five-artifacts.html">Five artifacts, blank</a></li>
+      <li><a href="notes-and-sources.html">Sources and status notes, by chapter</a></li>
+      <li><a href="companion-site.html">The companion site</a></li>
+    </ul>
+  </aside>
+  <div class="main">
+    <div class="chapter">
+      <div class="chapter-meta">Part One</div>
+      <h1>Chapter 10 · The shape of the work</h1>
+<h3>Five phases, and why the names are ordinary</h3>
+<p>The work of building an agentic product has five phases and none of the names will surprise you.</p>
+<p>Decide whether to build it. Design how it behaves. Prove it works. Observe what it does in production. Operate it over time. Read as a list, that is every product lifecycle anyone has ever drawn, and a reader who concludes that this is familiar territory with new vocabulary is making an understandable mistake.</p>
+<p>The names are deliberately ordinary. The content is not, and the content is different in a specific way that is worth naming before Part Two walks through it.</p>
+<p>In <strong>Decide</strong>, the question is not whether the feature is valuable. It is whether the work contains judgment a rule cannot express, and whether an agent is the right shape against the alternatives that are already sitting in the room unnamed. Ostermill's answer arrives after a week beside Ruth and a prototype that kills two of the three proposals.</p>
+<p>In <strong>Design</strong>, the screen that gets built is not the one that went away, and how much of it there is depends on the rung, which is how much the agent may do without a person. She divides. What she knew becomes the boundary and the record; what she did when she looked up from the work becomes the approval moment, the recovery path, and the second product built around them. The two briefs come out of this phase, and they get written after somebody has built something, not before.</p>
+<p>In <strong>Prove</strong>, a passing test is a single sample rather than a fixed property, so the phase is about distributions and about what the suite could not contain. It is also where a capability everyone had agreed to gets taken away.</p>
+<p>In <strong>Observe</strong>, the instruments have to say what is happening without anybody reading every case, and the hardest thing to instrument is the supervisor rather than the agent.</p>
+<p>In <strong>Operate</strong>, the model underneath changes on somebody else's schedule, the world moves under the instruments, and the question stops being whether it works and becomes whether it still works.</p>
+<p>Underneath all five sits a sixth thing that is not a phase, because it never finishes and it is yours rather than the project's. Call it literacy. Knowing what these systems are, where they fail, and what the words mean when a vendor uses them. Chapters 1 through 9 were that.</p>
+<h3>The rung sets the weight</h3>
+<p>The five phases are the same for every agentic product. How much each one costs is not, and the variable that sets it is the one thing most roadmaps never state.</p>
+<p>How much can it do without asking.</p>
+<p>At the bottom, where the agent suggests and a person does everything, Design is most of the work and Observe is light, because a human is standing between every output and the world and absorbing whatever goes wrong. Ostermill launches near here, and its Design phase is the longest chapter in Part Two.</p>
+<p>At the top, where the agent acts and nobody reads each case, the weight moves. Design still matters, but Observe and Operate become the product, because the only thing standing between a bad decision and a customer is an instrument and whoever reads it.</p>
+<p>Same five phases. Completely different distribution of effort, and the distribution is set by a decision that often gets made without anyone realizing it is the decision.</p>
+<p>This is why the Climbing appendix walks the same five phases at three altitudes, with Ostermill's in the middle. Not to describe three products, but to show the same station costing an afternoon at one and two weeks at another.</p>
+<p>The rung you pick is set before anybody has evidence, because the only way to learn how a thing behaves in your company is to run it in your company, which you cannot do until you have set it. So the first answer is always a guess made in the dark. What decides whether the project ever pays for itself is what happens to the guess afterward.</p>
+<p>A ladder that can only be climbed down is a ceiling. If authority can be taken back on evidence but never granted on evidence, then every cautious guess becomes permanent overhead: the supervision you bought to cover a risk nobody had measured yet stays bought forever, and the cost never comes down no matter what the evidence later says. Which is why the phases after launch are not a safety ritual. They are the only mechanism by which the first guess gets corrected in either direction, and a team that treats them as a formality has decided in advance to pay for its own caution indefinitely.</p>
+<h3>What a phase is for</h3>
+<p>One more thing about the shape, and it is the reason the phases are worth having as phases rather than as a checklist.</p>
+<p>Each one can see a class of failure the others structurally cannot.</p>
+<p>Decide can see that the judgment is not writable, because it is the only phase that looks at the work before there is anything to look at. Design can see that a boundary is a sentence rather than a wall. Prove can see that a wall reads a field that is empty when it matters, which is invisible from inside Design because inside Design the question is whether the wall holds. Observe can see the things nobody thought to test. Operate can see that the world moved.</p>
+<p>A project where nothing is ever killed at a late phase is not a well-run project. It is a project whose late phases are ceremonial.</p>
+<p>Ostermill loses two proposals in Decide, one approved capability in Prove, a promotion and a kill number in Observe, and a piece of its own scope in Operate. The book argues every time that this is the process working. Killing something for a good reason costs a week. Shipping it costs a customer and an explanation to somebody's counsel.</p>
+<p>Part Two starts where Chapter 3 left off, with Tom's sentence and a product manager who builds three things and demonstrates none of them.</p>
+<div class="rule-line"><strong>The Rule.</strong> Five phases, and the rung sets the weight. A project that never kills anything late has ceremonial late phases.</div>
+<nav class="pager"><a href="the-new-pm-role.html">&larr; Chapter 9 · The new PM role, and what you actually build</a><a href="decide.html">Phase 1 · Decide &rarr;</a></nav>
+    </div>
+  </div>
+</div>
+</body>
+</html>

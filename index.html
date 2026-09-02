@@ -53,6 +53,17 @@
   .skills-accent { width: 3px; height: 100%; border-radius: 2px; background: linear-gradient(180deg, #378ADD 0%, #7c3aed 33%, #1D9E75 66%, #C2410C 100%); }
   .skills-accent-qa { background: linear-gradient(180deg, #185FA5 0%, #378ADD 100%); }
   .skills-accent-wp { background: linear-gradient(180deg, #C2410C 0%, #378ADD 100%); }
+  /* Accent orientation carries content, not shape: a horizontal top bar means
+     book, a vertical left rail means companion. Book 5 is wide and is still a
+     book, so it keeps the bar its four siblings have. */
+  .book-wide { grid-template-columns: 1fr auto; }
+  .book-wide .book-card-accent { background: #BE123C; margin-bottom: var(--space-3); }
+  /* The two companions share a row; the skills package keeps the full width. */
+  .companion-card { grid-column: span 1; grid-template-columns: 3px 1fr; align-items: start; gap: var(--space-4); }
+  .companion-card .skills-cta { grid-column: 2; margin-top: var(--space-3); }
+  .companion-card .skills-title { font-size: 19px; }
+  .companion-card .skills-desc { max-width: none; }
+  @media (max-width: 680px) { .companion-card { grid-column: 1 / -1; } }
   .skills-body { display: flex; flex-direction: column; gap: var(--space-2); }
   .skills-eyebrow { font-family: var(--sans); font-size: 11px; font-weight: 500; color: var(--ink-muted); letter-spacing: 0.05em; text-transform: uppercase; }
   .skills-title { font-family: var(--serif); font-size: 22px; font-weight: 700; line-height: 1.25; color: var(--ink); }
@@ -165,6 +176,12 @@
           "position": 4,
           "url": "https://agenticaiproductmanagement.com/book6/",
           "name": "The Agentic AI Practitioner"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "url": "https://agenticaiproductmanagement.com/book7/",
+          "name": "Agentic AI for Product Leaders"
         }
       ]
     }
@@ -246,7 +263,19 @@
       </div>
     </a>
 
-    <a class="skills-card" href="whitepapers/index.html">
+
+    <a class="skills-card book-wide" href="book7/index.html">
+      <div class="skills-body">
+        <div class="book-card-accent"></div>
+        <div class="skills-eyebrow">Book 5 &nbsp;&middot;&nbsp; Product Leaders &nbsp;&middot;&nbsp; New</div>
+        <div class="skills-title">Agentic AI for Product Leaders</div>
+        <div class="skills-subtitle">Building the Products That Decide</div>
+        <p class="skills-desc">The other four are built out of documented incidents and cited research. This one is built the other way, around a single company that does not exist, followed from the sentence that proposed an agent to the year after it launched. Ten chapters of argument, five phases of case, thirty procedure cards and eleven case-file exhibits.</p>
+      </div>
+      <span class="skills-cta">Read the book</span>
+    </a>
+
+    <a class="skills-card companion-card" href="whitepapers/index.html">
       <div class="skills-accent skills-accent-wp"></div>
       <div class="skills-body">
         <div class="skills-eyebrow">Companion &nbsp;&middot;&nbsp; Whitepapers</div>
@@ -255,6 +284,17 @@
         <p class="skills-desc">Cost, readiness, supervision, prototyping, procurement, and the roles that arrive with the agent. Eight to fifteen pages each, written to hand to a room that has not read the books. Free to read and download.</p>
       </div>
       <span class="skills-cta">Browse the papers</span>
+    </a>
+
+    <a class="skills-card companion-card" href="interview/index.html">
+      <div class="skills-accent skills-accent-qa"></div>
+      <div class="skills-body">
+        <div class="skills-eyebrow">Companion &nbsp;&middot;&nbsp; Interview Reference</div>
+        <div class="skills-title">AI PM Interview Questions, Answered</div>
+        <div class="skills-subtitle">Fifty-five questions, answered from the product seat rather than the engineering seat.</div>
+        <p class="skills-desc">The questions circulating in 2026, answered against the lifecycle and linked to the chapter each answer comes from. Plus the eleven questions nobody asks, including who owns a wrong outcome.</p>
+      </div>
+      <span class="skills-cta">Read the answers</span>
     </a>
 
     <a class="skills-card" href="skills/index.html">
@@ -266,17 +306,6 @@
         <p class="skills-desc">Eight skills covering the agentic PM lifecycle, distilled from the four books. Install in Claude Cowork and invoke at the moment of need. Stage 1 of three.</p>
       </div>
       <span class="skills-cta">Install &amp; learn more</span>
-    </a>
-
-    <a class="skills-card" href="interview/index.html">
-      <div class="skills-accent skills-accent-qa"></div>
-      <div class="skills-body">
-        <div class="skills-eyebrow">Companion &nbsp;&middot;&nbsp; Interview Reference</div>
-        <div class="skills-title">AI PM Interview Questions, Answered</div>
-        <div class="skills-subtitle">Fifty-five questions, answered from the product seat rather than the engineering seat.</div>
-        <p class="skills-desc">The questions circulating in 2026, answered against the lifecycle and linked to the chapter each answer comes from. Plus the eleven questions nobody asks, including who owns a wrong outcome.</p>
-      </div>
-      <span class="skills-cta">Read the answers</span>
     </a>
 
   </div>

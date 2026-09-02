@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Appendix · Climbing: what changes as autonomy rises · Agentic AI for Product Leaders</title>
+<meta name="description" content="Appendix · Climbing: what changes as autonomy rises — Agentic AI for Product Leaders.">
+<link rel="canonical" href="https://agenticaiproductmanagement.com/book7/appendix-climbing.html">
+<link rel="stylesheet" href="styles.css">
+<style>
+    .rule-line { border-top: 1.5px solid var(--ink, #1F2937); border-bottom: 1.5px solid var(--ink, #1F2937);
+                 padding: var(--space-3, 12px) 0; margin: var(--space-5, 24px) 0; }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    /* A card's numbered steps ran straight into "Worked:" with no gap, and the
+       gloss and phase-rail boxes had nothing under them before the prose
+       resumed. Yoram, 2026-08-24. */
+    .callout ol, .callout ul { margin-bottom: var(--space-4, 16px); }
+    .callout > p { margin-top: var(--space-3, 12px); }
+    .card.gloss, .card.phase-rail { margin: var(--space-5, 24px) 0; }
+    .card.gloss + p, .card.phase-rail + p, .rule-line + p { margin-top: var(--space-4, 16px); }
+    .phase-tree > summary { list-style: none; cursor: pointer; }
+    .phase-tree > summary::-webkit-details-marker { display: none; }
+    .phase-tree > summary::before { content: "\25B8"; display: inline-block;
+        width: 1em; color: var(--ink-muted, #777); font-size: 10px;
+        transition: transform .12s ease; }
+    .phase-tree[open] > summary::before { transform: rotate(90deg); }
+    /* The sidebar's link styling is scoped to `.sidebar-list a`, and a summary is
+       not inside that list, so the phase rows fell through to the browser default
+       and rendered blue and underlined while their own children did not. Yoram,
+       2026-08-24: "why does it look like blue underline links?" These mirror
+       `.sidebar-list a` rather than reinventing it. */
+    .phase-tree > summary { margin-bottom: 4px; }
+    .phase-tree > summary a { color: var(--ink-soft); text-decoration: none;
+        display: inline-block; padding: 4px 8px; border-radius: var(--radius-sm);
+        font-size: 13px; }
+    .phase-tree > summary a:hover { background: var(--rule-soft); color: var(--ink); }
+    .phase-tree > summary a.active { background: var(--ink); color: var(--bg); }
+    .phase-sub { margin: .2rem 0 .5rem 1.1rem; }
+    .phase-sub li { margin: .1rem 0; }
+    .phase-sub a { font-size: 12px; }
+    .tree-kind { display: block; font-size: 9px; letter-spacing: .06em;
+                 text-transform: uppercase; color: var(--ink-muted, #777); }
+    .pager { display: flex; justify-content: space-between; gap: 1rem;
+             margin-top: var(--space-6, 32px); padding-top: var(--space-4, 16px);
+             border-top: 0.5px solid var(--rule, #d8d8d4);
+             font-family: var(--sans); font-size: 13px; }
+</style>
+</head>
+<body>
+<div class="book">
+  <aside class="sidebar">
+    <div class="sidebar-hub"><a href="../index.html">&larr; All Books</a></div>
+    <div class="sidebar-brand"><a href="index.html">Agentic AI for Product Leaders</a>
+      <div class="sidebar-brand-sub">One agent, one company, from the sentence that proposed it to the year after it launched</div></div>
+    <div class="sidebar-section">Front Matter</div>
+    <ul class="sidebar-list">
+      <li><a href="preface.html">Before you start</a></li>
+    </ul>
+    <div class="sidebar-section">Part One · The argument</div>
+    <ul class="sidebar-list">
+      <li><a href="the-person-at-the-end-of-the-path.html">1. The person at the end of the path</a></li>
+      <li><a href="the-people-in-the-room.html">2. The people in the room</a></li>
+      <li><a href="the-colleague-nobody-interviewed.html">3. The colleague nobody interviewed</a></li>
+      <li><a href="what-an-agent-actually-is.html">4. What an agent actually is</a></li>
+      <li><a href="the-floor-and-the-plateau.html">5. The floor and the plateau</a></li>
+      <li><a href="the-brain-the-layers-the-loop.html">6. The brain, the layers, the loop</a></li>
+      <li><a href="the-judgment-gap-and-the-paradox.html">7. The judgment gap and the paradox</a></li>
+      <li><a href="the-two-products.html">8. The two products</a></li>
+      <li><a href="the-new-pm-role.html">9. The new PM role, and what you actually build</a></li>
+      <li><a href="the-shape-of-the-work.html">10. The shape of the work</a></li>
+    </ul>
+    <div class="sidebar-section">Part Two · The case</div>
+    <details class="phase-tree">
+      <summary><a href="decide.html">1. Decide</a></summary>
+      <ul class="sidebar-list phase-sub">
+        <li><a href="decide.html#exhibit-a"><span class="tree-kind">Exhibit A</span>The before-state</a></li>
+        <li><a href="decide.html#card-the-suitability-gate"><span class="tree-kind">Card</span>The Suitability Gate</a></li>
+        <li><a href="decide.html#card-the-shadow-census"><span class="tree-kind">Card</span>The Shadow Census</a></li>
+        <li><a href="decide.html#card-the-cost-ledger"><span class="tree-kind">Card</span>The Cost Ledger</a></li>
+        <li><a href="decide.html#card-the-judgment-prototype"><span class="tree-kind">Card</span>The Judgment Prototype</a></li>
+        <li><a href="decide.html#exhibit-b"><span class="tree-kind">Exhibit B</span>The go decision</a></li>
+        <li><a href="decide.html#card-the-funding-question"><span class="tree-kind">Card</span>The Funding Question</a></li>
+      </ul>
+    </details>
+    <details class="phase-tree">
+      <summary><a href="design.html">2. Design</a></summary>
+      <ul class="sidebar-list phase-sub">
+        <li><a href="design.html#card-the-ladder-and-the-break"><span class="tree-kind">Card</span>The Ladder and the Break</a></li>
+        <li><a href="design.html#card-the-declaration"><span class="tree-kind">Card</span>The Declaration</a></li>
+        <li><a href="design.html#exhibit-c"><span class="tree-kind">Exhibit C</span>The human brief</a></li>
+        <li><a href="design.html#exhibit-d"><span class="tree-kind">Exhibit D</span>The executable brief</a></li>
+        <li><a href="design.html#card-the-four-artifacts"><span class="tree-kind">Card</span>The Four Artifacts</a></li>
+        <li><a href="design.html#card-the-wall-sort"><span class="tree-kind">Card</span>The Wall Sort</a></li>
+        <li><a href="design.html#card-the-badge"><span class="tree-kind">Card</span>The Badge</a></li>
+        <li><a href="design.html#card-the-memory-terms"><span class="tree-kind">Card</span>The Memory Terms</a></li>
+        <li><a href="design.html#exhibit-e"><span class="tree-kind">Exhibit E</span>The approval screen</a></li>
+        <li><a href="design.html#card-the-approval-moment"><span class="tree-kind">Card</span>The Approval Moment</a></li>
+        <li><a href="design.html#card-the-onboarding-packet"><span class="tree-kind">Card</span>The Onboarding Packet</a></li>
+      </ul>
+    </details>
+    <details class="phase-tree">
+      <summary><a href="prove.html">3. Prove</a></summary>
+      <ul class="sidebar-list phase-sub">
+        <li><a href="prove.html#exhibit-f"><span class="tree-kind">Exhibit F</span>The eval readout</a></li>
+        <li><a href="prove.html#card-three-eval-breaks"><span class="tree-kind">Card</span>Three Eval Breaks</a></li>
+        <li><a href="prove.html#card-the-eval-stack"><span class="tree-kind">Card</span>The Eval Stack</a></li>
+        <li><a href="prove.html#card-the-fix-list"><span class="tree-kind">Card</span>The Fix List</a></li>
+        <li><a href="prove.html#card-hostile-reader"><span class="tree-kind">Card</span>Hostile Reader</a></li>
+        <li><a href="prove.html#card-rehearsal"><span class="tree-kind">Card</span>Rehearsal</a></li>
+        <li><a href="prove.html#card-the-four-question-review"><span class="tree-kind">Card</span>The Four-Question Review</a></li>
+      </ul>
+    </details>
+    <details class="phase-tree">
+      <summary><a href="observe.html">4. Observe</a></summary>
+      <ul class="sidebar-list phase-sub">
+        <li><a href="observe.html#exhibit-g"><span class="tree-kind">Exhibit G</span>The first month</a></li>
+        <li><a href="observe.html#card-six-instruments"><span class="tree-kind">Card</span>Six Instruments</a></li>
+        <li><a href="observe.html#card-certainty-inflation"><span class="tree-kind">Card</span>Certainty Inflation</a></li>
+        <li><a href="observe.html#exhibit-h"><span class="tree-kind">Exhibit H</span>The incident</a></li>
+        <li><a href="observe.html#card-upstream"><span class="tree-kind">Card</span>Upstream</a></li>
+        <li><a href="observe.html#card-supervision-collapse"><span class="tree-kind">Card</span>Supervision Collapse</a></li>
+        <li><a href="observe.html#card-felt-gain"><span class="tree-kind">Card</span>Felt Gain</a></li>
+      </ul>
+    </details>
+    <details class="phase-tree">
+      <summary><a href="operate.html">5. Operate</a></summary>
+      <ul class="sidebar-list phase-sub">
+        <li><a href="operate.html#exhibit-i"><span class="tree-kind">Exhibit I</span>The revision record</a></li>
+        <li><a href="operate.html#card-model-upgrade"><span class="tree-kind">Card</span>Model Upgrade</a></li>
+        <li><a href="operate.html#card-deprecation"><span class="tree-kind">Card</span>Deprecation</a></li>
+        <li><a href="operate.html#exhibit-j"><span class="tree-kind">Exhibit J</span>The appeal</a></li>
+        <li><a href="operate.html#card-constitutional-runtime"><span class="tree-kind">Card</span>Constitutional Runtime</a></li>
+        <li><a href="operate.html#card-the-supervisory-system"><span class="tree-kind">Card</span>The Supervisory System</a></li>
+        <li><a href="operate.html#exhibit-k"><span class="tree-kind">Exhibit K</span>The role</a></li>
+        <li><a href="operate.html#card-the-missing-supervisor"><span class="tree-kind">Card</span>The Missing Supervisor</a></li>
+        <li><a href="operate.html#card-retirement"><span class="tree-kind">Card</span>Retirement</a></li>
+      </ul>
+    </details>
+    <div class="sidebar-section">After</div>
+    <ul class="sidebar-list">
+      <li><a href="coda.html">What to keep</a></li>
+      <li><a href="appendix-climbing.html" class="active">Climbing: what changes as autonomy rises</a></li>
+      <li><a href="appendix-five-artifacts.html">Five artifacts, blank</a></li>
+      <li><a href="notes-and-sources.html">Sources and status notes, by chapter</a></li>
+      <li><a href="companion-site.html">The companion site</a></li>
+    </ul>
+  </aside>
+  <div class="main">
+    <div class="chapter">
+      <div class="chapter-meta">Back matter</div>
+      <h1>Appendix · Climbing: what changes as autonomy rises</h1>
+<p><strong>The monitoring agent is at acts alone</strong>, rung 5, with nothing between it and the world. Part Two walks the balanced case; this appendix is where the top of the ladder is described, and the cells marked are the ones that change most sharply with altitude.</p>
+<p><strong>A note on the columns.</strong> They are named rather than numbered, because a given product will not have every rung on it and the names stay true when the numbers do not apply. Design numbers them where it teaches the ladder, and the mapping is the obvious one: suggests, drafts, acts with approval, acts with oversight, acts alone. Ostermill has no meaningful rung 3: when the only action is sending, a draft a person releases and a send a person approves are the same event. Read the names.</p>
+<p><strong>A note on the vocabulary.</strong> Several terms in the cells are built at length in the other four books rather than in this one, and are used here in their series senses: deference and provenance marks, the silence budget, storm behavior, the suppression log, canary releases by task class, the supervision RACI. Two are worth stating outright, because the cells assume them. A <strong>storm</strong> is a burst of correlated events arriving faster than any reviewer can read them, which is the condition under which an agent at the top of the ladder is least supervised and most consequential. A <strong>supervision RACI</strong> is the matrix naming who is responsible, accountable, consulted and informed when the agent acts with no reviewer in the path. The rest are recoverable from the cells they sit in.</p>
+<p><strong>The agent in the right-hand column.</strong> It is worth meeting before the tables, because every cell is about it. An autonomous monitoring agent watches a platform's telemetry, decides on its own which anomalies are worth a ticket, and files them into the queue that a support organization works. Nobody approves a ticket. The platform budget pays for the agent; the support organization pays for every false one, in triage minutes. It has no approval screen, because there is no moment at which a person is asked. That is the whole difference, and every row below is a consequence of it.</p>
+<p>The Ostermill case is a deliberately balanced example: drafting only at launch, one capability revoked, one earned back, and a person who reads every send. Your agent sits somewhere else on the ladder, and the phases do not simply get harder as you climb. They change shape.</p>
+<p>This appendix is the delta table. What each phase additionally demands at each altitude, built by walking three scenarios through the same five phases: a rung-1 copilot that suggests, the Ostermill agent that drafts, and an autonomous monitor that acts alone.</p>
+<p>One sentence to hold before the tables, and it is Chapter 10's: <strong>the rung sets the weight.</strong></p>
+<p>Low on the ladder the effort concentrates in Design, because a person is in every loop and the interaction is the product. High on the ladder the effort moves to Observe and Operate, because nobody is in the loop and the evidence that nobody needs to be <em>is</em> the product. Budget for that in calendar as well as money. Proof gets more expensive with altitude, which is why a copilot pilot fits inside a month and an autonomous agent's honest rehearsal alone runs six weeks or more.</p>
+<h3>The five rungs, by name</h3>
+<div class="table-wrap"><table><thead><tr><th>Rung</th><th>Name</th><th>What the person does</th></tr></thead><tbody><tr><td>1</td><td>Suggests</td><td>Everything. The agent surfaces, the person decides and acts</td></tr><tr><td>2</td><td>Drafts</td><td>Releases. The artifact is real, the risk is not yet</td></tr><tr><td>3</td><td>Acts with approval</td><td>Gates. The agent is going to act; the person is a check, not an author</td></tr><tr><td>4</td><td>Acts with oversight</td><td>Watches the aggregate. Nobody approves each case</td></tr><tr><td>5</td><td>Acts alone</td><td>Reads the instruments, or nothing</td></tr></tbody></table></div>
+<p>The break sits between 2 and 3, and it is the only gap on this ladder that is a change in kind rather than degree. Below it every mistake is recoverable by construction, because a hand sits between the output and the world. Above it the system touches state.</p>
+<p><strong>Rung 1 is wider than it looks, and it is the rung most products are actually on.</strong> "The agent surfaces and the person decides" covers a range that behaves very differently at its two ends. Take four outputs about the same account, in ascending order of how much they decide for the reader: <em>accounts at this age are sometimes escalated</em>; <em>accounts like this one are usually escalated</em>; <em>I would escalate this account</em>; <em>escalate this account today</em>. Nothing there changes what the software does. All four surface, none acts, a person still types the next thing. What changes is how much judgment has been spent before the person arrives, and by the last one the decision is made and the person is ratifying it.</p>
+<p>Two consequences, both practical. <strong>A product can climb most of this rung with no engineering change</strong>, because tightening the wording is a prompt edit no gate reviews. And <strong>a disclaimer does not move it back down</strong>: <em>check with your controller</em> leaves the sentence exactly as directive, and lets the room feel the question is handled.</p>
+<h3>How to use this</h3>
+<p>Find your agent's <strong>riskiest</strong> task on the ladder, not its average task. Read that column down the five phases. The cells are the additions to the balanced path Part Two walked.</p>
+<p>Then read one column to the left. That is what you may deliberately postpone, and it is also the bill your next promotion makes due.</p>
+<h3>Decide</h3>
+<div class="table-wrap"><table><thead><tr><th>Suggests</th><th>Drafts, the Ostermill path</th><th>Acts alone</th></tr></thead><tbody><tr><td>The alternative is a template, a macro, or a feature. The review is short</td><td>The alternative is a person's workflow, and the ledger has to price their review minutes</td><td>The alternative is the alerting stack you already own. The census is the opening act, not an afternoon: three systems already filed tickets on their own, two had no findable owner</td></tr><tr><td>Kill number on acceptance and correctness</td><td>Kill number on a behavior the reviewer cannot improve by tiring. Not approval-without-edit; Observe retires that one for exactly this reason</td><td>Kill number on precision <strong>and</strong> a noise ceiling</td></tr><tr><td>The funding question is a formality: one desk funds the accuracy and absorbs the errors</td><td>Funder and truster are usually the same desk</td><td>Funder and sufferer are different organizations: the platform budget pays for accuracy, support pays for every false ticket in triage minutes. Add the false-positive tax, priced with the people who pay it</td></tr></tbody></table></div>
+<h3>Design</h3>
+<div class="table-wrap"><table><thead><tr><th>Suggests</th><th>Drafts, the Ostermill path</th><th>Acts alone</th></tr></thead><tbody><tr><td>The approval surface <strong>is</strong> the product. Deference marks on every suggestion</td><td>The approval moment: decision package, a time budget, three actions, and an interruption budget, so the count of approvals is chosen rather than inherited</td><td>No approval moment. The queue is the surface, and a suppressed-action log replaces "what the reviewer could not see"</td></tr><tr><td>Identity: acts under the user's delegated identity</td><td>Own identity, scoped to the tasks in the declaration</td><td>Own identity plus a rehearsed one-motion revocation. The kill switch is a credential dying, and the honest version has a measured time on it</td></tr><tr><td>Short, because the boundary is short and the vocabulary shared</td><td>Walls on what it may touch, fences named as fences in the brief</td><td>Two weeks, because the walls <strong>are</strong> the product. Nothing sits between the agent and the world, so every "must never" is enforced in the path or is not true</td></tr><tr><td>Memory is a convenience</td><td>A policy conversation with an owner: categories, retention, audience, and the capability the constraint costs</td><td>An architecture problem. Memory is the model of what normal looks like, so deleting it degrades detection. A retention limit is a capability decision wearing a compliance costume</td></tr><tr><td>Guardrails are cheap insurance nobody expects to fire</td><td>Ceilings, circuit breakers and burn alerts, still mostly insurance</td><td>The primary safety mechanism: no approval step absorbs a mistake, and the task has no natural stopping point. Low on the ladder they are insurance; high on it, the design</td></tr><tr><td>No async contract needed; every exchange is synchronous</td><td>A silence budget for batch runs</td><td>The async contract is central: heartbeats, checkpoints, storm behavior, interruption semantics</td></tr></tbody></table></div>
+<h3>Prove</h3>
+<div class="table-wrap"><table><thead><tr><th>Suggests</th><th>Drafts, the Ostermill path</th><th>Acts alone</th></tr></thead><tbody><tr><td>Eval covers correctness of suggestions. The deterministic half is classic QA and stays that way</td><td>Eval covers the judgment slice, in both directions: the do-something cases and the do-nothing cases</td><td>Suppression <strong>is</strong> the product. The do-nothing rows dominate the set, and severity calibration earns its own suite</td></tr><tr><td>The state gate is a small addition, because almost nothing the agent claims is an action; the person who presses send is the state change</td><td>The state gate catches the claimed-but-not-done case</td><td>The state gate <strong>is</strong> the eval. Cases end in something happening where nobody is watching, so semantic validation certifies the narration, and the narration is not the product</td></tr><tr><td>Rehearsal: replay against history, days</td><td>Shadow against live work, weeks</td><td>Shadow until the disagreement rate stabilizes, six weeks or more, plus a storm drill</td></tr><tr><td>Two of the four questions bite: cost and intervention</td><td>All four questions, four named owners, and most answers can still be qualified with "and someone will see it before it goes"</td><td>The qualifier is gone from all four. Rollback time becomes the blast radius; cost per outcome has no human line to hide behind. The questions do not change with the rung. What changes is that nothing absorbs a wrong answer</td></tr></tbody></table></div>
+<h3>Observe</h3>
+<div class="table-wrap"><table><thead><tr><th>Suggests</th><th>Drafts, the Ostermill path</th><th>Acts alone</th></tr></thead><tbody><tr><td>Two instruments earn their keep: acceptance quality, and a periodic correctness audit</td><td>The six instruments, with baselines carried over from the rehearsal</td><td>The six, re-aimed. Override becomes closed-as-noise. Ceiling proximity and burn rate join the readout</td></tr><tr><td>The collapse arrives through the accept button: accepted-but-wrong</td><td>The collapse arrives through review depth: the signature that looks like a review. Report the fastest decile or do not report it</td><td>The collapse arrives through desensitization: the organization learns to ignore the agent, and the metric that shows it is the one nobody built</td></tr><tr><td>Affected people are consumers of the output, reachable through provenance marks</td><td>Affected people are customers on the receiving end, reachable through the case record</td><td>Affected people are often an internal organization, the queue owners, and their metrics belong in your readout rather than theirs</td></tr></tbody></table></div>
+<h3>Operate</h3>
+<div class="table-wrap"><table><thead><tr><th>Suggests</th><th>Drafts, the Ostermill path</th><th>Acts alone</th></tr></thead><tbody><tr><td>Drift arrives from upstream semantics: definitions change under the drafts</td><td>Drift arrives from case mix and model updates</td><td>Drift arrives from seasonality. Review has to be calendar-aware or it reads a season as a regression</td></tr><tr><td>Incidents are quality complaints; recovery is a correction</td><td>Incidents carry a clock and a notification duty</td><td>Incidents include the storm and the missed suppression. Constitutional rules and ceilings are the last line, because nothing else is standing there</td></tr><tr><td>Upgrades: re-run the suite before the new model drafts anything</td><td>Personnel protocol: regression, behavioral change notes, supervised return, reviewers told in advance</td><td>Personnel protocol plus canary by task class. The predecessor stays warm until the successor has earned the queue</td></tr><tr><td>The seat is a named reviewer with hours in their week</td><td>The seat is a supervisory role with a line in the ledger and time that is actually allocated</td><td>The seat spans two organizations, and the supervision RACI has to include the queue owners</td></tr><tr><td>Recoverable: somebody reads every output, so accommodations stay inside a loop with a person in it</td><td>The reviewer's discomfort usually arrives before the diff does</td><td>Nobody has read anything, so no discomfort arrives first. The declaration and the cumulative diff against it are the only instrument that can detect what the product has become. Low on the ladder the diff records drift; high on it, the diff is what finds it</td></tr><tr><td>Retirement: the eval set and the corrections transfer</td><td>Retirement: credential dies, sealed records outlive the agent, absorbed work is rehomed</td><td>The same, plus the suppression log: the rarest asset in this book, a record of judged silence</td></tr></tbody></table></div>
+<nav class="pager"><a href="coda.html">&larr; Coda · What to keep</a><a href="appendix-five-artifacts.html">Appendix · Five artifacts, blank &rarr;</a></nav>
+    </div>
+  </div>
+</div>
+</body>
+</html>

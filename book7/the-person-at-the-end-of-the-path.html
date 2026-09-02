@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter 1 · The person at the end of the path · Agentic AI for Product Leaders</title>
+<meta name="description" content="Chapter 1 · The person at the end of the path — Agentic AI for Product Leaders.">
+<link rel="canonical" href="https://agenticaiproductmanagement.com/book7/the-person-at-the-end-of-the-path.html">
+<link rel="stylesheet" href="styles.css">
+<style>
+    .rule-line { border-top: 1.5px solid var(--ink, #1F2937); border-bottom: 1.5px solid var(--ink, #1F2937);
+                 padding: var(--space-3, 12px) 0; margin: var(--space-5, 24px) 0; }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    /* A card's numbered steps ran straight into "Worked:" with no gap, and the
+       gloss and phase-rail boxes had nothing under them before the prose
+       resumed. Yoram, 2026-08-24. */
+    .callout ol, .callout ul { margin-bottom: var(--space-4, 16px); }
+    .callout > p { margin-top: var(--space-3, 12px); }
+    .card.gloss, .card.phase-rail { margin: var(--space-5, 24px) 0; }
+    .card.gloss + p, .card.phase-rail + p, .rule-line + p { margin-top: var(--space-4, 16px); }
+    .phase-tree > summary { list-style: none; cursor: pointer; }
+    .phase-tree > summary::-webkit-details-marker { display: none; }
+    .phase-tree > summary::before { content: "\25B8"; display: inline-block;
+        width: 1em; color: var(--ink-muted, #777); font-size: 10px;
+        transition: transform .12s ease; }
+    .phase-tree[open] > summary::before { transform: rotate(90deg); }
+    /* The sidebar's link styling is scoped to `.sidebar-list a`, and a summary is
+       not inside that list, so the phase rows fell through to the browser default
+       and rendered blue and underlined while their own children did not. Yoram,
+       2026-08-24: "why does it look like blue underline links?" These mirror
+       `.sidebar-list a` rather than reinventing it. */
+    .phase-tree > summary { margin-bottom: 4px; }
+    .phase-tree > summary a { color: var(--ink-soft); text-decoration: none;
+        display: inline-block; padding: 4px 8px; border-radius: var(--radius-sm);
+        font-size: 13px; }
+    .phase-tree > summary a:hover { background: var(--rule-soft); color: var(--ink); }
+    .phase-tree > summary a.active { background: var(--ink); color: var(--bg); }
+    .phase-sub { margin: .2rem 0 .5rem 1.1rem; }
+    .phase-sub li { margin: .1rem 0; }
+    .phase-sub a { font-size: 12px; }
+    .tree-kind { display: block; font-size: 9px; letter-spacing: .06em;
+                 text-transform: uppercase; color: var(--ink-muted, #777); }
+    .pager { display: flex; justify-content: space-between; gap: 1rem;
+             margin-top: var(--space-6, 32px); padding-top: var(--space-4, 16px);
+             border-top: 0.5px solid var(--rule, #d8d8d4);
+             font-family: var(--sans); font-size: 13px; }
+</style>
+</head>
+<body>
+<div class="book">
+  <aside class="sidebar">
+    <div class="sidebar-hub"><a href="../index.html">&larr; All Books</a></div>
+    <div class="sidebar-brand"><a href="index.html">Agentic AI for Product Leaders</a>
+      <div class="sidebar-brand-sub">One agent, one company, from the sentence that proposed it to the year after it launched</div></div>
+    <div class="sidebar-section">Front Matter</div>
+    <ul class="sidebar-list">
+      <li><a href="preface.html">Before you start</a></li>
+    </ul>
+    <div class="sidebar-section">Part One · The argument</div>
+    <ul class="sidebar-list">
+      <li><a href="the-person-at-the-end-of-the-path.html" class="active">1. The person at the end of the path</a></li>
+      <li><a href="the-people-in-the-room.html">2. The people in the room</a></li>
+      <li><a href="the-colleague-nobody-interviewed.html">3. The colleague nobody interviewed</a></li>
+      <li><a href="what-an-agent-actually-is.html">4. What an agent actually is</a></li>
+      <li><a href="the-floor-and-the-plateau.html">5. The floor and the plateau</a></li>
+      <li><a href="the-brain-the-layers-the-loop.html">6. The brain, the layers, the loop</a></li>
+      <li><a href="the-judgment-gap-and-the-paradox.html">7. The judgment gap and the paradox</a></li>
+      <li><a href="the-two-products.html">8. The two products</a></li>
+      <li><a href="the-new-pm-role.html">9. The new PM role, and what you actually build</a></li>
+      <li><a href="the-shape-of-the-work.html">10. The shape of the work</a></li>
+    </ul>
+    <div class="sidebar-section">Part Two · The case</div>
+    <details class="phase-tree">
+      <summary><a href="decide.html">1. Decide</a></summary>
+      <ul class="sidebar-list phase-sub">
+        <li><a href="decide.html#exhibit-a"><span class="tree-kind">Exhibit A</span>The before-state</a></li>
+        <li><a href="decide.html#card-the-suitability-gate"><span class="tree-kind">Card</span>The Suitability Gate</a></li>
+        <li><a href="decide.html#card-the-shadow-census"><span class="tree-kind">Card</span>The Shadow Census</a></li>
+        <li><a href="decide.html#card-the-cost-ledger"><span class="tree-kind">Card</span>The Cost Ledger</a></li>
+        <li><a href="decide.html#card-the-judgment-prototype"><span class="tree-kind">Card</span>The Judgment Prototype</a></li>
+        <li><a href="decide.html#exhibit-b"><span class="tree-kind">Exhibit B</span>The go decision</a></li>
+        <li><a href="decide.html#card-the-funding-question"><span class="tree-kind">Card</span>The Funding Question</a></li>
+      </ul>
+    </details>
+    <details class="phase-tree">
+      <summary><a href="design.html">2. Design</a></summary>
+      <ul class="sidebar-list phase-sub">
+        <li><a href="design.html#card-the-ladder-and-the-break"><span class="tree-kind">Card</span>The Ladder and the Break</a></li>
+        <li><a href="design.html#card-the-declaration"><span class="tree-kind">Card</span>The Declaration</a></li>
+        <li><a href="design.html#exhibit-c"><span class="tree-kind">Exhibit C</span>The human brief</a></li>
+        <li><a href="design.html#exhibit-d"><span class="tree-kind">Exhibit D</span>The executable brief</a></li>
+        <li><a href="design.html#card-the-four-artifacts"><span class="tree-kind">Card</span>The Four Artifacts</a></li>
+        <li><a href="design.html#card-the-wall-sort"><span class="tree-kind">Card</span>The Wall Sort</a></li>
+        <li><a href="design.html#card-the-badge"><span class="tree-kind">Card</span>The Badge</a></li>
+        <li><a href="design.html#card-the-memory-terms"><span class="tree-kind">Card</span>The Memory Terms</a></li>
+        <li><a href="design.html#exhibit-e"><span class="tree-kind">Exhibit E</span>The approval screen</a></li>
+        <li><a href="design.html#card-the-approval-moment"><span class="tree-kind">Card</span>The Approval Moment</a></li>
+        <li><a href="design.html#card-the-onboarding-packet"><span class="tree-kind">Card</span>The Onboarding Packet</a></li>
+      </ul>
+    </details>
+    <details class="phase-tree">
+      <summary><a href="prove.html">3. Prove</a></summary>
+      <ul class="sidebar-list phase-sub">
+        <li><a href="prove.html#exhibit-f"><span class="tree-kind">Exhibit F</span>The eval readout</a></li>
+        <li><a href="prove.html#card-three-eval-breaks"><span class="tree-kind">Card</span>Three Eval Breaks</a></li>
+        <li><a href="prove.html#card-the-eval-stack"><span class="tree-kind">Card</span>The Eval Stack</a></li>
+        <li><a href="prove.html#card-the-fix-list"><span class="tree-kind">Card</span>The Fix List</a></li>
+        <li><a href="prove.html#card-hostile-reader"><span class="tree-kind">Card</span>Hostile Reader</a></li>
+        <li><a href="prove.html#card-rehearsal"><span class="tree-kind">Card</span>Rehearsal</a></li>
+        <li><a href="prove.html#card-the-four-question-review"><span class="tree-kind">Card</span>The Four-Question Review</a></li>
+      </ul>
+    </details>
+    <details class="phase-tree">
+      <summary><a href="observe.html">4. Observe</a></summary>
+      <ul class="sidebar-list phase-sub">
+        <li><a href="observe.html#exhibit-g"><span class="tree-kind">Exhibit G</span>The first month</a></li>
+        <li><a href="observe.html#card-six-instruments"><span class="tree-kind">Card</span>Six Instruments</a></li>
+        <li><a href="observe.html#card-certainty-inflation"><span class="tree-kind">Card</span>Certainty Inflation</a></li>
+        <li><a href="observe.html#exhibit-h"><span class="tree-kind">Exhibit H</span>The incident</a></li>
+        <li><a href="observe.html#card-upstream"><span class="tree-kind">Card</span>Upstream</a></li>
+        <li><a href="observe.html#card-supervision-collapse"><span class="tree-kind">Card</span>Supervision Collapse</a></li>
+        <li><a href="observe.html#card-felt-gain"><span class="tree-kind">Card</span>Felt Gain</a></li>
+      </ul>
+    </details>
+    <details class="phase-tree">
+      <summary><a href="operate.html">5. Operate</a></summary>
+      <ul class="sidebar-list phase-sub">
+        <li><a href="operate.html#exhibit-i"><span class="tree-kind">Exhibit I</span>The revision record</a></li>
+        <li><a href="operate.html#card-model-upgrade"><span class="tree-kind">Card</span>Model Upgrade</a></li>
+        <li><a href="operate.html#card-deprecation"><span class="tree-kind">Card</span>Deprecation</a></li>
+        <li><a href="operate.html#exhibit-j"><span class="tree-kind">Exhibit J</span>The appeal</a></li>
+        <li><a href="operate.html#card-constitutional-runtime"><span class="tree-kind">Card</span>Constitutional Runtime</a></li>
+        <li><a href="operate.html#card-the-supervisory-system"><span class="tree-kind">Card</span>The Supervisory System</a></li>
+        <li><a href="operate.html#exhibit-k"><span class="tree-kind">Exhibit K</span>The role</a></li>
+        <li><a href="operate.html#card-the-missing-supervisor"><span class="tree-kind">Card</span>The Missing Supervisor</a></li>
+        <li><a href="operate.html#card-retirement"><span class="tree-kind">Card</span>Retirement</a></li>
+      </ul>
+    </details>
+    <div class="sidebar-section">After</div>
+    <ul class="sidebar-list">
+      <li><a href="coda.html">What to keep</a></li>
+      <li><a href="appendix-climbing.html">Climbing: what changes as autonomy rises</a></li>
+      <li><a href="appendix-five-artifacts.html">Five artifacts, blank</a></li>
+      <li><a href="notes-and-sources.html">Sources and status notes, by chapter</a></li>
+      <li><a href="companion-site.html">The companion site</a></li>
+    </ul>
+  </aside>
+  <div class="main">
+    <div class="chapter">
+      <div class="chapter-meta">Part One</div>
+      <h1>Chapter 1 · The person at the end of the path</h1>
+<p><em>What these systems actually are, who is in the room when one ships, and what the work becomes.</em></p>
+<h3>The constant</h3>
+<p>Ostermill Industrial Supply has been selling bearings, seals, fasteners and hydraulics to the American Midwest since 1935. It runs a distribution center in Columbus and three regional depots, employs about six hundred and forty people, and invoices roughly fourteen thousand business customers on net thirty terms. Nobody has ever written an article about it.</p>
+<p>Ruth Vaughn joined its accounts receivable team in 2004.</p>
+<p>On a Tuesday in her twenty-second year she opened an invoice from a machine shop in Dayton, nineteen days past terms, looked at it for about four seconds, and closed it without doing anything. The shop had bought from Ostermill since 2020 and had never once paid inside thirty days. They pay in the last week of the quarter, in full, every quarter. A reminder would have been correct under every policy the company has written down, and it would have insulted a customer who had done nothing wrong about money that was already coming.</p>
+<p>Four seconds. No record of the decision exists anywhere.</p>
+<p>In 2004 she made that call on a green and gray client-server screen. In 2014 she did the same work in a browser. In 2024 she did it on a laptop at her kitchen table, in a cloud suite, with a mobile app that let her approve things on a Sunday if she was foolish enough to look.</p>
+<p>Twenty-two years of enterprise software revolutions passed through her department. Every one of them changed where the screen was. None of them changed what she was doing in front of it.</p>
+<p>The industry spent those years announcing disruptions and it was not lying. Client-server really did move computing off the mainframe. Service-oriented architecture really did get systems talking to each other, and Ostermill's order entry stopped being retyped out of a fax. Cloud moved the work anywhere. Mobile moved it everywhere. Each wave rearranged budgets and careers and org charts, at Ostermill and everywhere else. People lost jobs over these transitions. Companies died on the wrong side of them.</p>
+<p>Yet through all of it, one element held perfectly still. A trained person sat at the end of the path, read what the software produced, and decided what to do about it.</p>
+<p>Every wave changed where the screen was. None of them changed what Ruth was doing in front of it.</p>
+<p>Every method the product profession owns was built around that constant.</p>
+<p>The persona describes her. The journey map draws the path she walks. The user story opens with the words "as a user." The usability test watches her hands hesitate over a control and infers something from the hesitation. Wireframes assume she will look at them. Acceptance criteria assume she will notice when they are not met. Analytics assume she will click something that can be counted.</p>
+<p>None of these are rituals. They are precision instruments, refined over decades, for one job: designing things a person will operate. They are excellent at that job.</p>
+<p>They assume somebody is there.</p>
+<p>This wave removes the person. Not the screen. The person.</p>
+<p>Read that again, because the industry has been reading it wrong, in a direction that happens to be comfortable. The story everyone tells is that interfaces are disappearing. That we are moving to conversation, that the screen becomes a chat window and then becomes nothing, and that design will have to adapt. That story is true and it is the small half.</p>
+<p>If the change were only that screens are going away, your existing methods would survive with adjustments. You would run the same interviews, draw the same journeys, and render the result differently at the end. Painful, but a translation.</p>
+<p>Be precise about this, because most of the toolkit is not in question. Wherever the software still waits to be told what to do, every technique the profession owns works exactly as it always did, and a practitioner who is good at them needs nothing in this book. The argument here is about what happens above that line, where the system acts before anybody has been asked.</p>
+<p>The screen was never the thing. The screen was the cheapest available place to watch the behavior. In deterministic software, watching a person use an interface and understanding what the system did were a single act, because she clicked and it responded and both halves were visible in the same moment. The interface was a proxy. It was such a good proxy for so long that the profession stopped noticing it was one.</p>
+<p>Take the person away and the proxy measures nothing at all.</p>
+<h3>Why the methods worked</h3>
+<p>The methods were not naive and the people who built them were not fools. They worked, and they worked for a specific reason.</p>
+<p>In 2014 Ostermill replaced its ERP. It was the largest capital project the company had undertaken in a decade, it ran eleven months, and the receivables module was part of it.</p>
+<p>The product manager who ran that work did everything correctly.</p>
+<p>She spent three weeks in Columbus, sitting beside Ruth and the other four people on the team, watching the actual work rather than reading the process documentation. She built personas that were not marketing fiction: the clerk who works the aging report top to bottom, the clerk who works by customer relationship, the supervisor who only ever sees exceptions. She drew the journey from the moment an invoice ages past terms to the moment cash is applied, and the journey had fourteen steps, of which four were the system's and ten were somebody's hands and eyes.</p>
+<p>She wrote user stories. Dozens of them. She ran usability tests on the new receivables screen with five people, watched where they hesitated, moved the account history panel from a second tab onto the main view because every one of the five had gone looking for it, and re-tested.</p>
+<p>And it worked. Days sales outstanding came down. Ruth's team stopped retyping account numbers between two systems. The supervisor got a queue that was actually a queue. The project was, by any standard the profession applies, a success, and it was a success because the methods were applied well by somebody who took them seriously.</p>
+<p>Now ask why it worked, because the answer is not the one that was written in the retrospective.</p>
+<p>It worked because the job being improved was a job Ruth already understood, and the software's role was to make her faster at it.</p>
+<p>Every one of those fourteen journey steps ended in a person. The system's four steps were retrieval and arithmetic and rendering. The ten human steps were reading, weighing, remembering, and deciding. The redesign made the four faster and made the ten less annoying, and the ten themselves were never touched, never specified, and never questioned, because nobody was proposing to do them.</p>
+<p>Move the account history panel onto the main view and Ruth reaches her decision four seconds sooner. The decision is unchanged. It was hers before the project and it was hers after.</p>
+<p>That is what every method in the toolkit is for. Not one of them was ever a method for specifying judgment. They are methods for making a person faster and less irritated at a job whose judgment they already possess and which nobody has asked them to write down.</p>
+<p>For twenty years that was the right tool for the right problem.</p>
+<p>There was never a gap in the specification. There was always a person standing in it.</p>
+<h3>What the story never said</h3>
+<p>Now go down to the ground and look closely at one artifact.</p>
+<p>Here is a user story from that 2014 project. It is a good one. It shipped.</p>
+<p><em>As a receivables clerk, I want overdue invoices surfaced automatically with their account history, so that I can chase the ones that need chasing.</em></p>
+<p>Read it again and ask what it actually specifies.</p>
+<p>It specifies a trigger, a data set, and a screen. It does not specify a single thing about which invoices need chasing, which is the entire job.</p>
+<p>It does not say that a customer who has paid late and in full every quarter for six years is not a collections problem and that a reminder to them is a small insult that costs goodwill and returns nothing. Ruth knew that. It is not in the story.</p>
+<p>It does not say that when a payment is already in transit, visible in remittance advice that the receivables screen does not read, the correct action is to do nothing and wait four days. Ruth knew that too.</p>
+<p>It does not say that when sales is mid-renegotiation with an account, a correct and polite automated reminder can land on exactly the wrong table in exactly the wrong week. It does not say that an invoice for eleven dollars and change costs more to chase than to write off. It does not say what to do when a customer's buyer has died, which happens, and which no field records.</p>
+<p>None of that is in the story. All of it happened, every week, for twenty-two years.</p>
+<p>So where was it.</p>
+<p>It was in Ruth. The story was never a complete specification. It was a note passed to a person who would supply the rest, and she did, invisibly, at runtime, for free.</p>
+<p>Hold on to that last word, because it is the one that explains the whole economics of the last two decades. Not cheaply. Free to everyone who wrote a requirement.</p>
+<p>That judgment never appeared on a backlog. It was never estimated, never scoped, never given a line in a budget, never assigned an owner, and never reviewed, because nobody had to build it. It arrived with the hire in 2004 and it renewed itself every morning at no cost, and it compounded: Ruth in 2024 was carrying more of it than Ruth in 2014, and none of that accumulation appeared anywhere in the company's records except in outcomes nobody attributed to it.</p>
+<p>Now notice what this did to twenty years of product work.</p>
+<p>Every underspecified deliverable was quietly completed by the person in the chair. Which is exactly why underspecification never felt expensive. Ship a story with a hole in it and the hole gets filled by somebody who has been doing the work for eleven years, and the organization experiences the defect as mild friction: a workaround, a grumpy super-user, a lunchtime complaint, a post-implementation tweak in the following quarter. Friction is something a company lives with.</p>
+<p>Run that same story with an agent in the chair and every one of those holes executes. At machine speed. Without a flicker of doubt.</p>
+<p>Under human execution, a gap in the specification was a patch. Under agent execution it is a reminder sent to a grieving family, a dunning letter into a live negotiation, a payment chased that had already been made, an account relationship damaged by something that was correct according to every policy the company had written down.</p>
+<p>The gap did not get bigger. The thing standing in it left.</p>
+<p>The conclusion is not that the user story failed. It is not that the method was shallow, or that the 2014 product manager should have written it better, or that the profession has been doing this wrong. That sentence about overdue invoices and account history is exactly as good today as it was in 2014, and it contains exactly as much information as it did then.</p>
+<p>What changed is who reads it.</p>
+<p>For twenty-two years it was read by somebody who filled the silences without being asked, without being thanked, and largely without being aware she was doing it. Now it is read by something that will do precisely what it says and nothing whatsoever that it does not say.</p>
+<p>The document is the same. The reader changed, and the reader was carrying more of the specification than the document ever was.</p>
+<p>Ruth has left the room. What she knew did not leave with her. It became a debt, and the debt has been called in.</p>
+<h3>She did not leave a gap. She divided, and both halves landed in the product.</h3>
+<p>Most descriptions of this stop at the departure. Stopping there produces a bad design, reliably.</p>
+<p>The intuitive picture is a hole. Ruth sat in a chair, the chair is empty, and the job is to fill it: build a thing that does what she did. That picture is wrong, and it is wrong in a way that costs a phase of work, because she was never doing one thing.</p>
+<p>Watch her for an afternoon and separate two activities that look like a single activity.</p>
+<p>The first is what she knew.</p>
+<p>Six years of payment history on the machine shop in Dayton. That two percent tolerance is negotiable for one supplier and not for another, and why. That this customer's invoices always arrive twice and the second one is always the duplicate, which you recognize by the timestamp and not by any field. That the small-balance floor exists and where it sits. That the pattern for this account is late-but-certain and the pattern for that one is late-and-then-a-problem.</p>
+<p>All of that is context, bounds, thresholds, history, and the condition that means stop. It is large, it is specific, it is local to Ostermill, and it has never been written down anywhere. But it could be. There is no barrier in principle to writing it down, only twenty-two years of nobody needing to.</p>
+<p>The second thing is different in kind, and you will walk straight past it if you are looking for knowledge, because it does not look like knowledge. It is what she did when she looked up.</p>
+<p>She paused before committing something unusual. She glanced across the desk and asked whether anyone had heard anything about an account, and sometimes somebody had. She noticed that this morning's batch felt heavier than it should and went to find out why before working any of it. She held one invoice back for a second look for a reason she could not have named at the time and named badly afterward, and she was right about it more often than chance.</p>
+<p>She checked before she committed, in a way that had no trigger, no rule, and no field.</p>
+<p>Both of those are Ruth. Both are load-bearing. When you build the agent they go to different places.</p>
+<p>What she knew becomes the agent. It is context, bounds, thresholds, the condition that means stop, and it becomes instructions, retrieval scope, tool permissions, and eventually a graded test. This is real work and it is the half everyone builds, and building it well is an achievement.</p>
+<p>What she did when she looked up becomes something else entirely. The pause. The check before committing. The case handed upward. The moment somebody is asked. None of that is a feature of the agent. It is a second product, with its own surfaces, its own users, its own failure modes, its own maintenance, and its own line in a budget that nobody has written.</p>
+<p>She did not leave a gap. She divided, and both halves landed in the product.</p>
+<p>Now the consequence, which is easy to say and hard to accept when the roadmap is being planned.</p>
+<p>If you build only the first half, you have not built seventy or eighty percent of the job with the remainder to follow next quarter. You have built one of two products, and skipped the one that watches the other.</p>
+<p>That is not a phasing decision. A product that decides, with nothing built to catch it deciding badly, is not an incomplete version of a good design. It is a different design, and it is one nobody would have approved if it had been described accurately in the room.</p>
+<p>There is one more piece, and it explains most of the confusion in this field.</p>
+<p>The screen inherits nothing.</p>
+<p>Of everything Ruth was carrying, the interface is the only element with no successor. Her knowledge goes to the agent. Her attention goes to the supervisory product. The screen she used was a tool for exercising both, and once both have been rehoused it has nothing left to do.</p>
+<p>The screen is the only casualty. It has had all of the attention.</p>
+<p>There is an objection to that, and it is a good one, so it is worth answering before it can harden. Part Two of this book spends most of a phase designing a screen, and Ostermill's version of it is described there as the constraint on the whole system. Both of those things are true. It is not the same screen and it is not a replacement.</p>
+<p>Ruth's screen was a surface for doing the work. Pull the account, read the history, weigh it, write, send. Every decision in its design existed to make a competent person faster at a job she was performing.</p>
+<p>The surface that arrives later is for watching work somebody else did. It shows a decision, the reasoning that produced it, how sure the thing was, the strongest argument against it, and what happens if the answer is no. Nobody performs any work on it.</p>
+<p>Those are two products for two different people, and the second one is built out of the half of Ruth that used to look up from the first.</p>
+<p>Which is the part the design profession has not finished absorbing, and it is not a demotion. The screen stops being where the work happens and becomes where the work is judged. That is the harder of the two to get right, it carries more consequence in less space, and very little of the craft that made the first kind good transfers to the second without being re-examined first.</p>
+<h3>The afternoon that finds it</h3>
+<p>All of this stays abstract until somebody has to write something down, so here is the descent, in the smallest form the work actually comes in.</p>
+<p>Start with what usually happens instead, because it is what the reader will recognize.</p>
+<p>A team decides to build the receivables agent. Somebody schedules a workshop. The workshop produces a document titled something like <em>Collections Agent Requirements</em>, and that document contains the policy: net thirty terms, reminder at day twelve, escalation at day forty-five, write-off below the small-balance floor. All of it accurate. All of it available in a PDF on the intranet that predates everyone in the room.</p>
+<p>The document is not wrong. It is the rules, and the rules were never the job. The job was the "unless" attached to each rule, and the workshop did not produce a single "unless," because workshops produce what people can articulate on demand in a room, and the "unless" is exactly the part nobody can articulate on demand.</p>
+<p>Ruth was not in that workshop. She was working the aging report, because somebody has to.</p>
+<p>Now the version that works, and it takes an afternoon.</p>
+<p>You cannot always interview her. Sometimes you can, and if you can, that is the best position you will ever be in and you should clear your calendar. Often she retired in 2021, or the role was restructured into three roles, or four people now hold fragments of what one person used to carry and none of them can see the whole shape. The knowledge is distributed, undocumented, and decaying.</p>
+<p>So you decide, in advance and on paper, four things. Not thirty. Four.</p>
+<p><strong>What is this thing allowed to do on its own.</strong> Not what it is capable of doing. What it is authorized to do. Those are different questions with different owners, and collapsing them is how an agent ends up doing something nobody would have approved if anybody had been asked. Capability is a fact about the system. Authority is a decision that somebody has to make and sign.</p>
+<p><strong>What must it never do, and where does the never live.</strong> Some boundaries are instructions that a sufficiently persuasive input can talk the agent out of. Others are enforced in the execution path, where the agent never gets the opportunity to be persuaded. Knowing which of yours is which is not a technical footnote. It is the difference between a rule and a wall, and most teams find out which one they built at the worst available moment.</p>
+<p><strong>What evidence may it act on.</strong> Which sources count. Which do not. What happens when two sources disagree, which they will, far more often than anyone expects. Ruth resolved source conflicts continuously and silently for twenty-two years and never once escalated one, which is why nobody knows there is a policy question here.</p>
+<p><strong>Who answers for the result.</strong> By name. Before launch. Not the team, not the function, not the steering committee. A person.</p>
+<p>That fourth one is the one that gets dropped, and it is the expensive one to retrofit, because the day you need it is the day everyone discovers simultaneously that they had assumed it was somebody else.</p>
+<p>Which raises the question of who supplies those four answers today, in the agentic products already running in production.</p>
+<p>The comfortable answer is that the framework has sensible defaults. That is not what happens.</p>
+<p>All four questions have answers in every shipping agentic product, because a system that acts cannot act without them being settled somehow. In most of those products they were settled by an engineer, in a prompt, at deadline, inferring what the company would have wanted if anybody had asked.</p>
+<p>That engineer is competent, is acting in good faith, and has no way on earth to know that the two percent is negotiable for the supplier with eight clean years and not for the one who padded freight in 2019. The answers exist. The only question is whether the person who supplied them had the authority to.</p>
+<p>An older discipline arrived at this problem first.</p>
+<p>A physician who will not be present at three in the morning writes an order set in advance. What the nurse may do without calling. What requires a call. The parameters. When to stop and escalate. The authority is exercised ahead of time, in writing, by the person who holds it, for a situation the author will not be in the room for.</p>
+<p>The instruction has to work at three in the morning, read by somebody competent, tired, and alone, with nobody available to interpret what was meant.</p>
+<p>That is the standard your four answers have to meet. Not clear to the team that wrote them. Executable by somebody who was not in the room, under pressure, without the author present.</p>
+<p>The agent is always the night nurse. It is always three in the morning. And it will never call.</p>
+<p>None of that has to wait for your next project. There is an hour-long version you can run this week, on something you have already shipped.</p>
+<p>Take the most recent agentic feature you released and answer the four questions about it, with each answer settled by pointing at a document rather than at somebody's recollection of a meeting. What may it do alone. What must it never do, and is that never a rule or a wall. What evidence may it act on when sources conflict. Who answers for its worst output, by name.</p>
+<p>If all four have documented answers, this chapter is describing a problem you do not have, and you should say so publicly, because most organizations cannot answer three.</p>
+<p>If they do not, then you have just located the specification Ruth used to complete. It is being completed right now, at runtime, in production, by somebody who was never given the authority to decide it.</p>
+<div class="rule-line"><strong>The Rule.</strong> She did not leave a gap. She divided, and only the screen inherited nothing at all.</div>
+<nav class="pager"><a href="preface.html">&larr; Preface · Before you start</a><a href="the-people-in-the-room.html">Chapter 2 · The people in the room &rarr;</a></nav>
+    </div>
+  </div>
+</div>
+</body>
+</html>
