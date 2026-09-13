@@ -44,8 +44,10 @@ import shutil
 import sys
 from pathlib import Path
 
+from _bookpaths import book_source, shared_css  # single source of truth for where manuscripts live
+
 HERE = Path(__file__).resolve().parent
-SOURCE_MD = HERE.parent / "OneBook" / "AGENTIC-AI-FOR-PRODUCT-LEADERS.md"
+SOURCE_MD = book_source("OneBook", "AGENTIC-AI-FOR-PRODUCT-LEADERS.md")
 OUT = HERE / "book7"
 
 SITE_TITLE = "Agentic AI for Product Leaders"

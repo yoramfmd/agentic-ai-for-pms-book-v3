@@ -12,8 +12,10 @@ from __future__ import annotations
 import re, html, shutil
 from pathlib import Path
 
+from _bookpaths import book_source, shared_css  # single source of truth for where manuscripts live
+
 HERE     = Path(__file__).resolve().parent
-CHAPTERS = HERE.parent / "AgenticTeam" / "chapters"
+CHAPTERS = book_source("AgenticTeam", "chapters")
 OUT      = HERE / "book5"
 OUT.mkdir(exist_ok=True)
 
@@ -452,7 +454,7 @@ def page_shell(title: str, desc: str, fname: str, meta_line: str,
 
 def generate():
     # Copy styles.css from book3 docs
-    src_css = HERE.parent / "AgenticPMGuide" / "Web" / "docs" / "styles.css"
+    src_css = shared_css()
     shutil.copy(src_css, OUT / "styles.css")
     print(f"Copied styles.css")
 

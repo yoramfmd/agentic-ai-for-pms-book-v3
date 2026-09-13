@@ -13,6 +13,8 @@ from __future__ import annotations
 import re, html, shutil
 from pathlib import Path
 
+from _bookpaths import book_source, shared_css  # single source of truth for where manuscripts live
+
 HERE      = Path(__file__).resolve().parent
 # 2026-08-19: this was pointing at BOOK4-FULL-DRAFT-v1.4-READING-COPY.md, a file that
 # no longer exists, so the builder had been failing and book6/ was frozen at v1.4.
@@ -20,7 +22,7 @@ HERE      = Path(__file__).resolve().parent
 # "Appendix C: The Configuration Profile", which shifted D through H down one letter
 # and added I. Unmapped H1s are silently skipped, so the stale map would have dropped
 # seven appendices from the build without failing.
-SOURCE_MD = HERE.parent / "AgenticPractitioner" / "BOOK4-FULL-DRAFT-v1.8-READING-COPY.md"
+SOURCE_MD = book_source("AgenticPractitioner", "BOOK4-FULL-DRAFT-v1.8-READING-COPY.md")
 OUT       = HERE / "book6"
 OUT.mkdir(exist_ok=True)
 
@@ -412,7 +414,7 @@ def page_shell(title: str, desc: str, fname: str, meta_line: str,
 
 def generate():
     # Copy styles.css from book3 docs (same source as book5)
-    src_css = HERE.parent / "AgenticPMGuide" / "Web" / "docs" / "styles.css"
+    src_css = shared_css()
     shutil.copy(src_css, OUT / "styles.css")
     print(f"Copied styles.css")
 
