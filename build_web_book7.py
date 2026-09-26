@@ -3,9 +3,9 @@
 build_web_book7.py -- generate the web edition of Agentic AI for Product Leaders.
 
 Source: books/OneBook/AGENTIC-AI-FOR-PRODUCT-LEADERS.md, the locked manuscript.
-Output: series-web/book7/  (flat HTML, GitHub Pages ready)
+Output: book7/ in the current website repository (flat HTML, GitHub Pages ready)
 
-Run from the series-web/ directory:
+Run from the repository root:
     python3 build_web_book7.py
 
 WHY THIS ONE IS DIFFERENT FROM build_web_book{4,5,6}.py
@@ -54,6 +54,7 @@ SITE_TITLE = "Agentic AI for Product Leaders"
 SITE_SUB = "One agent, one company, from the sentence that proposed it to the year after it launched"
 CANON = "https://agenticaiproductmanagement.com/book7/"
 HUB = "../index.html"
+OSTERMILL_URL = "https://ostermill.com/"
 BOOK_DESC = (
     "The fifth book in the series, and the one built the other way: a single "
     "fictional company followed through five phases of building an agent, with "
@@ -363,6 +364,22 @@ APPARATUS_CSS = """
              font-family: var(--sans); font-size: 13px; }
 """
 
+COMPANION_CSS = """
+    .companion-preview { margin: var(--space-6, 32px) 0 0; border: 1px solid var(--rule, #d8d8d4);
+        border-radius: var(--radius-md, 8px); overflow: hidden; background: var(--bg, #fff); }
+    .companion-preview a { display: block; color: var(--ink, #1f2937); text-decoration: none; }
+    .companion-preview img { display: block; width: 100%; height: auto; border: 0; }
+    .companion-preview figcaption { display: flex; justify-content: space-between; gap: 1rem;
+        align-items: center; padding: var(--space-4, 16px) var(--space-5, 24px);
+        border-top: 1px solid var(--rule, #d8d8d4); font-family: var(--sans); font-size: 14px; }
+    .companion-preview strong { color: var(--blue-deep, #214e7a); }
+    .companion-preview a:hover strong, .companion-preview a:focus-visible strong { text-decoration: underline; }
+    @media (max-width: 640px) {
+        .companion-preview figcaption { display: block; }
+        .companion-preview strong { display: block; margin-top: .4rem; }
+    }
+"""
+
 
 def shell(title: str, desc: str, fname: str, meta: str, body: str,
           sidebar: str, pager: str) -> str:
@@ -376,7 +393,7 @@ def shell(title: str, desc: str, fname: str, meta: str, body: str,
 <meta name="description" content="{html.escape(desc)}">
 <link rel="canonical" href="{CANON}{fname if fname != 'index.html' else ''}">
 <link rel="stylesheet" href="styles.css">
-<style>{APPARATUS_CSS}</style>
+<style>{APPARATUS_CSS}{COMPANION_CSS if fname == "companion-site.html" else ""}</style>
 </head>
 <body>
 <div class="book">
@@ -528,6 +545,17 @@ def main() -> None:
                 if idx else "<span></span>")
         nxt = (f'<a href="{order[idx+1][0]}">{html.escape(order[idx+1][1])} &rarr;</a>'
                if idx + 1 < len(order) else "<span></span>")
+        if fname == "companion-site.html":
+            original = "<p>ostermill.com</p>"
+            preview = f'''<figure class="companion-preview">
+  <a href="{OSTERMILL_URL}">
+    <img src="assets/ostermill-companion-site.png" alt="Ostermill Industrial Supply companion site homepage">
+    <figcaption><span>Ostermill Industrial Supply</span><strong>Open the companion site &rarr;</strong></figcaption>
+  </a>
+</figure>'''
+            if original not in body:
+                raise SystemExit("companion-site.html is missing the expected Ostermill URL paragraph")
+            body = body.replace(original, preview, 1)
         page = shell(title, f"{title} — {SITE_TITLE}.", fname, GROUP_META[group],
                      body, sidebar_for(fname), f'<nav class="pager">{prev}{nxt}</nav>')
         (OUT / fname).write_text(page, encoding="utf-8")
@@ -585,6 +613,7 @@ def main() -> None:
     <div class="cta-row">
       <a class="cta-btn cta-primary" href="{first_page}">Start reading &rarr;</a>
       <a class="cta-btn cta-secondary" href="decide.html">Jump to the case &rarr;</a>
+      <a class="cta-btn cta-secondary" href="{OSTERMILL_URL}">Explore Ostermill &rarr;</a>
     </div>
   </div>
   <div class="landing-section">

@@ -44,6 +44,20 @@
              margin-top: var(--space-6, 32px); padding-top: var(--space-4, 16px);
              border-top: 0.5px solid var(--rule, #d8d8d4);
              font-family: var(--sans); font-size: 13px; }
+
+    .companion-preview { margin: var(--space-6, 32px) 0 0; border: 1px solid var(--rule, #d8d8d4);
+        border-radius: var(--radius-md, 8px); overflow: hidden; background: var(--bg, #fff); }
+    .companion-preview a { display: block; color: var(--ink, #1f2937); text-decoration: none; }
+    .companion-preview img { display: block; width: 100%; height: auto; border: 0; }
+    .companion-preview figcaption { display: flex; justify-content: space-between; gap: 1rem;
+        align-items: center; padding: var(--space-4, 16px) var(--space-5, 24px);
+        border-top: 1px solid var(--rule, #d8d8d4); font-family: var(--sans); font-size: 14px; }
+    .companion-preview strong { color: var(--blue-deep, #214e7a); }
+    .companion-preview a:hover strong, .companion-preview a:focus-visible strong { text-decoration: underline; }
+    @media (max-width: 640px) {
+        .companion-preview figcaption { display: block; }
+        .companion-preview strong { display: block; margin-top: .4rem; }
+    }
 </style>
 </head>
 <body>
@@ -151,7 +165,12 @@
       <h1>The companion site</h1>
 <p>Ostermill Industrial Supply does not exist. Chapter 2 says so, and says what the fiction is allowed to carry and what it is not.</p>
 <p>The site exists. It holds the fuller versions of the documents this book reproduces as extracts, the three prototypes as pages you can read rather than a table you have to take on trust, and the project record in the order it was actually made.</p>
-<p>ostermill.com</p>
+<figure class="companion-preview">
+  <a href="https://ostermill.com/">
+    <img src="assets/ostermill-companion-site.png" alt="Ostermill Industrial Supply companion site homepage">
+    <figcaption><span>Ostermill Industrial Supply</span><strong>Open the companion site &rarr;</strong></figcaption>
+  </a>
+</figure>
 <nav class="pager"><a href="notes-and-sources.html">&larr; Sources and status notes, by chapter</a><span></span></nav>
     </div>
   </div>
