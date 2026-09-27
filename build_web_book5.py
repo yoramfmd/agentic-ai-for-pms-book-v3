@@ -20,7 +20,7 @@ OUT      = HERE / "book5"
 OUT.mkdir(exist_ok=True)
 
 SITE_TITLE = "The Agentic AI Team"
-SITE_SUB   = "How Agentic AI Reshapes the Roles That Build It"
+SITE_SUB   = "Who Owns What When the Software Acts on Its Own"
 CANON      = "https://agenticaiproductmanagement.com/book5/"
 HUB        = "../index.html"
 

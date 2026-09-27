@@ -84,6 +84,20 @@ def shared_css() -> Path:
     return book_source("AgenticPMGuide", "Web", "docs", "styles.css")
 
 
+_DEFAULT_SKILLS = Path.home() / "repos" / "agentic-ai-pm-skill-package"
+
+SKILLS = Path(os.environ.get("SKILLS_ROOT") or _DEFAULT_SKILLS).expanduser()
+
+
+def skills_source(*parts: str) -> Path:
+    """The agentic PM skill package. Moved out of iCloud with the other repos on
+    2026-09-10; the old ClaudeAI/skills/ path is dead."""
+    p = SKILLS.joinpath(*parts)
+    if not p.exists():
+        _fail("skill package %s" % ("/".join(parts) or "root"), p, "SKILLS_ROOT")
+    return p
+
+
 def check() -> None:
     """Verify every path the builders depend on. Run directly to audit the setup."""
     if not BOOKS.exists():
@@ -97,6 +111,7 @@ def check() -> None:
     ]
     print("BOOKS_ROOT = %s" % BOOKS)
     print("SITE_ROOT  = %s" % SITE)
+    print("SKILLS_ROOT= %s" % SKILLS)
     print("")
     bad = 0
     for label, parts in targets:

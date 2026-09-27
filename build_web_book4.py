@@ -20,7 +20,7 @@ OUT        = HERE / "book4"
 OUT.mkdir(exist_ok=True)
 
 SITE_TITLE = "Why Agentic AI Products Fail"
-SITE_SUB   = "Building Channel 1 and the Supervisory Layer That Governs It"
+SITE_SUB   = "A Product Manager's Guide to Designing the Supervisory Layer"
 CANON      = "https://agenticaiproductmanagement.com/book4/"
 HUB        = "../index.html"
 

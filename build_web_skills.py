@@ -2,7 +2,7 @@
 """
 build_web_skills.py — generate the web edition of the Agentic AI PM Skill Package.
 
-Source: ../../skills/agentic-pm-skill-package/<skill>/SKILL.md
+Source: the agentic PM skill package, resolved by _bookpaths.skills_source()
 Output: series-web/skills/<skill>.html  (one page per skill)
         series-web/skills/index.html    (landing page; rebuilt by this script)
 
@@ -18,8 +18,10 @@ from __future__ import annotations
 import re, html, shutil
 from pathlib import Path
 
+from _bookpaths import skills_source  # single source of truth for where sources live
+
 HERE        = Path(__file__).resolve().parent
-SKILLS_SRC  = HERE.parent.parent / "skills" / "agentic-pm-skill-package"
+SKILLS_SRC  = skills_source()
 OUT         = HERE / "skills"
 OUT.mkdir(exist_ok=True)
 

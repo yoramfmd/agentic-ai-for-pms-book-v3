@@ -19,8 +19,10 @@ Output: book4/appendix-a.html, book4/appendix-b.html, book4/glossary.html, book4
 import re, html
 from pathlib import Path
 
+from _bookpaths import book_source  # single source of truth for where sources live
+
 HERE       = Path(__file__).resolve().parent
-MANUSCRIPT = HERE.parent / "AgenticFailure" / "MANUSCRIPT-v4.0-FULL-current-2026-05-31.md"
+MANUSCRIPT = book_source("AgenticFailure", "MANUSCRIPT-v4.0-FULL-current-2026-05-31.md")
 OUT        = HERE / "book4"
 SITE_TITLE = "Why Agentic AI Products Fail"
 SITE_SUB   = "Building Channel 1 and the Supervisory Layer That Governs It"
