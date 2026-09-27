@@ -44,6 +44,9 @@
   script.setAttribute('data-exclude-hash', 'true');
   script.setAttribute('data-do-not-track', 'true');
   if (isBooks) script.setAttribute('data-tag', book || 'Book site: other pages');
+  script.onload = function () {
+    if (book && window.umami) window.umami.track('read-book-' + (Number(bookKey.slice(4)) - 2), {book: book});
+  };
   document.head.appendChild(script);
 
   var amazonBooks = {
