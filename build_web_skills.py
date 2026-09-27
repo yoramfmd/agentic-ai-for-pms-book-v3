@@ -326,10 +326,8 @@ def page_shell(skill_slug: str, eyebrow: str, color: str, title: str, descriptio
   .install-secondary:hover {{ background: var(--tint-warm); }}
 </style>
 <!-- SITE-EXTRAS:BEGIN -->
-<script defer src="https://cloud.umami.is/script.js" data-website-id="6701185a-719e-4b6f-baaf-dcd504ef6b1a"></script>
-<script defer src="/assets/site-extras.js"></script>
 <!-- SITE-EXTRAS:END -->
-<script defer src="/assets/analytics.js" data-ga-id="G-9XS673ECBD" data-site-analytics="v1"></script>
+<script defer src="/assets/analytics.js" data-umami-id="6701185a-719e-4b6f-baaf-dcd504ef6b1a" data-site-analytics="umami-v2"></script>
 </head>
 <body>
 <div class="book">
