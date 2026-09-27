@@ -394,6 +394,7 @@ def shell(title: str, desc: str, fname: str, meta: str, body: str,
 <link rel="canonical" href="{CANON}{fname if fname != 'index.html' else ''}">
 <link rel="stylesheet" href="styles.css">
 <style>{APPARATUS_CSS}{COMPANION_CSS if fname == "companion-site.html" else ""}</style>
+<script defer src="/assets/analytics.js" data-ga-id="G-9XS673ECBD" data-site-analytics="v1"></script>
 </head>
 <body>
 <div class="book">
@@ -597,6 +598,7 @@ def main() -> None:
 <style>
 {LANDING_CSS}
 </style>
+<script defer src="/assets/analytics.js" data-ga-id="G-9XS673ECBD" data-site-analytics="v1"></script>
 </head>
 <body>
 <div class="landing">

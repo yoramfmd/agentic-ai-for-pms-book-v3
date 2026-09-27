@@ -380,6 +380,7 @@ def page_shell(title, desc, sl, meta_line, sidebar, body, prev_link, next_link):
 <script defer src="https://cloud.umami.is/script.js" data-website-id="6701185a-719e-4b6f-baaf-dcd504ef6b1a"></script>
 <script defer src="/assets/site-extras.js"></script>
 <!-- SITE-EXTRAS:END -->
+<script defer src="/assets/analytics.js" data-ga-id="G-9XS673ECBD" data-site-analytics="v1"></script>
 </head>
 <body>
 <div class="book">
@@ -510,6 +511,7 @@ def generate_index():
 <script defer src="https://cloud.umami.is/script.js" data-website-id="6701185a-719e-4b6f-baaf-dcd504ef6b1a"></script>
 <script defer src="/assets/site-extras.js"></script>
 <!-- SITE-EXTRAS:END -->
+<script defer src="/assets/analytics.js" data-ga-id="G-9XS673ECBD" data-site-analytics="v1"></script>
 </head>
 <body>
 <div class="landing">
