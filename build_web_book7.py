@@ -604,7 +604,7 @@ def main() -> None:
 <div class="landing">
   <div class="landing-hero">
     <div class="landing-back"><a href="{HUB}">&larr; The Agentic AI Series</a></div>
-    <div class="landing-eyebrow">Book 5 in the series &nbsp;&middot;&nbsp; Draft</div>
+    <div class="landing-eyebrow">Book 5 in the series &nbsp;&middot;&nbsp; Published</div>
     <h1 class="landing-title">{html.escape(SITE_TITLE)}</h1>
     <p class="landing-subtitle">{html.escape(SITE_SUB)}</p>
     <div class="landing-byline">By <a href="https://www.linkedin.com/in/yoramf/" target="_blank" rel="noopener">Yoram Friedman</a></div>
@@ -614,6 +614,7 @@ def main() -> None:
     <p>Part One is the argument in ten chapters. Part Two is the case in five phases, carrying the thirty procedure cards and eleven case-file exhibits the project produced. Where it compresses an argument, the other four are where that argument is made at length and where it can be checked.</p>
     <div class="cta-row">
       <a class="cta-btn cta-primary" href="{first_page}">Start reading &rarr;</a>
+      <a class="cta-btn cta-secondary" href="https://a.co/d/03VHltDf" target="_blank" rel="noopener">Buy on Amazon &rarr;</a>
       <a class="cta-btn cta-secondary" href="decide.html">Jump to the case &rarr;</a>
       <a class="cta-btn cta-secondary" href="{OSTERMILL_URL}">Explore Ostermill &rarr;</a>
     </div>
