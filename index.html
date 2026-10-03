@@ -4,108 +4,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Agentic AI Series &mdash; agenticaiproductmanagement.com</title>
-<meta name="description" content="A four-book series on designing, building, governing, and staying competent inside agentic AI products. For product managers, engineers, designers, and the teams they work with.">
+<meta name="description" content="A five-book series on designing, building, governing, and staying competent inside agentic AI products. For product managers, engineers, designers, and the teams they work with.">
 <link rel="canonical" href="https://agenticaiproductmanagement.com/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="The Agentic AI Series">
 <meta property="og:title" content="The Agentic AI Series">
-<meta property="og:description" content="A four-book series on designing, building, governing, and staying competent inside agentic AI products. For product managers, engineers, designers, and the teams they work with.">
+<meta property="og:description" content="A five-book series on designing, building, governing, and staying competent inside agentic AI products. For product managers, engineers, designers, and the teams they work with.">
 <meta property="og:image" content="https://agenticaiproductmanagement.com/assets/og-series-wide.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:url" content="https://agenticaiproductmanagement.com/">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="The Agentic AI Series">
-<meta name="twitter:description" content="A four-book series on designing, building, governing, and staying competent inside agentic AI products.">
+<meta name="twitter:description" content="A five-book series on designing, building, governing, and staying competent inside agentic AI products.">
 <meta name="twitter:image" content="https://agenticaiproductmanagement.com/assets/og-series-wide.jpg">
-<link rel="stylesheet" href="book3/styles.css">
-<style>
-  body { font-family: var(--serif); }
-  .landing { max-width: 880px; margin: 0 auto; padding: var(--space-8) var(--space-6); }
 
-  /* ── header ── */
-  .landing-hero { padding: var(--space-7) 0 var(--space-6); border-bottom: 1px solid var(--rule); margin-bottom: var(--space-7); }
-  .landing-eyebrow { font-family: var(--sans); font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: var(--space-3); }
-  .landing-title { font-family: var(--serif); font-size: 44px; font-weight: 700; line-height: 1.1; color: var(--ink); margin-bottom: var(--space-3); }
-  .landing-subtitle { font-family: var(--serif); font-size: 22px; font-weight: 400; line-height: 1.3; color: var(--ink-soft); margin-bottom: var(--space-5); font-style: italic; }
-  .landing-byline { font-family: var(--sans); font-size: 14px; color: var(--ink-muted); }
-  .landing-byline a { color: var(--blue-deep); text-decoration: none; }
-  .landing-byline a:hover { text-decoration: underline; }
 
-  /* ── sections ── */
-  .landing-section { margin-bottom: var(--space-7); }
-  .landing-section p { font-size: 18px; line-height: 1.65; color: var(--ink); margin-bottom: var(--space-4); }
-  .landing-section h2 { font-family: var(--serif); font-size: 24px; font-weight: 600; margin-bottom: var(--space-4); color: var(--ink); border: none; padding: 0; }
-
-  /* ── book cards — 3-col grid, compact toc-card style ── */
-  .books-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-4); margin: var(--space-5) 0 var(--space-7); }
-  .book-card { display: flex; flex-direction: column; padding: var(--space-4) var(--space-5); border: 0.5px solid var(--rule); border-radius: var(--radius-md); background: var(--bg); text-decoration: none; color: inherit; transition: box-shadow 0.15s, transform 0.15s; }
-  .book-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.07); transform: translateY(-2px); }
-  .book-card-accent { width: 24px; height: 3px; border-radius: 2px; margin-bottom: var(--space-4); }
-  .book-card-1 .book-card-accent { background: #378ADD; }
-  .book-card-2 .book-card-accent { background: #7c3aed; }
-  .book-card-3 .book-card-accent { background: #1D9E75; }
-  .book-card-4 .book-card-accent { background: #C2410C; }
-
-  /* ── skills card — wide horizontal, sibling to the books ── */
-  .skills-card { grid-column: 1 / -1; display: grid; grid-template-columns: 24px 1fr auto; gap: var(--space-5); align-items: center; padding: var(--space-5) var(--space-6); border: 0.5px solid var(--rule); border-radius: var(--radius-md); background: var(--bg); text-decoration: none; color: inherit; transition: box-shadow 0.15s, transform 0.15s; }
-  .skills-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.07); transform: translateY(-2px); }
-  .skills-accent { width: 3px; height: 100%; border-radius: 2px; background: linear-gradient(180deg, #378ADD 0%, #7c3aed 33%, #1D9E75 66%, #C2410C 100%); }
-  .skills-accent-qa { background: linear-gradient(180deg, #185FA5 0%, #378ADD 100%); }
-  .skills-accent-wp { background: linear-gradient(180deg, #C2410C 0%, #378ADD 100%); }
-  /* Accent orientation carries content, not shape: a horizontal top bar means
-     book, a vertical left rail means companion. Book 5 is wide and is still a
-     book, so it keeps the bar its four siblings have. */
-  .book-wide { grid-template-columns: 1fr auto; }
-  .book-wide .book-card-accent { background: #BE123C; margin-bottom: var(--space-3); }
-  /* The two companions share a row; the skills package keeps the full width. */
-  .companion-card { grid-column: span 1; grid-template-columns: 3px 1fr; align-items: start; gap: var(--space-4); }
-  .companion-card .skills-cta { grid-column: 2; margin-top: var(--space-3); }
-  .companion-card .skills-title { font-size: 19px; }
-  .companion-card .skills-desc { max-width: none; }
-  @media (max-width: 680px) { .companion-card { grid-column: 1 / -1; } }
-  .skills-body { display: flex; flex-direction: column; gap: var(--space-2); }
-  .skills-eyebrow { font-family: var(--sans); font-size: 11px; font-weight: 500; color: var(--ink-muted); letter-spacing: 0.05em; text-transform: uppercase; }
-  .skills-title { font-family: var(--serif); font-size: 22px; font-weight: 700; line-height: 1.25; color: var(--ink); }
-  .skills-subtitle { font-family: var(--serif); font-size: 14px; font-style: italic; color: var(--ink-soft); line-height: 1.4; }
-  .skills-desc { font-family: var(--sans); font-size: 13px; color: var(--ink-soft); line-height: 1.6; max-width: 60ch; }
-  .skills-cta { font-family: var(--sans); font-size: 13px; font-weight: 500; color: var(--blue-deep); white-space: nowrap; }
-  .skills-cta::after { content: " \2192"; }
-  @media (max-width: 680px) {
-    .skills-card { grid-template-columns: 1fr; gap: var(--space-4); }
-    .skills-accent { width: 100%; height: 3px; }
-  }
-  .book-num { font-family: var(--sans); font-size: 11px; font-weight: 500; color: var(--ink-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: var(--space-2); }
-  .book-title { font-family: var(--serif); font-size: 18px; font-weight: 700; line-height: 1.25; color: var(--ink); margin-bottom: var(--space-2); }
-  .book-subtitle { font-family: var(--serif); font-size: 13px; font-style: italic; color: var(--ink-soft); margin-bottom: var(--space-4); line-height: 1.4; }
-  .book-desc { font-family: var(--sans); font-size: 13px; color: var(--ink-soft); line-height: 1.6; margin-bottom: var(--space-4); flex: 1; }
-  .book-meta { display: flex; flex-wrap: wrap; gap: var(--space-2); align-items: center; margin-top: auto; }
-  .book-badge { font-family: var(--sans); font-size: 11px; font-weight: 500; border-radius: 20px; padding: 3px 10px; }
-  .book-badge-web   { background: var(--blue-tint); border: 0.5px solid var(--blue); color: var(--blue-deep); }
-  .book-badge-print { background: var(--tint-warm); border: 0.5px solid var(--rule); color: var(--ink-muted); }
-  .book-badge-link { cursor: pointer; }
-  .book-badge-link:hover { border-color: var(--ink-muted); color: var(--ink); }
-  .book-cta { font-family: var(--sans); font-size: 12px; font-weight: 500; color: var(--blue-deep); margin-left: auto; white-space: nowrap; cursor: pointer; }
-  .book-cta::after { content: " \2192"; }
-
-  /* ── pull quote ── */
-  .landing-evidence { background: var(--tint-warm); border-radius: var(--radius-lg); border-left: 3px solid var(--ink); padding: var(--space-5) var(--space-6); margin: var(--space-5) 0; }
-  .landing-evidence p { font-size: 17px; line-height: 1.6; margin-bottom: 0; color: var(--ink); }
-
-  /* ── footer ── */
-  .landing-footer { margin-top: var(--space-8); padding-top: var(--space-5); border-top: 1px solid var(--rule); font-family: var(--sans); font-size: 13px; color: var(--ink-muted); }
-  .landing-footer a { color: var(--blue-deep); text-decoration: none; }
-  .landing-footer a:hover { text-decoration: underline; }
-
-  @media (max-width: 680px) {
-    .books-grid { grid-template-columns: 1fr; }
-    .landing-title { font-size: 32px; }
-    .landing-subtitle { font-size: 18px; }
-  }
-  @media (min-width: 681px) and (max-width: 880px) {
-    .books-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -191,140 +105,22 @@
 <!-- SITE-EXTRAS:BEGIN -->
 <!-- SITE-EXTRAS:END -->
 <script defer src="assets/analytics.js" data-umami-id="6701185a-719e-4b6f-baaf-dcd504ef6b1a" data-site-analytics="umami-v2"></script>
+
+<link rel="stylesheet" href="assets/catalogue/fonts/fonts.css">
+<link rel="stylesheet" href="assets/catalogue/modernist.css">
+<link rel="icon" type="image/svg+xml" href="assets/catalogue/favicon.svg">
 </head>
-<body>
-
-<div class="landing">
-
-  <header class="landing-hero">
-    <p class="landing-eyebrow">Book Series &nbsp;&middot;&nbsp; 2024&ndash;2026</p>
-    <h1 class="landing-title">The Agentic AI Series</h1>
-    <p class="landing-subtitle">Five books on designing, building, and governing agentic AI products, and on keeping the human judgment they route through.</p>
-    <div class="landing-byline">By <a href="https://www.linkedin.com/in/yoramf/" target="_blank" rel="noopener">Yoram Friedman</a> &nbsp;&middot;&nbsp; physician and enterprise product leader</div>
-  </header>
-
-  <section class="landing-section">
-    <p>These books were written from a practitioner&rsquo;s seat, not an analyst&rsquo;s. Each one is a field guide to a specific problem: what the PM job actually requires, what the team has to hold, and what happens when the agent runs without a design behind it.</p>
-    <p>They were written in order, but each stands alone. If you are new to agentic product management, start with Book 1. If you are building something specific, start where the problem is. If you have been operating agents long enough to feel the supervision skill quietly erode, start with Book 4.</p>
-  </section>
-
-  <div class="books-grid">
-
-    <div class="book-card book-card-1">
-      <div class="book-card-accent"></div>
-      <div class="book-num">Book 1 &nbsp;&middot;&nbsp; The PM</div>
-      <div class="book-title"><a href="book3/index.html" style="color:inherit; text-decoration:none;">Agentic AI for Busy Product Managers</a></div>
-      <div class="book-subtitle">A Practitioner’s Guide to the New PM Job</div>
-      <p class="book-desc">The full PM lifecycle for agentic products: deciding whether to build, designing behavior and evals, measuring drift, and managing the human system around the agent. Fifteen chapters. Second edition.</p>
-      <div class="book-meta">
-        <a class="book-badge book-badge-web" href="book3/index.html" style="text-decoration:none;">Free online</a>
-        <a class="book-badge book-badge-print book-badge-link" href="https://www.amazon.com/dp/B0HBNHDGFR" target="_blank" rel="noopener" style="text-decoration:none;">Amazon</a>
-        <a class="book-cta" href="book3/preface.html" style="text-decoration:none;">Read</a>
-      </div>
-    </div>
-
-    <div class="book-card book-card-2">
-      <div class="book-card-accent"></div>
-      <div class="book-num">Book 2 &nbsp;&middot;&nbsp; The Failures</div>
-      <div class="book-title"><a href="book4/index.html" style="color:inherit; text-decoration:none;">Why Agentic AI Products Fail</a></div>
-      <div class="book-subtitle">A Product Manager's Guide to Designing the Supervisory Layer</div>
-      <p class="book-desc">Every agentic product is two products. Most teams build the first and assume the second takes care of itself. It does not. Twenty-two chapters on the supervisory layer&rsquo;s four dimensions, failure modes, and how to build it deliberately.</p>
-      <div class="book-meta">
-        <a class="book-badge book-badge-web" href="book4/index.html" style="text-decoration:none;">Free online</a>
-        <a class="book-badge book-badge-print book-badge-link" href="https://a.co/d/0cdvAyjn" target="_blank" rel="noopener" style="text-decoration:none;">Amazon</a>
-        <a class="book-cta" href="book4/preface.html" style="text-decoration:none;">Read</a>
-      </div>
-    </div>
-
-    <div class="book-card book-card-3">
-      <div class="book-card-accent"></div>
-      <div class="book-num">Book 3 &nbsp;&middot;&nbsp; The Team</div>
-      <div class="book-title"><a href="book5/index.html" style="color:inherit; text-decoration:none;">The Agentic AI Team</a></div>
-      <div class="book-subtitle">Who Owns What When the Software Acts on Its Own</div>
-      <p class="book-desc">The prior books were written from the PM&rsquo;s seat. This one zooms out. The unit of failure is the seam between roles, not the capability of any one of them. Twenty-six chapters.</p>
-      <div class="book-meta">
-        <a class="book-badge book-badge-web" href="book5/index.html" style="text-decoration:none;">Free online</a>
-        <a class="book-badge book-badge-print book-badge-link" href="https://a.co/d/0jhGrB91" target="_blank" rel="noopener" style="text-decoration:none;">Amazon</a>
-        <a class="book-cta" href="book5/what-youre-building.html" style="text-decoration:none;">Read</a>
-      </div>
-    </div>
-
-    <div class="book-card book-card-4">
-      <div class="book-card-accent"></div>
-      <div class="book-num">Book 4 &nbsp;&middot;&nbsp; The Practitioner &nbsp;&middot;&nbsp; Draft</div>
-      <div class="book-title"><a href="book6/index.html" style="color:inherit; text-decoration:none;">The Agentic AI Practitioner</a></div>
-      <div class="book-subtitle">Keeping the Judgment the Machine Cannot Hold</div>
-      <p class="book-desc">The first three books rest on one assumption nobody audited: that the practitioner in the seat still has the judgment the structure routes through them. This book is the deliberate-practice curriculum that keeps that assumption true. Fifteen chapters and a full appendix set.</p>
-      <div class="book-meta">
-        <a class="book-badge book-badge-web" href="book6/index.html" style="text-decoration:none;">Free online</a>
-        <a class="book-badge book-badge-print book-badge-link" href="https://www.amazon.com/dp/B0HH7YGQ54" target="_blank" rel="noopener" style="text-decoration:none;">Amazon</a>
-        <a class="book-cta" href="book6/preface-the-job-is-now-the-person.html" style="text-decoration:none;">Read</a>
-      </div>
-    </div>
-
-
-    <div class="skills-card book-wide">
-      <div class="skills-body">
-        <div class="book-card-accent"></div>
-        <div class="skills-eyebrow">Book 5 &nbsp;&middot;&nbsp; Product Leaders &nbsp;&middot;&nbsp; Published</div>
-        <div class="skills-title">Agentic AI for Product Leaders</div>
-        <div class="skills-subtitle">Building the Products That Decide</div>
-        <p class="skills-desc">The other four are built out of documented incidents and cited research. This one is built the other way, around a single company that does not exist, followed from the sentence that proposed an agent to the year after it launched. Ten chapters of argument, five phases of case, thirty procedure cards and eleven case-file exhibits.</p>
-      </div>
-      <div class="book-meta" style="grid-column:1 / -1; width:100%;">
-        <a class="book-badge book-badge-web" href="book7/index.html" style="text-decoration:none;">Free online</a>
-        <a class="book-badge book-badge-print book-badge-link" href="https://a.co/d/03VHltDf" target="_blank" rel="noopener" style="text-decoration:none;">Amazon</a>
-        <a class="book-cta" href="book7/preface.html" style="text-decoration:none;">Read</a>
-      </div>
-    </div>
-
-    <a class="skills-card companion-card" href="whitepapers/index.html">
-      <div class="skills-accent skills-accent-wp"></div>
-      <div class="skills-body">
-        <div class="skills-eyebrow">Companion &nbsp;&middot;&nbsp; Whitepapers</div>
-        <div class="skills-title">Eight Papers, One Question Each</div>
-        <div class="skills-subtitle">Short, self-contained, and drawn from the four books.</div>
-        <p class="skills-desc">Cost, readiness, supervision, prototyping, procurement, and the roles that arrive with the agent. Eight to fifteen pages each, written to hand to a room that has not read the books. Free to read and download.</p>
-      </div>
-      <span class="skills-cta">Browse the papers</span>
-    </a>
-
-    <a class="skills-card companion-card" href="interview/index.html">
-      <div class="skills-accent skills-accent-qa"></div>
-      <div class="skills-body">
-        <div class="skills-eyebrow">Companion &nbsp;&middot;&nbsp; Interview Reference</div>
-        <div class="skills-title">AI PM Interview Questions, Answered</div>
-        <div class="skills-subtitle">Fifty-five questions, answered from the product seat rather than the engineering seat.</div>
-        <p class="skills-desc">The questions circulating in 2026, answered against the lifecycle and linked to the chapter each answer comes from. Plus the eleven questions nobody asks, including who owns a wrong outcome.</p>
-      </div>
-      <span class="skills-cta">Read the answers</span>
-    </a>
-
-    <a class="skills-card" href="skills/index.html">
-      <div class="skills-accent"></div>
-      <div class="skills-body">
-        <div class="skills-eyebrow">Companion &nbsp;&middot;&nbsp; Skill Package for Claude Cowork</div>
-        <div class="skills-title">Agentic AI PM Skill Package</div>
-        <div class="skills-subtitle">The lifecycle, as working aids the PM can invoke at the moment of need.</div>
-        <p class="skills-desc">Eight skills covering the agentic PM lifecycle, distilled from the four books. Install in Claude Cowork and invoke at the moment of need. Stage 1 of three.</p>
-      </div>
-      <span class="skills-cta">Install &amp; learn more</span>
-    </a>
-
-  </div>
-
-  <section class="landing-section">
-    <h2>About the author</h2>
-    <p><a href="https://yoramfriedman.com" target="_blank" rel="noopener" style="color:var(--blue-deep); text-decoration:none;">Yoram Friedman, MD</a>, is a physician and enterprise product leader. He has shipped enterprise software across SAP, Walmart, Microsoft, and regulated health technology, working on semantic data architecture, AI-ready data products, and systems that operate under real regulatory constraint. He trained in anesthesiology and radiology, and writes on agentic AI, clinical workflow, and the product discipline that emerges when software starts making decisions on its own.</p>
-    <div class="landing-evidence">
-      <p><em>The regulatory and design default for AI is &ldquo;keep a human in the loop.&rdquo; Sustained AI use erodes the human&rsquo;s ability to perform that loop&rsquo;s function. This series is for the people who have to design supervision that does not assume the supervisor is the unimpaired version of themselves they were on day one.</em></p>
-    </div>
-  </section>
-
-  <footer class="landing-footer">
-    <p>All five books are free to read online. Print editions available on Amazon. &copy; 2026 Yoram Friedman. All rights reserved. &nbsp;&middot;&nbsp; <a href="https://www.linkedin.com/in/yoramf/" target="_blank" rel="noopener">LinkedIn</a> &nbsp;&middot;&nbsp; <a href="https://data-decisions-and-clinics.com" target="_blank" rel="noopener">data-decisions-and-clinics.com</a> &nbsp;&middot;&nbsp; <a href="https://yoramfriedman.com" target="_blank" rel="noopener">yoramfriedman.com</a></p>
-  </footer>
-
-</div>
-</body>
-</html>
+<body class="book-site">
+<a class="skip" href="#main">Skip to content</a>
+<header class="shell topbar"><a class="brand" href="#top">The Agentic AI Series<span>by Yoram Friedman</span></a><nav class="nav" aria-label="Main navigation"><a href="#catalogue">Books</a><a href="#resources">Resources</a><a href="#author" class="desktop-nav">Author</a><a href="book3/preface.html">Start reading</a></nav></header>
+<main id="main"><section class="shell press-hero" id="top" aria-labelledby="series-title"><div class="eyeline"><p class="kicker">Five books / One connected discipline</p><p class="kicker red">Free to read online</p></div><div class="press-title"><h1 id="series-title">Agentic AI<span>.</span><br>The series.</h1><div class="press-deck"><h2>Products that act.<br>People who decide.</h2><p>Field guides to designing, building, and governing agentic AI products—and keeping the human judgment they depend on.</p><p class="byline">By <a href="https://yoramfriedman.com/">Yoram Friedman, MD</a><br>Physician and enterprise product leader</p></div></div><div class="book-shelf"><article class="shelf-item"><a class="cover-link" href="book3/index.html" aria-label="View Agentic AI for Busy Product Managers"><img class="cover" src="assets/catalogue/covers/book-1.jpg" alt="Agentic AI for Busy Product Managers book cover" width="500" height="800" loading="eager"></a><h2>01 / The PM<span>Second edition</span></h2></article><article class="shelf-item"><a class="cover-link" href="book4/index.html" aria-label="View Why Agentic AI Products Fail"><img class="cover" src="assets/catalogue/covers/book-2.jpg" alt="Why Agentic AI Products Fail book cover" width="500" height="800" loading="eager"></a><h2>02 / The failures<span>Book 2</span></h2></article><article class="shelf-item"><a class="cover-link" href="book5/index.html" aria-label="View The Agentic AI Team"><img class="cover" src="assets/catalogue/covers/book-3.jpg" alt="The Agentic AI Team book cover" width="500" height="800" loading="eager"></a><h2>03 / The team<span>Book 3</span></h2></article><article class="shelf-item"><a class="cover-link" href="book6/index.html" aria-label="View The Agentic AI Practitioner"><img class="cover" src="assets/catalogue/covers/book-4.jpg" alt="The Agentic AI Practitioner book cover" width="500" height="800" loading="eager"></a><h2>04 / The practitioner<span>Draft · Book 4</span></h2></article><article class="shelf-item"><a class="cover-link" href="book7/index.html" aria-label="View Agentic AI for Product Leaders"><img class="cover" src="assets/catalogue/covers/book-5.jpg" alt="Agentic AI for Product Leaders book cover" width="500" height="800" loading="eager"></a><h2>05 / The leaders<span>Published</span></h2></article></div><div class="press-strip"><p>Each book stands alone. Together, they describe the whole system.</p><a href="#catalogue">Find your starting point ↓</a></div><div class="catalogue-context"><p>These books were written from a practitioner&rsquo;s seat, not an analyst&rsquo;s. Each one is a field guide to a specific problem: what the PM job actually requires, what the team has to hold, and what happens when the agent runs without a design behind it.</p>
+    <p>They were written in order, but each stands alone. If you are new to agentic product management, start with Book 1. If you are building something specific, start where the problem is. If you have been operating agents long enough to feel the supervision skill quietly erode, start with Book 4.</p></div></section>
+<section class="start" aria-labelledby="start-title"><div class="shell"><p class="kicker red">New to the field?<br>Start here.</p><div><h2 id="start-title">The product management job has changed.</h2><p>Start with <em>Agentic AI for Busy Product Managers</em>. Follow the full lifecycle from the decision to build through design, evaluation, and operation. Second edition.</p></div><a class="text-link" href="book3/preface.html">Read the opening chapter</a></div></section>
+<section class="shell catalogue" id="catalogue" aria-labelledby="catalogue-title"><div class="catalogue-head"><h2 id="catalogue-title">The catalogue.</h2><p class="kicker">Start where the problem is / 01—05</p></div><article class="catalogue-entry book-card" id="book-1"><div><p class="book-number">01</p><p class="book-lens">The product manager</p></div><div><h3><a href="book3/index.html" style="text-decoration:none">Agentic AI for Busy Product Managers</a></h3><p class="subtitle">A Practitioner’s Guide to the New PM Job</p><div class="book-actions"><a class="read" href="book3/preface.html">Read online</a><a href="book3/index.html">Contents</a><a href="https://www.amazon.com/dp/B0HBNHDGFR" target="_blank" rel="noopener">Amazon</a></div></div><div class="book-description"><p class="kicker">What changes when the product can act?</p><p>The full PM lifecycle for agentic products: deciding whether to build, designing behavior and evals, measuring drift, and managing the human system around the agent. Fifteen chapters. Second edition.</p><p class="kicker">15 chapters · Second edition</p></div></article><article class="catalogue-entry book-card" id="book-2"><div><p class="book-number">02</p><p class="book-lens">The supervisory layer</p></div><div><h3><a href="book4/index.html" style="text-decoration:none">Why Agentic AI Products Fail</a></h3><p class="subtitle">A Product Manager’s Guide to Designing the Supervisory Layer</p><div class="book-actions"><a class="read" href="book4/preface.html">Read online</a><a href="book4/index.html">Contents</a><a href="https://a.co/d/0cdvAyjn" target="_blank" rel="noopener">Amazon</a></div></div><div class="book-description"><p class="kicker">Who supervises the system?</p><p>Every agentic product is two products. Most teams build the first and assume the second takes care of itself. It does not. Twenty-two chapters on the supervisory layer&rsquo;s four dimensions, failure modes, and how to build it deliberately.</p><p class="kicker">22 chapters</p></div></article><article class="catalogue-entry book-card" id="book-3"><div><p class="book-number">03</p><p class="book-lens">The team</p></div><div><h3><a href="book5/index.html" style="text-decoration:none">The Agentic AI Team</a></h3><p class="subtitle">Who Owns What When the Software Acts on Its Own</p><div class="book-actions"><a class="read" href="book5/what-youre-building.html">Read online</a><a href="book5/index.html">Contents</a><a href="https://a.co/d/0jhGrB91" target="_blank" rel="noopener">Amazon</a></div></div><div class="book-description"><p class="kicker">Who owns what when software acts?</p><p>The prior books were written from the PM&rsquo;s seat. This one zooms out. The unit of failure is the seam between roles, not the capability of any one of them. Twenty-six chapters.</p><p class="kicker">26 chapters</p></div></article><article class="catalogue-entry book-card" id="book-4"><div><p class="book-number">04</p><p class="book-lens">The practitioner</p></div><div><h3><a href="book6/index.html" style="text-decoration:none">The Agentic AI Practitioner</a></h3><p class="subtitle">Keeping the Judgment the Machine Cannot Hold</p><div class="book-actions"><a class="read" href="book6/preface-the-job-is-now-the-person.html">Read online</a><a href="book6/index.html">Contents</a><a href="https://www.amazon.com/dp/B0HH7YGQ54" target="_blank" rel="noopener">Amazon</a></div></div><div class="book-description"><p class="kicker">How do you keep your own judgment?</p><p>The first three books rest on one assumption nobody audited: that the practitioner in the seat still has the judgment the structure routes through them. This book is the deliberate-practice curriculum that keeps that assumption true. Fifteen chapters and a full appendix set.</p><p class="kicker">Draft · 15 chapters · Full appendix set</p></div></article><article class="catalogue-entry book-card" id="book-5"><div><p class="book-number">05</p><p class="book-lens">Product leadership</p></div><div><h3><a href="book7/index.html" style="text-decoration:none">Agentic AI for Product Leaders</a></h3><p class="subtitle">Building the Products That Decide</p><div class="book-actions"><a class="read" href="book7/preface.html">Read online</a><a href="book7/index.html">Contents</a><a href="https://a.co/d/03VHltDf" target="_blank" rel="noopener">Amazon</a></div></div><div class="book-description"><p class="kicker">How do you lead from proposal to operation?</p><p>The other four are built out of documented incidents and cited research. This one is built the other way, around a single company that does not exist, followed from the sentence that proposed an agent to the year after it launched. Ten chapters of argument, five phases of case, thirty procedure cards and eleven case-file exhibits.</p><p class="kicker">Published · 10 chapters · 5 case phases</p></div></article></section>
+<section class="resource-section" id="resources" aria-labelledby="resources-title"><div class="shell"><div class="section-head"><p class="kicker">Beyond the books</p><div><h2 id="resources-title">Bring the ideas<br>into the room.</h2></div></div>
+<article class="resource-row"><p class="kicker">01 / Whitepapers</p><div><h3>Eight papers.<br>One question each.</h3><a href="whitepapers/index.html">Read &amp; download the papers</a></div><p>Cost, readiness, supervision, prototyping, procurement, and the roles that arrive with the agent. Eight to fifteen pages each, written to hand to a room that has not read the books. Free to read and download.</p></article>
+<article class="resource-row"><p class="kicker">02 / Interview reference</p><div><h3>AI PM interview<br>questions, answered.</h3><a href="interview/index.html">Explore the answers</a></div><p>The questions circulating in 2026, answered against the lifecycle and linked to the chapter each answer comes from. Plus the eleven questions nobody asks, including who owns a wrong outcome.</p></article>
+<article class="resource-row"><p class="kicker">03 / Claude Cowork skills</p><div><h3>The lifecycle,<br>ready to use.</h3><a href="skills/index.html">Install the skill package</a></div><p>Eight skills covering the agentic PM lifecycle, distilled from the four books. Install in Claude Cowork and invoke at the moment of need. Stage 1 of three.</p></article></div></section>
+<section class="shell author" id="author" aria-labelledby="author-title"><p class="kicker red">About the author</p><div><h2 id="author-title">Practice, before theory.</h2><p><a href="https://yoramfriedman.com" target="_blank" rel="noopener" >Yoram Friedman, MD</a>, is a physician and enterprise product leader. He has shipped enterprise software across SAP, Walmart, Microsoft, and regulated health technology, working on semantic data architecture, AI-ready data products, and systems that operate under real regulatory constraint. He trained in anesthesiology and radiology, and writes on agentic AI, clinical workflow, and the product discipline that emerges when software starts making decisions on its own.</p><p><em>The regulatory and design default for AI is &ldquo;keep a human in the loop.&rdquo; Sustained AI use erodes the human&rsquo;s ability to perform that loop&rsquo;s function. This series is for the people who have to design supervision that does not assume the supervisor is the unimpaired version of themselves they were on day one.</em></p><a class="text-link" href="https://yoramfriedman.com/">More about Yoram</a></div></section>
+</main><footer class="shell footer" style="border-top:1px solid var(--ink)"><p>© 2026 Yoram Friedman. All five books free online. Print editions on Amazon.</p><nav aria-label="Footer"><a href="https://www.linkedin.com/in/yoramf/" target="_blank" rel="noopener">LinkedIn</a><a href="https://data-decisions-and-clinics.com" target="_blank" rel="noopener">Articles</a><a href="https://yoramfriedman.com/">yoramfriedman.com</a></nav></footer>
+</body></html>
