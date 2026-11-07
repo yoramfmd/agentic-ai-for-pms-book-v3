@@ -64,7 +64,7 @@ JSONLD = f'''<script type="application/ld+json">
 }}
 </script>'''
 
-DRAFT      = True   # adds "Draft" to landing eyebrow and sidebar brand title
+DRAFT      = False   # Publication status for the landing page and sidebar
 
 # Section assignment by H1 title. Keys are exact H1 strings.
 # Values: (sidebar-label, section-key, display-num)
@@ -531,7 +531,7 @@ def generate_index(entries):
 <div class="landing">
   <div class="landing-hero">
     <div class="landing-back"><a href="{HUB}">&larr; The Agentic AI Series</a></div>
-    <div class="landing-eyebrow">Book 4 in the series{" &nbsp;&middot;&nbsp; Draft" if DRAFT else ""}</div>
+    <div class="landing-eyebrow">Book 4 in the series &nbsp;&middot;&nbsp; {"Draft" if DRAFT else "Published"}</div>
     <h1 class="landing-title">{SITE_TITLE}</h1>
     <p class="landing-subtitle">{SITE_SUB}</p>
     <div class="landing-byline">By <a href="https://www.linkedin.com/in/yoramf/" target="_blank" rel="noopener">Yoram Friedman</a></div>
